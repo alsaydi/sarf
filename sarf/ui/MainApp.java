@@ -27,7 +27,7 @@ public class MainApp {
      */
     public MainApp() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        if (screenSize.height != 768 && screenSize.width != 1024) {
+        if (screenSize.height < 768 && screenSize.width < 1024) {
             Toolkit.getDefaultToolkit().beep();
             String msg = "íÌÈ Ãä Êßæä ÏÞÉ ÇáÔÇÔÉ  1024 * 768";
             JOptionPane.showMessageDialog(null, msg, "áÇ íãßä ÊÔÛíá ÇáÈÑäÇãÌ   ", JOptionPane.ERROR_MESSAGE);
