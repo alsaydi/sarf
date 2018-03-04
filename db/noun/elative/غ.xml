@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="windows-1256" ?>
+ï»؟<?xml version="1.0" encoding="utf8" ?>
 <formulas>
-	<formula c1="غ" c2="ر" c3="ب">
+	<formula c1="ط؛" c2="ط±" c3="ط¨">
 	</formula>
-	<formula c1="غ" c2="ز" c3="ر">
+	<formula c1="ط؛" c2="ط²" c3="ط±">
 	</formula>
-	<formula c1="غ" c2="ل" c3="ظ">
+	<formula c1="ط؛" c2="ظ„" c3="ط¸">
 	</formula>
-	<formula c1="غ" c2="ن" c3="ي">
+	<formula c1="ط؛" c2="ظ†" c3="ظٹ">
 	</formula>
 </formulas>

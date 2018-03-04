@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="windows-1256" ?>
+ï»؟<?xml version="1.0" encoding="utf8" ?>
 <formulas>
-	<formula c1="غ" c2="ض" c3="ض" symbol1="C" gerund1="مَغَضَّة" symbol2="" gerund2="">
+	<formula c1="ط؛" c2="ط¶" c3="ط¶" symbol1="C" gerund1="ظ…ظژط؛ظژط¶ظ‘ظژط©" symbol2="" gerund2="">
 	</formula>
-	<formula c1="غ" c2="ف" c3="ر" symbol1="E" gerund1="مَغْفِرَة" symbol2="" gerund2="">
+	<formula c1="ط؛" c2="ظپ" c3="ط±" symbol1="E" gerund1="ظ…ظژط؛ظ’ظپظگط±ظژط©" symbol2="" gerund2="">
 	</formula>
-	<formula c1="غ" c2="و" c3="ث" symbol1="D" gerund1="مَغُوثَة" symbol2="" gerund2="">
+	<formula c1="ط؛" c2="ظˆ" c3="ط«" symbol1="D" gerund1="ظ…ظژط؛ظڈظˆط«ظژط©" symbol2="" gerund2="">
 	</formula>
-	<formula c1="غ" c2="و" c3="ل" symbol1="C" gerund1="مَغَالَة" symbol2="" gerund2="">
+	<formula c1="ط؛" c2="ظˆ" c3="ظ„" symbol1="C" gerund1="ظ…ظژط؛ظژط§ظ„ظژط©" symbol2="" gerund2="">
 	</formula>
 </formulas>

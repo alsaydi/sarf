@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="windows-1256" ?>
+ï»؟<?xml version="1.0" encoding="utf8" ?>
 <formulas>
-	<formula c1="ك" c2="ن" c3="ن" form1="E" form2="N">
+	<formula c1="ظƒ" c2="ظ†" c3="ظ†" form1="E" form2="N">
 	</formula>
-	<formula c1="ك" c2="ب" c3="ل" form1="E" form2="">
+	<formula c1="ظƒ" c2="ط¨" c3="ظ„" form1="E" form2="">
 	</formula>
-	<formula c1="ك" c2="س" c3="و" form1="F" form2="">
+	<formula c1="ظƒ" c2="ط³" c3="ظˆ" form1="F" form2="">
 	</formula>
-	<formula c1="ك" c2="ت" c3="ب" form1="G" form2="">
+	<formula c1="ظƒ" c2="طھ" c3="ط¨" form1="G" form2="">
 	</formula>
-	<formula c1="ك" c2="س" c3="ح" form1="G" form2="">
+	<formula c1="ظƒ" c2="ط³" c3="ط­" form1="G" form2="">
 	</formula>
-	<formula c1="ك" c2="ب" c3="س" form1="H" form2="">
+	<formula c1="ظƒ" c2="ط¨" c3="ط³" form1="H" form2="">
 	</formula>
-	<formula c1="ك" c2="ث" c3="ف" form1="I" form2="">
+	<formula c1="ظƒ" c2="ط«" c3="ظپ" form1="I" form2="">
 	</formula>
 </formulas>

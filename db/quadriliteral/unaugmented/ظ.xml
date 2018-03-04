@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="windows-1256" ?>
+ï»؟<?xml version="1.0" encoding="utf8" ?>
 <roots>
-	<root c1="ظ" c2="ء" c3="ظ" c4="ء" transitive="ل">
+	<root c1="ط¸" c2="ط،" c3="ط¸" c4="ط،" transitive="ظ„">
 	</root>
-	<root c1="ظ" c2="ب" c3="ظ" c4="ب" transitive="ل">
+	<root c1="ط¸" c2="ط¨" c3="ط¸" c4="ط¨" transitive="ظ„">
 	</root>
 </roots>

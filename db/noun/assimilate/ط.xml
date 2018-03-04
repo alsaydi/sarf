@@ -1,27 +1,27 @@
-<?xml version="1.0" encoding="windows-1256" ?>
+ï»؟<?xml version="1.0" encoding="utf8" ?>
 <formulas>
-	<formula c1="ط" c2="و" c3="ل" conjugation="1" adj1="A" adj2="" adj3="">
+	<formula c1="ط·" c2="ظˆ" c3="ظ„" conjugation="1" adj1="A" adj2="" adj3="">
 	</formula>
-	<formula c1="ط" c2="ب" c3="ع" conjugation="4" adj1="B" adj2="" adj3="">
+	<formula c1="ط·" c2="ط¨" c3="ط¹" conjugation="4" adj1="B" adj2="" adj3="">
 	</formula>
-	<formula c1="ط" c2="ح" c3="ل" conjugation="4" adj1="B" adj2="" adj3="">
+	<formula c1="ط·" c2="ط­" c3="ظ„" conjugation="4" adj1="B" adj2="" adj3="">
 	</formula>
-	<formula c1="ط" c2="ر" c3="ء" conjugation="5" adj1="A" adj2="" adj3="">
+	<formula c1="ط·" c2="ط±" c3="ط،" conjugation="5" adj1="A" adj2="" adj3="">
 	</formula>
-	<formula c1="ط" c2="ر" c3="ب" conjugation="4" adj1="B" adj2="" adj3="">
+	<formula c1="ط·" c2="ط±" c3="ط¨" conjugation="4" adj1="B" adj2="" adj3="">
 	</formula>
-	<formula c1="ط" c2="ر" c3="ش" conjugation="4" adj1="C" adj2="" adj3="">
+	<formula c1="ط·" c2="ط±" c3="ط´" conjugation="4" adj1="C" adj2="" adj3="">
 	</formula>
-	<formula c1="ط" c2="ف" c3="س" conjugation="4" adj1="B" adj2="" adj3="">
+	<formula c1="ط·" c2="ظپ" c3="ط³" conjugation="4" adj1="B" adj2="" adj3="">
 	</formula>
-	<formula c1="ط" c2="ل" c3="س" conjugation="4" adj1="C" adj2="" adj3="">
+	<formula c1="ط·" c2="ظ„" c3="ط³" conjugation="4" adj1="C" adj2="" adj3="">
 	</formula>
-	<formula c1="ط" c2="ل" c3="س" conjugation="5" adj1="C" adj2="" adj3="">
+	<formula c1="ط·" c2="ظ„" c3="ط³" conjugation="5" adj1="C" adj2="" adj3="">
 	</formula>
-	<formula c1="ط" c2="م" c3="ع" conjugation="4" adj1="B" adj2="" adj3="">
+	<formula c1="ط·" c2="ظ…" c3="ط¹" conjugation="4" adj1="B" adj2="" adj3="">
 	</formula>
-	<formula c1="ط" c2="ه" c3="ر" conjugation="5" adj1="B" adj2="" adj3="">
+	<formula c1="ط·" c2="ظ‡" c3="ط±" conjugation="5" adj1="B" adj2="" adj3="">
 	</formula>
-	<formula c1="ط" c2="و" c3="ي" conjugation="4" adj1="B" adj2="" adj3="">
+	<formula c1="ط·" c2="ظˆ" c3="ظٹ" conjugation="4" adj1="B" adj2="" adj3="">
 	</formula>
 </formulas>

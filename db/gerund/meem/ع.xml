@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="windows-1256" ?>
+ï»؟<?xml version="1.0" encoding="utf8" ?>
 <formulas>
-	<formula c1="ع" c2="ذ" c3="ر" symbol1="D" gerund1="مَعْذُرَة" symbol2="" gerund2="">
+	<formula c1="ط¹" c2="ط°" c3="ط±" symbol1="D" gerund1="ظ…ظژط¹ظ’ط°ظڈط±ظژط©" symbol2="" gerund2="">
 	</formula>
-	<formula c1="ع" c2="ر" c3="ر" symbol1="C" gerund1="مَعَرَّة" symbol2="" gerund2="">
+	<formula c1="ط¹" c2="ط±" c3="ط±" symbol1="C" gerund1="ظ…ظژط¹ظژط±ظ‘ظژط©" symbol2="" gerund2="">
 	</formula>
-	<formula c1="ع" c2="ر" c3="ف" symbol1="E" gerund1="مَعْرِفَة" symbol2="" gerund2="">
+	<formula c1="ط¹" c2="ط±" c3="ظپ" symbol1="E" gerund1="ظ…ظژط¹ظ’ط±ظگظپظژط©" symbol2="" gerund2="">
 	</formula>
-	<formula c1="ع" c2="ص" c3="ي" symbol1="E" gerund1="مَعْصِيَة" symbol2="" gerund2="">
+	<formula c1="ط¹" c2="طµ" c3="ظٹ" symbol1="E" gerund1="ظ…ظژط¹ظ’طµظگظٹظژط©" symbol2="" gerund2="">
 	</formula>
-	<formula c1="ع" c2="ط" c3="ب" symbol1="C" gerund1="مَعْطَبَة" symbol2="" gerund2="">
+	<formula c1="ط¹" c2="ط·" c3="ط¨" symbol1="C" gerund1="ظ…ظژط¹ظ’ط·ظژط¨ظژط©" symbol2="" gerund2="">
 	</formula>
-	<formula c1="ع" c2="و" c3="ض" symbol1="D" gerund1="مَعُوضَة" symbol2="" gerund2="">
+	<formula c1="ط¹" c2="ظˆ" c3="ط¶" symbol1="D" gerund1="ظ…ظژط¹ظڈظˆط¶ظژط©" symbol2="" gerund2="">
 	</formula>
-	<formula c1="ع" c2="و" c3="ن" symbol1="C" gerund1="مَعَانَة" symbol2="D" gerund2="مَعُونَة">
+	<formula c1="ط¹" c2="ظˆ" c3="ظ†" symbol1="C" gerund1="ظ…ظژط¹ظژط§ظ†ظژط©" symbol2="D" gerund2="ظ…ظژط¹ظڈظˆظ†ظژط©">
 	</formula>
-	<formula c1="ع" c2="ي" c3="ش" symbol1="E" gerund1="مَعِيشَة" symbol2="" gerund2="">
+	<formula c1="ط¹" c2="ظٹ" c3="ط´" symbol1="E" gerund1="ظ…ظژط¹ظگظٹط´ظژط©" symbol2="" gerund2="">
 	</formula>
 </formulas>

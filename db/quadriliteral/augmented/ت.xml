@@ -1,30 +1,30 @@
-<?xml version="1.0" encoding="windows-1256" ?>
+ï»؟<?xml version="1.0" encoding="utf8" ?>
 <roots>
-	<root c1="ت" c2="ر" c3="ت" c4="ر">
-		<augmentationFormula formulaNo="1" transitive="ل" />
+	<root c1="طھ" c2="ط±" c3="طھ" c4="ط±">
+		<augmentationFormula formulaNo="1" transitive="ظ„" />
 	</root>
-	<root c1="ت" c2="ع" c3="ت" c4="ع">
-		<augmentationFormula formulaNo="1" transitive="ل" />
+	<root c1="طھ" c2="ط¹" c3="طھ" c4="ط¹">
+		<augmentationFormula formulaNo="1" transitive="ظ„" />
 	</root>
-	<root c1="ت" c2="ق" c3="ت" c4="ق">
-		<augmentationFormula formulaNo="1" transitive="ل" />
+	<root c1="طھ" c2="ظ‚" c3="طھ" c4="ظ‚">
+		<augmentationFormula formulaNo="1" transitive="ظ„" />
 	</root>
-	<root c1="ت" c2="ل" c3="ء" c4="ب">
-		<augmentationFormula formulaNo="3" transitive="ل" />
+	<root c1="طھ" c2="ظ„" c3="ط،" c4="ط¨">
+		<augmentationFormula formulaNo="3" transitive="ظ„" />
 	</root>
-	<root c1="ت" c2="ل" c3="م" c4="ذ">
-		<augmentationFormula formulaNo="1" transitive="ك" />
+	<root c1="طھ" c2="ظ„" c3="ظ…" c4="ط°">
+		<augmentationFormula formulaNo="1" transitive="ظƒ" />
 	</root>
-	<root c1="ت" c2="م" c3="ء" c4="ر">
-		<augmentationFormula formulaNo="3" transitive="ل" />
+	<root c1="طھ" c2="ظ…" c3="ط،" c4="ط±">
+		<augmentationFormula formulaNo="3" transitive="ظ„" />
 	</root>
-	<root c1="ت" c2="م" c3="ء" c4="ل">
-		<augmentationFormula formulaNo="3" transitive="ل" />
+	<root c1="طھ" c2="ظ…" c3="ط،" c4="ظ„">
+		<augmentationFormula formulaNo="3" transitive="ظ„" />
 	</root>
-	<root c1="ت" c2="م" c3="ه" c4="ل">
-		<augmentationFormula formulaNo="3" transitive="ل" />
+	<root c1="طھ" c2="ظ…" c3="ظ‡" c4="ظ„">
+		<augmentationFormula formulaNo="3" transitive="ظ„" />
 	</root>
-	<root c1="ت" c2="ه" c3="ت" c4="ه">
-		<augmentationFormula formulaNo="1" transitive="ل" />
+	<root c1="طھ" c2="ظ‡" c3="طھ" c4="ظ‡">
+		<augmentationFormula formulaNo="1" transitive="ظ„" />
 	</root>
 </roots>

@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="windows-1256" ?>
+ï»؟<?xml version="1.0" encoding="utf8" ?>
 <formulas>
-	<formula c1="ذ" c2="ر" c3="ب" form1="I" form2="" form3="">
+	<formula c1="ط°" c2="ط±" c3="ط¨" form1="I" form2="" form3="">
 	</formula>
-	<formula c1="ذ" c2="ع" c3="ر" form1="B" form2="" form3="">
+	<formula c1="ط°" c2="ط¹" c3="ط±" form1="B" form2="" form3="">
 	</formula>
-	<formula c1="ذ" c2="ع" c3="ن" form1="C" form2="" form3="">
+	<formula c1="ط°" c2="ط¹" c3="ظ†" form1="C" form2="" form3="">
 	</formula>
-	<formula c1="ذ" c2="ك" c3="ر" form1="C" form2="" form3="">
+	<formula c1="ط°" c2="ظƒ" c3="ط±" form1="C" form2="" form3="">
 	</formula>
-	<formula c1="ذ" c2="ن" c3="ب" form1="B" form2="" form3="">
+	<formula c1="ط°" c2="ظ†" c3="ط¨" form1="B" form2="" form3="">
 	</formula>
-	<formula c1="ذ" c2="ي" c3="ع" form1="C" form2="" form3="">
+	<formula c1="ط°" c2="ظٹ" c3="ط¹" form1="C" form2="" form3="">
 	</formula>
 </formulas>

@@ -48,7 +48,7 @@ public class UnaugmentedTrilateralRootTreeCreator {
 
     public static void main(String[] args) {
         try {
-            char c1 = 'ب';
+            char c1 = 'غ';
             String path = "./db/trilateral/unaugmented/"+c1+".xml";
             UnaugmentedTrilateralRootTree rootTree = buildXmlVerbTree(new File(path));
             List<?> roots = rootTree.getRoots();

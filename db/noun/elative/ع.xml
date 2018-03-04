@@ -1,27 +1,27 @@
-<?xml version="1.0" encoding="windows-1256" ?>
+ï»؟<?xml version="1.0" encoding="utf8" ?>
 <formulas>
-	<formula c1="ع" c2="ت" c3="ق">
+	<formula c1="ط¹" c2="طھ" c3="ظ‚">
 	</formula>
-	<formula c1="ع" c2="ج" c3="ب">
+	<formula c1="ط¹" c2="ط¬" c3="ط¨">
 	</formula>
-	<formula c1="ع" c2="د" c3="ل">
+	<formula c1="ط¹" c2="ط¯" c3="ظ„">
 	</formula>
-	<formula c1="ع" c2="ر" c3="ض">
+	<formula c1="ط¹" c2="ط±" c3="ط¶">
 	</formula>
-	<formula c1="ع" c2="ز" c3="ز">
+	<formula c1="ط¹" c2="ط²" c3="ط²">
 	</formula>
-	<formula c1="ع" c2="س" c3="ر">
+	<formula c1="ط¹" c2="ط³" c3="ط±">
 	</formula>
-	<formula c1="ع" c2="ظ" c3="م">
+	<formula c1="ط¹" c2="ط¸" c3="ظ…">
 	</formula>
-	<formula c1="ع" c2="ق" c3="ل">
+	<formula c1="ط¹" c2="ظ‚" c3="ظ„">
 	</formula>
-	<formula c1="ع" c2="ل" c3="م">
+	<formula c1="ط¹" c2="ظ„" c3="ظ…">
 	</formula>
-	<formula c1="ع" c2="ل" c3="و">
+	<formula c1="ط¹" c2="ظ„" c3="ظˆ">
 	</formula>
-	<formula c1="ع" c2="م" c3="ق">
+	<formula c1="ط¹" c2="ظ…" c3="ظ‚">
 	</formula>
-	<formula c1="ع" c2="ن" c3="ف">
+	<formula c1="ط¹" c2="ظ†" c3="ظپ">
 	</formula>
 </formulas>

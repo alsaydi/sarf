@@ -1,69 +1,69 @@
-<?xml version="1.0" encoding="windows-1256"?>
+ï»؟<?xml version="1.0" encoding="utf8"?>
 <rules>
-	<rule c1="و" c2="ء" c3="ي" kov="29" desc="لفيف مفروق مهموز العين" example="وأى">
+	<rule c1="ظˆ" c2="ط،" c3="ظٹ" kov="29" desc="ظ„ظپظٹظپ ظ…ظپط±ظˆظ‚ ظ…ظ‡ظ…ظˆط² ط§ظ„ط¹ظٹظ†" example="ظˆط£ظ‰">
 	</rule>
-	<rule c1="ء" c2="و" c3="ي" kov="27" desc="لفيف مقرون مهموز الفاء" example="أوى">
+	<rule c1="ط،" c2="ظˆ" c3="ظٹ" kov="27" desc="ظ„ظپظٹظپ ظ…ظ‚ط±ظˆظ† ظ…ظ‡ظ…ظˆط² ط§ظ„ظپط§ط،" example="ط£ظˆظ‰">
 	</rule>
-	<rule c1="و" c2="?" c3="ي" kov="30" desc="لفيف مفروق" example="وقى">
+	<rule c1="ظˆ" c2="?" c3="ظٹ" kov="30" desc="ظ„ظپظٹظپ ظ…ظپط±ظˆظ‚" example="ظˆظ‚ظ‰">
 	</rule>
-	<rule c1="ي" c2="?" c3="ي" kov="30" desc="لفيف مفروق" example="يدى">
+	<rule c1="ظٹ" c2="?" c3="ظٹ" kov="30" desc="ظ„ظپظٹظپ ظ…ظپط±ظˆظ‚" example="ظٹط¯ظ‰">
 	</rule>
-	<rule c1="?" c2="و" c3="ي" kov="28" desc="لفيف مقرون" example="شوى">
+	<rule c1="?" c2="ظˆ" c3="ظٹ" kov="28" desc="ظ„ظپظٹظپ ظ…ظ‚ط±ظˆظ†" example="ط´ظˆظ‰">
 	</rule>
-	<rule c1="?" c2="و" c3="و" kov="28" desc="لفيف مقرون" example="حوي">
+	<rule c1="?" c2="ظˆ" c3="ظˆ" kov="28" desc="ظ„ظپظٹظپ ظ…ظ‚ط±ظˆظ†" example="ط­ظˆظٹ">
 	</rule>
-	<rule c1="?" c2="ي" c3="ي" kov="28" desc="لفيف مقرون" example="حيي">
+	<rule c1="?" c2="ظٹ" c3="ظٹ" kov="28" desc="ظ„ظپظٹظپ ظ…ظ‚ط±ظˆظ†" example="ط­ظٹظٹ">
 	</rule>
-	<rule c1="ء" c2="?" c3="ي" kov="24" desc="ناقص يائي مهموز الفاء" example="أبى">
+	<rule c1="ط،" c2="?" c3="ظٹ" kov="24" desc="ظ†ط§ظ‚طµ ظٹط§ط¦ظٹ ظ…ظ‡ظ…ظˆط² ط§ظ„ظپط§ط،" example="ط£ط¨ظ‰">
 	</rule>
-	<rule c1="?" c2="ء" c3="ي" kov="25" desc="ناقص يائي مهموز العين" example="رأى">
+	<rule c1="?" c2="ط،" c3="ظٹ" kov="25" desc="ظ†ط§ظ‚طµ ظٹط§ط¦ظٹ ظ…ظ‡ظ…ظˆط² ط§ظ„ط¹ظٹظ†" example="ط±ط£ظ‰">
 	</rule>
-	<rule c1="ء" c2="?" c3="و" kov="21" desc="ناقص واوي مهموز الفاء" example="أسا">
+	<rule c1="ط،" c2="?" c3="ظˆ" kov="21" desc="ظ†ط§ظ‚طµ ظˆط§ظˆظٹ ظ…ظ‡ظ…ظˆط² ط§ظ„ظپط§ط،" example="ط£ط³ط§">
 	</rule>
-	<rule c1="?" c2="ء" c3="و" kov="22" desc="ناقص واوي مهموز العين" example="مأا">
+	<rule c1="?" c2="ط،" c3="ظˆ" kov="22" desc="ظ†ط§ظ‚طµ ظˆط§ظˆظٹ ظ…ظ‡ظ…ظˆط² ط§ظ„ط¹ظٹظ†" example="ظ…ط£ط§">
 	</rule>
-	<rule c1="ء" c2="ي" c3="?" kov="18" desc="أجوف يائي مهموز الفاء" example="آن">
+	<rule c1="ط،" c2="ظٹ" c3="?" kov="18" desc="ط£ط¬ظˆظپ ظٹط§ط¦ظٹ ظ…ظ‡ظ…ظˆط² ط§ظ„ظپط§ط،" example="ط¢ظ†">
 	</rule>
-	<rule c1="?" c2="ي" c3="ء" kov="19" desc="أجوف يائي مهموز اللام" example="شاء">
+	<rule c1="?" c2="ظٹ" c3="ط،" kov="19" desc="ط£ط¬ظˆظپ ظٹط§ط¦ظٹ ظ…ظ‡ظ…ظˆط² ط§ظ„ظ„ط§ظ…" example="ط´ط§ط،">
 	</rule>
-	<rule c1="ء" c2="و" c3="?" kov="15" desc="أجوف واوي مهموز الفاء" example="آب">
+	<rule c1="ط،" c2="ظˆ" c3="?" kov="15" desc="ط£ط¬ظˆظپ ظˆط§ظˆظٹ ظ…ظ‡ظ…ظˆط² ط§ظ„ظپط§ط،" example="ط¢ط¨">
 	</rule>
-	<rule c1="?" c2="و" c3="ء" kov="16" desc="أجوف واوي مهموز اللام" example="باء">
+	<rule c1="?" c2="ظˆ" c3="ط،" kov="16" desc="ط£ط¬ظˆظپ ظˆط§ظˆظٹ ظ…ظ‡ظ…ظˆط² ط§ظ„ظ„ط§ظ…" example="ط¨ط§ط،">
 	</rule>
-	<rule c1="ي" c2="C3" c3="C2" kov="12" desc="مثال يائي مضعّف" example="يسّ">
+	<rule c1="ظٹ" c2="C3" c3="C2" kov="12" desc="ظ…ط«ط§ظ„ ظٹط§ط¦ظٹ ظ…ط¶ط¹ظ‘ظپ" example="ظٹط³ظ‘">
 	</rule>
-	<rule c1="ي" c2="ء" c3="?" kov="13" desc="مثال يائي مهموز العين" example="يئس">
+	<rule c1="ظٹ" c2="ط،" c3="?" kov="13" desc="ظ…ط«ط§ظ„ ظٹط§ط¦ظٹ ظ…ظ‡ظ…ظˆط² ط§ظ„ط¹ظٹظ†" example="ظٹط¦ط³">
 	</rule>
-	<rule c1="و" c2="C3" c3="C2" kov="8" desc="مثال واوي مضعّف" example="ودّ">
+	<rule c1="ظˆ" c2="C3" c3="C2" kov="8" desc="ظ…ط«ط§ظ„ ظˆط§ظˆظٹ ظ…ط¶ط¹ظ‘ظپ" example="ظˆط¯ظ‘">
 	</rule>
-	<rule c1="و" c2="ء" c3="?" kov="9" desc="مثال واوي مهموز العين" example="وأد">
+	<rule c1="ظˆ" c2="ط،" c3="?" kov="9" desc="ظ…ط«ط§ظ„ ظˆط§ظˆظٹ ظ…ظ‡ظ…ظˆط² ط§ظ„ط¹ظٹظ†" example="ظˆط£ط¯">
 	</rule>
-	<rule c1="و" c2="?" c3="ء" kov="10" desc="مثال واوي مهموز اللام" example="وجأ">
+	<rule c1="ظˆ" c2="?" c3="ط،" kov="10" desc="ظ…ط«ط§ظ„ ظˆط§ظˆظٹ ظ…ظ‡ظ…ظˆط² ط§ظ„ظ„ط§ظ…" example="ظˆط¬ط£">
 	</rule>
-	<rule c1="ء" c2="C3" c3="C2" kov="3" desc="مهموز الفاء مضعّف" example="أمّ">
+	<rule c1="ط،" c2="C3" c3="C2" kov="3" desc="ظ…ظ‡ظ…ظˆط² ط§ظ„ظپط§ط، ظ…ط¶ط¹ظ‘ظپ" example="ط£ظ…ظ‘">
 	</rule>
-	<rule c1="ء" c2="?" c3="ء" kov="4" desc="مهموز الفاء مهموز اللام" example="أثأ">
+	<rule c1="ط،" c2="?" c3="ط،" kov="4" desc="ظ…ظ‡ظ…ظˆط² ط§ظ„ظپط§ط، ظ…ظ‡ظ…ظˆط² ط§ظ„ظ„ط§ظ…" example="ط£ط«ط£">
 	</rule>
-	<rule c1="?" c2="?" c3="ي" kov="26" desc="ناقص يائي" example="رمى">
+	<rule c1="?" c2="?" c3="ظٹ" kov="26" desc="ظ†ط§ظ‚طµ ظٹط§ط¦ظٹ" example="ط±ظ…ظ‰">
 	</rule>
-	<rule c1="?" c2="?" c3="و" kov="23" desc="ناقص واوي" example="غزا">
+	<rule c1="?" c2="?" c3="ظˆ" kov="23" desc="ظ†ط§ظ‚طµ ظˆط§ظˆظٹ" example="ط؛ط²ط§">
 	</rule>
-	<rule c1="?" c2="ي" c3="?" kov="20" desc="أجوف يائي" example="باع">
+	<rule c1="?" c2="ظٹ" c3="?" kov="20" desc="ط£ط¬ظˆظپ ظٹط§ط¦ظٹ" example="ط¨ط§ط¹">
 	</rule>
-	<rule c1="?" c2="و" c3="?" kov="17" desc="أجوف واوي" example="قام">
+	<rule c1="?" c2="ظˆ" c3="?" kov="17" desc="ط£ط¬ظˆظپ ظˆط§ظˆظٹ" example="ظ‚ط§ظ…">
 	</rule>
-	<rule c1="ي" c2="?" c3="?" kov="14" desc="مثال يائي" example="يسر">
+	<rule c1="ظٹ" c2="?" c3="?" kov="14" desc="ظ…ط«ط§ظ„ ظٹط§ط¦ظٹ" example="ظٹط³ط±">
 	</rule>
-	<rule c1="و" c2="?" c3="?" kov="11" desc="مثال واوي" example="وعد">
+	<rule c1="ظˆ" c2="?" c3="?" kov="11" desc="ظ…ط«ط§ظ„ ظˆط§ظˆظٹ" example="ظˆط¹ط¯">
 	</rule>
-	<rule c1="?" c2="?" c3="ء" kov="7" desc="مهموز اللام" example="بدأ">
+	<rule c1="?" c2="?" c3="ط،" kov="7" desc="ظ…ظ‡ظ…ظˆط² ط§ظ„ظ„ط§ظ…" example="ط¨ط¯ط£">
 	</rule>
-	<rule c1="?" c2="ء" c3="?" kov="6" desc="مهموز العين" example="سأل">
+	<rule c1="?" c2="ط،" c3="?" kov="6" desc="ظ…ظ‡ظ…ظˆط² ط§ظ„ط¹ظٹظ†" example="ط³ط£ظ„">
 	</rule>
-	<rule c1="ء" c2="?" c3="?" kov="5" desc="مهموز الفاء" example="أكل">
+	<rule c1="ط،" c2="?" c3="?" kov="5" desc="ظ…ظ‡ظ…ظˆط² ط§ظ„ظپط§ط،" example="ط£ظƒظ„">
 	</rule>
-	<rule c1="?" c2="C3" c3="C2" kov="2" desc="مضعّف" example="مدّ">
+	<rule c1="?" c2="C3" c3="C2" kov="2" desc="ظ…ط¶ط¹ظ‘ظپ" example="ظ…ط¯ظ‘">
 	</rule>
-	<rule c1="?" c2="?" c3="?" kov="1" desc="سالم" example="نصر">
+	<rule c1="?" c2="?" c3="?" kov="1" desc="ط³ط§ظ„ظ…" example="ظ†طµط±">
 	</rule>
 </rules>

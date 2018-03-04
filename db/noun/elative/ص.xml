@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="windows-1256" ?>
+ï»؟<?xml version="1.0" encoding="utf8" ?>
 <formulas>
-	<formula c1="ص" c2="ب" c3="ح">
+	<formula c1="طµ" c2="ط¨" c3="ط­">
 	</formula>
-	<formula c1="ص" c2="ب" c3="ر">
+	<formula c1="طµ" c2="ط¨" c3="ط±">
 	</formula>
-	<formula c1="ص" c2="د" c3="ق">
+	<formula c1="طµ" c2="ط¯" c3="ظ‚">
 	</formula>
-	<formula c1="ص" c2="ر" c3="ح">
+	<formula c1="طµ" c2="ط±" c3="ط­">
 	</formula>
-	<formula c1="ص" c2="ع" c3="ب">
+	<formula c1="طµ" c2="ط¹" c3="ط¨">
 	</formula>
-	<formula c1="ص" c2="غ" c3="ر">
+	<formula c1="طµ" c2="ط؛" c3="ط±">
 	</formula>
 </formulas>

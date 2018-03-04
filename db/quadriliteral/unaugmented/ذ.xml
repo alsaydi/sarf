@@ -1,39 +1,39 @@
-<?xml version="1.0" encoding="windows-1256" ?>
+ï»؟<?xml version="1.0" encoding="utf8" ?>
 <roots>
-	<root c1="ذ" c2="ء" c3="ذ" c4="ء" transitive="ل">
+	<root c1="ط°" c2="ط،" c3="ط°" c4="ط،" transitive="ظ„">
 	</root>
-	<root c1="ذ" c2="ب" c3="ذ" c4="ب" transitive="ك">
+	<root c1="ط°" c2="ط¨" c3="ط°" c4="ط¨" transitive="ظƒ">
 	</root>
-	<root c1="ذ" c2="ح" c3="ذ" c4="ح" transitive="ك">
+	<root c1="ط°" c2="ط­" c3="ط°" c4="ط­" transitive="ظƒ">
 	</root>
-	<root c1="ذ" c2="ح" c3="ل" c4="م" transitive="م">
+	<root c1="ط°" c2="ط­" c3="ظ„" c4="ظ…" transitive="ظ…">
 	</root>
-	<root c1="ذ" c2="ح" c3="م" c4="ل" transitive="م">
+	<root c1="ط°" c2="ط­" c3="ظ…" c4="ظ„" transitive="ظ…">
 	</root>
-	<root c1="ذ" c2="ر" c3="ذ" c4="ر" transitive="م">
+	<root c1="ط°" c2="ط±" c3="ط°" c4="ط±" transitive="ظ…">
 	</root>
-	<root c1="ذ" c2="ر" c3="ط" c4="ء" transitive="ل">
+	<root c1="ط°" c2="ط±" c3="ط·" c4="ط،" transitive="ظ„">
 	</root>
-	<root c1="ذ" c2="ر" c3="ط" c4="ي" transitive="ل">
+	<root c1="ط°" c2="ط±" c3="ط·" c4="ظٹ" transitive="ظ„">
 	</root>
-	<root c1="ذ" c2="ر" c3="ق" c4="ط" transitive="م">
+	<root c1="ط°" c2="ط±" c3="ظ‚" c4="ط·" transitive="ظ…">
 	</root>
-	<root c1="ذ" c2="ر" c3="م" c4="ل" transitive="ل">
+	<root c1="ط°" c2="ط±" c3="ظ…" c4="ظ„" transitive="ظ„">
 	</root>
-	<root c1="ذ" c2="ع" c3="ذ" c4="ع" transitive="م">
+	<root c1="ط°" c2="ط¹" c3="ط°" c4="ط¹" transitive="ظ…">
 	</root>
-	<root c1="ذ" c2="ع" c3="ل" c4="ف" transitive="م">
+	<root c1="ط°" c2="ط¹" c3="ظ„" c4="ظپ" transitive="ظ…">
 	</root>
-	<root c1="ذ" c2="ع" c3="م" c4="ط" transitive="م">
+	<root c1="ط°" c2="ط¹" c3="ظ…" c4="ط·" transitive="ظ…">
 	</root>
-	<root c1="ذ" c2="ف" c3="ذ" c4="ف" transitive="ك">
+	<root c1="ط°" c2="ظپ" c3="ط°" c4="ظپ" transitive="ظƒ">
 	</root>
-	<root c1="ذ" c2="ف" c3="ط" c4="س" transitive="ل">
+	<root c1="ط°" c2="ظپ" c3="ط·" c4="ط³" transitive="ظ„">
 	</root>
-	<root c1="ذ" c2="م" c3="ح" c4="ل" transitive="م">
+	<root c1="ط°" c2="ظ…" c3="ط­" c4="ظ„" transitive="ظ…">
 	</root>
-	<root c1="ذ" c2="م" c3="ذ" c4="م" transitive="ل">
+	<root c1="ط°" c2="ظ…" c3="ط°" c4="ظ…" transitive="ظ„">
 	</root>
-	<root c1="ذ" c2="م" c3="ل" c4="ق" transitive="ك">
+	<root c1="ط°" c2="ظ…" c3="ظ„" c4="ظ‚" transitive="ظƒ">
 	</root>
 </roots>

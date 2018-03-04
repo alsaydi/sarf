@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="windows-1256" ?>
+ï»؟<?xml version="1.0" encoding="utf8" ?>
 <formulas>
-	<formula c1="ب" c2="خ" c3="ل" symbol1="C" gerund1="مَبْخَلَة" symbol2="" gerund2="">
+	<formula c1="ط¨" c2="ط®" c3="ظ„" symbol1="C" gerund1="ظ…ظژط¨ظ’ط®ظژظ„ظژط©" symbol2="" gerund2="">
 	</formula>
-	<formula c1="ب" c2="د" c3="ء" symbol1="C" gerund1="مَبْدَأَة" symbol2="" gerund2="">
+	<formula c1="ط¨" c2="ط¯" c3="ط،" symbol1="C" gerund1="ظ…ظژط¨ظ’ط¯ظژط£ظژط©" symbol2="" gerund2="">
 	</formula>
-	<formula c1="ب" c2="ر" c3="ر" symbol1="C" gerund1="مَبَرَّة" symbol2="" gerund2="">
+	<formula c1="ط¨" c2="ط±" c3="ط±" symbol1="C" gerund1="ظ…ظژط¨ظژط±ظ‘ظژط©" symbol2="" gerund2="">
 	</formula>
 </formulas>
