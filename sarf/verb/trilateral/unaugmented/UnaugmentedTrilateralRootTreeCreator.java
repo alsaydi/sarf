@@ -2,6 +2,8 @@ package sarf.verb.trilateral.unaugmented;
 
 
 import java.io.File;
+import java.util.List;
+
 import org.apache.commons.digester3.*;
 import sarf.*;
 
@@ -46,9 +48,15 @@ public class UnaugmentedTrilateralRootTreeCreator {
 
     public static void main(String[] args) {
         try {
-            char c1 = 'ظ';
-            UnaugmentedTrilateralRootTree rootTree = buildXmlVerbTree(new File("c:/sarf/"+c1+".xml"));
-            System.out.println("done");
+            char c1 = 'ب';
+            String path = "./db/trilateral/unaugmented/"+c1+".xml";
+            UnaugmentedTrilateralRootTree rootTree = buildXmlVerbTree(new File(path));
+            List<?> roots = rootTree.getRoots();
+            for (Object obj : roots) {
+            	UnaugmentedTrilateralRoot root = (UnaugmentedTrilateralRoot) obj;
+            	System.out.printf("%c %c %c\n",root.getC1(),root.getC2(),root.getC3());
+			}
+            System.out.println("==انتهى.==");
         }
         catch (Exception ex) {
             ex.printStackTrace();
