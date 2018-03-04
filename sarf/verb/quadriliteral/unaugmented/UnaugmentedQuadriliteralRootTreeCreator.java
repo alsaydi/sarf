@@ -2,7 +2,7 @@ package sarf.verb.quadriliteral.unaugmented;
 
 
 import java.io.File;
-import org.apache.commons.digester.Digester;
+import org.apache.commons.digester3.Digester;
 import sarf.*;
 import java.io.IOException;
 

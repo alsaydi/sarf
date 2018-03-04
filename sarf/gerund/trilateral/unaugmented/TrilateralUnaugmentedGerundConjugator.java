@@ -2,7 +2,7 @@ package sarf.gerund.trilateral.unaugmented;
 
 import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
-import org.apache.commons.digester.Digester;
+import org.apache.commons.digester3.Digester;
 import java.io.File;
 import sarf.*;
 
