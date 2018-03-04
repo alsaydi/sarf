@@ -1,0 +1,65 @@
+package sarf.verb.trilateral.unaugmented;
+
+import sarf.util.*;
+
+
+/**
+ * ›⁄· «·√„— «·À·«ÀÌ «·„Ã—œ
+ * <p>Title: Sarf</p>
+ * <p>Description: »—‰«„Ã «· ’—Ì›</p>
+ * <p>Copyright: Copyright (c) 2006</p>
+ * <p>Company: </p>
+ * @author Haytham Mohtasseb Billah
+ * @version 1.0
+ */
+public class ImperativeVerb {
+    private UnaugmentedTrilateralRoot root;
+
+    //Õ—› «·√„—
+    private final static String ci = "«";
+
+    //Õ—ﬂ… ›«¡ «·›⁄· ÊÂÌ «·”ﬂÊ‰ œ«∆„«
+    private static final String dim1 = ArabCharUtil.SKOON;
+
+    //Õ—ﬂ… ⁄Ì‰ «·›⁄· Õ”» »«» «· ’—Ì›
+    //ÊÂÌ ‰›”Â« ›Ì «·„÷«—⁄
+    private String dpr2;
+
+    //Õ—ﬂ… ·«„ «·›⁄· Õ”» «·÷„Ì—
+    private String lastDim;
+
+    //÷„Ì— «·—›⁄ «·„ ’·
+    private String connectedPronoun;
+
+    public ImperativeVerb(UnaugmentedTrilateralRoot root, String dpr2, String lastDim, String connectedPronoun) {
+        this.root = root;
+        this.dpr2 = dpr2;
+        this.lastDim = lastDim;
+        this.connectedPronoun = connectedPronoun;
+    }
+
+    public String getConnectedPronoun() {
+        return connectedPronoun;
+    }
+
+    public String getdpr2() {
+        return dpr2;
+    }
+
+    public UnaugmentedTrilateralRoot getRoot() {
+        return root;
+    }
+
+    public String getlastDim() {
+        return lastDim;
+    }
+
+    public String getCi() {
+        return ci;
+    }
+
+    public String toString() {
+        return ci+root.getC1()+dim1+root.getC2()+dpr2+root.getC3()+lastDim+connectedPronoun;
+    }
+
+}
