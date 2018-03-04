@@ -22,11 +22,11 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IQuadr
     private List substitutions = new LinkedList();
 
     public Imperative1Vocalizer() {
-        substitutions.add(new SuffixSubstitution("íú", "")); // EX: (ŞóáúÓö¡ ÇÓáóäúŞö)
-        substitutions.add(new InfixSubstitution("íöí", "í")); // EX: (ÃäÊö ŞóáúÓöí¡ ÇÓáóäúŞöí)
-        substitutions.add(new InfixSubstitution("íöä", "ä")); // EX: (ÃäÊö ŞóáúÓöäøó¡ ÇÓáóäúŞöäøó)
-        substitutions.add(new InfixSubstitution("íúä", "íä")); // EX: (ÃäÊä ŞóáúÓöíäó¡ ÇÓáóäúŞöíäó)
-        substitutions.add(new InfixSubstitution("öíõ", "õ")); // EX: (ÃäÊã ŞóáúÓõæÇ¡ ÇÓáóäúŞõæÇ)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ’", "")); // EX: (Ù‚ÙÙ„Ù’Ø³ÙØŒ Ø§Ø³Ù„ÙÙ†Ù’Ù‚Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙŠ", "ÙŠ")); // EX: (Ø£Ù†ØªÙ Ù‚ÙÙ„Ù’Ø³ÙÙŠØŒ Ø§Ø³Ù„ÙÙ†Ù’Ù‚ÙÙŠ)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙ†", "Ù†")); // EX: (Ø£Ù†ØªÙ Ù‚ÙÙ„Ù’Ø³ÙÙ†Ù‘ÙØŒ Ø§Ø³Ù„ÙÙ†Ù’Ù‚ÙÙ†Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙ’Ù†", "ÙŠÙ†")); // EX: (Ø£Ù†ØªÙ† Ù‚ÙÙ„Ù’Ø³ÙÙŠÙ†ÙØŒ Ø§Ø³Ù„ÙÙ†Ù’Ù‚ÙÙŠÙ†Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ", "Ù")); // EX: (Ø£Ù†ØªÙ… Ù‚ÙÙ„Ù’Ø³ÙÙˆØ§ØŒ Ø§Ø³Ù„ÙÙ†Ù’Ù‚ÙÙˆØ§)
     }
 
 
@@ -35,7 +35,7 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IQuadr
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC4() != 'í')
+        if (conjugationResult.getRoot().getC4() != 'ÙŠ')
             return false;
 
         switch (conjugationResult.getFormulaNo()) {

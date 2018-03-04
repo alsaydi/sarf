@@ -18,79 +18,79 @@ import sarf.noun.*;
  */
 public class AssimilateFormulaE2SuffixContainer implements INounSuffixContainer{
     private static AssimilateFormulaE2SuffixContainer instance = new AssimilateFormulaE2SuffixContainer();
-    //ÍÇáÉ ÇáäßÑÉ
+    //Ø­Ø§Ù„Ø© Ø§Ù„Ù†ÙƒØ±Ø©
     private ArrayList indefiniteSuffixList = new ArrayList(18);
-    //ÍÇáÉ ÇáãÚÑİÉ
+    //Ø­Ø§Ù„Ø© Ø§Ù„Ù…Ø¹Ø±ÙØ©
     private ArrayList definiteSuffixList = new ArrayList(18);
-    //ÍÇáÉ ÇáÇÖÇİÉ
+    //Ø­Ø§Ù„Ø© Ø§Ù„Ø§Ø¶Ø§ÙØ©
     private ArrayList annexedSuffixList = new ArrayList(18);
 
-    //Êßæä áåÇ ŞíãÉ ÚäÏãÇ Êßæä ÇáÍÇáÉ åí ãÚÑİÉ
+    //ØªÙƒÙˆÙ† Ù„Ù‡Ø§ Ù‚ÙŠÙ…Ø© Ø¹Ù†Ø¯Ù…Ø§ ØªÙƒÙˆÙ† Ø§Ù„Ø­Ø§Ù„Ø© Ù‡ÙŠ Ù…Ø¹Ø±ÙØ©
     private String prefix = "";
-    //íãËá ÇáŞÇÆãÉ ÇáãÎÊÇÑÉ ÊÈÚÇğ ááÍÇáÉ
+    //ÙŠÙ…Ø«Ù„ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø®ØªØ§Ø±Ø© ØªØ¨Ø¹Ø§Ù‹ Ù„Ù„Ø­Ø§Ù„Ø©
     private ArrayList currentSuffixList = indefiniteSuffixList ;
 
     private AssimilateFormulaE2SuffixContainer() {
         indefiniteSuffixList.add("");
-        indefiniteSuffixList.add("ó ì");
+        indefiniteSuffixList.add("Ù Ù‰");
         indefiniteSuffixList.add("");
-        indefiniteSuffixList.add("ó íóÇäö");
-        indefiniteSuffixList.add("");
-        indefiniteSuffixList.add("");
-        indefiniteSuffixList.add("");
-        indefiniteSuffixList.add("ó ì");
-        indefiniteSuffixList.add("");
-        indefiniteSuffixList.add("ó íóíúäö");
+        indefiniteSuffixList.add("Ù ÙŠÙØ§Ù†Ù");
         indefiniteSuffixList.add("");
         indefiniteSuffixList.add("");
         indefiniteSuffixList.add("");
-        indefiniteSuffixList.add("ó ì");
+        indefiniteSuffixList.add("Ù Ù‰");
         indefiniteSuffixList.add("");
-        indefiniteSuffixList.add("ó íóíúäö");
+        indefiniteSuffixList.add("Ù ÙŠÙÙŠÙ’Ù†Ù");
+        indefiniteSuffixList.add("");
+        indefiniteSuffixList.add("");
+        indefiniteSuffixList.add("");
+        indefiniteSuffixList.add("Ù Ù‰");
+        indefiniteSuffixList.add("");
+        indefiniteSuffixList.add("Ù ÙŠÙÙŠÙ’Ù†Ù");
         indefiniteSuffixList.add("");
         indefiniteSuffixList.add("");
 
         definiteSuffixList.add("");
-        definiteSuffixList.add("ó ì");
+        definiteSuffixList.add("Ù Ù‰");
         definiteSuffixList.add("");
-        definiteSuffixList.add("ó íóÇäö");
-        definiteSuffixList.add("");
-        definiteSuffixList.add("");
-        definiteSuffixList.add("");
-        definiteSuffixList.add("ó ì");
-        definiteSuffixList.add("");
-        definiteSuffixList.add("ó íóíúäö");
+        definiteSuffixList.add("Ù ÙŠÙØ§Ù†Ù");
         definiteSuffixList.add("");
         definiteSuffixList.add("");
         definiteSuffixList.add("");
-        definiteSuffixList.add("ó ì");
+        definiteSuffixList.add("Ù Ù‰");
         definiteSuffixList.add("");
-        definiteSuffixList.add("ó íóíúäö");
+        definiteSuffixList.add("Ù ÙŠÙÙŠÙ’Ù†Ù");
+        definiteSuffixList.add("");
+        definiteSuffixList.add("");
+        definiteSuffixList.add("");
+        definiteSuffixList.add("Ù Ù‰");
+        definiteSuffixList.add("");
+        definiteSuffixList.add("Ù ÙŠÙÙŠÙ’Ù†Ù");
         definiteSuffixList.add("");
         definiteSuffixList.add("");
 
         annexedSuffixList.add("");
-        annexedSuffixList.add("ó ì");
+        annexedSuffixList.add("Ù Ù‰");
         annexedSuffixList.add("");
-        annexedSuffixList.add("ó íóÇ");
-        annexedSuffixList.add("");
-        annexedSuffixList.add("");
-        annexedSuffixList.add("");
-        annexedSuffixList.add("ó ì");
-        annexedSuffixList.add("");
-        annexedSuffixList.add("ó íóíú");
+        annexedSuffixList.add("Ù ÙŠÙØ§");
         annexedSuffixList.add("");
         annexedSuffixList.add("");
-        annexedSuffixList.add("ö");
-        annexedSuffixList.add("ó ì");
         annexedSuffixList.add("");
-        annexedSuffixList.add("ó íóíú");
+        annexedSuffixList.add("Ù Ù‰");
+        annexedSuffixList.add("");
+        annexedSuffixList.add("Ù ÙŠÙÙŠÙ’");
+        annexedSuffixList.add("");
+        annexedSuffixList.add("");
+        annexedSuffixList.add("Ù");
+        annexedSuffixList.add("Ù Ù‰");
+        annexedSuffixList.add("");
+        annexedSuffixList.add("Ù ÙŠÙÙŠÙ’");
         annexedSuffixList.add("");
         annexedSuffixList.add("");
     }
 
     public void selectDefiniteMode() {
-        prefix = "Çá";
+        prefix = "Ø§Ù„";
         currentSuffixList = definiteSuffixList;
 
         if (AssimilateFormulaE1SuffixContainer.getInstance().getCurrentSuffixList() != AssimilateFormulaE1SuffixContainer.getInstance().getDefiniteSuffixList())

@@ -24,8 +24,8 @@ public class PreSeparatedLafifVocalizer extends TrilateralNounSubstitutionApplie
     private List substitutions = new LinkedList();
 
     public PreSeparatedLafifVocalizer() {
-        substitutions.add(new InfixSubstitution("õæú","õæ"));// EX: (ãõæÕò)
-        substitutions.add(new InfixSubstitution("õíú","õæ"));// EX: (ãõæÏò)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’","ÙÙˆ"));// EX: (Ù…ÙÙˆØµÙ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ’","ÙÙˆ"));// EX: (Ù…ÙÙˆØ¯Ù)
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {

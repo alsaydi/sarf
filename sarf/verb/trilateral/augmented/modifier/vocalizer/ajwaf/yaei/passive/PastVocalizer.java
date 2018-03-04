@@ -25,14 +25,14 @@ public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTri
     public PastVocalizer() {
 
 
-        substitutions.add(new ExpressionInfixSubstitution("úíöC3ú","öC3ú"));// EX: (ÃÈöÏúÊõ¡ ÇÓÊõŞáÊõ¡)
-        substitutions.add(new ExpressionInfixSubstitution("úíöC3ø","öC3ø"));// EX: (ÃõÈöÊøõ)
-        substitutions.add(new ExpressionInfixSubstitution("úíöC3ó","öíC3ó"));// EX: (ÃÈöíÏó¡ ÇÓÊõŞöíá¡)
-        substitutions.add(new ExpressionInfixSubstitution("úíöC3õ","öíC3õ"));// EX: (ÃÈöíÏõæÇ¡ ÇÓÊõŞöíáæÇ¡)
-        substitutions.add(new ExpressionInfixSubstitution("õíöC3ú","öC3ú"));// EX: (ÇäúåöáúÊõ¡ ÇßÊöáúÊõ)
-        substitutions.add(new ExpressionInfixSubstitution("õíöC3ø","öC3ø"));// EX: (ÇÎÊöÊøõ)
-        substitutions.add(new ExpressionInfixSubstitution("õíöC3ó","öíC3ó"));// EX: (Çäúåöíáó¡ ÇßÊöíá)
-        substitutions.add(new ExpressionInfixSubstitution("õíöC3õ","öíC3õ"));// EX: (ÇäåöíáæÇ¡ ÇßÊöíáæÇ)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù’","ÙC3Ù’"));// EX: (Ø£Ø¨ÙØ¯Ù’ØªÙØŒ Ø§Ø³ØªÙÙ‚Ù„ØªÙØŒ)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù‘","ÙC3Ù‘"));// EX: (Ø£ÙØ¨ÙØªÙ‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù","ÙÙŠC3Ù"));// EX: (Ø£Ø¨ÙÙŠØ¯ÙØŒ Ø§Ø³ØªÙÙ‚ÙÙŠÙ„ØŒ)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù","ÙÙŠC3Ù"));// EX: (Ø£Ø¨ÙÙŠØ¯ÙÙˆØ§ØŒ Ø§Ø³ØªÙÙ‚ÙÙŠÙ„ÙˆØ§ØŒ)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù’","ÙC3Ù’"));// EX: (Ø§Ù†Ù’Ù‡ÙÙ„Ù’ØªÙØŒ Ø§ÙƒØªÙÙ„Ù’ØªÙ)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù‘","ÙC3Ù‘"));// EX: (Ø§Ø®ØªÙØªÙ‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù","ÙÙŠC3Ù"));// EX: (Ø§Ù†Ù’Ù‡ÙÙŠÙ„ÙØŒ Ø§ÙƒØªÙÙŠÙ„)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù","ÙÙŠC3Ù"));// EX: (Ø§Ù†Ù‡ÙÙŠÙ„ÙˆØ§ØŒ Ø§ÙƒØªÙÙŠÙ„ÙˆØ§)
 
 
     }

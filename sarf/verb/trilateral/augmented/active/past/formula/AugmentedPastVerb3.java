@@ -30,6 +30,6 @@ public class AugmentedPastVerb3 extends AugmentedPastVerb {
      *   method
      */
     public String form() {
-        return root.getC1()+ArabCharUtil.FATHA+"ว"+root.getC2()+ArabCharUtil.FATHA+root.getC3()+lastDpa+connectedPronoun;
+        return root.getC1()+ArabCharUtil.FATHA+"ุง"+root.getC2()+ArabCharUtil.FATHA+root.getC3()+lastDpa+connectedPronoun;
     }
 }

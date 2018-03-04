@@ -9,7 +9,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.AbstractAjwafYa
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description:İÍÕ ÇáÃÌæİ ÍÓÈ ŞÇÆãÉ    </p>
+ * <p>Description:ÙØ­Øµ Ø§Ù„Ø£Ø¬ÙˆÙ Ø­Ø³Ø¨ Ù‚Ø§Ø¦Ù…Ø©    </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -22,11 +22,11 @@ public class PassivePresentAjwafYaeiListedVocalizer extends AbstractAjwafYaeiLis
     private List substitutions = new LinkedList();
 
     public PassivePresentAjwafYaeiListedVocalizer() {
-        substitutions.add(new ExpressionInfixSubstitution("úíóC3õ","óÇC3õ"));// EX: (íõÈÇÚ¡ íõÈÇÊ¡ áä ÊõÈÇÊæÇ)
-        substitutions.add(new ExpressionInfixSubstitution("úíóC3ö","óÇC3ö"));// EX: (ÊõÈÇÚöíäó¡ ÊõÈÇÊíä¡ áä ÊõÈÇÊí )
-        substitutions.add(new ExpressionInfixSubstitution("úíóC3ó","óÇC3ó"));// EX: (ÊõÈÇÚÇä¡ ÊõÈÇÊÇä¡ áä íõÈÇÊó¡ íõÈÇÊóäøó)
-        substitutions.add(new ExpressionInfixSubstitution("úíóC3ú","óC3ú"));// EX: (íõÈóÚúäó¡ íõÈóÊúäó¡ áã ÊõÈóÊú)
-        substitutions.add(new ExpressionInfixSubstitution("úíóC3ø","óC3ø"));// EX: (ÃäÊä Êõáóäøó¡ åä íõáóäøó)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù","ÙØ§C3Ù"));// EX: (ÙŠÙØ¨Ø§Ø¹ØŒ ÙŠÙØ¨Ø§ØªØŒ Ù„Ù† ØªÙØ¨Ø§ØªÙˆØ§)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù","ÙØ§C3Ù"));// EX: (ØªÙØ¨Ø§Ø¹ÙÙŠÙ†ÙØŒ ØªÙØ¨Ø§ØªÙŠÙ†ØŒ Ù„Ù† ØªÙØ¨Ø§ØªÙŠ )
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù","ÙØ§C3Ù"));// EX: (ØªÙØ¨Ø§Ø¹Ø§Ù†ØŒ ØªÙØ¨Ø§ØªØ§Ù†ØŒ Ù„Ù† ÙŠÙØ¨Ø§ØªÙØŒ ÙŠÙØ¨Ø§ØªÙÙ†Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù’","ÙC3Ù’"));// EX: (ÙŠÙØ¨ÙØ¹Ù’Ù†ÙØŒ ÙŠÙØ¨ÙØªÙ’Ù†ÙØŒ Ù„Ù… ØªÙØ¨ÙØªÙ’)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù‘","ÙC3Ù‘"));// EX: (Ø£Ù†ØªÙ† ØªÙÙ„ÙÙ†Ù‘ÙØŒ Ù‡Ù† ÙŠÙÙ„ÙÙ†Ù‘Ù)
     }
 
 

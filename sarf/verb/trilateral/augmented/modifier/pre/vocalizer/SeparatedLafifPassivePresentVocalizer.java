@@ -23,8 +23,8 @@ public class SeparatedLafifPassivePresentVocalizer extends SubstitutionsApplier 
     private List substitutions = new LinkedList();
 
     public SeparatedLafifPassivePresentVocalizer() {
-        substitutions.add(new InfixSubstitution("õæú","õæ"));// EX: (íõæÕóì)
-substitutions.add(new InfixSubstitution("õíú","õæ"));// EX: (íõæÏóì)ä
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’","ÙÙˆ"));// EX: (ÙŠÙÙˆØµÙÙ‰)
+substitutions.add(new InfixSubstitution("ÙÙŠÙ’","ÙÙˆ"));// EX: (ÙŠÙÙˆØ¯ÙÙ‰)Ù†
     }
 
 

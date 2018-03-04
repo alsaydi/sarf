@@ -32,7 +32,7 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
     private String title;
 
     /**
-     * ÇÙåÇÑ ÇáŞÇÆãÉ ÈÇÓÊÚãÇá æÈÏæä ÇáÇÏÛÇã
+     * Ø§Ø¸Ù‡Ø§Ø± Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ø¨Ø§Ø³ØªØ¹Ù…Ø§Ù„ ÙˆØ¨Ø¯ÙˆÙ† Ø§Ù„Ø§Ø¯ØºØ§Ù…
      * @param verbConjugationList List
      * @param notGeminatedVerbConjugationList List
      */
@@ -46,16 +46,16 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
         JLabel lbl1 = null;
         JLabel lbl2 = null;
         for (int i=0; i<6;i++) {
-            //ÅÖÇİÉ äÕ íãËá ÇáÖãíÑ
+            //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„Ø¶Ù…ÙŠØ±
             add(lbl = new JLabel((String) pronounsList.get(i)));
             decorateLabel(lbl);
-            //ÅÖÇİÉ äÕ íãËá ÇáİÚá
+            //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„ÙØ¹Ù„
             add(lbl1 = new JLabel(verbConjugationList.get(i)+""));
             decorateVerbLabel(lbl1);
-            //ÅÖÇİÉ äÕ íãËá ÇáÖãíÑ
+            //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„Ø¶Ù…ÙŠØ±
             add(lbl = new JLabel((String) pronounsList.get(i+7)));
             decorateLabel(lbl);
-            //ÅÖÇİÉ äÕ íãËá ÇáİÚá
+            //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„ÙØ¹Ù„
             add(lbl2 = new JLabel(verbConjugationList.get(i+7)+""));
             decorateVerbLabel(lbl2);
 
@@ -70,10 +70,10 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
                     lbl1.setText(lbl1.getText() + " / "+notGeminatedVerbConjugationList.get(2));
             }
         }
-        //ÅÖÇİÉ äÕ íãËá ÇáÖãíÑ
+        //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„Ø¶Ù…ÙŠØ±
         add(lbl = new JLabel((String) pronounsList.get(6)));
         decorateLabel(lbl);
-        //ÅÖÇİÉ äÕ íãËá ÇáİÚá
+        //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„ÙØ¹Ù„
         add(lbl = new JLabel(verbConjugationList.get(6)+""));
         decorateVerbLabel(lbl);
 
@@ -104,7 +104,7 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
     public boolean saveToHtml(File file) {
         String content = FileUtil.getContents(new File("db/verbs.html"));
 
-        String docTitle = "ÊÕÑíİ "+ " ( "+ title + " ) " +" ááİÚá "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
+        String docTitle = "ØªØµØ±ÙŠÙ "+ " ( "+ title + " ) " +" Ù„Ù„ÙØ¹Ù„ "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
         //put the title
         content = content.replaceFirst("DocTitle", docTitle);
 
@@ -139,7 +139,7 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
     }
 
     public String getSavedFileNameTitle() {
-        return "ÊÕÑíİ "+ " "+ title + " " +" ááİÚá "+ "  "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText();
+        return "ØªØµØ±ÙŠÙ "+ " "+ title + " " +" Ù„Ù„ÙØ¹Ù„ "+ "  "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText();
     }
 
 }

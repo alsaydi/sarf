@@ -5,9 +5,9 @@ import java.util.*;
 import sarf.*;
 
 /**
- * э▐цу х╨╟ ╟с╒▌ ╚╩╒╤э▌ ╟с├▌┌╟с ╟с╦с╟╦э╔ ╟су╠╤╧╔ ▌э ╒э█╔ ╟с├у╤
+ * ┘К┘В┘И┘Е ┘З╪░╪з ╪з┘Д╪╡┘Б ╪и╪к╪╡╪▒┘К┘Б ╪з┘Д╪г┘Б╪╣╪з┘Д ╪з┘Д╪л┘Д╪з╪л┘К╪й ╪з┘Д┘Е╪м╪▒╪п╪й ┘Б┘К ╪╡┘К╪║╪й ╪з┘Д╪г┘Е╪▒
  * <p>Title: Sarf</p>
- * <p>Description: ╚╤ф╟у╠ ╟с╩╒╤э▌</p>
+ * <p>Description: ╪и╪▒┘Ж╪з┘Е╪м ╪з┘Д╪к╪╡╪▒┘К┘Б</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
  * @author Haytham Mohtasseb Billah
@@ -25,7 +25,7 @@ public class UnaugmentedImperativeConjugator {
     }
 
     /**
-     * ┼ф╘╟┴ ╒э█╔ ╟с▌┌с ╟с├у╤ █э╤ ╟су─▀╧
+     * ╪е┘Ж╪┤╪з╪б ╪╡┘К╪║╪й ╪з┘Д┘Б╪╣┘Д ╪з┘Д╪г┘Е╪▒ ╪║┘К╪▒ ╪з┘Д┘Е╪д┘Г╪п
      * @param pronounIndex int
      * @param root TrilateralVerb
      * @return PresentConjugation
@@ -40,7 +40,7 @@ public class UnaugmentedImperativeConjugator {
     }
 
     /**
-     * ┼ф╘╟┴ ╒э█╔ ╟с▌┌с ╟с├у╤  ╟су─▀╧
+     * ╪е┘Ж╪┤╪з╪б ╪╡┘К╪║╪й ╪з┘Д┘Б╪╣┘Д ╪з┘Д╪г┘Е╪▒  ╪з┘Д┘Е╪д┘Г╪п
      * @param pronounIndex int
      * @param root TrilateralVerb
      * @return PresentConjugation
@@ -57,8 +57,8 @@ public class UnaugmentedImperativeConjugator {
 
 
     /**
-     * ┼ф╘╟┴ ▐╟╞у╔ ╩═╩цэ ┌сь ╒э█ ╩╒╤э▌ ╟с▌┌с ═╙╚ ╟с╓у╟╞╤
-     * ╟с├у╤ █э╤ ╟су─▀╧
+     * ╪е┘Ж╪┤╪з╪б ┘В╪з╪ж┘Е╪й ╪к╪н╪к┘И┘К ╪╣┘Д┘Й ╪╡┘К╪║ ╪к╪╡╪▒┘К┘Б ╪з┘Д┘Б╪╣┘Д ╪н╪│╪и ╪з┘Д╪╢┘Е╪з╪ж╪▒
+     * ╪з┘Д╪г┘Е╪▒ ╪║┘К╪▒ ╪з┘Д┘Е╪д┘Г╪п
      * @param root TripleVerb
      * @return List
      */
@@ -73,8 +73,8 @@ public class UnaugmentedImperativeConjugator {
     }
 
     /**
-    * ┼ф╘╟┴ ▐╟╞у╔ ╩═╩цэ ┌сь ╒э█ ╩╒╤э▌ ╟с▌┌с ═╙╚ ╟с╓у╟╞╤
-    * ╟с├у╤  ╟су─▀╧
+    * ╪е┘Ж╪┤╪з╪б ┘В╪з╪ж┘Е╪й ╪к╪н╪к┘И┘К ╪╣┘Д┘Й ╪╡┘К╪║ ╪к╪╡╪▒┘К┘Б ╪з┘Д┘Б╪╣┘Д ╪н╪│╪и ╪з┘Д╪╢┘Е╪з╪ж╪▒
+    * ╪з┘Д╪г┘Е╪▒  ╪з┘Д┘Е╪д┘Г╪п
     * @param root TripleVerb
     * @return List
     */

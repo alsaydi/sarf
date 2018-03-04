@@ -9,7 +9,7 @@ import sarf.verb.quadriliteral.unaugmented.*;
 /**
  * <p>Title: Sarf</p>
  *
- * <p>Description: ÊÕÑíİ ÇáÃİÚÇá ÇáÑÈÇÚíÉ  ÇáãÌÑÏÉ İí ÇáãÇÖí      </p>
+ * <p>Description: ØªØµØ±ÙŠÙ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ø±Ø¨Ø§Ø¹ÙŠØ©  Ø§Ù„Ù…Ø¬Ø±Ø¯Ø© ÙÙŠ Ø§Ù„Ù…Ø§Ø¶ÙŠ      </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -29,7 +29,7 @@ public class ActivePastConjugator {
     }
 
     /**
-    *  ÅäÔÇÁ ÇáİÚá ÍÓÈ ÇáÖãíÑ
+    *  Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
      * @param pronounIndex int
      * @param root UnaugmentedQuadriliteralRoot
      * @return PastConjugation
@@ -41,7 +41,7 @@ public class ActivePastConjugator {
     }
 
     /**
-     *  ÅäÔÇÁ  ŞÇÆãÉ ÊÍÊæí ÇáÃİÚÇá ãÚ ÇáÖãÇÆÑ ÇáËáÇËÉ ÚÔÑ
+     *  Ø¥Ù†Ø´Ø§Ø¡  Ù‚Ø§Ø¦Ù…Ø© ØªØ­ØªÙˆÙŠ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ù…Ø¹ Ø§Ù„Ø¶Ù…Ø§Ø¦Ø± Ø§Ù„Ø«Ù„Ø§Ø«Ø© Ø¹Ø´Ø±
      * @param root UnaugmentedQuadriliteralRoot
      * @return List
      */

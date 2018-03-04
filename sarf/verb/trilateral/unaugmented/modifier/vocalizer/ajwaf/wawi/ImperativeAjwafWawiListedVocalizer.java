@@ -9,7 +9,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.AbstractAjwafWa
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description:İÍÕ ÇáÃÌæİ ÍÓÈ ŞÇÆãÉ    </p>
+ * <p>Description:ÙØ­Øµ Ø§Ù„Ø£Ø¬ÙˆÙ Ø­Ø³Ø¨ Ù‚Ø§Ø¦Ù…Ø©    </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -22,10 +22,10 @@ public class ImperativeAjwafWawiListedVocalizer extends AbstractAjwafWawiListedV
     private List substitutions = new LinkedList();
 
     public ImperativeAjwafWawiListedVocalizer() {
-        substitutions.add(new ExpressionInfixSubstitution("ÇC1úæóC3õ", "C1óÇC3õ"));
-        substitutions.add(new ExpressionInfixSubstitution("ÇC1úæóC3ö", "C1óÇC3ö"));
-        substitutions.add(new ExpressionInfixSubstitution("ÇC1úæóC3ó", "C1óÇC3ó"));
-        substitutions.add(new ExpressionInfixSubstitution("ÇC1úæóC3ú", "C1óC3ú"));
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C1Ù’ÙˆÙC3Ù", "C1ÙØ§C3Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C1Ù’ÙˆÙC3Ù", "C1ÙØ§C3Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C1Ù’ÙˆÙC3Ù", "C1ÙØ§C3Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C1Ù’ÙˆÙC3Ù’", "C1ÙC3Ù’"));
 
     }
 

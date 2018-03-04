@@ -25,13 +25,13 @@ public class Ajwaf4Vocalizer extends TrilateralNounSubstitutionApplier implement
 
     public Ajwaf4Vocalizer() {
 
-        substitutions.add(new InfixSubstitution("ÇíöÁñ","ÇÁò"));// EX: (åĞÇ ÌÇÁò)
-        substitutions.add(new InfixSubstitution("ÇíöÁò","ÇÁò"));// EX: (ãÑÑÊõ Úáì ÌÇÁò)
-        substitutions.add(new SuffixSubstitution("ÇíöÁõ","ÇÆöí"));// EX: (åĞÇ ÇáÌÇÆöí¡ )
-        substitutions.add(new SuffixSubstitution("ÇíöÁö","ÇÆöí"));// EX: (ãÑÑÊõ Úáì ÇáÌÇÆöí )
-        substitutions.add(new InfixSubstitution("ÇíöÁõ","ÇÄõ"));// EX: (ÌÇÄõæäó¡ )
-        substitutions.add(new InfixSubstitution("ÇíöÁö","ÇÆö"));// EX: (ÌÇÆöíäó¡ )
-        substitutions.add(new InfixSubstitution("ÇíöÁ","ÇÆöí"));// EX: (ÌÇÆíÇä¡ ÌÇÆíóíúä¡ ÌÇÆíÉ¡ ÌÇÆíğÇ¡ ÑÃíÊõ ÇáÌÇÆöíó)
+        substitutions.add(new InfixSubstitution("Ø§ÙŠÙØ¡ÙŒ","Ø§Ø¡Ù"));// EX: (Ù‡Ø°Ø§ Ø¬Ø§Ø¡Ù)
+        substitutions.add(new InfixSubstitution("Ø§ÙŠÙØ¡Ù","Ø§Ø¡Ù"));// EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ø¬Ø§Ø¡Ù)
+        substitutions.add(new SuffixSubstitution("Ø§ÙŠÙØ¡Ù","Ø§Ø¦ÙÙŠ"));// EX: (Ù‡Ø°Ø§ Ø§Ù„Ø¬Ø§Ø¦ÙÙŠØŒ )
+        substitutions.add(new SuffixSubstitution("Ø§ÙŠÙØ¡Ù","Ø§Ø¦ÙÙŠ"));// EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ø§Ù„Ø¬Ø§Ø¦ÙÙŠ )
+        substitutions.add(new InfixSubstitution("Ø§ÙŠÙØ¡Ù","Ø§Ø¤Ù"));// EX: (Ø¬Ø§Ø¤ÙÙˆÙ†ÙØŒ )
+        substitutions.add(new InfixSubstitution("Ø§ÙŠÙØ¡Ù","Ø§Ø¦Ù"));// EX: (Ø¬Ø§Ø¦ÙÙŠÙ†ÙØŒ )
+        substitutions.add(new InfixSubstitution("Ø§ÙŠÙØ¡","Ø§Ø¦ÙÙŠ"));// EX: (Ø¬Ø§Ø¦ÙŠØ§Ù†ØŒ Ø¬Ø§Ø¦ÙŠÙÙŠÙ’Ù†ØŒ Ø¬Ø§Ø¦ÙŠØ©ØŒ Ø¬Ø§Ø¦ÙŠÙ‹Ø§ØŒ Ø±Ø£ÙŠØªÙ Ø§Ù„Ø¬Ø§Ø¦ÙÙŠÙ)
 
     }
 

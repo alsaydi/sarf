@@ -24,13 +24,13 @@ public class Imperative6Vocalizer extends SubstitutionsApplier implements IAugme
     private List substitutions = new LinkedList();
 
     public Imperative6Vocalizer() {
-        substitutions.add(new SuffixSubstitution("æú", "")); // EX: (ÊóÓÇæó¡ ÊóÓóæøó)
-        substitutions.add(new InfixSubstitution("æöí", "íú")); // EX: (ÃäÊö ÊóÓÇæóíú¡ ÊóÓóæøóíú)
-        substitutions.add(new InfixSubstitution("æóÇ", "íóÇ")); // EX: (ÃäÊãÇ ÊóÓÇæóíÇ¡ ÊóÓóæøóíÇ)
-        substitutions.add(new InfixSubstitution("æõæ", "æú")); // EX: (ÃäÊã ÊóÓÇæóæúÇ¡ ÊóÓóæøóæúÇ)
-        substitutions.add(new InfixSubstitution("æúä", "íúä")); // EX: (ÃäÊä ÊóÓÇæóíúäó¡ ÊóÓóæøóíúäó)
-        substitutions.add(new InfixSubstitution("æóä", "íóä")); // EX: (ÃäÊó ÊóÓÇæóíóäøó¡ ÊóÓóæøóíóäøó)
-        substitutions.add(new InfixSubstitution("æöä", "íöä")); // EX: (ÃäÊö ÊóÓÇæóíöäøó¡ ÊóÓóæøóíöäøó)
+        substitutions.add(new SuffixSubstitution("ÙˆÙ’", "")); // EX: (ØªÙØ³Ø§ÙˆÙØŒ ØªÙØ³ÙÙˆÙ‘Ù)
+        substitutions.add(new InfixSubstitution("ÙˆÙÙŠ", "ÙŠÙ’")); // EX: (Ø£Ù†ØªÙ ØªÙØ³Ø§ÙˆÙÙŠÙ’ØŒ ØªÙØ³ÙÙˆÙ‘ÙÙŠÙ’)
+        substitutions.add(new InfixSubstitution("ÙˆÙØ§", "ÙŠÙØ§")); // EX: (Ø£Ù†ØªÙ…Ø§ ØªÙØ³Ø§ÙˆÙÙŠØ§ØŒ ØªÙØ³ÙÙˆÙ‘ÙÙŠØ§)
+        substitutions.add(new InfixSubstitution("ÙˆÙÙˆ", "ÙˆÙ’")); // EX: (Ø£Ù†ØªÙ… ØªÙØ³Ø§ÙˆÙÙˆÙ’Ø§ØŒ ØªÙØ³ÙÙˆÙ‘ÙÙˆÙ’Ø§)
+        substitutions.add(new InfixSubstitution("ÙˆÙ’Ù†", "ÙŠÙ’Ù†")); // EX: (Ø£Ù†ØªÙ† ØªÙØ³Ø§ÙˆÙÙŠÙ’Ù†ÙØŒ ØªÙØ³ÙÙˆÙ‘ÙÙŠÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙˆÙÙ†", "ÙŠÙÙ†")); // EX: (Ø£Ù†ØªÙ ØªÙØ³Ø§ÙˆÙÙŠÙÙ†Ù‘ÙØŒ ØªÙØ³ÙÙˆÙ‘ÙÙŠÙÙ†Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙˆÙÙ†", "ÙŠÙÙ†")); // EX: (Ø£Ù†ØªÙ ØªÙØ³Ø§ÙˆÙÙŠÙÙ†Ù‘ÙØŒ ØªÙØ³ÙÙˆÙ‘ÙÙŠÙÙ†Ù‘Ù)
     }
 
 
@@ -42,6 +42,6 @@ public class Imperative6Vocalizer extends SubstitutionsApplier implements IAugme
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC2() == root.getC3() && root.getC3() == 'æ' &&  kov == 28 && (formulaNo == 7 || formulaNo == 8);
+        return root.getC2() == root.getC3() && root.getC3() == 'Ùˆ' &&  kov == 28 && (formulaNo == 7 || formulaNo == 8);
     }
 }

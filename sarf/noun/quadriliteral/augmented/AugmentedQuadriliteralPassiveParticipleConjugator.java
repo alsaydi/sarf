@@ -59,7 +59,7 @@ public class AugmentedQuadriliteralPassiveParticipleConjugator {
         return result;
     }
 
-    //ÊÓÊÚãá İí ÇÓã ÇáÒãÇä æÇáãßÇä æÇáãÕÏÑ Çáãíãí
+    //ØªØ³ØªØ¹Ù…Ù„ ÙÙŠ Ø§Ø³Ù… Ø§Ù„Ø²Ù…Ø§Ù† ÙˆØ§Ù„Ù…ÙƒØ§Ù† ÙˆØ§Ù„Ù…ØµØ¯Ø± Ø§Ù„Ù…ÙŠÙ…ÙŠ
     private List createNounList(AugmentedQuadriliteralRoot root, int formulaNo, List indecies) {
         List result = new LinkedList();
 
@@ -79,7 +79,7 @@ public class AugmentedQuadriliteralPassiveParticipleConjugator {
 
     static List timeAndPlaceIndeciesList = new LinkedList();
     static {
-        //ÍĞİ ÇáãÄäË æÇáÌãÚ
+        //Ø­Ø°Ù Ø§Ù„Ù…Ø¤Ù†Ø« ÙˆØ§Ù„Ø¬Ù…Ø¹
         timeAndPlaceIndeciesList.add("0");
         timeAndPlaceIndeciesList.add("2");
         timeAndPlaceIndeciesList.add("6");
@@ -96,7 +96,7 @@ public class AugmentedQuadriliteralPassiveParticipleConjugator {
 
     static List meemGerundIndeciesList = new LinkedList();
     static {
-        //ÇáãĞßÑ ÇáãİÑÏ
+        //Ø§Ù„Ù…Ø°ÙƒØ± Ø§Ù„Ù…ÙØ±Ø¯
         meemGerundIndeciesList.add("0");
         meemGerundIndeciesList.add("6");
         meemGerundIndeciesList.add("12");

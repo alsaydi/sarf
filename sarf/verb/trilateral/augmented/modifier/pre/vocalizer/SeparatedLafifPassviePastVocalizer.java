@@ -23,8 +23,8 @@ public class SeparatedLafifPassviePastVocalizer extends SubstitutionsApplier imp
     private List substitutions = new LinkedList();
 
     public SeparatedLafifPassviePastVocalizer() {
-        substitutions.add(new InfixSubstitution("õæú", "õæ")); // EX: (ÃäÇ ÃõæÕöíÊõ)
-        substitutions.add(new InfixSubstitution("õíú", "õæ")); // EX: (ÃäÇ ÃõæÏöíÊõ¡ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’", "ÙÙˆ")); // EX: (Ø£Ù†Ø§ Ø£ÙÙˆØµÙÙŠØªÙ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ’", "ÙÙˆ")); // EX: (Ø£Ù†Ø§ Ø£ÙÙˆØ¯ÙÙŠØªÙØŒ )
     }
 
 

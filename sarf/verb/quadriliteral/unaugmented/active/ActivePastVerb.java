@@ -7,9 +7,9 @@ import sarf.verb.quadriliteral.unaugmented.*;
 
 
 /**
- *  ÇáİÚá ÇáãÇÖí  ÇáÑÈÇÚí ÇáãÌÑÏ
+ *  Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø§Ø¶ÙŠ  Ø§Ù„Ø±Ø¨Ø§Ø¹ÙŠ Ø§Ù„Ù…Ø¬Ø±Ø¯
  * <p>Title: Sarf</p>
- * <p>Description: ÈÑäÇãÌ ÇáÊÕÑíİ</p>
+ * <p>Description: Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØµØ±ÙŠÙ</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
  * @author Haytham Mohtasseb Billah
@@ -18,10 +18,10 @@ import sarf.verb.quadriliteral.unaugmented.*;
 public class ActivePastVerb {
     private UnaugmentedQuadriliteralRoot root;
 
-    //ÍÑßÉ áÇã ÇáİÚá ÍÓÈ ÇáÖãíÑ
+    //Ø­Ø±ÙƒØ© Ù„Ø§Ù… Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
     private String lastDpa;
 
-    //ÖãíÑ ÇáÑİÚ ÇáãÊÕá
+    //Ø¶Ù…ÙŠØ± Ø§Ù„Ø±ÙØ¹ Ø§Ù„Ù…ØªØµÙ„
     private String connectedPronoun;
 
     public ActivePastVerb(UnaugmentedQuadriliteralRoot root, String lastDpa, String connectedPronoun) {

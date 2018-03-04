@@ -23,7 +23,7 @@ public class YaeiPassivePresentVocalizer extends SubstitutionsApplier implements
     private List substitutions = new LinkedList();
 
     public YaeiPassivePresentVocalizer() {
-        substitutions.add(new InfixSubstitution("õíú","õæ"));// EX: (íõæÓóÑõ¡ íæŞóÙõ¡ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ’","ÙÙˆ"));// EX: (ÙŠÙÙˆØ³ÙØ±ÙØŒ ÙŠÙˆÙ‚ÙØ¸ÙØŒ )
     }
 
 

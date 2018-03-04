@@ -24,8 +24,8 @@ public class CLafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
     List substitutions = new LinkedList();
 
     public CLafifNakesVocalizer() {
-        substitutions.add(new InfixSubstitution("óæó", "óÇ")); // EX: (ãóÔÊÇÉ )
-        substitutions.add(new InfixSubstitution("óíó", "óÇ")); // EX: (ãóÑŞÇÉ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "ÙØ§")); // EX: (Ù…ÙØ´ØªØ§Ø© )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ", "ÙØ§")); // EX: (Ù…ÙØ±Ù‚Ø§Ø© )
     }
 
 
@@ -35,7 +35,7 @@ public class CLafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
-        if (!nounFormula.equals("ãóİúÚóáóÉ")) {
+        if (!nounFormula.equals("Ù…ÙÙÙ’Ø¹ÙÙ„ÙØ©")) {
             return false;
         }
 

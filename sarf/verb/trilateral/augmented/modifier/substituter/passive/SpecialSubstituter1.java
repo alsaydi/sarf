@@ -22,7 +22,7 @@ public class SpecialSubstituter1 extends SubstitutionsApplier implements IAugmen
     private List substitutions = new LinkedList();
 
     public SpecialSubstituter1() {
-        substitutions.add(new InfixSubstitution("æúÊ","Êø"));// EX: (ÇÊøõÕöáó ¡ ÇÊøõŞöíó¡ ÇÊøõÆöíó)
+        substitutions.add(new InfixSubstitution("ÙˆÙ’Øª","ØªÙ‘"));// EX: (Ø§ØªÙ‘ÙØµÙÙ„Ù ØŒ Ø§ØªÙ‘ÙÙ‚ÙÙŠÙØŒ Ø§ØªÙ‘ÙØ¦ÙÙŠÙ)
     }
 
     public List getSubstitutions() {
@@ -32,6 +32,6 @@ public class SpecialSubstituter1 extends SubstitutionsApplier implements IAugmen
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
-        return conjugationResult.getRoot().getC1() == 'æ' && formulaNo == 5 && (kov == 9 || kov == 10 || kov == 11 || kov == 29 || kov == 30);
+        return conjugationResult.getRoot().getC1() == 'Ùˆ' && formulaNo == 5 && (kov == 9 || kov == 10 || kov == 11 || kov == 29 || kov == 30);
     }
 }

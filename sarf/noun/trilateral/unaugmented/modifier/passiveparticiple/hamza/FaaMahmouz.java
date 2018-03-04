@@ -24,9 +24,9 @@ public class FaaMahmouz extends AbstractFaaMahmouz {
     List substitutions = new LinkedList();
 
     public FaaMahmouz() {
-        substitutions.add(new InfixSubstitution("óÁú", "óÃú")); // EX: (ãóÃúßõæá)
-        substitutions.add(new InfixSubstitution("óÁõ", "óÄõ")); // EX: (ãóÄõæÈ)
-        substitutions.add(new InfixSubstitution("óÁö","óÆö"));// EX: (ãóÆöíä)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’", "ÙØ£Ù’")); // EX: (Ù…ÙØ£Ù’ÙƒÙÙˆÙ„)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ¤Ù")); // EX: (Ù…ÙØ¤ÙÙˆØ¨)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù","ÙØ¦Ù"));// EX: (Ù…ÙØ¦ÙÙŠÙ†)
     }
 
 

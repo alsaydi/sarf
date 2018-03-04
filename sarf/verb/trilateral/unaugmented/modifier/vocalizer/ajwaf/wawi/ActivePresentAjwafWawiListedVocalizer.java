@@ -9,7 +9,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description:İÍÕ ÇáÃÌæİ ÍÓÈ ŞÇÆãÉ    </p>
+ * <p>Description:ÙØ­Øµ Ø§Ù„Ø£Ø¬ÙˆÙ Ø­Ø³Ø¨ Ù‚Ø§Ø¦Ù…Ø©    </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -22,10 +22,10 @@ public class ActivePresentAjwafWawiListedVocalizer extends AbstractAjwafWawiList
     private List substitutions = new LinkedList();
 
     public ActivePresentAjwafWawiListedVocalizer() {
-        substitutions.add(new ExpressionInfixSubstitution("úæóC3õ","óÇC3õ"));
-        substitutions.add(new ExpressionInfixSubstitution("úæóC3ö","óÇC3ö"));
-        substitutions.add(new ExpressionInfixSubstitution("úæóC3ó","óÇC3ó"));
-        substitutions.add(new ExpressionInfixSubstitution("úæóC3ú","óC3ú"));
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙˆÙC3Ù","ÙØ§C3Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙˆÙC3Ù","ÙØ§C3Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙˆÙC3Ù","ÙØ§C3Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙˆÙC3Ù’","ÙC3Ù’"));
     }
 
     public List getSubstitutions() {

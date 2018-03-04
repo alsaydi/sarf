@@ -5,9 +5,9 @@ import java.util.*;
 import sarf.*;
 
 /**
- * ํÞๆใ ๅะว วแีÝ ศสีัํÝ วแรÝฺวแ วแัศวฺํษ วแใฬัฯษ Ýํ ีํÛษ วแรใั
+ * ูููู… ูุฐุง ุงูุตู ุจุชุตุฑูู ุงูุฃูุนุงู ุงูุฑุจุงุนูุฉ ุงูู…ุฌุฑุฏุฉ ูู ุตูุบุฉ ุงูุฃู…ุฑ
  * <p>Title: Sarf</p>
- * <p>Description: ศัไวใฬ วแสีัํÝ</p>
+ * <p>Description: ุจุฑูุงู…ุฌ ุงูุชุตุฑูู</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
  * @author Haytham Mohtasseb Billah
@@ -25,7 +25,7 @@ public class UnaugmentedImperativeConjugator {
     }
 
     /**
-     * ลไิวม ีํÛษ วแÝฺแ วแรใั Ûํั วแใฤ฿ฯ
+     * ุฅูุดุงุก ุตูุบุฉ ุงููุนู ุงูุฃู…ุฑ ุบูุฑ ุงูู…ุคูุฏ
      * @param pronounIndex int
      * @param root QuadriliteralVerb
      * @return PresentConjugation
@@ -39,7 +39,7 @@ public class UnaugmentedImperativeConjugator {
     }
 
     /**
-     * ลไิวม ีํÛษ วแÝฺแ วแรใั  วแใฤ฿ฯ
+     * ุฅูุดุงุก ุตูุบุฉ ุงููุนู ุงูุฃู…ุฑ  ุงูู…ุคูุฏ
      * @param pronounIndex int
      * @param root QuadriliteralVerb
      * @return PresentConjugation
@@ -55,8 +55,8 @@ public class UnaugmentedImperativeConjugator {
 
 
     /**
-     * ลไิวม Þวฦใษ สอสๆํ ฺแ์ ีํÛ สีัํÝ วแÝฺแ อำศ วแึใวฦั
-     * วแรใั Ûํั วแใฤ฿ฯ
+     * ุฅูุดุงุก ูุงุฆู…ุฉ ุชุญุชูู ุนูู ุตูุบ ุชุตุฑูู ุงููุนู ุญุณุจ ุงูุถู…ุงุฆุฑ
+     * ุงูุฃู…ุฑ ุบูุฑ ุงูู…ุคูุฏ
      * @param root TripleVerb
      * @return List
      */
@@ -71,8 +71,8 @@ public class UnaugmentedImperativeConjugator {
     }
 
     /**
-    * ลไิวม Þวฦใษ สอสๆํ ฺแ์ ีํÛ สีัํÝ วแÝฺแ อำศ วแึใวฦั
-    * วแรใั  วแใฤ฿ฯ
+    * ุฅูุดุงุก ูุงุฆู…ุฉ ุชุญุชูู ุนูู ุตูุบ ุชุตุฑูู ุงููุนู ุญุณุจ ุงูุถู…ุงุฆุฑ
+    * ุงูุฃู…ุฑ  ุงูู…ุคูุฏ
     * @param root TripleVerb
     * @return List
     */

@@ -24,12 +24,12 @@ public class Present3Vocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public Present3Vocalizer() {
-        substitutions.add(new SuffixSubstitution("íõ", "Ç")); // EX: (íóÊóÍóÇíóÇ¡ íóÊóÍóíøóÇ)
-        substitutions.add(new SuffixSubstitution("óíó","óÇ"));// EX: (áä íóÊóÍóÇíóÇ¡ áä íÊóÍóíøóÇ)
-        substitutions.add(new SuffixSubstitution("íú", "")); // EX: (áã íóÊóÍóÇíó¡ áã íóÊóÍóíøó)
-        substitutions.add(new InfixSubstitution("íöí", "íú")); // EX: (ÃäÊö ÊóÊóÍóÇíóíúäó¡ ÊóÊóÍóíøóíúäó)
-        substitutions.add(new InfixSubstitution("íõæ", "æú")); // EX: (ÃäÊã ÊóÊóÍÇíóæúäó¡ ÊóÊóÍóíøóæúäó)
-        substitutions.add(new InfixSubstitution("íõä", "æõä")); // EX: (ÃäÊã ÊóÊóÍÇíóæõäøó¡ ÊóÊóÍóíøóæõäøó)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ", "Ø§")); // EX: (ÙŠÙØªÙØ­ÙØ§ÙŠÙØ§ØŒ ÙŠÙØªÙØ­ÙÙŠÙ‘ÙØ§)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙØ§"));// EX: (Ù„Ù† ÙŠÙØªÙØ­ÙØ§ÙŠÙØ§ØŒ Ù„Ù† ÙŠØªÙØ­ÙÙŠÙ‘ÙØ§)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ’", "")); // EX: (Ù„Ù… ÙŠÙØªÙØ­ÙØ§ÙŠÙØŒ Ù„Ù… ÙŠÙØªÙØ­ÙÙŠÙ‘Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙŠ", "ÙŠÙ’")); // EX: (Ø£Ù†ØªÙ ØªÙØªÙØ­ÙØ§ÙŠÙÙŠÙ’Ù†ÙØŒ ØªÙØªÙØ­ÙÙŠÙ‘ÙÙŠÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙˆ", "ÙˆÙ’")); // EX: (Ø£Ù†ØªÙ… ØªÙØªÙØ­Ø§ÙŠÙÙˆÙ’Ù†ÙØŒ ØªÙØªÙØ­ÙÙŠÙ‘ÙÙˆÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙ†", "ÙˆÙÙ†")); // EX: (Ø£Ù†ØªÙ… ØªÙØªÙØ­Ø§ÙŠÙÙˆÙÙ†Ù‘ÙØŒ ØªÙØªÙØ­ÙÙŠÙ‘ÙÙˆÙÙ†Ù‘Ù)
     }
 
 
@@ -41,6 +41,6 @@ public class Present3Vocalizer extends SubstitutionsApplier implements IAugmente
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC2() == root.getC3() && root.getC3() == 'í' && kov == 28 && (formulaNo == 7 || formulaNo == 8);
+        return root.getC2() == root.getC3() && root.getC3() == 'ÙŠ' && kov == 28 && (formulaNo == 7 || formulaNo == 8);
     }
 }

@@ -24,8 +24,8 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
     private List substitutions = new LinkedList();
 
     public Geminator1() {
-        substitutions.add(new ExpressionInfixSubstitution("úC3öC3", "öC3ø")); // EX: (ãõÍöÈøñ¡ ãõÓúÊóÍöÈøñ)
-        substitutions.add(new ExpressionInfixSubstitution("C3öC3", "C3ø")); // EX: (ãõÍÇÌøñ¡ ãõäúŞóÖøñ¡ ãõÔúÊóÏøñ¡ ãõÊóÕÇãøñ)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C3ÙC3", "ÙC3Ù‘")); // EX: (Ù…ÙØ­ÙØ¨Ù‘ÙŒØŒ Ù…ÙØ³Ù’ØªÙØ­ÙØ¨Ù‘ÙŒ)
+        substitutions.add(new ExpressionInfixSubstitution("C3ÙC3", "C3Ù‘")); // EX: (Ù…ÙØ­Ø§Ø¬Ù‘ÙŒØŒ Ù…ÙÙ†Ù’Ù‚ÙØ¶Ù‘ÙŒØŒ Ù…ÙØ´Ù’ØªÙØ¯Ù‘ÙŒØŒ Ù…ÙØªÙØµØ§Ù…Ù‘ÙŒ)
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {

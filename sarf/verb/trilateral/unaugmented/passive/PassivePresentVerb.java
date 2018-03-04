@@ -5,10 +5,10 @@ import sarf.verb.trilateral.unaugmented.*;
 
 
 /**
- * ํใหแ ๅะว วแีÝ วแÝฺแ Ýํ ีํÛษ วแใึวัฺ วแใศไํ แแใฬๅๆแ ใสึใไว๐ วแรอัÝ วแหแวหษ
- * ๆอั฿วสๅว ใฺ ึใํั วแัÝฺ วแใไÝีแ ๆใฺ วแรอัÝ วแรฮํัษ วแใึวÝษ แแÝฺแ อำศ วแึใํั
+ * ูู…ุซู ูุฐุง ุงูุตู ุงููุนู ูู ุตูุบุฉ ุงูู…ุถุงุฑุน ุงูู…ุจูู ููู…ุฌููู ู…ุชุถู…ูุงู ุงูุฃุญุฑู ุงูุซูุงุซุฉ
+ * ูุญุฑูุงุชูุง ู…ุน ุถู…ูุฑ ุงูุฑูุน ุงูู…ููุตู ูู…ุน ุงูุฃุญุฑู ุงูุฃุฎูุฑุฉ ุงูู…ุถุงูุฉ ูููุนู ุญุณุจ ุงูุถู…ูุฑ
  * <p>Title: Sarf</p>
- * <p>Description: ศัไวใฬ วแสีัํÝ</p>
+ * <p>Description: ุจุฑูุงู…ุฌ ุงูุชุตุฑูู</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
  * @author Haytham Mohtasseb Billah
@@ -17,22 +17,22 @@ import sarf.verb.trilateral.unaugmented.*;
 public class PassivePresentVerb {
     private UnaugmentedTrilateralRoot root;
 
-    //อัÝ วแใึวัฺ
+    //ุญุฑู ุงูู…ุถุงุฑุน
     private String cp;
 
-    //อั฿ษ อัÝ วแใึวัฺ ๆๅํ ฯวฦใว๐๐ ึใษ
+    //ุญุฑูุฉ ุญุฑู ุงูู…ุถุงุฑุน ููู ุฏุงุฆู…ุงูู ุถู…ุฉ
     private static final String vcp = ArabCharUtil.DAMMA;
 
-    //อั฿ษ Ýวม วแÝฺแ ๆๅํ ฯวฦใว๐ หวศสษ ำ฿ๆไ
+    //ุญุฑูุฉ ูุงุก ุงููุนู ููู ุฏุงุฆู…ุงู ุซุงุจุชุฉ ุณููู
     private static final String dpr1 = ArabCharUtil.SKOON;
 
-    //อั฿ษ Ýวม วแÝฺแ ๆๅํ ฯวฦใว๐ หวศสษ Ýสอษ
+    //ุญุฑูุฉ ูุงุก ุงููุนู ููู ุฏุงุฆู…ุงู ุซุงุจุชุฉ ูุชุญุฉ
     private static final String dpr2 = ArabCharUtil.FATHA;
 
-    //อั฿ษ แวใ วแÝฺแ อำศ วแึใํั
+    //ุญุฑูุฉ ูุงู… ุงููุนู ุญุณุจ ุงูุถู…ูุฑ
     private String lastDpr;
 
-    //วแรอัÝ วแใึวÝษ แไๅวํษ วแÝฺแ อำศ วแึใํั
+    //ุงูุฃุญุฑู ุงูู…ุถุงูุฉ ูููุงูุฉ ุงููุนู ุญุณุจ ุงูุถู…ูุฑ
     private String connectedPronoun;
 
     public PassivePresentVerb(UnaugmentedTrilateralRoot root, String cp, String lastDpr, String connectedPronoun) {

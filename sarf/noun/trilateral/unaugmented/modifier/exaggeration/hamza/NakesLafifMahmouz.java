@@ -25,17 +25,17 @@ public class NakesLafifMahmouz extends TrilateralNounSubstitutionApplier impleme
 
     public NakesLafifMahmouz() {
 
-        substitutions.add(new InfixSubstitution("ÇÁñ","ÇÁñ"));// EX: (ÛÒøÇÁñ¡ ÑãøóÇÁñ¡ ãöÚØÇÁñ¡ ãöÌäÇÁ¡ ãöÚæÇÁ¡ ãöíİÇÁ)
-        substitutions.add(new InfixSubstitution("ÇÁğ","ÇÁğ"));// EX: (ãöÚØÇÁğ ¡  )
-        substitutions.add(new InfixSubstitution("ÇÁò","ÇÁò"));// EX: (ãöÚØÇÁò ¡   )
-        substitutions.add(new SuffixSubstitution("ÇÁõ","ÇÁõ"));// EX: (ÇáãÚØÇÁõ )
-        substitutions.add(new SuffixSubstitution("ÇÁö","ÇÁö"));// EX: (ÇáãÚØÇÁö )
-        substitutions.add(new SuffixSubstitution("ÂøóÁõ","ÂøóÁõ"));// EX: (ãóÂøóÁõ )
-        substitutions.add(new SuffixSubstitution("ÂøóÁö","ÂøóÁö"));// EX: (ãóÂøóÁö )
-        substitutions.add(new InfixSubstitution("ÂøóÁõ","ÂøóÄõ"));// EX: (ãóÂøóÄõæäó )
-        substitutions.add(new InfixSubstitution("ÂøóÁö","ÂøóÆö"));// EX: (ãóÂøóÆöíäó )
-        substitutions.add(new InfixSubstitution("ÇÁõ","ÇÄõ"));// EX: (ãÚØÇÄæäó )
-        substitutions.add(new InfixSubstitution("ÇÁö","ÇÆö"));// EX: (ãÚØÇÆöíäó )
+        substitutions.add(new InfixSubstitution("Ø§Ø¡ÙŒ","Ø§Ø¡ÙŒ"));// EX: (ØºØ²Ù‘Ø§Ø¡ÙŒØŒ Ø±Ù…Ù‘ÙØ§Ø¡ÙŒØŒ Ù…ÙØ¹Ø·Ø§Ø¡ÙŒØŒ Ù…ÙØ¬Ù†Ø§Ø¡ØŒ Ù…ÙØ¹ÙˆØ§Ø¡ØŒ Ù…ÙÙŠÙØ§Ø¡)
+        substitutions.add(new InfixSubstitution("Ø§Ø¡Ù‹","Ø§Ø¡Ù‹"));// EX: (Ù…ÙØ¹Ø·Ø§Ø¡Ù‹ ØŒ  )
+        substitutions.add(new InfixSubstitution("Ø§Ø¡Ù","Ø§Ø¡Ù"));// EX: (Ù…ÙØ¹Ø·Ø§Ø¡Ù ØŒ   )
+        substitutions.add(new SuffixSubstitution("Ø§Ø¡Ù","Ø§Ø¡Ù"));// EX: (Ø§Ù„Ù…Ø¹Ø·Ø§Ø¡Ù )
+        substitutions.add(new SuffixSubstitution("Ø§Ø¡Ù","Ø§Ø¡Ù"));// EX: (Ø§Ù„Ù…Ø¹Ø·Ø§Ø¡Ù )
+        substitutions.add(new SuffixSubstitution("Ø¢Ù‘ÙØ¡Ù","Ø¢Ù‘ÙØ¡Ù"));// EX: (Ù…ÙØ¢Ù‘ÙØ¡Ù )
+        substitutions.add(new SuffixSubstitution("Ø¢Ù‘ÙØ¡Ù","Ø¢Ù‘ÙØ¡Ù"));// EX: (Ù…ÙØ¢Ù‘ÙØ¡Ù )
+        substitutions.add(new InfixSubstitution("Ø¢Ù‘ÙØ¡Ù","Ø¢Ù‘ÙØ¤Ù"));// EX: (Ù…ÙØ¢Ù‘ÙØ¤ÙÙˆÙ†Ù )
+        substitutions.add(new InfixSubstitution("Ø¢Ù‘ÙØ¡Ù","Ø¢Ù‘ÙØ¦Ù"));// EX: (Ù…ÙØ¢Ù‘ÙØ¦ÙÙŠÙ†Ù )
+        substitutions.add(new InfixSubstitution("Ø§Ø¡Ù","Ø§Ø¤Ù"));// EX: (Ù…Ø¹Ø·Ø§Ø¤ÙˆÙ†Ù )
+        substitutions.add(new InfixSubstitution("Ø§Ø¡Ù","Ø§Ø¦Ù"));// EX: (Ù…Ø¹Ø·Ø§Ø¦ÙÙŠÙ†Ù )
 
     }
 
@@ -46,7 +46,7 @@ public class NakesLafifMahmouz extends TrilateralNounSubstitutionApplier impleme
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
-        if (!nounFormula.equals("İóÚøóÇá")) {
+        if (!nounFormula.equals("ÙÙØ¹Ù‘ÙØ§Ù„")) {
             return false;
         }
 

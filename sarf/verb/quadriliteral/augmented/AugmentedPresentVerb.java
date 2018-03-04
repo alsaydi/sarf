@@ -17,7 +17,7 @@ public abstract class AugmentedPresentVerb {
     protected AugmentedQuadriliteralRoot root;
     protected String lastDpr;
     protected String connectedPronoun;
-    //ÍÑİ ÇáãÖÇÑÚ
+    //Ø­Ø±Ù Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹
     protected String cp;
 
     public AugmentedPresentVerb(AugmentedQuadriliteralRoot root, String cp, String lastDpr, String connectedPronoun) {

@@ -23,7 +23,7 @@ public class RaaPresentMahmouz extends SubstitutionsApplier implements IUnaugmen
     private List substitutions = new ArrayList();
 
     public RaaPresentMahmouz() {
-        substitutions.add(new InfixSubstitution("úÁó","ó"));// EX: (íóÑóì)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡ÙŽ","ÙŽ"));// EX: (ÙŠÙŽØ±ÙŽÙ‰)
     }
 
     public List getSubstitutions() {
@@ -32,6 +32,6 @@ public class RaaPresentMahmouz extends SubstitutionsApplier implements IUnaugmen
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         TrilateralRoot root = conjugationResult.getRoot();
-        return root.getC1() == 'Ñ' && root.getC2() == 'Á' && root.getC3() == 'í';
+        return root.getC1() == 'Ø±' && root.getC2() == 'Ø¡' && root.getC3() == 'ÙŠ';
     }
 }

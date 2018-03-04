@@ -23,7 +23,7 @@ public class FaaMahmouz extends AbstractFaaMahmouz {
     List substitutions = new LinkedList();
 
     public FaaMahmouz() {
-        substitutions.add(new InfixSubstitution("ÁóÇ","Â"));// EX: (Âßöáñ)
+        substitutions.add(new InfixSubstitution("Ø¡ÙØ§","Ø¢"));// EX: (Ø¢ÙƒÙÙ„ÙŒ)
     }
 
 

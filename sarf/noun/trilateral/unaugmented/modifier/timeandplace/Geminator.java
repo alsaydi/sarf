@@ -23,8 +23,8 @@ public class Geminator extends AbstractGeminator {
     List substitutions = new LinkedList();
 
     public Geminator() {
-        substitutions.add(new ExpressionInfixSubstitution("úC3óC3", "óC3ø")); // EX: (ãóÕóÏø¡ ãóÕóÍøóÉ)
-        substitutions.add(new ExpressionInfixSubstitution("úC3öC3", "öC3ø")); // EX: (ãóÑöäø)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C3ÙC3", "ÙC3Ù‘")); // EX: (Ù…ÙØµÙØ¯Ù‘ØŒ Ù…ÙØµÙØ­Ù‘ÙØ©)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C3ÙC3", "ÙC3Ù‘")); // EX: (Ù…ÙØ±ÙÙ†Ù‘)
     }
 
 

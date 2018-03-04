@@ -6,9 +6,9 @@ import sarf.util.*;
 import sarf.*;
 
 /**
- *  íÍÊæí Úáì  ÇáãÚáæãÇÊ  ÇáÕÑİíÉ ÇáãØáæÈÉ áÊÕÑíİ ÇáÃİÚÇá  İí ÇáÃãÑ
+ *  ÙŠØ­ØªÙˆÙŠ Ø¹Ù„Ù‰  Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª  Ø§Ù„ØµØ±ÙÙŠØ© Ø§Ù„Ù…Ø·Ù„ÙˆØ¨Ø© Ù„ØªØµØ±ÙŠÙ Ø§Ù„Ø£ÙØ¹Ø§Ù„  ÙÙŠ Ø§Ù„Ø£Ù…Ø±
  * <p>Title: Sarf</p>
- * <p>Description: ÈÑäÇãÌ ÇáÊÕÑíİ</p>
+ * <p>Description: Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØµØ±ÙŠÙ</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
  * @author Haytham Mohtasseb Billah
@@ -16,16 +16,16 @@ import sarf.*;
  */
 public class ImperativeConjugationDataContainer {
 
-    //ŞÇÆãÉ ÍÑßÇÊ Úíä ÇáİÚá ÍÓÈ ÈÇÈ ÇáÊÕÑíİ
-    //ÇáÃãÑ ÛíÑ ÇáãÄßÏ
+    //Ù‚Ø§Ø¦Ù…Ø© Ø­Ø±ÙƒØ§Øª Ø¹ÙŠÙ† Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø¨Ø§Ø¨ Ø§Ù„ØªØµØ±ÙŠÙ
+    //Ø§Ù„Ø£Ù…Ø± ØºÙŠØ± Ø§Ù„Ù…Ø¤ÙƒØ¯
     private List lastDimList = new ArrayList(13);
-    //ÇáÃãÑ ÇáãÄßÏ
+    //Ø§Ù„Ø£Ù…Ø± Ø§Ù„Ù…Ø¤ÙƒØ¯
     private List emphasizedLastDimList = new ArrayList(13);
 
-    //ŞÇÆãÉ ÖãÇÆÑ ÇáÑİÚ ÇáãÊÕáÉ
-    //ÇáÃãÑ ÛíÑ ÇáãÄßÏ
+    //Ù‚Ø§Ø¦Ù…Ø© Ø¶Ù…Ø§Ø¦Ø± Ø§Ù„Ø±ÙØ¹ Ø§Ù„Ù…ØªØµÙ„Ø©
+    //Ø§Ù„Ø£Ù…Ø± ØºÙŠØ± Ø§Ù„Ù…Ø¤ÙƒØ¯
     private List connectedPronounList = new ArrayList(13);
-    //ÇáÃãÑ ÇáãÄßÏ
+    //Ø§Ù„Ø£Ù…Ø± Ø§Ù„Ù…Ø¤ÙƒØ¯
     private List emphasizedConnectedPronounList = new ArrayList(13);
 
     private static ImperativeConjugationDataContainer instance = new ImperativeConjugationDataContainer();
@@ -68,10 +68,10 @@ public class ImperativeConjugationDataContainer {
         connectedPronounList.add("");
         connectedPronounList.add("");
         connectedPronounList.add("");
-        connectedPronounList.add("í");
-        connectedPronounList.add("Ç");
-        connectedPronounList.add("æÇ");
-        connectedPronounList.add("äó");
+        connectedPronounList.add("ÙŠ");
+        connectedPronounList.add("Ø§");
+        connectedPronounList.add("ÙˆØ§");
+        connectedPronounList.add("Ù†Ù");
         connectedPronounList.add("");
         connectedPronounList.add("");
         connectedPronounList.add("");
@@ -95,11 +95,11 @@ public class ImperativeConjugationDataContainer {
 
         emphasizedConnectedPronounList.add("");
         emphasizedConnectedPronounList.add("");
-        emphasizedConnectedPronounList.add("äøó");
-        emphasizedConnectedPronounList.add("äøó");
-        emphasizedConnectedPronounList.add("Çäøö");
-        emphasizedConnectedPronounList.add("äøó");
-        emphasizedConnectedPronounList.add("äóÇäøö");
+        emphasizedConnectedPronounList.add("Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ø§Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ù†ÙØ§Ù†Ù‘Ù");
         emphasizedConnectedPronounList.add("");
         emphasizedConnectedPronounList.add("");
         emphasizedConnectedPronounList.add("");
@@ -109,8 +109,8 @@ public class ImperativeConjugationDataContainer {
     }
 
     /**
-     *  ÇáÍÕæá  Úáì  ÍÑßÉ áÇã ÇáİÚá ÍÓÈ ÇáÖãíÑ
-     * ÇáÃãÑ ÛíÑ ÇáãÄßÏ
+     *  Ø§Ù„Ø­ØµÙˆÙ„  Ø¹Ù„Ù‰  Ø­Ø±ÙƒØ© Ù„Ø§Ù… Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
+     * Ø§Ù„Ø£Ù…Ø± ØºÙŠØ± Ø§Ù„Ù…Ø¤ÙƒØ¯
      * @param pronounIndex int
      * @return String
      */
@@ -119,8 +119,8 @@ public class ImperativeConjugationDataContainer {
     }
 
     /**
-     *  ÇáÍÕæá  Úáì  ÍÑßÉ áÇã ÇáİÚá ÍÓÈ ÇáÖãíÑ
-     * ÇáÃãÑ  ÇáãÄßÏ
+     *  Ø§Ù„Ø­ØµÙˆÙ„  Ø¹Ù„Ù‰  Ø­Ø±ÙƒØ© Ù„Ø§Ù… Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
+     * Ø§Ù„Ø£Ù…Ø±  Ø§Ù„Ù…Ø¤ÙƒØ¯
      * @param pronounIndex int
      * @return String
      */
@@ -129,8 +129,8 @@ public class ImperativeConjugationDataContainer {
     }
 
     /**
-     *ÇáÍÕæá Úáì ÖãÇÆÑ ÇáÑİÚ ÇáãÊÕáÉ
-     * ÇáÃãÑ ÛíÑ ÇáãÄßÏ
+     *Ø§Ù„Ø­ØµÙˆÙ„ Ø¹Ù„Ù‰ Ø¶Ù…Ø§Ø¦Ø± Ø§Ù„Ø±ÙØ¹ Ø§Ù„Ù…ØªØµÙ„Ø©
+     * Ø§Ù„Ø£Ù…Ø± ØºÙŠØ± Ø§Ù„Ù…Ø¤ÙƒØ¯
      * @param pronounIndex int
      * @return String
      */
@@ -139,8 +139,8 @@ public class ImperativeConjugationDataContainer {
     }
 
     /**
-     *ÇáÍÕæá Úáì ÖãÇÆÑ ÇáÑİÚ ÇáãÊÕáÉ
-     * ÇáÃãÑ  ÇáãÄßÏ
+     *Ø§Ù„Ø­ØµÙˆÙ„ Ø¹Ù„Ù‰ Ø¶Ù…Ø§Ø¦Ø± Ø§Ù„Ø±ÙØ¹ Ø§Ù„Ù…ØªØµÙ„Ø©
+     * Ø§Ù„Ø£Ù…Ø±  Ø§Ù„Ù…Ø¤ÙƒØ¯
      * @param pronounIndex int
      * @return String
      */

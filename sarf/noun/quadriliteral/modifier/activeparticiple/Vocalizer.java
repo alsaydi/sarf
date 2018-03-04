@@ -23,13 +23,13 @@ public class Vocalizer extends QuadrilateralNounSubstitutionApplier implements I
     List substitutions = new LinkedList();
 
     public Vocalizer() {
-        substitutions.add(new SuffixSubstitution("öíõ","öí"));// EX: (åĞÇ ÇáãŞáÓöí¡ )
-        substitutions.add(new SuffixSubstitution("öíó","öíó"));// EX: (ÑÃíÊõ ÇáãŞáÓöíó ¡ )
-        substitutions.add(new SuffixSubstitution("öíö","öí"));// EX: (ãÑÑÊõ Úáì ÇáãŞáÓöí ¡ )
-        substitutions.add(new InfixSubstitution("öíñ","ò"));// EX: (åĞÇ ãŞáÓò)
-        substitutions.add(new InfixSubstitution("öíò","ò"));// EX: (ãÑÑÊõ Úáì ãŞáÓò)
-        substitutions.add(new InfixSubstitution("öíõ","õ"));// EX: (ãŞáÓõæäó ¡ )
-        substitutions.add(new InfixSubstitution("öíö","ö"));// EX: (ãŞáÓöíäó ¡ )
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠ"));// EX: (Ù‡Ø°Ø§ Ø§Ù„Ù…Ù‚Ù„Ø³ÙÙŠØŒ )
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠÙ"));// EX: (Ø±Ø£ÙŠØªÙ Ø§Ù„Ù…Ù‚Ù„Ø³ÙÙŠÙ ØŒ )
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠ"));// EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ø§Ù„Ù…Ù‚Ù„Ø³ÙÙŠ ØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙŒ","Ù"));// EX: (Ù‡Ø°Ø§ Ù…Ù‚Ù„Ø³Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ù…Ù‚Ù„Ø³Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ù…Ù‚Ù„Ø³ÙÙˆÙ†Ù ØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ù…Ù‚Ù„Ø³ÙÙŠÙ†Ù ØŒ )
     }
 
 
@@ -38,6 +38,6 @@ public class Vocalizer extends QuadrilateralNounSubstitutionApplier implements I
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC4() == 'í';
+        return conjugationResult.getRoot().getC4() == 'ÙŠ';
     }
 }

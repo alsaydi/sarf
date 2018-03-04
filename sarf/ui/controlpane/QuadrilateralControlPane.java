@@ -29,7 +29,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
 
     private List augmentedButons = new ArrayList(12);
 
-    private ControlButton unaugmentedBtn = new ControlButton("İóÚúáóá íõİóÚúáöá");
+    private ControlButton unaugmentedBtn = new ControlButton("ÙÙØ¹Ù’Ù„ÙÙ„ ÙŠÙÙÙØ¹Ù’Ù„ÙÙ„");
     private AugmentedQuadriliteralRoot currentAugmentedRoot;
     private UnaugmentedQuadriliteralRoot currentUnaugmentedRoot;
 
@@ -45,7 +45,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
                 SelectionInfo selectionInfo = new SelectionInfo(currentUnaugmentedRoot, false, false, ControlPaneContainer.getInstance().getKov());
                 selectionInfo.setFormulaText(unaugmentedBtn.getFormulaText());
                 selectionInfo.setVerbText(unaugmentedBtn.getVerbText());
-                //ÇÊİŞ Úáì Ãä íßæä ÇáÑŞã ÕİÑ ÏáÇáÉ Úáì ÇáãÌÑÏ
+                //Ø§ØªÙÙ‚ Ø¹Ù„Ù‰ Ø£Ù† ÙŠÙƒÙˆÙ† Ø§Ù„Ø±Ù‚Ù… ØµÙØ± Ø¯Ù„Ø§Ù„Ø© Ø¹Ù„Ù‰ Ø§Ù„Ù…Ø¬Ø±Ø¯
                 selectionInfo.setAugmentationFormulaNo(0);
 
                 VerbNamesSelectionUI verbNamesSelectionUI = (VerbNamesSelectionUI) ControlPaneContainer.getInstance().openControlPane(VerbNamesSelectionUI.class.getName());
@@ -63,25 +63,25 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
         augmentedPnl1.add(Box.createHorizontalBox());
         augmentedPnl2.add(Box.createHorizontalBox());
 
-        addAugmentedButton("ÊóİÚúáóá íóÊİóÚúáóá", augmentedPnl1);
-        addAugmentedButton("ÇİúÚóäúáóá íóİúÚóäúáöá", augmentedPnl2);
-        addAugmentedButton("ÇİúÚóáóáø íóİÚóáöáø", augmentedPnl2);
+        addAugmentedButton("ØªÙÙØ¹Ù’Ù„ÙÙ„ ÙŠÙØªÙÙØ¹Ù’Ù„ÙÙ„", augmentedPnl1);
+        addAugmentedButton("Ø§ÙÙ’Ø¹ÙÙ†Ù’Ù„ÙÙ„ ÙŠÙÙÙ’Ø¹ÙÙ†Ù’Ù„ÙÙ„", augmentedPnl2);
+        addAugmentedButton("Ø§ÙÙ’Ø¹ÙÙ„ÙÙ„Ù‘ ÙŠÙÙØ¹ÙÙ„ÙÙ„Ù‘", augmentedPnl2);
 
         JPanel container = new JPanel();
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
 
         CustomTabbedPane tabPane1 = new CustomTabbedPane();
-        tabPane1.add("ÇáÃİÚÇá ÇáÑÈÇÚíÉ ÇáãÌÑÏÉ", unaugmentedPanel);
+        tabPane1.add("Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ø±Ø¨Ø§Ø¹ÙŠØ© Ø§Ù„Ù…Ø¬Ø±Ø¯Ø©", unaugmentedPanel);
         container.add(tabPane1);
         container.add(Box.createVerticalStrut(40));
 
         CustomTabbedPane tabPane2 = new CustomTabbedPane();
-        tabPane2.add("ÇáÃİÚÇá ÇáÑÈÇÚíÉ ÇáãÒíÏÉ ÈÍÑİ", augmentedPnl1);
+        tabPane2.add("Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ø±Ø¨Ø§Ø¹ÙŠØ© Ø§Ù„Ù…Ø²ÙŠØ¯Ø© Ø¨Ø­Ø±Ù", augmentedPnl1);
         container.add(tabPane2);
         container.add(Box.createVerticalStrut(40));
 
         CustomTabbedPane tabPane3 = new CustomTabbedPane();
-        tabPane3.add("ÇáÃİÚÇá ÇáÑÈÇÚíÉ ÇáãÒíÏÉ ÈÍÑİíä", augmentedPnl2);
+        tabPane3.add("Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ø±Ø¨Ø§Ø¹ÙŠØ© Ø§Ù„Ù…Ø²ÙŠØ¯Ø© Ø¨Ø­Ø±ÙÙŠÙ†", augmentedPnl2);
         container.add(tabPane3);
 
         add(container);
@@ -116,7 +116,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
         unaugmentedBtn.setRootText("");
         currentUnaugmentedRoot = root;
 
-        //ãÚ ÇáÖãíÑ åæ
+        //Ù…Ø¹ Ø§Ù„Ø¶Ù…ÙŠØ± Ù‡Ùˆ
         //past text formatting
         String pastRootText = sarf.verb.quadriliteral.unaugmented.active.ActivePastConjugator.getInstance().createVerb(7, root).toString();
         List conjugations = createEmptyList();
@@ -142,7 +142,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
 
         int formulaNo = index + 1;
 
-        //ãÚ ÇáÖãíÑ åæ
+        //Ù…Ø¹ Ø§Ù„Ø¶Ù…ÙŠØ± Ù‡Ùˆ
         //past text formatting
         String pastRootText = sarf.verb.quadriliteral.augmented.active.past.AugmentedActivePastConjugator.getInstance().createVerb(root, 7, formulaNo).toString();
         List conjugations = createEmptyList();

@@ -43,8 +43,8 @@ public class Mahmouz {
         if (nakesLafifMahmouz.isApplied(conjResult))
             nakesLafifMahmouz.apply(conjResult.getFinalResult(), conjResult.getRoot());
 
-        //ÇáÃİÚÇá ÇáËáÇËíÉ ÇáãÌÑÏÉ ÇáãåãæÒÉ ÇáİÇÁ æÇáãåãæÒÉ ÇááÇã (æåí: ÃÈÃ¡ ÃËÃ¡ ÃÌÃ¡ ÃÒÃ¡ ÃßÃ)
-        if (conjResult.getRoot().getC3() == 'Á')
+        //Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ø«Ù„Ø§Ø«ÙŠØ© Ø§Ù„Ù…Ø¬Ø±Ø¯Ø© Ø§Ù„Ù…Ù‡Ù…ÙˆØ²Ø© Ø§Ù„ÙØ§Ø¡ ÙˆØ§Ù„Ù…Ù‡Ù…ÙˆØ²Ø© Ø§Ù„Ù„Ø§Ù… (ÙˆÙ‡ÙŠ: Ø£Ø¨Ø£ØŒ Ø£Ø«Ø£ØŒ Ø£Ø¬Ø£ØŒ Ø£Ø²Ø£ØŒ Ø£ÙƒØ£)
+        if (conjResult.getRoot().getC3() == 'Ø¡')
             ((SubstitutionsApplier)modifiers.get(2)).apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
 }

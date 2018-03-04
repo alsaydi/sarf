@@ -24,10 +24,10 @@ public class Past2Vocalizer extends SubstitutionsApplier implements IAugmentedTr
 
     public Past2Vocalizer() {
 
-        substitutions.add(new ExpressionInfixSubstitution("óæóC3ú","óC3ú"));// EX: (ÇäúŞóÏúÊõ¡ ÇŞúÊóÏúÊõ)
-        substitutions.add(new ExpressionInfixSubstitution("óæóC3ø","óC3ø"));// EX: (ÇÎÊóÊøõ)
-        substitutions.add(new ExpressionInfixSubstitution("óæóC3ó","óÇC3ó"));// EX: (ÇäŞÇÏó¡ ÇŞúÊÇÏó)
-        substitutions.add(new ExpressionInfixSubstitution("óæóC3õ","óÇC3õ"));// EX: (ÇäŞÇÏõæÇ¡ ÇŞÊÇÏõæÇ)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙC3Ù’","ÙC3Ù’"));// EX: (Ø§Ù†Ù’Ù‚ÙØ¯Ù’ØªÙØŒ Ø§Ù‚Ù’ØªÙØ¯Ù’ØªÙ)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙC3Ù‘","ÙC3Ù‘"));// EX: (Ø§Ø®ØªÙØªÙ‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙC3Ù","ÙØ§C3Ù"));// EX: (Ø§Ù†Ù‚Ø§Ø¯ÙØŒ Ø§Ù‚Ù’ØªØ§Ø¯Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙC3Ù","ÙØ§C3Ù"));// EX: (Ø§Ù†Ù‚Ø§Ø¯ÙÙˆØ§ØŒ Ø§Ù‚ØªØ§Ø¯ÙÙˆØ§)
 
     }
 

@@ -31,7 +31,7 @@ public class EndedMahmouz {
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
-        if (conjResult.getRoot().getC4() != 'ม') {
+        if (conjResult.getRoot().getC4() != 'ุก') {
             return;
         }
 

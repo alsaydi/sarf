@@ -23,9 +23,9 @@ public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier implem
     List substitutions = new LinkedList();
 
     public InternalMahmouz() {
-        substitutions.add(new InfixSubstitution("úÁõ","úÄõ"));// EX: (ãõÊóãóÑúÄõæäó¡)
-        substitutions.add(new InfixSubstitution("óÁú","óÃú"));// EX: (ãõÈóÃúÏöáñ¡ ãõÊóËóÃúáöáñ¡)
-        substitutions.add(new InfixSubstitution("Áö","Æö"));// EX: (ãõØóãúÆöäñ¡ ãõÊóØóãúÆöäñ¡ ãõØúãóÆöäøñ)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù","Ù’Ø¤Ù"));// EX: (Ù…ÙØªÙÙ…ÙØ±Ù’Ø¤ÙÙˆÙ†ÙØŒ)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’","ÙØ£Ù’"));// EX: (Ù…ÙØ¨ÙØ£Ù’Ø¯ÙÙ„ÙŒØŒ Ù…ÙØªÙØ«ÙØ£Ù’Ù„ÙÙ„ÙŒØŒ)
+        substitutions.add(new InfixSubstitution("Ø¡Ù","Ø¦Ù"));// EX: (Ù…ÙØ·ÙÙ…Ù’Ø¦ÙÙ†ÙŒØŒ Ù…ÙØªÙØ·ÙÙ…Ù’Ø¦ÙÙ†ÙŒØŒ Ù…ÙØ·Ù’Ù…ÙØ¦ÙÙ†Ù‘ÙŒ)
     }
 
 
@@ -34,6 +34,6 @@ public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier implem
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC2() == 'Á' || conjugationResult.getRoot().getC3() == 'Á';
+        return conjugationResult.getRoot().getC2() == 'Ø¡' || conjugationResult.getRoot().getC3() == 'Ø¡';
     }
 }

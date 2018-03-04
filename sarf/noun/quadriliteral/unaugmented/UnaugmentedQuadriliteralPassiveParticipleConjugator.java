@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: ÅäÔÇÁ ÇÓã ÇáãİÚæá ÇáÑÈÇÚí ÇáãÌÑÏ    </p>
+ * <p>Description: Ø¥Ù†Ø´Ø§Ø¡ Ø§Ø³Ù… Ø§Ù„Ù…ÙØ¹ÙˆÙ„ Ø§Ù„Ø±Ø¨Ø§Ø¹ÙŠ Ø§Ù„Ù…Ø¬Ø±Ø¯    </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -38,7 +38,7 @@ public class UnaugmentedQuadriliteralPassiveParticipleConjugator {
         return result;
     }
 
-    //ÊÓÊÚãá İí ÇÓã ÇáÒãÇä æÇáãßÇä æÇáãÕÏÑ Çáãíãí
+    //ØªØ³ØªØ¹Ù…Ù„ ÙÙŠ Ø§Ø³Ù… Ø§Ù„Ø²Ù…Ø§Ù† ÙˆØ§Ù„Ù…ÙƒØ§Ù† ÙˆØ§Ù„Ù…ØµØ¯Ø± Ø§Ù„Ù…ÙŠÙ…ÙŠ
     private List createNounList(UnaugmentedQuadriliteralRoot root, List indecies) {
         List result = new LinkedList();
 
@@ -58,7 +58,7 @@ public class UnaugmentedQuadriliteralPassiveParticipleConjugator {
 
     static List timeAndPlaceIndeciesList = new LinkedList();
     static {
-        //ÍĞİ ÇáãÄäË æÇáÌãÚ
+        //Ø­Ø°Ù Ø§Ù„Ù…Ø¤Ù†Ø« ÙˆØ§Ù„Ø¬Ù…Ø¹
         timeAndPlaceIndeciesList.add("0");
         timeAndPlaceIndeciesList.add("2");
         timeAndPlaceIndeciesList.add("6");
@@ -73,7 +73,7 @@ public class UnaugmentedQuadriliteralPassiveParticipleConjugator {
 
     static List meemGerundIndeciesList = new LinkedList();
     static {
-        //ÇáãĞßÑ ÇáãİÑÏ
+        //Ø§Ù„Ù…Ø°ÙƒØ± Ø§Ù„Ù…ÙØ±Ø¯
         meemGerundIndeciesList.add("0");
         meemGerundIndeciesList.add("6");
         meemGerundIndeciesList.add("12");

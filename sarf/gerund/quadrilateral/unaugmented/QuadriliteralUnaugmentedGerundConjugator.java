@@ -51,7 +51,7 @@ public class QuadriliteralUnaugmentedGerundConjugator {
             }
         }
         else {
-            String gerund = GenericNounSuffixContainer.getInstance().getPrefix()+root.getC1() + ArabCharUtil.KASRA + root.getC2() + ArabCharUtil.SKOON + root.getC3() + ArabCharUtil.FATHA +"ว"+ root.getC4();
+            String gerund = GenericNounSuffixContainer.getInstance().getPrefix()+root.getC1() + ArabCharUtil.KASRA + root.getC2() + ArabCharUtil.SKOON + root.getC3() + ArabCharUtil.FATHA +"ุง"+ root.getC4();
             for (int i = 0; i < form2IndexList.length; i++) {
                 //because index in java start from zero
                 int suffixNo = form2IndexList[i] - 1;

@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * <p>Title: </p>
  *
- * <p>Description: íÍÊæí ÖãÇÆÑ ÇáÑİÚ ÇáãäİÕáÉ   </p>
+ * <p>Description: ÙŠØ­ØªÙˆÙŠ Ø¶Ù…Ø§Ø¦Ø± Ø§Ù„Ø±ÙØ¹ Ø§Ù„Ù…Ù†ÙØµÙ„Ø©   </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -19,19 +19,19 @@ public class SeparatedPronounsContainer {
     private List pronouns = new ArrayList(13);
 
     private SeparatedPronounsContainer() {
-        pronouns.add("ÃäÇ");
-        pronouns.add("äÍä");
-        pronouns.add("ÃäÊó");
-        pronouns.add("ÃäÊö");
-        pronouns.add("ÃäÊãÇ");
-        pronouns.add("ÃäÊã");
-        pronouns.add("ÃäÊäøó");
-        pronouns.add("åæ");
-        pronouns.add("åí");
-        pronouns.add("åãÇ(ãĞ)");
-        pronouns.add("åãÇ(ãÄ)");
-        pronouns.add("åã");
-        pronouns.add("åäøó");
+        pronouns.add("Ø£Ù†Ø§");
+        pronouns.add("Ù†Ø­Ù†");
+        pronouns.add("Ø£Ù†ØªÙ");
+        pronouns.add("Ø£Ù†ØªÙ");
+        pronouns.add("Ø£Ù†ØªÙ…Ø§");
+        pronouns.add("Ø£Ù†ØªÙ…");
+        pronouns.add("Ø£Ù†ØªÙ†Ù‘Ù");
+        pronouns.add("Ù‡Ùˆ");
+        pronouns.add("Ù‡ÙŠ");
+        pronouns.add("Ù‡Ù…Ø§(Ù…Ø°)");
+        pronouns.add("Ù‡Ù…Ø§(Ù…Ø¤)");
+        pronouns.add("Ù‡Ù…");
+        pronouns.add("Ù‡Ù†Ù‘Ù");
     }
 
     public static SeparatedPronounsContainer getInstance() {

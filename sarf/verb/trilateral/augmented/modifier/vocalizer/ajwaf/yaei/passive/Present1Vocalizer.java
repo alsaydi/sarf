@@ -23,10 +23,10 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public Present1Vocalizer() {
-        substitutions.add(new ExpressionInfixSubstitution("úíóC3õ","óÇC3õ"));// EX: (åæ íõÈÇÏõ¡ íõÓÊŞÇá)
-        substitutions.add(new ExpressionInfixSubstitution("úíóC3ö","óÇC3ö"));// EX: (ÃäÊö ÊõÈÇÏöíä¡ ÊõÓÊŞÇáíä)
-        substitutions.add(new ExpressionInfixSubstitution("úíóC3ó","óÇC3ó"));// EX: (ÃäÊãÇ ÊõÈÇÏÇä¡ ÊõÓÊŞÇáÇä)
-        substitutions.add(new ExpressionInfixSubstitution("úíóC3ú","óC3ú"));// EX: (åäø íõÈóÏúäó¡ íõÓÊóŞóáúäó)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù","ÙØ§C3Ù"));// EX: (Ù‡Ùˆ ÙŠÙØ¨Ø§Ø¯ÙØŒ ÙŠÙØ³ØªÙ‚Ø§Ù„)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù","ÙØ§C3Ù"));// EX: (Ø£Ù†ØªÙ ØªÙØ¨Ø§Ø¯ÙÙŠÙ†ØŒ ØªÙØ³ØªÙ‚Ø§Ù„ÙŠÙ†)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù","ÙØ§C3Ù"));// EX: (Ø£Ù†ØªÙ…Ø§ ØªÙØ¨Ø§Ø¯Ø§Ù†ØŒ ØªÙØ³ØªÙ‚Ø§Ù„Ø§Ù†)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù’","ÙC3Ù’"));// EX: (Ù‡Ù†Ù‘ ÙŠÙØ¨ÙØ¯Ù’Ù†ÙØŒ ÙŠÙØ³ØªÙÙ‚ÙÙ„Ù’Ù†Ù)
     }
 
 

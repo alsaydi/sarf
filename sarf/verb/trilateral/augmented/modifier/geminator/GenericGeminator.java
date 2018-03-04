@@ -11,7 +11,7 @@ import sarf.verb.trilateral.augmented.modifier.geminator.generic.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: ÇáÍÇáÉ ÇáÚÇãÉ ááÇÏÛÇã  </p>
+ * <p>Description: Ø§Ù„Ø­Ø§Ù„Ø© Ø§Ù„Ø¹Ø§Ù…Ø© Ù„Ù„Ø§Ø¯ØºØ§Ù…  </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -25,7 +25,7 @@ public class GenericGeminator implements IAugmentedTrilateralModifier {
     private Map geminators = new HashMap();
 
     public GenericGeminator() {
-        //ÎãÓ ÃäæÇÚ ááÇÏÛÇã ááãÚáæã æÇáãÈäí áãÌåæá İí ÇáãÇÖí æÇáãÖÇÑÚ æÇáÃãÑ
+        //Ø®Ù…Ø³ Ø£Ù†ÙˆØ§Ø¹ Ù„Ù„Ø§Ø¯ØºØ§Ù… Ù„Ù„Ù…Ø¹Ù„ÙˆÙ… ÙˆØ§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„ ÙÙŠ Ø§Ù„Ù…Ø§Ø¶ÙŠ ÙˆØ§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙˆØ§Ù„Ø£Ù…Ø±
         geminators.put(SystemConstants.PAST_TENSE + "true", new ActivePastGeminator());
         geminators.put(SystemConstants.PRESENT_TENSE + "true", new ActivePresentGeminator());
         ImperativeGeminator imperativeGeminator = new ImperativeGeminator();

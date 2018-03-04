@@ -22,10 +22,10 @@ public class Imperative2Vocalizer extends SubstitutionsApplier implements IQuadr
     private List substitutions = new LinkedList();
 
     public Imperative2Vocalizer() {
-        substitutions.add(new SuffixSubstitution("íú", "")); // EX: (ÊóŞóáúÓó)
-        substitutions.add(new InfixSubstitution("íöí", "íú")); // EX: (ÃäÊö ÊóŞóáúÓóíú)
-        substitutions.add(new InfixSubstitution("íõæ", "æú")); // EX: (ÃäÊã ÊóŞóáúÓóæúÇ)
-        substitutions.add(new InfixSubstitution("íõä", "æõä")); // EX: (ÃäÊã ÊóŞóáúÓóæõäøó)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ’", "")); // EX: (ØªÙÙ‚ÙÙ„Ù’Ø³Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙŠ", "ÙŠÙ’")); // EX: (Ø£Ù†ØªÙ ØªÙÙ‚ÙÙ„Ù’Ø³ÙÙŠÙ’)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙˆ", "ÙˆÙ’")); // EX: (Ø£Ù†ØªÙ… ØªÙÙ‚ÙÙ„Ù’Ø³ÙÙˆÙ’Ø§)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙ†", "ÙˆÙÙ†")); // EX: (Ø£Ù†ØªÙ… ØªÙÙ‚ÙÙ„Ù’Ø³ÙÙˆÙÙ†Ù‘Ù)
     }
 
 
@@ -34,7 +34,7 @@ public class Imperative2Vocalizer extends SubstitutionsApplier implements IQuadr
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC4() == 'í' && conjugationResult.getFormulaNo() == 1) {
+        if (conjugationResult.getRoot().getC4() == 'ÙŠ' && conjugationResult.getFormulaNo() == 1) {
             return true;
         }
         return false;

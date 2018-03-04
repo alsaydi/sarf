@@ -21,17 +21,17 @@ public class FaaMahmouz extends AbstractFaaMahmouz {
     List substitutions = new LinkedList();
 
     public FaaMahmouz() {
-        substitutions.add(new InfixSubstitution("ÅöÁú", "Åöí")); // EX: (ÅíËÇÑ)
-        substitutions.add(new InfixSubstitution("óÁú", "óÃú")); // EX: (ÊÃËíÑ)
-        substitutions.add(new PrefixSubstitution("ÇáÇÁú","ÇáÇÆú"));// EX: (ÇáÇÆÊãÇÑ)
-        substitutions.add(new PrefixSubstitution("ÇáÁö","ÇáÅö"));// EX: (ÇáÅÌÇÑ)
-        substitutions.add(new PrefixSubstitution("ÇÁú", "ÇÆú")); // EX: (ÇÆÊãÇÑ)
-        substitutions.add(new PrefixSubstitution("Áö", "Åö")); // EX: (ÅÌÇÑ)
-        substitutions.add(new InfixSubstitution("õÁó", "õÄó")); // EX: (ãõÄóÇÌóÑÉ)
-        substitutions.add(new InfixSubstitution("öÁ", "öÆ")); // EX: (ÇÓÊÆãÇÑ)
-        substitutions.add(new InfixSubstitution("Áö", "Æö")); // EX: (ÇäÆØÇÑ)
-        substitutions.add(new InfixSubstitution("óÁóÇ", "óÂ")); // EX: (ÊÂßá)
-        substitutions.add(new InfixSubstitution("óÁó", "óÃó")); // EX: (ÊÃßøöÏ)
+        substitutions.add(new InfixSubstitution("Ø¥ÙØ¡Ù’", "Ø¥ÙÙŠ")); // EX: (Ø¥ÙŠØ«Ø§Ø±)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’", "ÙØ£Ù’")); // EX: (ØªØ£Ø«ÙŠØ±)
+        substitutions.add(new PrefixSubstitution("Ø§Ù„Ø§Ø¡Ù’","Ø§Ù„Ø§Ø¦Ù’"));// EX: (Ø§Ù„Ø§Ø¦ØªÙ…Ø§Ø±)
+        substitutions.add(new PrefixSubstitution("Ø§Ù„Ø¡Ù","Ø§Ù„Ø¥Ù"));// EX: (Ø§Ù„Ø¥Ø¬Ø§Ø±)
+        substitutions.add(new PrefixSubstitution("Ø§Ø¡Ù’", "Ø§Ø¦Ù’")); // EX: (Ø§Ø¦ØªÙ…Ø§Ø±)
+        substitutions.add(new PrefixSubstitution("Ø¡Ù", "Ø¥Ù")); // EX: (Ø¥Ø¬Ø§Ø±)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ¤Ù")); // EX: (Ù…ÙØ¤ÙØ§Ø¬ÙØ±Ø©)
+        substitutions.add(new InfixSubstitution("ÙØ¡", "ÙØ¦")); // EX: (Ø§Ø³ØªØ¦Ù…Ø§Ø±)
+        substitutions.add(new InfixSubstitution("Ø¡Ù", "Ø¦Ù")); // EX: (Ø§Ù†Ø¦Ø·Ø§Ø±)
+        substitutions.add(new InfixSubstitution("ÙØ¡ÙØ§", "ÙØ¢")); // EX: (ØªØ¢ÙƒÙ„)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ£Ù")); // EX: (ØªØ£ÙƒÙ‘ÙØ¯)
 
     }
 

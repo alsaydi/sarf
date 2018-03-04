@@ -11,9 +11,9 @@ import sarf.verb.trilateral.augmented.modifier.vocalizer.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: íŞæã ÈİÍÕ æÇÌÑÇÁ ÇáÊÚÏíáÇÊ ÇáãäÇÓÈÉ Úáì ÇáÃİÚÇá ÇáËáÇËíÉ ÇáãÒíÏÉ
- * ÈãÇ İíåÇ ÇáÇÚáÇá æÇáÇÈÏÇá æÇáåãÒÉ
- * ÍÓÈ ÇáÕíÛÉ ãÇÖí Ãæ ãÖÇÑÚ Çæ ÃãÑ
+ * <p>Description: ÙŠÙ‚ÙˆÙ… Ø¨ÙØ­Øµ ÙˆØ§Ø¬Ø±Ø§Ø¡ Ø§Ù„ØªØ¹Ø¯ÙŠÙ„Ø§Øª Ø§Ù„Ù…Ù†Ø§Ø³Ø¨Ø© Ø¹Ù„Ù‰ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ø«Ù„Ø§Ø«ÙŠØ© Ø§Ù„Ù…Ø²ÙŠØ¯Ø©
+ * Ø¨Ù…Ø§ ÙÙŠÙ‡Ø§ Ø§Ù„Ø§Ø¹Ù„Ø§Ù„ ÙˆØ§Ù„Ø§Ø¨Ø¯Ø§Ù„ ÙˆØ§Ù„Ù‡Ù…Ø²Ø©
+ * Ø­Ø³Ø¨ Ø§Ù„ØµÙŠØºØ© Ù…Ø§Ø¶ÙŠ Ø£Ùˆ Ù…Ø¶Ø§Ø±Ø¹ Ø§Ùˆ Ø£Ù…Ø±
  * </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
@@ -29,7 +29,7 @@ public class AugmentedTrilateralModifier {
     }
 
     private static AugmentedTrilateralModifier instance = new AugmentedTrilateralModifier();
-    //ÇáÇÈÏÇá
+    //Ø§Ù„Ø§Ø¨Ø¯Ø§Ù„
     private Substituter substituter = new Substituter();
     private Geminator geminator = new Geminator();
     private Vocalizer vocalizer = new Vocalizer();
@@ -41,12 +41,12 @@ public class AugmentedTrilateralModifier {
     }
 
     /**
-     * ÇÎÑÇÌ ŞÇÆãÉ ÇáÃİÚÇá ÈÚÏ ÇáÊÚÏíáÇÊ
-     * ÇáÈÏÁ ÈÇáÇÈÏÇá
+     * Ø§Ø®Ø±Ø§Ø¬ Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø¨Ø¹Ø¯ Ø§Ù„ØªØ¹Ø¯ÙŠÙ„Ø§Øª
+     * Ø§Ù„Ø¨Ø¯Ø¡ Ø¨Ø§Ù„Ø§Ø¨Ø¯Ø§Ù„
      * @param root UnaugmentedTrilateralRoot
      * @param kov int
      * @param conjugations List
-     * @param tense String (From SystemConstans class the values are stored)  ãÇÖí Ãæ ãÖÇÑÚ Çæ ÃãÑ
+     * @param tense String (From SystemConstans class the values are stored)  Ù…Ø§Ø¶ÙŠ Ø£Ùˆ Ù…Ø¶Ø§Ø±Ø¹ Ø§Ùˆ Ø£Ù…Ø±
      * @return ConjugationResult
      */
     public ConjugationResult build(AugmentedTrilateralRoot root, int kov, int formulaNo, List conjugations, String tense, boolean active, boolean applyGemination, AugmentedTrilateralModifierListener listener) {

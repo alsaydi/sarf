@@ -6,7 +6,7 @@ import java.sql.*;
 /**
  * <p>Title: </p>
  *
- * <p>Description: วไิวม วสีวแ ใฺ Þวฺฯษ วแใฺุํวส    </p>
+ * <p>Description: ุงูุดุงุก ุงุชุตุงู ู…ุน ูุงุนุฏุฉ ุงูู…ุนุทูุงุช    </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *

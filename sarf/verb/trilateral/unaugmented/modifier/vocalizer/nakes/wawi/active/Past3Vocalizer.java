@@ -23,9 +23,9 @@ public class Past3Vocalizer extends SubstitutionsApplier implements IUnaugmented
     private List substitutions = new LinkedList();
 
     public Past3Vocalizer() {
-        substitutions.add(new InfixSubstitution("öæú","öí"));
-substitutions.add(new InfixSubstitution("öæó","öíó"));
-substitutions.add(new InfixSubstitution("öæõ","õ"));
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’","ÙÙŠ"));
+substitutions.add(new InfixSubstitution("ÙÙˆÙ","ÙÙŠÙ"));
+substitutions.add(new InfixSubstitution("ÙÙˆÙ","Ù"));
 
     }
 

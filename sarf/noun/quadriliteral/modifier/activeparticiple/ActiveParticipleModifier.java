@@ -26,7 +26,7 @@ public class ActiveParticipleModifier {
     /**
      * @param root UnaugmentedTrilateralRoot
      * @param conjugations List
-     * @param tense String (From SystemConstans class the values are stored)  ãÇÖí Ãæ ãÖÇÑÚ Çæ ÃãÑ
+     * @param tense String (From SystemConstans class the values are stored)  Ù…Ø§Ø¶ÙŠ Ø£Ùˆ Ù…Ø¶Ø§Ø±Ø¹ Ø§Ùˆ Ø£Ù…Ø±
      * @return ConjugationResult
      */
     public ConjugationResult build(QuadrilateralRoot root, int formulaNo, int kov, List conjugations) {

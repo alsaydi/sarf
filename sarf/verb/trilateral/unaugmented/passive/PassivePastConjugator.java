@@ -8,7 +8,7 @@ import sarf.*;
 /**
  * <p>Title: Sarf</p>
  *
- * <p>Description: ÊÕÑíİ ÇáÃİÚÇá İí ÇáãÇÖí ÇáãÈäí ááãÌåæá     </p>
+ * <p>Description: ØªØµØ±ÙŠÙ Ø§Ù„Ø£ÙØ¹Ø§Ù„ ÙÙŠ Ø§Ù„Ù…Ø§Ø¶ÙŠ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù„Ù…Ø¬Ù‡ÙˆÙ„     </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -28,14 +28,14 @@ public class PassivePastConjugator {
     }
 
     /**
-    *  ÅäÔÇÁ ÇáİÚá ÍÓÈ ÇáÖãíÑ
+    *  Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
      * @param pronounIndex int
      * @param root TripleVerb
      * @return PassivePastVerb
      */
     public PassivePastVerb createVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
-        //	ÇÙåÇÑ ãÚ åæ æåí İŞØ ááãÌåæá ÇááÇÒã
-        if (root.getTransitive().equals("á") && pronounIndex!= 7 && pronounIndex!= 8)
+        //	Ø§Ø¸Ù‡Ø§Ø± Ù…Ø¹ Ù‡Ùˆ ÙˆÙ‡ÙŠ ÙÙ‚Ø· Ù„Ù„Ù…Ø¬Ù‡ÙˆÙ„ Ø§Ù„Ù„Ø§Ø²Ù…
+        if (root.getTransitive().equals("Ù„") && pronounIndex!= 7 && pronounIndex!= 8)
             return null;
         String lastDpa = PastConjugationDataContainer.getInstance().getLastDpa(pronounIndex);
         String connectedPronoun = PastConjugationDataContainer.getInstance().getConnectedPronoun(pronounIndex);
@@ -43,7 +43,7 @@ public class PassivePastConjugator {
     }
 
     /**
-     *  ÅäÔÇÁ  ŞÇÆãÉ ÊÍÊæí ÇáÃİÚÇá ãÚ ÇáÖãÇÆÑ ÇáËáÇËÉ ÚÔÑ
+     *  Ø¥Ù†Ø´Ø§Ø¡  Ù‚Ø§Ø¦Ù…Ø© ØªØ­ØªÙˆÙŠ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ù…Ø¹ Ø§Ù„Ø¶Ù…Ø§Ø¦Ø± Ø§Ù„Ø«Ù„Ø§Ø«Ø© Ø¹Ø´Ø±
      * @param root TripleVerb
      * @return List
      */

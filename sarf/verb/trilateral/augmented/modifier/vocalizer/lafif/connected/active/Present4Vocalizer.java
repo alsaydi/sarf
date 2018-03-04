@@ -24,11 +24,11 @@ public class Present4Vocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public Present4Vocalizer() {
-        substitutions.add(new SuffixSubstitution("öíõ","öí"));// EX: (íõĞúæöí¡ íÏÇæí¡ íäÒæí¡ íÍÊæí¡ íÓÊåæí)
-        substitutions.add(new SuffixSubstitution("íú",""));// EX: (áã íõĞúæö¡ áã íÏÇæö¡ áã íóäúÒóæö¡ áã íóÍúÊóæö¡ áã íóÓúÊóåúæö)
-        substitutions.add(new InfixSubstitution("öíö","ö"));// EX: (ÃäÊö ÊõĞúæöíäó¡ ÊõÏÇæöíäó¡ ÊäúÒæíä¡ ÊÍÊæíä¡ ÊÓÊåæíä)
-        substitutions.add(new InfixSubstitution("öíõ","õ"));// EX: (ÃäÊã ÊõĞúæõæäó¡ ÊõÏÇæõæäó¡ ÊäúÒææä¡ ÊÍÊææä¡ ÊÓÊåææä)
-        substitutions.add(new InfixSubstitution("öíú","öí"));// EX: (ÃäÊä ÊõĞúæöíäó¡ ÊÏÇæíä¡ ÊäúÒæíä¡ ÊÍÊæíä¡ ÊÓÊåæíä)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠ"));// EX: (ÙŠÙØ°Ù’ÙˆÙÙŠØŒ ÙŠØ¯Ø§ÙˆÙŠØŒ ÙŠÙ†Ø²ÙˆÙŠØŒ ÙŠØ­ØªÙˆÙŠØŒ ÙŠØ³ØªÙ‡ÙˆÙŠ)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ’",""));// EX: (Ù„Ù… ÙŠÙØ°Ù’ÙˆÙØŒ Ù„Ù… ÙŠØ¯Ø§ÙˆÙØŒ Ù„Ù… ÙŠÙÙ†Ù’Ø²ÙÙˆÙØŒ Ù„Ù… ÙŠÙØ­Ù’ØªÙÙˆÙØŒ Ù„Ù… ÙŠÙØ³Ù’ØªÙÙ‡Ù’ÙˆÙ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ø£Ù†ØªÙ ØªÙØ°Ù’ÙˆÙÙŠÙ†ÙØŒ ØªÙØ¯Ø§ÙˆÙÙŠÙ†ÙØŒ ØªÙ†Ù’Ø²ÙˆÙŠÙ†ØŒ ØªØ­ØªÙˆÙŠÙ†ØŒ ØªØ³ØªÙ‡ÙˆÙŠÙ†)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ø£Ù†ØªÙ… ØªÙØ°Ù’ÙˆÙÙˆÙ†ÙØŒ ØªÙØ¯Ø§ÙˆÙÙˆÙ†ÙØŒ ØªÙ†Ù’Ø²ÙˆÙˆÙ†ØŒ ØªØ­ØªÙˆÙˆÙ†ØŒ ØªØ³ØªÙ‡ÙˆÙˆÙ†)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ’","ÙÙŠ"));// EX: (Ø£Ù†ØªÙ† ØªÙØ°Ù’ÙˆÙÙŠÙ†ÙØŒ ØªØ¯Ø§ÙˆÙŠÙ†ØŒ ØªÙ†Ù’Ø²ÙˆÙŠÙ†ØŒ ØªØ­ØªÙˆÙŠÙ†ØŒ ØªØ³ØªÙ‡ÙˆÙŠÙ†)
     }
 
 
@@ -40,7 +40,7 @@ public class Present4Vocalizer extends SubstitutionsApplier implements IAugmente
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        if (root.getC2() == 'æ' && root.getC3() == 'í') {
+        if (root.getC2() == 'Ùˆ' && root.getC3() == 'ÙŠ') {
             switch (kov) {
             case 27:
                 switch (formulaNo) {

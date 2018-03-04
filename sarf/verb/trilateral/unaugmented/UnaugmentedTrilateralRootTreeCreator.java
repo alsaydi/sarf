@@ -6,7 +6,7 @@ import org.apache.commons.digester3.*;
 import sarf.*;
 
 /**
- * <p>Title: ÊÍæíá ãáİ ÇáãÚØíÇÊ Åáì ŞÇÆãÉ ÇáÌĞæÑ ÇáËáÇËíÉ ÇáãÌÑÏÉ       </p>
+ * <p>Title: ØªØ­ÙˆÙŠÙ„ Ù…Ù„Ù Ø§Ù„Ù…Ø¹Ø·ÙŠØ§Øª Ø¥Ù„Ù‰ Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø¬Ø°ÙˆØ± Ø§Ù„Ø«Ù„Ø§Ø«ÙŠØ© Ø§Ù„Ù…Ø¬Ø±Ø¯Ø©       </p>
  *
  * <p>Description: </p>
  *
@@ -46,7 +46,7 @@ public class UnaugmentedTrilateralRootTreeCreator {
 
     public static void main(String[] args) {
         try {
-            char c1 = 'Ù';
+            char c1 = 'Ø¸';
             UnaugmentedTrilateralRootTree rootTree = buildXmlVerbTree(new File("c:/sarf/"+c1+".xml"));
             System.out.println("done");
         }

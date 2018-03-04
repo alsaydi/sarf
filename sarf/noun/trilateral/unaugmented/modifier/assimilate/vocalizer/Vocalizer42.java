@@ -24,13 +24,13 @@ public class Vocalizer42 extends TrilateralNounSubstitutionApplier implements IU
     List substitutions = new LinkedList();
 
     public Vocalizer42() {
-        substitutions.add(new SuffixSubstitution("öíõ","öí"));// EX: (åĞÇ ÇáÕøÏöí )
-        substitutions.add(new SuffixSubstitution("öíó","öíó"));// EX: (ÑÃíÊõ ÇáÕøÏöíó)
-        substitutions.add(new SuffixSubstitution("öíö","öí"));// EX: (ãÑÑÊ Úáì ÇáÕøÏöí)
-        substitutions.add(new InfixSubstitution("öíñ","ò"));// EX: (åĞÇ ÕóÏò¡ )
-        substitutions.add(new InfixSubstitution("öíò","ò"));// EX: (ãÑÑÊ Úáì ÕóÏò¡ )
-        substitutions.add(new InfixSubstitution("öíõæ","õæ"));// EX: (ÕóÏõæäó¡ )
-        substitutions.add(new InfixSubstitution("öíöí","öí"));// EX: (ÕóÏöíäó )
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠ"));// EX: (Ù‡Ø°Ø§ Ø§Ù„ØµÙ‘Ø¯ÙÙŠ )
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠÙ"));// EX: (Ø±Ø£ÙŠØªÙ Ø§Ù„ØµÙ‘Ø¯ÙÙŠÙ)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠ"));// EX: (Ù…Ø±Ø±Øª Ø¹Ù„Ù‰ Ø§Ù„ØµÙ‘Ø¯ÙÙŠ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙŒ","Ù"));// EX: (Ù‡Ø°Ø§ ØµÙØ¯ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ù…Ø±Ø±Øª Ø¹Ù„Ù‰ ØµÙØ¯ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙˆ","ÙÙˆ"));// EX: (ØµÙØ¯ÙÙˆÙ†ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙŠ","ÙÙŠ"));// EX: (ØµÙØ¯ÙÙŠÙ†Ù )
     }
 
 
@@ -43,7 +43,7 @@ public class Vocalizer42 extends TrilateralNounSubstitutionApplier implements IU
         int kov = conjugationResult.getKov();
         int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
 
-        return nounFormula.equals("İóÚöá") && (kov == 24 || kov == 26 || kov == 28) && noc == 4;
+        return nounFormula.equals("ÙÙØ¹ÙÙ„") && (kov == 24 || kov == 26 || kov == 28) && noc == 4;
     }
 
 }

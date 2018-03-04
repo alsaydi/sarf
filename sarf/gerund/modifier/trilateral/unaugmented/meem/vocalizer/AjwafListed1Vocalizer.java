@@ -10,7 +10,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description:åæ ÊßÑÇÑ ááÕİ ÇáÇÎÑ æáßä ãÚ ÔÑØ æÌæÏ ÇáÌĞÑ Öãä ÇáŞÇÆãÉ           </p>
+ * <p>Description:Ù‡Ùˆ ØªÙƒØ±Ø§Ø± Ù„Ù„ØµÙ Ø§Ù„Ø§Ø®Ø± ÙˆÙ„ÙƒÙ† Ù…Ø¹ Ø´Ø±Ø· ÙˆØ¬ÙˆØ¯ Ø§Ù„Ø¬Ø°Ø± Ø¶Ù…Ù† Ø§Ù„Ù‚Ø§Ø¦Ù…Ø©           </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -23,8 +23,8 @@ public class AjwafListed1Vocalizer extends AbstractAjwafYaeiListedVocalizer impl
     private List substitutions = new LinkedList();
 
     public AjwafListed1Vocalizer() {
-        substitutions.add(new InfixSubstitution("úíö","öí"));// EX: ( ãóÈöíÚ¡ )
-        substitutions.add(new InfixSubstitution("úíó","óÇ"));// EX: (ãÍÇÑ)
+        substitutions.add(new InfixSubstitution("Ù’ÙŠÙ","ÙÙŠ"));// EX: ( Ù…ÙØ¨ÙÙŠØ¹ØŒ )
+        substitutions.add(new InfixSubstitution("Ù’ÙŠÙ","ÙØ§"));// EX: (Ù…Ø­Ø§Ø±)
     }
 
     public List getSubstitutions() {

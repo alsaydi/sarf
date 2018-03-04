@@ -23,8 +23,8 @@ public class ActivePast2Vocalizer extends SubstitutionsApplier implements IUnaug
     private List substitutions = new LinkedList();
 
     public ActivePast2Vocalizer() {
-        substitutions.add(new InfixSubstitution("öíú","öí"));
-substitutions.add(new InfixSubstitution("öíõ","õ"));
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ’","ÙÙŠ"));
+substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));
     }
 
 

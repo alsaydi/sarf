@@ -23,12 +23,12 @@ public class ActivePastGeminator extends SubstitutionsApplier {
     private List substitutions = new LinkedList();
 
     public ActivePastGeminator() {
-        substitutions.add(new ExpressionInfixSubstitution("úC3óC3ó","óC3øó"));// EX: (ÃóãóÏøó¡)
-        substitutions.add(new ExpressionInfixSubstitution("úC3óC3õ","óC3øõ"));// EX: (ÃóãóÏøõæÇ¡)
-        substitutions.add(new ExpressionInfixSubstitution("ÇC3óC3ó","ÇC3øó"));// EX: (ÍÇÌøó¡ ÇÍãÇÑøó)
-        substitutions.add(new ExpressionInfixSubstitution("ÇC3óC3õ","ÇC3øõ"));// EX: (ÍÇÌøõæÇ¡ ÇÍãÇÑøõæÇ)
-        substitutions.add(new ExpressionInfixSubstitution("óC3óC3ó","óC3øó"));// EX: (ÇÍãÑøó)
-        substitutions.add(new ExpressionInfixSubstitution("óC3óC3õ","óC3øõ"));// EX: (ÇÍãÑøõæÇ)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C3ÙC3Ù","ÙC3Ù‘Ù"));// EX: (Ø£ÙÙ…ÙØ¯Ù‘ÙØŒ)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C3ÙC3Ù","ÙC3Ù‘Ù"));// EX: (Ø£ÙÙ…ÙØ¯Ù‘ÙÙˆØ§ØŒ)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C3ÙC3Ù","Ø§C3Ù‘Ù"));// EX: (Ø­Ø§Ø¬Ù‘ÙØŒ Ø§Ø­Ù…Ø§Ø±Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C3ÙC3Ù","Ø§C3Ù‘Ù"));// EX: (Ø­Ø§Ø¬Ù‘ÙÙˆØ§ØŒ Ø§Ø­Ù…Ø§Ø±Ù‘ÙÙˆØ§)
+        substitutions.add(new ExpressionInfixSubstitution("ÙC3ÙC3Ù","ÙC3Ù‘Ù"));// EX: (Ø§Ø­Ù…Ø±Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙC3ÙC3Ù","ÙC3Ù‘Ù"));// EX: (Ø§Ø­Ù…Ø±Ù‘ÙÙˆØ§)
     }
 
     public List getSubstitutions() {

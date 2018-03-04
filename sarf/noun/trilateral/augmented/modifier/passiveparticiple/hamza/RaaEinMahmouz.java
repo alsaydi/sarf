@@ -24,8 +24,8 @@ public class RaaEinMahmouz extends TrilateralNounSubstitutionApplier implements 
 
     public RaaEinMahmouz() {
 
-        substitutions.add(new InfixSubstitution("úÁğ","ğ"));// EX: (ãõÑğì¡ )
-        substitutions.add(new InfixSubstitution("úÁó","ó"));// EX: (ãõÑóíÇäö¡ )
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù‹","Ù‹"));// EX: (Ù…ÙØ±Ù‹Ù‰ØŒ )
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù","Ù"));// EX: (Ù…ÙØ±ÙÙŠØ§Ù†ÙØŒ )
 
     }
 
@@ -36,6 +36,6 @@ public class RaaEinMahmouz extends TrilateralNounSubstitutionApplier implements 
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC1() == 'Ñ' && root.getC2() == 'Á' && root.getC3() == 'í' && conjugationResult.getFormulaNo() == 1;
+        return root.getC1() == 'Ø±' && root.getC2() == 'Ø¡' && root.getC3() == 'ÙŠ' && conjugationResult.getFormulaNo() == 1;
     }
 }

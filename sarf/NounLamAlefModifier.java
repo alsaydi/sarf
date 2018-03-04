@@ -28,10 +28,10 @@ public class NounLamAlefModifier extends SubstitutionsApplier{
 
     private NounLamAlefModifier() {
 
-        substitutions.add(new InfixSubstitution("áóÇ","áÇ"));// EX: (ŞÇáÇ)
-        substitutions.add(new InfixSubstitution("áøóÇ","áÇøó"));// EX: (ÇäúÔóáÇøó)
-        substitutions.add(new InfixSubstitution("áóÃ","áÃ"));// EX: (ãóáÃó¡ ãóáÃúÊõ)
-        substitutions.add(new InfixSubstitution("áğÇ","áÇğ"));// EX: (ÍãáÇğ)
+        substitutions.add(new InfixSubstitution("Ù„ÙØ§","Ù„Ø§"));// EX: (Ù‚Ø§Ù„Ø§)
+        substitutions.add(new InfixSubstitution("Ù„Ù‘ÙØ§","Ù„Ø§Ù‘Ù"));// EX: (Ø§Ù†Ù’Ø´ÙÙ„Ø§Ù‘Ù)
+        substitutions.add(new InfixSubstitution("Ù„ÙØ£","Ù„Ø£"));// EX: (Ù…ÙÙ„Ø£ÙØŒ Ù…ÙÙ„Ø£Ù’ØªÙ)
+        substitutions.add(new InfixSubstitution("Ù„Ù‹Ø§","Ù„Ø§Ù‹"));// EX: (Ø­Ù…Ù„Ø§Ù‹)
 
     }
 
@@ -43,20 +43,20 @@ public class NounLamAlefModifier extends SubstitutionsApplier{
 
     public void apply(sarf.verb.trilateral.unaugmented.ConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
-        //ŞÏ íæÌÏ áÇã Ãáİ ÃÎÑì ÊÊØÇÈŞ ãÚ ŞÇäæä ÃÎÑ
+        //Ù‚Ø¯ ÙŠÙˆØ¬Ø¯ Ù„Ø§Ù… Ø£Ù„Ù Ø£Ø®Ø±Ù‰ ØªØªØ·Ø§Ø¨Ù‚ Ù…Ø¹ Ù‚Ø§Ù†ÙˆÙ† Ø£Ø®Ø±
         apply(conjResult.getFinalResult(), null);
     }
 
     public void apply(sarf.verb.trilateral.augmented.ConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
-        //ŞÏ íæÌÏ áÇã Ãáİ ÃÎÑì ÊÊØÇÈŞ ãÚ ŞÇäæä ÃÎÑ
+        //Ù‚Ø¯ ÙŠÙˆØ¬Ø¯ Ù„Ø§Ù… Ø£Ù„Ù Ø£Ø®Ø±Ù‰ ØªØªØ·Ø§Ø¨Ù‚ Ù…Ø¹ Ù‚Ø§Ù†ÙˆÙ† Ø£Ø®Ø±
         apply(conjResult.getFinalResult(), null);
     }
 
 
     public void apply(sarf.verb.quadriliteral.ConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
-        //ŞÏ íæÌÏ áÇã Ãáİ ÃÎÑì ÊÊØÇÈŞ ãÚ ŞÇäæä ÃÎÑ
+        //Ù‚Ø¯ ÙŠÙˆØ¬Ø¯ Ù„Ø§Ù… Ø£Ù„Ù Ø£Ø®Ø±Ù‰ ØªØªØ·Ø§Ø¨Ù‚ Ù…Ø¹ Ù‚Ø§Ù†ÙˆÙ† Ø£Ø®Ø±
         apply(conjResult.getFinalResult(), null);
     }
 

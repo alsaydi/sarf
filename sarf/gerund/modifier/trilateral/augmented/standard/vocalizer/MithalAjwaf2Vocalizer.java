@@ -24,8 +24,8 @@ public class MithalAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier imp
     private List substitutions = new LinkedList();
 
     public MithalAjwaf2Vocalizer() {
-        substitutions.add(new InfixSubstitution("Åöíú","Åöí"));// EX: (ÅíŞÇÙ)
-        substitutions.add(new InfixSubstitution("Êöíú","Êöí"));// EX: (ÇÓÊíŞÇÙ)
+        substitutions.add(new InfixSubstitution("Ø¥ÙÙŠÙ’","Ø¥ÙÙŠ"));// EX: (Ø¥ÙŠÙ‚Ø§Ø¸)
+        substitutions.add(new InfixSubstitution("ØªÙÙŠÙ’","ØªÙÙŠ"));// EX: (Ø§Ø³ØªÙŠÙ‚Ø§Ø¸)
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {

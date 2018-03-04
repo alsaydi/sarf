@@ -23,8 +23,8 @@ public class EinMahmouz extends AbstractEinMahmouz {
     List substitutions = new LinkedList();
 
     public EinMahmouz() {
-        substitutions.add(new InfixSubstitution("úÁó", "úÃó")); // EX: (ãóĞúÃóÈóÉ)
-        substitutions.add(new InfixSubstitution("Áö", "Æö")); // EX: (ãóæúÆöá)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù", "Ù’Ø£Ù")); // EX: (Ù…ÙØ°Ù’Ø£ÙØ¨ÙØ©)
+        substitutions.add(new InfixSubstitution("Ø¡Ù", "Ø¦Ù")); // EX: (Ù…ÙÙˆÙ’Ø¦ÙÙ„)
     }
 
 

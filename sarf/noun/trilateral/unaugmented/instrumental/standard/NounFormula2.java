@@ -30,14 +30,14 @@ public class NounFormula2 extends NounFormula {
         case 10:
         case 14:
         case 16:
-            return "γ" + ArabCharUtil.KASRA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.FATHA + root.getC3() + suffix;
+            return "Ω…" + ArabCharUtil.KASRA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.FATHA + root.getC3() + suffix;
         }
 
         return "";
     }
 
     public String getFormulaName() {
-        return "γφέϊΪσασΙ";
+        return "Ω…ΩΩΩ’ΨΉΩΩ„ΩΨ©";
     }
 
 }

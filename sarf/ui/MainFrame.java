@@ -106,7 +106,7 @@ public class MainFrame extends JFrame {
         contentPane = (JPanel) getContentPane();
         contentPane.setLayout(borderLayout1);
         setSize(new Dimension(600, 500));
-        setTitle("Arabic Morphology System  -  äÙÇã ÇáÇÔÊŞÇŞ æÇáÊÕÑíİ İí ÇááÛÉ ÇáÚÑÈíÉ");
+        setTitle("Arabic Morphology System  -  Ù†Ø¸Ø§Ù… Ø§Ù„Ø§Ø´ØªÙ‚Ø§Ù‚ ÙˆØ§Ù„ØªØµØ±ÙŠÙ ÙÙŠ Ø§Ù„Ù„ØºØ© Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©");
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.addWindowListener(new MainFrame_this_windowAdapter(this));
         contentPane.setFont(new java.awt.Font("Arabic Transparent", Font.PLAIN, 12));

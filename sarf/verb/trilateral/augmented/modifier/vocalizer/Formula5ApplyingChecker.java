@@ -19,16 +19,16 @@ public class Formula5ApplyingChecker extends IFormulaApplyingChecker{
     private List notVocalizedList = new LinkedList();
 
     public Formula5ApplyingChecker() {
-        twoStateList.add("Íæá");
-        twoStateList.add("ÑæÍ");
-        twoStateList.add("ÔæÑ");
+        twoStateList.add("Ø­ÙˆÙ„");
+        twoStateList.add("Ø±ÙˆØ­");
+        twoStateList.add("Ø´ÙˆØ±");
 
-        notVocalizedList.add("ÌæÑ");
-        notVocalizedList.add("ÍæÔ");
-        notVocalizedList.add("ÒæÌ");
-        notVocalizedList.add("ÓæØ");
-        notVocalizedList.add("ÚæÑ");
-        notVocalizedList.add("åæÑ");
+        notVocalizedList.add("Ø¬ÙˆØ±");
+        notVocalizedList.add("Ø­ÙˆØ´");
+        notVocalizedList.add("Ø²ÙˆØ¬");
+        notVocalizedList.add("Ø³ÙˆØ·");
+        notVocalizedList.add("Ø¹ÙˆØ±");
+        notVocalizedList.add("Ù‡ÙˆØ±");
     }
 
     public List getNotVocalizedList() {

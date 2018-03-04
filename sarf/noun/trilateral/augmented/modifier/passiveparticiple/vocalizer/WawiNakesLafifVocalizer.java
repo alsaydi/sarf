@@ -24,22 +24,22 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
     private List substitutions = new LinkedList();
 
     public WawiNakesLafifVocalizer() {
-        substitutions.add(new InfixSubstitution("óæóÉ","óÇÉ"));// EX: (ãõÏúäÇÉñ¡)
-        substitutions.add(new InfixSubstitution("óæóÊ","óÇÊ"));// EX: (ãõÏúäÇÊÇä¡ ãõÏúäÇÊóíúäö)
-        substitutions.add(new InfixSubstitution("óæóÇ","óíóÇ"));// EX: (ãõÏúäóíóÇäö¡ ãõÏúäóíóÇÊñ)
-        substitutions.add(new InfixSubstitution("óæóí","óíóí"));// EX: (ãõÏúäóíóíúäö¡)
-        substitutions.add(new InfixSubstitution("óæõæ","óæú"));// EX: (ãõÏúäóæúäó)
-        substitutions.add(new InfixSubstitution("óæöí","óíú"));// EX: (ãõÏúäóíúäó)
-        substitutions.add(new SuffixSubstitution("óæõ","óì"));// EX: (åĞÇ ÇáãõÏúäóì¡)
-        substitutions.add(new SuffixSubstitution("óæó","óì"));// EX: (ÑÃíÊõ ÇáãõÏúäóì ¡  )
-        substitutions.add(new SuffixSubstitution("óæö","óì"));// EX: (ãÑÑÊõ Úáì ÇáãõÏúäóì ¡ )
-        substitutions.add(new InfixSubstitution("óæñ","ğì"));// EX: (åĞÇ ãõÏúäğì)
-        substitutions.add(new InfixSubstitution("óæğÇ","ğì"));// EX: (ÑÃíÊõ ãõÏúäğì)
-        substitutions.add(new InfixSubstitution("óæò","ğì"));// EX: (ãÑÑÊõ Úáì ãõÏúäğì)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙØ©","ÙØ§Ø©"));// EX: (Ù…ÙØ¯Ù’Ù†Ø§Ø©ÙŒØŒ)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙØª","ÙØ§Øª"));// EX: (Ù…ÙØ¯Ù’Ù†Ø§ØªØ§Ù†ØŒ Ù…ÙØ¯Ù’Ù†Ø§ØªÙÙŠÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙØ§","ÙÙŠÙØ§"));// EX: (Ù…ÙØ¯Ù’Ù†ÙÙŠÙØ§Ù†ÙØŒ Ù…ÙØ¯Ù’Ù†ÙÙŠÙØ§ØªÙŒ)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙŠ","ÙÙŠÙÙŠ"));// EX: (Ù…ÙØ¯Ù’Ù†ÙÙŠÙÙŠÙ’Ù†ÙØŒ)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙˆ","ÙÙˆÙ’"));// EX: (Ù…ÙØ¯Ù’Ù†ÙÙˆÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙŠ","ÙÙŠÙ’"));// EX: (Ù…ÙØ¯Ù’Ù†ÙÙŠÙ’Ù†Ù)
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ","ÙÙ‰"));// EX: (Ù‡Ø°Ø§ Ø§Ù„Ù…ÙØ¯Ù’Ù†ÙÙ‰ØŒ)
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ","ÙÙ‰"));// EX: (Ø±Ø£ÙŠØªÙ Ø§Ù„Ù…ÙØ¯Ù’Ù†ÙÙ‰ ØŒ  )
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ","ÙÙ‰"));// EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ø§Ù„Ù…ÙØ¯Ù’Ù†ÙÙ‰ ØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙŒ","Ù‹Ù‰"));// EX: (Ù‡Ø°Ø§ Ù…ÙØ¯Ù’Ù†Ù‹Ù‰)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ‹Ø§","Ù‹Ù‰"));// EX: (Ø±Ø£ÙŠØªÙ Ù…ÙØ¯Ù’Ù†Ù‹Ù‰)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ","Ù‹Ù‰"));// EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ù…ÙØ¯Ù’Ù†Ù‹Ù‰)
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC3() != 'æ')
+        if (conjugationResult.getRoot().getC3() != 'Ùˆ')
             return false;
 
         int kov = conjugationResult.getKov();

@@ -26,8 +26,8 @@ public class GerundPattern3 extends TrilateralAugmentedGerund {
 
     public GerundPattern3(AugmentedTrilateralRoot root, String suffixNo) {
         init(root, suffixNo);
-        //ÓíÊã ÇÎÊíÇÑ ÃÍÏ ÇáŞÇäæäíä
-        if (root.getC1() != 'í') {
+        //Ø³ÙŠØªÙ… Ø§Ø®ØªÙŠØ§Ø± Ø£Ø­Ø¯ Ø§Ù„Ù‚Ø§Ù†ÙˆÙ†ÙŠÙ†
+        if (root.getC1() != 'ÙŠ') {
             form2Applied = TrilateralAugmentedGerundConjugator.getInstance().selectPatternFormNo(3) == 2;
         }
     }
@@ -45,7 +45,7 @@ public class GerundPattern3 extends TrilateralAugmentedGerund {
 
     public String form1() {
         if (suffixNo % 2 == 0) {
-            return "ã" + ArabCharUtil.DAMMA + root.getC1() + ArabCharUtil.FATHA + "Ç" + root.getC2() + ArabCharUtil.FATHA + root.getC3() + suffix;
+            return "Ù…" + ArabCharUtil.DAMMA + root.getC1() + ArabCharUtil.FATHA + "Ø§" + root.getC2() + ArabCharUtil.FATHA + root.getC3() + suffix;
         }
         return "";
     }
@@ -61,7 +61,7 @@ public class GerundPattern3 extends TrilateralAugmentedGerund {
         case 13:
         case 15:
         case 18:
-            return root.getC1() + ArabCharUtil.KASRA + root.getC2() + ArabCharUtil.FATHA + "Ç" + root.getC3() + suffix;
+            return root.getC1() + ArabCharUtil.KASRA + root.getC2() + ArabCharUtil.FATHA + "Ø§" + root.getC3() + suffix;
         }
         return "";
     }
@@ -75,7 +75,7 @@ public class GerundPattern3 extends TrilateralAugmentedGerund {
      *   sarf.gerund.trilateral.augmented.TrilateralAugmentedGerund method
      */
     public String getPattern() {
-        return "ãõİóÇÚóáóÉ";
+        return "Ù…ÙÙÙØ§Ø¹ÙÙ„ÙØ©";
     }
 
 }

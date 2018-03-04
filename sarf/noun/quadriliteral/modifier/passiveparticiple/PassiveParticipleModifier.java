@@ -24,10 +24,10 @@ public class PassiveParticipleModifier {
     }
 
     /**
-     * ÇÎÑÇÌ ŞÇÆãÉ ÇáÃİÚÇá ÈÚÏ ÇáÊÚÏíáÇÊ
+     * Ø§Ø®Ø±Ø§Ø¬ Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø¨Ø¹Ø¯ Ø§Ù„ØªØ¹Ø¯ÙŠÙ„Ø§Øª
      * @param root UnaugmentedTrilateralRoot
      * @param conjugations List
-     * @param tense String (From SystemConstans class the values are stored)  ãÇÖí Ãæ ãÖÇÑÚ Çæ ÃãÑ
+     * @param tense String (From SystemConstans class the values are stored)  Ù…Ø§Ø¶ÙŠ Ø£Ùˆ Ù…Ø¶Ø§Ø±Ø¹ Ø§Ùˆ Ø£Ù…Ø±
      * @return ConjugationResult
      */
     public ConjugationResult build(QuadrilateralRoot root, int formulaNo, int kov, List conjugations) {

@@ -24,12 +24,12 @@ public class NounFormula4 extends NounFormula{
 
     public String form() {
         if (suffixNo % 2 == 0)
-            return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SHADDA+ArabCharUtil.FATHA+"Ç"+root.getC3()+suffix;
+            return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SHADDA+ArabCharUtil.FATHA+"Ø§"+root.getC3()+suffix;
         return "";
     }
 
     public String getFormulaName() {
-        return "İóÚøóÇáóÉ";
+        return "ÙÙØ¹Ù‘ÙØ§Ù„ÙØ©";
     }
 
 

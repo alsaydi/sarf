@@ -23,8 +23,8 @@ public class Substituter extends TrilateralNounSubstitutionApplier implements IU
     List substitutions = new LinkedList();
 
     public Substituter() {
-        substitutions.add(new InfixSubstitution("ÇÁóÇ","ÇæóÇ"));// EX: (ÚóãúíÇæÇä)
-        substitutions.add(new InfixSubstitution("ÇÁóí","Çæóí"));// EX: (ÚóãúíÇæíä)
+        substitutions.add(new InfixSubstitution("Ø§Ø¡ÙØ§","Ø§ÙˆÙØ§"));// EX: (Ø¹ÙÙ…Ù’ÙŠØ§ÙˆØ§Ù†)
+        substitutions.add(new InfixSubstitution("Ø§Ø¡ÙÙŠ","Ø§ÙˆÙÙŠ"));// EX: (Ø¹ÙÙ…Ù’ÙŠØ§ÙˆÙŠÙ†)
     }
 
 
@@ -33,7 +33,7 @@ public class Substituter extends TrilateralNounSubstitutionApplier implements IU
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getNounFormula().equals("İóÚúáÇä"))
+        if (conjugationResult.getNounFormula().equals("ÙÙØ¹Ù’Ù„Ø§Ù†"))
             return true;
         return false;
     }

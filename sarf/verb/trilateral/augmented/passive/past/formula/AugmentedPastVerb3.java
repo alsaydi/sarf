@@ -30,6 +30,6 @@ public class AugmentedPastVerb3 extends AugmentedPastVerb {
      *   method
      */
     public String form() {
-        return root.getC1()+ArabCharUtil.DAMMA+"æ"+root.getC2()+ArabCharUtil.KASRA+root.getC3()+lastDpa+connectedPronoun;
+        return root.getC1()+ArabCharUtil.DAMMA+"Ùˆ"+root.getC2()+ArabCharUtil.KASRA+root.getC3()+lastDpa+connectedPronoun;
     }
 }

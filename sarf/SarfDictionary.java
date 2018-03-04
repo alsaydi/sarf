@@ -75,7 +75,7 @@ public class SarfDictionary {
             augmentedRootsTree = DatabaseManager.getInstance().getAugmentedQuadriliteralRootTree(c1);
         }
         catch (Exception ex) {
-            //Çáãáİ ÛíÑ ãæÌæÏ
+            //Ø§Ù„Ù…Ù„Ù ØºÙŠØ± Ù…ÙˆØ¬ÙˆØ¯
             return null;
         }
         List roots = augmentedRootsTree.getRoots();
@@ -100,7 +100,7 @@ public class SarfDictionary {
             rootsTree = DatabaseManager.getInstance().getUnaugmentedQuadriliteralRootTree(c1);
         }
         catch (Exception ex) {
-            //Çáãáİ ÛíÑ ãæÌæÏ
+            //Ø§Ù„Ù…Ù„Ù ØºÙŠØ± Ù…ÙˆØ¬ÙˆØ¯
             return null;
         }
         java.util.List roots = rootsTree.getRoots();

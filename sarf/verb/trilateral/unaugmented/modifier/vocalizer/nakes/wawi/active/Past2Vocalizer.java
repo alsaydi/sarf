@@ -23,9 +23,9 @@ public class Past2Vocalizer extends SubstitutionsApplier implements IUnaugmented
     private List substitutions = new LinkedList();
 
     public Past2Vocalizer() {
-        substitutions.add(new SuffixSubstitution("óæó", "óì")); // EX: (ãÃì¡ ÌÃì )
-        substitutions.add(new InfixSubstitution("óæõæÇ", "óæúÇ")); // EX: (ãÃóæúÇ¡ ÌÃæúÇ)
-        substitutions.add(new InfixSubstitution("óæóÊ", "óÊ")); // EX: (ãÃÊú¡ ãÃÊóÇ¡ ÌÃÊú¡ ÌÃÊóÇ)
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ", "ÙÙ‰")); // EX: (Ù…Ø£Ù‰ØŒ Ø¬Ø£Ù‰ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙˆØ§", "ÙÙˆÙ’Ø§")); // EX: (Ù…Ø£ÙÙˆÙ’Ø§ØŒ Ø¬Ø£ÙˆÙ’Ø§)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙØª", "ÙØª")); // EX: (Ù…Ø£ØªÙ’ØŒ Ù…Ø£ØªÙØ§ØŒ Ø¬Ø£ØªÙ’ØŒ Ø¬Ø£ØªÙØ§)
 
     }
 

@@ -23,7 +23,7 @@ public class WawiVocalizer extends SubstitutionsApplier implements IAugmentedTri
     private List substitutions = new LinkedList();
 
     public WawiVocalizer() {
-        substitutions.add(new InfixSubstitution("õæú","õæ"));// EX: (íõæÌöÈõ¡ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’","ÙÙˆ"));// EX: (ÙŠÙÙˆØ¬ÙØ¨ÙØŒ )
     }
 
 

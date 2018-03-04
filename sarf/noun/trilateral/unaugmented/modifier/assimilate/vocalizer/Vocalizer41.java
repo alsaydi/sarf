@@ -24,15 +24,15 @@ public class Vocalizer41 extends TrilateralNounSubstitutionApplier implements IU
     List substitutions = new LinkedList();
 
     public Vocalizer41() {
-        substitutions.add(new SuffixSubstitution("öæõ", "öí")); // EX: (åĞÇ ÇáÑøóÖöí )
-        substitutions.add(new SuffixSubstitution("öæó", "öíó")); // EX: (ÑÃíÊõ ÇáÑøóÖöíó )
-        substitutions.add(new SuffixSubstitution("öæö", "öí")); // EX: (ãÑÑÊ Úáì ÇáÑøóÖöí )
-        substitutions.add(new InfixSubstitution("öæñ", "ò")); // EX: (åĞÇ ÑóÖò¡ )
-        substitutions.add(new InfixSubstitution("öæò", "ò")); // EX: (ãÑÑÊ Úáì ÑóÖò¡ )
-        substitutions.add(new InfixSubstitution("öæğ", "öíğ")); // EX: (ÑÃíÊ ÑóÖöíğÇ¡ )
-        substitutions.add(new InfixSubstitution("öæó", "öíó")); // EX: (ÑóÖöíÇä¡ ÑóÖöíóÉñ¡ )
-        substitutions.add(new InfixSubstitution("öæõæ", "õæ")); // EX: (ÑóÖõæäó¡ )
-        substitutions.add(new InfixSubstitution("öæöí", "öí")); // EX: (ÑóÖöíäó )
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ", "ÙÙŠ")); // EX: (Ù‡Ø°Ø§ Ø§Ù„Ø±Ù‘ÙØ¶ÙÙŠ )
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ", "ÙÙŠÙ")); // EX: (Ø±Ø£ÙŠØªÙ Ø§Ù„Ø±Ù‘ÙØ¶ÙÙŠÙ )
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ", "ÙÙŠ")); // EX: (Ù…Ø±Ø±Øª Ø¹Ù„Ù‰ Ø§Ù„Ø±Ù‘ÙØ¶ÙÙŠ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙŒ", "Ù")); // EX: (Ù‡Ø°Ø§ Ø±ÙØ¶ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "Ù")); // EX: (Ù…Ø±Ø±Øª Ø¹Ù„Ù‰ Ø±ÙØ¶ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ‹", "ÙÙŠÙ‹")); // EX: (Ø±Ø£ÙŠØª Ø±ÙØ¶ÙÙŠÙ‹Ø§ØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "ÙÙŠÙ")); // EX: (Ø±ÙØ¶ÙÙŠØ§Ù†ØŒ Ø±ÙØ¶ÙÙŠÙØ©ÙŒØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙˆ", "ÙÙˆ")); // EX: (Ø±ÙØ¶ÙÙˆÙ†ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙŠ", "ÙÙŠ")); // EX: (Ø±ÙØ¶ÙÙŠÙ†Ù )
     }
 
 
@@ -45,7 +45,7 @@ public class Vocalizer41 extends TrilateralNounSubstitutionApplier implements IU
         int kov = conjugationResult.getKov();
         int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
 
-        return nounFormula.equals("İóÚöá") && kov == 23 && noc == 4;
+        return nounFormula.equals("ÙÙØ¹ÙÙ„") && kov == 23 && noc == 4;
     }
 
 }

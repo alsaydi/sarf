@@ -116,10 +116,10 @@ public class KovRulesManager {
 
 
     public static void main(String[] args) {
-        char c1 = 'Í';
-        char c2 = 'í';
-        char c3 = 'Í';
-        char c4 = 'í';
+        char c1 = 'Ø­';
+        char c2 = 'ÙŠ';
+        char c3 = 'Ø­';
+        char c4 = 'ÙŠ';
         System.out.println(""+ KovRulesManager.getInstance().getQuadrilateralKov(c1,c2,c3,c4));
     }
 

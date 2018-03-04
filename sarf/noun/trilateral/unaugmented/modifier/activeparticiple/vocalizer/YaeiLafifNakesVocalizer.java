@@ -22,13 +22,13 @@ public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
     List substitutions = new LinkedList();
 
     public YaeiLafifNakesVocalizer() {
-        substitutions.add(new InfixSubstitution("öíñ", "ò")); // EX: (åĞÇ ÑÇãò)
-        substitutions.add(new InfixSubstitution("öíò", "ò")); // EX: (ãÑÑÊõ Úáì ÑÇãò)
-        substitutions.add(new SuffixSubstitution("öíõ", "öí")); // EX: (åĞÇ ÇáÑÇãí¡ ÑÇãí ÇáÓåã¡ )
-        substitutions.add(new SuffixSubstitution("öíó", "öíó")); // EX: (ÑÃíÊõ ÇáÑÇãíó¡ ÑÇãíó ÇáÓåã¡ )
-        substitutions.add(new SuffixSubstitution("öíö", "öí")); // EX: (ãÑÑÊõ Úáì ÇáÑÇãí¡ ÑÇãí ÇáÓåã ¡ )
-        substitutions.add(new InfixSubstitution("öíõ", "õ")); // EX: (ÑÇãõæäó¡ )
-        substitutions.add(new InfixSubstitution("öíö", "ö")); // EX: (ÑÇãöíäó¡ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙŒ", "Ù")); // EX: (Ù‡Ø°Ø§ Ø±Ø§Ù…Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ", "Ù")); // EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ø±Ø§Ù…Ù)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ", "ÙÙŠ")); // EX: (Ù‡Ø°Ø§ Ø§Ù„Ø±Ø§Ù…ÙŠØŒ Ø±Ø§Ù…ÙŠ Ø§Ù„Ø³Ù‡Ù…ØŒ )
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ", "ÙÙŠÙ")); // EX: (Ø±Ø£ÙŠØªÙ Ø§Ù„Ø±Ø§Ù…ÙŠÙØŒ Ø±Ø§Ù…ÙŠÙ Ø§Ù„Ø³Ù‡Ù…ØŒ )
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ", "ÙÙŠ")); // EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ø§Ù„Ø±Ø§Ù…ÙŠØŒ Ø±Ø§Ù…ÙŠ Ø§Ù„Ø³Ù‡Ù… ØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ", "Ù")); // EX: (Ø±Ø§Ù…ÙÙˆÙ†ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ", "Ù")); // EX: (Ø±Ø§Ù…ÙÙŠÙ†ÙØŒ )
     }
 
 

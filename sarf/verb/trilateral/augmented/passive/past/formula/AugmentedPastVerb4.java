@@ -7,7 +7,7 @@ import sarf.verb.trilateral.augmented.*;
 /**
  * <p>Title: Sarf</p>
  *
- * <p>Description: ÈÑäÇãÌ ÇáÊÕÑíİ</p>
+ * <p>Description: Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØµØ±ÙŠÙ</p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -29,6 +29,6 @@ public class AugmentedPastVerb4 extends AugmentedPastVerb {
      *   method
      */
     public String form() {
-        return "Çä"+ArabCharUtil.SKOON+ root.getC1()+ArabCharUtil.DAMMA+root.getC2()+ArabCharUtil.KASRA+root.getC3()+lastDpa+connectedPronoun;
+        return "Ø§Ù†"+ArabCharUtil.SKOON+ root.getC1()+ArabCharUtil.DAMMA+root.getC2()+ArabCharUtil.KASRA+root.getC3()+lastDpa+connectedPronoun;
     }
 }

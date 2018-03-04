@@ -23,13 +23,13 @@ public class FaaMahmouz extends AbstractFaaMahmouz {
 
     public FaaMahmouz() {
 
-        substitutions.add(new InfixSubstitution("óÁóÇ","óÂ"));// EX: (ãõÊÂßöáñ)
-        substitutions.add(new InfixSubstitution("úÁóÇ","úÂ"));// EX: (ãõäúÂÏ)
-        substitutions.add(new InfixSubstitution("óÁó","óÃó"));// EX: (ãõÊÃßøöÏ)
-        substitutions.add(new InfixSubstitution("óÁú","óÃú"));// EX: (ãõÓÊóÃúãöÑ)
-        substitutions.add(new InfixSubstitution("úÁó","úÃó"));// EX: (ãõäúÃóØöÑñ)
-        substitutions.add(new InfixSubstitution("Áö","Æö"));// EX: (ãõÆöíÓñ)
-        substitutions.add(new InfixSubstitution("õÁ","õÄ"));// EX: (ãõÄúËöÑñ¡ ãõÄóËøöÑñ¡ ãõÄóÇÌöÑñ)
+        substitutions.add(new InfixSubstitution("ÙØ¡ÙØ§","ÙØ¢"));// EX: (Ù…ÙØªØ¢ÙƒÙÙ„ÙŒ)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡ÙØ§","Ù’Ø¢"));// EX: (Ù…ÙÙ†Ù’Ø¢Ø¯)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù","ÙØ£Ù"));// EX: (Ù…ÙØªØ£ÙƒÙ‘ÙØ¯)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’","ÙØ£Ù’"));// EX: (Ù…ÙØ³ØªÙØ£Ù’Ù…ÙØ±)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù","Ù’Ø£Ù"));// EX: (Ù…ÙÙ†Ù’Ø£ÙØ·ÙØ±ÙŒ)
+        substitutions.add(new InfixSubstitution("Ø¡Ù","Ø¦Ù"));// EX: (Ù…ÙØ¦ÙÙŠØ³ÙŒ)
+        substitutions.add(new InfixSubstitution("ÙØ¡","ÙØ¤"));// EX: (Ù…ÙØ¤Ù’Ø«ÙØ±ÙŒØŒ Ù…ÙØ¤ÙØ«Ù‘ÙØ±ÙŒØŒ Ù…ÙØ¤ÙØ§Ø¬ÙØ±ÙŒ)
 
     }
 

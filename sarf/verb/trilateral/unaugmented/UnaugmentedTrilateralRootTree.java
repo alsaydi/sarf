@@ -3,7 +3,7 @@ package sarf.verb.trilateral.unaugmented;
 import java.util.*;
 
 /**
- * <p>Title: ▐╟╞у╔ ╟с╠╨ц╤ ╟с╦с╟╦э╔ ╟су╠╤╧╔   </p>
+ * <p>Title: ┘В╪з╪ж┘Е╪й ╪з┘Д╪м╪░┘И╪▒ ╪з┘Д╪л┘Д╪з╪л┘К╪й ╪з┘Д┘Е╪м╪▒╪п╪й   </p>
  *
  * <p>Description: </p>
  *

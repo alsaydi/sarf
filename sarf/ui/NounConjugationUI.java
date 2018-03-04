@@ -45,13 +45,13 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
 
         conjugationPane = new JPanel(new GridLayout(3, 1));
 
-        rightPane.add(decorateLabel(new JLabel("ÇáÑİÚ")));
-        rightPane.add(decorateLabel(new JLabel("ÇáäÕÈ")));
-        rightPane.add(decorateLabel(new JLabel("ÇáÌÑ")));
+        rightPane.add(decorateLabel(new JLabel("Ø§Ù„Ø±ÙØ¹")));
+        rightPane.add(decorateLabel(new JLabel("Ø§Ù„Ù†ØµØ¨")));
+        rightPane.add(decorateLabel(new JLabel("Ø§Ù„Ø¬Ø±")));
 
         headerPane.add(decorateLabel(new JLabel()));
-        headerPane.add(decorateLabel(new JLabel("ãĞßÑ")));
-        headerPane.add(decorateLabel(new JLabel("ãÄäË")));
+        headerPane.add(decorateLabel(new JLabel("Ù…Ø°ÙƒØ±")));
+        headerPane.add(decorateLabel(new JLabel("Ù…Ø¤Ù†Ø«")));
 
         rightPane.setMaximumSize(new Dimension(100, 700));
         rightPane.setPreferredSize(new Dimension(100, 700));
@@ -162,7 +162,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
     public boolean saveToHtml(File file) {
         String content = FileUtil.getContents(new File("db/nouns.html"));
 
-        String docTitle = "ÊÕÑíİ "+ " ( "+ title + " ) " +" ááİÚá "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
+        String docTitle = "ØªØµØ±ÙŠÙ "+ " ( "+ title + " ) " +" Ù„Ù„ÙØ¹Ù„ "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
         //put the title
         content = content.replaceFirst("DocTitle", docTitle);
 
@@ -232,14 +232,14 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
             if (isHeader) {
                 setLayout(new GridLayout(4, 3));
                 add(decoratePronounLabel(new JLabel()));
-                add(decoratePronounLabel(new JLabel("ãĞßÑ")));
-                add(decoratePronounLabel(new JLabel("ãÄäË")));
+                add(decoratePronounLabel(new JLabel("Ù…Ø°ÙƒØ±")));
+                add(decoratePronounLabel(new JLabel("Ù…Ø¤Ù†Ø«")));
             }
             else {
                 setLayout(new GridLayout(3, 3));
             }
 
-            add(decoratePronounLabel(new JLabel("ãİÑÏ")));
+            add(decoratePronounLabel(new JLabel("Ù…ÙØ±Ø¯")));
 
             JLabel lbl = new JLabel();
             add(lbl);
@@ -250,7 +250,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
             decorateNounLabel(lbl);
             labelList.add(lbl);
 
-            add(decoratePronounLabel(new JLabel("ãËäì")));
+            add(decoratePronounLabel(new JLabel("Ù…Ø«Ù†Ù‰")));
 
             lbl = new JLabel();
             add(lbl);
@@ -261,7 +261,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
             decorateNounLabel(lbl);
             labelList.add(lbl);
 
-            add(decoratePronounLabel(new JLabel("ÌãÚ")));
+            add(decoratePronounLabel(new JLabel("Ø¬Ù…Ø¹")));
 
             lbl = new JLabel();
             add(lbl);
@@ -279,7 +279,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
     }
 
     public String getSavedFileNameTitle() {
-        return "ÊÕÑíİ "+ " "+ title + " " +" ááİÚá "+ "  "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText();
+        return "ØªØµØ±ÙŠÙ "+ " "+ title + " " +" Ù„Ù„ÙØ¹Ù„ "+ "  "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText();
     }
 
 }

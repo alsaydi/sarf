@@ -43,7 +43,7 @@ public class NounFormulaC extends NounFormula {
         case 9:
         case 13:
         case 15:
-            return "√" + ArabCharUtil.FATHA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.FATHA + root.getC3() + suffix;
+            return "ÿ£" + ArabCharUtil.FATHA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.FATHA + root.getC3() + suffix;
 
         case 2:
         case 4:
@@ -66,6 +66,6 @@ public class NounFormulaC extends NounFormula {
     }
 
     public String getFormulaName() {
-        return "√Û›˙⁄Û·";
+        return "ÿ£ŸéŸÅŸíÿπŸéŸÑ";
     }
 }

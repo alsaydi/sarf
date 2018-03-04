@@ -32,7 +32,7 @@ public class NounFormula10 extends NonStandardExaggerationNounFormula{
     }
 
     public String getFormulaName() {
-        return "έσΪφα";
+        return "ΩΩΨΉΩΩ„";
     }
 
     public String getSymbol() {

@@ -44,51 +44,51 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
         unaugmentedTrilateralRoots.add("");
         unaugmentedTrilateralRoots.add("");
 
-        addUnaugmentedButton("İÚóá íİÚõá");
-        addUnaugmentedButton("İÚóá íİÚöá");
-        addUnaugmentedButton("İÚóá íİÚóá");
-        addUnaugmentedButton("İÚöá íİÚóá");
-        addUnaugmentedButton("İÚõá íİÚõá");
-        addUnaugmentedButton("İÚöá íİÚöá");
+        addUnaugmentedButton("ÙØ¹ÙÙ„ ÙŠÙØ¹ÙÙ„");
+        addUnaugmentedButton("ÙØ¹ÙÙ„ ÙŠÙØ¹ÙÙ„");
+        addUnaugmentedButton("ÙØ¹ÙÙ„ ÙŠÙØ¹ÙÙ„");
+        addUnaugmentedButton("ÙØ¹ÙÙ„ ÙŠÙØ¹ÙÙ„");
+        addUnaugmentedButton("ÙØ¹ÙÙ„ ÙŠÙØ¹ÙÙ„");
+        addUnaugmentedButton("ÙØ¹ÙÙ„ ÙŠÙØ¹ÙÙ„");
 
         JPanel augmentedPnl1 = new APanel(new GridLayout(1,3));
-        addAugmentedButton("ÃİúÚóá íõİúÚöá", augmentedPnl1);
-        addAugmentedButton("İÚøóá íõİÚøöá", augmentedPnl1);
-        addAugmentedButton("İÇÚóá íõİÇÚöá", augmentedPnl1);
+        addAugmentedButton("Ø£ÙÙ’Ø¹ÙÙ„ ÙŠÙÙÙ’Ø¹ÙÙ„", augmentedPnl1);
+        addAugmentedButton("ÙØ¹Ù‘ÙÙ„ ÙŠÙÙØ¹Ù‘ÙÙ„", augmentedPnl1);
+        addAugmentedButton("ÙØ§Ø¹ÙÙ„ ÙŠÙÙØ§Ø¹ÙÙ„", augmentedPnl1);
 
         JPanel augmentedPnl2 = new APanel(new GridLayout(1,5));
-        addAugmentedButton("ÇäúİóÚóá íóäúİóÚöá", augmentedPnl2);
-        addAugmentedButton("ÇİúÊóÚóá íóİúÊóÚöá", augmentedPnl2);
-        addAugmentedButton("ÇİúÚóáøó íóİúÚóáøõ", augmentedPnl2);
-        addAugmentedButton("ÊóİÇÚóá íóÊóİÇÚóá", augmentedPnl2);
-        addAugmentedButton("ÊóİóÚøóá íóÊóİóÚøóá", augmentedPnl2);
+        addAugmentedButton("Ø§Ù†Ù’ÙÙØ¹ÙÙ„ ÙŠÙÙ†Ù’ÙÙØ¹ÙÙ„", augmentedPnl2);
+        addAugmentedButton("Ø§ÙÙ’ØªÙØ¹ÙÙ„ ÙŠÙÙÙ’ØªÙØ¹ÙÙ„", augmentedPnl2);
+        addAugmentedButton("Ø§ÙÙ’Ø¹ÙÙ„Ù‘Ù ÙŠÙÙÙ’Ø¹ÙÙ„Ù‘Ù", augmentedPnl2);
+        addAugmentedButton("ØªÙÙØ§Ø¹ÙÙ„ ÙŠÙØªÙÙØ§Ø¹ÙÙ„", augmentedPnl2);
+        addAugmentedButton("ØªÙÙÙØ¹Ù‘ÙÙ„ ÙŠÙØªÙÙÙØ¹Ù‘ÙÙ„", augmentedPnl2);
 
         JPanel augmentedPnl3 = new APanel(new GridLayout(1,4));
-        addAugmentedButton("ÇÓúÊóİúÚóá íóÓúÊóİúÚöá", augmentedPnl3);
-        addAugmentedButton("ÇİúÚóæúÚóá íóİúÚóæúÚöá", augmentedPnl3);
-        addAugmentedButton("ÇİúÚóæøóá íóİúÚóæøöá", augmentedPnl3);
-        addAugmentedButton("ÇİúÚóÇáøó íóİúÚóÇáøõ", augmentedPnl3);
+        addAugmentedButton("Ø§Ø³Ù’ØªÙÙÙ’Ø¹ÙÙ„ ÙŠÙØ³Ù’ØªÙÙÙ’Ø¹ÙÙ„", augmentedPnl3);
+        addAugmentedButton("Ø§ÙÙ’Ø¹ÙÙˆÙ’Ø¹ÙÙ„ ÙŠÙÙÙ’Ø¹ÙÙˆÙ’Ø¹ÙÙ„", augmentedPnl3);
+        addAugmentedButton("Ø§ÙÙ’Ø¹ÙÙˆÙ‘ÙÙ„ ÙŠÙÙÙ’Ø¹ÙÙˆÙ‘ÙÙ„", augmentedPnl3);
+        addAugmentedButton("Ø§ÙÙ’Ø¹ÙØ§Ù„Ù‘Ù ÙŠÙÙÙ’Ø¹ÙØ§Ù„Ù‘Ù", augmentedPnl3);
 
         JPanel container = new JPanel();
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
 
         CustomTabbedPane tabPane1 = new CustomTabbedPane();
-        tabPane1.add("ÇáÃİÚÇá ÇáËáÇËíÉ ÇáãÌÑÏÉ", unaugmentedPanel);
+        tabPane1.add("Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ø«Ù„Ø§Ø«ÙŠØ© Ø§Ù„Ù…Ø¬Ø±Ø¯Ø©", unaugmentedPanel);
         container.add(tabPane1);
         container.add(Box.createVerticalStrut(25));
 
         CustomTabbedPane tabPane2 = new CustomTabbedPane();
-        tabPane2.add("ÇáÃİÚÇá ÇáËáÇËíÉ ÇáãÒíÏÉ ÈÍÑİ", augmentedPnl1);
+        tabPane2.add("Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ø«Ù„Ø§Ø«ÙŠØ© Ø§Ù„Ù…Ø²ÙŠØ¯Ø© Ø¨Ø­Ø±Ù", augmentedPnl1);
         container.add(tabPane2);
         container.add(Box.createVerticalStrut(25));
 
         CustomTabbedPane tabPane3 = new CustomTabbedPane();
-        tabPane3.add("ÇáÃİÚÇá ÇáËáÇËíÉ ÇáãÒíÏÉ ÈÍÑİíä", augmentedPnl2);
+        tabPane3.add("Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ø«Ù„Ø§Ø«ÙŠØ© Ø§Ù„Ù…Ø²ÙŠØ¯Ø© Ø¨Ø­Ø±ÙÙŠÙ†", augmentedPnl2);
         container.add(tabPane3);
         container.add(Box.createVerticalStrut(25));
 
         CustomTabbedPane tabPane4 = new CustomTabbedPane();
-        tabPane4.add("ÇáÃİÚÇá ÇáËáÇËíÉ ÇáãÒíÏÉ ÈËáÇËÉ ÃÍÑİ", augmentedPnl3);
+        tabPane4.add("Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ø«Ù„Ø§Ø«ÙŠØ© Ø§Ù„Ù…Ø²ÙŠØ¯Ø© Ø¨Ø«Ù„Ø§Ø«Ø© Ø£Ø­Ø±Ù", augmentedPnl3);
         container.add(tabPane4);
 
         add(container);
@@ -148,7 +148,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
         btn.setEnabled(true);
         unaugmentedTrilateralRoots.set(index, root);
 
-        //ãÚ ÇáÖãíÑ åæ
+        //Ù…Ø¹ Ø§Ù„Ø¶Ù…ÙŠØ± Ù‡Ùˆ
         //past text formatting
         String pastRootText = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerb(7, root).toString();
         List conjugations = createEmptyList();
@@ -173,7 +173,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
 
         int formulaNo = index + 1;
 
-        //ãÚ ÇáÖãíÑ åæ
+        //Ù…Ø¹ Ø§Ù„Ø¶Ù…ÙŠØ± Ù‡Ùˆ
         //past text formatting
         String pastRootText = sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator.getInstance().createVerb(root, 7, formulaNo).toString();
         List conjugations = createEmptyList();

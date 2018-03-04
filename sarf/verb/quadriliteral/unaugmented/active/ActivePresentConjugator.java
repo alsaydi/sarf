@@ -9,7 +9,7 @@ import sarf.verb.quadriliteral.unaugmented.*;
 /**
  * <p>Title: Sarf</p>
  *
-* <p>Description: ÊÕÑíİ ÇáÃİÚÇá ÇáÑÈÇÚíÉ  ÇáãÌÑÏÉ İí ÇáãÖÇÑÚ     </p>
+* <p>Description: ØªØµØ±ÙŠÙ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ø±Ø¨Ø§Ø¹ÙŠØ©  Ø§Ù„Ù…Ø¬Ø±Ø¯Ø© ÙÙŠ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹     </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -29,7 +29,7 @@ public class ActivePresentConjugator {
     }
 
     /**
-     * *ÅäÔÇÁ ÇáİÚá ÇáãÖÇÑÚ ÈÛÖ ÇáäÙÑ Úä ÍÇáÊå ÇáÅÚÑÇÈíÉ
+     * *Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø¨ØºØ¶ Ø§Ù„Ù†Ø¸Ø± Ø¹Ù† Ø­Ø§Ù„ØªÙ‡ Ø§Ù„Ø¥Ø¹Ø±Ø§Ø¨ÙŠØ©
      * @param pronounIndex int
      * @param root UnaugmentedQuadriliteralRoot
      * @param lastDprList List
@@ -45,7 +45,7 @@ public class ActivePresentConjugator {
 
 
     /**
-     * ÅäÔÇÁ ÇáİÚá ÇáãÖÇÑÚ İí ÍÇáÉ ÇáÑİÚ
+     * Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ø±ÙØ¹
      * @param pronounIndex int
      * @param root QuadriliteralVerb
      * @return PresentConjugation
@@ -56,7 +56,7 @@ public class ActivePresentConjugator {
 
 
     /**
-     * ÅäÔÇÁ ÇáİÚá ÇáãÖÇÑÚ İí ÍÇáÉ ÇáäÕÈ
+     * Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ù†ØµØ¨
      * @param pronounIndex int
      * @param root QuadriliteralVerb
      * @return PresentConjugation
@@ -67,7 +67,7 @@ public class ActivePresentConjugator {
 
 
     /**
-     * ÅäÔÇÁ ÇáİÚá ÇáãÖÇÑÚ İí ÍÇáÉ ÇáÌÒã
+     * Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ø¬Ø²Ù…
      * @param pronounIndex int
      * @param root QuadriliteralVerb
      * @return PresentConjugation
@@ -78,7 +78,7 @@ public class ActivePresentConjugator {
 
 
     /**
-     * ÅäÔÇÁ ÇáİÚá ÇáãÖÇÑÚ İí ÍÇáÉ ÇáÊÃßíÏ
+     * Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„ØªØ£ÙƒÙŠØ¯
      * @param pronounIndex int
      * @param root QuadriliteralVerb
      * @return PresentConjugation
@@ -88,8 +88,8 @@ public class ActivePresentConjugator {
     }
 
     /**
-     * ÅäÔÇÁ ŞÇÆãÉ ÊÍÊæí ÇáÃİÚÇá ÍÓÈ ÇáÖãÇÆÑ
-     * İí ÍÇáÉ ÇáÑİÚ
+     * Ø¥Ù†Ø´Ø§Ø¡ Ù‚Ø§Ø¦Ù…Ø© ØªØ­ØªÙˆÙŠ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…Ø§Ø¦Ø±
+     * ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ø±ÙØ¹
      * @param root TripleVerb
      * @return List
      */
@@ -103,8 +103,8 @@ public class ActivePresentConjugator {
     }
 
     /**
-     * ÅäÔÇÁ ŞÇÆãÉ ÊÍÊæí ÇáÃİÚÇá ÍÓÈ ÇáÖãÇÆÑ
-     * İí ÍÇáÉ ÇáäÕÈ
+     * Ø¥Ù†Ø´Ø§Ø¡ Ù‚Ø§Ø¦Ù…Ø© ØªØ­ØªÙˆÙŠ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…Ø§Ø¦Ø±
+     * ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ù†ØµØ¨
      * @param root TripleVerb
      * @return List
      */
@@ -118,8 +118,8 @@ public class ActivePresentConjugator {
     }
 
     /**
-     * ÅäÔÇÁ ŞÇÆãÉ ÊÍÊæí ÇáÃİÚÇá ÍÓÈ ÇáÖãÇÆÑ
-     * İí ÍÇáÉ ÇáÌÒã
+     * Ø¥Ù†Ø´Ø§Ø¡ Ù‚Ø§Ø¦Ù…Ø© ØªØ­ØªÙˆÙŠ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…Ø§Ø¦Ø±
+     * ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ø¬Ø²Ù…
      * @param root TripleVerb
      * @return List
      */
@@ -134,8 +134,8 @@ public class ActivePresentConjugator {
 
 
     /**
-     * ÅäÔÇÁ ŞÇÆãÉ ÊÍÊæí ÇáÃİÚÇá ÍÓÈ ÇáÖãÇÆÑ
-     * İí ÍÇáÉ ÇáÊÃßíÏ
+     * Ø¥Ù†Ø´Ø§Ø¡ Ù‚Ø§Ø¦Ù…Ø© ØªØ­ØªÙˆÙŠ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…Ø§Ø¦Ø±
+     * ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„ØªØ£ÙƒÙŠØ¯
      * @param root TripleVerb
      * @return List
      */

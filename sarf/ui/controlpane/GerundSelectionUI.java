@@ -34,9 +34,9 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListen
 public class GerundSelectionUI extends JPanel implements IControlPane, TrilateralAugmentedGerundConjugatorListener, QuadriliteralUnaugmentedGerundConjugatorListener, AugmentedTrilateralModifierListener {
     private SelectionInfo selectionInfo;
 
-    ToggleRenderedButton standardBtn = new ToggleRenderedButton("ÇáãÕÏÑ ÇáÃÕáí");
-    ToggleRenderedButton nomenBtn = new ToggleRenderedButton("ãÕÏÑ ÇáãÑÉ");
-    ToggleRenderedButton meemBtn = new ToggleRenderedButton("ÇáãÕÏÑ Çáãíãí ");
+    ToggleRenderedButton standardBtn = new ToggleRenderedButton("Ø§Ù„Ù…ØµØ¯Ø± Ø§Ù„Ø£ØµÙ„ÙŠ");
+    ToggleRenderedButton nomenBtn = new ToggleRenderedButton("Ù…ØµØ¯Ø± Ø§Ù„Ù…Ø±Ø©");
+    ToggleRenderedButton meemBtn = new ToggleRenderedButton("Ø§Ù„Ù…ØµØ¯Ø± Ø§Ù„Ù…ÙŠÙ…ÙŠ ");
 
     public GerundSelectionUI() {
         super(new BorderLayout());
@@ -182,15 +182,15 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
 
         if (formulaNo == 3) {
             //it must select one of two states
-            String msg = "áåĞÇ ÇáãÕÏÑ æÒäÇä (ãİÇÚáÉ) æ  (İÚÇá) ÇÎÊÑ ÃÍÏåãÇ";
-            Object[] options = {"ãİÇÚáÉ", "İöÚÇá"};
+            String msg = "Ù„Ù‡Ø°Ø§ Ø§Ù„Ù…ØµØ¯Ø± ÙˆØ²Ù†Ø§Ù† (Ù…ÙØ§Ø¹Ù„Ø©) Ùˆ  (ÙØ¹Ø§Ù„) Ø§Ø®ØªØ± Ø£Ø­Ø¯Ù‡Ù…Ø§";
+            Object[] options = {"Ù…ÙØ§Ø¹Ù„Ø©", "ÙÙØ¹Ø§Ù„"};
             int optionResult = JOptionPane.showOptionDialog(this, msg, "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             return cashedPatternFormulaNo = (optionResult == JOptionPane.NO_OPTION ? 2 : 1);
         }
         if (formulaNo == 2) {
             //it must select one of two states
-            String msg = "áåĞÇ ÇáãÕÏÑ æÒäÇä: (ÊİÚíá) æ(ÊİÚáÉ)¡ ÇÎÊÑ ÃÍÏåãÇ";
-            Object[] options = {"ÊİÚíá", "ÊİÚáÉ"};
+            String msg = "Ù„Ù‡Ø°Ø§ Ø§Ù„Ù…ØµØ¯Ø± ÙˆØ²Ù†Ø§Ù†: (ØªÙØ¹ÙŠÙ„) Ùˆ(ØªÙØ¹Ù„Ø©)ØŒ Ø§Ø®ØªØ± Ø£Ø­Ø¯Ù‡Ù…Ø§";
+            Object[] options = {"ØªÙØ¹ÙŠÙ„", "ØªÙØ¹Ù„Ø©"};
             int optionResult = JOptionPane.showOptionDialog(this, msg, "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
             return cashedPatternFormulaNo = (optionResult == JOptionPane.NO_OPTION ? 2 : 1);
         }
@@ -203,8 +203,8 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
             return cashedQuadPatternFormulaNo;
 
         //it must select one of two states
-        String msg = "áåĞÇ ÇáãÕÏÑ æÒäÇä (İóÚúáóáóÉ) æ  (İöÚúáÇá) ÇÎÊÑ ÃÍÏåãÇ";
-        Object[] options = {"İóÚúáóáóÉ", "İöÚúáÇá"};
+        String msg = "Ù„Ù‡Ø°Ø§ Ø§Ù„Ù…ØµØ¯Ø± ÙˆØ²Ù†Ø§Ù† (ÙÙØ¹Ù’Ù„ÙÙ„ÙØ©) Ùˆ  (ÙÙØ¹Ù’Ù„Ø§Ù„) Ø§Ø®ØªØ± Ø£Ø­Ø¯Ù‡Ù…Ø§";
+        Object[] options = {"ÙÙØ¹Ù’Ù„ÙÙ„ÙØ©", "ÙÙØ¹Ù’Ù„Ø§Ù„"};
         int optionResult = JOptionPane.showOptionDialog(this, msg, "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
         return cashedQuadPatternFormulaNo = (optionResult == JOptionPane.NO_OPTION ? 2 : 1);
     }
@@ -217,8 +217,8 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
         }
 
         //it must select one of two states
-        String msg = "áåĞÇ ÇáİÚá ÍÇáÊÇä : ÇáÊÕÍíÍ æÇáÅÚáÇá¡ ÇÎÊÑ ÅÍÏì ÇáÍÇáÊíä";
-        Object[] options = {"ÇáÊÕÍíÍ", "ÇáÅÚáÇá"};
+        String msg = "Ù„Ù‡Ø°Ø§ Ø§Ù„ÙØ¹Ù„ Ø­Ø§Ù„ØªØ§Ù† : Ø§Ù„ØªØµØ­ÙŠØ­ ÙˆØ§Ù„Ø¥Ø¹Ù„Ø§Ù„ØŒ Ø§Ø®ØªØ± Ø¥Ø­Ø¯Ù‰ Ø§Ù„Ø­Ø§Ù„ØªÙŠÙ†";
+        Object[] options = {"Ø§Ù„ØªØµØ­ÙŠØ­", "Ø§Ù„Ø¥Ø¹Ù„Ø§Ù„"};
         int optionResult = JOptionPane.showOptionDialog(this, msg, "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
         cashedUserResponse = new Boolean(optionResult == JOptionPane.NO_OPTION);
         return cashedUserResponse.booleanValue();

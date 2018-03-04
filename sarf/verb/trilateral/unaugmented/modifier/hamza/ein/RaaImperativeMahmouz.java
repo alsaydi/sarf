@@ -23,7 +23,7 @@ public class RaaImperativeMahmouz extends SubstitutionsApplier implements IUnaug
     private List substitutions = new ArrayList();
 
     public RaaImperativeMahmouz() {
-        substitutions.add(new InfixSubstitution("ÇÑúÁó","Ñó"));// EX: (Ñó¡ Ñóíú¡ ÑóíÇ¡ ÑóæúÇ¡ Ñóíúäó¡ Ñóíóäøó¡ Ñóíöäøó¡ ÑóíÇäøö¡ Ñóæõäøó¡ ÑóíúäÇäøö)
+        substitutions.add(new InfixSubstitution("Ø§Ø±Ù’Ø¡Ù","Ø±Ù"));// EX: (Ø±ÙØŒ Ø±ÙÙŠÙ’ØŒ Ø±ÙÙŠØ§ØŒ Ø±ÙÙˆÙ’Ø§ØŒ Ø±ÙÙŠÙ’Ù†ÙØŒ Ø±ÙÙŠÙÙ†Ù‘ÙØŒ Ø±ÙÙŠÙÙ†Ù‘ÙØŒ Ø±ÙÙŠØ§Ù†Ù‘ÙØŒ Ø±ÙÙˆÙÙ†Ù‘ÙØŒ Ø±ÙÙŠÙ’Ù†Ø§Ù†Ù‘Ù)
     }
 
     public List getSubstitutions() {
@@ -32,6 +32,6 @@ public class RaaImperativeMahmouz extends SubstitutionsApplier implements IUnaug
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         TrilateralRoot root = conjugationResult.getRoot();
-        return root.getC1() == 'Ñ' && root.getC2() == 'Á' && root.getC3() == 'í';
+        return root.getC1() == 'Ø±' && root.getC2() == 'Ø¡' && root.getC3() == 'ÙŠ';
     }
 }

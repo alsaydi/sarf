@@ -24,13 +24,13 @@ public class ALafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
     List substitutions = new LinkedList();
 
     public ALafifNakesVocalizer() {
-        substitutions.add(new InfixSubstitution("эєэё", "эє╟")); // EX: (х╨╟ ╟сує═э╟ )
-        substitutions.add(new InfixSubstitution("эєэЁ", "эє╟")); // EX: (╤├э╩ї ╟сує═э╟ )
-        substitutions.add(new InfixSubstitution("эєэЄ", "эє╟")); // EX: (╚╟сує═э╟ )
-        substitutions.add(new InfixSubstitution("єцє", "єэє")); // EX: (ує█·╥Ўэ╟ф )
-        substitutions.add(new InfixSubstitution("єэє", "єэє")); // EX: (уєу·╘єэ╟ф )
-        substitutions.add(new InfixSubstitution("єц", "єь")); // EX: (ує█·╥єь )
-        substitutions.add(new InfixSubstitution("єэ", "єь")); // EX: (уєу·╘єь )
+        substitutions.add(new InfixSubstitution("┘К┘О┘К┘М", "┘К┘О╪з")); // EX: (┘З╪░╪з ╪з┘Д┘Е┘О╪н┘К╪з )
+        substitutions.add(new InfixSubstitution("┘К┘О┘К┘Л", "┘К┘О╪з")); // EX: (╪▒╪г┘К╪к┘П ╪з┘Д┘Е┘О╪н┘К╪з )
+        substitutions.add(new InfixSubstitution("┘К┘О┘К┘Н", "┘К┘О╪з")); // EX: (╪и╪з┘Д┘Е┘О╪н┘К╪з )
+        substitutions.add(new InfixSubstitution("┘О┘И┘О", "┘О┘К┘О")); // EX: (┘Е┘О╪║┘Т╪▓┘Р┘К╪з┘Ж )
+        substitutions.add(new InfixSubstitution("┘О┘К┘О", "┘О┘К┘О")); // EX: (┘Е┘О┘Е┘Т╪┤┘О┘К╪з┘Ж )
+        substitutions.add(new InfixSubstitution("┘О┘И", "┘О┘Й")); // EX: (┘Е┘О╪║┘Т╪▓┘О┘Й )
+        substitutions.add(new InfixSubstitution("┘О┘К", "┘О┘Й")); // EX: (┘Е┘О┘Е┘Т╪┤┘О┘Й )
     }
 
 
@@ -40,7 +40,7 @@ public class ALafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
-        if (!nounFormula.equals("ує▌·┌єс"))
+        if (!nounFormula.equals("┘Е┘О┘Б┘Т╪╣┘О┘Д"))
             return false;
 
         int kov = conjugationResult.getKov();

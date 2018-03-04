@@ -22,22 +22,22 @@ public class PresentMahmouz extends AbstractLamMahmouz {
     private List substitutions = new LinkedList();
 
     public PresentMahmouz() {
-        substitutions.add(new SuffixSubstitution("íÁõ", "íÁõ")); // EX: (íõÓöíÁõ¡ )
-        substitutions.add(new SuffixSubstitution("íÁó", "íÁó")); // EX: (áä íõÓöíÁó¡ )
-        substitutions.add(new InfixSubstitution("íÁ", "íÆ")); // EX: (íõÓöíÆóÇäö¡ íõÓöíÆõæäö)
-        substitutions.add(new SuffixSubstitution("óÁõ", "óÃõ")); // EX: (íóÊóÏÇÑóÃõ¡ )
-        substitutions.add(new SuffixSubstitution("øóÁõ", "øóÃõ")); // EX: (íóÊóÎóÈøóÃõ¡ )
-        substitutions.add(new InfixSubstitution("óÁó", "óÃó")); // EX: (áä íóÊóÏÇÑóÃó¡ íóÊóÏÇÑóÃóÇäö¡ )
-        substitutions.add(new InfixSubstitution("óÁõ", "óÄõ")); // EX: (ÊóÊóÏÇÑóÄõæäó¡ )
-        substitutions.add(new InfixSubstitution("óÁú", "óÃú")); // EX: (áã íóÊóÏÇÑóÃú¡ ÊóÊóÏÇÑóÃúäó¡ )
-        substitutions.add(new InfixSubstitution("øóÁó", "øóÃó")); // EX: (áä íÊÎÈøóÃó¡ íóÊóÎóÈøóÃóÇäö¡ )
-        substitutions.add(new InfixSubstitution("øóÁõ", "øóÄõ")); // EX: (ÊÊÎÈøóÄõæäó¡ )
-        substitutions.add(new InfixSubstitution("øóÁú", "øóÃú")); // EX: (áã íÊÎÈøóÃú¡ ÊÊÎÈøóÃúäó¡ )
-        substitutions.add(new SuffixSubstitution("ÇÁõ", "ÇÁõ")); // EX: (íóÓúÊÇÁõ¡ )
-        substitutions.add(new InfixSubstitution("ÇÁõ", "ÇÄõ")); // EX: (íóÓúÊÇÄõæäó¡ )
-        substitutions.add(new InfixSubstitution("Áö", "Æö")); // EX: (ÊóÓúÊÇÆöíäó¡ ÊõÓöíÆöíäó¡ ÊÊÏÇÑóÆöíäó¡ ÊÊÎÈøóÆöíäó¡ )
-        substitutions.add(new InfixSubstitution("öÁ", "öÆ")); // EX: (íõÌúÒöÆõ¡ áä íõÌúÒöÆó¡ áã íõÌúÒöÆú¡ íßÇİöÆõ¡ íóäúİŞöÆõ¡ íóÈúÊÏöÆõ¡ íÓÊåÒöÆõ¡ íóÍúÒóæúÒöÆõ¡ )
-        substitutions.add(new InfixSubstitution("øöÁ", "øöÆ")); // EX: (íõÌúÒøöÆõ¡ áä íõÌúÒøöÆó¡ áã íõÌúÒøöÆú¡ )
+        substitutions.add(new SuffixSubstitution("ÙŠØ¡Ù", "ÙŠØ¡Ù")); // EX: (ÙŠÙØ³ÙÙŠØ¡ÙØŒ )
+        substitutions.add(new SuffixSubstitution("ÙŠØ¡Ù", "ÙŠØ¡Ù")); // EX: (Ù„Ù† ÙŠÙØ³ÙÙŠØ¡ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙŠØ¡", "ÙŠØ¦")); // EX: (ÙŠÙØ³ÙÙŠØ¦ÙØ§Ù†ÙØŒ ÙŠÙØ³ÙÙŠØ¦ÙÙˆÙ†Ù)
+        substitutions.add(new SuffixSubstitution("ÙØ¡Ù", "ÙØ£Ù")); // EX: (ÙŠÙØªÙØ¯Ø§Ø±ÙØ£ÙØŒ )
+        substitutions.add(new SuffixSubstitution("Ù‘ÙØ¡Ù", "Ù‘ÙØ£Ù")); // EX: (ÙŠÙØªÙØ®ÙØ¨Ù‘ÙØ£ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ£Ù")); // EX: (Ù„Ù† ÙŠÙØªÙØ¯Ø§Ø±ÙØ£ÙØŒ ÙŠÙØªÙØ¯Ø§Ø±ÙØ£ÙØ§Ù†ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ¤Ù")); // EX: (ØªÙØªÙØ¯Ø§Ø±ÙØ¤ÙÙˆÙ†ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’", "ÙØ£Ù’")); // EX: (Ù„Ù… ÙŠÙØªÙØ¯Ø§Ø±ÙØ£Ù’ØŒ ØªÙØªÙØ¯Ø§Ø±ÙØ£Ù’Ù†ÙØŒ )
+        substitutions.add(new InfixSubstitution("Ù‘ÙØ¡Ù", "Ù‘ÙØ£Ù")); // EX: (Ù„Ù† ÙŠØªØ®Ø¨Ù‘ÙØ£ÙØŒ ÙŠÙØªÙØ®ÙØ¨Ù‘ÙØ£ÙØ§Ù†ÙØŒ )
+        substitutions.add(new InfixSubstitution("Ù‘ÙØ¡Ù", "Ù‘ÙØ¤Ù")); // EX: (ØªØªØ®Ø¨Ù‘ÙØ¤ÙÙˆÙ†ÙØŒ )
+        substitutions.add(new InfixSubstitution("Ù‘ÙØ¡Ù’", "Ù‘ÙØ£Ù’")); // EX: (Ù„Ù… ÙŠØªØ®Ø¨Ù‘ÙØ£Ù’ØŒ ØªØªØ®Ø¨Ù‘ÙØ£Ù’Ù†ÙØŒ )
+        substitutions.add(new SuffixSubstitution("Ø§Ø¡Ù", "Ø§Ø¡Ù")); // EX: (ÙŠÙØ³Ù’ØªØ§Ø¡ÙØŒ )
+        substitutions.add(new InfixSubstitution("Ø§Ø¡Ù", "Ø§Ø¤Ù")); // EX: (ÙŠÙØ³Ù’ØªØ§Ø¤ÙÙˆÙ†ÙØŒ )
+        substitutions.add(new InfixSubstitution("Ø¡Ù", "Ø¦Ù")); // EX: (ØªÙØ³Ù’ØªØ§Ø¦ÙÙŠÙ†ÙØŒ ØªÙØ³ÙÙŠØ¦ÙÙŠÙ†ÙØŒ ØªØªØ¯Ø§Ø±ÙØ¦ÙÙŠÙ†ÙØŒ ØªØªØ®Ø¨Ù‘ÙØ¦ÙÙŠÙ†ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙØ¡", "ÙØ¦")); // EX: (ÙŠÙØ¬Ù’Ø²ÙØ¦ÙØŒ Ù„Ù† ÙŠÙØ¬Ù’Ø²ÙØ¦ÙØŒ Ù„Ù… ÙŠÙØ¬Ù’Ø²ÙØ¦Ù’ØŒ ÙŠÙƒØ§ÙÙØ¦ÙØŒ ÙŠÙÙ†Ù’ÙÙ‚ÙØ¦ÙØŒ ÙŠÙØ¨Ù’ØªØ¯ÙØ¦ÙØŒ ÙŠØ³ØªÙ‡Ø²ÙØ¦ÙØŒ ÙŠÙØ­Ù’Ø²ÙÙˆÙ’Ø²ÙØ¦ÙØŒ )
+        substitutions.add(new InfixSubstitution("Ù‘ÙØ¡", "Ù‘ÙØ¦")); // EX: (ÙŠÙØ¬Ù’Ø²Ù‘ÙØ¦ÙØŒ Ù„Ù† ÙŠÙØ¬Ù’Ø²Ù‘ÙØ¦ÙØŒ Ù„Ù… ÙŠÙØ¬Ù’Ø²Ù‘ÙØ¦Ù’ØŒ )
     }
 
 

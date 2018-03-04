@@ -8,7 +8,7 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: ØÑíŞÉ ÇáİÍÕ ÇáãÔÊÑßÉ ááÃÌæİ ÇáíÇÆí ÇáãÇÖí æÇáãÖÇÑÚ æÇáÃãÑ         </p>
+ * <p>Description: Ø·Ø±ÙŠÙ‚Ø© Ø§Ù„ÙØ­Øµ Ø§Ù„Ù…Ø´ØªØ±ÙƒØ© Ù„Ù„Ø£Ø¬ÙˆÙ Ø§Ù„ÙŠØ§Ø¦ÙŠ Ø§Ù„Ù…Ø§Ø¶ÙŠ ÙˆØ§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙˆØ§Ù„Ø£Ù…Ø±         </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -22,7 +22,7 @@ public abstract class AbstractAjwafYaeiVocalizer extends SubstitutionsApplier im
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        // ÊØÈíŞ ÇáŞÇäæä ÇáÚÇã ááİÍÕ
+        // ØªØ·Ø¨ÙŠÙ‚ Ø§Ù„Ù‚Ø§Ù†ÙˆÙ† Ø§Ù„Ø¹Ø§Ù… Ù„Ù„ÙØ­Øµ
         return (conjugationResult.getRoot().getConjugation().equals("2")) &&
                 (conjugationResult.getKov() == 18 || conjugationResult.getKov() == 19 || conjugationResult.getKov() == 20);
     }

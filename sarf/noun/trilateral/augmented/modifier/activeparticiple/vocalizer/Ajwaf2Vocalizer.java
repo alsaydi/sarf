@@ -24,8 +24,8 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
     private List substitutions = new LinkedList();
 
     public Ajwaf2Vocalizer() {
-        substitutions.add(new InfixSubstitution("úíö","öí"));// EX: (ãõÈöíÏñ¡ ãõÓÊóŞöíáñ)
-        substitutions.add(new InfixSubstitution("óíö","óÇ"));// EX: (ãõäúåÇáñ¡ ãõßúÊÇáñ)
+        substitutions.add(new InfixSubstitution("Ù’ÙŠÙ","ÙÙŠ"));// EX: (Ù…ÙØ¨ÙÙŠØ¯ÙŒØŒ Ù…ÙØ³ØªÙÙ‚ÙÙŠÙ„ÙŒ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","ÙØ§"));// EX: (Ù…ÙÙ†Ù’Ù‡Ø§Ù„ÙŒØŒ Ù…ÙÙƒÙ’ØªØ§Ù„ÙŒ)
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {

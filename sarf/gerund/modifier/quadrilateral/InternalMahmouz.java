@@ -23,11 +23,11 @@ public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier implem
     List substitutions = new LinkedList();
 
     public InternalMahmouz() {
-        substitutions.add(new InfixSubstitution("óÁú","óÃú"));// EX: (ÌÃÌÃÉ¡ ÈÃÏáÉ¡  ÊÌÃÌõÄ¡ )
-        substitutions.add(new InfixSubstitution("úÁó","úÃó"));// EX: (ØãÃäÉ¡ )
-        substitutions.add(new InfixSubstitution("úÁõ","úÄõ"));// EX: (ÊØãÄä¡ )
-        substitutions.add(new InfixSubstitution("úÁö","úÆö"));// EX: (ÊóãóÑúÆöíğÇ)
-        substitutions.add(new InfixSubstitution("öÁú","öÆú"));// EX: (ÇØãöÆúäÇä¡ ÇßæöÆúÏÇÏ¡ ÇÒíöÆúäÇä)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’","ÙØ£Ù’"));// EX: (Ø¬Ø£Ø¬Ø£Ø©ØŒ Ø¨Ø£Ø¯Ù„Ø©ØŒ  ØªØ¬Ø£Ø¬ÙØ¤ØŒ )
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù","Ù’Ø£Ù"));// EX: (Ø·Ù…Ø£Ù†Ø©ØŒ )
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù","Ù’Ø¤Ù"));// EX: (ØªØ·Ù…Ø¤Ù†ØŒ )
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù","Ù’Ø¦Ù"));// EX: (ØªÙÙ…ÙØ±Ù’Ø¦ÙÙŠÙ‹Ø§)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’","ÙØ¦Ù’"));// EX: (Ø§Ø·Ù…ÙØ¦Ù’Ù†Ø§Ù†ØŒ Ø§ÙƒÙˆÙØ¦Ù’Ø¯Ø§Ø¯ØŒ Ø§Ø²ÙŠÙØ¦Ù’Ù†Ø§Ù†)
     }
 
 
@@ -36,6 +36,6 @@ public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier implem
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC2() == 'Á' || conjugationResult.getRoot().getC3() == 'Á';
+        return conjugationResult.getRoot().getC2() == 'Ø¡' || conjugationResult.getRoot().getC3() == 'Ø¡';
     }
 }

@@ -20,10 +20,10 @@ public class ActivePastMahmouz extends AbstractFaaMahmouz {
     private List substitutions = new ArrayList();
 
     public ActivePastMahmouz() {
-        substitutions.add(new PrefixSubstitution("ÁóÇ", "Â")); // EX: (ÂÈó)
-        substitutions.add(new InfixSubstitution("Áó", "Ãó")); // EX: (Ãßóáó)
-        substitutions.add(new InfixSubstitution("Áõ", "Ãõ")); // EX: (ÃõáúÊõ ãä Âá íÄæá)
-        substitutions.add(new PrefixSubstitution("Áö", "Åö")); // EX: (ÅãúÊõ)
+        substitutions.add(new PrefixSubstitution("Ø¡ÙØ§", "Ø¢")); // EX: (Ø¢Ø¨Ù)
+        substitutions.add(new InfixSubstitution("Ø¡Ù", "Ø£Ù")); // EX: (Ø£ÙƒÙÙ„Ù)
+        substitutions.add(new InfixSubstitution("Ø¡Ù", "Ø£Ù")); // EX: (Ø£ÙÙ„Ù’ØªÙ Ù…Ù† Ø¢Ù„ ÙŠØ¤ÙˆÙ„)
+        substitutions.add(new PrefixSubstitution("Ø¡Ù", "Ø¥Ù")); // EX: (Ø¥Ù…Ù’ØªÙ)
     }
 
     public List getSubstitutions() {

@@ -21,7 +21,7 @@ public class AugmentedTrilateralRoot implements TrilateralRoot{
     private char c2;
     private char c3;
 
-    //ŞÇÆãÉ ÕíÛ ÇáãÒíÏ ÇáããßäÉ áåĞÇ ÇáÌĞÑ
+    //Ù‚Ø§Ø¦Ù…Ø© ØµÙŠØº Ø§Ù„Ù…Ø²ÙŠØ¯ Ø§Ù„Ù…Ù…ÙƒÙ†Ø© Ù„Ù‡Ø°Ø§ Ø§Ù„Ø¬Ø°Ø±
     private Map augmentations = new HashMap();
 
     public AugmentedTrilateralRoot() {

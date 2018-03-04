@@ -24,10 +24,10 @@ public class Imperative3Vocalizer extends SubstitutionsApplier implements IAugme
     private List substitutions = new LinkedList();
 
     public Imperative3Vocalizer() {
-        substitutions.add(new SuffixSubstitution("íú", "")); // EX: (ÊÍÇíó¡ ÊÏÇæó¡ ÊóÍóíøó¡ ÊóŞóæøó)
-        substitutions.add(new InfixSubstitution("íöí", "íú")); // EX: (ÃäÊö ÊóÍÇíóíú¡ ÊóÏÇæóíú¡ ÊóÍóíøóíú¡ ÊóŞóæøóíú)
-        substitutions.add(new InfixSubstitution("íõæ", "æú")); // EX: (ÃäÊã ÊóÍÇíóæúÇ¡ ÊóÏóÇæóæúÇ¡ ÊóÍóíøóæúÇ¡ ÊóŞóæøóæúÇ)
-        substitutions.add(new InfixSubstitution("íõä","æõä"));// EX: (ÃäÊã ÊóÍÇíóæõäøó¡ ÊÏÇæóæõäøó¡ ÊóÍóíøóæõäøó¡ ÊóŞóæøóæõäøó)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ’", "")); // EX: (ØªØ­Ø§ÙŠÙØŒ ØªØ¯Ø§ÙˆÙØŒ ØªÙØ­ÙÙŠÙ‘ÙØŒ ØªÙÙ‚ÙÙˆÙ‘Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙŠ", "ÙŠÙ’")); // EX: (Ø£Ù†ØªÙ ØªÙØ­Ø§ÙŠÙÙŠÙ’ØŒ ØªÙØ¯Ø§ÙˆÙÙŠÙ’ØŒ ØªÙØ­ÙÙŠÙ‘ÙÙŠÙ’ØŒ ØªÙÙ‚ÙÙˆÙ‘ÙÙŠÙ’)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙˆ", "ÙˆÙ’")); // EX: (Ø£Ù†ØªÙ… ØªÙØ­Ø§ÙŠÙÙˆÙ’Ø§ØŒ ØªÙØ¯ÙØ§ÙˆÙÙˆÙ’Ø§ØŒ ØªÙØ­ÙÙŠÙ‘ÙÙˆÙ’Ø§ØŒ ØªÙÙ‚ÙÙˆÙ‘ÙÙˆÙ’Ø§)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙ†","ÙˆÙÙ†"));// EX: (Ø£Ù†ØªÙ… ØªÙØ­Ø§ÙŠÙÙˆÙÙ†Ù‘ÙØŒ ØªØ¯Ø§ÙˆÙÙˆÙÙ†Ù‘ÙØŒ ØªÙØ­ÙÙŠÙ‘ÙÙˆÙÙ†Ù‘ÙØŒ ØªÙÙ‚ÙÙˆÙ‘ÙÙˆÙÙ†Ù‘Ù)
     }
 
 
@@ -39,6 +39,6 @@ public class Imperative3Vocalizer extends SubstitutionsApplier implements IAugme
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return (root.getC2() == 'æ' || root.getC2() == 'í') && root.getC3() == 'í' && (kov == 27 || kov == 28) && (formulaNo == 7 || formulaNo == 8);
+        return (root.getC2() == 'Ùˆ' || root.getC2() == 'ÙŠ') && root.getC3() == 'ÙŠ' && (kov == 27 || kov == 28) && (formulaNo == 7 || formulaNo == 8);
     }
 }

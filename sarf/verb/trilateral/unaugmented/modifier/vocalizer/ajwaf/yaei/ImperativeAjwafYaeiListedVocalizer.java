@@ -9,7 +9,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.AbstractAjwafYa
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description:İÍÕ ÇáÃÌæİ ÍÓÈ ŞÇÆãÉ    </p>
+ * <p>Description:ÙØ­Øµ Ø§Ù„Ø£Ø¬ÙˆÙ Ø­Ø³Ø¨ Ù‚Ø§Ø¦Ù…Ø©    </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -22,10 +22,10 @@ public class ImperativeAjwafYaeiListedVocalizer extends AbstractAjwafYaeiListedV
     private List substitutions = new LinkedList();
 
     public ImperativeAjwafYaeiListedVocalizer() {
-        substitutions.add(new ExpressionInfixSubstitution("ÇC1úíóC3õ", "C1óÇC3õ"));
-        substitutions.add(new ExpressionInfixSubstitution("ÇC1úíóC3ö", "C1óÇC3ö"));
-        substitutions.add(new ExpressionInfixSubstitution("ÇC1úíóC3ó", "C1óÇC3ó"));
-        substitutions.add(new ExpressionInfixSubstitution("ÇC1úíóC3ú", "C1óC3ú"));
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C1Ù’ÙŠÙC3Ù", "C1ÙØ§C3Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C1Ù’ÙŠÙC3Ù", "C1ÙØ§C3Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C1Ù’ÙŠÙC3Ù", "C1ÙØ§C3Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C1Ù’ÙŠÙC3Ù’", "C1ÙC3Ù’"));
     }
 
     public List getSubstitutions() {

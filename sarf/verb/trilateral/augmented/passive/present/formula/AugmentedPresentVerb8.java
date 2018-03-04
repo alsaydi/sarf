@@ -7,7 +7,7 @@ import sarf.verb.trilateral.augmented.*;
 /**
  * <p>Title: Sarf</p>
  *
- * <p>Description: »—‰«„Ã «· ’—Ì›</p>
+ * <p>Description: ÿ®ÿ±ŸÜÿßŸÖÿ¨ ÿßŸÑÿ™ÿµÿ±ŸäŸÅ</p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -29,6 +29,6 @@ public class AugmentedPresentVerb8 extends AugmentedPresentVerb {
      *   method
      */
     public String form() {
-        return cp+ArabCharUtil.DAMMA+" "+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SHADDA+ArabCharUtil.FATHA+root.getC3()+lastDpr+connectedPronoun;
+        return cp+ArabCharUtil.DAMMA+"ÿ™"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SHADDA+ArabCharUtil.FATHA+root.getC3()+lastDpr+connectedPronoun;
     }
 }

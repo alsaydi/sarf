@@ -21,7 +21,7 @@ public class GenericSubstituter8 extends AbstractGenericSubstituter {
     private List substitutions = new LinkedList();
 
     public GenericSubstituter8() {
-        substitutions.add(new InfixSubstitution("ÙúÊ","ÙúØ"));// EX: (ÇÙØáÇã¡ )
+        substitutions.add(new InfixSubstitution("Ø¸Ù’Øª","Ø¸Ù’Ø·"));// EX: (Ø§Ø¸Ø·Ù„Ø§Ù…ØŒ )
     }
 
     public List getSubstitutions() {
@@ -29,6 +29,6 @@ public class GenericSubstituter8 extends AbstractGenericSubstituter {
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC1() == 'Ù' && super.isApplied(conjugationResult);
+        return conjugationResult.getRoot().getC1() == 'Ø¸' && super.isApplied(conjugationResult);
     }
 }

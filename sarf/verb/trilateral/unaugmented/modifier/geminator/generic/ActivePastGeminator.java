@@ -23,12 +23,12 @@ public class ActivePastGeminator extends SubstitutionsApplier{
     private List substitutions = new LinkedList();
 
     public ActivePastGeminator() {
-        substitutions.add(new ExpressionInfixSubstitution("C2óC3ó","C3øó"));
-        substitutions.add(new ExpressionInfixSubstitution("C2óC3õ","C3øõ"));
-        substitutions.add(new ExpressionInfixSubstitution("C2öC3ó","C3øó"));
-        substitutions.add(new ExpressionInfixSubstitution("C2öC3õ","C3øõ"));
-        substitutions.add(new ExpressionInfixSubstitution("C2õC3ó","C3øó"));
-        substitutions.add(new ExpressionInfixSubstitution("C2õC3õ","C3øõ"));
+        substitutions.add(new ExpressionInfixSubstitution("C2ÙC3Ù","C3Ù‘Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("C2ÙC3Ù","C3Ù‘Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("C2ÙC3Ù","C3Ù‘Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("C2ÙC3Ù","C3Ù‘Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("C2ÙC3Ù","C3Ù‘Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("C2ÙC3Ù","C3Ù‘Ù"));
 
     }
 

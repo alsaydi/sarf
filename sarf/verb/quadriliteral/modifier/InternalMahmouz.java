@@ -31,7 +31,7 @@ public class InternalMahmouz {
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
-        if (conjResult.getRoot().getC2() == 'ม' || conjResult.getRoot().getC3() == 'ม') {
+        if (conjResult.getRoot().getC2() == 'ุก' || conjResult.getRoot().getC3() == 'ุก') {
             SubstitutionsApplier modifier = (SubstitutionsApplier) modifiersMap.get(tense + active);
             modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
         }

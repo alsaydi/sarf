@@ -7,38 +7,38 @@ import sarf.verb.trilateral.*;
 import sarf.verb.trilateral.unaugmented.*;
 
 /**
- * íÍÊæí Úáì  ÇáãÚáæãÇÊ  ÇáÕÑİíÉ ÇáãØáæÈÉ áÊÕÑíİ ÇáÃİÚÇá  İí ÇáãÖÇÑÚ
+ * ÙŠØ­ØªÙˆÙŠ Ø¹Ù„Ù‰  Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª  Ø§Ù„ØµØ±ÙÙŠØ© Ø§Ù„Ù…Ø·Ù„ÙˆØ¨Ø© Ù„ØªØµØ±ÙŠÙ Ø§Ù„Ø£ÙØ¹Ø§Ù„  ÙÙŠ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹
  * <p>Title: Sarf</p>
- * <p>Description: ÈÑäÇãÌ ÇáÊÕÑíİ</p>
+ * <p>Description: Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØµØ±ÙŠÙ</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
 public class PresentConjugationDataContainer {
-    //ÃÍÑİ ÇáãÖÇÑÚÉ ÍÓÈ ÇáÖãíÑ
+    //Ø£Ø­Ø±Ù Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹Ø© Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
     private List cpList = new ArrayList(13);
-    //ŞÇÆãÉ ÍÑßÇÊ Úíä ÇáİÚá ÍÓÈ ÈÇÈ ÇáÊÕÑíİ
+    //Ù‚Ø§Ø¦Ù…Ø© Ø­Ø±ÙƒØ§Øª Ø¹ÙŠÙ† Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø¨Ø§Ø¨ Ø§Ù„ØªØµØ±ÙŠÙ
     private List dpr2List = new ArrayList(6);
 
-    //ŞÇÆãÉ  ÍÑßÇÊ áÇã ÇáİÚá ÍÓÈ ÖãíÑ ÇáÑİÚ
-    //ãÑİæÚ
+    //Ù‚Ø§Ø¦Ù…Ø©  Ø­Ø±ÙƒØ§Øª Ù„Ø§Ù… Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø¶Ù…ÙŠØ± Ø§Ù„Ø±ÙØ¹
+    //Ù…Ø±ÙÙˆØ¹
     private List nominativeLastDprList = new ArrayList(13);
-    //ãäÕæÈ
+    //Ù…Ù†ØµÙˆØ¨
     private List accusativeLastDprList = new ArrayList(13);
-    //ãÌÒæã
+    //Ù…Ø¬Ø²ÙˆÙ…
     private List jussiveLastDprList = new ArrayList(13);
-    //ãÄßÏ
+    //Ù…Ø¤ÙƒØ¯
     private List emphasizedLastDprList = new ArrayList(13);
 
-    //ŞÇÆãÉ ÖãÇÆÑ ÇáÑİÚ ÇáãÊÕáÉ
-    //ãÑİæÚ
+    //Ù‚Ø§Ø¦Ù…Ø© Ø¶Ù…Ø§Ø¦Ø± Ø§Ù„Ø±ÙØ¹ Ø§Ù„Ù…ØªØµÙ„Ø©
+    //Ù…Ø±ÙÙˆØ¹
     private List nominativeConnectedPronounList = new ArrayList(13);
-    //ãäÕæÈ
+    //Ù…Ù†ØµÙˆØ¨
     private List accusativeConnectedPronounList = new ArrayList(13);
-    //ãÌÒæã
+    //Ù…Ø¬Ø²ÙˆÙ…
     private List jussiveConnectedPronounList = new ArrayList(13);
-    //ãÄßÏ
+    //Ù…Ø¤ÙƒØ¯
     private List emphasizedConnectedPronounList = new ArrayList(13);
 
     private static PresentConjugationDataContainer instance = new PresentConjugationDataContainer();
@@ -80,7 +80,7 @@ public class PresentConjugationDataContainer {
     }
 
     private PresentConjugationDataContainer() {
-        //ÊåíÆÉ ÇáŞíã
+        //ØªÙ‡ÙŠØ¦Ø© Ø§Ù„Ù‚ÙŠÙ…
         dpr2List.add(ArabCharUtil.DAMMA);
         dpr2List.add(ArabCharUtil.KASRA);
         dpr2List.add(ArabCharUtil.FATHA);
@@ -88,19 +88,19 @@ public class PresentConjugationDataContainer {
         dpr2List.add(ArabCharUtil.DAMMA);
         dpr2List.add(ArabCharUtil.KASRA);
 
-        cpList.add("Ã");
-        cpList.add("ä");
-        cpList.add("Ê");
-        cpList.add("Ê");
-        cpList.add("Ê");
-        cpList.add("Ê");
-        cpList.add("Ê");
-        cpList.add("í");
-        cpList.add("Ê");
-        cpList.add("í");
-        cpList.add("Ê");
-        cpList.add("í");
-        cpList.add("í");
+        cpList.add("Ø£");
+        cpList.add("Ù†");
+        cpList.add("Øª");
+        cpList.add("Øª");
+        cpList.add("Øª");
+        cpList.add("Øª");
+        cpList.add("Øª");
+        cpList.add("ÙŠ");
+        cpList.add("Øª");
+        cpList.add("ÙŠ");
+        cpList.add("Øª");
+        cpList.add("ÙŠ");
+        cpList.add("ÙŠ");
 
         nominativeLastDprList.add(ArabCharUtil.DAMMA);
         nominativeLastDprList.add(ArabCharUtil.DAMMA);
@@ -119,16 +119,16 @@ public class PresentConjugationDataContainer {
         nominativeConnectedPronounList.add("");
         nominativeConnectedPronounList.add("");
         nominativeConnectedPronounList.add("");
-        nominativeConnectedPronounList.add("íäó");
-        nominativeConnectedPronounList.add("Çäö");
-        nominativeConnectedPronounList.add("æäó");
-        nominativeConnectedPronounList.add("äó");
+        nominativeConnectedPronounList.add("ÙŠÙ†Ù");
+        nominativeConnectedPronounList.add("Ø§Ù†Ù");
+        nominativeConnectedPronounList.add("ÙˆÙ†Ù");
+        nominativeConnectedPronounList.add("Ù†Ù");
         nominativeConnectedPronounList.add("");
         nominativeConnectedPronounList.add("");
-        nominativeConnectedPronounList.add("Çäö");
-        nominativeConnectedPronounList.add("Çäö");
-        nominativeConnectedPronounList.add("æäó");
-        nominativeConnectedPronounList.add("äó");
+        nominativeConnectedPronounList.add("Ø§Ù†Ù");
+        nominativeConnectedPronounList.add("Ø§Ù†Ù");
+        nominativeConnectedPronounList.add("ÙˆÙ†Ù");
+        nominativeConnectedPronounList.add("Ù†Ù");
 
         accusativeLastDprList.add(ArabCharUtil.FATHA);
         accusativeLastDprList.add(ArabCharUtil.FATHA);
@@ -147,16 +147,16 @@ public class PresentConjugationDataContainer {
         accusativeConnectedPronounList.add("");
         accusativeConnectedPronounList.add("");
         accusativeConnectedPronounList.add("");
-        accusativeConnectedPronounList.add("í");
-        accusativeConnectedPronounList.add("Ç");
-        accusativeConnectedPronounList.add("æÇ");
-        accusativeConnectedPronounList.add("äó");
+        accusativeConnectedPronounList.add("ÙŠ");
+        accusativeConnectedPronounList.add("Ø§");
+        accusativeConnectedPronounList.add("ÙˆØ§");
+        accusativeConnectedPronounList.add("Ù†Ù");
         accusativeConnectedPronounList.add("");
         accusativeConnectedPronounList.add("");
-        accusativeConnectedPronounList.add("Ç");
-        accusativeConnectedPronounList.add("Ç");
-        accusativeConnectedPronounList.add("æÇ");
-        accusativeConnectedPronounList.add("äó");
+        accusativeConnectedPronounList.add("Ø§");
+        accusativeConnectedPronounList.add("Ø§");
+        accusativeConnectedPronounList.add("ÙˆØ§");
+        accusativeConnectedPronounList.add("Ù†Ù");
 
         jussiveLastDprList.add(ArabCharUtil.SKOON);
         jussiveLastDprList.add(ArabCharUtil.SKOON);
@@ -175,16 +175,16 @@ public class PresentConjugationDataContainer {
         jussiveConnectedPronounList.add("");
         jussiveConnectedPronounList.add("");
         jussiveConnectedPronounList.add("");
-        jussiveConnectedPronounList.add("í");
-        jussiveConnectedPronounList.add("Ç");
-        jussiveConnectedPronounList.add("æÇ");
-        jussiveConnectedPronounList.add("äó");
+        jussiveConnectedPronounList.add("ÙŠ");
+        jussiveConnectedPronounList.add("Ø§");
+        jussiveConnectedPronounList.add("ÙˆØ§");
+        jussiveConnectedPronounList.add("Ù†Ù");
         jussiveConnectedPronounList.add("");
         jussiveConnectedPronounList.add("");
-        jussiveConnectedPronounList.add("Ç");
-        jussiveConnectedPronounList.add("Ç");
-        jussiveConnectedPronounList.add("æÇ");
-        jussiveConnectedPronounList.add("äó");
+        jussiveConnectedPronounList.add("Ø§");
+        jussiveConnectedPronounList.add("Ø§");
+        jussiveConnectedPronounList.add("ÙˆØ§");
+        jussiveConnectedPronounList.add("Ù†Ù");
 
         emphasizedLastDprList.add(ArabCharUtil.FATHA);
         emphasizedLastDprList.add(ArabCharUtil.FATHA);
@@ -200,34 +200,34 @@ public class PresentConjugationDataContainer {
         emphasizedLastDprList.add(ArabCharUtil.DAMMA);
         emphasizedLastDprList.add(ArabCharUtil.SKOON);
 
-        emphasizedConnectedPronounList.add("äøó");
-        emphasizedConnectedPronounList.add("äøó");
-        emphasizedConnectedPronounList.add("äøó");
-        emphasizedConnectedPronounList.add("äøó");
-        emphasizedConnectedPronounList.add("Çäøö");
-        emphasizedConnectedPronounList.add("äøó");
-        emphasizedConnectedPronounList.add("äóÇäøö");
-        emphasizedConnectedPronounList.add("äøó");
-        emphasizedConnectedPronounList.add("äøó");
-        emphasizedConnectedPronounList.add("Çäøö");
-        emphasizedConnectedPronounList.add("Çäøö");
-        emphasizedConnectedPronounList.add("äøó");
-        emphasizedConnectedPronounList.add("äóÇäøö");
+        emphasizedConnectedPronounList.add("Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ø§Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ù†ÙØ§Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ø§Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ø§Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ù†Ù‘Ù");
+        emphasizedConnectedPronounList.add("Ù†ÙØ§Ù†Ù‘Ù");
     }
 
     /**
-     * ÇáÍÕæá  Úáì ÍÑßÉ Úíä ÇáİÚá ÍÓÈ ÈÇÈ ÊÕÑíİ ÇáİÚá
+     * Ø§Ù„Ø­ØµÙˆÙ„  Ø¹Ù„Ù‰ Ø­Ø±ÙƒØ© Ø¹ÙŠÙ† Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø¨Ø§Ø¨ ØªØµØ±ÙŠÙ Ø§Ù„ÙØ¹Ù„
      * @param root TripleVerb
      * @return String
      */
     public String getDpr2(UnaugmentedTrilateralRoot root) {
-        //ÈÓÈÈ Ãä ÊÑŞíã ÇáÈÇÈ ÇáÊÕÑíİí íÈÏÃ ãä ÇáæÇÍÏ Úáì Ííä Ãä ÇáŞÇÆãÉ ÊÈÏÃ ãä ÇáÕİÑ ÌÑì ØÑÍ ÇáÚÏÏ æÇÍÏ
+        //Ø¨Ø³Ø¨Ø¨ Ø£Ù† ØªØ±Ù‚ÙŠÙ… Ø§Ù„Ø¨Ø§Ø¨ Ø§Ù„ØªØµØ±ÙŠÙÙŠ ÙŠØ¨Ø¯Ø£ Ù…Ù† Ø§Ù„ÙˆØ§Ø­Ø¯ Ø¹Ù„Ù‰ Ø­ÙŠÙ† Ø£Ù† Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© ØªØ¨Ø¯Ø£ Ù…Ù† Ø§Ù„ØµÙØ± Ø¬Ø±Ù‰ Ø·Ø±Ø­ Ø§Ù„Ø¹Ø¯Ø¯ ÙˆØ§Ø­Ø¯
         return (String) dpr2List.get((Integer.parseInt(root.getConjugation()) - 1));
     }
 
 
     /**
-     * ÇáÍÕæá  Úáì ÍÑİ ÇáãÖÇÑÚ ÍÓÈ ÇáÖãíÑ
+     * Ø§Ù„Ø­ØµÙˆÙ„  Ø¹Ù„Ù‰ Ø­Ø±Ù Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
      * @param pronounIndex int
      * @return String
      */

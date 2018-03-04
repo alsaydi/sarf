@@ -23,15 +23,15 @@ public class LamMahmouz extends AbstractLamMahmouz {
     List substitutions = new LinkedList();
 
     public LamMahmouz() {
-        substitutions.add(new InfixSubstitution("óÁğÇ", "óÃğ")); // EX: (ãáÌÃğ¡ )
-        substitutions.add(new InfixSubstitution("óÁñ", "óÃñ")); // EX: (ãáÌÃñ¡ )
-        substitutions.add(new InfixSubstitution("óÁò", "óÃò")); // EX: (ãáÌÃò¡ )
-        substitutions.add(new SuffixSubstitution("óÁõ", "óÃõ")); // EX: (ÇáãáÌÃõ¡ )
-        substitutions.add(new SuffixSubstitution("óÁó", "óÃó")); // EX: (ÇáãáÌÃó ¡ )
-        substitutions.add(new SuffixSubstitution("óÁö", "óÃö")); // EX: (ÇáãáÌÃö ¡ )
-        substitutions.add(new InfixSubstitution("óÁóÇ", "óÂ")); // EX: (ãóáúÌóÂä¡ )
-        substitutions.add(new InfixSubstitution("óÁó", "óÃó")); // EX: (ãóßúãóÃóÉ¡ ãóáúÌóÃóíúä¡ )
-        substitutions.add(new InfixSubstitution("öÁ", "öÆ")); // EX: (ãóæúØöÆ¡)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù‹Ø§", "ÙØ£Ù‹")); // EX: (Ù…Ù„Ø¬Ø£Ù‹ØŒ )
+        substitutions.add(new InfixSubstitution("ÙØ¡ÙŒ", "ÙØ£ÙŒ")); // EX: (Ù…Ù„Ø¬Ø£ÙŒØŒ )
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ£Ù")); // EX: (Ù…Ù„Ø¬Ø£ÙØŒ )
+        substitutions.add(new SuffixSubstitution("ÙØ¡Ù", "ÙØ£Ù")); // EX: (Ø§Ù„Ù…Ù„Ø¬Ø£ÙØŒ )
+        substitutions.add(new SuffixSubstitution("ÙØ¡Ù", "ÙØ£Ù")); // EX: (Ø§Ù„Ù…Ù„Ø¬Ø£Ù ØŒ )
+        substitutions.add(new SuffixSubstitution("ÙØ¡Ù", "ÙØ£Ù")); // EX: (Ø§Ù„Ù…Ù„Ø¬Ø£Ù ØŒ )
+        substitutions.add(new InfixSubstitution("ÙØ¡ÙØ§", "ÙØ¢")); // EX: (Ù…ÙÙ„Ù’Ø¬ÙØ¢Ù†ØŒ )
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ£Ù")); // EX: (Ù…ÙÙƒÙ’Ù…ÙØ£ÙØ©ØŒ Ù…ÙÙ„Ù’Ø¬ÙØ£ÙÙŠÙ’Ù†ØŒ )
+        substitutions.add(new InfixSubstitution("ÙØ¡", "ÙØ¦")); // EX: (Ù…ÙÙˆÙ’Ø·ÙØ¦ØŒ)
     }
 
 

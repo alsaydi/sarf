@@ -7,7 +7,7 @@ import sarf.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: э╪╚▐ ▐╚с ╟с╟┌с╟с ▀у╤═с╔ ├цсь ▌э ╟с┼┌с╟с      </p>
+ * <p>Description: ┘К╪╖╪и┘В ┘В╪и┘Д ╪з┘Д╪з╪╣┘Д╪з┘Д ┘Г┘Е╪▒╪н┘Д╪й ╪г┘И┘Д┘Й ┘Б┘К ╪з┘Д╪е╪╣┘Д╪з┘Д      </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *

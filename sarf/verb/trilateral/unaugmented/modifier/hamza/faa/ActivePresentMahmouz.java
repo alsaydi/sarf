@@ -20,10 +20,10 @@ public class ActivePresentMahmouz extends AbstractFaaMahmouz {
     private List substitutions = new ArrayList();
 
     public ActivePresentMahmouz() {
-        substitutions.add(new InfixSubstitution("ÃóÁú", "Â")); // EX: (Âßõá)
-        substitutions.add(new InfixSubstitution("óÁú", "óÃú")); // EX: (íóÃúßóáó)
-        substitutions.add(new InfixSubstitution("óÁõ", "óÄõ")); // EX: (íóÄõæÈ¡ íóÄõãøõ)
-        substitutions.add(new InfixSubstitution("óÁö", "óÆö")); // EX: (íóÆöíä¡ íóÆöäøõ)
+        substitutions.add(new InfixSubstitution("Ø£ÙØ¡Ù’", "Ø¢")); // EX: (Ø¢ÙƒÙÙ„)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’", "ÙØ£Ù’")); // EX: (ÙŠÙØ£Ù’ÙƒÙÙ„Ù)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ¤Ù")); // EX: (ÙŠÙØ¤ÙÙˆØ¨ØŒ ÙŠÙØ¤ÙÙ…Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ¦Ù")); // EX: (ÙŠÙØ¦ÙÙŠÙ†ØŒ ÙŠÙØ¦ÙÙ†Ù‘Ù)
     }
 
     public List getSubstitutions() {

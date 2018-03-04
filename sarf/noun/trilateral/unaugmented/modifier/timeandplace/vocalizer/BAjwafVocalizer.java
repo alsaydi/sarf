@@ -24,7 +24,7 @@ public class BAjwafVocalizer extends TrilateralNounSubstitutionApplier implement
     List substitutions = new LinkedList();
 
     public BAjwafVocalizer() {
-        substitutions.add(new InfixSubstitution("úíö","öí"));// EX: (ãóÈöíÚ)
+        substitutions.add(new InfixSubstitution("Ù’ÙŠÙ","ÙÙŠ"));// EX: (Ù…ÙØ¨ÙÙŠØ¹)
     }
 
 
@@ -34,7 +34,7 @@ public class BAjwafVocalizer extends TrilateralNounSubstitutionApplier implement
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
-        if (!nounFormula.equals("ãóİúÚöá"))
+        if (!nounFormula.equals("Ù…ÙÙÙ’Ø¹ÙÙ„"))
             return false;
 
         int kov = conjugationResult.getKov();

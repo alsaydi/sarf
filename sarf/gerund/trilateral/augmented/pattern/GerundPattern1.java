@@ -37,7 +37,7 @@ public class GerundPattern1 extends TrilateralAugmentedGerund implements IChange
         if (forcedForm1Applying)
             return form1();
 
-        if ((root.getC2() == 'æ' || root.getC2() == 'í') && (root.getC3() != 'æ' && root.getC3() != 'í')) {
+        if ((root.getC2() == 'Ùˆ' || root.getC2() == 'ÙŠ') && (root.getC3() != 'Ùˆ' && root.getC3() != 'ÙŠ')) {
             return form2();
         }
         return form1();
@@ -66,7 +66,7 @@ public class GerundPattern1 extends TrilateralAugmentedGerund implements IChange
     }
 
     public String generateForm() {
-        return "Å" + ArabCharUtil.KASRA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.FATHA + "Ç" + root.getC3() + suffix;
+        return "Ø¥" + ArabCharUtil.KASRA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.FATHA + "Ø§" + root.getC3() + suffix;
     }
 
 
@@ -79,7 +79,7 @@ public class GerundPattern1 extends TrilateralAugmentedGerund implements IChange
      *   sarf.gerund.trilateral.augmented.TrilateralAugmentedGerund method
      */
     public String getPattern() {
-        return "ÅİúÚóÇá";
+        return "Ø¥ÙÙ’Ø¹ÙØ§Ù„";
     }
 
     public void setForcedForm1Applying(boolean forcedForm1Applying) {

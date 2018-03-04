@@ -35,7 +35,7 @@ public class NounFormula7 extends NonStandardExaggerationNounFormula {
         case 9:
         case 13:
         case 15:
-            return root.getC1() + ArabCharUtil.FATHA + "Ç" + root.getC2() + ArabCharUtil.DAMMA + "æ" + root.getC3() + suffix;
+            return root.getC1() + ArabCharUtil.FATHA + "Ø§" + root.getC2() + ArabCharUtil.DAMMA + "Ùˆ" + root.getC3() + suffix;
         }
 
         return "";
@@ -43,7 +43,7 @@ public class NounFormula7 extends NonStandardExaggerationNounFormula {
     }
 
     public String getFormulaName() {
-        return "İóÇÚõæá";
+        return "ÙÙØ§Ø¹ÙÙˆÙ„";
     }
 
     public String getSymbol() {

@@ -28,6 +28,6 @@ public class NounFormula9 extends AugmentedTrilateralNoun {
      * @todo Implement this sarf.noun.trilateral.TrilateralNoun method
      */
     public String form() {
-        return "ã"+ArabCharUtil.DAMMA+"Ó"+ArabCharUtil.SKOON+"Ê"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
+        return "Ù…"+ArabCharUtil.DAMMA+"Ø³"+ArabCharUtil.SKOON+"Øª"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
     }
 }

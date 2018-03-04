@@ -6,7 +6,7 @@ import sarf.noun.GenericNounSuffixContainer;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: ╟с├╚ ╟су╘╩╤▀ сс├╙у╟┴ ╟су╘▀с╔ уф у╒╧╤  ╤╚╟┌э       </p>
+ * <p>Description: ╪з┘Д╪г╪и ╪з┘Д┘Е╪┤╪к╪▒┘Г ┘Д┘Д╪г╪│┘Е╪з╪б ╪з┘Д┘Е╪┤┘Г┘Д╪й ┘Е┘Ж ┘Е╪╡╪п╪▒  ╪▒╪и╪з╪╣┘К       </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *

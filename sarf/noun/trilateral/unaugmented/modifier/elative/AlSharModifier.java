@@ -27,41 +27,41 @@ public class AlSharModifier {
 
     public void apply(ConjugationResult conjResult) {
         List conjugations = conjResult.getFinalResult();
-        //ÌÏæá ÊÕÑíİ ÇÓã ÇáÊİÖíá ÇáãÚÑøİ ÈÜ (Ãá)
+        //Ø¬Ø¯ÙˆÙ„ ØªØµØ±ÙŠÙ Ø§Ø³Ù… Ø§Ù„ØªÙØ¶ÙŠÙ„ Ø§Ù„Ù…Ø¹Ø±Ù‘Ù Ø¨Ù€ (Ø£Ù„)
         if (ElativeSuffixContainer.getInstance().isDefinite()) {
             for (int i=0;i<6; i++) {
-                conjugations.set(i, "ÇáÔøóÑøõ");
+                conjugations.set(i, "Ø§Ù„Ø´Ù‘ÙØ±Ù‘Ù");
             }
             for (int i=6;i<12; i++) {
-                conjugations.set(i, "ÇáÔøóÑøó");
+                conjugations.set(i, "Ø§Ù„Ø´Ù‘ÙØ±Ù‘Ù");
             }
             for (int i=12;i<18; i++) {
-                conjugations.set(i, "ÇáÔøóÑøö");
+                conjugations.set(i, "Ø§Ù„Ø´Ù‘ÙØ±Ù‘Ù");
             }
         }
-        //- ÌÏæá ÊÕÑíİ ÇÓã ÇáÊİÖíá ÇáãÖÇİ Åáì ãÚÑİÉ
-        // ÌÏæá ÊÕÑíİ ÇÓã ÇáÊİÖíá ÇáãÖÇİ Åáì äßÑÉ
+        //- Ø¬Ø¯ÙˆÙ„ ØªØµØ±ÙŠÙ Ø§Ø³Ù… Ø§Ù„ØªÙØ¶ÙŠÙ„ Ø§Ù„Ù…Ø¶Ø§Ù Ø¥Ù„Ù‰ Ù…Ø¹Ø±ÙØ©
+        // Ø¬Ø¯ÙˆÙ„ ØªØµØ±ÙŠÙ Ø§Ø³Ù… Ø§Ù„ØªÙØ¶ÙŠÙ„ Ø§Ù„Ù…Ø¶Ø§Ù Ø¥Ù„Ù‰ Ù†ÙƒØ±Ø©
         else if (ElativeSuffixContainer.getInstance().isAnnexed() || ElativeSuffixContainer.getInstance().isIndefinite()) {
             for (int i=0;i<6; i++) {
-                conjugations.set(i, "ÔóÑøõ");
+                conjugations.set(i, "Ø´ÙØ±Ù‘Ù");
             }
             for (int i=6;i<12; i++) {
-                conjugations.set(i, "ÔóÑøó");
+                conjugations.set(i, "Ø´ÙØ±Ù‘Ù");
             }
             for (int i=12;i<18; i++) {
-                conjugations.set(i, "ÔóÑøö");
+                conjugations.set(i, "Ø´ÙØ±Ù‘Ù");
             }
         }
-        // ÌÏæá ÊÕÑíİ ÇÓã ÇáÊİÖíá ÛíÑ ÇáãÖÇİ
+        // Ø¬Ø¯ÙˆÙ„ ØªØµØ±ÙŠÙ Ø§Ø³Ù… Ø§Ù„ØªÙØ¶ÙŠÙ„ ØºÙŠØ± Ø§Ù„Ù…Ø¶Ø§Ù
         else {
             for (int i=0;i<6; i++) {
-                conjugations.set(i, "ÔóÑøñ");
+                conjugations.set(i, "Ø´ÙØ±Ù‘ÙŒ");
             }
             for (int i=6;i<12; i++) {
-                conjugations.set(i, "ÔóÑøğÇ");
+                conjugations.set(i, "Ø´ÙØ±Ù‘Ù‹Ø§");
             }
             for (int i=12;i<18; i++) {
-                conjugations.set(i, "ÔóÑøò");
+                conjugations.set(i, "Ø´ÙØ±Ù‘Ù");
             }
 
         }
@@ -69,6 +69,6 @@ public class AlSharModifier {
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC1() == 'Ô' && root.getC2() == 'Ñ' && root.getC3() == 'Ñ';
+        return root.getC1() == 'Ø´' && root.getC2() == 'Ø±' && root.getC3() == 'Ø±';
     }
 }

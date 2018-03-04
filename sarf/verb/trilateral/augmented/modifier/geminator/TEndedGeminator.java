@@ -11,7 +11,7 @@ import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: ÇáĞí íäÊåí ÈÇáÊÇÁ  </p>
+ * <p>Description: Ø§Ù„Ø°ÙŠ ÙŠÙ†ØªÙ‡ÙŠ Ø¨Ø§Ù„ØªØ§Ø¡  </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -25,7 +25,7 @@ public class TEndedGeminator extends SubstitutionsApplier implements IAugmentedT
     private List substitutions = new LinkedList();
 
     public TEndedGeminator() {
-        substitutions.add(new InfixSubstitution("ÊúÊ", "Êø")); // EX: (ÃäÇ ÓóßøóÊøõ ¡ ÃäÊó ÓóßøóÊøó ¡ ÃäÊö ÓóßøóÊøö )    }
+        substitutions.add(new InfixSubstitution("ØªÙ’Øª", "ØªÙ‘")); // EX: (Ø£Ù†Ø§ Ø³ÙÙƒÙ‘ÙØªÙ‘Ù ØŒ Ø£Ù†ØªÙ Ø³ÙÙƒÙ‘ÙØªÙ‘Ù ØŒ Ø£Ù†ØªÙ Ø³ÙÙƒÙ‘ÙØªÙ‘Ù )    }
     }
 
     public List getSubstitutions() {
@@ -36,7 +36,7 @@ public class TEndedGeminator extends SubstitutionsApplier implements IAugmentedT
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
-        if (conjugationResult.getRoot().getC3() != 'Ê') return false;
+        if (conjugationResult.getRoot().getC3() != 'Øª') return false;
 
         switch (formulaNo) {
         case 1:

@@ -31,7 +31,7 @@ public class GerundPattern3 extends TrilateralAugmentedNomenGerund {
 
 
     public String form() {
-        return "ã"+ArabCharUtil.DAMMA+root.getC1()+ArabCharUtil.FATHA+"Ç"+root.getC2()+ArabCharUtil.FATHA+root.getC3()+suffix;
+        return "Ù…"+ArabCharUtil.DAMMA+root.getC1()+ArabCharUtil.FATHA+"Ø§"+root.getC2()+ArabCharUtil.FATHA+root.getC3()+suffix;
     }
 
 
@@ -44,6 +44,6 @@ public class GerundPattern3 extends TrilateralAugmentedNomenGerund {
      *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
      */
     public String getPattern() {
-        return "ãõİóÇÚóáóÉ";
+        return "Ù…ÙÙÙØ§Ø¹ÙÙ„ÙØ©";
     }
 }

@@ -31,7 +31,7 @@ public class Vocalizer {
     }
 
     public void apply(ConjugationResult conjResult) {
-        // ÊØÈíŞ ÇÚáÇá æÇÍÏ ÇæáÇ
+        // ØªØ·Ø¨ÙŠÙ‚ Ø§Ø¹Ù„Ø§Ù„ ÙˆØ§Ø­Ø¯ Ø§ÙˆÙ„Ø§
         if (preMithalLafifVocalizer.isApplied(conjResult))
             preMithalLafifVocalizer.apply(conjResult.getFinalResult(), conjResult.getRoot());
 

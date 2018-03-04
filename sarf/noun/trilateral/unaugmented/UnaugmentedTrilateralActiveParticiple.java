@@ -21,7 +21,7 @@ public class UnaugmentedTrilateralActiveParticiple  {
      * @todo Implement this sarf.noun.Trilateral.TrilateralNoun method
      */
     public String form() {
-        return GenericNounSuffixContainer.getInstance().getPrefix()+root.getC1()+ArabCharUtil.FATHA+"ว"+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
+        return GenericNounSuffixContainer.getInstance().getPrefix()+root.getC1()+ArabCharUtil.FATHA+"ุง"+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
     }
 
     public String toString() {

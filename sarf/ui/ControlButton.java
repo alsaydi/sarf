@@ -66,11 +66,11 @@ public class ControlButton extends JPanel{
         LinkedList l3 = new LinkedList();
 
         for (int i=0; i<textArray.length; i++) {
-            if (textArray[i] == 'Ý')
+            if (textArray[i] == 'Ù')
                 l1.add(i+"");
-            else if (textArray[i] == 'Ú')
+            else if (textArray[i] == 'Ø¹')
                 l2.add(i+"");
-            else if (textArray[i] == 'á')
+            else if (textArray[i] == 'Ù„')
                 l3.add(i+"");
         }
 

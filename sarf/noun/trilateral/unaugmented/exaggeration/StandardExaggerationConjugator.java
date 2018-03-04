@@ -39,7 +39,7 @@ public class StandardExaggerationConjugator implements IUnaugmentedTrilateralNou
 
     static List formulas = new ArrayList(1);
     static {
-        formulas.add("İóÚøóÇá");
+        formulas.add("ÙÙØ¹Ù‘ÙØ§Ù„");
     }
 
     public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {

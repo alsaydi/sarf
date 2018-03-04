@@ -21,9 +21,9 @@ public class ImperativeMahmouz extends SubstitutionsApplier {
     private List substitutions = new LinkedList();
 
     public ImperativeMahmouz() {
-        substitutions.add(new InfixSubstitution("óÁú", "óÃú")); // EX: (ÈóÃúÏöáú¡ ÊóËóÃúáóáú¡ ÃäÊä ÇØúãóÃúäöäøó)
-        substitutions.add(new InfixSubstitution("úÁó", "úÃó")); // EX: (ÊóØóãúÃóäú¡ ÊóãóÑúÃó)
-        substitutions.add(new InfixSubstitution("Áö", "Æö")); // EX: (ØóãúÆöäú¡ ÇØúãóÆöäøõæÇ)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’", "ÙØ£Ù’")); // EX: (Ø¨ÙØ£Ù’Ø¯ÙÙ„Ù’ØŒ ØªÙØ«ÙØ£Ù’Ù„ÙÙ„Ù’ØŒ Ø£Ù†ØªÙ† Ø§Ø·Ù’Ù…ÙØ£Ù’Ù†ÙÙ†Ù‘Ù)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù", "Ù’Ø£Ù")); // EX: (ØªÙØ·ÙÙ…Ù’Ø£ÙÙ†Ù’ØŒ ØªÙÙ…ÙØ±Ù’Ø£Ù)
+        substitutions.add(new InfixSubstitution("Ø¡Ù", "Ø¦Ù")); // EX: (Ø·ÙÙ…Ù’Ø¦ÙÙ†Ù’ØŒ Ø§Ø·Ù’Ù…ÙØ¦ÙÙ†Ù‘ÙÙˆØ§)
     }
 
 

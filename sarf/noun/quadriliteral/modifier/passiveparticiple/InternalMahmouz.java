@@ -25,11 +25,11 @@ public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier implem
     public InternalMahmouz() {
 
 
-        substitutions.add(new InfixSubstitution("úÁóÇ","úÂ"));// EX: (ãÊãÑÂÉ)
-        substitutions.add(new InfixSubstitution("úÁğ","úÃğ"));// EX: (ãÊãÑÃğì)
-        substitutions.add(new InfixSubstitution("óÁú", "óÃú")); // EX: (ãõÈóÃúÏóáñ¡ ãõÊóËóÃúáóáñ¡)
-        substitutions.add(new InfixSubstitution("úÁó", "úÃó")); // EX: (ãõØóãúÃóäñ¡ ãõÊóØóãúÃóäñ¡ ãõØúãóÆöäøñ)
-        substitutions.add(new InfixSubstitution("óÁó", "óÃó")); // EX: (ãõØúãóÃóäøñ)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡ÙØ§","Ù’Ø¢"));// EX: (Ù…ØªÙ…Ø±Ø¢Ø©)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù‹","Ù’Ø£Ù‹"));// EX: (Ù…ØªÙ…Ø±Ø£Ù‹Ù‰)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’", "ÙØ£Ù’")); // EX: (Ù…ÙØ¨ÙØ£Ù’Ø¯ÙÙ„ÙŒØŒ Ù…ÙØªÙØ«ÙØ£Ù’Ù„ÙÙ„ÙŒØŒ)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù", "Ù’Ø£Ù")); // EX: (Ù…ÙØ·ÙÙ…Ù’Ø£ÙÙ†ÙŒØŒ Ù…ÙØªÙØ·ÙÙ…Ù’Ø£ÙÙ†ÙŒØŒ Ù…ÙØ·Ù’Ù…ÙØ¦ÙÙ†Ù‘ÙŒ)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ£Ù")); // EX: (Ù…ÙØ·Ù’Ù…ÙØ£ÙÙ†Ù‘ÙŒ)
 
     }
 
@@ -39,6 +39,6 @@ public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier implem
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC2() == 'Á' || conjugationResult.getRoot().getC3() == 'Á';
+        return conjugationResult.getRoot().getC2() == 'Ø¡' || conjugationResult.getRoot().getC3() == 'Ø¡';
     }
 }

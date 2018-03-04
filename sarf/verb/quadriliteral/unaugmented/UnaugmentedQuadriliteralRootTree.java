@@ -3,7 +3,7 @@ package sarf.verb.quadriliteral.unaugmented;
 import java.util.*;
 
 /**
- * <p>Title: ▐╟╞у╔ ╟с╠╨ц╤ ╟с╤╚╟┌э╔ ╟су╠╤╧╔   </p>
+ * <p>Title: ┘В╪з╪ж┘Е╪й ╪з┘Д╪м╪░┘И╪▒ ╪з┘Д╪▒╪и╪з╪╣┘К╪й ╪з┘Д┘Е╪м╪▒╪п╪й   </p>
  *
  * <p>Description: </p>
  *

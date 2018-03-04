@@ -41,7 +41,7 @@ public class NounFormula8 extends NonStandardInstrumentalNounFormula{
     }
 
     public String getFormulaName() {
-        return "İöÚúáóÉ";
+        return "ÙÙØ¹Ù’Ù„ÙØ©";
     }
 
     public String getSymbol() {

@@ -24,15 +24,15 @@ public class PresentVocalizer extends SubstitutionsApplier implements IUnaugment
 
     public PresentVocalizer() {
 
-        substitutions.add(new SuffixSubstitution("óæõ","óì"));// EX: (íõÛúÒóì¡ íõÒåì¡ íõÑÖóì¡ íõÓúÑóì)
-        substitutions.add(new SuffixSubstitution("óæó","óì"));// EX: (áä íõÛÒì )
-        substitutions.add(new SuffixSubstitution("óæú","ó"));// EX: (áã íõÛúÒó)
-        substitutions.add(new InfixSubstitution("óæóÇ","óíóÇ"));// EX: (íõÛÒíÇä )
-        substitutions.add(new InfixSubstitution("óæöí","óíú"));// EX: (ÃäÊö ÊõÛúÒóíúäó )
-        substitutions.add(new InfixSubstitution("óæóä","óíóä"));// EX: (åæ íõÛúÒóíóäøó¡ íõÒúåóíóäøó)
-        substitutions.add(new InfixSubstitution("óæöä","óíöä"));// EX: (ÃäÊö ÊõÛúÒóíöäøó)
-        substitutions.add(new InfixSubstitution("óæúä","óíúä"));// EX: (ÃäÊä ÊõÛúÒóíúäó)
-        substitutions.add(new InfixSubstitution("óæõæ","óæú"));// EX: (ÃäÊã ÊõÛúÒóæúäó )
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ","ÙÙ‰"));// EX: (ÙŠÙØºÙ’Ø²ÙÙ‰ØŒ ÙŠÙØ²Ù‡Ù‰ØŒ ÙŠÙØ±Ø¶ÙÙ‰ØŒ ÙŠÙØ³Ù’Ø±ÙÙ‰)
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ","ÙÙ‰"));// EX: (Ù„Ù† ÙŠÙØºØ²Ù‰ )
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ’","Ù"));// EX: (Ù„Ù… ÙŠÙØºÙ’Ø²Ù)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙØ§","ÙÙŠÙØ§"));// EX: (ÙŠÙØºØ²ÙŠØ§Ù† )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙŠ","ÙÙŠÙ’"));// EX: (Ø£Ù†ØªÙ ØªÙØºÙ’Ø²ÙÙŠÙ’Ù†Ù )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙ†","ÙÙŠÙÙ†"));// EX: (Ù‡Ùˆ ÙŠÙØºÙ’Ø²ÙÙŠÙÙ†Ù‘ÙØŒ ÙŠÙØ²Ù’Ù‡ÙÙŠÙÙ†Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙ†","ÙÙŠÙÙ†"));// EX: (Ø£Ù†ØªÙ ØªÙØºÙ’Ø²ÙÙŠÙÙ†Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’Ù†","ÙÙŠÙ’Ù†"));// EX: (Ø£Ù†ØªÙ† ØªÙØºÙ’Ø²ÙÙŠÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙˆ","ÙÙˆÙ’"));// EX: (Ø£Ù†ØªÙ… ØªÙØºÙ’Ø²ÙÙˆÙ’Ù†Ù )
 
     }
 

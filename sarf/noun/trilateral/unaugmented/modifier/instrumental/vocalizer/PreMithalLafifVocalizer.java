@@ -22,8 +22,8 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
     List substitutions = new LinkedList();
 
     public PreMithalLafifVocalizer() {
-        substitutions.add(new InfixSubstitution("ãöæú", "ãöí")); // EX: (ãöíÓóã¡ ãöíÓãÉ¡ ãöíÕÇá¡ ãöíİÇÁ)
-        substitutions.add(new InfixSubstitution("ãöíú", "ãöí")); // EX: (ãöíŞóä¡ ãöíŞäÉ¡ ãöíŞÇä¡ ãöíÏÇÁ)
+        substitutions.add(new InfixSubstitution("Ù…ÙÙˆÙ’", "Ù…ÙÙŠ")); // EX: (Ù…ÙÙŠØ³ÙÙ…ØŒ Ù…ÙÙŠØ³Ù…Ø©ØŒ Ù…ÙÙŠØµØ§Ù„ØŒ Ù…ÙÙŠÙØ§Ø¡)
+        substitutions.add(new InfixSubstitution("Ù…ÙÙŠÙ’", "Ù…ÙÙŠ")); // EX: (Ù…ÙÙŠÙ‚ÙÙ†ØŒ Ù…ÙÙŠÙ‚Ù†Ø©ØŒ Ù…ÙÙŠÙ‚Ø§Ù†ØŒ Ù…ÙÙŠØ¯Ø§Ø¡)
     }
 
 

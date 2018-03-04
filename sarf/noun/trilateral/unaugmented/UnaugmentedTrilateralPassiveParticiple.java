@@ -20,7 +20,7 @@ public class UnaugmentedTrilateralPassiveParticiple {
      * @todo Implement this sarf.noun.Trilateral.TrilateralNoun method
      */
     public String form() {
-        return GenericNounSuffixContainer.getInstance().getPrefix()+"ã"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.DAMMA+"æ"+root.getC3()+suffix;
+        return GenericNounSuffixContainer.getInstance().getPrefix()+"Ù…"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.DAMMA+"Ùˆ"+root.getC3()+suffix;
     }
 
     public String toString() {

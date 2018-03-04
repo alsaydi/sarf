@@ -41,7 +41,7 @@ public class GenericElativeNounFormula extends NounFormula {
     }
 
     public String getFormulaName() {
-        return "ÃóİúÚóá";
+        return "Ø£ÙÙÙ’Ø¹ÙÙ„";
     }
 
     protected INounSuffixContainer getNounSuffixContainer() {

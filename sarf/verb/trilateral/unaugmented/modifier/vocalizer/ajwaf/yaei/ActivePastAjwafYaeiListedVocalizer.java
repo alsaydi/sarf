@@ -9,7 +9,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description:İÍÕ ÇáÃÌæİ ÍÓÈ ŞÇÆãÉ    </p>
+ * <p>Description:ÙØ­Øµ Ø§Ù„Ø£Ø¬ÙˆÙ Ø­Ø³Ø¨ Ù‚Ø§Ø¦Ù…Ø©    </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -22,10 +22,10 @@ public class ActivePastAjwafYaeiListedVocalizer extends AbstractAjwafYaeiListedV
     private List substitutions = new LinkedList();
 
     public ActivePastAjwafYaeiListedVocalizer() {
-        substitutions.add(new ExpressionInfixSubstitution("óíöC3ú","öC3ú"));// EX: ( ÔöÆúÊõ)
-        substitutions.add(new ExpressionInfixSubstitution("óíöC3ø","öC3ø"));// EX: ( ÈöÊøõ)
-        substitutions.add(new ExpressionInfixSubstitution("óíöC3ó","óÇC3ó"));// EX: (ÔÇÁ¡ ÈÇÊ)
-        substitutions.add(new ExpressionInfixSubstitution("óíöC3õ","óÇC3õ"));// EX: (ÔÇÄæÇ¡ ÈÇÊæÇ)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù’","ÙC3Ù’"));// EX: ( Ø´ÙØ¦Ù’ØªÙ)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù‘","ÙC3Ù‘"));// EX: ( Ø¨ÙØªÙ‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù","ÙØ§C3Ù"));// EX: (Ø´Ø§Ø¡ØŒ Ø¨Ø§Øª)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù","ÙØ§C3Ù"));// EX: (Ø´Ø§Ø¤ÙˆØ§ØŒ Ø¨Ø§ØªÙˆØ§)
     }
 
     public List getSubstitutions() {

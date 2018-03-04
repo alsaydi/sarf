@@ -18,23 +18,23 @@ public class Formula9ApplyingChecker extends IFormulaApplyingChecker{
     private List notVocalizedList = new LinkedList();
 
     public Formula9ApplyingChecker() {
-        twoStateList.add("ÌæÈ");
-        twoStateList.add("Ìæİ");
-        twoStateList.add("Îæá");
-        twoStateList.add("ÑæÍ");
-        twoStateList.add("ÑæÖ");
-        twoStateList.add("ÕæÈ");
+        twoStateList.add("Ø¬ÙˆØ¨");
+        twoStateList.add("Ø¬ÙˆÙ");
+        twoStateList.add("Ø®ÙˆÙ„");
+        twoStateList.add("Ø±ÙˆØ­");
+        twoStateList.add("Ø±ÙˆØ¶");
+        twoStateList.add("ØµÙˆØ¨");
 
-        notVocalizedList.add("ÁæÑ");
-        notVocalizedList.add("ÊíÓ");
-        notVocalizedList.add("ÍæĞ");
-        notVocalizedList.add("ÍæÓ");
-        notVocalizedList.add("ÍæÖ");
-        notVocalizedList.add("İíá");
-        notVocalizedList.add("ŞæÓ");
-        notVocalizedList.add("áíË");
-        notVocalizedList.add("äæŞ");
-        notVocalizedList.add("äæß");
+        notVocalizedList.add("Ø¡ÙˆØ±");
+        notVocalizedList.add("ØªÙŠØ³");
+        notVocalizedList.add("Ø­ÙˆØ°");
+        notVocalizedList.add("Ø­ÙˆØ³");
+        notVocalizedList.add("Ø­ÙˆØ¶");
+        notVocalizedList.add("ÙÙŠÙ„");
+        notVocalizedList.add("Ù‚ÙˆØ³");
+        notVocalizedList.add("Ù„ÙŠØ«");
+        notVocalizedList.add("Ù†ÙˆÙ‚");
+        notVocalizedList.add("Ù†ÙˆÙƒ");
     }
 
     public List getNotVocalizedList() {

@@ -23,14 +23,14 @@ public class ImperativeVocalizer extends SubstitutionsApplier implements IUnaugm
     private List substitutions = new LinkedList();
 
     public ImperativeVocalizer() {
-        substitutions.add(new SuffixSubstitution("öíú","ö"));// EX: (ÃäÊó ÇÑãö)
-        substitutions.add(new InfixSubstitution("öíö","ö"));// EX: (ÃäÊö ÇÑãí)
-        substitutions.add(new InfixSubstitution("öíú","öí"));// EX: (ÇäÊä ÇÑãíä)
-        substitutions.add(new InfixSubstitution("öíõ","õ"));// EX: (ÃäÊã ÇÑãæÇ)
-        substitutions.add(new SuffixSubstitution("óíú","ó"));// EX: (ÇÓÚó¡ ÇÎÔó)
-        substitutions.add(new InfixSubstitution("óíöí","óíú"));// EX: (ÃäÊö ÇÓÚóíú¡ ÇÎÔí )
-        substitutions.add(new InfixSubstitution("óíõæ","óæú"));// EX: (ÃäÊã ÇÓÚóæúÇ¡ ÇÎÔóæúÇ )
-        substitutions.add(new InfixSubstitution("óíõä","óæõä"));// EX: (ÃäÊã ÇÓÚóæõäøó¡ ÇÎÔóæõäøó )
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ’","Ù"));// EX: (Ø£Ù†ØªÙ Ø§Ø±Ù…Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ø£Ù†ØªÙ Ø§Ø±Ù…ÙŠ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ’","ÙÙŠ"));// EX: (Ø§Ù†ØªÙ† Ø§Ø±Ù…ÙŠÙ†)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ø£Ù†ØªÙ… Ø§Ø±Ù…ÙˆØ§)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ’","Ù"));// EX: (Ø§Ø³Ø¹ÙØŒ Ø§Ø®Ø´Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙŠ","ÙÙŠÙ’"));// EX: (Ø£Ù†ØªÙ Ø§Ø³Ø¹ÙÙŠÙ’ØŒ Ø§Ø®Ø´ÙŠ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙˆ","ÙÙˆÙ’"));// EX: (Ø£Ù†ØªÙ… Ø§Ø³Ø¹ÙÙˆÙ’Ø§ØŒ Ø§Ø®Ø´ÙÙˆÙ’Ø§ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙ†","ÙÙˆÙÙ†"));// EX: (Ø£Ù†ØªÙ… Ø§Ø³Ø¹ÙÙˆÙÙ†Ù‘ÙØŒ Ø§Ø®Ø´ÙÙˆÙÙ†Ù‘Ù )
     }
 
 

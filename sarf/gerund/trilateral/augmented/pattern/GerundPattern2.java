@@ -26,12 +26,12 @@ public class GerundPattern2 extends TrilateralAugmentedGerund {
     private boolean form3Applied = false;
     public GerundPattern2(AugmentedTrilateralRoot root, String suffixNo) {
         init(root, suffixNo);
-        //ÓíÊã ÇÎÊíÇÑ ÃÍÏ ÇáŞÇäæäíä
-        if (root.getC3() == 'Á') {
+        //Ø³ÙŠØªÙ… Ø§Ø®ØªÙŠØ§Ø± Ø£Ø­Ø¯ Ø§Ù„Ù‚Ø§Ù†ÙˆÙ†ÙŠÙ†
+        if (root.getC3() == 'Ø¡') {
             form3Applied = TrilateralAugmentedGerundConjugator.getInstance().selectPatternFormNo(2) == 2;
         }
-        //ÚÑÖ İí ÇáãÄäË ááäÇŞÕ
-        else if (root.getC3() == 'æ' || root.getC3() == 'í')
+        //Ø¹Ø±Ø¶ ÙÙŠ Ø§Ù„Ù…Ø¤Ù†Ø« Ù„Ù„Ù†Ø§Ù‚Øµ
+        else if (root.getC3() == 'Ùˆ' || root.getC3() == 'ÙŠ')
             form2Applied = true;
 
     }
@@ -52,9 +52,9 @@ public class GerundPattern2 extends TrilateralAugmentedGerund {
 
     }
 
-    //äİÓ ÇáŞÇäæä æáßä íÎÊáİ ãæÇŞÚ ÇáÖãÇÆÑ
+    //Ù†ÙØ³ Ø§Ù„Ù‚Ø§Ù†ÙˆÙ† ÙˆÙ„ÙƒÙ† ÙŠØ®ØªÙ„Ù Ù…ÙˆØ§Ù‚Ø¹ Ø§Ù„Ø¶Ù…Ø§Ø¦Ø±
     private String generateForm() {
-        return "Ê"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+"í"+root.getC3()+suffix;
+        return "Øª"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+"ÙŠ"+root.getC3()+suffix;
     }
 
     public String form1() {
@@ -82,7 +82,7 @@ public class GerundPattern2 extends TrilateralAugmentedGerund {
 
     public String form3() {
         if (suffixNo%2 == 0)
-            return "Ê"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
+            return "Øª"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
         return "";
     }
 
@@ -94,6 +94,6 @@ public class GerundPattern2 extends TrilateralAugmentedGerund {
      *   sarf.gerund.trilateral.augmented.TrilateralAugmentedGerund method
      */
     public String getPattern() {
-        return "ÊóİúÚöíá";
+        return "ØªÙÙÙ’Ø¹ÙÙŠÙ„";
     }
 }

@@ -7,20 +7,20 @@ import sarf.verb.trilateral.*;
 import sarf.verb.trilateral.unaugmented.*;
 
 /**
- * íÍÊæí Úáì  ÇáãÚáæãÇÊ  ÇáÕÑİíÉ ÇáãØáæÈÉ áÊÕÑíİ ÇáÃİÚÇá  İí ÇáãÇÖí
+ * ÙŠØ­ØªÙˆÙŠ Ø¹Ù„Ù‰  Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª  Ø§Ù„ØµØ±ÙÙŠØ© Ø§Ù„Ù…Ø·Ù„ÙˆØ¨Ø© Ù„ØªØµØ±ÙŠÙ Ø§Ù„Ø£ÙØ¹Ø§Ù„  ÙÙŠ Ø§Ù„Ù…Ø§Ø¶ÙŠ
  * <p>Title: Sarf</p>
- * <p>Description: ÈÑäÇãÌ ÇáÊÕÑíİ</p>
+ * <p>Description: Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØµØ±ÙŠÙ</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
 public class PastConjugationDataContainer {
-    //ŞÇÆãÉ ÍÑßÇÊ Úíä ÇáİÚá ÍÓÈ ÈÇÈ ÇáÊÕÑíİ
+    //Ù‚Ø§Ø¦Ù…Ø© Ø­Ø±ÙƒØ§Øª Ø¹ÙŠÙ† Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø¨Ø§Ø¨ Ø§Ù„ØªØµØ±ÙŠÙ
     private List dpa2List = new ArrayList(6);
-    //ŞÇÆãÉ  ÍÑßÇÊ áÇã ÇáİÚá ÍÓÈ ÖãíÑ ÇáÑİÚ
+    //Ù‚Ø§Ø¦Ù…Ø©  Ø­Ø±ÙƒØ§Øª Ù„Ø§Ù… Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø¶Ù…ÙŠØ± Ø§Ù„Ø±ÙØ¹
     private List lastDpaList = new ArrayList(13);
-    //ŞÇÆãÉ ÖãÇÆÑ ÇáÑİÚ ÇáãÊÕáÉ
+    //Ù‚Ø§Ø¦Ù…Ø© Ø¶Ù…Ø§Ø¦Ø± Ø§Ù„Ø±ÙØ¹ Ø§Ù„Ù…ØªØµÙ„Ø©
     private List connectedPronounsList = new ArrayList(13);
 
     private static PastConjugationDataContainer instance = new PastConjugationDataContainer();
@@ -30,7 +30,7 @@ public class PastConjugationDataContainer {
     }
 
     private PastConjugationDataContainer() {
-        //ÊåíÆÉ ÇáŞíã
+        //ØªÙ‡ÙŠØ¦Ø© Ø§Ù„Ù‚ÙŠÙ…
         dpa2List.add(ArabCharUtil.FATHA);
         dpa2List.add(ArabCharUtil.FATHA);
         dpa2List.add(ArabCharUtil.FATHA);
@@ -52,34 +52,34 @@ public class PastConjugationDataContainer {
         lastDpaList.add(ArabCharUtil.DAMMA);
         lastDpaList.add(ArabCharUtil.SKOON);
 
-        connectedPronounsList.add("Êõ");
-        connectedPronounsList.add("äóÇ");
-        connectedPronounsList.add("Êó");
-        connectedPronounsList.add("Êö");
-        connectedPronounsList.add("ÊõãóÇ");
-        connectedPronounsList.add("Êõãú");
-        connectedPronounsList.add("Êõäøó");
+        connectedPronounsList.add("ØªÙ");
+        connectedPronounsList.add("Ù†ÙØ§");
+        connectedPronounsList.add("ØªÙ");
+        connectedPronounsList.add("ØªÙ");
+        connectedPronounsList.add("ØªÙÙ…ÙØ§");
+        connectedPronounsList.add("ØªÙÙ…Ù’");
+        connectedPronounsList.add("ØªÙÙ†Ù‘Ù");
         connectedPronounsList.add("");
-        connectedPronounsList.add("Êú");
-        connectedPronounsList.add("Ç");
-        connectedPronounsList.add("ÊóÇ");
-        connectedPronounsList.add("æÇ");
-        connectedPronounsList.add("äó");
-        connectedPronounsList.add("Êõ");
+        connectedPronounsList.add("ØªÙ’");
+        connectedPronounsList.add("Ø§");
+        connectedPronounsList.add("ØªÙØ§");
+        connectedPronounsList.add("ÙˆØ§");
+        connectedPronounsList.add("Ù†Ù");
+        connectedPronounsList.add("ØªÙ");
     }
 
     /**
-     * ÇáÍÕæá  Úáì ÍÑßÉ Úíä ÇáİÚá ÍÓÈ ÈÇÈ ÊÕÑíİ ÇáİÚá
+     * Ø§Ù„Ø­ØµÙˆÙ„  Ø¹Ù„Ù‰ Ø­Ø±ÙƒØ© Ø¹ÙŠÙ† Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø¨Ø§Ø¨ ØªØµØ±ÙŠÙ Ø§Ù„ÙØ¹Ù„
      * @param root TripleVerb
      * @return String
      */
     public String getDpa2(UnaugmentedTrilateralRoot root) {
-        //ÈÓÈÈ Ãä ÊÑŞíã ÇáÈÇÈ ÇáÊÕÑíİí íÈÏÃ ãä ÇáæÇÍÏ Úáì Ííä Ãä ÇáŞÇÆãÉ ÊÈÏÃ ãä ÇáÕİÑ ÌÑì ØÑÍ ÇáÚÏÏ æÇÍÏ
+        //Ø¨Ø³Ø¨Ø¨ Ø£Ù† ØªØ±Ù‚ÙŠÙ… Ø§Ù„Ø¨Ø§Ø¨ Ø§Ù„ØªØµØ±ÙŠÙÙŠ ÙŠØ¨Ø¯Ø£ Ù…Ù† Ø§Ù„ÙˆØ§Ø­Ø¯ Ø¹Ù„Ù‰ Ø­ÙŠÙ† Ø£Ù† Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© ØªØ¨Ø¯Ø£ Ù…Ù† Ø§Ù„ØµÙØ± Ø¬Ø±Ù‰ Ø·Ø±Ø­ Ø§Ù„Ø¹Ø¯Ø¯ ÙˆØ§Ø­Ø¯
         return (String) dpa2List.get((Integer.parseInt(root.getConjugation())-1));
     }
 
     /**
-     *  ÇáÍÕæá  Úáì  ÍÑßÉ áÇã ÇáİÚá ÍÓÈ ÇáÖãíÑ
+     *  Ø§Ù„Ø­ØµÙˆÙ„  Ø¹Ù„Ù‰  Ø­Ø±ÙƒØ© Ù„Ø§Ù… Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
      * @param pronounIndex int
      * @return String
      */
@@ -88,7 +88,7 @@ public class PastConjugationDataContainer {
     }
 
     /**
-     *ÇáÍÕæá Úáì ÖãÇÆÑ ÇáÑİÚ ÇáãÊÕáÉ
+     *Ø§Ù„Ø­ØµÙˆÙ„ Ø¹Ù„Ù‰ Ø¶Ù…Ø§Ø¦Ø± Ø§Ù„Ø±ÙØ¹ Ø§Ù„Ù…ØªØµÙ„Ø©
      * @param pronounIndex int
      * @return String
      */

@@ -8,7 +8,7 @@ import sarf.PresentConjugationDataContainer;
 /**
  * <p>Title: Sarf</p>
  *
- * <p>Description: สีัํÝ วแรÝฺวแ Ýํ วแใึวัฺ   </p>
+ * <p>Description: ุชุตุฑูู ุงูุฃูุนุงู ูู ุงูู…ุถุงุฑุน   </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -28,7 +28,7 @@ public class ActivePresentConjugator {
     }
 
     /**
-     * *ลไิวม วแÝฺแ วแใึวัฺ ศÛึ วแไูั ฺไ อวแสๅ วแลฺัวศํษ
+     * *ุฅูุดุงุก ุงููุนู ุงูู…ุถุงุฑุน ุจุบุถ ุงููุธุฑ ุนู ุญุงูุชู ุงูุฅุนุฑุงุจูุฉ
      * @param pronounIndex int
      * @param root UnaugmentedTrilateralRoot
      * @param lastDprList List
@@ -45,7 +45,7 @@ public class ActivePresentConjugator {
 
 
     /**
-     * ลไิวม วแÝฺแ วแใึวัฺ Ýํ อวแษ วแัÝฺ
+     * ุฅูุดุงุก ุงููุนู ุงูู…ุถุงุฑุน ูู ุญุงูุฉ ุงูุฑูุน
      * @param pronounIndex int
      * @param root TrilateralVerb
      * @return PresentConjugation
@@ -56,7 +56,7 @@ public class ActivePresentConjugator {
 
 
     /**
-     * ลไิวม วแÝฺแ วแใึวัฺ Ýํ อวแษ วแไีศ
+     * ุฅูุดุงุก ุงููุนู ุงูู…ุถุงุฑุน ูู ุญุงูุฉ ุงููุตุจ
      * @param pronounIndex int
      * @param root TrilateralVerb
      * @return PresentConjugation
@@ -67,7 +67,7 @@ public class ActivePresentConjugator {
 
 
     /**
-     * ลไิวม วแÝฺแ วแใึวัฺ Ýํ อวแษ วแฬาใ
+     * ุฅูุดุงุก ุงููุนู ุงูู…ุถุงุฑุน ูู ุญุงูุฉ ุงูุฌุฒู…
      * @param pronounIndex int
      * @param root TrilateralVerb
      * @return PresentConjugation
@@ -78,7 +78,7 @@ public class ActivePresentConjugator {
 
 
     /**
-     * ลไิวม วแÝฺแ วแใึวัฺ Ýํ อวแษ วแสร฿ํฯ
+     * ุฅูุดุงุก ุงููุนู ุงูู…ุถุงุฑุน ูู ุญุงูุฉ ุงูุชุฃููุฏ
      * @param pronounIndex int
      * @param root TrilateralVerb
      * @return PresentConjugation
@@ -88,8 +88,8 @@ public class ActivePresentConjugator {
     }
 
     /**
-     * ลไิวม Þวฦใษ สอสๆํ วแรÝฺวแ อำศ วแึใวฦั
-     * Ýํ อวแษ วแัÝฺ
+     * ุฅูุดุงุก ูุงุฆู…ุฉ ุชุญุชูู ุงูุฃูุนุงู ุญุณุจ ุงูุถู…ุงุฆุฑ
+     * ูู ุญุงูุฉ ุงูุฑูุน
      * @param root TripleVerb
      * @return List
      */
@@ -103,8 +103,8 @@ public class ActivePresentConjugator {
     }
 
     /**
-     * ลไิวม Þวฦใษ สอสๆํ วแรÝฺวแ อำศ วแึใวฦั
-     * Ýํ อวแษ วแไีศ
+     * ุฅูุดุงุก ูุงุฆู…ุฉ ุชุญุชูู ุงูุฃูุนุงู ุญุณุจ ุงูุถู…ุงุฆุฑ
+     * ูู ุญุงูุฉ ุงููุตุจ
      * @param root TripleVerb
      * @return List
      */
@@ -118,8 +118,8 @@ public class ActivePresentConjugator {
     }
 
     /**
-     * ลไิวม Þวฦใษ สอสๆํ วแรÝฺวแ อำศ วแึใวฦั
-     * Ýํ อวแษ วแฬาใ
+     * ุฅูุดุงุก ูุงุฆู…ุฉ ุชุญุชูู ุงูุฃูุนุงู ุญุณุจ ุงูุถู…ุงุฆุฑ
+     * ูู ุญุงูุฉ ุงูุฌุฒู…
      * @param root TripleVerb
      * @return List
      */
@@ -134,8 +134,8 @@ public class ActivePresentConjugator {
 
 
     /**
-     * ลไิวม Þวฦใษ สอสๆํ วแรÝฺวแ อำศ วแึใวฦั
-     * Ýํ อวแษ วแสร฿ํฯ
+     * ุฅูุดุงุก ูุงุฆู…ุฉ ุชุญุชูู ุงูุฃูุนุงู ุญุณุจ ุงูุถู…ุงุฆุฑ
+     * ูู ุญุงูุฉ ุงูุชุฃููุฏ
      * @param root TripleVerb
      * @return List
      */

@@ -6,8 +6,8 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description:İÍÕ ÇáÃÌæİ ÍÓÈ ŞÇÆãÉ
- * æåí äİÓ ÇáŞÇÆãÉ ááÃÌæİ ÇáíÇÆí Ãí äİÓ ÇáİÍÕ æÊÎÊáİ ÈÇáÇÓÊÈÏÇáÇÊ             </p>
+ * <p>Description:ÙØ­Øµ Ø§Ù„Ø£Ø¬ÙˆÙ Ø­Ø³Ø¨ Ù‚Ø§Ø¦Ù…Ø©
+ * ÙˆÙ‡ÙŠ Ù†ÙØ³ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ù„Ù„Ø£Ø¬ÙˆÙ Ø§Ù„ÙŠØ§Ø¦ÙŠ Ø£ÙŠ Ù†ÙØ³ Ø§Ù„ÙØ­Øµ ÙˆØªØ®ØªÙ„Ù Ø¨Ø§Ù„Ø§Ø³ØªØ¨Ø¯Ø§Ù„Ø§Øª             </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -20,20 +20,20 @@ public abstract class AbstractAjwafYaeiListedVocalizer extends ListedVocalizer {
     private List appliedRoots = new LinkedList();
 
     public AbstractAjwafYaeiListedVocalizer() {
-        appliedRoots.add("ÈíÊ");
-        appliedRoots.add("ÍíÑ");
-        appliedRoots.add("Îíá");
-        appliedRoots.add("Òíã");
-        appliedRoots.add("ÔíÁ");
-        appliedRoots.add("ØíØ");
-        appliedRoots.add("Úíİ");
-        appliedRoots.add("Úíã");
-        appliedRoots.add("ÛíÑ");
-        appliedRoots.add("äíá");
-        appliedRoots.add("äíå");
-        appliedRoots.add("åíÁ");
-        appliedRoots.add("åíÈ");
-        appliedRoots.add("åíÚ");
+        appliedRoots.add("Ø¨ÙŠØª");
+        appliedRoots.add("Ø­ÙŠØ±");
+        appliedRoots.add("Ø®ÙŠÙ„");
+        appliedRoots.add("Ø²ÙŠÙ…");
+        appliedRoots.add("Ø´ÙŠØ¡");
+        appliedRoots.add("Ø·ÙŠØ·");
+        appliedRoots.add("Ø¹ÙŠÙ");
+        appliedRoots.add("Ø¹ÙŠÙ…");
+        appliedRoots.add("ØºÙŠØ±");
+        appliedRoots.add("Ù†ÙŠÙ„");
+        appliedRoots.add("Ù†ÙŠÙ‡");
+        appliedRoots.add("Ù‡ÙŠØ¡");
+        appliedRoots.add("Ù‡ÙŠØ¨");
+        appliedRoots.add("Ù‡ÙŠØ¹");
     }
 
     protected List getAppliedRoots() {

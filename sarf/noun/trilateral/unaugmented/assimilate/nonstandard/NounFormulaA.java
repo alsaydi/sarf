@@ -27,10 +27,10 @@ public class NounFormulaA extends NounFormula{
     }
 
     public String form() {
-        return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.KASRA+"ν"+root.getC3()+suffix;
+        return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.KASRA+"Ω"+root.getC3()+suffix;
     }
 
     public String getFormulaName() {
-        return "έσΪφνα";
+        return "ΩΩΨΉΩΩΩ„";
     }
 }

@@ -20,10 +20,10 @@ public class PassivePresentGeminator extends SubstitutionsApplier {
     private List substitutions = new LinkedList();
 
     public PassivePresentGeminator() {
-        substitutions.add(new ExpressionInfixSubstitution("úC3óC3õ", "óC3øõ"));
-        substitutions.add(new ExpressionInfixSubstitution("úC3óC3ó", "óC3øó"));
-        substitutions.add(new ExpressionInfixSubstitution("úC3óC3ö", "óC3øö"));
-        substitutions.add(new ExpressionSuffixSubstitution("úC3óC3ú", "óC3øó"));
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C3ÙC3Ù", "ÙC3Ù‘Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C3ÙC3Ù", "ÙC3Ù‘Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C3ÙC3Ù", "ÙC3Ù‘Ù"));
+        substitutions.add(new ExpressionSuffixSubstitution("Ù’C3ÙC3Ù’", "ÙC3Ù‘Ù"));
 
     }
 

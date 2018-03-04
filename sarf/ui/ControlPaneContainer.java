@@ -32,8 +32,8 @@ import sarf.verb.trilateral.unaugmented.*;
 public class ControlPaneContainer extends JPanel {
 
     private Map controlPaneMap = new HashMap();
-    private JButton startBtn = new RenderedButton("ÃÏÎá ÌĞÑÇğ ËáÇËíÇğ Ãæ ÑÈÇÚíÇğ");
-    private JButton backBtn = new RenderedButton("ÚæÏÉ");
+    private JButton startBtn = new RenderedButton("Ø£Ø¯Ø®Ù„ Ø¬Ø°Ø±Ø§Ù‹ Ø«Ù„Ø§Ø«ÙŠØ§Ù‹ Ø£Ùˆ Ø±Ø¨Ø§Ø¹ÙŠØ§Ù‹");
+    private JButton backBtn = new RenderedButton("Ø¹ÙˆØ¯Ø©");
     private JTextField rootFld = new JTextField(5);
     private JPanel container = new JPanel(new BorderLayout());
 
@@ -48,14 +48,14 @@ public class ControlPaneContainer extends JPanel {
     private JTextField transitiveTypeFld = new JTextField(8);
     private int kov;
     private JMenuBar menuBar = new JMenuBar();
-    private JMenuItem backMnuItm = new JMenuItem("ÚæÏÉ");
-    private JMenuItem help1MnuItm = new JMenuItem("ŞæÇÚÏ ÇáäÍæ æÇáÕÑİ");
-    private JMenuItem help2MnuItm = new JMenuItem("Ïáíá ÇáÇÓÊÚãÇá");
-    private JMenuItem help3MnuItm = new JMenuItem("ÊÚÑíİ ÈÇáäÙÇã");
-    private JMenuItem saveMnuItm = new JMenuItem("ÍİÙ ÇáÌÏæá");
-    private JMenuItem aboutMnuItm = new JMenuItem("Íæá ÇáÈÑäÇãÌ");
-    private JMenuItem showIntroMnuItm = new JCheckBoxMenuItem("ÅÙåÇÑ ÇáÔÇÔÉ ÇáÊŞÏíãíÉ");
-    private JMenuItem exitMnuItm = new JMenuItem("ÎÑæÌ");
+    private JMenuItem backMnuItm = new JMenuItem("Ø¹ÙˆØ¯Ø©");
+    private JMenuItem help1MnuItm = new JMenuItem("Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ù†Ø­Ùˆ ÙˆØ§Ù„ØµØ±Ù");
+    private JMenuItem help2MnuItm = new JMenuItem("Ø¯Ù„ÙŠÙ„ Ø§Ù„Ø§Ø³ØªØ¹Ù…Ø§Ù„");
+    private JMenuItem help3MnuItm = new JMenuItem("ØªØ¹Ø±ÙŠÙ Ø¨Ø§Ù„Ù†Ø¸Ø§Ù…");
+    private JMenuItem saveMnuItm = new JMenuItem("Ø­ÙØ¸ Ø§Ù„Ø¬Ø¯ÙˆÙ„");
+    private JMenuItem aboutMnuItm = new JMenuItem("Ø­ÙˆÙ„ Ø§Ù„Ø¨Ø±Ù†Ø§Ù…Ø¬");
+    private JMenuItem showIntroMnuItm = new JCheckBoxMenuItem("Ø¥Ø¸Ù‡Ø§Ø± Ø§Ù„Ø´Ø§Ø´Ø© Ø§Ù„ØªÙ‚Ø¯ÙŠÙ…ÙŠØ©");
+    private JMenuItem exitMnuItm = new JMenuItem("Ø®Ø±ÙˆØ¬");
 
     private JTextField verbTxtFld = new JTextField(8);
 
@@ -67,8 +67,8 @@ public class ControlPaneContainer extends JPanel {
 
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
-        JMenu helpMainMenu = new JMenu("ãÓÇÚÏÉ");
-        JMenu fileMainMenu = new JMenu("ãáİ");
+        JMenu helpMainMenu = new JMenu("Ù…Ø³Ø§Ø¹Ø¯Ø©");
+        JMenu fileMainMenu = new JMenu("Ù…Ù„Ù");
 
         menuBar.add(fileMainMenu);
         menuBar.add(helpMainMenu);
@@ -196,8 +196,8 @@ public class ControlPaneContainer extends JPanel {
         kovFld.setEditable(false);
         transitiveTypeFld.setEditable(false);
 
-        JLabel lbl = new JLabel("äæÚ ÇáİÚá ÇáãÌÑÏ:");
-        JLabel transitiveLbl = new JLabel("ÇáÊÚÏíÉ æÇááÒæã:");
+        JLabel lbl = new JLabel("Ù†ÙˆØ¹ Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø¬Ø±Ø¯:");
+        JLabel transitiveLbl = new JLabel("Ø§Ù„ØªØ¹Ø¯ÙŠØ© ÙˆØ§Ù„Ù„Ø²ÙˆÙ…:");
 
         lbl.setFont(RenderedButton.FONT);
         transitiveLbl.setFont(RenderedButton.FONT);
@@ -274,33 +274,33 @@ public class ControlPaneContainer extends JPanel {
 
         if (!Validator.getInstance().checkLength(root)) {
             container.removeAll();
-            displayErrorMessage("ÚÏÏ ÃÍÑİ ÇáÌĞÑ íÌÈ Ãä íßæä ËáÇËÉ Ãæ ÃÑÈÚÉ");
+            displayErrorMessage("Ø¹Ø¯Ø¯ Ø£Ø­Ø±Ù Ø§Ù„Ø¬Ø°Ø± ÙŠØ¬Ø¨ Ø£Ù† ÙŠÙƒÙˆÙ† Ø«Ù„Ø§Ø«Ø© Ø£Ùˆ Ø£Ø±Ø¨Ø¹Ø©");
             return;
         }
         if (Validator.getInstance().checkStartedWithAlef(root)) {
             container.removeAll();
-            displayErrorMessage("áÇ íãßä Ãä íÈÏÃ ÇáÌĞÑ ÈÍÑİ ÇáÃáİ      ");
+            displayErrorMessage("Ù„Ø§ ÙŠÙ…ÙƒÙ† Ø£Ù† ÙŠØ¨Ø¯Ø£ Ø§Ù„Ø¬Ø°Ø± Ø¨Ø­Ø±Ù Ø§Ù„Ø£Ù„Ù      ");
             return;
         }
         if (Validator.getInstance().checkAlefMamdoda(root)) {
             container.removeAll();
-            displayErrorMessage("ÇáÍÑİ ( Â ) áíÓ ãä ÍÑæİ ÇáãÚÌã    ");
+            displayErrorMessage("Ø§Ù„Ø­Ø±Ù ( Ø¢ ) Ù„ÙŠØ³ Ù…Ù† Ø­Ø±ÙˆÙ Ø§Ù„Ù…Ø¹Ø¬Ù…    ");
             return;
         }
         if (Validator.getInstance().checkTashkil(root)) {
             container.removeAll();
-            displayErrorMessage("ÚáÇãÇÊ ÇáÔßá (ÇáÍÑßÇÊ) áíÓÊ ãä ÍÑæİ ÇáãÚÌã    ");
+            displayErrorMessage("Ø¹Ù„Ø§Ù…Ø§Øª Ø§Ù„Ø´ÙƒÙ„ (Ø§Ù„Ø­Ø±ÙƒØ§Øª) Ù„ÙŠØ³Øª Ù…Ù† Ø­Ø±ÙˆÙ Ø§Ù„Ù…Ø¹Ø¬Ù…    ");
             return;
         }
 
-        //ÑÏ ÇáåãÒÉ Åáì ÃÕáåÇ
+        //Ø±Ø¯ Ø§Ù„Ù‡Ù…Ø²Ø© Ø¥Ù„Ù‰ Ø£ØµÙ„Ù‡Ø§
         root = Validator.getInstance().correctHamza(root);
-        //áßí áÇ ÊÙåÑ ÑÓÇáÉ ÇáÊÕÍíÍ ÇáÊáŞÇÆí ááåãÒÉ
+        //Ù„ÙƒÙŠ Ù„Ø§ ØªØ¸Ù‡Ø± Ø±Ø³Ø§Ù„Ø© Ø§Ù„ØªØµØ­ÙŠØ­ Ø§Ù„ØªÙ„Ù‚Ø§Ø¦ÙŠ Ù„Ù„Ù‡Ù…Ø²Ø©
         rootFld.setText(root);
 
         if (!Validator.getInstance().checkArabicLetters(root)) {
             container.removeAll();
-            displayErrorMessage("ÎØÃ İí ÃÍÏ ÃÍÑİ ÇáÌĞÑ");
+            displayErrorMessage("Ø®Ø·Ø£ ÙÙŠ Ø£Ø­Ø¯ Ø£Ø­Ø±Ù Ø§Ù„Ø¬Ø°Ø±");
             return;
         }
 
@@ -313,28 +313,28 @@ public class ControlPaneContainer extends JPanel {
         }
         else {
             container.removeAll();
-            JOptionPane.showMessageDialog(ControlPaneContainer.this, "ÇáÑÌÇÁ ÇÏÎÇá ÌĞÑ ËáÇËí Ãæ ÑÈÇÚí     ", "", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(ControlPaneContainer.this, "Ø§Ù„Ø±Ø¬Ø§Ø¡ Ø§Ø¯Ø®Ø§Ù„ Ø¬Ø°Ø± Ø«Ù„Ø§Ø«ÙŠ Ø£Ùˆ Ø±Ø¨Ø§Ø¹ÙŠ     ", "", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private void processTrilateral(String root) {
         List alefAlternatives = Validator.getInstance().getTrilateralAlefAlternatives(root);
         if (alefAlternatives.isEmpty()) {
-            //áÇ íæÌÏ ÇÍÊãÇáÇÊ ááÃáİ
+            //Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ø§Ø­ØªÙ…Ø§Ù„Ø§Øª Ù„Ù„Ø£Ù„Ù
             AugmentedTrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedTrilateralRoot(root);
             List unaugmentedList = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots(root);
             if (augmentedRoot == null && unaugmentedList.isEmpty()) {
                 container.removeAll();
                 validate();
                 repaint();
-                displayErrorMessage("áã íÑÏ åĞÇ ÇáÌĞÑ İí ŞÇÚÏÉ ÇáãÚØíÇÊ      ");
+                displayErrorMessage("Ù„Ù… ÙŠØ±Ø¯ Ù‡Ø°Ø§ Ø§Ù„Ø¬Ø°Ø± ÙÙŠ Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ù…Ø¹Ø·ÙŠØ§Øª      ");
             }
             else {
                 displayTrilateral(root, augmentedRoot, unaugmentedList);
             }
         }
         else {
-            //ÊÌÑíÈ ÈÏÇÆá ÇáÃáİ
+            //ØªØ¬Ø±ÙŠØ¨ Ø¨Ø¯Ø§Ø¦Ù„ Ø§Ù„Ø£Ù„Ù
             List rootTextList = new LinkedList();
             List augmentedList = new LinkedList();
             List unaugmentedLists = new LinkedList();
@@ -351,19 +351,19 @@ public class ControlPaneContainer extends JPanel {
                     unaugmentedLists.add(unaugmentedList);
                 }
             }
-            //İÍÕ ÇĞÇ äÌÍ ÇÍÊãÇá Ãæ ÃßËÑ
+            //ÙØ­Øµ Ø§Ø°Ø§ Ù†Ø¬Ø­ Ø§Ø­ØªÙ…Ø§Ù„ Ø£Ùˆ Ø£ÙƒØ«Ø±
             if (rootTextList.isEmpty()) {
-                //áã íäÌÍ Ãí ÈÏíá
-                displayErrorMessage("áã íÑÏ åĞÇ ÇáÌĞÑ İí ŞÇÚÏÉ ÇáãÚØíÇÊ      ");
+                //Ù„Ù… ÙŠÙ†Ø¬Ø­ Ø£ÙŠ Ø¨Ø¯ÙŠÙ„
+                displayErrorMessage("Ù„Ù… ÙŠØ±Ø¯ Ù‡Ø°Ø§ Ø§Ù„Ø¬Ø°Ø± ÙÙŠ Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ù…Ø¹Ø·ÙŠØ§Øª      ");
                 return;
             }
 
-            //ÇĞÇ ßÇä åäÇß ÈÏíá æÇÍÏ İŞØ İíÊã ÚÑÖ ãÚáæãÇÊå İæÑÇğ
+            //Ø§Ø°Ø§ ÙƒØ§Ù† Ù‡Ù†Ø§Ùƒ Ø¨Ø¯ÙŠÙ„ ÙˆØ§Ø­Ø¯ ÙÙ‚Ø· ÙÙŠØªÙ… Ø¹Ø±Ø¶ Ù…Ø¹Ù„ÙˆÙ…Ø§ØªÙ‡ ÙÙˆØ±Ø§Ù‹
             int index = 0;
             if (rootTextList.size() > 1) {
-                //ÚÑÖ ÃßËÑ ãä ÇÍÊãÇá ááãÓÊÎÏã áíÊã ÇäÊŞÇÁ æÇÍÏ
-                String dialogTitle = "íæÌÏ ÃßËÑ ãä ÌĞÑ   ";
-                String dialogInput = "ÇÎÊÑ ÃÍÏ ÇáÌĞÑíä  ";
+                //Ø¹Ø±Ø¶ Ø£ÙƒØ«Ø± Ù…Ù† Ø§Ø­ØªÙ…Ø§Ù„ Ù„Ù„Ù…Ø³ØªØ®Ø¯Ù… Ù„ÙŠØªÙ… Ø§Ù†ØªÙ‚Ø§Ø¡ ÙˆØ§Ø­Ø¯
+                String dialogTitle = "ÙŠÙˆØ¬Ø¯ Ø£ÙƒØ«Ø± Ù…Ù† Ø¬Ø°Ø±   ";
+                String dialogInput = "Ø§Ø®ØªØ± Ø£Ø­Ø¯ Ø§Ù„Ø¬Ø°Ø±ÙŠÙ†  ";
                 int selectionResult = JOptionPane.showOptionDialog(this, dialogInput, dialogTitle, JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, rootTextList.toArray(),
                         rootTextList.get(0));
                 /*for (int i = 0; i < rootTextList.size(); i++) {
@@ -374,12 +374,12 @@ public class ControlPaneContainer extends JPanel {
                                  }*/
                 index = selectionResult == JOptionPane.YES_OPTION ? 0 : 1;
             }
-            //ÚÑÖ ãÚáæãÇÊ ÇáÌĞÑ ÇáãäÊŞì
+            //Ø¹Ø±Ø¶ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¬Ø°Ø± Ø§Ù„Ù…Ù†ØªÙ‚Ù‰
             AugmentedTrilateralRoot augmentedRoot = (AugmentedTrilateralRoot) augmentedList.get(index);
             List unaugmentedList = (List) unaugmentedLists.get(index);
             String newRoot = rootTextList.get(index).toString();
-            //ÍÊì áÇ íÊã ÚÑÖ ÑÓÇáÉ äÊÈíåíÉ
-            //ÅáÇ İí ÍÇáÉ ÌĞÑ æÇÍÏ
+            //Ø­ØªÙ‰ Ù„Ø§ ÙŠØªÙ… Ø¹Ø±Ø¶ Ø±Ø³Ø§Ù„Ø© Ù†ØªØ¨ÙŠÙ‡ÙŠØ©
+            //Ø¥Ù„Ø§ ÙÙŠ Ø­Ø§Ù„Ø© Ø¬Ø°Ø± ÙˆØ§Ø­Ø¯
             if (rootTextList.size() > 1) {
                 rootFld.setText(newRoot);
             }
@@ -398,13 +398,13 @@ public class ControlPaneContainer extends JPanel {
         kovText = rule.getDesc();
         kov = rule.getKov();
 
-        //ÚÑÖ ÑÓÇáÉ ÊäÈíåíÉ ÇĞÇ Êã ÊÕÍíÍ ÊáŞÇÆí
+        //Ø¹Ø±Ø¶ Ø±Ø³Ø§Ù„Ø© ØªÙ†Ø¨ÙŠÙ‡ÙŠØ© Ø§Ø°Ø§ ØªÙ… ØªØµØ­ÙŠØ­ ØªÙ„Ù‚Ø§Ø¦ÙŠ
         if (!rootText.equals(rootFld.getText())) {
-            String msg = "áŞÏ Êã ÊÕÍíÍ ÇáÌĞÑ ÇáãÏÎá Åáì       ";
+            String msg = "Ù„Ù‚Ø¯ ØªÙ… ØªØµØ­ÙŠØ­ Ø§Ù„Ø¬Ø°Ø± Ø§Ù„Ù…Ø¯Ø®Ù„ Ø¥Ù„Ù‰       ";
             msg += rootText;
             //JOptionPane.showMessageDialog(this, msg, "", JOptionPane.INFORMATION_MESSAGE);
 
-            //ÚÑÖå ÈÚÏ ÇáÊÚÏíá ÇĞÇ ÌÑì ÊÚÏíá
+            //Ø¹Ø±Ø¶Ù‡ Ø¨Ø¹Ø¯ Ø§Ù„ØªØ¹Ø¯ÙŠÙ„ Ø§Ø°Ø§ Ø¬Ø±Ù‰ ØªØ¹Ø¯ÙŠÙ„
             rootFld.setText(rootText);
         }
 
@@ -427,19 +427,19 @@ public class ControlPaneContainer extends JPanel {
     }
 
     private void processQuadrilateral(String root) {
-        //İÍÕ ÅĞÇ ßÇä ÇáİÚá íÈÊÏÃ ÈåãÒÉ
-        if (root.charAt(0) == 'Á') {
-            displayErrorMessage("áÇ íæÌÏ ÑÈÇÚí íÈÊÏÆ ÈåãÒÉ");
+        //ÙØ­Øµ Ø¥Ø°Ø§ ÙƒØ§Ù† Ø§Ù„ÙØ¹Ù„ ÙŠØ¨ØªØ¯Ø£ Ø¨Ù‡Ù…Ø²Ø©
+        if (root.charAt(0) == 'Ø¡') {
+            displayErrorMessage("Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ø±Ø¨Ø§Ø¹ÙŠ ÙŠØ¨ØªØ¯Ø¦ Ø¨Ù‡Ù…Ø²Ø©");
             return;
         }
 
         List alefAlternatives = Validator.getInstance().getQuadrilateralAlefAlternatives(root);
         if (alefAlternatives.isEmpty()) {
-            //áÇ íæÌÏ ÇÍÊãÇáÇÊ ááÃáİ
+            //Ù„Ø§ ÙŠÙˆØ¬Ø¯ Ø§Ø­ØªÙ…Ø§Ù„Ø§Øª Ù„Ù„Ø£Ù„Ù
             AugmentedQuadriliteralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedQuadrilateralRoot(root);
             UnaugmentedQuadriliteralRoot unaugmentedRoot = SarfDictionary.getInstance().getUnaugmentedQuadrilateralRoot(root);
             if (augmentedRoot == null && unaugmentedRoot == null) {
-                displayErrorMessage("áã íÑÏ åĞÇ ÇáÌĞÑ İí ŞÇÚÏÉ ÇáãÚØíÇÊ      ");
+                displayErrorMessage("Ù„Ù… ÙŠØ±Ø¯ Ù‡Ø°Ø§ Ø§Ù„Ø¬Ø°Ø± ÙÙŠ Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ù…Ø¹Ø·ÙŠØ§Øª      ");
             }
             else {
                 displayQuadrilateral(root, augmentedRoot, unaugmentedRoot);
@@ -447,7 +447,7 @@ public class ControlPaneContainer extends JPanel {
 
         }
         else {
-            //ÊÌÑíÈ ÈÏÇÆá ÇáÃáİ
+            //ØªØ¬Ø±ÙŠØ¨ Ø¨Ø¯Ø§Ø¦Ù„ Ø§Ù„Ø£Ù„Ù
             List rootTextList = new LinkedList();
             List augmentedList = new LinkedList();
             List unaugmentedList = new LinkedList();
@@ -464,29 +464,29 @@ public class ControlPaneContainer extends JPanel {
                     unaugmentedList.add(unaugmentedRoot);
                 }
             }
-            //İÍÕ ÇĞÇ äÌÍ ÇÍÊãÇá Ãæ ÃßËÑ
+            //ÙØ­Øµ Ø§Ø°Ø§ Ù†Ø¬Ø­ Ø§Ø­ØªÙ…Ø§Ù„ Ø£Ùˆ Ø£ÙƒØ«Ø±
             if (rootTextList.isEmpty()) {
-                //áã íäÌÍ Ãí ÈÏíá
-                displayErrorMessage("áã íÑÏ åĞÇ ÇáÌĞÑ İí ŞÇÚÏÉ ÇáãÚØíÇÊ      ");
+                //Ù„Ù… ÙŠÙ†Ø¬Ø­ Ø£ÙŠ Ø¨Ø¯ÙŠÙ„
+                displayErrorMessage("Ù„Ù… ÙŠØ±Ø¯ Ù‡Ø°Ø§ Ø§Ù„Ø¬Ø°Ø± ÙÙŠ Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ù…Ø¹Ø·ÙŠØ§Øª      ");
                 return;
             }
 
-            //ÇĞÇ ßÇä åäÇß ÈÏíá æÇÍÏ İŞØ İíÊã ÚÑÖ ãÚáæãÇÊå İæÑÇğ
+            //Ø§Ø°Ø§ ÙƒØ§Ù† Ù‡Ù†Ø§Ùƒ Ø¨Ø¯ÙŠÙ„ ÙˆØ§Ø­Ø¯ ÙÙ‚Ø· ÙÙŠØªÙ… Ø¹Ø±Ø¶ Ù…Ø¹Ù„ÙˆÙ…Ø§ØªÙ‡ ÙÙˆØ±Ø§Ù‹
             int index = 0;
             if (rootTextList.size() > 1) {
-                //ÚÑÖ ÃßËÑ ãä ÇÍÊãÇá ááãÓÊÎÏã áíÊã ÇäÊŞÇÁ æÇÍÏ
-                String dialogTitle = "íæÌÏ ÃßËÑ ãä ÌĞÑ   ";
-                String dialogInput = "ÇÎÊÑ ÃÍÏ ÇáÌĞÑíä  ";
+                //Ø¹Ø±Ø¶ Ø£ÙƒØ«Ø± Ù…Ù† Ø§Ø­ØªÙ…Ø§Ù„ Ù„Ù„Ù…Ø³ØªØ®Ø¯Ù… Ù„ÙŠØªÙ… Ø§Ù†ØªÙ‚Ø§Ø¡ ÙˆØ§Ø­Ø¯
+                String dialogTitle = "ÙŠÙˆØ¬Ø¯ Ø£ÙƒØ«Ø± Ù…Ù† Ø¬Ø°Ø±   ";
+                String dialogInput = "Ø§Ø®ØªØ± Ø£Ø­Ø¯ Ø§Ù„Ø¬Ø°Ø±ÙŠÙ†  ";
                 int selectionResult = JOptionPane.showOptionDialog(this, dialogInput, dialogTitle, JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, rootTextList.toArray(), rootTextList.get(0));
                 index = selectionResult == JOptionPane.YES_OPTION ? 0 : 1;
             }
-            //ÚÑÖ ãÚáæãÇÊ ÇáÌĞÑ ÇáãäÊŞì
+            //Ø¹Ø±Ø¶ Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø¬Ø°Ø± Ø§Ù„Ù…Ù†ØªÙ‚Ù‰
             AugmentedQuadriliteralRoot augmentedRoot = (AugmentedQuadriliteralRoot) augmentedList.get(index);
             UnaugmentedQuadriliteralRoot unaugmentedRoot = (UnaugmentedQuadriliteralRoot) unaugmentedList.get(index);
 
             String newRoot = rootTextList.get(index).toString();
-            //ÍÊì áÇ íÊã ÚÑÖ ÑÓÇáÉ äÊÈíåíÉ
-            //ÅáÇ İí ÍÇáÉ ÌĞÑ æÇÍÏ
+            //Ø­ØªÙ‰ Ù„Ø§ ÙŠØªÙ… Ø¹Ø±Ø¶ Ø±Ø³Ø§Ù„Ø© Ù†ØªØ¨ÙŠÙ‡ÙŠØ©
+            //Ø¥Ù„Ø§ ÙÙŠ Ø­Ø§Ù„Ø© Ø¬Ø°Ø± ÙˆØ§Ø­Ø¯
             if (rootTextList.size() > 1) {
                 rootFld.setText(newRoot);
             }
@@ -505,13 +505,13 @@ public class ControlPaneContainer extends JPanel {
         kovText = rule.getDesc();
         kov = rule.getKov();
 
-        //ÚÑÖ ÑÓÇáÉ ÊäÈíåíÉ ÇĞÇ Êã ÊÕÍíÍ ÊáŞÇÆí
+        //Ø¹Ø±Ø¶ Ø±Ø³Ø§Ù„Ø© ØªÙ†Ø¨ÙŠÙ‡ÙŠØ© Ø§Ø°Ø§ ØªÙ… ØªØµØ­ÙŠØ­ ØªÙ„Ù‚Ø§Ø¦ÙŠ
         if (!rootText.equals(rootFld.getText())) {
-            String msg = "áŞÏ Êã ÊÕÍíÍ ÇáÌĞÑ ÇáãÏÎá Åáì       ";
+            String msg = "Ù„Ù‚Ø¯ ØªÙ… ØªØµØ­ÙŠØ­ Ø§Ù„Ø¬Ø°Ø± Ø§Ù„Ù…Ø¯Ø®Ù„ Ø¥Ù„Ù‰       ";
             msg += rootText;
             //JOptionPane.showMessageDialog(this, msg, "", JOptionPane.INFORMATION_MESSAGE);
 
-            //ÚÑÖå ÈÚÏ ÇáÊÚÏíá ÇĞÇ ÌÑì ÊÚÏíá
+            //Ø¹Ø±Ø¶Ù‡ Ø¨Ø¹Ø¯ Ø§Ù„ØªØ¹Ø¯ÙŠÙ„ Ø§Ø°Ø§ Ø¬Ø±Ù‰ ØªØ¹Ø¯ÙŠÙ„
             rootFld.setText(rootText);
         }
 
@@ -673,14 +673,14 @@ public class ControlPaneContainer extends JPanel {
     }
 
     public void setTransitiveType(String type) {
-        if (type.equals("ã")) {
-            transitiveTypeFld.setText("ãÊÚÏ");
+        if (type.equals("Ù…")) {
+            transitiveTypeFld.setText("Ù…ØªØ¹Ø¯");
         }
-        else if (type.equals("á")) {
-            transitiveTypeFld.setText("áÇÒã");
+        else if (type.equals("Ù„")) {
+            transitiveTypeFld.setText("Ù„Ø§Ø²Ù…");
         }
         else {
-            transitiveTypeFld.setText("áÇÒã æãÊÚÏ ");
+            transitiveTypeFld.setText("Ù„Ø§Ø²Ù… ÙˆÙ…ØªØ¹Ø¯ ");
         }
     }
 

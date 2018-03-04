@@ -49,7 +49,7 @@ public class TrilateralAugmentedGerundConjugator {
 
         TrilateralAugmentedGerund gerundInstance = (TrilateralAugmentedGerund) gerundClassMap.get(formulaNo + "");
 
-        //İÍÕ ÍÇáÉ áÇíÚá ãä ÇáÕíÛÉ æÇÍÏ æÊÓÚÉ
+        //ÙØ­Øµ Ø­Ø§Ù„Ø© Ù„Ø§ÙŠØ¹Ù„ Ù…Ù† Ø§Ù„ØµÙŠØºØ© ÙˆØ§Ø­Ø¯ ÙˆØªØ³Ø¹Ø©
         if (formulaNo == 1 || formulaNo == 9) {
             boolean applyVocalization = true;
             int result = FormulaApplyingChecker.getInstance().check(root, formulaNo);
@@ -65,7 +65,7 @@ public class TrilateralAugmentedGerundConjugator {
                     applyVocalization = augmentedTrilateralModifierListener.doSelectVocalization();
                 }
             }
-            //íÄËÑ Úáì ãæÇŞÚ ÇáÊÕÑíİ
+            //ÙŠØ¤Ø«Ø± Ø¹Ù„Ù‰ Ù…ÙˆØ§Ù‚Ø¹ Ø§Ù„ØªØµØ±ÙŠÙ
 
             if (!applyVocalization) {
                 for (int i = 0; i < 18; i++) {
@@ -101,7 +101,7 @@ public class TrilateralAugmentedGerundConjugator {
     }
 
 
-    //ãæÌæÏÉ ãä ÃÌá ÕíÛÉ ãİÇÚáÉ æİÚÇá áíÎÊÇÑ ÃÍÏåãÇ
+    //Ù…ÙˆØ¬ÙˆØ¯Ø© Ù…Ù† Ø£Ø¬Ù„ ØµÙŠØºØ© Ù…ÙØ§Ø¹Ù„Ø© ÙˆÙØ¹Ø§Ù„ Ù„ÙŠØ®ØªØ§Ø± Ø£Ø­Ø¯Ù‡Ù…Ø§
     public int selectPatternFormNo(int formulaNo) {
         return listener.selectPatternFormNo(formulaNo);
     }

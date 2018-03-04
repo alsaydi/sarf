@@ -23,13 +23,13 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public Present1Vocalizer() {
-        substitutions.add(new SuffixSubstitution("öíõ","öí"));// EX: (íõæÕöí¡ íæÇáöí¡ íóÊøóŞöí¡ íÓÊæİöí)
-        substitutions.add(new SuffixSubstitution("íú", "")); // EX: (áã íõæÕö¡ íæÇáö¡ íóÊøóŞö¡ íÓÊæİö)
-        substitutions.add(new InfixSubstitution("íöä", "ä")); // EX: (ÃäÊö ÊõæÕöäøó¡ ÊæÇáöäøó¡ ÊóÊøóŞöäøó¡ ÊÓÊæİöäøó)
-        substitutions.add(new InfixSubstitution("íöí", "í")); // EX: (ÃäÊö ÊõæÕöíäó¡ ÊõæÇáöíäó¡ ÊóÊøóŞöíäó¡ ÊóÓÊæİöíäó)
-        substitutions.add(new InfixSubstitution("íúä", "íä")); // EX: (ÃäÊä ÊõæÕöíäó¡ ÊõæÇáöíäó¡ ÊóÊøóŞöíäó¡ ÊóÓÊæİöíäó)
-        substitutions.add(new InfixSubstitution("öíõæ", "õæ")); // EX: (ÃäÊã ÊõæÕõæäó¡ ÊõæÇáõæäó¡ ÊóÊøóŞõæäó¡ ÊóÓÊæİõæäó)
-        substitutions.add(new InfixSubstitution("öíõä", "õä")); // EX: (ÃäÊã ÊõæÕõäøó¡ ÊõæÇáõäøó¡ ÊóÊøóŞõäøó¡ ÊóÓÊæİõäøó)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠ"));// EX: (ÙŠÙÙˆØµÙÙŠØŒ ÙŠÙˆØ§Ù„ÙÙŠØŒ ÙŠÙØªÙ‘ÙÙ‚ÙÙŠØŒ ÙŠØ³ØªÙˆÙÙÙŠ)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ’", "")); // EX: (Ù„Ù… ÙŠÙÙˆØµÙØŒ ÙŠÙˆØ§Ù„ÙØŒ ÙŠÙØªÙ‘ÙÙ‚ÙØŒ ÙŠØ³ØªÙˆÙÙ)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙ†", "Ù†")); // EX: (Ø£Ù†ØªÙ ØªÙÙˆØµÙÙ†Ù‘ÙØŒ ØªÙˆØ§Ù„ÙÙ†Ù‘ÙØŒ ØªÙØªÙ‘ÙÙ‚ÙÙ†Ù‘ÙØŒ ØªØ³ØªÙˆÙÙÙ†Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙŠ", "ÙŠ")); // EX: (Ø£Ù†ØªÙ ØªÙÙˆØµÙÙŠÙ†ÙØŒ ØªÙÙˆØ§Ù„ÙÙŠÙ†ÙØŒ ØªÙØªÙ‘ÙÙ‚ÙÙŠÙ†ÙØŒ ØªÙØ³ØªÙˆÙÙÙŠÙ†Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙ’Ù†", "ÙŠÙ†")); // EX: (Ø£Ù†ØªÙ† ØªÙÙˆØµÙÙŠÙ†ÙØŒ ØªÙÙˆØ§Ù„ÙÙŠÙ†ÙØŒ ØªÙØªÙ‘ÙÙ‚ÙÙŠÙ†ÙØŒ ØªÙØ³ØªÙˆÙÙÙŠÙ†Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙˆ", "ÙÙˆ")); // EX: (Ø£Ù†ØªÙ… ØªÙÙˆØµÙÙˆÙ†ÙØŒ ØªÙÙˆØ§Ù„ÙÙˆÙ†ÙØŒ ØªÙØªÙ‘ÙÙ‚ÙÙˆÙ†ÙØŒ ØªÙØ³ØªÙˆÙÙÙˆÙ†Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙ†", "ÙÙ†")); // EX: (Ø£Ù†ØªÙ… ØªÙÙˆØµÙÙ†Ù‘ÙØŒ ØªÙÙˆØ§Ù„ÙÙ†Ù‘ÙØŒ ØªÙØªÙ‘ÙÙ‚ÙÙ†Ù‘ÙØŒ ØªÙØ³ØªÙˆÙÙÙ†Ù‘Ù)
     }
 
 

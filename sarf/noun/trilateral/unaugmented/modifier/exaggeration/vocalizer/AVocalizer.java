@@ -11,7 +11,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: ÇáÕíÛÉ ÇáŞíÇÓíÉ İåí ÛíÑ æÇÑÏÉ ÇáÑãÒ İí ŞÇÚÏÉ ÇáÓãÇÚí        </p>
+ * <p>Description: Ø§Ù„ØµÙŠØºØ© Ø§Ù„Ù‚ÙŠØ§Ø³ÙŠØ© ÙÙ‡ÙŠ ØºÙŠØ± ÙˆØ§Ø±Ø¯Ø© Ø§Ù„Ø±Ù…Ø² ÙÙŠ Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ø³Ù…Ø§Ø¹ÙŠ        </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -24,10 +24,10 @@ public class AVocalizer extends TrilateralNounSubstitutionApplier implements IUn
     List substitutions = new LinkedList();
 
     public AVocalizer() {
-        substitutions.add(new InfixSubstitution("ÇæğÇ", "ÇÁğ")); // EX: (ÛóÒøóÇÁğ)
-        substitutions.add(new InfixSubstitution("ÇíğÇ", "ÇÁğ")); // EX: (ÑãøóÇÁğ)
-        substitutions.add(new InfixSubstitution("Çæ", "ÇÁ")); // EX: (ÛóÒøóÇÁñ)
-        substitutions.add(new InfixSubstitution("Çí", "ÇÁ")); // EX: (ÑãøóÇÁñ)
+        substitutions.add(new InfixSubstitution("Ø§ÙˆÙ‹Ø§", "Ø§Ø¡Ù‹")); // EX: (ØºÙØ²Ù‘ÙØ§Ø¡Ù‹)
+        substitutions.add(new InfixSubstitution("Ø§ÙŠÙ‹Ø§", "Ø§Ø¡Ù‹")); // EX: (Ø±Ù…Ù‘ÙØ§Ø¡Ù‹)
+        substitutions.add(new InfixSubstitution("Ø§Ùˆ", "Ø§Ø¡")); // EX: (ØºÙØ²Ù‘ÙØ§Ø¡ÙŒ)
+        substitutions.add(new InfixSubstitution("Ø§ÙŠ", "Ø§Ø¡")); // EX: (Ø±Ù…Ù‘ÙØ§Ø¡ÙŒ)
     }
 
 
@@ -37,7 +37,7 @@ public class AVocalizer extends TrilateralNounSubstitutionApplier implements IUn
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
-        if (!nounFormula.equals("İóÚøóÇá")) {
+        if (!nounFormula.equals("ÙÙØ¹Ù‘ÙØ§Ù„")) {
             return false;
         }
 

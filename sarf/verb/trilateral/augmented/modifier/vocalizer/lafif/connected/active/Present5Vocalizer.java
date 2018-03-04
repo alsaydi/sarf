@@ -24,11 +24,11 @@ public class Present5Vocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public Present5Vocalizer() {
-        substitutions.add(new SuffixSubstitution("öíõ","öí"));// EX: (íõŞóæøöí)
-        substitutions.add(new SuffixSubstitution("íú", "")); // EX: (áã íõŞóæøö)
-        substitutions.add(new InfixSubstitution("øöíö", "øö")); // EX: (ÃäÊö ÊŞæøöíäó)
-        substitutions.add(new InfixSubstitution("øöíõ", "øõ")); // EX: (ÃäÊã ÊõŞóæøõæäó)
-        substitutions.add(new InfixSubstitution("øöíú", "øöí")); // EX: (ÃäÊä ÊõŞóæøöíäó)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠ"));// EX: (ÙŠÙÙ‚ÙÙˆÙ‘ÙÙŠ)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ’", "")); // EX: (Ù„Ù… ÙŠÙÙ‚ÙÙˆÙ‘Ù)
+        substitutions.add(new InfixSubstitution("Ù‘ÙÙŠÙ", "Ù‘Ù")); // EX: (Ø£Ù†ØªÙ ØªÙ‚ÙˆÙ‘ÙÙŠÙ†Ù)
+        substitutions.add(new InfixSubstitution("Ù‘ÙÙŠÙ", "Ù‘Ù")); // EX: (Ø£Ù†ØªÙ… ØªÙÙ‚ÙÙˆÙ‘ÙÙˆÙ†Ù)
+        substitutions.add(new InfixSubstitution("Ù‘ÙÙŠÙ’", "Ù‘ÙÙŠ")); // EX: (Ø£Ù†ØªÙ† ØªÙÙ‚ÙÙˆÙ‘ÙÙŠÙ†Ù)
     }
 
 
@@ -40,6 +40,6 @@ public class Present5Vocalizer extends SubstitutionsApplier implements IAugmente
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC2() == 'æ' && root.getC3() == 'í' && (kov == 28 || kov == 27) && formulaNo == 2;
+        return root.getC2() == 'Ùˆ' && root.getC3() == 'ÙŠ' && (kov == 28 || kov == 27) && formulaNo == 2;
     }
 }

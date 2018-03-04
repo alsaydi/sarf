@@ -24,12 +24,12 @@ public class Present7Vocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public Present7Vocalizer() {
-        substitutions.add(new SuffixSubstitution("æõ", "í")); // EX: (íõÓúæöí¡ íõÓÇæöí¡ ÊäÛæí¡ íÓÊæí¡ íÓÊÛæí)
-        substitutions.add(new SuffixSubstitution("æú", "")); // EX: (áã íõÓúæö¡ áã íõÓÇæö¡ áã íäÛæö¡ áã íóÓÊæö¡ áã íÓÊÛæö)
-        substitutions.add(new InfixSubstitution("æöæö", "æö")); // EX: (ÃäÊö ÊõÓúæöíäó¡ ÊõÓÇæöíäó¡ ÊäÛæíä¡ ÊÓÊæíä¡ ÊÓÊÛæíä)
-        substitutions.add(new InfixSubstitution("öæó", "öíó")); // EX: (ÃäÊãÇ ÊõÓúæöíóÇäö¡ ÊõÓÇæöíÇäö¡ ÊäÛæíÇä¡ ÊÓÊæíÇä¡ ÊÓÊÛæíÇä)
-        substitutions.add(new InfixSubstitution("öæõ", "õ")); // EX: (ÃäÊã ÊõÓúæõæäó¡ ÊõÓÇæõæäó¡ ÊäÛæõæäó¡ ÊÓÊæõæäó¡ ÊÓÊÛææä)
-        substitutions.add(new InfixSubstitution("öæú", "öí")); // EX: (ÃäÊä ÊõÓúæöíäó¡ ÊõÓÇæöíäó¡ ÊäÛæíä¡ ÊÓÊæíä¡ ÊÓÊÛæíä)
+        substitutions.add(new SuffixSubstitution("ÙˆÙ", "ÙŠ")); // EX: (ÙŠÙØ³Ù’ÙˆÙÙŠØŒ ÙŠÙØ³Ø§ÙˆÙÙŠØŒ ØªÙ†ØºÙˆÙŠØŒ ÙŠØ³ØªÙˆÙŠØŒ ÙŠØ³ØªØºÙˆÙŠ)
+        substitutions.add(new SuffixSubstitution("ÙˆÙ’", "")); // EX: (Ù„Ù… ÙŠÙØ³Ù’ÙˆÙØŒ Ù„Ù… ÙŠÙØ³Ø§ÙˆÙØŒ Ù„Ù… ÙŠÙ†ØºÙˆÙØŒ Ù„Ù… ÙŠÙØ³ØªÙˆÙØŒ Ù„Ù… ÙŠØ³ØªØºÙˆÙ)
+        substitutions.add(new InfixSubstitution("ÙˆÙÙˆÙ", "ÙˆÙ")); // EX: (Ø£Ù†ØªÙ ØªÙØ³Ù’ÙˆÙÙŠÙ†ÙØŒ ØªÙØ³Ø§ÙˆÙÙŠÙ†ÙØŒ ØªÙ†ØºÙˆÙŠÙ†ØŒ ØªØ³ØªÙˆÙŠÙ†ØŒ ØªØ³ØªØºÙˆÙŠÙ†)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "ÙÙŠÙ")); // EX: (Ø£Ù†ØªÙ…Ø§ ØªÙØ³Ù’ÙˆÙÙŠÙØ§Ù†ÙØŒ ØªÙØ³Ø§ÙˆÙÙŠØ§Ù†ÙØŒ ØªÙ†ØºÙˆÙŠØ§Ù†ØŒ ØªØ³ØªÙˆÙŠØ§Ù†ØŒ ØªØ³ØªØºÙˆÙŠØ§Ù†)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "Ù")); // EX: (Ø£Ù†ØªÙ… ØªÙØ³Ù’ÙˆÙÙˆÙ†ÙØŒ ØªÙØ³Ø§ÙˆÙÙˆÙ†ÙØŒ ØªÙ†ØºÙˆÙÙˆÙ†ÙØŒ ØªØ³ØªÙˆÙÙˆÙ†ÙØŒ ØªØ³ØªØºÙˆÙˆÙ†)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’", "ÙÙŠ")); // EX: (Ø£Ù†ØªÙ† ØªÙØ³Ù’ÙˆÙÙŠÙ†ÙØŒ ØªÙØ³Ø§ÙˆÙÙŠÙ†ÙØŒ ØªÙ†ØºÙˆÙŠÙ†ØŒ ØªØ³ØªÙˆÙŠÙ†ØŒ ØªØ³ØªØºÙˆÙŠÙ†)
     }
 
 
@@ -41,7 +41,7 @@ public class Present7Vocalizer extends SubstitutionsApplier implements IAugmente
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        if (root.getC2() == root.getC3() && root.getC3() == 'æ' && kov == 28) {
+        if (root.getC2() == root.getC3() && root.getC3() == 'Ùˆ' && kov == 28) {
             switch (formulaNo) {
             case 1:
             case 3:

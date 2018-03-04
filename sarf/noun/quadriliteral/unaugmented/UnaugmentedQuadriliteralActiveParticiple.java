@@ -20,7 +20,7 @@ public class UnaugmentedQuadriliteralActiveParticiple {
      * @todo Implement this sarf.noun.Quadriliteral.QuadriliteralNoun method
      */
     public String form() {
-        return GenericNounSuffixContainer.getInstance().getPrefix()+"ã"+ArabCharUtil.DAMMA+root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.KASRA+root.getC4()+suffix;
+        return GenericNounSuffixContainer.getInstance().getPrefix()+"Ù…"+ArabCharUtil.DAMMA+root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.KASRA+root.getC4()+suffix;
     }
 
     public String toString() {

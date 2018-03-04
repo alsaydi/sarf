@@ -21,9 +21,9 @@ public class PresentMahmouz extends SubstitutionsApplier {
     private List substitutions = new LinkedList();
 
     public PresentMahmouz() {
-        substitutions.add(new InfixSubstitution("óÁú", "óÃú")); // EX: (íõÈóÃúÏöáõ¡ íóÊóËóÃúáóáõ¡ ÃäÊä ÊóØúãóÃúäöäøó)
-        substitutions.add(new InfixSubstitution("úÁó", "úÃó")); // EX: (íóÊóØóãúÃóäõ¡ íóÊóãóÑúÃóì¡ )
-        substitutions.add(new InfixSubstitution("Áö", "Æö")); // EX: (íõØóãúÆöäõ¡ íóØúãóÆöäøõ)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’", "ÙØ£Ù’")); // EX: (ÙŠÙØ¨ÙØ£Ù’Ø¯ÙÙ„ÙØŒ ÙŠÙØªÙØ«ÙØ£Ù’Ù„ÙÙ„ÙØŒ Ø£Ù†ØªÙ† ØªÙØ·Ù’Ù…ÙØ£Ù’Ù†ÙÙ†Ù‘Ù)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù", "Ù’Ø£Ù")); // EX: (ÙŠÙØªÙØ·ÙÙ…Ù’Ø£ÙÙ†ÙØŒ ÙŠÙØªÙÙ…ÙØ±Ù’Ø£ÙÙ‰ØŒ )
+        substitutions.add(new InfixSubstitution("Ø¡Ù", "Ø¦Ù")); // EX: (ÙŠÙØ·ÙÙ…Ù’Ø¦ÙÙ†ÙØŒ ÙŠÙØ·Ù’Ù…ÙØ¦ÙÙ†Ù‘Ù)
     }
 
 

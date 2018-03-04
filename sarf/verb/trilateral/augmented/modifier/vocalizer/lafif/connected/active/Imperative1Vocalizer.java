@@ -25,10 +25,10 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IAugme
 
     public Imperative1Vocalizer() {
 
-        substitutions.add(new SuffixSubstitution("íú",""));// EX: (ÃÍúíö¡ ÃĞúæö¡ ÍÇíö¡ ÏÇæö¡ ÇäÒæö¡ ÇÍÊæö¡ ÇÓÊÍíö¡ ÇÓÊåæö)
-        substitutions.add(new InfixSubstitution("öíö","ö"));// EX: (ÃäÊö ÃÍúíöí¡ ÃĞúæöí¡ ÍÇíöí¡ ÏÇæöí¡ ÇäÒæöí¡ ÇÍÊæöí¡ ÇÓÊÍíöí¡ ÇÓÊåæöí)
-        substitutions.add(new InfixSubstitution("öíõ","õ"));// EX: (ÃäÊã ÃÍúíõæÇ¡ ÃĞúæõæÇ¡ ÍÇíõæÇ¡ ÏÇæõæÇ¡ ÇäÒæõæÇ¡ ÇÍÊæõæÇ¡ ÇÓÊÍíõæÇ¡ ÇÓÊåæõæÇ)
-        substitutions.add(new InfixSubstitution("öíú","öí"));// EX: (ÃäÊä ÃÍúíöíäó¡ ÃĞúæöíäó¡ ÍÇíöíäó¡ ÏÇæöíäó¡ ÇäÒæöíäó¡ ÇÍÊæöíäó¡ ÇÓÊÍíöíäó¡ ÇÓÊåæöíäó)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ’",""));// EX: (Ø£Ø­Ù’ÙŠÙØŒ Ø£Ø°Ù’ÙˆÙØŒ Ø­Ø§ÙŠÙØŒ Ø¯Ø§ÙˆÙØŒ Ø§Ù†Ø²ÙˆÙØŒ Ø§Ø­ØªÙˆÙØŒ Ø§Ø³ØªØ­ÙŠÙØŒ Ø§Ø³ØªÙ‡ÙˆÙ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ø£Ù†ØªÙ Ø£Ø­Ù’ÙŠÙÙŠØŒ Ø£Ø°Ù’ÙˆÙÙŠØŒ Ø­Ø§ÙŠÙÙŠØŒ Ø¯Ø§ÙˆÙÙŠØŒ Ø§Ù†Ø²ÙˆÙÙŠØŒ Ø§Ø­ØªÙˆÙÙŠØŒ Ø§Ø³ØªØ­ÙŠÙÙŠØŒ Ø§Ø³ØªÙ‡ÙˆÙÙŠ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ø£Ù†ØªÙ… Ø£Ø­Ù’ÙŠÙÙˆØ§ØŒ Ø£Ø°Ù’ÙˆÙÙˆØ§ØŒ Ø­Ø§ÙŠÙÙˆØ§ØŒ Ø¯Ø§ÙˆÙÙˆØ§ØŒ Ø§Ù†Ø²ÙˆÙÙˆØ§ØŒ Ø§Ø­ØªÙˆÙÙˆØ§ØŒ Ø§Ø³ØªØ­ÙŠÙÙˆØ§ØŒ Ø§Ø³ØªÙ‡ÙˆÙÙˆØ§)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ’","ÙÙŠ"));// EX: (Ø£Ù†ØªÙ† Ø£Ø­Ù’ÙŠÙÙŠÙ†ÙØŒ Ø£Ø°Ù’ÙˆÙÙŠÙ†ÙØŒ Ø­Ø§ÙŠÙÙŠÙ†ÙØŒ Ø¯Ø§ÙˆÙÙŠÙ†ÙØŒ Ø§Ù†Ø²ÙˆÙÙŠÙ†ÙØŒ Ø§Ø­ØªÙˆÙÙŠÙ†ÙØŒ Ø§Ø³ØªØ­ÙŠÙÙŠÙ†ÙØŒ Ø§Ø³ØªÙ‡ÙˆÙÙŠÙ†Ù)
 
     }
 
@@ -41,7 +41,7 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IAugme
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        if ((root.getC2() == 'æ' || root.getC2() == 'í') && root.getC3() == 'í') {
+        if ((root.getC2() == 'Ùˆ' || root.getC2() == 'ÙŠ') && root.getC3() == 'ÙŠ') {
             switch (kov) {
             case 27:
                 switch (formulaNo) {

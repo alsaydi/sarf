@@ -1,7 +1,7 @@
 package sarf.util;
 
 import java.sql.*;
-//╩ф▌э╨ ╟╙╩┌с╟у╟╩ ┌сь ▐╟┌╧╔ ╟су┌╪э╟╩
+//╪к┘Ж┘Б┘К╪░ ╪з╪│╪к╪╣┘Д╪з┘Е╪з╪к ╪╣┘Д┘Й ┘В╪з╪╣╪п╪й ╪з┘Д┘Е╪╣╪╖┘К╪з╪к
 public class QueryExecuter {
 
     private Connection connection;

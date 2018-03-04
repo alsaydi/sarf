@@ -24,12 +24,12 @@ public class Present2Vocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public Present2Vocalizer() {
-        substitutions.add(new SuffixSubstitution("унх","ум"));// EX: (нх–ъжум° нхёужшум° нхѕ«жум° нхдъ“ужум° нхЌъ ужум° нх уѕу«жум° нх уёужшум° нх”ъ уеъжум)
-        substitutions.add(new SuffixSubstitution("ну","м"));// EX: (бд нх–ъжум° нхёужшум° нхѕ«жум° нхдъ“ужум° нхЌъ ужум° нх уѕу«жум° нх уёужшум° нх”ъ уеъжум)
-        substitutions.add(new SuffixSubstitution("нъ",""));// EX: (бг нх–ъжу° нхёужшу° нхѕ«жу° нхдъ“ужу° нхЌъ ужу° нх уѕу«жу° нх уёужшу° нх”ъ уеъжу)
-        substitutions.add(new InfixSubstitution("нцн","нъ"));// EX: (√д ц  х–ъжунъду°  хёужшунъду°  ѕ«жунъду°  дъ“ужунъду°  Ќ жнд°   ѕ«жнд°   ёжнд°  ” ежнд)
-        substitutions.add(new InfixSubstitution("нхж","жъ"));// EX: (√д г  х–ъжужъду°  хёужшужъду°  ѕ«жужъду°  дъ“ужужъду°  Ќ жужъду°   ѕ«жужъду°   ёжшужъд°  х”ъ уеъжужъду)
-        substitutions.add(new InfixSubstitution("нхдш","жхдш"));// EX: (√д г  х–ъжужхдшу°  хёужшужхдшу°  ѕ«жужхдшу°  дъ“ужужхдшу°  Ќ жужхдшу°   ѕ«жужхдшу°   ёжшужхдшу°  х”ъ уеъжужхдшу)
+        substitutions.add(new SuffixSubstitution("ўОўКўП","ўОўЙ"));// EX: (ўКўПЎ∞ўТўИўОўЙЎМ ўКўПўВўОўИўСўОўЙЎМ ўКўПЎѓЎІўИўОўЙЎМ ўКўПўЖўТЎ≤ўОўИўОўЙЎМ ўКўПЎ≠ўТЎ™ўОўИўОўЙЎМ ўКўПЎ™ўОЎѓўОЎІўИўОўЙЎМ ўКўПЎ™ўОўВўОўИўСўОўЙЎМ ўКўПЎ≥ўТЎ™ўОўЗўТўИўОўЙ)
+        substitutions.add(new SuffixSubstitution("ўКўО","ўЙ"));// EX: (ўДўЖ ўКўПЎ∞ўТўИўОўЙЎМ ўКўПўВўОўИўСўОўЙЎМ ўКўПЎѓЎІўИўОўЙЎМ ўКўПўЖўТЎ≤ўОўИўОўЙЎМ ўКўПЎ≠ўТЎ™ўОўИўОўЙЎМ ўКўПЎ™ўОЎѓўОЎІўИўОўЙЎМ ўКўПЎ™ўОўВўОўИўСўОўЙЎМ ўКўПЎ≥ўТЎ™ўОўЗўТўИўОўЙ)
+        substitutions.add(new SuffixSubstitution("ўКўТ",""));// EX: (ўДўЕ ўКўПЎ∞ўТўИўОЎМ ўКўПўВўОўИўСўОЎМ ўКўПЎѓЎІўИўОЎМ ўКўПўЖўТЎ≤ўОўИўОЎМ ўКўПЎ≠ўТЎ™ўОўИўОЎМ ўКўПЎ™ўОЎѓўОЎІўИўОЎМ ўКўПЎ™ўОўВўОўИўСўОЎМ ўКўПЎ≥ўТЎ™ўОўЗўТўИўО)
+        substitutions.add(new InfixSubstitution("ўКўРўК","ўКўТ"));// EX: (Ў£ўЖЎ™ўР Ў™ўПЎ∞ўТўИўОўКўТўЖўОЎМ Ў™ўПўВўОўИўСўОўКўТўЖўОЎМ Ў™ЎѓЎІўИўОўКўТўЖўОЎМ Ў™ўЖўТЎ≤ўОўИўОўКўТўЖўОЎМ Ў™Ў≠Ў™ўИўКўЖЎМ Ў™Ў™ЎѓЎІўИўКўЖЎМ Ў™Ў™ўВўИўКўЖЎМ Ў™Ў≥Ў™ўЗўИўКўЖ)
+        substitutions.add(new InfixSubstitution("ўКўПўИ","ўИўТ"));// EX: (Ў£ўЖЎ™ўЕ Ў™ўПЎ∞ўТўИўОўИўТўЖўОЎМ Ў™ўПўВўОўИўСўОўИўТўЖўОЎМ Ў™ЎѓЎІўИўОўИўТўЖўОЎМ Ў™ўЖўТЎ≤ўОўИўОўИўТўЖўОЎМ Ў™Ў≠Ў™ўИўОўИўТўЖўОЎМ Ў™Ў™ЎѓЎІўИўОўИўТўЖўОЎМ Ў™Ў™ўВўИўСўОўИўТўЖЎМ Ў™ўПЎ≥ўТЎ™ўОўЗўТўИўОўИўТўЖўО)
+        substitutions.add(new InfixSubstitution("ўКўПўЖўС","ўИўПўЖўС"));// EX: (Ў£ўЖЎ™ўЕ Ў™ўПЎ∞ўТўИўОўИўПўЖўСўОЎМ Ў™ўПўВўОўИўСўОўИўПўЖўСўОЎМ Ў™ЎѓЎІўИўОўИўПўЖўСўОЎМ Ў™ўЖўТЎ≤ўОўИўОўИўПўЖўСўОЎМ Ў™Ў≠Ў™ўИўОўИўПўЖўСўОЎМ Ў™Ў™ЎѓЎІўИўОўИўПўЖўСўОЎМ Ў™Ў™ўВўИўСўОўИўПўЖўСўОЎМ Ў™ўПЎ≥ўТЎ™ўОўЗўТўИўОўИўПўЖўСўО)
     }
 
 
@@ -41,7 +41,7 @@ public class Present2Vocalizer extends SubstitutionsApplier implements IAugmente
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        if (root.getC2() == 'ж' && root.getC3() == 'н') {
+        if (root.getC2() == 'ўИ' && root.getC3() == 'ўК') {
             switch (kov) {
             case 27:
                 switch (formulaNo) {

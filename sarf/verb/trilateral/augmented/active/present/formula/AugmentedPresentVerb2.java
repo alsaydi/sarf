@@ -7,7 +7,7 @@ import sarf.verb.trilateral.augmented.*;
 /**
  * <p>Title: Sarf</p>
  *
- * <p>Description: ÈÑäÇãÌ ÇáÊÕÑíİ</p>
+ * <p>Description: Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØµØ±ÙŠÙ</p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *

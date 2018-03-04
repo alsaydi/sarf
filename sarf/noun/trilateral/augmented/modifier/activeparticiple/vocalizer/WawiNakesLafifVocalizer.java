@@ -24,19 +24,19 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
     private List substitutions = new LinkedList();
 
     public WawiNakesLafifVocalizer() {
-        substitutions.add(new SuffixSubstitution("öæõ", "öí")); // EX: (åĞÇ ÇáãõÏúäöí¡)
-        substitutions.add(new SuffixSubstitution("öæó", "öíó")); // EX: (ÑÃíÊõ ÇáãõÏúäöíó¡  )
-        substitutions.add(new SuffixSubstitution("öæö", "öí")); // EX: (ãÑÑÊõ Úáì ÇáãõÏúäöí¡ )
-        substitutions.add(new InfixSubstitution("öæñ", "ò")); // EX: (åĞÇ ãõÏúäò)
-        substitutions.add(new InfixSubstitution("öæò", "ò")); // EX: (ãÑÑÊõ Úáì ãõÏúäò)
-        substitutions.add(new InfixSubstitution("öæğ", "öíğ")); // EX: (ÑÃíÊõ ãõÏúäöíğÇ)
-        substitutions.add(new InfixSubstitution("öæó", "öíó")); // EX: (ãõÏúäöíóÉñ¡ ãõÏúäöíÇä¡ ãõÏúäöíÊÇä¡ ãõÏúäöíÇÊ¡ )
-        substitutions.add(new InfixSubstitution("öæõ", "õ")); // EX: (ãõÏúäõæäó¡ )
-        substitutions.add(new InfixSubstitution("öæö", "ö")); // EX: (ãõÏúäöíäó¡ )
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ", "ÙÙŠ")); // EX: (Ù‡Ø°Ø§ Ø§Ù„Ù…ÙØ¯Ù’Ù†ÙÙŠØŒ)
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ", "ÙÙŠÙ")); // EX: (Ø±Ø£ÙŠØªÙ Ø§Ù„Ù…ÙØ¯Ù’Ù†ÙÙŠÙØŒ  )
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ", "ÙÙŠ")); // EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ø§Ù„Ù…ÙØ¯Ù’Ù†ÙÙŠØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙŒ", "Ù")); // EX: (Ù‡Ø°Ø§ Ù…ÙØ¯Ù’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "Ù")); // EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ù…ÙØ¯Ù’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ‹", "ÙÙŠÙ‹")); // EX: (Ø±Ø£ÙŠØªÙ Ù…ÙØ¯Ù’Ù†ÙÙŠÙ‹Ø§)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "ÙÙŠÙ")); // EX: (Ù…ÙØ¯Ù’Ù†ÙÙŠÙØ©ÙŒØŒ Ù…ÙØ¯Ù’Ù†ÙÙŠØ§Ù†ØŒ Ù…ÙØ¯Ù’Ù†ÙÙŠØªØ§Ù†ØŒ Ù…ÙØ¯Ù’Ù†ÙÙŠØ§ØªØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "Ù")); // EX: (Ù…ÙØ¯Ù’Ù†ÙÙˆÙ†ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "Ù")); // EX: (Ù…ÙØ¯Ù’Ù†ÙÙŠÙ†ÙØŒ )
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC3() != 'æ')
+        if (conjugationResult.getRoot().getC3() != 'Ùˆ')
             return false;
 
         int kov = conjugationResult.getKov();

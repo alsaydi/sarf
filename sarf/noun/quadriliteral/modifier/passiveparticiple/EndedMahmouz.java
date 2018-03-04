@@ -24,16 +24,16 @@ public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier implement
 
     public EndedMahmouz() {
 
-        substitutions.add(new InfixSubstitution("óÁñ","óÃñ"));// EX: (ãõÛóÑúŞóÃñ)
-        substitutions.add(new InfixSubstitution("óÁğÇ","óÃğ"));// EX: (ãõÛóÑúŞóÃğ)
-        substitutions.add(new InfixSubstitution("óÁò","óÃò"));// EX: (ãõÛóÑúŞóÃò)
-        substitutions.add(new InfixSubstitution("óÁóÇ","óÂ"));// EX: (ãõÛóÑŞÂä)
-        substitutions.add(new SuffixSubstitution("óÁó","óÃó"));// EX: (ÇáãõÛóÑŞóÃó)
-        substitutions.add(new SuffixSubstitution("óÁõ","óÃõ"));// EX: (ÇáãõÛóÑŞóÃõ)
-        substitutions.add(new SuffixSubstitution("óÁö","óÃö"));// EX: (ÇáãõÛóÑŞóÃö)
-        substitutions.add(new InfixSubstitution("óÁó","óÃó"));// EX: (ãõÛóÑúŞóÃÉ)
-        substitutions.add(new InfixSubstitution("Áõ","Äõ"));// EX: (ãõÛóÑúŞóÄõæäó)
-        substitutions.add(new InfixSubstitution("Áö","Æö"));// EX: (ãõÛóÑúŞóÆöíäó)
+        substitutions.add(new InfixSubstitution("ÙØ¡ÙŒ","ÙØ£ÙŒ"));// EX: (Ù…ÙØºÙØ±Ù’Ù‚ÙØ£ÙŒ)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù‹Ø§","ÙØ£Ù‹"));// EX: (Ù…ÙØºÙØ±Ù’Ù‚ÙØ£Ù‹)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù","ÙØ£Ù"));// EX: (Ù…ÙØºÙØ±Ù’Ù‚ÙØ£Ù)
+        substitutions.add(new InfixSubstitution("ÙØ¡ÙØ§","ÙØ¢"));// EX: (Ù…ÙØºÙØ±Ù‚Ø¢Ù†)
+        substitutions.add(new SuffixSubstitution("ÙØ¡Ù","ÙØ£Ù"));// EX: (Ø§Ù„Ù…ÙØºÙØ±Ù‚ÙØ£Ù)
+        substitutions.add(new SuffixSubstitution("ÙØ¡Ù","ÙØ£Ù"));// EX: (Ø§Ù„Ù…ÙØºÙØ±Ù‚ÙØ£Ù)
+        substitutions.add(new SuffixSubstitution("ÙØ¡Ù","ÙØ£Ù"));// EX: (Ø§Ù„Ù…ÙØºÙØ±Ù‚ÙØ£Ù)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù","ÙØ£Ù"));// EX: (Ù…ÙØºÙØ±Ù’Ù‚ÙØ£Ø©)
+        substitutions.add(new InfixSubstitution("Ø¡Ù","Ø¤Ù"));// EX: (Ù…ÙØºÙØ±Ù’Ù‚ÙØ¤ÙÙˆÙ†Ù)
+        substitutions.add(new InfixSubstitution("Ø¡Ù","Ø¦Ù"));// EX: (Ù…ÙØºÙØ±Ù’Ù‚ÙØ¦ÙÙŠÙ†Ù)
     }
 
 
@@ -42,6 +42,6 @@ public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier implement
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC4() == 'Á';
+        return conjugationResult.getRoot().getC4() == 'Ø¡';
     }
 }

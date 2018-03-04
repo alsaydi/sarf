@@ -34,7 +34,7 @@ public class NounFormula11 extends NonStandardInstrumentalNounFormula{
     }
 
     public String getFormulaName() {
-        return "έσΪσασΙ";
+        return "ΩΩΨΉΩΩ„ΩΨ©";
     }
 
     public String getSymbol() {

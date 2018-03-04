@@ -8,7 +8,7 @@ import sarf.*;
 /**
  * <p>Title: Sarf</p>
  *
- * <p>Description: สีัํÝ วแรÝฺวแ Ýํ วแใวึํ    </p>
+ * <p>Description: ุชุตุฑูู ุงูุฃูุนุงู ูู ุงูู…ุงุถู    </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -28,7 +28,7 @@ public class ActivePastConjugator {
     }
 
     /**
-    *  ลไิวม วแÝฺแ อำศ วแึใํั
+    *  ุฅูุดุงุก ุงููุนู ุญุณุจ ุงูุถู…ูุฑ
      * @param pronounIndex int
      * @param root UnaugmentedTrilateralRoot
      * @return PastConjugation
@@ -41,7 +41,7 @@ public class ActivePastConjugator {
     }
 
     /**
-     *  ลไิวม  Þวฦใษ สอสๆํ วแรÝฺวแ ใฺ วแึใวฦั วแหแวหษ ฺิั
+     *  ุฅูุดุงุก  ูุงุฆู…ุฉ ุชุญุชูู ุงูุฃูุนุงู ู…ุน ุงูุถู…ุงุฆุฑ ุงูุซูุงุซุฉ ุนุดุฑ
      * @param root UnaugmentedTrilateralRoot
      * @return List
      */

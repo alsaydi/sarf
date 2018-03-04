@@ -38,11 +38,11 @@ public class AboutDialog extends JDialog {
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((screenSize.width - getWidth()) / 2, (screenSize.height - getHeight()) / 2);
-        setTitle("Íæá ÇáÈÑäÇãÌ ");
+        setTitle("Ø­ÙˆÙ„ Ø§Ù„Ø¨Ø±Ù†Ø§Ù…Ø¬ ");
 
         JPanel bottomPane = new JPanel();
         bottomPane.setOpaque(false);
-        RenderedButton closeBtn = new RenderedButton("ÅÛáÇÞ");
+        RenderedButton closeBtn = new RenderedButton("Ø¥ØºÙ„Ø§Ù‚");
         bottomPane.add(closeBtn);
 
         bottomPane.setBorder(BorderFactory.createEtchedBorder());

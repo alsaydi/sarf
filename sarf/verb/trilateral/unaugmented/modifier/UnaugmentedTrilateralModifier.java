@@ -7,10 +7,10 @@ import sarf.*;
 
 /**
  * <p>Title: Sarf Program</p>
- *ÇáãÚÇáÌÉ
- * <p>Description: íŞæã ÈİÍÕ æÇÌÑÇÁ ÇáÊÚÏíáÇÊ ÇáãäÇÓÈÉ Úáì ÇáÃİÚÇá ÇáËáÇËíÉ ÇáãÌÑÏÉ
- * ÈãÇ İíåÇ ÇáÇÚáÇá æÇáÇÈÏÇá æÇáåãÒÉ
- * ÍÓÈ ÇáÕíÛÉ ãÇÖí Ãæ ãÖÇÑÚ Çæ ÃãÑ
+ *Ø§Ù„Ù…Ø¹Ø§Ù„Ø¬Ø©
+ * <p>Description: ÙŠÙ‚ÙˆÙ… Ø¨ÙØ­Øµ ÙˆØ§Ø¬Ø±Ø§Ø¡ Ø§Ù„ØªØ¹Ø¯ÙŠÙ„Ø§Øª Ø§Ù„Ù…Ù†Ø§Ø³Ø¨Ø© Ø¹Ù„Ù‰ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ø«Ù„Ø§Ø«ÙŠØ© Ø§Ù„Ù…Ø¬Ø±Ø¯Ø©
+ * Ø¨Ù…Ø§ ÙÙŠÙ‡Ø§ Ø§Ù„Ø§Ø¹Ù„Ø§Ù„ ÙˆØ§Ù„Ø§Ø¨Ø¯Ø§Ù„ ÙˆØ§Ù„Ù‡Ù…Ø²Ø©
+ * Ø­Ø³Ø¨ Ø§Ù„ØµÙŠØºØ© Ù…Ø§Ø¶ÙŠ Ø£Ùˆ Ù…Ø¶Ø§Ø±Ø¹ Ø§Ùˆ Ø£Ù…Ø±
  * </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
@@ -36,12 +36,12 @@ public class UnaugmentedTrilateralModifier {
     }
 
     /**
-     * ÇÎÑÇÌ ŞÇÆãÉ ÇáÃİÚÇá ÈÚÏ ÇáÊÚÏíáÇÊ
-     * ÇáÈÏÁ ÈÇáÇÏÛÇã
+     * Ø§Ø®Ø±Ø§Ø¬ Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø¨Ø¹Ø¯ Ø§Ù„ØªØ¹Ø¯ÙŠÙ„Ø§Øª
+     * Ø§Ù„Ø¨Ø¯Ø¡ Ø¨Ø§Ù„Ø§Ø¯ØºØ§Ù…
      * @param root UnaugmentedTrilateralRoot
      * @param kov int
      * @param conjugations List
-     * @param tense String (From SystemConstans class the values are stored)  ãÇÖí Ãæ ãÖÇÑÚ Çæ ÃãÑ
+     * @param tense String (From SystemConstans class the values are stored)  Ù…Ø§Ø¶ÙŠ Ø£Ùˆ Ù…Ø¶Ø§Ø±Ø¹ Ø§Ùˆ Ø£Ù…Ø±
      * @return ConjugationResult
      */
     public ConjugationResult build(UnaugmentedTrilateralRoot root, int kov, List conjugations, String tense, boolean active) {
@@ -54,7 +54,7 @@ public class UnaugmentedTrilateralModifier {
             geminator.apply(tense, active, conjResult);
         vocalizer.apply(tense, active, conjResult);
         hamzaModifier.apply(tense, active, conjResult);
-        //ÎÕíÕÇõ ááİÚá ÃËÃ
+        //Ø®ØµÙŠØµØ§Ù Ù„Ù„ÙØ¹Ù„ Ø£Ø«Ø£
         postHamzaModifier.apply(tense, active, conjResult);
         VerbLamAlefModifier.getInstance().apply(conjResult);
         return conjResult;

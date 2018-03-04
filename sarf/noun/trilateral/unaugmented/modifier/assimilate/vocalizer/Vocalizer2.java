@@ -24,7 +24,7 @@ public class Vocalizer2 extends TrilateralNounSubstitutionApplier implements IUn
     List substitutions = new LinkedList();
 
     public Vocalizer2() {
-        substitutions.add(new InfixSubstitution("íóì","íóÇ"));// EX: (ÕÏíÇ¡ )
+        substitutions.add(new InfixSubstitution("ÙŠÙÙ‰","ÙŠÙØ§"));// EX: (ØµØ¯ÙŠØ§ØŒ )
     }
 
 
@@ -37,7 +37,7 @@ public class Vocalizer2 extends TrilateralNounSubstitutionApplier implements IUn
         int kov = conjugationResult.getKov();
         int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
 
-        return nounFormula.equals("İóÚúáóì") && (kov == 24 || kov == 26 || kov == 28) && noc == 4;
+        return nounFormula.equals("ÙÙØ¹Ù’Ù„ÙÙ‰") && (kov == 24 || kov == 26 || kov == 28) && noc == 4;
     }
 
 }

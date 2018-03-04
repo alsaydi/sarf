@@ -23,13 +23,13 @@ public class ActivePresent1Vocalizer extends SubstitutionsApplier implements IUn
     private List substitutions = new LinkedList();
 
     public ActivePresent1Vocalizer() {
-        substitutions.add(new ExpressionSuffixSubstitution("óíúC2öíõ","óC2öí"));// EX: (íóÏöí)
-        substitutions.add(new ExpressionSuffixSubstitution("óíúC2öíú","óC2ö"));// EX: (áã íóÏö)
-        substitutions.add(new ExpressionInfixSubstitution("óíúC2öíöä","óC2öä"));// EX: (ÃäÊö ÊóÏöäøó)
-        substitutions.add(new ExpressionInfixSubstitution("óíúC2öíö","óC2ö"));// EX: (ÃäÊö ÊóÏöíäó)
-        substitutions.add(new ExpressionInfixSubstitution("óíúC2öíú","óC2öí"));// EX: (ÃäÊä ÊóÏöíäó)
-        substitutions.add(new ExpressionInfixSubstitution("óíúC2öíõ","óC2õ"));// EX: (ÃäÊã ÊóÏõæäó)
-        substitutions.add(new ExpressionInfixSubstitution("óíúC2öíó","óC2öíó"));// EX: (ÃäÊãÇ ÊóÏöíÇä)
+        substitutions.add(new ExpressionSuffixSubstitution("ÙÙŠÙ’C2ÙÙŠÙ","ÙC2ÙÙŠ"));// EX: (ÙŠÙØ¯ÙÙŠ)
+        substitutions.add(new ExpressionSuffixSubstitution("ÙÙŠÙ’C2ÙÙŠÙ’","ÙC2Ù"));// EX: (Ù„Ù… ÙŠÙØ¯Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙ’C2ÙÙŠÙÙ†","ÙC2ÙÙ†"));// EX: (Ø£Ù†ØªÙ ØªÙØ¯ÙÙ†Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙ’C2ÙÙŠÙ","ÙC2Ù"));// EX: (Ø£Ù†ØªÙ ØªÙØ¯ÙÙŠÙ†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙ’C2ÙÙŠÙ’","ÙC2ÙÙŠ"));// EX: (Ø£Ù†ØªÙ† ØªÙØ¯ÙÙŠÙ†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙ’C2ÙÙŠÙ","ÙC2Ù"));// EX: (Ø£Ù†ØªÙ… ØªÙØ¯ÙÙˆÙ†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙ’C2ÙÙŠÙ","ÙC2ÙÙŠÙ"));// EX: (Ø£Ù†ØªÙ…Ø§ ØªÙØ¯ÙÙŠØ§Ù†)
     }
 
 
@@ -40,6 +40,6 @@ public class ActivePresent1Vocalizer extends SubstitutionsApplier implements IUn
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
         int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
-        return (conjugationResult.getRoot().getC1()=='í' && kov == 30 && noc == 2);
+        return (conjugationResult.getRoot().getC1()=='ÙŠ' && kov == 30 && noc == 2);
     }
 }

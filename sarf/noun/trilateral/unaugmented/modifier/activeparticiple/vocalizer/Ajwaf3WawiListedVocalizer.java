@@ -9,7 +9,7 @@ import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description:İÍÕ ÇáÃÌæİ ÍÓÈ ŞÇÆãÉ    </p>
+ * <p>Description:ÙØ­Øµ Ø§Ù„Ø£Ø¬ÙˆÙ Ø­Ø³Ø¨ Ù‚Ø§Ø¦Ù…Ø©    </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -22,7 +22,7 @@ public class Ajwaf3WawiListedVocalizer extends AbstractAjwafWawiListedVocalizer 
     private List substitutions = new LinkedList();
 
     public Ajwaf3WawiListedVocalizer() {
-        substitutions.add(new InfixSubstitution("Çæö","ÇÆö"));// EX: (ŞÇÆöãñ)
+        substitutions.add(new InfixSubstitution("Ø§ÙˆÙ","Ø§Ø¦Ù"));// EX: (Ù‚Ø§Ø¦ÙÙ…ÙŒ)
     }
 
     public List getSubstitutions() {

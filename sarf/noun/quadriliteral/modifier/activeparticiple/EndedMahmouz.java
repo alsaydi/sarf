@@ -23,7 +23,7 @@ public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier implement
     List substitutions = new LinkedList();
 
     public EndedMahmouz() {
-        substitutions.add(new InfixSubstitution("öÁ","öÆ"));// EX: (ãõÛóÑúŞöÆñ¡ ãõÍúÈóäúØöÆñ)
+        substitutions.add(new InfixSubstitution("ÙØ¡","ÙØ¦"));// EX: (Ù…ÙØºÙØ±Ù’Ù‚ÙØ¦ÙŒØŒ Ù…ÙØ­Ù’Ø¨ÙÙ†Ù’Ø·ÙØ¦ÙŒ)
     }
 
 
@@ -32,6 +32,6 @@ public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier implement
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC4() == 'Á';
+        return conjugationResult.getRoot().getC4() == 'Ø¡';
     }
 }

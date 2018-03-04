@@ -4,10 +4,10 @@ import sarf.util.ArabCharUtil;
 import sarf.verb.trilateral.unaugmented.*;
 
 /**
- * íãËá åĞÇ ÇáÕİ ÇáİÚá İí ÕíÛÉ ÇáãÇÖí ÇáãÈäí ááãÌåæá ãÊÖãäÇğ ÇáÃÍÑİ ÇáËáÇËÉ
- * æÍÑßÇÊåÇ ãÚ ÇáÃÍÑİ ÇáÃÎíÑÉ ÇáãÖÇİÉ ááİÚá ÍÓÈ ÇáÖãíÑ
+ * ÙŠÙ…Ø«Ù„ Ù‡Ø°Ø§ Ø§Ù„ØµÙ Ø§Ù„ÙØ¹Ù„ ÙÙŠ ØµÙŠØºØ© Ø§Ù„Ù…Ø§Ø¶ÙŠ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù„Ù…Ø¬Ù‡ÙˆÙ„ Ù…ØªØ¶Ù…Ù†Ø§Ù‹ Ø§Ù„Ø£Ø­Ø±Ù Ø§Ù„Ø«Ù„Ø§Ø«Ø©
+ * ÙˆØ­Ø±ÙƒØ§ØªÙ‡Ø§ Ù…Ø¹ Ø§Ù„Ø£Ø­Ø±Ù Ø§Ù„Ø£Ø®ÙŠØ±Ø© Ø§Ù„Ù…Ø¶Ø§ÙØ© Ù„Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
  * <p>Title: Sarf</p>
- * <p>Description: ÈÑäÇãÌ ÇáÊÕÑíİ</p>
+ * <p>Description: Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØµØ±ÙŠÙ</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
  * @author Haytham Mohtasseb Billah
@@ -16,16 +16,16 @@ import sarf.verb.trilateral.unaugmented.*;
 public class PassivePastVerb {
     private UnaugmentedTrilateralRoot root;
 
-    //ÍÑßÉ İÇÁ ÇáİÚá æåí ÏÇÆãÇğ  ÖãÉ
+    //Ø­Ø±ÙƒØ© ÙØ§Ø¡ Ø§Ù„ÙØ¹Ù„ ÙˆÙ‡ÙŠ Ø¯Ø§Ø¦Ù…Ø§Ù‹  Ø¶Ù…Ø©
     private static final String dpa1 = ArabCharUtil.DAMMA;
 
-    //ÍÑßÉ Úíä ÇáİÚá æåí ÏÇÆãÇğ ßÓÑÉ
+    //Ø­Ø±ÙƒØ© Ø¹ÙŠÙ† Ø§Ù„ÙØ¹Ù„ ÙˆÙ‡ÙŠ Ø¯Ø§Ø¦Ù…Ø§Ù‹ ÙƒØ³Ø±Ø©
     private static final String dpa2 = ArabCharUtil.KASRA;
 
-    //ÍÑßÉ áÇã ÇáİÚá ÍÓÈ ÇáÖãíÑ
+    //Ø­Ø±ÙƒØ© Ù„Ø§Ù… Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
     private String lastDpa;
 
-    //ÇáÃÍÑİ ÇáãÖÇİÉ áäåÇíÉ ÇáİÚá ÍÓÈ ÇáÖãíÑ
+    //Ø§Ù„Ø£Ø­Ø±Ù Ø§Ù„Ù…Ø¶Ø§ÙØ© Ù„Ù†Ù‡Ø§ÙŠØ© Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
     private String connectedPronoun;
 
     public PassivePastVerb(UnaugmentedTrilateralRoot root, String lastDpa, String connectedPronoun) {

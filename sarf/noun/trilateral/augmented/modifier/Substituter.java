@@ -9,7 +9,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: ÊØÈíŞ ÇáÇÈÏÇá </p>
+ * <p>Description: ØªØ·Ø¨ÙŠÙ‚ Ø§Ù„Ø§Ø¨Ø¯Ø§Ù„ </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *

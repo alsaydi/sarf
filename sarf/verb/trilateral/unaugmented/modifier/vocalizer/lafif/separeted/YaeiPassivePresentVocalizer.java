@@ -23,14 +23,14 @@ public class YaeiPassivePresentVocalizer extends SubstitutionsApplier implements
     private List substitutions = new LinkedList();
 
     public YaeiPassivePresentVocalizer() {
-        substitutions.add(new ExpressionSuffixSubstitution("íúC2óíõ", "æC2óì")); // EX: (íõæÏóì)
-        substitutions.add(new ExpressionSuffixSubstitution("íúC2óíó", "æC2óì")); // EX: (áä íõæÏóì)
-        substitutions.add(new ExpressionInfixSubstitution("íúC2óíó","æC2óíó"));// EX: (íõæÏóíÇäö)
-        substitutions.add(new ExpressionSuffixSubstitution("íúC2óíú", "æC2ó")); // EX: (áã íõæÏó)
-        substitutions.add(new ExpressionInfixSubstitution("íúC2óíú","æC2óíú"));// EX: (íõæÏóíúäóÇäøö)
-        substitutions.add(new ExpressionInfixSubstitution("íúC2óíöí", "æC2óíú")); // EX: (ÃäÊö ÊõæÏóíúäó)
-        substitutions.add(new ExpressionInfixSubstitution("íúC2óíõæ", "æC2óæú")); // EX: (ÃäÊã ÊõæÏóæúäó)
-        substitutions.add(new ExpressionInfixSubstitution("íúC2óíõä", "æC2óæõä")); // EX: (ÃäÊã ÊõæÏóæõäøó)
+        substitutions.add(new ExpressionSuffixSubstitution("ÙŠÙ’C2ÙÙŠÙ", "ÙˆC2ÙÙ‰")); // EX: (ÙŠÙÙˆØ¯ÙÙ‰)
+        substitutions.add(new ExpressionSuffixSubstitution("ÙŠÙ’C2ÙÙŠÙ", "ÙˆC2ÙÙ‰")); // EX: (Ù„Ù† ÙŠÙÙˆØ¯ÙÙ‰)
+        substitutions.add(new ExpressionInfixSubstitution("ÙŠÙ’C2ÙÙŠÙ","ÙˆC2ÙÙŠÙ"));// EX: (ÙŠÙÙˆØ¯ÙÙŠØ§Ù†Ù)
+        substitutions.add(new ExpressionSuffixSubstitution("ÙŠÙ’C2ÙÙŠÙ’", "ÙˆC2Ù")); // EX: (Ù„Ù… ÙŠÙÙˆØ¯Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙŠÙ’C2ÙÙŠÙ’","ÙˆC2ÙÙŠÙ’"));// EX: (ÙŠÙÙˆØ¯ÙÙŠÙ’Ù†ÙØ§Ù†Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙŠÙ’C2ÙÙŠÙÙŠ", "ÙˆC2ÙÙŠÙ’")); // EX: (Ø£Ù†ØªÙ ØªÙÙˆØ¯ÙÙŠÙ’Ù†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙŠÙ’C2ÙÙŠÙÙˆ", "ÙˆC2ÙÙˆÙ’")); // EX: (Ø£Ù†ØªÙ… ØªÙÙˆØ¯ÙÙˆÙ’Ù†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙŠÙ’C2ÙÙŠÙÙ†", "ÙˆC2ÙÙˆÙÙ†")); // EX: (Ø£Ù†ØªÙ… ØªÙÙˆØ¯ÙÙˆÙÙ†Ù‘Ù)
     }
 
 
@@ -39,7 +39,7 @@ public class YaeiPassivePresentVocalizer extends SubstitutionsApplier implements
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC1() != 'í') {
+        if (conjugationResult.getRoot().getC1() != 'ÙŠ') {
             return false;
         }
 

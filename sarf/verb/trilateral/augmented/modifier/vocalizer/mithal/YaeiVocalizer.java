@@ -23,7 +23,7 @@ public class YaeiVocalizer extends SubstitutionsApplier implements IAugmentedTri
     private List substitutions = new LinkedList();
 
     public YaeiVocalizer() {
-        substitutions.add(new InfixSubstitution("õíú", "õæ")); // EX: (ÃæŞóÙõ¡ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ’", "ÙÙˆ")); // EX: (Ø£ÙˆÙ‚ÙØ¸ÙØŒ )
     }
 
 

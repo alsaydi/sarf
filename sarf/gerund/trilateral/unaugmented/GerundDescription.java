@@ -22,10 +22,10 @@ public class GerundDescription {
 
     private static List femininPatterns = new LinkedList();
     static {
-        femininPatterns.add("İóÚúáóì");
-        femininPatterns.add("İõÚúáóì");
-        femininPatterns.add("İöÚúáóì");
-        femininPatterns.add("İöÚøöíúáóì");
+        femininPatterns.add("ÙÙØ¹Ù’Ù„ÙÙ‰");
+        femininPatterns.add("ÙÙØ¹Ù’Ù„ÙÙ‰");
+        femininPatterns.add("ÙÙØ¹Ù’Ù„ÙÙ‰");
+        femininPatterns.add("ÙÙØ¹Ù‘ÙÙŠÙ’Ù„ÙÙ‰");
     }
 
     public GerundDescription() {
@@ -49,8 +49,8 @@ public class GerundDescription {
 
     public void setPattern(String pattern) {
         this.pattern = pattern;
-//        if (pattern.endsWith("ì") || pattern.endsWith("É") || pattern.endsWith("ÇÁ"))
-        if (pattern.endsWith("É"))
+//        if (pattern.endsWith("Ù‰") || pattern.endsWith("Ø©") || pattern.endsWith("Ø§Ø¡"))
+        if (pattern.endsWith("Ø©"))
             feminine = true;
         else {
             Iterator iter = femininPatterns.iterator();

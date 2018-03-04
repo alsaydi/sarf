@@ -5,7 +5,7 @@ import sarf.verb.trilateral.TrilateralRoot;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: ▌═╒ ╟╨╟ ▀╟ф╩ ╟с▀су╔ ╩╩╓уф ╟су▐╪┌ ╟су╬╥ф      </p>
+ * <p>Description: ┘Б╪н╪╡ ╪з╪░╪з ┘Г╪з┘Ж╪к ╪з┘Д┘Г┘Д┘Е╪й ╪к╪к╪╢┘Е┘Ж ╪з┘Д┘Е┘В╪╖╪╣ ╪з┘Д┘Е╪о╪▓┘Ж      </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *

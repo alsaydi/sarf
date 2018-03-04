@@ -24,14 +24,14 @@ public class Geminator2 extends TrilateralNounSubstitutionApplier implements IAu
     private List substitutions = new LinkedList();
 
     public Geminator2() {
-        substitutions.add(new InfixSubstitution("äúä","äø"));// EX: (ãõäøóãöÓñ)
+        substitutions.add(new InfixSubstitution("Ù†Ù’Ù†","Ù†Ù‘"));// EX: (Ù…ÙÙ†Ù‘ÙÙ…ÙØ³ÙŒ)
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return conjugationResult.getRoot().getC1() == 'ä' && kov == 1 && formulaNo == 4;
+        return conjugationResult.getRoot().getC1() == 'Ù†' && kov == 1 && formulaNo == 4;
     }
 
     public List getSubstitutions() {

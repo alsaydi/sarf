@@ -24,9 +24,9 @@ public class Past2Vocalizer extends SubstitutionsApplier implements IAugmentedTr
 
     public Past2Vocalizer() {
 
-        substitutions.add(new InfixSubstitution("æú","í"));// EX: (ÃäÇ ÓõãøöíÊõ¡ ÊõÒõßøöíÊõ)
-        substitutions.add(new InfixSubstitution("æó","íó"));// EX: (åæ Óõãøöíó¡ ÊõÒõßøöíó)
-        substitutions.add(new InfixSubstitution("øöæõ","øõ"));// EX: (åã ÓõãøõæÇ¡ ÊõÒõßøõæÇ)
+        substitutions.add(new InfixSubstitution("ÙˆÙ’","ÙŠ"));// EX: (Ø£Ù†Ø§ Ø³ÙÙ…Ù‘ÙÙŠØªÙØŒ ØªÙØ²ÙÙƒÙ‘ÙÙŠØªÙ)
+        substitutions.add(new InfixSubstitution("ÙˆÙ","ÙŠÙ"));// EX: (Ù‡Ùˆ Ø³ÙÙ…Ù‘ÙÙŠÙØŒ ØªÙØ²ÙÙƒÙ‘ÙÙŠÙ)
+        substitutions.add(new InfixSubstitution("Ù‘ÙÙˆÙ","Ù‘Ù"));// EX: (Ù‡Ù… Ø³ÙÙ…Ù‘ÙÙˆØ§ØŒ ØªÙØ²ÙÙƒÙ‘ÙÙˆØ§)
 
     }
 

@@ -20,18 +20,18 @@ public class ImperativeMahmouz extends AbstractLamMahmouz {
     private List substitutions = new ArrayList();
 
     public ImperativeMahmouz() {
-        substitutions.add(new InfixSubstitution("óÁú","óÃú"));// EX: (ÇÈÏóÃú¡ ÏóÃó [ÏÇÁ]¡ ÔóÃú [ÔÇÁ])
-        substitutions.add(new InfixSubstitution("óÁó","óÃó"));// EX: (ÇÈÏóÃóÇ)
-        substitutions.add(new InfixSubstitution("óÁõ","óÄõ"));// EX: (ÇÈÏóÄõæÇ)
-        substitutions.add(new InfixSubstitution("Áö","Æö"));// EX: (ÇÈÏóÆöí¡ ÔóÆöäøó¡ ÇÌÑõÆöí¡ ÈõæÆöí¡ ŞöíÆöí)
-        substitutions.add(new InfixSubstitution("õÁõ","õÄõ"));// EX: (ÇÌÑõÄõæÇ)
-        substitutions.add(new InfixSubstitution("õÁó","õÄó"));// EX: (ÇÌÑõÄóÇ)
-        substitutions.add(new InfixSubstitution("õÁú","õÄú"));// EX: (ÇÌÑõÄú¡ ÈõÄú¡ ÈõÄúäó¡ ÈõÄúäÇäøö)
-        substitutions.add(new InfixSubstitution("íÁó","íÆó"));// EX: (ŞöíÆóÇ)
-        substitutions.add(new InfixSubstitution("íÁõ","íÆõ"));// EX: (ŞöíÆõæÇ)
-        substitutions.add(new InfixSubstitution("ÇÁö","ÇÆö"));// EX: (ÔÇÆöí)
-        substitutions.add(new InfixSubstitution("ÇÁõ","ÇÄõ"));// EX: (ÔÇÄõæÇ)
-        substitutions.add(new InfixSubstitution("öÁ","öÆ"));// EX: (ŞöÆú¡ ŞöÆúäó¡ ŞöÆõäøó)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’","ÙØ£Ù’"));// EX: (Ø§Ø¨Ø¯ÙØ£Ù’ØŒ Ø¯ÙØ£Ù [Ø¯Ø§Ø¡]ØŒ Ø´ÙØ£Ù’ [Ø´Ø§Ø¡])
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù","ÙØ£Ù"));// EX: (Ø§Ø¨Ø¯ÙØ£ÙØ§)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù","ÙØ¤Ù"));// EX: (Ø§Ø¨Ø¯ÙØ¤ÙÙˆØ§)
+        substitutions.add(new InfixSubstitution("Ø¡Ù","Ø¦Ù"));// EX: (Ø§Ø¨Ø¯ÙØ¦ÙÙŠØŒ Ø´ÙØ¦ÙÙ†Ù‘ÙØŒ Ø§Ø¬Ø±ÙØ¦ÙÙŠØŒ Ø¨ÙÙˆØ¦ÙÙŠØŒ Ù‚ÙÙŠØ¦ÙÙŠ)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù","ÙØ¤Ù"));// EX: (Ø§Ø¬Ø±ÙØ¤ÙÙˆØ§)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù","ÙØ¤Ù"));// EX: (Ø§Ø¬Ø±ÙØ¤ÙØ§)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’","ÙØ¤Ù’"));// EX: (Ø§Ø¬Ø±ÙØ¤Ù’ØŒ Ø¨ÙØ¤Ù’ØŒ Ø¨ÙØ¤Ù’Ù†ÙØŒ Ø¨ÙØ¤Ù’Ù†Ø§Ù†Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙŠØ¡Ù","ÙŠØ¦Ù"));// EX: (Ù‚ÙÙŠØ¦ÙØ§)
+        substitutions.add(new InfixSubstitution("ÙŠØ¡Ù","ÙŠØ¦Ù"));// EX: (Ù‚ÙÙŠØ¦ÙÙˆØ§)
+        substitutions.add(new InfixSubstitution("Ø§Ø¡Ù","Ø§Ø¦Ù"));// EX: (Ø´Ø§Ø¦ÙÙŠ)
+        substitutions.add(new InfixSubstitution("Ø§Ø¡Ù","Ø§Ø¤Ù"));// EX: (Ø´Ø§Ø¤ÙÙˆØ§)
+        substitutions.add(new InfixSubstitution("ÙØ¡","ÙØ¦"));// EX: (Ù‚ÙØ¦Ù’ØŒ Ù‚ÙØ¦Ù’Ù†ÙØŒ Ù‚ÙØ¦ÙÙ†Ù‘Ù)
     }
 
     public List getSubstitutions() {

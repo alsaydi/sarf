@@ -24,7 +24,7 @@ public class WawiLafifNakes1Vocalizer extends TrilateralNounSubstitutionApplier 
     List substitutions = new LinkedList();
 
     public WawiLafifNakes1Vocalizer() {
-        substitutions.add(new InfixSubstitution("õææ", "õæø")); // EX: (ãÃÓõæø¡ ãóÛúÒõæø¡ ãóÓúÑõæø)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙˆ", "ÙÙˆÙ‘")); // EX: (Ù…Ø£Ø³ÙÙˆÙ‘ØŒ Ù…ÙØºÙ’Ø²ÙÙˆÙ‘ØŒ Ù…ÙØ³Ù’Ø±ÙÙˆÙ‘)
     }
 
 

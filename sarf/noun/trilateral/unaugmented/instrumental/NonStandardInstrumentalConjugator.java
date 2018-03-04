@@ -69,8 +69,8 @@ public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateral
     }
 
     public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
-        //İŞØ ááİÚá ÇáãÊÚÏí
-        if (!root.getTransitive().equals("ã") && !root.getTransitive().equals("ß")) {
+        //ÙÙ‚Ø· Ù„Ù„ÙØ¹Ù„ Ø§Ù„Ù…ØªØ¹Ø¯ÙŠ
+        if (!root.getTransitive().equals("Ù…") && !root.getTransitive().equals("Ùƒ")) {
             return null;
         }
 

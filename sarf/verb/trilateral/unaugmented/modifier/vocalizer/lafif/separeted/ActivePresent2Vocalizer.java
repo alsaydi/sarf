@@ -23,13 +23,13 @@ public class ActivePresent2Vocalizer extends SubstitutionsApplier implements IUn
     private List substitutions = new LinkedList();
 
     public ActivePresent2Vocalizer() {
-        substitutions.add(new ExpressionSuffixSubstitution("óæúC2öíõ", "óC2öí")); // EX: (íóŞöí¡ íóáöí)
-        substitutions.add(new ExpressionSuffixSubstitution("óæúC2öíú", "óC2ö")); // EX: (áã íóŞö¡ íóáö)
-        substitutions.add(new ExpressionInfixSubstitution("óæúC2öíöä", "óC2öä")); // EX: (ÃäÊö ÊóŞöäøó¡ Êóáöäøó)
-        substitutions.add(new ExpressionInfixSubstitution("óæúC2öíö", "óC2ö")); // EX: (ÃäÊö ÊóŞöíäó¡ Êóáöíäó)
-        substitutions.add(new ExpressionInfixSubstitution("óæúC2öíú", "óC2öí")); // EX: (ÃäÊä ÊóŞöíäó¡ Êóáöíäó)
-        substitutions.add(new ExpressionInfixSubstitution("óæúC2öíõ", "óC2õ")); // EX: (ÃäÊã ÊóŞõæä¡ ÊóŞõäøó¡ Êóáõæä¡ Êóáõäøó)
-        substitutions.add(new ExpressionInfixSubstitution("óæúC2öíó","óC2öíó"));// EX: (ÃäÊãÇ ÊŞíÇä)
+        substitutions.add(new ExpressionSuffixSubstitution("ÙÙˆÙ’C2ÙÙŠÙ", "ÙC2ÙÙŠ")); // EX: (ÙŠÙÙ‚ÙÙŠØŒ ÙŠÙÙ„ÙÙŠ)
+        substitutions.add(new ExpressionSuffixSubstitution("ÙÙˆÙ’C2ÙÙŠÙ’", "ÙC2Ù")); // EX: (Ù„Ù… ÙŠÙÙ‚ÙØŒ ÙŠÙÙ„Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙ’C2ÙÙŠÙÙ†", "ÙC2ÙÙ†")); // EX: (Ø£Ù†ØªÙ ØªÙÙ‚ÙÙ†Ù‘ÙØŒ ØªÙÙ„ÙÙ†Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙ’C2ÙÙŠÙ", "ÙC2Ù")); // EX: (Ø£Ù†ØªÙ ØªÙÙ‚ÙÙŠÙ†ÙØŒ ØªÙÙ„ÙÙŠÙ†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙ’C2ÙÙŠÙ’", "ÙC2ÙÙŠ")); // EX: (Ø£Ù†ØªÙ† ØªÙÙ‚ÙÙŠÙ†ÙØŒ ØªÙÙ„ÙÙŠÙ†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙ’C2ÙÙŠÙ", "ÙC2Ù")); // EX: (Ø£Ù†ØªÙ… ØªÙÙ‚ÙÙˆÙ†ØŒ ØªÙÙ‚ÙÙ†Ù‘ÙØŒ ØªÙÙ„ÙÙˆÙ†ØŒ ØªÙÙ„ÙÙ†Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙ’C2ÙÙŠÙ","ÙC2ÙÙŠÙ"));// EX: (Ø£Ù†ØªÙ…Ø§ ØªÙ‚ÙŠØ§Ù†)
     }
 
 

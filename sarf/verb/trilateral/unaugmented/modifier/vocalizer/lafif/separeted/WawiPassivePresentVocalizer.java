@@ -23,15 +23,15 @@ public class WawiPassivePresentVocalizer extends SubstitutionsApplier implements
     private List substitutions = new LinkedList();
 
     public WawiPassivePresentVocalizer() {
-        substitutions.add(new ExpressionSuffixSubstitution("úC2óíõ", "C2óì")); // EX: (íõæŞóì)
-        substitutions.add(new ExpressionSuffixSubstitution("úC2óíó", "C2óì")); // EX: (áä íõæŞóì)
-        substitutions.add(new ExpressionSuffixSubstitution("úC2óíú", "C2ó")); // EX: (áã íõæŞó)
-        substitutions.add(new ExpressionInfixSubstitution("úC2óíú", "C2óíú")); // EX: (ÃäÊä ÊõæŞíäó)
-        substitutions.add(new ExpressionInfixSubstitution("úC2óíó", "C2óíó")); // EX: (ÃäÊãÇ ÊõæŞóíóÇä)
-        substitutions.add(new ExpressionInfixSubstitution("úC2óíöí", "C2óíú")); // EX: (ÃäÊö ÊõæŞóíúäó)
-        substitutions.add(new ExpressionInfixSubstitution("úC2óíöä","C2óíöä"));// EX: (ÃäÊö ÊõæŞóíöäøó)
-        substitutions.add(new ExpressionInfixSubstitution("úC2óíõæ", "C2óæú")); // EX: (ÃäÊã ÊõæŞóæúäó)
-        substitutions.add(new ExpressionInfixSubstitution("úC2óíõä", "C2óæõä")); // EX: (ÃäÊã ÊõæŞóæõäøó)
+        substitutions.add(new ExpressionSuffixSubstitution("Ù’C2ÙÙŠÙ", "C2ÙÙ‰")); // EX: (ÙŠÙÙˆÙ‚ÙÙ‰)
+        substitutions.add(new ExpressionSuffixSubstitution("Ù’C2ÙÙŠÙ", "C2ÙÙ‰")); // EX: (Ù„Ù† ÙŠÙÙˆÙ‚ÙÙ‰)
+        substitutions.add(new ExpressionSuffixSubstitution("Ù’C2ÙÙŠÙ’", "C2Ù")); // EX: (Ù„Ù… ÙŠÙÙˆÙ‚Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C2ÙÙŠÙ’", "C2ÙÙŠÙ’")); // EX: (Ø£Ù†ØªÙ† ØªÙÙˆÙ‚ÙŠÙ†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C2ÙÙŠÙ", "C2ÙÙŠÙ")); // EX: (Ø£Ù†ØªÙ…Ø§ ØªÙÙˆÙ‚ÙÙŠÙØ§Ù†)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C2ÙÙŠÙÙŠ", "C2ÙÙŠÙ’")); // EX: (Ø£Ù†ØªÙ ØªÙÙˆÙ‚ÙÙŠÙ’Ù†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C2ÙÙŠÙÙ†","C2ÙÙŠÙÙ†"));// EX: (Ø£Ù†ØªÙ ØªÙÙˆÙ‚ÙÙŠÙÙ†Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C2ÙÙŠÙÙˆ", "C2ÙÙˆÙ’")); // EX: (Ø£Ù†ØªÙ… ØªÙÙˆÙ‚ÙÙˆÙ’Ù†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C2ÙÙŠÙÙ†", "C2ÙÙˆÙÙ†")); // EX: (Ø£Ù†ØªÙ… ØªÙÙˆÙ‚ÙÙˆÙÙ†Ù‘Ù)
     }
 
 
@@ -40,7 +40,7 @@ public class WawiPassivePresentVocalizer extends SubstitutionsApplier implements
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC1() != 'æ') {
+        if (conjugationResult.getRoot().getC1() != 'Ùˆ') {
             return false;
         }
 

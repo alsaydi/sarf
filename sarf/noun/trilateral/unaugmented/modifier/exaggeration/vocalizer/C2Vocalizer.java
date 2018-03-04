@@ -24,8 +24,8 @@ public class C2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
     List substitutions = new LinkedList();
 
     public C2Vocalizer() {
-        substitutions.add(new InfixSubstitution("Çæ","ÇÁ"));// EX: (ãöÚØÇÁ )
-        substitutions.add(new InfixSubstitution("Çí","ÇÁ"));// EX: (ãöÌúäÇÁ¡ ãöÚúæÇÁ )
+        substitutions.add(new InfixSubstitution("Ø§Ùˆ","Ø§Ø¡"));// EX: (Ù…ÙØ¹Ø·Ø§Ø¡ )
+        substitutions.add(new InfixSubstitution("Ø§ÙŠ","Ø§Ø¡"));// EX: (Ù…ÙØ¬Ù’Ù†Ø§Ø¡ØŒ Ù…ÙØ¹Ù’ÙˆØ§Ø¡ )
     }
 
 
@@ -35,7 +35,7 @@ public class C2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
-        if (!nounFormula.equals("ãöİúÚóÇá")) {
+        if (!nounFormula.equals("Ù…ÙÙÙ’Ø¹ÙØ§Ù„")) {
             return false;
         }
 

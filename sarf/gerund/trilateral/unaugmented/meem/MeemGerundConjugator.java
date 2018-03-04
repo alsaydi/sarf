@@ -28,13 +28,13 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
     private Map formulaNameToSymbolMap = new HashMap();
 
     private MeemGerundConjugator() {
-        symbolToFormulaNameMap.put("C","ãóİúÚóáóÉ");
-        symbolToFormulaNameMap.put("D","ãóİúÚõáóÉ");
-        symbolToFormulaNameMap.put("E","ãóİúÚöáóÉ");
+        symbolToFormulaNameMap.put("C","Ù…ÙÙÙ’Ø¹ÙÙ„ÙØ©");
+        symbolToFormulaNameMap.put("D","Ù…ÙÙÙ’Ø¹ÙÙ„ÙØ©");
+        symbolToFormulaNameMap.put("E","Ù…ÙÙÙ’Ø¹ÙÙ„ÙØ©");
 
-        formulaNameToSymbolMap.put("ãóİúÚóáóÉ", "C");
-        formulaNameToSymbolMap.put("ãóİúÚõáóÉ", "D");
-        formulaNameToSymbolMap.put("ãóİúÚöáóÉ", "E");
+        formulaNameToSymbolMap.put("Ù…ÙÙÙ’Ø¹ÙÙ„ÙØ©", "C");
+        formulaNameToSymbolMap.put("Ù…ÙÙÙ’Ø¹ÙÙ„ÙØ©", "D");
+        formulaNameToSymbolMap.put("Ù…ÙÙÙ’Ø¹ÙÙ„ÙØ©", "E");
     }
 
 
@@ -44,7 +44,7 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
 
     public List createGerundList(UnaugmentedTrilateralRoot root, String formulaName) {
         //check if it is standard
-        if (formulaName.equals("ãóİúÚöá") || formulaName.equals("ãóİúÚóá")) {
+        if (formulaName.equals("Ù…ÙÙÙ’Ø¹ÙÙ„") || formulaName.equals("Ù…ÙÙÙ’Ø¹ÙÙ„")) {
             List standardGerunds = createEmptyList();
             standardGerunds.set(0, new StandardGerundPattern(root, "0"));
             standardGerunds.set(6, new StandardGerundPattern(root, "6"));
@@ -56,8 +56,8 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
         String formulaSymbol = (String) formulaNameToSymbolMap.get(formulaName);
         String gerundText = appliedXmlMeemGerundNounFormula.getSymbol1().equals(formulaSymbol)? appliedXmlMeemGerundNounFormula.getGerund1(): appliedXmlMeemGerundNounFormula.getGerund2();
 
-        //áÚÏã ÍĞİ ÇáÊÇÁ ÇáãÑÈæØÉ ãä ŞÇÚÏÉ ÇáãÚØíÇÊ æÍĞİåÇ ãä ÊæáíÏ ÇáŞÇäæä áÃäåÇ ãæÌæÏÉ İí ÇááÇÍŞÉ
-        //æÍĞİ ÇáİÊÍÉ ãä ŞÇÚÏÉ ÇáãÚØíÇÊ áÃäåÇ ãæÌæÏÉ İí ÇááÇÍŞÉ
+        //Ù„Ø¹Ø¯Ù… Ø­Ø°Ù Ø§Ù„ØªØ§Ø¡ Ø§Ù„Ù…Ø±Ø¨ÙˆØ·Ø© Ù…Ù† Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ù…Ø¹Ø·ÙŠØ§Øª ÙˆØ­Ø°ÙÙ‡Ø§ Ù…Ù† ØªÙˆÙ„ÙŠØ¯ Ø§Ù„Ù‚Ø§Ù†ÙˆÙ† Ù„Ø£Ù†Ù‡Ø§ Ù…ÙˆØ¬ÙˆØ¯Ø© ÙÙŠ Ø§Ù„Ù„Ø§Ø­Ù‚Ø©
+        //ÙˆØ­Ø°Ù Ø§Ù„ÙØªØ­Ø© Ù…Ù† Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ù…Ø¹Ø·ÙŠØ§Øª Ù„Ø£Ù†Ù‡Ø§ Ù…ÙˆØ¬ÙˆØ¯Ø© ÙÙŠ Ø§Ù„Ù„Ø§Ø­Ù‚Ø©
         gerundText = gerundText.substring(0, gerundText.length()-2);
         gerundText = GenericNounSuffixContainer.getInstance().getPrefix()+ gerundText;
         gerundDisplayList.set(1, gerundText+GenericNounSuffixContainer.getInstance().get(1));

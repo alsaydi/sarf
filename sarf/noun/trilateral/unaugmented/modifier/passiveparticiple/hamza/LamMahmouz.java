@@ -25,14 +25,14 @@ public class LamMahmouz extends AbstractLamMahmouz {
 
     public LamMahmouz() {
 
-        substitutions.add(new SuffixSubstitution("їц┴Ў","їц┴Ў"));// EX: (╟сує╚·╧їц┴Ў )
-        substitutions.add(new InfixSubstitution("їц┴Ў","їц╞Ў"));// EX: (ує╚·╧їц╞Ўэфє )
-        substitutions.add(new SuffixSubstitution("Ўэ┴є","Ўэ┴є"));// EX: (╟сує▐Ўэ┴є )
-        substitutions.add(new SuffixSubstitution("Ўэ┴ї","Ўэ┴ї"));// EX: (╟сує▐Ўэ┴ї )
-        substitutions.add(new SuffixSubstitution("Ўэ┴Ў","Ўэ┴Ў"));// EX: (╟сує▐Ўэ┴Ў )
-        substitutions.add(new InfixSubstitution("Ўэ┴ё","Ўэ┴ё"));// EX: (ує▐Ўэ┴ё )
-        substitutions.add(new InfixSubstitution("Ўэ┴Є","Ўэ┴Є"));// EX: (ує▐Ўэ┴Є )
-        substitutions.add(new InfixSubstitution("Ўэ┴","Ўэ╞"));// EX: (ує▐Ўэ╞є╔ё )
+        substitutions.add(new SuffixSubstitution("┘П┘И╪б┘Р","┘П┘И╪б┘Р"));// EX: (╪з┘Д┘Е┘О╪и┘Т╪п┘П┘И╪б┘Р )
+        substitutions.add(new InfixSubstitution("┘П┘И╪б┘Р","┘П┘И╪ж┘Р"));// EX: (┘Е┘О╪и┘Т╪п┘П┘И╪ж┘Р┘К┘Ж┘О )
+        substitutions.add(new SuffixSubstitution("┘Р┘К╪б┘О","┘Р┘К╪б┘О"));// EX: (╪з┘Д┘Е┘О┘В┘Р┘К╪б┘О )
+        substitutions.add(new SuffixSubstitution("┘Р┘К╪б┘П","┘Р┘К╪б┘П"));// EX: (╪з┘Д┘Е┘О┘В┘Р┘К╪б┘П )
+        substitutions.add(new SuffixSubstitution("┘Р┘К╪б┘Р","┘Р┘К╪б┘Р"));// EX: (╪з┘Д┘Е┘О┘В┘Р┘К╪б┘Р )
+        substitutions.add(new InfixSubstitution("┘Р┘К╪б┘М","┘Р┘К╪б┘М"));// EX: (┘Е┘О┘В┘Р┘К╪б┘М )
+        substitutions.add(new InfixSubstitution("┘Р┘К╪б┘Н","┘Р┘К╪б┘Н"));// EX: (┘Е┘О┘В┘Р┘К╪б┘Н )
+        substitutions.add(new InfixSubstitution("┘Р┘К╪б","┘Р┘К╪ж"));// EX: (┘Е┘О┘В┘Р┘К╪ж┘О╪й┘М )
 
     }
 

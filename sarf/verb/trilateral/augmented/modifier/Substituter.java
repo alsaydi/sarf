@@ -9,7 +9,7 @@ import sarf.verb.trilateral.Substitution.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: ╩╪╚э▐ ╟с╟╚╧╟с </p>
+ * <p>Description: ╪к╪╖╪и┘К┘В ╪з┘Д╪з╪и╪п╪з┘Д </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -20,8 +20,8 @@ import sarf.verb.trilateral.Substitution.*;
  */
 public class Substituter {
 
-    //═╙╚ ╟с╩═сэс ▌┼ф ╟су╟╓э ц╟су╓╟╤┌ ц╟с├у╤ ╩╘╩╤▀ ▌э ╟с╟╚╧╟с ссу┌сцу
-    //цс▀ф ссу╠хцс э╬╩с▌ ▌▐╪ ╟су╟╓э ├у╟ ╟су╓╟╤┌ ▌хц ф▌╙х ▌э ╟су┌сцу
+    //╪н╪│╪и ╪з┘Д╪к╪н┘Д┘К┘Д ┘Б╪е┘Ж ╪з┘Д┘Е╪з╪╢┘К ┘И╪з┘Д┘Е╪╢╪з╪▒╪╣ ┘И╪з┘Д╪г┘Е╪▒ ╪к╪┤╪к╪▒┘Г ┘Б┘К ╪з┘Д╪з╪и╪п╪з┘Д ┘Д┘Д┘Е╪╣┘Д┘И┘Е
+    //┘И┘Д┘Г┘Ж ┘Д┘Д┘Е╪м┘З┘И┘Д ┘К╪о╪к┘Д┘Б ┘Б┘В╪╖ ╪з┘Д┘Е╪з╪╢┘К ╪г┘Е╪з ╪з┘Д┘Е╪╢╪з╪▒╪╣ ┘Б┘З┘И ┘Ж┘Б╪│┘З ┘Б┘К ╪з┘Д┘Е╪╣┘Д┘И┘Е
     private List activeList = new LinkedList();
     private List passiveList = new LinkedList();
 

@@ -24,11 +24,11 @@ public class Imperative4Vocalizer extends SubstitutionsApplier implements IAugme
     private List substitutions = new LinkedList();
 
     public Imperative4Vocalizer() {
-        substitutions.add(new SuffixSubstitution("æú",""));// EX: (ÃÓúæö¡ ÓÇæö¡ ÇäúÛóæö¡ ÇÓÊóæö¡ ÇÓÊóÛúæö)
-        substitutions.add(new InfixSubstitution("öæö","ö"));// EX: (ÃäÊö ÃÓúæöí¡ ÓÇæöí¡ ÇäúÛóæöí¡ ÇÓÊóæöí¡ ÇÓÊóÛúæöí)
-        substitutions.add(new InfixSubstitution("öæó","öíó"));// EX: (ÃäÊãÇ ö ÃÓúæöíÇ¡ ÓÇæöíÇ¡ ÇäúÛóæöíÇ¡ ÇÓÊóæöíÇ¡ ÇÓÊóÛúæöíÇ)
-        substitutions.add(new InfixSubstitution("öæõ","õ"));// EX: (ÃäÊã ÃÓúæõæÇ¡ ÓÇæõæÇ¡ ÇäúÛóæõæÇ¡ ÇÓÊóæõæÇ¡ ÇÓÊóÛúæõæÇ)
-        substitutions.add(new InfixSubstitution("öæú","öí"));// EX: (ÃäÊä ÃÓúæöíäó¡ ÓÇæöíäó¡ ÇäúÛóæöíäó¡ ÇÓÊóæöíäó¡ ÇÓÊóÛúæöíäó)
+        substitutions.add(new SuffixSubstitution("ÙˆÙ’",""));// EX: (Ø£Ø³Ù’ÙˆÙØŒ Ø³Ø§ÙˆÙØŒ Ø§Ù†Ù’ØºÙÙˆÙØŒ Ø§Ø³ØªÙÙˆÙØŒ Ø§Ø³ØªÙØºÙ’ÙˆÙ)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ","Ù"));// EX: (Ø£Ù†ØªÙ Ø£Ø³Ù’ÙˆÙÙŠØŒ Ø³Ø§ÙˆÙÙŠØŒ Ø§Ù†Ù’ØºÙÙˆÙÙŠØŒ Ø§Ø³ØªÙÙˆÙÙŠØŒ Ø§Ø³ØªÙØºÙ’ÙˆÙÙŠ)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ","ÙÙŠÙ"));// EX: (Ø£Ù†ØªÙ…Ø§ Ù Ø£Ø³Ù’ÙˆÙÙŠØ§ØŒ Ø³Ø§ÙˆÙÙŠØ§ØŒ Ø§Ù†Ù’ØºÙÙˆÙÙŠØ§ØŒ Ø§Ø³ØªÙÙˆÙÙŠØ§ØŒ Ø§Ø³ØªÙØºÙ’ÙˆÙÙŠØ§)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ","Ù"));// EX: (Ø£Ù†ØªÙ… Ø£Ø³Ù’ÙˆÙÙˆØ§ØŒ Ø³Ø§ÙˆÙÙˆØ§ØŒ Ø§Ù†Ù’ØºÙÙˆÙÙˆØ§ØŒ Ø§Ø³ØªÙÙˆÙÙˆØ§ØŒ Ø§Ø³ØªÙØºÙ’ÙˆÙÙˆØ§)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’","ÙÙŠ"));// EX: (Ø£Ù†ØªÙ† Ø£Ø³Ù’ÙˆÙÙŠÙ†ÙØŒ Ø³Ø§ÙˆÙÙŠÙ†ÙØŒ Ø§Ù†Ù’ØºÙÙˆÙÙŠÙ†ÙØŒ Ø§Ø³ØªÙÙˆÙÙŠÙ†ÙØŒ Ø§Ø³ØªÙØºÙ’ÙˆÙÙŠÙ†Ù)
     }
 
 
@@ -40,7 +40,7 @@ public class Imperative4Vocalizer extends SubstitutionsApplier implements IAugme
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        if (root.getC2() == root.getC3() && root.getC3() == 'æ' && kov == 28) {
+        if (root.getC2() == root.getC3() && root.getC3() == 'Ùˆ' && kov == 28) {
             switch (formulaNo) {
             case 1:
             case 3:

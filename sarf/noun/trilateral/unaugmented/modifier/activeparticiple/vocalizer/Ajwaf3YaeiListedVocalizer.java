@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description:İÍÕ ÇáÃÌæİ ÍÓÈ ŞÇÆãÉ    </p>
+ * <p>Description:ÙØ­Øµ Ø§Ù„Ø£Ø¬ÙˆÙ Ø­Ø³Ø¨ Ù‚Ø§Ø¦Ù…Ø©    </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -25,7 +25,7 @@ public class Ajwaf3YaeiListedVocalizer extends AbstractAjwafYaeiListedVocalizer 
     private List substitutions = new LinkedList();
 
     public Ajwaf3YaeiListedVocalizer() {
-        substitutions.add(new InfixSubstitution("Çíö", "ÇÆö")); // EX: (ÈÇÆöÚñ)
+        substitutions.add(new InfixSubstitution("Ø§ÙŠÙ", "Ø§Ø¦Ù")); // EX: (Ø¨Ø§Ø¦ÙØ¹ÙŒ)
     }
 
     public List getSubstitutions() {

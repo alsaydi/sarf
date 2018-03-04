@@ -6,7 +6,7 @@ import sarf.util.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: İÍÕ ÇáÌĞÑ ÇĞÇ ßÇä ããßäÇ ãÚÇáÌÊå     </p>
+ * <p>Description: ÙØ­Øµ Ø§Ù„Ø¬Ø°Ø± Ø§Ø°Ø§ ÙƒØ§Ù† Ù…Ù…ÙƒÙ†Ø§ Ù…Ø¹Ø§Ù„Ø¬ØªÙ‡     </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -16,8 +16,8 @@ import sarf.util.*;
  * @version 1.0
  */
 public class Validator {
-    private String arabicLetters = "ÍÎÏĞÑÒÓÔÕØÙÚÛİÖŞßáãäåæíÁÈÊËÌìÇ";
-    private String hamzaString = "ÃÄÆÅ";
+    private String arabicLetters = "Ø­Ø®Ø¯Ø°Ø±Ø²Ø³Ø´ØµØ·Ø¸Ø¹ØºÙØ¶Ù‚ÙƒÙ„Ù…Ù†Ù‡ÙˆÙŠØ¡Ø¨ØªØ«Ø¬Ù‰Ø§";
+    private String hamzaString = "Ø£Ø¤Ø¦Ø¥";
 
     private Validator() {
     }
@@ -29,7 +29,7 @@ public class Validator {
     }
 
     /**
-     * İÍÕ ÇáØæá 3  Ãæ 4
+     * ÙØ­Øµ Ø§Ù„Ø·ÙˆÙ„ 3  Ø£Ùˆ 4
      * @param root String
      * @return boolean
      */
@@ -38,7 +38,7 @@ public class Validator {
     }
 
     /**
-     * İÍÕ ÇĞÇ ßÇäÊ ÇÍÑİ ÇáÌĞÑ åí ÃÍÑİ ÕÍíÍÉ
+     * ÙØ­Øµ Ø§Ø°Ø§ ÙƒØ§Ù†Øª Ø§Ø­Ø±Ù Ø§Ù„Ø¬Ø°Ø± Ù‡ÙŠ Ø£Ø­Ø±Ù ØµØ­ÙŠØ­Ø©
      * @param root String
      * @return boolean
      */
@@ -52,25 +52,25 @@ public class Validator {
     }
 
     /**
-     * İÍÕ ÇĞÇ ßÇä ÇáÌĞÑ íÈÏÃ ÈÃáİ
+     * ÙØ­Øµ Ø§Ø°Ø§ ÙƒØ§Ù† Ø§Ù„Ø¬Ø°Ø± ÙŠØ¨Ø¯Ø£ Ø¨Ø£Ù„Ù
      * @param root String
      * @return boolean
      */
     public boolean checkStartedWithAlef(String root) {
-        return root.charAt(0) == 'Ç';
+        return root.charAt(0) == 'Ø§';
     }
 
     /**
-     * İÍÕ ÇĞÇ ßÇä ÇáÌĞÑ íÍÊæí Ãáİ ããÏæÏÉ
+     * ÙØ­Øµ Ø§Ø°Ø§ ÙƒØ§Ù† Ø§Ù„Ø¬Ø°Ø± ÙŠØ­ØªÙˆÙŠ Ø£Ù„Ù Ù…Ù…Ø¯ÙˆØ¯Ø©
      * @param root String
      * @return boolean
      */
     public boolean checkAlefMamdoda(String root) {
-        return root.indexOf("Â") != -1;
+        return root.indexOf("Ø¢") != -1;
     }
 
     /**
-     * İÍÕ ÇĞÇ ßÇä ÇáÌĞÑ íÍÊæí ÚáÇãÇÊ ÊÔßíá
+     * ÙØ­Øµ Ø§Ø°Ø§ ÙƒØ§Ù† Ø§Ù„Ø¬Ø°Ø± ÙŠØ­ØªÙˆÙŠ Ø¹Ù„Ø§Ù…Ø§Øª ØªØ´ÙƒÙŠÙ„
      * @param root String
      * @return boolean
      */
@@ -85,7 +85,7 @@ public class Validator {
 
 
     /**
-     * ÑÏ ÇáåãÒÉ Åáì ÃÕáåÇ ÍÓÈ ÃæÌååÇ ÇáÎãÓÉ
+     * Ø±Ø¯ Ø§Ù„Ù‡Ù…Ø²Ø© Ø¥Ù„Ù‰ Ø£ØµÙ„Ù‡Ø§ Ø­Ø³Ø¨ Ø£ÙˆØ¬Ù‡Ù‡Ø§ Ø§Ù„Ø®Ù…Ø³Ø©
      * @param root String
      * @return String
      */
@@ -93,34 +93,34 @@ public class Validator {
         char[] rootArray = root.toCharArray();
         for (int i = 0; i < rootArray.length; i++) {
             if (hamzaString.indexOf(rootArray[i]) != -1) {
-                rootArray[i] = 'Á';
+                rootArray[i] = 'Ø¡';
             }
         }
         return new String(rootArray);
     }
 
     /**
-     * İÍÕ ÇĞÇ ÇßäÊ ÇáÃáİ Öãä ÇáÌĞÑ İí ÇáÍÑİ ÇáËÇäí Ãæ ÇáËÇáË
-     * İÊÑÏ ÇááÃİ Åáì ÃÕáåÇ İí ÇáæÇæ Ãæ ÇáíÇÁ
+     * ÙØ­Øµ Ø§Ø°Ø§ Ø§ÙƒÙ†Øª Ø§Ù„Ø£Ù„Ù Ø¶Ù…Ù† Ø§Ù„Ø¬Ø°Ø± ÙÙŠ Ø§Ù„Ø­Ø±Ù Ø§Ù„Ø«Ø§Ù†ÙŠ Ø£Ùˆ Ø§Ù„Ø«Ø§Ù„Ø«
+     * ÙØªØ±Ø¯ Ø§Ù„Ù„Ø£Ù Ø¥Ù„Ù‰ Ø£ØµÙ„Ù‡Ø§ ÙÙŠ Ø§Ù„ÙˆØ§Ùˆ Ø£Ùˆ Ø§Ù„ÙŠØ§Ø¡
      * @param root String
      * @return List
      */
     public List getTrilateralAlefAlternatives(String root) {
         List result = new LinkedList();
-        if (root.charAt(1) == 'Ç' && (root.charAt(2) == 'Ç' || root.charAt(2) == 'ì')) {
-            result.add(root.charAt(0) + "æ" + "æ");
-            result.add(root.charAt(0) + "æ" + "í");
-            result.add(root.charAt(0) + "í" + "æ");
-            result.add(root.charAt(0) + "í" + "í");
+        if (root.charAt(1) == 'Ø§' && (root.charAt(2) == 'Ø§' || root.charAt(2) == 'Ù‰')) {
+            result.add(root.charAt(0) + "Ùˆ" + "Ùˆ");
+            result.add(root.charAt(0) + "Ùˆ" + "ÙŠ");
+            result.add(root.charAt(0) + "ÙŠ" + "Ùˆ");
+            result.add(root.charAt(0) + "ÙŠ" + "ÙŠ");
         }
         else {
-            if (root.charAt(1) == 'Ç') {
-                result.add(root.charAt(0) + "æ" + root.charAt(2));
-                result.add(root.charAt(0) + "í" + root.charAt(2));
+            if (root.charAt(1) == 'Ø§') {
+                result.add(root.charAt(0) + "Ùˆ" + root.charAt(2));
+                result.add(root.charAt(0) + "ÙŠ" + root.charAt(2));
             }
-            if (root.charAt(2) == 'Ç' || root.charAt(2) == 'ì') {
-                result.add(root.charAt(0) + "" + root.charAt(1) + "æ");
-                result.add(root.charAt(0) + "" + root.charAt(1) + "í");
+            if (root.charAt(2) == 'Ø§' || root.charAt(2) == 'Ù‰') {
+                result.add(root.charAt(0) + "" + root.charAt(1) + "Ùˆ");
+                result.add(root.charAt(0) + "" + root.charAt(1) + "ÙŠ");
             }
         }
         return result;
@@ -128,25 +128,25 @@ public class Validator {
 
 
     /**
-     * İÍÕ ÇĞÇ ÇßäÊ ÇáÃáİ Öãä ÇáÌĞÑ İí ÇáÍÑİ ÇáËÇäí Ãæ ÇáËÇáË
-     * İÊÑÏ ÇááÃİ Åáì ÃÕáåÇ İí ÇáæÇæ Ãæ ÇáíÇÁ
-     * æÇĞÇ ßÇäÊ İí ÇáÑÇÈÚ ÊİÑÏ Åáì íÇÁ
+     * ÙØ­Øµ Ø§Ø°Ø§ Ø§ÙƒÙ†Øª Ø§Ù„Ø£Ù„Ù Ø¶Ù…Ù† Ø§Ù„Ø¬Ø°Ø± ÙÙŠ Ø§Ù„Ø­Ø±Ù Ø§Ù„Ø«Ø§Ù†ÙŠ Ø£Ùˆ Ø§Ù„Ø«Ø§Ù„Ø«
+     * ÙØªØ±Ø¯ Ø§Ù„Ù„Ø£Ù Ø¥Ù„Ù‰ Ø£ØµÙ„Ù‡Ø§ ÙÙŠ Ø§Ù„ÙˆØ§Ùˆ Ø£Ùˆ Ø§Ù„ÙŠØ§Ø¡
+     * ÙˆØ§Ø°Ø§ ÙƒØ§Ù†Øª ÙÙŠ Ø§Ù„Ø±Ø§Ø¨Ø¹ ØªÙØ±Ø¯ Ø¥Ù„Ù‰ ÙŠØ§Ø¡
      * @param root String
      * @return List
      */
     public List getQuadrilateralAlefAlternatives(String root) {
         List result = new LinkedList();
-        if (root.charAt(1) == 'Ç') {
-            result.add(root.charAt(0) + "æ" + root.charAt(2) + root.charAt(3));
-            result.add(root.charAt(0) + "í" + root.charAt(2) + root.charAt(3));
+        if (root.charAt(1) == 'Ø§') {
+            result.add(root.charAt(0) + "Ùˆ" + root.charAt(2) + root.charAt(3));
+            result.add(root.charAt(0) + "ÙŠ" + root.charAt(2) + root.charAt(3));
         }
-        if (root.charAt(2) == 'Ç') {
-            result.add(root.charAt(0) + "" + root.charAt(1) + "æ" + root.charAt(3));
-            result.add(root.charAt(0) + "" + root.charAt(1) + "í" + root.charAt(3));
+        if (root.charAt(2) == 'Ø§') {
+            result.add(root.charAt(0) + "" + root.charAt(1) + "Ùˆ" + root.charAt(3));
+            result.add(root.charAt(0) + "" + root.charAt(1) + "ÙŠ" + root.charAt(3));
         }
 
-        if (root.charAt(3) == 'Ç' || root.charAt(3) == 'ì') {
-            result.add(root.charAt(0) + "" + root.charAt(1) + "" + root.charAt(2) + "í");
+        if (root.charAt(3) == 'Ø§' || root.charAt(3) == 'Ù‰') {
+            result.add(root.charAt(0) + "" + root.charAt(1) + "" + root.charAt(2) + "ÙŠ");
         }
         return result;
     }

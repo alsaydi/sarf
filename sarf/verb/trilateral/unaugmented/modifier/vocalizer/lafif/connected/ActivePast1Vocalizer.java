@@ -23,9 +23,9 @@ public class ActivePast1Vocalizer extends SubstitutionsApplier implements IUnaug
     private List substitutions = new LinkedList();
 
     public ActivePast1Vocalizer() {
-        substitutions.add(new SuffixSubstitution("óíó","óì"));
-        substitutions.add(new InfixSubstitution("óíõæÇ","óæúÇ"));
-        substitutions.add(new InfixSubstitution("óíóÊ","óÊ"));
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙ‰"));
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙˆØ§","ÙÙˆÙ’Ø§"));
+        substitutions.add(new InfixSubstitution("ÙÙŠÙØª","ÙØª"));
     }
 
 

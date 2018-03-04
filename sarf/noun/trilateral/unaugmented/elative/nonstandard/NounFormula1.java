@@ -31,11 +31,11 @@ public class NounFormula1 extends NounFormula {
     }
 
     public String form() {
-        return "Ã" + ArabCharUtil.FATHA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.FATHA + root.getC3() + suffix;
+        return "Ø£" + ArabCharUtil.FATHA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.FATHA + root.getC3() + suffix;
     }
 
     public String getFormulaName() {
-        return "ÃóİúÚóá";
+        return "Ø£ÙÙÙ’Ø¹ÙÙ„";
     }
 
     protected INounSuffixContainer getNounSuffixContainer() {

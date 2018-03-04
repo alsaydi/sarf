@@ -23,7 +23,7 @@ public class Geminator extends QuadrilateralNounSubstitutionApplier implements I
     List substitutions = new LinkedList();
 
     public Geminator() {
-        substitutions.add(new ExpressionInfixSubstitution("úC4óC4","óC4ø"));// EX: (åæ ãõŞúÔóÚóÑøñ)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C4ÙC4","ÙC4Ù‘"));// EX: (Ù‡Ùˆ Ù…ÙÙ‚Ù’Ø´ÙØ¹ÙØ±Ù‘ÙŒ)
     }
 
 

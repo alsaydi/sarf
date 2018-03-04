@@ -23,9 +23,9 @@ public class YaeiPastVocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public YaeiPastVocalizer() {
-        substitutions.add(new InfixSubstitution("öíú", "öí")); // EX: (ÃäÇ ÃõæÏöíÊõ¡ )
-        substitutions.add(new InfixSubstitution("öíõ", "õ")); // EX: (åã ÃõæÏõæÇ¡ )
-        substitutions.add(new InfixSubstitution("øöíõ", "øõ")); // EX: (åã íõÏøõæÇ¡ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ’", "ÙÙŠ")); // EX: (Ø£Ù†Ø§ Ø£ÙÙˆØ¯ÙÙŠØªÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ", "Ù")); // EX: (Ù‡Ù… Ø£ÙÙˆØ¯ÙÙˆØ§ØŒ )
+        substitutions.add(new InfixSubstitution("Ù‘ÙÙŠÙ", "Ù‘Ù")); // EX: (Ù‡Ù… ÙŠÙØ¯Ù‘ÙÙˆØ§ØŒ )
     }
 
 
@@ -34,7 +34,7 @@ public class YaeiPastVocalizer extends SubstitutionsApplier implements IAugmente
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC1() != 'í') {
+        if (conjugationResult.getRoot().getC1() != 'ÙŠ') {
             return false;
         }
 

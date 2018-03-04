@@ -22,14 +22,14 @@ public class WawiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
     List substitutions = new LinkedList();
 
     public WawiLafifNakesVocalizer() {
-        substitutions.add(new SuffixSubstitution("óæõ","óì"));// EX: (åĞÇ ÇáÃÚáì¡ )
-        substitutions.add(new SuffixSubstitution("óæó","óì"));// EX: (ÑÃíÊõ ÇáÃÚáì¡ )
-        substitutions.add(new SuffixSubstitution("óæö","óì"));// EX: (ãÑÑÊõ Úáì ÇáÃÚáì¡ )
-        substitutions.add(new InfixSubstitution("óæó","óíó"));// EX: (ÇáÃÚáíÇä)
-        substitutions.add(new InfixSubstitution("óæõæ","óæú"));// EX: (ÇáÃÚáóæúä)
-        substitutions.add(new InfixSubstitution("óæöí","óíú"));// EX: (ÇáÃÚáóíúä)
-        substitutions.add(new InfixSubstitution("úæóì","úíóÇ"));// EX: (ÇáÚáíÇ)
-        substitutions.add(new InfixSubstitution("úæóí","úíóí"));// EX: (ÚõáúíóíóÇä)
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ","ÙÙ‰"));// EX: (Ù‡Ø°Ø§ Ø§Ù„Ø£Ø¹Ù„Ù‰ØŒ )
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ","ÙÙ‰"));// EX: (Ø±Ø£ÙŠØªÙ Ø§Ù„Ø£Ø¹Ù„Ù‰ØŒ )
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ","ÙÙ‰"));// EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ø§Ù„Ø£Ø¹Ù„Ù‰ØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ","ÙÙŠÙ"));// EX: (Ø§Ù„Ø£Ø¹Ù„ÙŠØ§Ù†)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙˆ","ÙÙˆÙ’"));// EX: (Ø§Ù„Ø£Ø¹Ù„ÙÙˆÙ’Ù†)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙŠ","ÙÙŠÙ’"));// EX: (Ø§Ù„Ø£Ø¹Ù„ÙÙŠÙ’Ù†)
+        substitutions.add(new InfixSubstitution("Ù’ÙˆÙÙ‰","Ù’ÙŠÙØ§"));// EX: (Ø§Ù„Ø¹Ù„ÙŠØ§)
+        substitutions.add(new InfixSubstitution("Ù’ÙˆÙÙŠ","Ù’ÙŠÙÙŠ"));// EX: (Ø¹ÙÙ„Ù’ÙŠÙÙŠÙØ§Ù†)
     }
 
 

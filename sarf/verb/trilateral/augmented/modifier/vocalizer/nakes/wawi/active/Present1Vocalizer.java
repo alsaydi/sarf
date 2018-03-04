@@ -23,13 +23,13 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public Present1Vocalizer() {
-        substitutions.add(new InfixSubstitution("цжхж","хж"));// EX: (ег нхѕъдхжд° нЌ«»жд° ндћбжд° н— ÷жд° н—Џжжд° н” —÷жд° нЌбжбжд)
-        substitutions.add(new InfixSubstitution("цжхд","хд"));// EX: (ег нхѕъдхдшу° нЌ«»хдшу° ндћбхдшу° н— ÷хдшу° н—Џжхдшу° н” —÷хдшу° нЌбжбхдшу)
-        substitutions.add(new SuffixSubstitution("жх","н"));// EX: (еж нхѕъдцн° нЌ«»н° ндћбн° н— ÷н° н—Џужцн° н” —÷н° нЌбжбн)
-        substitutions.add(new SuffixSubstitution("жъ",""));// EX: (бг нхѕъдц° нЌ«»° ндћбц° н— ÷ц° н—Џужц° н” —÷ц° нЌбжбц)
-        substitutions.add(new InfixSubstitution("жъд","нд"));// EX: (√д д  хѕдцнду°  Ќ«»нд°  дћбнд°  — ÷нд°  —Џжнд°  ” —÷нд°  Ќбжбнд)
-        substitutions.add(new InfixSubstitution("цжц","ц"));// EX: (√д ц  хѕъдцнду°  хЌ«»цнду°  дћбнд°  — ÷нд°  —Џжнд°  ” —÷нд°  Ќбжбнд)
-        substitutions.add(new InfixSubstitution("жу","ну"));// EX: (бд нхѕъдцну° ег« нхѕдцн«д° нЌ«»н«д° ндћбн«д° н— ÷н«д° н—Џжн«д° н” —÷н«д° нЌбжбн«д)
+        substitutions.add(new InfixSubstitution("ўРўИўПўИ","ўПўИ"));// EX: (ўЗўЕ ўКўПЎѓўТўЖўПўИўЖЎМ ўКЎ≠ЎІЎ®ўИўЖЎМ ўКўЖЎђўДўИўЖЎМ ўКЎ±Ў™ЎґўИўЖЎМ ўКЎ±ЎєўИўИўЖЎМ ўКЎ≥Ў™Ў±ЎґўИўЖЎМ ўКЎ≠ўДўИўДўИўЖ)
+        substitutions.add(new InfixSubstitution("ўРўИўПўЖ","ўПўЖ"));// EX: (ўЗўЕ ўКўПЎѓўТўЖўПўЖўСўОЎМ ўКЎ≠ЎІЎ®ўПўЖўСўОЎМ ўКўЖЎђўДўПўЖўСўОЎМ ўКЎ±Ў™ЎґўПўЖўСўОЎМ ўКЎ±ЎєўИўПўЖўСўОЎМ ўКЎ≥Ў™Ў±ЎґўПўЖўСўОЎМ ўКЎ≠ўДўИўДўПўЖўСўО)
+        substitutions.add(new SuffixSubstitution("ўИўП","ўК"));// EX: (ўЗўИ ўКўПЎѓўТўЖўРўКЎМ ўКЎ≠ЎІЎ®ўКЎМ ўКўЖЎђўДўКЎМ ўКЎ±Ў™ЎґўКЎМ ўКЎ±ЎєўОўИўРўКЎМ ўКЎ≥Ў™Ў±ЎґўКЎМ ўКЎ≠ўДўИўДўК)
+        substitutions.add(new SuffixSubstitution("ўИўТ",""));// EX: (ўДўЕ ўКўПЎѓўТўЖўРЎМ ўКЎ≠ЎІЎ®ЎМ ўКўЖЎђўДўРЎМ ўКЎ±Ў™ЎґўРЎМ ўКЎ±ЎєўОўИўРЎМ ўКЎ≥Ў™Ў±ЎґўРЎМ ўКЎ≠ўДўИўДўР)
+        substitutions.add(new InfixSubstitution("ўИўТўЖ","ўКўЖ"));// EX: (Ў£ўЖЎ™ўЖ Ў™ўПЎѓўЖўРўКўЖўОЎМ Ў™Ў≠ЎІЎ®ўКўЖЎМ Ў™ўЖЎђўДўКўЖЎМ Ў™Ў±Ў™ЎґўКўЖЎМ Ў™Ў±ЎєўИўКўЖЎМ Ў™Ў≥Ў™Ў±ЎґўКўЖЎМ Ў™Ў≠ўДўИўДўКўЖ)
+        substitutions.add(new InfixSubstitution("ўРўИўР","ўР"));// EX: (Ў£ўЖЎ™ўР Ў™ўПЎѓўТўЖўРўКўЖўОЎМ Ў™ўПЎ≠ЎІЎ®ўРўКўЖўОЎМ Ў™ўЖЎђўДўКўЖЎМ Ў™Ў±Ў™ЎґўКўЖЎМ Ў™Ў±ЎєўИўКўЖЎМ Ў™Ў≥Ў™Ў±ЎґўКўЖЎМ Ў™Ў≠ўДўИўДўКўЖ)
+        substitutions.add(new InfixSubstitution("ўИўО","ўКўО"));// EX: (ўДўЖ ўКўПЎѓўТўЖўРўКўОЎМ ўЗўЕЎІ ўКўПЎѓўЖўРўКЎІўЖЎМ ўКЎ≠ЎІЎ®ўКЎІўЖЎМ ўКўЖЎђўДўКЎІўЖЎМ ўКЎ±Ў™ЎґўКЎІўЖЎМ ўКЎ±ЎєўИўКЎІўЖЎМ ўКЎ≥Ў™Ў±ЎґўКЎІўЖЎМ ўКЎ≠ўДўИўДўКЎІўЖ)
     }
 
 

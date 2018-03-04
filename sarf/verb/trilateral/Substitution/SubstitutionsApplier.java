@@ -30,8 +30,8 @@ public abstract class SubstitutionsApplier {
     }
 
     /**
-     * ═с▐╔ ╩у╙═ ╟с▀су╟╩ ц╩╠╤╚ ╟с╟╙╩╚╧с╟╩ ┌сь ▀с  ▀су╔
-     * ╟╨╟ ф╠═ ├═╧ ╟с╟╙╩╚╧╟с╟╩ с╟ ф╚═╦ ┌ф ├╬╤
+     * ╪н┘Д┘В╪й ╪к┘Е╪│╪н ╪з┘Д┘Г┘Д┘Е╪з╪к ┘И╪к╪м╪▒╪и ╪з┘Д╪з╪│╪к╪и╪п┘Д╪з╪к ╪╣┘Д┘Й ┘Г┘Д  ┘Г┘Д┘Е╪й
+     * ╪з╪░╪з ┘Ж╪м╪н ╪г╪н╪п ╪з┘Д╪з╪│╪к╪и╪п╪з┘Д╪з╪к ┘Д╪з ┘Ж╪и╪н╪л ╪╣┘Ж ╪г╪о╪▒
      * @param words List
      * @param root TrilateralRoot
      */
@@ -49,9 +49,9 @@ public abstract class SubstitutionsApplier {
                 Substitution substitution = (Substitution) subIter.next();
                 String result = substitution.apply(word, root);
                 if (result != null) {
-                    //╩╚╧эс ╟с▀су╔ ╟с╠╧э╧╔ ╟су╙╩╚╧с╔ ╚╟с▀су╔ ╟с▐╧эу╔
+                    //╪к╪и╪п┘К┘Д ╪з┘Д┘Г┘Д┘Е╪й ╪з┘Д╪м╪п┘К╪п╪й ╪з┘Д┘Е╪│╪к╪и╪п┘Д╪й ╪и╪з┘Д┘Г┘Д┘Е╪й ╪з┘Д┘В╪п┘К┘Е╪й
                     words.set(index, result);
-                    //с╟ ╧╟┌э с▌═╒ ╚╟▐э ╟с╟╙╩╚╧╟с╟╩
+                    //┘Д╪з ╪п╪з╪╣┘К ┘Д┘Б╪н╪╡ ╪и╪з┘В┘К ╪з┘Д╪з╪│╪к╪и╪п╪з┘Д╪з╪к
                     break;
                 }
             }
@@ -59,7 +59,7 @@ public abstract class SubstitutionsApplier {
     }
 
     /**
-     * ▐╟╞у╔ ╟с╟╙╩╚╧╟с╟╩
+     * ┘В╪з╪ж┘Е╪й ╪з┘Д╪з╪│╪к╪и╪п╪з┘Д╪з╪к
      * @return List
      */
     public abstract List getSubstitutions();

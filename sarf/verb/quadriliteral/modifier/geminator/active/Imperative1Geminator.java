@@ -22,10 +22,10 @@ public class Imperative1Geminator extends SubstitutionsApplier implements IQuadr
     private List substitutions = new LinkedList();
 
     public Imperative1Geminator() {
-        substitutions.add(new ExpressionSuffixSubstitution("C3úC4öC4ú", "C3öC4øó")); // EX: (ÇŞúÔóÚöÑøó)
-        substitutions.add(new ExpressionInfixSubstitution("C3úC4öC4ó", "C3öC4øó")); // EX: (ÇŞúÔóÚöÑøóÇ)
-        substitutions.add(new ExpressionInfixSubstitution("C3úC4öC4õ", "C3öC4øõ")); // EX: (ÇŞúÔóÚöÑøõæÇ)
-        substitutions.add(new ExpressionInfixSubstitution("C3úC4öC4ö", "C3öC4øö")); // EX: (ÇŞúÔóÚöÑøöí)
+        substitutions.add(new ExpressionSuffixSubstitution("C3Ù’C4ÙC4Ù’", "C3ÙC4Ù‘Ù")); // EX: (Ø§Ù‚Ù’Ø´ÙØ¹ÙØ±Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("C3Ù’C4ÙC4Ù", "C3ÙC4Ù‘Ù")); // EX: (Ø§Ù‚Ù’Ø´ÙØ¹ÙØ±Ù‘ÙØ§)
+        substitutions.add(new ExpressionInfixSubstitution("C3Ù’C4ÙC4Ù", "C3ÙC4Ù‘Ù")); // EX: (Ø§Ù‚Ù’Ø´ÙØ¹ÙØ±Ù‘ÙÙˆØ§)
+        substitutions.add(new ExpressionInfixSubstitution("C3Ù’C4ÙC4Ù", "C3ÙC4Ù‘Ù")); // EX: (Ø§Ù‚Ù’Ø´ÙØ¹ÙØ±Ù‘ÙÙŠ)
 
     }
 

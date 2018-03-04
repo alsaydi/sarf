@@ -34,14 +34,14 @@ public class NounFormula2 extends NonStandardInstrumentalNounFormula{
         case 9:
         case 13:
         case 15:
-            return root.getC1()+ArabCharUtil.KASRA+root.getC2()+ArabCharUtil.FATHA+"Ç"+root.getC3()+suffix;
+            return root.getC1()+ArabCharUtil.KASRA+root.getC2()+ArabCharUtil.FATHA+"Ø§"+root.getC3()+suffix;
         }
 
         return "";
     }
 
     public String getFormulaName() {
-        return "İöÚóÇá";
+        return "ÙÙØ¹ÙØ§Ù„";
     }
 
     public String getSymbol() {

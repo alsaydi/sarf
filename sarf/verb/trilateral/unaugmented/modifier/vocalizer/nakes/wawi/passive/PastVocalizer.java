@@ -23,9 +23,9 @@ public class PastVocalizer extends SubstitutionsApplier implements IUnaugmentedT
     private List substitutions = new LinkedList();
 
     public PastVocalizer() {
-        substitutions.add(new InfixSubstitution("öæú", "öí"));
-        substitutions.add(new InfixSubstitution("öæó", "öíó"));
-        substitutions.add(new InfixSubstitution("öæõ", "õ"));
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’", "ÙÙŠ"));
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "ÙÙŠÙ"));
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "Ù"));
     }
 
 

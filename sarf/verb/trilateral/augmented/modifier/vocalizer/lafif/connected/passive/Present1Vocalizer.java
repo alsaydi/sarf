@@ -24,12 +24,12 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public Present1Vocalizer() {
-        substitutions.add(new SuffixSubstitution("єэї","є╟"));// EX: (эї═·эє╟б э═э°є╟б э═╟эє╟б э╥╧эє╟б э╩═є╟эє╟б э╩═э°є╟б эї╙╩═эє╟)
-        substitutions.add(new SuffixSubstitution("єэє","є╟"));// EX: (сф эї═·эє╟б э═э°є╟б э═╟эє╟б э╥╧эє╟б э╩═є╟эє╟б э╩═э°є╟б эї╙╩═эє╟)
-        substitutions.add(new SuffixSubstitution("э·",""));// EX: (су эї═·эєб э═э°єб э═╟эєб э╥╧эєб э╩═є╟эєб э╩═э°єб эї╙╩═эє)
-        substitutions.add(new InfixSubstitution("эЎэ","э·"));// EX: (├ф╩Ў ╩ї═·эєэ·фєб ╩ї═єэ°єэ·фєб ╩═╟эєэ·фєб ╩╥╧эєэ·фєб ╩╩═╟эєэ·фєб ╩╩═э°єэ·фєб ╩╙╩═эєэ·фє)
-        substitutions.add(new InfixSubstitution("эїц","ц·"));// EX: (├ф╩у ╩ї═·эєц·фєб ╩ї═єэ°єц·фєб ╩ї═╟эєц·фєб ╩╥╧єэєц·фєб ╩╩═╟эєц·фєб ╩╩═э°єц·фєб ╩╙╩═эєц·фє)
-        substitutions.add(new InfixSubstitution("эїф","цїф"));// EX: (├ф╩у ╩ї═·эєцїф°єб ╩ї═єэ°єцїф°єб ╩═╟эєцїф°є ╩╥╧эєцїф°єб ╩ї╩є═є╟эєцїф°єб ╩ї╩є═єэ°єцїф°єб ╩╙╩═эєцїф°є)
+        substitutions.add(new SuffixSubstitution("┘О┘К┘П","┘О╪з"));// EX: (┘К┘П╪н┘Т┘К┘О╪з╪М ┘К╪н┘К┘С┘О╪з╪М ┘К╪н╪з┘К┘О╪з╪М ┘К╪▓╪п┘К┘О╪з╪М ┘К╪к╪н┘О╪з┘К┘О╪з╪М ┘К╪к╪н┘К┘С┘О╪з╪М ┘К┘П╪│╪к╪н┘К┘О╪з)
+        substitutions.add(new SuffixSubstitution("┘О┘К┘О","┘О╪з"));// EX: (┘Д┘Ж ┘К┘П╪н┘Т┘К┘О╪з╪М ┘К╪н┘К┘С┘О╪з╪М ┘К╪н╪з┘К┘О╪з╪М ┘К╪▓╪п┘К┘О╪з╪М ┘К╪к╪н┘О╪з┘К┘О╪з╪М ┘К╪к╪н┘К┘С┘О╪з╪М ┘К┘П╪│╪к╪н┘К┘О╪з)
+        substitutions.add(new SuffixSubstitution("┘К┘Т",""));// EX: (┘Д┘Е ┘К┘П╪н┘Т┘К┘О╪М ┘К╪н┘К┘С┘О╪М ┘К╪н╪з┘К┘О╪М ┘К╪▓╪п┘К┘О╪М ┘К╪к╪н┘О╪з┘К┘О╪М ┘К╪к╪н┘К┘С┘О╪М ┘К┘П╪│╪к╪н┘К┘О)
+        substitutions.add(new InfixSubstitution("┘К┘Р┘К","┘К┘Т"));// EX: (╪г┘Ж╪к┘Р ╪к┘П╪н┘Т┘К┘О┘К┘Т┘Ж┘О╪М ╪к┘П╪н┘О┘К┘С┘О┘К┘Т┘Ж┘О╪М ╪к╪н╪з┘К┘О┘К┘Т┘Ж┘О╪М ╪к╪▓╪п┘К┘О┘К┘Т┘Ж┘О╪М ╪к╪к╪н╪з┘К┘О┘К┘Т┘Ж┘О╪М ╪к╪к╪н┘К┘С┘О┘К┘Т┘Ж┘О╪М ╪к╪│╪к╪н┘К┘О┘К┘Т┘Ж┘О)
+        substitutions.add(new InfixSubstitution("┘К┘П┘И","┘И┘Т"));// EX: (╪г┘Ж╪к┘Е ╪к┘П╪н┘Т┘К┘О┘И┘Т┘Ж┘О╪М ╪к┘П╪н┘О┘К┘С┘О┘И┘Т┘Ж┘О╪М ╪к┘П╪н╪з┘К┘О┘И┘Т┘Ж┘О╪М ╪к╪▓╪п┘О┘К┘О┘И┘Т┘Ж┘О╪М ╪к╪к╪н╪з┘К┘О┘И┘Т┘Ж┘О╪М ╪к╪к╪н┘К┘С┘О┘И┘Т┘Ж┘О╪М ╪к╪│╪к╪н┘К┘О┘И┘Т┘Ж┘О)
+        substitutions.add(new InfixSubstitution("┘К┘П┘Ж","┘И┘П┘Ж"));// EX: (╪г┘Ж╪к┘Е ╪к┘П╪н┘Т┘К┘О┘И┘П┘Ж┘С┘О╪М ╪к┘П╪н┘О┘К┘С┘О┘И┘П┘Ж┘С┘О╪М ╪к╪н╪з┘К┘О┘И┘П┘Ж┘С┘О ╪к╪▓╪п┘К┘О┘И┘П┘Ж┘С┘О╪М ╪к┘П╪к┘О╪н┘О╪з┘К┘О┘И┘П┘Ж┘С┘О╪М ╪к┘П╪к┘О╪н┘О┘К┘С┘О┘И┘П┘Ж┘С┘О╪М ╪к╪│╪к╪н┘К┘О┘И┘П┘Ж┘С┘О)
     }
 
 
@@ -41,7 +41,7 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        if (root.getC2() == root.getC3() && root.getC3() == 'э' && kov == 28) {
+        if (root.getC2() == root.getC3() && root.getC3() == '┘К' && kov == 28) {
             switch (formulaNo) {
             case 1:
             case 2:

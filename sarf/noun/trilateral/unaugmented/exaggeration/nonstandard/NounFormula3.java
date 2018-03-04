@@ -24,7 +24,7 @@ public class NounFormula3 extends NonStandardExaggerationNounFormula{
         super(root, suffixNo);
 
         if (this.suffixNo == 7 && GenericNounSuffixContainer.getInstance().isInDefiniteMode()) {
-            suffix = "";
+            suffix = "Ÿã";
         }
 
     }
@@ -38,14 +38,14 @@ public class NounFormula3 extends NonStandardExaggerationNounFormula{
         case 1:
         case 7:
         case 13:
-            return root.getC1()+ArabCharUtil.DAMMA+root.getC2()+ArabCharUtil.FATHA+root.getC3()+ArabCharUtil.FATHA+"…"+suffix;
+            return root.getC1()+ArabCharUtil.DAMMA+root.getC2()+ArabCharUtil.FATHA+root.getC3()+ArabCharUtil.FATHA+"ÿ©"+suffix;
         }
 
         return "";
     }
 
     public String getFormulaName() {
-        return "›ı⁄Û·Û…";
+        return "ŸÅŸèÿπŸéŸÑŸéÿ©";
     }
 
     public String getSymbol() {

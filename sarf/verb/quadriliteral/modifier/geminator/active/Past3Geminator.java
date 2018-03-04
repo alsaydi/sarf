@@ -22,9 +22,9 @@ public class Past3Geminator extends SubstitutionsApplier implements IQuadrilater
     private List substitutions = new LinkedList();
 
     public Past3Geminator() {
-        substitutions.add(new InfixSubstitution("äúäó","äøó"));// EX: (äÍä ØóãúÃäøóÇ¡ åäøó ØóãúÃäøó)
-        substitutions.add(new ExpressionInfixSubstitution("úC4óC4ó","óC4øó"));// EX: (ÇÒíÃäó)
-        substitutions.add(new ExpressionInfixSubstitution("úC4óC4õ","óC4øõ"));// EX: (ÇÒíÃäóæÇ)
+        substitutions.add(new InfixSubstitution("Ù†Ù’Ù†Ù","Ù†Ù‘Ù"));// EX: (Ù†Ø­Ù† Ø·ÙÙ…Ù’Ø£Ù†Ù‘ÙØ§ØŒ Ù‡Ù†Ù‘Ù Ø·ÙÙ…Ù’Ø£Ù†Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C4ÙC4Ù","ÙC4Ù‘Ù"));// EX: (Ø§Ø²ÙŠØ£Ù†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C4ÙC4Ù","ÙC4Ù‘Ù"));// EX: (Ø§Ø²ÙŠØ£Ù†ÙÙˆØ§)
     }
 
 
@@ -33,7 +33,7 @@ public class Past3Geminator extends SubstitutionsApplier implements IQuadrilater
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC4() != 'ä')
+        if (conjugationResult.getRoot().getC4() != 'Ù†')
             return false;
         return true;
     }

@@ -41,23 +41,23 @@ public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
         List pronounsList = SeparatedPronounsContainer.getInstance().getPronouns();
         JLabel lbl = null;
         for (int i = 0; i < 6; i++) {
-            //ÅÖÇÝÉ äÕ íãËá ÇáÖãíÑ
+            //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„Ø¶Ù…ÙŠØ±
             add(lbl = new JLabel((String) pronounsList.get(i)));
             decorateLabel(lbl);
-            //ÅÖÇÝÉ äÕ íãËá ÇáÝÚá
+            //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„ÙØ¹Ù„
             add(lbl = new JLabel(verbConjugationList.get(i) + ""));
             decorateVerbLabel(lbl);
-            //ÅÖÇÝÉ äÕ íãËá ÇáÖãíÑ
+            //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„Ø¶Ù…ÙŠØ±
             add(lbl = new JLabel((String) pronounsList.get(i + 7)));
             decorateLabel(lbl);
-            //ÅÖÇÝÉ äÕ íãËá ÇáÝÚá
+            //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„ÙØ¹Ù„
             add(lbl = new JLabel(verbConjugationList.get(i + 7) + ""));
             decorateVerbLabel(lbl);
         }
-        //ÅÖÇÝÉ äÕ íãËá ÇáÖãíÑ
+        //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„Ø¶Ù…ÙŠØ±
         add(lbl = new JLabel((String) pronounsList.get(6)));
         decorateLabel(lbl);
-        //ÅÖÇÝÉ äÕ íãËá ÇáÝÚá
+        //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„ÙØ¹Ù„
         add(lbl = new JLabel(verbConjugationList.get(6) + ""));
         decorateVerbLabel(lbl);
 
@@ -89,7 +89,7 @@ public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
     public boolean saveToHtml(File file) {
         String content = FileUtil.getContents(new File("db/verbs.html"));
 
-        String docTitle = "ÊÕÑíÝ "+ " ( "+ title + " ) " +" ááÝÚá "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
+        String docTitle = "ØªØµØ±ÙŠÙ "+ " ( "+ title + " ) " +" Ù„Ù„ÙØ¹Ù„ "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
         //put the title
         content = content.replaceFirst("DocTitle", docTitle);
 
@@ -124,7 +124,7 @@ public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
     }
 
     public String getSavedFileNameTitle() {
-        return "ÊÕÑíÝ "+ " "+ title + " " +" ááÝÚá "+ "  "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText();
+        return "ØªØµØ±ÙŠÙ "+ " "+ title + " " +" Ù„Ù„ÙØ¹Ù„ "+ "  "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText();
     }
 
 }

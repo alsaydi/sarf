@@ -8,8 +8,8 @@ import sarf.verb.trilateral.Substitution.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description:İÍÕ ÇáÃÌæİ ÍÓÈ ŞÇÆãÉ
- * * æåí äİÓ ÇáŞÇÆãÉ ááÃÌæİ ÇáæÇæí Ãí äİÓ ÇáİÍÕ æÊÎÊáİ ÈÇáÇÓÊÈÏÇáÇÊ             </p>
+ * <p>Description:ÙØ­Øµ Ø§Ù„Ø£Ø¬ÙˆÙ Ø­Ø³Ø¨ Ù‚Ø§Ø¦Ù…Ø©
+ * * ÙˆÙ‡ÙŠ Ù†ÙØ³ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ù„Ù„Ø£Ø¬ÙˆÙ Ø§Ù„ÙˆØ§ÙˆÙŠ Ø£ÙŠ Ù†ÙØ³ Ø§Ù„ÙØ­Øµ ÙˆØªØ®ØªÙ„Ù Ø¨Ø§Ù„Ø§Ø³ØªØ¨Ø¯Ø§Ù„Ø§Øª             </p>
  * </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
@@ -23,19 +23,19 @@ public abstract class AbstractAjwafWawiListedVocalizer extends ListedVocalizer {
     private List appliedRoots = new LinkedList();
 
     public AbstractAjwafWawiListedVocalizer() {
-        appliedRoots.add("Èæå");
-        appliedRoots.add("Îæİ");
-        appliedRoots.add("ÏæÁ");
-        appliedRoots.add("ÏæÏ");
-        appliedRoots.add("Ïæã");
-        appliedRoots.add("Ôæß");
-        appliedRoots.add("ÕæÊ");
-        appliedRoots.add("ØæÚ");
-        appliedRoots.add("ßæÏ");
-        appliedRoots.add("ãæá");
-        appliedRoots.add("äæã");
-        appliedRoots.add("äæå");
-        appliedRoots.add("åæÚ");
+        appliedRoots.add("Ø¨ÙˆÙ‡");
+        appliedRoots.add("Ø®ÙˆÙ");
+        appliedRoots.add("Ø¯ÙˆØ¡");
+        appliedRoots.add("Ø¯ÙˆØ¯");
+        appliedRoots.add("Ø¯ÙˆÙ…");
+        appliedRoots.add("Ø´ÙˆÙƒ");
+        appliedRoots.add("ØµÙˆØª");
+        appliedRoots.add("Ø·ÙˆØ¹");
+        appliedRoots.add("ÙƒÙˆØ¯");
+        appliedRoots.add("Ù…ÙˆÙ„");
+        appliedRoots.add("Ù†ÙˆÙ…");
+        appliedRoots.add("Ù†ÙˆÙ‡");
+        appliedRoots.add("Ù‡ÙˆØ¹");
     }
 
     protected List getAppliedRoots() {

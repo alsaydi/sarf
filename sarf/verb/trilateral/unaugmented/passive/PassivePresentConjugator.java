@@ -8,7 +8,7 @@ import sarf.PresentConjugationDataContainer;
 /**
  * <p>Title: Sarf</p>
  *
- * <p>Description: ÊÕÑíİ ÇáÃİÚÇá İí ÇáãÖÇÑÚ ÇáãÈäí ááãÌåæá     </p>
+ * <p>Description: ØªØµØ±ÙŠÙ Ø§Ù„Ø£ÙØ¹Ø§Ù„ ÙÙŠ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù„Ù…Ø¬Ù‡ÙˆÙ„     </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -28,7 +28,7 @@ public class PassivePresentConjugator {
     }
 
     /**
-     * ÅäÔÇÁ ÇáİÚá ÇáãÖÇÑÚ ÈÛÖ ÇáäÙÑ Úä ÍÇáÊå ÇáÅÚÑÇÈíÉ
+     * Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø¨ØºØ¶ Ø§Ù„Ù†Ø¸Ø± Ø¹Ù† Ø­Ø§Ù„ØªÙ‡ Ø§Ù„Ø¥Ø¹Ø±Ø§Ø¨ÙŠØ©
      * @param pronounIndex int
      * @param root UnaugmentedTrilateralRoot
      * @param lastDprList List
@@ -36,8 +36,8 @@ public class PassivePresentConjugator {
      * @return PassivePresentVerb
      */
     private PassivePresentVerb createVerb(int pronounIndex, UnaugmentedTrilateralRoot root, List lastDprList, List connectedPronounList) {
-        //	ÇÙåÇÑ ãÚ åæ æåí İŞØ ááãÌåæá ÇááÇÒã
-        if (root.getTransitive().equals("á") && pronounIndex != 7 && pronounIndex != 8) {
+        //	Ø§Ø¸Ù‡Ø§Ø± Ù…Ø¹ Ù‡Ùˆ ÙˆÙ‡ÙŠ ÙÙ‚Ø· Ù„Ù„Ù…Ø¬Ù‡ÙˆÙ„ Ø§Ù„Ù„Ø§Ø²Ù…
+        if (root.getTransitive().equals("Ù„") && pronounIndex != 7 && pronounIndex != 8) {
             return null;
         }
 
@@ -49,7 +49,7 @@ public class PassivePresentConjugator {
 
 
     /**
-     * ÅäÔÇÁ ÇáİÚá ÇáãÖÇÑÚ İí ÍÇáÉ ÇáÑİÚ
+     * Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ø±ÙØ¹
      * @param pronounIndex int
      * @param root TrilateralVerb
      * @return PresentConjugation
@@ -60,7 +60,7 @@ public class PassivePresentConjugator {
 
 
     /**
-     * ÅäÔÇÁ ÇáİÚá ÇáãÖÇÑÚ İí ÍÇáÉ ÇáäÕÈ
+     * Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ù†ØµØ¨
      * @param pronounIndex int
      * @param root TrilateralVerb
      * @return PresentConjugation
@@ -71,7 +71,7 @@ public class PassivePresentConjugator {
 
 
     /**
-     * ÅäÔÇÁ ÇáİÚá ÇáãÖÇÑÚ İí ÍÇáÉ ÇáÌÒã
+     * Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ø¬Ø²Ù…
      * @param pronounIndex int
      * @param root TrilateralVerb
      * @return PresentConjugation
@@ -82,7 +82,7 @@ public class PassivePresentConjugator {
 
 
     /**
-     * ÅäÔÇÁ ÇáİÚá ÇáãÖÇÑÚ İí ÍÇáÉ ÇáÊÃßíÏ
+     * Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„ØªØ£ÙƒÙŠØ¯
      * @param pronounIndex int
      * @param root TrilateralVerb
      * @return PresentConjugation
@@ -92,8 +92,8 @@ public class PassivePresentConjugator {
     }
 
     /**
-     * ÅäÔÇÁ ŞÇÆãÉ ÊÍÊæí ÇáÃİÚÇá ÍÓÈ ÇáÖãÇÆÑ
-     * İí ÍÇáÉ ÇáÑİÚ
+     * Ø¥Ù†Ø´Ø§Ø¡ Ù‚Ø§Ø¦Ù…Ø© ØªØ­ØªÙˆÙŠ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…Ø§Ø¦Ø±
+     * ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ø±ÙØ¹
      * @param root TripleVerb
      * @return List
      */
@@ -107,8 +107,8 @@ public class PassivePresentConjugator {
     }
 
     /**
-     * ÅäÔÇÁ ŞÇÆãÉ ÊÍÊæí ÇáÃİÚÇá ÍÓÈ ÇáÖãÇÆÑ
-     * İí ÍÇáÉ ÇáäÕÈ
+     * Ø¥Ù†Ø´Ø§Ø¡ Ù‚Ø§Ø¦Ù…Ø© ØªØ­ØªÙˆÙŠ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…Ø§Ø¦Ø±
+     * ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ù†ØµØ¨
      * @param root TripleVerb
      * @return List
      */
@@ -122,8 +122,8 @@ public class PassivePresentConjugator {
     }
 
     /**
-     * ÅäÔÇÁ ŞÇÆãÉ ÊÍÊæí ÇáÃİÚÇá ÍÓÈ ÇáÖãÇÆÑ
-     * İí ÍÇáÉ ÇáÌÒã
+     * Ø¥Ù†Ø´Ø§Ø¡ Ù‚Ø§Ø¦Ù…Ø© ØªØ­ØªÙˆÙŠ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…Ø§Ø¦Ø±
+     * ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ø¬Ø²Ù…
      * @param root TripleVerb
      * @return List
      */
@@ -138,8 +138,8 @@ public class PassivePresentConjugator {
 
 
     /**
-     * ÅäÔÇÁ ŞÇÆãÉ ÊÍÊæí ÇáÃİÚÇá ÍÓÈ ÇáÖãÇÆÑ
-     * İí ÍÇáÉ ÇáÊÃßíÏ
+     * Ø¥Ù†Ø´Ø§Ø¡ Ù‚Ø§Ø¦Ù…Ø© ØªØ­ØªÙˆÙŠ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…Ø§Ø¦Ø±
+     * ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„ØªØ£ÙƒÙŠØ¯
      * @param root TripleVerb
      * @return List
      */

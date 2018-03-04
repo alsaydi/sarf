@@ -22,7 +22,7 @@ public class RaaPresentMahmouz extends SubstitutionsApplier implements IAugmente
     private List substitutions = new ArrayList();
 
     public RaaPresentMahmouz() {
-        substitutions.add(new InfixSubstitution("úÁó","ó"));// EX: (íõÑóì)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù","Ù"));// EX: (ÙŠÙØ±ÙÙ‰)
     }
 
     public List getSubstitutions() {
@@ -31,6 +31,6 @@ public class RaaPresentMahmouz extends SubstitutionsApplier implements IAugmente
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         TrilateralRoot root = conjugationResult.getRoot();
-        return conjugationResult.getFormulaNo() == 1 && root.getC1() == 'Ñ' && root.getC2() == 'Á' && root.getC3() == 'í';
+        return conjugationResult.getFormulaNo() == 1 && root.getC1() == 'Ø±' && root.getC2() == 'Ø¡' && root.getC3() == 'ÙŠ';
     }
 }

@@ -28,11 +28,11 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListen
 public class PassiveVerbSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
     private SelectionInfo selectionInfo;
 
-    ToggleRenderedButton pastBtn = new ToggleRenderedButton("ÇáãÇÖí ÇáãÌåæá ");
-    ToggleRenderedButton presentNominativeBtn = new ToggleRenderedButton("ÇáãÖÇÑÚ ÇáãÑİæÚ ÇáãÌåæá ");
-    ToggleRenderedButton presentAccusativeBtn = new ToggleRenderedButton("ÇáãÖÇÑÚ ÇáãäÕæÈ ÇáãÌåæá ");
-    ToggleRenderedButton presentJussiveBtn = new ToggleRenderedButton("ÇáãÖÇÑÚ ÇáãÌÒæã ÇáãÌåæá ");
-    ToggleRenderedButton presentEmphasizedBtn = new ToggleRenderedButton("ÇáãÖÇÑÚ ÇáãÄßÏ ÇáãÌåæá ");
+    ToggleRenderedButton pastBtn = new ToggleRenderedButton("Ø§Ù„Ù…Ø§Ø¶ÙŠ Ø§Ù„Ù…Ø¬Ù‡ÙˆÙ„ ");
+    ToggleRenderedButton presentNominativeBtn = new ToggleRenderedButton("Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø±ÙÙˆØ¹ Ø§Ù„Ù…Ø¬Ù‡ÙˆÙ„ ");
+    ToggleRenderedButton presentAccusativeBtn = new ToggleRenderedButton("Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ù†ØµÙˆØ¨ Ø§Ù„Ù…Ø¬Ù‡ÙˆÙ„ ");
+    ToggleRenderedButton presentJussiveBtn = new ToggleRenderedButton("Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¬Ø²ÙˆÙ… Ø§Ù„Ù…Ø¬Ù‡ÙˆÙ„ ");
+    ToggleRenderedButton presentEmphasizedBtn = new ToggleRenderedButton("Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¤ÙƒØ¯ Ø§Ù„Ù…Ø¬Ù‡ÙˆÙ„ ");
 
 
     public PassiveVerbSelectionUI() {
@@ -314,8 +314,8 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
         }
 
         //it must select one of two states
-        String msg = "áåĞÇ ÇáİÚá ÍÇáÊÇä : ÇáÊÕÍíÍ æÇáÅÚáÇá¡ ÇÎÊÑ ÅÍÏì ÇáÍÇáÊíä";
-        Object[] options = {"ÇáÊÕÍíÍ", "ÇáÅÚáÇá"};
+        String msg = "Ù„Ù‡Ø°Ø§ Ø§Ù„ÙØ¹Ù„ Ø­Ø§Ù„ØªØ§Ù† : Ø§Ù„ØªØµØ­ÙŠØ­ ÙˆØ§Ù„Ø¥Ø¹Ù„Ø§Ù„ØŒ Ø§Ø®ØªØ± Ø¥Ø­Ø¯Ù‰ Ø§Ù„Ø­Ø§Ù„ØªÙŠÙ†";
+        Object[] options = {"Ø§Ù„ØªØµØ­ÙŠØ­", "Ø§Ù„Ø¥Ø¹Ù„Ø§Ù„"};
         int optionResult = JOptionPane.showOptionDialog(this, msg, "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
         cashedUserResponse = new Boolean(optionResult == JOptionPane.NO_OPTION);
         return cashedUserResponse.booleanValue();

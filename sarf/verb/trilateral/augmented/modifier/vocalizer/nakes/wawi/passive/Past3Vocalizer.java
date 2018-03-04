@@ -23,9 +23,9 @@ public class Past3Vocalizer extends SubstitutionsApplier implements IAugmentedTr
     private List substitutions = new LinkedList();
 
     public Past3Vocalizer() {
-        substitutions.add(new InfixSubstitution("æú", "í")); // EX: (ÃäÇ ÇÑÚõæöíÊõ)
-        substitutions.add(new InfixSubstitution("æøó", "æöíó")); // EX: (åæ ÇÑúÚõæöíó)
-        substitutions.add(new InfixSubstitution("æøõ", "æõ")); // EX: (åã ÇÑúÚõæõæÇ)
+        substitutions.add(new InfixSubstitution("ÙˆÙ’", "ÙŠ")); // EX: (Ø£Ù†Ø§ Ø§Ø±Ø¹ÙÙˆÙÙŠØªÙ)
+        substitutions.add(new InfixSubstitution("ÙˆÙ‘Ù", "ÙˆÙÙŠÙ")); // EX: (Ù‡Ùˆ Ø§Ø±Ù’Ø¹ÙÙˆÙÙŠÙ)
+        substitutions.add(new InfixSubstitution("ÙˆÙ‘Ù", "ÙˆÙ")); // EX: (Ù‡Ù… Ø§Ø±Ù’Ø¹ÙÙˆÙÙˆØ§)
 
     }
 

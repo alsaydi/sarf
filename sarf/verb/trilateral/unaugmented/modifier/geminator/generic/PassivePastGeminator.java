@@ -21,8 +21,8 @@ public class PassivePastGeminator extends SubstitutionsApplier {
     private List substitutions = new LinkedList();
 
     public PassivePastGeminator() {
-        substitutions.add(new ExpressionInfixSubstitution("C3öC3ó", "C3øó"));
-        substitutions.add(new ExpressionInfixSubstitution("C3öC3õ", "C3øõ"));
+        substitutions.add(new ExpressionInfixSubstitution("C3ÙC3Ù", "C3Ù‘Ù"));
+        substitutions.add(new ExpressionInfixSubstitution("C3ÙC3Ù", "C3Ù‘Ù"));
     }
 
     public List getSubstitutions() {

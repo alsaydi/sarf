@@ -9,7 +9,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: ÇáĞí íäÊåí ÈÇáäæä    </p>
+ * <p>Description: Ø§Ù„Ø°ÙŠ ÙŠÙ†ØªÙ‡ÙŠ Ø¨Ø§Ù„Ù†ÙˆÙ†    </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -23,13 +23,13 @@ public class NEndedGeminator extends SubstitutionsApplier implements IAugmentedT
     private List substitutions = new LinkedList();
 
     public NEndedGeminator() {
-        substitutions.add(new InfixSubstitution("äúä","äø"));// EX: (äÍä ÓóßøóäøóÇ¡ åäøó Óóßøóäøó)
+        substitutions.add(new InfixSubstitution("Ù†Ù’Ù†","Ù†Ù‘"));// EX: (Ù†Ø­Ù† Ø³ÙÙƒÙ‘ÙÙ†Ù‘ÙØ§ØŒ Ù‡Ù†Ù‘Ù Ø³ÙÙƒÙ‘ÙÙ†Ù‘Ù)
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
-        if (conjugationResult.getRoot().getC3() != 'ä') return false;
+        if (conjugationResult.getRoot().getC3() != 'Ù†') return false;
         switch (formulaNo) {
         case 1:
         case 2:

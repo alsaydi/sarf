@@ -20,10 +20,10 @@ public class VerbLamAlefModifier extends SubstitutionsApplier{
 
     private VerbLamAlefModifier() {
 
-        substitutions.add(new InfixSubstitution("сє╟","с╟"));// EX: (▐╟с╟)
-        substitutions.add(new InfixSubstitution("с°є╟","с╟°є"));// EX: (╟ф·╘єс╟°є)
-        substitutions.add(new InfixSubstitution("сє├","с├"));// EX: (уєс├єб уєс├·╩ї)
-        substitutions.add(new InfixSubstitution("сЁ╟","с╟Ё"));// EX: (═ус╟Ё)
+        substitutions.add(new InfixSubstitution("┘Д┘О╪з","┘Д╪з"));// EX: (┘В╪з┘Д╪з)
+        substitutions.add(new InfixSubstitution("┘Д┘С┘О╪з","┘Д╪з┘С┘О"));// EX: (╪з┘Ж┘Т╪┤┘О┘Д╪з┘С┘О)
+        substitutions.add(new InfixSubstitution("┘Д┘О╪г","┘Д╪г"));// EX: (┘Е┘О┘Д╪г┘О╪М ┘Е┘О┘Д╪г┘Т╪к┘П)
+        substitutions.add(new InfixSubstitution("┘Д┘Л╪з","┘Д╪з┘Л"));// EX: (╪н┘Е┘Д╪з┘Л)
 
     }
 

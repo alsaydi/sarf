@@ -5,9 +5,9 @@ import sarf.util.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 
 /**
- * ÇáİÚá ÇáãÇÖí ÇáÑÈÇÚí ÇáãÌÑÏ ÇáãÈäí ááãÌåæá
+ * Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø§Ø¶ÙŠ Ø§Ù„Ø±Ø¨Ø§Ø¹ÙŠ Ø§Ù„Ù…Ø¬Ø±Ø¯ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù„Ù…Ø¬Ù‡ÙˆÙ„
  * <p>Title: Sarf</p>
- * <p>Description: ÈÑäÇãÌ ÇáÊÕÑíİ</p>
+ * <p>Description: Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØµØ±ÙŠÙ</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
  * @author Haytham Mohtasseb Billah
@@ -17,10 +17,10 @@ public class PassivePastVerb {
     private UnaugmentedQuadriliteralRoot root;
 
 
-    //ÍÑßÉ áÇã ÇáİÚá ÍÓÈ ÇáÖãíÑ
+    //Ø­Ø±ÙƒØ© Ù„Ø§Ù… Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
     private String lastDpa;
 
-    //ÇáÃÍÑİ ÇáãÖÇİÉ áäåÇíÉ ÇáİÚá ÍÓÈ ÇáÖãíÑ
+    //Ø§Ù„Ø£Ø­Ø±Ù Ø§Ù„Ù…Ø¶Ø§ÙØ© Ù„Ù†Ù‡Ø§ÙŠØ© Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
     private String connectedPronoun;
 
     public PassivePastVerb(UnaugmentedQuadriliteralRoot root, String lastDpa, String connectedPronoun) {

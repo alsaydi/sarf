@@ -3,7 +3,7 @@ package sarf.verb.trilateral;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: ╟с╒▌ ╟с├╚ сс╠╨╤ ╟с╦с╟╦э ╟су╥э╧ ц╟сф╟▐╒     </p>
+ * <p>Description: ╪з┘Д╪╡┘Б ╪з┘Д╪г╪и ┘Д┘Д╪м╪░╪▒ ╪з┘Д╪л┘Д╪з╪л┘К ╪з┘Д┘Е╪▓┘К╪п ┘И╪з┘Д┘Ж╪з┘В╪╡     </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *

@@ -20,22 +20,22 @@ public class ActivePresentGeminator extends SubstitutionsApplier {
     private List substitutions = new LinkedList();
 
     public ActivePresentGeminator() {
-        substitutions.add(new ExpressionInfixSubstitution("úC3öC3õ", "öC3øõ")); // EX: (íõÊöãøõ)
-        substitutions.add(new ExpressionInfixSubstitution("úC3öC3ó", "öC3øó")); // EX: (íõÊöãøóÇä)
-        substitutions.add(new ExpressionInfixSubstitution("úC3öC3ö", "öC3øö")); // EX: (ÊõÊöãøöíäó)
-        substitutions.add(new ExpressionSuffixSubstitution("úC3öC3ú", "öC3øó")); // EX: (áã íõÊöãøó)
-        substitutions.add(new ExpressionInfixSubstitution("óC3öC3õ", "óC3øõ")); // EX: (íÃÊóãø)
-        substitutions.add(new ExpressionInfixSubstitution("óC3öC3ó", "óC3øó")); // EX: (íÃÊóãøÇä)
-        substitutions.add(new ExpressionInfixSubstitution("óC3öC3ö", "óC3øö")); // EX: (ÊÃÊóãøöíäó)
-        substitutions.add(new ExpressionSuffixSubstitution("óC3öC3ú", "óC3øó")); // EX: (áã íÃÊóãø)
-        substitutions.add(new ExpressionInfixSubstitution("ÇC3óC3õ", "ÇC3øõ")); // EX: (íóÊóÕóÇãøõ¡)
-        substitutions.add(new ExpressionInfixSubstitution("ÇC3óC3ó", "ÇC3øó")); // EX: (íóÊóÕóÇãøóÇ¡)
-        substitutions.add(new ExpressionInfixSubstitution("ÇC3óC3ö", "ÇC3øö")); // EX: (ÊóÊóÕóÇãøöí¡)
-        substitutions.add(new ExpressionSuffixSubstitution("ÇC3óC3ú", "ÇC3øó")); // EX: (áã íóÊóÕóÇãøó¡)
-        substitutions.add(new ExpressionInfixSubstitution("ÇC3öC3õ", "ÇC3øõ")); // EX: (íõÍÇÌø)
-        substitutions.add(new ExpressionInfixSubstitution("ÇC3öC3ó", "ÇC3øó")); // EX: (íõÍÇÌøÇ)
-        substitutions.add(new ExpressionInfixSubstitution("ÇC3öC3ö", "ÇC3øö")); // EX: (ÊõÍÇÌøöí)
-        substitutions.add(new ExpressionSuffixSubstitution("ÇC3öC3ú", "ÇC3øó")); // EX: (áã  í KõÍÇÌøó)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C3ÙC3Ù", "ÙC3Ù‘Ù")); // EX: (ÙŠÙØªÙÙ…Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C3ÙC3Ù", "ÙC3Ù‘Ù")); // EX: (ÙŠÙØªÙÙ…Ù‘ÙØ§Ù†)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C3ÙC3Ù", "ÙC3Ù‘Ù")); // EX: (ØªÙØªÙÙ…Ù‘ÙÙŠÙ†Ù)
+        substitutions.add(new ExpressionSuffixSubstitution("Ù’C3ÙC3Ù’", "ÙC3Ù‘Ù")); // EX: (Ù„Ù… ÙŠÙØªÙÙ…Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙC3ÙC3Ù", "ÙC3Ù‘Ù")); // EX: (ÙŠØ£ØªÙÙ…Ù‘)
+        substitutions.add(new ExpressionInfixSubstitution("ÙC3ÙC3Ù", "ÙC3Ù‘Ù")); // EX: (ÙŠØ£ØªÙÙ…Ù‘Ø§Ù†)
+        substitutions.add(new ExpressionInfixSubstitution("ÙC3ÙC3Ù", "ÙC3Ù‘Ù")); // EX: (ØªØ£ØªÙÙ…Ù‘ÙÙŠÙ†Ù)
+        substitutions.add(new ExpressionSuffixSubstitution("ÙC3ÙC3Ù’", "ÙC3Ù‘Ù")); // EX: (Ù„Ù… ÙŠØ£ØªÙÙ…Ù‘)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C3ÙC3Ù", "Ø§C3Ù‘Ù")); // EX: (ÙŠÙØªÙØµÙØ§Ù…Ù‘ÙØŒ)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C3ÙC3Ù", "Ø§C3Ù‘Ù")); // EX: (ÙŠÙØªÙØµÙØ§Ù…Ù‘ÙØ§ØŒ)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C3ÙC3Ù", "Ø§C3Ù‘Ù")); // EX: (ØªÙØªÙØµÙØ§Ù…Ù‘ÙÙŠØŒ)
+        substitutions.add(new ExpressionSuffixSubstitution("Ø§C3ÙC3Ù’", "Ø§C3Ù‘Ù")); // EX: (Ù„Ù… ÙŠÙØªÙØµÙØ§Ù…Ù‘ÙØŒ)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C3ÙC3Ù", "Ø§C3Ù‘Ù")); // EX: (ÙŠÙØ­Ø§Ø¬Ù‘)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C3ÙC3Ù", "Ø§C3Ù‘Ù")); // EX: (ÙŠÙØ­Ø§Ø¬Ù‘Ø§)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C3ÙC3Ù", "Ø§C3Ù‘Ù")); // EX: (ØªÙØ­Ø§Ø¬Ù‘ÙÙŠ)
+        substitutions.add(new ExpressionSuffixSubstitution("Ø§C3ÙC3Ù’", "Ø§C3Ù‘Ù")); // EX: (Ù„Ù…  ÙŠ KÙØ­Ø§Ø¬Ù‘Ù)
     }
 
     public List getSubstitutions() {

@@ -31,7 +31,7 @@ public class HamzaModifier {
         List passivePresentList = new LinkedList();
         List imperativeList = new LinkedList();
 
-        //ÎãÓ ÃäæÇÚ  ÃÓÇÓíÉ  ááãåãæÒ ááãÚáæã æÇáãÈäí áãÌåæá İí ÇáãÇÖí æÇáãÖÇÑÚ æÇáÃãÑ
+        //Ø®Ù…Ø³ Ø£Ù†ÙˆØ§Ø¹  Ø£Ø³Ø§Ø³ÙŠØ©  Ù„Ù„Ù…Ù‡Ù…ÙˆØ² Ù„Ù„Ù…Ø¹Ù„ÙˆÙ… ÙˆØ§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„ ÙÙŠ Ø§Ù„Ù…Ø§Ø¶ÙŠ ÙˆØ§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙˆØ§Ù„Ø£Ù…Ø±
         modifiersMap.put(SystemConstants.PAST_TENSE + "true", activePastList);
         modifiersMap.put(SystemConstants.PRESENT_TENSE + "true", activePresentList);
         modifiersMap.put(SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE + "true", imperativeList);
@@ -39,33 +39,33 @@ public class HamzaModifier {
         modifiersMap.put(SystemConstants.PAST_TENSE + "false", passivePastList);
         modifiersMap.put(SystemConstants.PRESENT_TENSE + "false", passivePresentList);
 
-        //ŞÇÆãÉ ÇáãÇÖí ÇáãÈäí áãÚáæã
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø§Ø¶ÙŠ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¹Ù„ÙˆÙ…
         activePastList.add(new sarf.verb.trilateral.augmented.modifier.hamza.ein.active.RaaPastMahmouz());
         activePastList.add(new sarf.verb.trilateral.augmented.modifier.hamza.ein.active.PastMahmouz());
         activePastList.add(new sarf.verb.trilateral.augmented.modifier.hamza.faa.active.PastMahmouz());
         activePastList.add(new sarf.verb.trilateral.augmented.modifier.hamza.lam.active.PastMahmouz());
 
-        //ŞÇÆãÉ ÇáãÇÖí ÇáãÈäí áãÌåæá
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø§Ø¶ÙŠ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„
         passivePastList.add(new sarf.verb.trilateral.augmented.modifier.hamza.ein.passive.RaaPastMahmouz());
         passivePastList.add(new sarf.verb.trilateral.augmented.modifier.hamza.ein.passive.PastMahmouz());
         passivePastList.add(new sarf.verb.trilateral.augmented.modifier.hamza.faa.passive.PastMahmouz());
         passivePastList.add(new sarf.verb.trilateral.augmented.modifier.hamza.lam.passive.PastMahmouz());
 
 
-        //ŞÇÆãÉ ÇáãÖÇÑÚ ÇáãÈäí áãÚáæã
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¹Ù„ÙˆÙ…
         activePresentList.add(new sarf.verb.trilateral.augmented.modifier.hamza.ein.active.RaaPresentMahmouz());
         activePresentList.add(new sarf.verb.trilateral.augmented.modifier.hamza.ein.active.PresentMahmouz());
         activePresentList.add(new sarf.verb.trilateral.augmented.modifier.hamza.faa.active.PresentMahmouz());
         activePresentList.add(new sarf.verb.trilateral.augmented.modifier.hamza.lam.active.PresentMahmouz());
 
 
-        //ŞÇÆãÉ ÇáãÖÇÑÚ ÇáãÈäí áãÌåæá
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„
         passivePresentList.add(new sarf.verb.trilateral.augmented.modifier.hamza.ein.passive.RaaPresentMahmouz());
         passivePresentList.add(new sarf.verb.trilateral.augmented.modifier.hamza.ein.passive.PresentMahmouz());
         passivePresentList.add(new sarf.verb.trilateral.augmented.modifier.hamza.faa.passive.PresentMahmouz());
         passivePresentList.add(new sarf.verb.trilateral.augmented.modifier.hamza.lam.passive.PresentMahmouz());
 
-        //ŞÇÆãÉ ÇáÃãÑ
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø£Ù…Ø±
         imperativeList.add(new sarf.verb.trilateral.augmented.modifier.hamza.ein.active.RaaImperativeMahmouz());
         imperativeList.add(new sarf.verb.trilateral.augmented.modifier.hamza.ein.active.ImperativeMahmouz());
         imperativeList.add(new sarf.verb.trilateral.augmented.modifier.hamza.faa.active.ImperativeMahmouz());
@@ -73,8 +73,8 @@ public class HamzaModifier {
     }
 
     /**
-     * ÊØÈíŞ ÊÛííÑ  ÇáåãÒÉ ÍÓÈ ÇáÕíÛÉ ãÇÖí Ãæ ãÖÇÑÚ Ãæ ÃãÑ ááãÚáæã Ãæ áãÌåæá
-     * ŞÏ áÇ íØÈŞ Ãí äæÚ
+     * ØªØ·Ø¨ÙŠÙ‚ ØªØºÙŠÙŠØ±  Ø§Ù„Ù‡Ù…Ø²Ø© Ø­Ø³Ø¨ Ø§Ù„ØµÙŠØºØ© Ù…Ø§Ø¶ÙŠ Ø£Ùˆ Ù…Ø¶Ø§Ø±Ø¹ Ø£Ùˆ Ø£Ù…Ø± Ù„Ù„Ù…Ø¹Ù„ÙˆÙ… Ø£Ùˆ Ù„Ù…Ø¬Ù‡ÙˆÙ„
+     * Ù‚Ø¯ Ù„Ø§ ÙŠØ·Ø¨Ù‚ Ø£ÙŠ Ù†ÙˆØ¹
      * @param tense String
      * @param active boolean
      * @param conjResult ConjugationResult

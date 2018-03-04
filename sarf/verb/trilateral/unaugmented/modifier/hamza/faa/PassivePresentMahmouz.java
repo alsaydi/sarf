@@ -20,9 +20,9 @@ public class PassivePresentMahmouz extends AbstractFaaMahmouz {
     private List substitutions = new ArrayList();
 
     public PassivePresentMahmouz() {
-        substitutions.add(new InfixSubstitution("ÃõÁú", "Ãõæ")); // EX: (Ãõæßóá)
-        substitutions.add(new InfixSubstitution("õÁú","õÄú"));// EX: (íõÄúßóá)
-        substitutions.add(new InfixSubstitution("õÁó", "õÄó")); // EX: (íõÄóÇÈ¡ íõÄóÇä)
+        substitutions.add(new InfixSubstitution("Ø£ÙØ¡Ù’", "Ø£ÙÙˆ")); // EX: (Ø£ÙÙˆÙƒÙÙ„)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’","ÙØ¤Ù’"));// EX: (ÙŠÙØ¤Ù’ÙƒÙÙ„)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ¤Ù")); // EX: (ÙŠÙØ¤ÙØ§Ø¨ØŒ ÙŠÙØ¤ÙØ§Ù†)
     }
 
     public List getSubstitutions() {

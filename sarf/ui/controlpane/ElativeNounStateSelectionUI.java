@@ -25,10 +25,10 @@ import sarf.noun.trilateral.unaugmented.elative.*;
  */
 public class ElativeNounStateSelectionUI extends JPanel implements INounStateSelectionUI{
 
-    ToggleRenderedButton definiteBtn = new ToggleRenderedButton("ÇáãÚÑİ ÈÃá ");
-    ToggleRenderedButton annexedDefiniteBtn = new ToggleRenderedButton("ÇáãÖÇİ Åáì ãÚÑİÉ  ");
-    ToggleRenderedButton annexedIndefiniteBtn = new ToggleRenderedButton("ÇáãÖÇİ Åáì äßÑÉ  ");
-    ToggleRenderedButton notAnnexedIndefiniteBtn = new ToggleRenderedButton("ÛíÑ ÇáãÖÇİ ");
+    ToggleRenderedButton definiteBtn = new ToggleRenderedButton("Ø§Ù„Ù…Ø¹Ø±Ù Ø¨Ø£Ù„ ");
+    ToggleRenderedButton annexedDefiniteBtn = new ToggleRenderedButton("Ø§Ù„Ù…Ø¶Ø§Ù Ø¥Ù„Ù‰ Ù…Ø¹Ø±ÙØ©  ");
+    ToggleRenderedButton annexedIndefiniteBtn = new ToggleRenderedButton("Ø§Ù„Ù…Ø¶Ø§Ù Ø¥Ù„Ù‰ Ù†ÙƒØ±Ø©  ");
+    ToggleRenderedButton notAnnexedIndefiniteBtn = new ToggleRenderedButton("ØºÙŠØ± Ø§Ù„Ù…Ø¶Ø§Ù ");
 
 
     public ElativeNounStateSelectionUI() {

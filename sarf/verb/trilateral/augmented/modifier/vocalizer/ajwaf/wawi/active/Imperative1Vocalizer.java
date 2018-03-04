@@ -24,10 +24,10 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IAugme
 
     public Imperative1Vocalizer() {
 
-        substitutions.add(new ExpressionInfixSubstitution("úæöC3õ", "öíC3õ")); // EX: (ÃäÊã ÃŞíãæÇ¡ ÇÓÊÏíÑæÇ)
-        substitutions.add(new ExpressionInfixSubstitution("úæöC3ö", "öíC3ö")); // EX: (ÃäÊö ÃŞíãí¡ ÇÓÊÏíÑí)
-        substitutions.add(new ExpressionInfixSubstitution("úæöC3ó", "öíC3ó")); // EX: (ÃäÊãÇ ÃŞíãÇ¡ ÇÓÊÏíÑÇ)
-        substitutions.add(new ExpressionInfixSubstitution("úæöC3ú", "öC3ú")); // EX: (ÃäÊä ÃŞöãúäó¡ ÇÓÊÏÑúäó)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙˆÙC3Ù", "ÙÙŠC3Ù")); // EX: (Ø£Ù†ØªÙ… Ø£Ù‚ÙŠÙ…ÙˆØ§ØŒ Ø§Ø³ØªØ¯ÙŠØ±ÙˆØ§)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙˆÙC3Ù", "ÙÙŠC3Ù")); // EX: (Ø£Ù†ØªÙ Ø£Ù‚ÙŠÙ…ÙŠØŒ Ø§Ø³ØªØ¯ÙŠØ±ÙŠ)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙˆÙC3Ù", "ÙÙŠC3Ù")); // EX: (Ø£Ù†ØªÙ…Ø§ Ø£Ù‚ÙŠÙ…Ø§ØŒ Ø§Ø³ØªØ¯ÙŠØ±Ø§)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙˆÙC3Ù’", "ÙC3Ù’")); // EX: (Ø£Ù†ØªÙ† Ø£Ù‚ÙÙ…Ù’Ù†ÙØŒ Ø§Ø³ØªØ¯Ø±Ù’Ù†Ù)
     }
 
 

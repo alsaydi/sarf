@@ -24,7 +24,7 @@ public class ACAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier impleme
     List substitutions = new LinkedList();
 
     public ACAjwaf2Vocalizer() {
-        substitutions.add(new InfixSubstitution("úíó","óÇ"));// EX: (ãóİÇÖ¡ ãóİÇÖÉ)
+        substitutions.add(new InfixSubstitution("Ù’ÙŠÙ","ÙØ§"));// EX: (Ù…ÙÙØ§Ø¶ØŒ Ù…ÙÙØ§Ø¶Ø©)
     }
 
 
@@ -34,7 +34,7 @@ public class ACAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier impleme
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
-        if (!nounFormula.equals("ãóİúÚóá") && !nounFormula.equals("ãóİúÚóáóÉ"))
+        if (!nounFormula.equals("Ù…ÙÙÙ’Ø¹ÙÙ„") && !nounFormula.equals("Ù…ÙÙÙ’Ø¹ÙÙ„ÙØ©"))
             return false;
 
         int kov = conjugationResult.getKov();

@@ -24,21 +24,21 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
     private List substitutions = new LinkedList();
 
     public YaeiNakesLafifVocalizer() {
-        substitutions.add(new InfixSubstitution("óÇÏóíóÇÊ","óÇÏóíóÇÊ"));// EX: (ãíÇÏÇÉ)
-        substitutions.add(new InfixSubstitution("óÇÏóíó","óÇÏóÇ"));// EX: (ãíÇÏÇÉ)
-        substitutions.add(new InfixSubstitution("óíóÇÊ","óíóÇÊ"));// EX: (ãÌÇÑíÇÊ)
-        substitutions.add(new InfixSubstitution("óÇíóíó","óÇíóÇ"));// EX: (ãõÍÇíÇÉ)
-        substitutions.add(new SuffixSubstitution("õíõ","öí"));// EX: (åĞÇ ÇáÊäÇÓí¡ ÇáÊÑŞøöí)
-        substitutions.add(new SuffixSubstitution("õíó","öíó"));// EX: (ÑÃíÊõ ÇáÊäÇÓíó ¡ ÇáÊÑŞøöíó)
-        substitutions.add(new SuffixSubstitution("õíö","öí"));// EX: (ÈÇáÊäÇÓí ¡ ÈÇáÊÑŞøöí)
-        substitutions.add(new InfixSubstitution("õíñ","ò"));// EX: (åĞÇ ÊäÇÓò¡ ÊÑŞøò)
-        substitutions.add(new InfixSubstitution("õíò","ò"));// EX: (ÈöÊäÇÓò¡ ÈÊÑŞøò)
-        substitutions.add(new InfixSubstitution("õíğ","öíğ"));// EX: (ÊäÇÓöíğÇ¡ ÊÑŞøöíğÇ)
-        substitutions.add(new InfixSubstitution("õíó","öíó"));// EX: (ÊäÇÓíÇä¡ ÊÑŞøöíÇä)
-        substitutions.add(new InfixSubstitution("óÇíğÇ","óÇÁğ"));// EX: (ÅÓÇÁğ)
-        substitutions.add(new InfixSubstitution("óÇí","óÇÁ"));// EX: (ÅåÏÇÁ¡ ÌÑÇÁ¡ ÇäËäÇÁ¡ ÇßÊİÇÁ¡ ÇÓÊÛäÇÁ¡ ÇÚÑíÑÇÁ)
-        substitutions.add(new InfixSubstitution("óíó","óÇ"));// EX: (ãÌÇÑÇÉ)
-        substitutions.add(new InfixSubstitution("öíí","öí"));// EX: (ÊÑŞíÉ)
+        substitutions.add(new InfixSubstitution("ÙØ§Ø¯ÙÙŠÙØ§Øª","ÙØ§Ø¯ÙÙŠÙØ§Øª"));// EX: (Ù…ÙŠØ§Ø¯Ø§Ø©)
+        substitutions.add(new InfixSubstitution("ÙØ§Ø¯ÙÙŠÙ","ÙØ§Ø¯ÙØ§"));// EX: (Ù…ÙŠØ§Ø¯Ø§Ø©)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙØ§Øª","ÙÙŠÙØ§Øª"));// EX: (Ù…Ø¬Ø§Ø±ÙŠØ§Øª)
+        substitutions.add(new InfixSubstitution("ÙØ§ÙŠÙÙŠÙ","ÙØ§ÙŠÙØ§"));// EX: (Ù…ÙØ­Ø§ÙŠØ§Ø©)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠ"));// EX: (Ù‡Ø°Ø§ Ø§Ù„ØªÙ†Ø§Ø³ÙŠØŒ Ø§Ù„ØªØ±Ù‚Ù‘ÙÙŠ)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠÙ"));// EX: (Ø±Ø£ÙŠØªÙ Ø§Ù„ØªÙ†Ø§Ø³ÙŠÙ ØŒ Ø§Ù„ØªØ±Ù‚Ù‘ÙÙŠÙ)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠ"));// EX: (Ø¨Ø§Ù„ØªÙ†Ø§Ø³ÙŠ ØŒ Ø¨Ø§Ù„ØªØ±Ù‚Ù‘ÙÙŠ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙŒ","Ù"));// EX: (Ù‡Ø°Ø§ ØªÙ†Ø§Ø³ÙØŒ ØªØ±Ù‚Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ø¨ÙØªÙ†Ø§Ø³ÙØŒ Ø¨ØªØ±Ù‚Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ‹","ÙÙŠÙ‹"));// EX: (ØªÙ†Ø§Ø³ÙÙŠÙ‹Ø§ØŒ ØªØ±Ù‚Ù‘ÙÙŠÙ‹Ø§)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","ÙÙŠÙ"));// EX: (ØªÙ†Ø§Ø³ÙŠØ§Ù†ØŒ ØªØ±Ù‚Ù‘ÙÙŠØ§Ù†)
+        substitutions.add(new InfixSubstitution("ÙØ§ÙŠÙ‹Ø§","ÙØ§Ø¡Ù‹"));// EX: (Ø¥Ø³Ø§Ø¡Ù‹)
+        substitutions.add(new InfixSubstitution("ÙØ§ÙŠ","ÙØ§Ø¡"));// EX: (Ø¥Ù‡Ø¯Ø§Ø¡ØŒ Ø¬Ø±Ø§Ø¡ØŒ Ø§Ù†Ø«Ù†Ø§Ø¡ØŒ Ø§ÙƒØªÙØ§Ø¡ØŒ Ø§Ø³ØªØºÙ†Ø§Ø¡ØŒ Ø§Ø¹Ø±ÙŠØ±Ø§Ø¡)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","ÙØ§"));// EX: (Ù…Ø¬Ø§Ø±Ø§Ø©)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙŠ","ÙÙŠ"));// EX: (ØªØ±Ù‚ÙŠØ©)
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {

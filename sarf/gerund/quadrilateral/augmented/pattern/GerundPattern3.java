@@ -32,7 +32,7 @@ public class GerundPattern3 extends QuadriliteralAugmentedGerund {
      *   sarf.gerund.trilateral.augmented.TrilateralAugmentedGerund method
      */
     public String form() {
-        return "Ç"+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+ArabCharUtil.SKOON+root.getC4()+ArabCharUtil.FATHA+"Ç"+root.getC4()+suffix;
+        return "Ø§"+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+ArabCharUtil.SKOON+root.getC4()+ArabCharUtil.FATHA+"Ø§"+root.getC4()+suffix;
     }
 
 
@@ -44,7 +44,7 @@ public class GerundPattern3 extends QuadriliteralAugmentedGerund {
      *   sarf.gerund.trilateral.augmented.TrilateralAugmentedGerund method
      */
     public String getPattern() {
-        return "ÇİúÚöáÇøóá";
+        return "Ø§ÙÙ’Ø¹ÙÙ„Ø§Ù‘ÙÙ„";
     }
 
 }

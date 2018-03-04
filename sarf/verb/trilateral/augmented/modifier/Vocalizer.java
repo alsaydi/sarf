@@ -18,7 +18,7 @@ import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
  * @version 1.0
  */
 public class Vocalizer {
-    //ÇáãÚáæã  æ  ÇáãÌåæá ÊÍÊæí ŞÇÆãÉ ÈÇáÃäæÇÚ ÇáÎãÓÉ áÇÚáÇá áãÇÖí æÇáãÖÇÑÚ æÇáÃãÑ ÍÓÈ
+    //Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…  Ùˆ  Ø§Ù„Ù…Ø¬Ù‡ÙˆÙ„ ØªØ­ØªÙˆÙŠ Ù‚Ø§Ø¦Ù…Ø© Ø¨Ø§Ù„Ø£Ù†ÙˆØ§Ø¹ Ø§Ù„Ø®Ù…Ø³Ø© Ù„Ø§Ø¹Ù„Ø§Ù„ Ù„Ù…Ø§Ø¶ÙŠ ÙˆØ§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙˆØ§Ù„Ø£Ù…Ø± Ø­Ø³Ø¨
     private Map vocalizerMap = new HashMap();
 
     public Vocalizer() {
@@ -28,7 +28,7 @@ public class Vocalizer {
         List passivePresentList = new LinkedList();
         List imperativeList = new LinkedList();
 
-        //ÎãÓ ÃäæÇÚ  ÃÓÇÓíÉ  ááÇÚáÇá ááãÚáæã æÇáãÈäí áãÌåæá İí ÇáãÇÖí æÇáãÖÇÑÚ æÇáÃãÑ
+        //Ø®Ù…Ø³ Ø£Ù†ÙˆØ§Ø¹  Ø£Ø³Ø§Ø³ÙŠØ©  Ù„Ù„Ø§Ø¹Ù„Ø§Ù„ Ù„Ù„Ù…Ø¹Ù„ÙˆÙ… ÙˆØ§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„ ÙÙŠ Ø§Ù„Ù…Ø§Ø¶ÙŠ ÙˆØ§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙˆØ§Ù„Ø£Ù…Ø±
         vocalizerMap.put(SystemConstants.PAST_TENSE + "true", activePastList);
         vocalizerMap.put(SystemConstants.PRESENT_TENSE + "true", activePresentList);
         vocalizerMap.put(SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE + "true", imperativeList);
@@ -36,7 +36,7 @@ public class Vocalizer {
         vocalizerMap.put(SystemConstants.PAST_TENSE + "false", passivePastList);
         vocalizerMap.put(SystemConstants.PRESENT_TENSE + "false", passivePresentList);
 
-        //ŞÇÆãÉ ÇáãÇÖí ÇáãÈäí áãÚáæã
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø§Ø¶ÙŠ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¹Ù„ÙˆÙ…
         activePastList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.wawi.active.Past1Vocalizer());
         activePastList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.wawi.active.Past2Vocalizer());
         activePastList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.yaei.active.Past1Vocalizer());
@@ -48,7 +48,7 @@ public class Vocalizer {
         activePastList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.lafif.connected.active.Past3Vocalizer());
         activePastList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.lafif.separated.active.PastVocalizer());
 
-        //ŞÇÆãÉ ÇáãÇÖí ÇáãÈäí áãÌåæá
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø§Ø¶ÙŠ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„
         passivePastList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.wawi.passive.PastVocalizer());
         passivePastList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.yaei.passive.PastVocalizer());
         passivePastList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.nakes.wawi.passive.Past1Vocalizer());
@@ -62,7 +62,7 @@ public class Vocalizer {
         passivePastList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.mithal.YaeiVocalizer());
         passivePastList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.mithal.WawiVocalizer());
 
-        //ŞÇÆãÉ ÇáãÖÇÑÚ ÇáãÈäí áãÚáæã
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¹Ù„ÙˆÙ…
         activePresentList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.wawi.active.Present1Vocalizer());
         activePresentList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.wawi.active.Present2Vocalizer());
         activePresentList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.yaei.active.Present1Vocalizer());
@@ -88,7 +88,7 @@ public class Vocalizer {
         activePresentList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.mithal.YaeiVocalizer());
         activePresentList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.mithal.WawiVocalizer());
 
-        //ŞÇÆãÉ ÇáãÖÇÑÚ ÇáãÈäí áãÌåæá
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„
         passivePresentList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.wawi.passive.Present1Vocalizer());
         passivePresentList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.wawi.passive.Present2Vocalizer());
         passivePresentList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.yaei.passive.Present1Vocalizer());
@@ -102,7 +102,7 @@ public class Vocalizer {
         passivePresentList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.mithal.YaeiVocalizer());
         passivePresentList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.mithal.WawiVocalizer());
 
-        //ŞÇÆãÉ ÇáÃãÑ
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø£Ù…Ø±
         imperativeList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.wawi.active.Imperative1Vocalizer());
         imperativeList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.wawi.active.Imperative2Vocalizer());
         imperativeList.add(new sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.yaei.active.Imperative1Vocalizer());
@@ -125,8 +125,8 @@ public class Vocalizer {
     }
 
     /**
-     * ÊØÈíŞ ÇáÇÚáÇá ÍÓÈ ÇáÕíÛÉ ãÇÖí Ãæ ãÖÇÑÚ Ãæ ÃãÑ ááãÚáæã Ãæ áãÌåæá
-     * ŞÏ áÇ íØÈŞ Ãí äæÚ ãä ÇáÇÚáÇá
+     * ØªØ·Ø¨ÙŠÙ‚ Ø§Ù„Ø§Ø¹Ù„Ø§Ù„ Ø­Ø³Ø¨ Ø§Ù„ØµÙŠØºØ© Ù…Ø§Ø¶ÙŠ Ø£Ùˆ Ù…Ø¶Ø§Ø±Ø¹ Ø£Ùˆ Ø£Ù…Ø± Ù„Ù„Ù…Ø¹Ù„ÙˆÙ… Ø£Ùˆ Ù„Ù…Ø¬Ù‡ÙˆÙ„
+     * Ù‚Ø¯ Ù„Ø§ ÙŠØ·Ø¨Ù‚ Ø£ÙŠ Ù†ÙˆØ¹ Ù…Ù† Ø§Ù„Ø§Ø¹Ù„Ø§Ù„
      * @param tense String
      * @param active boolean
      * @param conjResult ConjugationResult

@@ -28,11 +28,11 @@ public class NounFormula4 extends NonStandardExaggerationNounFormula{
     }
 
     public String form() {
-        return root.getC1()+ArabCharUtil.KASRA+root.getC2()+ArabCharUtil.SHADDA+ArabCharUtil.KASRA+"í"+root.getC3()+suffix;
+        return root.getC1()+ArabCharUtil.KASRA+root.getC2()+ArabCharUtil.SHADDA+ArabCharUtil.KASRA+"ÙŠ"+root.getC3()+suffix;
     }
 
     public String getFormulaName() {
-        return "İöÚøöíá";
+        return "ÙÙØ¹Ù‘ÙÙŠÙ„";
     }
 
     public String getSymbol() {

@@ -35,13 +35,13 @@ public class NounFormula13 extends NonStandardInstrumentalNounFormula{
         case 10:
         case 14:
         case 16:
-            return "Ã" + ArabCharUtil.DAMMA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.DAMMA + "æ" + root.getC3() + suffix;
+            return "Ø£" + ArabCharUtil.DAMMA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.DAMMA + "Ùˆ" + root.getC3() + suffix;
         }
         return "";
     }
 
     public String getFormulaName() {
-        return "ÃõİúÚõæáóÉ";
+        return "Ø£ÙÙÙ’Ø¹ÙÙˆÙ„ÙØ©";
     }
 
     public String getSymbol() {

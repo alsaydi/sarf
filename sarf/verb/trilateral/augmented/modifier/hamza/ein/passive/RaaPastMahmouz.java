@@ -22,8 +22,8 @@ public class RaaPastMahmouz extends SubstitutionsApplier implements IAugmentedTr
     private List substitutions = new ArrayList();
 
     public RaaPastMahmouz() {
-        substitutions.add(new InfixSubstitution("úÁö", "ö")); // EX: (ÃõÑöíÊõ¡ ÃõÑöíó)
-        substitutions.add(new InfixSubstitution("úÁõ", "õ")); // EX: (ÃõÑõæÇ¡ )
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù", "Ù")); // EX: (Ø£ÙØ±ÙÙŠØªÙØŒ Ø£ÙØ±ÙÙŠÙ)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù", "Ù")); // EX: (Ø£ÙØ±ÙÙˆØ§ØŒ )
     }
 
     public List getSubstitutions() {
@@ -32,6 +32,6 @@ public class RaaPastMahmouz extends SubstitutionsApplier implements IAugmentedTr
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         TrilateralRoot root = conjugationResult.getRoot();
-        return conjugationResult.getFormulaNo() == 1 && root.getC1() == 'Ñ' && root.getC2() == 'Á' && root.getC3() == 'í';
+        return conjugationResult.getFormulaNo() == 1 && root.getC1() == 'Ø±' && root.getC2() == 'Ø¡' && root.getC3() == 'ÙŠ';
     }
 }

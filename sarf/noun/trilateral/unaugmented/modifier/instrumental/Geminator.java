@@ -23,12 +23,12 @@ public class Geminator extends AbstractGeminator {
     List substitutions = new LinkedList();
 
     public Geminator() {
-        substitutions.add(new ExpressionInfixSubstitution("úC3óC3","óC3ø"));// EX: (ãöÌóäø)
-        substitutions.add(new ExpressionInfixSubstitution("úC3õC3","õC3ø"));// EX: (ãõÏõŞø)
-        substitutions.add(new ExpressionInfixSubstitution("óC3úC3","óC3ø"));// EX: (ÏóİøóÉ)
-        substitutions.add(new ExpressionInfixSubstitution("õC3úC3","õC3ø"));// EX: (ÌõÑøóÉ)
-        substitutions.add(new ExpressionInfixSubstitution("öC3úC3","öC3ø"));// EX: (ÓößøóÉ)
-        substitutions.add(new ExpressionInfixSubstitution("ÇC3öC3","ÇC3ø"));// EX: (ãóÇÕøóÉ)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C3ÙC3","ÙC3Ù‘"));// EX: (Ù…ÙØ¬ÙÙ†Ù‘)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C3ÙC3","ÙC3Ù‘"));// EX: (Ù…ÙØ¯ÙÙ‚Ù‘)
+        substitutions.add(new ExpressionInfixSubstitution("ÙC3Ù’C3","ÙC3Ù‘"));// EX: (Ø¯ÙÙÙ‘ÙØ©)
+        substitutions.add(new ExpressionInfixSubstitution("ÙC3Ù’C3","ÙC3Ù‘"));// EX: (Ø¬ÙØ±Ù‘ÙØ©)
+        substitutions.add(new ExpressionInfixSubstitution("ÙC3Ù’C3","ÙC3Ù‘"));// EX: (Ø³ÙÙƒÙ‘ÙØ©)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C3ÙC3","Ø§C3Ù‘"));// EX: (Ù…ÙØ§ØµÙ‘ÙØ©)
     }
 
 

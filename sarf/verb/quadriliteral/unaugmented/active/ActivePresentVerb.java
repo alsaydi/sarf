@@ -6,9 +6,9 @@ import sarf.verb.quadriliteral.unaugmented.*;
 
 
 /**
- *ÇáİÚá ÇáãÖÇÑÚ ÇáÑÈÇÚí ÇáãÌÑÏ
+ *Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ø±Ø¨Ø§Ø¹ÙŠ Ø§Ù„Ù…Ø¬Ø±Ø¯
  * <p>Title: Sarf</p>
- * <p>Description: ÈÑäÇãÌ ÇáÊÕÑíİ</p>
+ * <p>Description: Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØµØ±ÙŠÙ</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
  * @author Haytham Mohtasseb Billah
@@ -17,12 +17,12 @@ import sarf.verb.quadriliteral.unaugmented.*;
 public class ActivePresentVerb {
     private UnaugmentedQuadriliteralRoot root;
 
-    //ÍÑİ ÇáãÖÇÑÚ
+    //Ø­Ø±Ù Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹
     private String cp;
-    //ÍÑßÉ áÇã ÇáİÚá ÍÓÈ ÇáÖãíÑ
+    //Ø­Ø±ÙƒØ© Ù„Ø§Ù… Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
     private String lastDpr;
 
-    //ÇáÃÍÑİ ÇáãÖÇİÉ áäåÇíÉ ÇáİÚá ÍÓÈ ÇáÖãíÑ
+    //Ø§Ù„Ø£Ø­Ø±Ù Ø§Ù„Ù…Ø¶Ø§ÙØ© Ù„Ù†Ù‡Ø§ÙŠØ© Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
     private String connectedPronoun;
 
     public ActivePresentVerb(UnaugmentedQuadriliteralRoot root, String cp, String lastDpr, String connectedPronoun) {

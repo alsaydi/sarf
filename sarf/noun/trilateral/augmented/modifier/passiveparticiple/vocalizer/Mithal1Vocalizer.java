@@ -24,7 +24,7 @@ public class Mithal1Vocalizer extends TrilateralNounSubstitutionApplier implemen
     private List substitutions = new LinkedList();
 
     public Mithal1Vocalizer() {
-        substitutions.add(new InfixSubstitution("õæú","õæ"));// EX: (ãõæÌóÈñ¡ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’","ÙÙˆ"));// EX: (Ù…ÙÙˆØ¬ÙØ¨ÙŒØŒ )
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {

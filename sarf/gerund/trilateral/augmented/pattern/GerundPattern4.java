@@ -44,7 +44,7 @@ public class GerundPattern4 extends TrilateralAugmentedGerund {
         case 13:
         case 15:
         case 18:
-            return "Çä"+ArabCharUtil.SKOON+root.getC1()+ArabCharUtil.KASRA+root.getC2()+ArabCharUtil.FATHA+"Ç"+root.getC3()+suffix;
+            return "Ø§Ù†"+ArabCharUtil.SKOON+root.getC1()+ArabCharUtil.KASRA+root.getC2()+ArabCharUtil.FATHA+"Ø§"+root.getC3()+suffix;
         }
         return "";
     }
@@ -57,7 +57,7 @@ public class GerundPattern4 extends TrilateralAugmentedGerund {
      *   sarf.gerund.trilateral.augmented.TrilateralAugmentedGerund method
      */
     public String getPattern() {
-        return "ÇäúİöÚóÇá";
+        return "Ø§Ù†Ù’ÙÙØ¹ÙØ§Ù„";
     }
 
 }

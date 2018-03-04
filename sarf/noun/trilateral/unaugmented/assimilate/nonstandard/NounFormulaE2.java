@@ -51,21 +51,21 @@ public class NounFormulaE2 extends NounFormula {
         return "";
     }
 
-    //έσΪϊασμ
+    //ΩΩΨΉΩ’Ω„ΩΩ‰
     public String form1() {
         suffix = AssimilateFormulaE2SuffixContainer.getInstance().get(this.suffixNo-1).replaceAll(" ","");
         return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+suffix;
     }
 
-    //έσΪϊαΗδ
+    //ΩΩΨΉΩ’Ω„Ψ§Ω†
     public String form2() {
         suffix = AssimilateFormulaE1SuffixContainer.getInstance().get(this.suffixNo-1).replaceAll(" ","");
-        return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.FATHA+"Ηδ"+suffix;
+        return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.FATHA+"Ψ§Ω†"+suffix;
     }
 
 
     public String getFormulaName() {
-        return "έσΪϊαΗδ / έσΪϊασμ" ;
+        return "ΩΩΨΉΩ’Ω„Ψ§Ω† / ΩΩΨΉΩ’Ω„ΩΩ‰" ;
     }
 
     protected INounSuffixContainer getNounSuffixContainer() {

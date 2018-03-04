@@ -48,11 +48,11 @@ public class StandardGerundPattern extends MeemGerund {
     }
 
     public String form1() {
-        return "ã"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
+        return "Ù…"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
     }
 
     public String form2() {
-        return "ã"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+root.getC3()+suffix;
+        return "Ù…"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+root.getC3()+suffix;
     }
 
 
@@ -65,6 +65,6 @@ public class StandardGerundPattern extends MeemGerund {
      *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
      */
     public String getPattern() {
-        return form1? "ãóİúÚöá" : "ãóİúÚóá";
+        return form1? "Ù…ÙÙÙ’Ø¹ÙÙ„" : "Ù…ÙÙÙ’Ø¹ÙÙ„";
     }
 }

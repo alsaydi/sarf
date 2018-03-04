@@ -24,9 +24,9 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTr
     private List substitutions = new LinkedList();
 
     public Past1Vocalizer() {
-        substitutions.add(new SuffixSubstitution("óíó","óÇ"));// EX: (ÃÍúíóÇ¡ ÍóíøóÇ¡ ÍÇíÇ¡ ÇÒÏóíóÇ¡ ÊÍÇíÇ¡ ÊÍóíøóÇ¡ ÇÓÊÍíÇ)
-        substitutions.add(new InfixSubstitution("íõæ", "æú")); // EX: (ÃÍúíóæúÇ¡ ÍóíøóæúÇ ÍÇíóæúÇ¡ ¡ ÇÒÏóíóæúÇ¡ ÊÍÇíóæúÇ¡ ÊóÍóíøóæúÇ¡ ÇÓÊóÍúíóæúÇ)
-        substitutions.add(new InfixSubstitution("íóÊ", "Ê")); // EX: (ÃÍúíóÊú¡ ÍíøóÊ¡ ÍÇíóÊú¡ ¡ ÇÒÏóíóÊú¡  ÊÍÇíÊú¡ ÊóÍóíøóÊú¡ ÇÓÊÍíóÊú)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙØ§"));// EX: (Ø£Ø­Ù’ÙŠÙØ§ØŒ Ø­ÙÙŠÙ‘ÙØ§ØŒ Ø­Ø§ÙŠØ§ØŒ Ø§Ø²Ø¯ÙÙŠÙØ§ØŒ ØªØ­Ø§ÙŠØ§ØŒ ØªØ­ÙÙŠÙ‘ÙØ§ØŒ Ø§Ø³ØªØ­ÙŠØ§)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙˆ", "ÙˆÙ’")); // EX: (Ø£Ø­Ù’ÙŠÙÙˆÙ’Ø§ØŒ Ø­ÙÙŠÙ‘ÙÙˆÙ’Ø§ Ø­Ø§ÙŠÙÙˆÙ’Ø§ØŒ ØŒ Ø§Ø²Ø¯ÙÙŠÙÙˆÙ’Ø§ØŒ ØªØ­Ø§ÙŠÙÙˆÙ’Ø§ØŒ ØªÙØ­ÙÙŠÙ‘ÙÙˆÙ’Ø§ØŒ Ø§Ø³ØªÙØ­Ù’ÙŠÙÙˆÙ’Ø§)
+        substitutions.add(new InfixSubstitution("ÙŠÙØª", "Øª")); // EX: (Ø£Ø­Ù’ÙŠÙØªÙ’ØŒ Ø­ÙŠÙ‘ÙØªØŒ Ø­Ø§ÙŠÙØªÙ’ØŒ ØŒ Ø§Ø²Ø¯ÙÙŠÙØªÙ’ØŒ  ØªØ­Ø§ÙŠØªÙ’ØŒ ØªÙØ­ÙÙŠÙ‘ÙØªÙ’ØŒ Ø§Ø³ØªØ­ÙŠÙØªÙ’)
     }
 
 
@@ -38,7 +38,7 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTr
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        if (root.getC2() == root.getC3() && root.getC3() == 'í' && kov == 28) {
+        if (root.getC2() == root.getC3() && root.getC3() == 'ÙŠ' && kov == 28) {
             switch (formulaNo) {
             case 1:
             case 2:

@@ -4,9 +4,9 @@ import sarf.util.*;
 
 
 /**
- * İÚá ÇáÃãÑ ÇáËáÇËí ÇáãÌÑÏ
+ * ÙØ¹Ù„ Ø§Ù„Ø£Ù…Ø± Ø§Ù„Ø«Ù„Ø§Ø«ÙŠ Ø§Ù„Ù…Ø¬Ø±Ø¯
  * <p>Title: Sarf</p>
- * <p>Description: ÈÑäÇãÌ ÇáÊÕÑíİ</p>
+ * <p>Description: Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØµØ±ÙŠÙ</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
  * @author Haytham Mohtasseb Billah
@@ -15,20 +15,20 @@ import sarf.util.*;
 public class ImperativeVerb {
     private UnaugmentedTrilateralRoot root;
 
-    //ÍÑİ ÇáÃãÑ
-    private final static String ci = "Ç";
+    //Ø­Ø±Ù Ø§Ù„Ø£Ù…Ø±
+    private final static String ci = "Ø§";
 
-    //ÍÑßÉ İÇÁ ÇáİÚá æåí ÇáÓßæä ÏÇÆãÇğ
+    //Ø­Ø±ÙƒØ© ÙØ§Ø¡ Ø§Ù„ÙØ¹Ù„ ÙˆÙ‡ÙŠ Ø§Ù„Ø³ÙƒÙˆÙ† Ø¯Ø§Ø¦Ù…Ø§Ù‹
     private static final String dim1 = ArabCharUtil.SKOON;
 
-    //ÍÑßÉ Úíä ÇáİÚá ÍÓÈ ÈÇÈ ÇáÊÕÑíİ
-    //æåí äİÓåÇ İí ÇáãÖÇÑÚ
+    //Ø­Ø±ÙƒØ© Ø¹ÙŠÙ† Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø¨Ø§Ø¨ Ø§Ù„ØªØµØ±ÙŠÙ
+    //ÙˆÙ‡ÙŠ Ù†ÙØ³Ù‡Ø§ ÙÙŠ Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹
     private String dpr2;
 
-    //ÍÑßÉ áÇã ÇáİÚá ÍÓÈ ÇáÖãíÑ
+    //Ø­Ø±ÙƒØ© Ù„Ø§Ù… Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
     private String lastDim;
 
-    //ÖãíÑ ÇáÑİÚ ÇáãÊÕá
+    //Ø¶Ù…ÙŠØ± Ø§Ù„Ø±ÙØ¹ Ø§Ù„Ù…ØªØµÙ„
     private String connectedPronoun;
 
     public ImperativeVerb(UnaugmentedTrilateralRoot root, String dpr2, String lastDim, String connectedPronoun) {

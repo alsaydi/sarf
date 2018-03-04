@@ -21,12 +21,12 @@ public class ImperativeMahmouz extends SubstitutionsApplier {
     private List substitutions = new LinkedList();
 
     public ImperativeMahmouz() {
-        substitutions.add(new InfixSubstitution("öÁ", "öÆ")); // EX: (ÛóÑúŞöÆú¡ ÇÍúÈóäúØöÆú)
-        substitutions.add(new InfixSubstitution("Áö", "Æö")); // EX: (ÃäÊö ÊóÏóÑúÈóÆöí¡ )
-        substitutions.add(new SuffixSubstitution("óÁõ", "óÃõ")); // EX: (ÃäÊó ÊóÏóÑúÈóÃú¡ )
-        substitutions.add(new InfixSubstitution("óÁó", "óÃó")); // EX: (ÃäÊãÇ ÊóÏóÑúÈóÃóÇ¡ )
-        substitutions.add(new InfixSubstitution("óÁú", "óÃú")); // EX: (ÃäÊä ÊóÏóÑúÈóÃúäó¡ )
-        substitutions.add(new InfixSubstitution("óÁõ", "óÄõ")); // EX: (ÃäÊã ÊóÏóÑúÈóÄõæÇ¡ )
+        substitutions.add(new InfixSubstitution("ÙØ¡", "ÙØ¦")); // EX: (ØºÙØ±Ù’Ù‚ÙØ¦Ù’ØŒ Ø§Ø­Ù’Ø¨ÙÙ†Ù’Ø·ÙØ¦Ù’)
+        substitutions.add(new InfixSubstitution("Ø¡Ù", "Ø¦Ù")); // EX: (Ø£Ù†ØªÙ ØªÙØ¯ÙØ±Ù’Ø¨ÙØ¦ÙÙŠØŒ )
+        substitutions.add(new SuffixSubstitution("ÙØ¡Ù", "ÙØ£Ù")); // EX: (Ø£Ù†ØªÙ ØªÙØ¯ÙØ±Ù’Ø¨ÙØ£Ù’ØŒ )
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ£Ù")); // EX: (Ø£Ù†ØªÙ…Ø§ ØªÙØ¯ÙØ±Ù’Ø¨ÙØ£ÙØ§ØŒ )
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’", "ÙØ£Ù’")); // EX: (Ø£Ù†ØªÙ† ØªÙØ¯ÙØ±Ù’Ø¨ÙØ£Ù’Ù†ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ¤Ù")); // EX: (Ø£Ù†ØªÙ… ØªÙØ¯ÙØ±Ù’Ø¨ÙØ¤ÙÙˆØ§ØŒ )
     }
 
 

@@ -23,7 +23,7 @@ public class WawiPassivePresentVocalizer extends SubstitutionsApplier implements
     private List substitutions = new LinkedList();
 
     public WawiPassivePresentVocalizer() {
-        substitutions.add(new InfixSubstitution("õæú","õæ"));// EX: (íõæÚóÏõ¡ íõæåóÈõ¡ íõæÑóËõ¡ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’","ÙÙˆ"));// EX: (ÙŠÙÙˆØ¹ÙØ¯ÙØŒ ÙŠÙÙˆÙ‡ÙØ¨ÙØŒ ÙŠÙÙˆØ±ÙØ«ÙØŒ )
     }
 
 

@@ -25,13 +25,13 @@ public class I2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
 
     public I2Vocalizer() {
 
-        substitutions.add(new InfixSubstitution("öíñ","ò"));// EX: (åĞÇ ãóÖò¡ Úóæò¡ æóŞò)
-        substitutions.add(new InfixSubstitution("öíò","ò"));// EX: (ãÑÑÊõ Úáì ãóÖò)
-        substitutions.add(new SuffixSubstitution("öíõ","öí"));// EX: (åĞÇ ÇáãóÖöí¡ )
-        substitutions.add(new SuffixSubstitution("öíó","öíó"));// EX: (ÑÃíÊõ ÇáãóÖöíó¡ )
-        substitutions.add(new SuffixSubstitution("öíö","öí"));// EX: (ãÑÑÊõ Úáì ÇáãóÖöí ¡ )
-        substitutions.add(new InfixSubstitution("öíõ","õ"));// EX: (ãóÖõæäó¡ )
-        substitutions.add(new InfixSubstitution("öíö","ö"));// EX: (ãóÖöíäó¡ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙŒ","Ù"));// EX: (Ù‡Ø°Ø§ Ù…ÙØ¶ÙØŒ Ø¹ÙÙˆÙØŒ ÙˆÙÙ‚Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ù…ÙØ¶Ù)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠ"));// EX: (Ù‡Ø°Ø§ Ø§Ù„Ù…ÙØ¶ÙÙŠØŒ )
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠÙ"));// EX: (Ø±Ø£ÙŠØªÙ Ø§Ù„Ù…ÙØ¶ÙÙŠÙØŒ )
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠ"));// EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ø§Ù„Ù…ÙØ¶ÙÙŠ ØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ù…ÙØ¶ÙÙˆÙ†ÙØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ù…ÙØ¶ÙÙŠÙ†ÙØŒ )
 
     }
 
@@ -42,7 +42,7 @@ public class I2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
-        if (!nounFormula.equals("İóÚöá")) {
+        if (!nounFormula.equals("ÙÙØ¹ÙÙ„")) {
             return false;
         }
 

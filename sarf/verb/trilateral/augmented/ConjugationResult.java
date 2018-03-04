@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: íãËá äÊíÌÉ ÇáÊÕÑíİ ãÚ ÇáÌĞÑ æäæÚ ÇáÌĞÑ      </p>
+ * <p>Description: ÙŠÙ…Ø«Ù„ Ù†ØªÙŠØ¬Ø© Ø§Ù„ØªØµØ±ÙŠÙ Ù…Ø¹ Ø§Ù„Ø¬Ø°Ø± ÙˆÙ†ÙˆØ¹ Ø§Ù„Ø¬Ø°Ø±      </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -21,7 +21,7 @@ public class ConjugationResult {
 
     //13 conjugated verbs
     private List originalResult;
-    //ÇáŞÇÆãÉ ÈÚÏ  ÇáÇÏÛÇã æÇáÇÚáÇá æÇáåãÒÉ
+    //Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ø¨Ø¹Ø¯  Ø§Ù„Ø§Ø¯ØºØ§Ù… ÙˆØ§Ù„Ø§Ø¹Ù„Ø§Ù„ ÙˆØ§Ù„Ù‡Ù…Ø²Ø©
     private List finalResult;
 
     public ConjugationResult(int kov, int formulaNo, AugmentedTrilateralRoot root, List originalResult) {

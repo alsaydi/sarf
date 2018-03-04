@@ -24,10 +24,10 @@ public abstract  class IFormulaApplyingChecker {
     }
 
     /**
-     * Ýอี วแฬะั วะว ฿วไ
-     * แว ํฺแ Ýํฺํฯ NOT_GEMINATED
-     * ํฺแ ๆแว ํฺแ Ýํฺํฯ  TWO_STATE
-     * ๆลแว ํฺํฯ   NO_THING
+     * ูุญุต ุงูุฌุฐุฑ ุงุฐุง ูุงู
+     * ูุง ูุนู ููุนูุฏ NOT_GEMINATED
+     * ูุนู ููุง ูุนู ููุนูุฏ  TWO_STATE
+     * ูุฅูุง ูุนูุฏ   NO_THING
      * @param root AugmentedTrilateralRoot
      * @return int
      */

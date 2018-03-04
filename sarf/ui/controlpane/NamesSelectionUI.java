@@ -36,9 +36,9 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
     private SelectionInfo selectionInfo;
 
 
-    ToggleRenderedButton activeParticipleBtn = new ToggleRenderedButton("ÇÓã ÇáİÇÚá");
-    ToggleRenderedButton passiveParticipleBtn = new ToggleRenderedButton("ÇÓã ÇáãİÚæá");
-    ToggleRenderedButton timeAndPlaceBtn = new ToggleRenderedButton("ÇÓã ÇáÒãÇä æÇáãßÇä  ");
+    ToggleRenderedButton activeParticipleBtn = new ToggleRenderedButton("Ø§Ø³Ù… Ø§Ù„ÙØ§Ø¹Ù„");
+    ToggleRenderedButton passiveParticipleBtn = new ToggleRenderedButton("Ø§Ø³Ù… Ø§Ù„Ù…ÙØ¹ÙˆÙ„");
+    ToggleRenderedButton timeAndPlaceBtn = new ToggleRenderedButton("Ø§Ø³Ù… Ø§Ù„Ø²Ù…Ø§Ù† ÙˆØ§Ù„Ù…ÙƒØ§Ù†  ");
 
 
     public NamesSelectionUI() {
@@ -189,8 +189,8 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
         }
 
         //it must select one of two states
-        String msg = "áåĞÇ ÇáİÚá ÍÇáÊÇä : ÇáÊÕÍíÍ æÇáÅÚáÇá¡ ÇÎÊÑ ÅÍÏì ÇáÍÇáÊíä";
-        Object[] options = {"ÇáÊÕÍíÍ", "ÇáÅÚáÇá"};
+        String msg = "Ù„Ù‡Ø°Ø§ Ø§Ù„ÙØ¹Ù„ Ø­Ø§Ù„ØªØ§Ù† : Ø§Ù„ØªØµØ­ÙŠØ­ ÙˆØ§Ù„Ø¥Ø¹Ù„Ø§Ù„ØŒ Ø§Ø®ØªØ± Ø¥Ø­Ø¯Ù‰ Ø§Ù„Ø­Ø§Ù„ØªÙŠÙ†";
+        Object[] options = {"Ø§Ù„ØªØµØ­ÙŠØ­", "Ø§Ù„Ø¥Ø¹Ù„Ø§Ù„"};
         int optionResult = JOptionPane.showOptionDialog(this, msg, "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
         cashedUserResponse = new Boolean(optionResult == JOptionPane.NO_OPTION);
         return cashedUserResponse.booleanValue();

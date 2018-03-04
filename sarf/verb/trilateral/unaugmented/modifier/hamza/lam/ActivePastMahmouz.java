@@ -20,12 +20,12 @@ public class ActivePastMahmouz extends AbstractLamMahmouz {
     private List substitutions = new ArrayList();
 
     public ActivePastMahmouz() {
-        substitutions.add(new InfixSubstitution("óÁú", "óÃú")); // EX: (ÈóÏÃÊõ¡ æÌÃÊõ)
-        substitutions.add(new InfixSubstitution("óÁó", "óÃó")); // EX: (ÈóÏóÃó¡ æóÌóÃó)
-        substitutions.add(new InfixSubstitution("óÁõ", "óÄõ")); // EX: (ÈóÏóÄõæÇ¡)
-        substitutions.add(new InfixSubstitution("öÁ", "öÆ")); // EX: (ÙóãöÆó¡ ÙóãöÆúÊõ¡ ÙóãöÆõæÇ¡ æóØöÆó¡ åóæöÆó¡ ŞöÆúÊõ)
-        substitutions.add(new InfixSubstitution("õÁ", "õÄ")); // EX: (ÌóÑõÄó¡ ÌóÑõÄúÊõ¡ ÌóÑõÄõæÇ¡ æóÖõÄó¡ ÈõÄúÊõ¡ )
-        substitutions.add(new InfixSubstitution("ÇÁõ", "ÇÄõ")); // EX: (ÈÇÄæÇ¡ ŞÇÄæÇ )
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’", "ÙØ£Ù’")); // EX: (Ø¨ÙØ¯Ø£ØªÙØŒ ÙˆØ¬Ø£ØªÙ)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ£Ù")); // EX: (Ø¨ÙØ¯ÙØ£ÙØŒ ÙˆÙØ¬ÙØ£Ù)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù", "ÙØ¤Ù")); // EX: (Ø¨ÙØ¯ÙØ¤ÙÙˆØ§ØŒ)
+        substitutions.add(new InfixSubstitution("ÙØ¡", "ÙØ¦")); // EX: (Ø¸ÙÙ…ÙØ¦ÙØŒ Ø¸ÙÙ…ÙØ¦Ù’ØªÙØŒ Ø¸ÙÙ…ÙØ¦ÙÙˆØ§ØŒ ÙˆÙØ·ÙØ¦ÙØŒ Ù‡ÙÙˆÙØ¦ÙØŒ Ù‚ÙØ¦Ù’ØªÙ)
+        substitutions.add(new InfixSubstitution("ÙØ¡", "ÙØ¤")); // EX: (Ø¬ÙØ±ÙØ¤ÙØŒ Ø¬ÙØ±ÙØ¤Ù’ØªÙØŒ Ø¬ÙØ±ÙØ¤ÙÙˆØ§ØŒ ÙˆÙØ¶ÙØ¤ÙØŒ Ø¨ÙØ¤Ù’ØªÙØŒ )
+        substitutions.add(new InfixSubstitution("Ø§Ø¡Ù", "Ø§Ø¤Ù")); // EX: (Ø¨Ø§Ø¤ÙˆØ§ØŒ Ù‚Ø§Ø¤ÙˆØ§ )
     }
 
     public List getSubstitutions() {

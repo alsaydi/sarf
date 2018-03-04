@@ -25,15 +25,15 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
 
     public Ajwaf2Vocalizer() {
 
-        substitutions.add(new InfixSubstitution("ÇæöÁñ","ÇÁò"));// EX: (åĞÇ äÇÁò)
-        substitutions.add(new InfixSubstitution("ÇæöÁğ","ÇÆöíğ"));// EX: (ÑÃíÊõ äÇÆöíÇğ)
-        substitutions.add(new InfixSubstitution("ÇæöÁò","ÇÁò"));// EX: (ãÑÑÊõ Úáì äÇÁò)
-        substitutions.add(new SuffixSubstitution("ÇæöÁõ","ÇÆöí"));// EX: (åĞÇ ÇáäÇÆöí¡ äÇÆöí ÇáÜ¡ )
-        substitutions.add(new SuffixSubstitution("ÇæöÁó","ÇÆöíó"));// EX: (ÑÃíÊõ ÇáäÇÆíó¡ äÇÆöí ÇáÜ¡ )
-        substitutions.add(new SuffixSubstitution("ÇæöÁö","ÇÆöí"));// EX: (ãÑÑÊõ Úáì ÇáäÇÆöí¡ äÇÆöí ÇáÜ)
-        substitutions.add(new InfixSubstitution("ÇæöÁó","ÇÆöíó"));// EX: (äÇÆöíóÉñ¡ äÇÆöíÇäö¡  )
-        substitutions.add(new InfixSubstitution("ÇæöÁõ","ÇÄõ"));// EX: (äÇÄõæäó¡ )
-        substitutions.add(new InfixSubstitution("ÇæöÁö","ÇÆö"));// EX: (äÇÆöíäó¡ )
+        substitutions.add(new InfixSubstitution("Ø§ÙˆÙØ¡ÙŒ","Ø§Ø¡Ù"));// EX: (Ù‡Ø°Ø§ Ù†Ø§Ø¡Ù)
+        substitutions.add(new InfixSubstitution("Ø§ÙˆÙØ¡Ù‹","Ø§Ø¦ÙÙŠÙ‹"));// EX: (Ø±Ø£ÙŠØªÙ Ù†Ø§Ø¦ÙÙŠØ§Ù‹)
+        substitutions.add(new InfixSubstitution("Ø§ÙˆÙØ¡Ù","Ø§Ø¡Ù"));// EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ù†Ø§Ø¡Ù)
+        substitutions.add(new SuffixSubstitution("Ø§ÙˆÙØ¡Ù","Ø§Ø¦ÙÙŠ"));// EX: (Ù‡Ø°Ø§ Ø§Ù„Ù†Ø§Ø¦ÙÙŠØŒ Ù†Ø§Ø¦ÙÙŠ Ø§Ù„Ù€ØŒ )
+        substitutions.add(new SuffixSubstitution("Ø§ÙˆÙØ¡Ù","Ø§Ø¦ÙÙŠÙ"));// EX: (Ø±Ø£ÙŠØªÙ Ø§Ù„Ù†Ø§Ø¦ÙŠÙØŒ Ù†Ø§Ø¦ÙÙŠ Ø§Ù„Ù€ØŒ )
+        substitutions.add(new SuffixSubstitution("Ø§ÙˆÙØ¡Ù","Ø§Ø¦ÙÙŠ"));// EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ø§Ù„Ù†Ø§Ø¦ÙÙŠØŒ Ù†Ø§Ø¦ÙÙŠ Ø§Ù„Ù€)
+        substitutions.add(new InfixSubstitution("Ø§ÙˆÙØ¡Ù","Ø§Ø¦ÙÙŠÙ"));// EX: (Ù†Ø§Ø¦ÙÙŠÙØ©ÙŒØŒ Ù†Ø§Ø¦ÙÙŠØ§Ù†ÙØŒ  )
+        substitutions.add(new InfixSubstitution("Ø§ÙˆÙØ¡Ù","Ø§Ø¤Ù"));// EX: (Ù†Ø§Ø¤ÙÙˆÙ†ÙØŒ )
+        substitutions.add(new InfixSubstitution("Ø§ÙˆÙØ¡Ù","Ø§Ø¦Ù"));// EX: (Ù†Ø§Ø¦ÙÙŠÙ†ÙØŒ )
 
     }
 

@@ -24,11 +24,11 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaug
 
     public Imperative1Vocalizer() {
 
-        substitutions.add(new ExpressionSuffixSubstitution("ÇíúC2öíú","C2ö"));// EX: (Ïö)
-        substitutions.add(new ExpressionInfixSubstitution("ÇíúC2öíö","C2ö"));// EX: (ÃäÊö Ïöí)
-        substitutions.add(new ExpressionInfixSubstitution("ÇíúC2öíú","C2öí"));// EX: (ÃäÊä Ïöíäó)
-        substitutions.add(new ExpressionInfixSubstitution("ÇíúC2öíõ","C2õ"));// EX: (ÃäÊã ÏõæÇ)
-        substitutions.add(new ExpressionInfixSubstitution("ÇíúC2öíó","C2öíó"));// EX: (ÃäÊãÇ ÏöíÇ)
+        substitutions.add(new ExpressionSuffixSubstitution("Ø§ÙŠÙ’C2ÙÙŠÙ’","C2Ù"));// EX: (Ø¯Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§ÙŠÙ’C2ÙÙŠÙ","C2Ù"));// EX: (Ø£Ù†ØªÙ Ø¯ÙÙŠ)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§ÙŠÙ’C2ÙÙŠÙ’","C2ÙÙŠ"));// EX: (Ø£Ù†ØªÙ† Ø¯ÙÙŠÙ†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§ÙŠÙ’C2ÙÙŠÙ","C2Ù"));// EX: (Ø£Ù†ØªÙ… Ø¯ÙÙˆØ§)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§ÙŠÙ’C2ÙÙŠÙ","C2ÙÙŠÙ"));// EX: (Ø£Ù†ØªÙ…Ø§ Ø¯ÙÙŠØ§)
 
     }
 
@@ -40,7 +40,7 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaug
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
         int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
-        return (conjugationResult.getRoot().getC1()=='í' && kov == 30 && noc == 2);
+        return (conjugationResult.getRoot().getC1()=='ÙŠ' && kov == 30 && noc == 2);
     }
 
 }

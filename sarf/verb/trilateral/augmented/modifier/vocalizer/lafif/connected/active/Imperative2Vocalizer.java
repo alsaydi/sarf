@@ -24,10 +24,10 @@ public class Imperative2Vocalizer extends SubstitutionsApplier implements IAugme
     private List substitutions = new LinkedList();
 
     public Imperative2Vocalizer() {
-        substitutions.add(new SuffixSubstitution("íú",""));// EX: (Íóíøö¡ Şóæøö)
-        substitutions.add(new InfixSubstitution("øöíö","øö"));// EX: (ÃäÊö Íóíøöí¡ Şóæøöí)
-        substitutions.add(new InfixSubstitution("øöíõ","øõ"));// EX: (ÃäÊã ÍóíøõæÇ¡ ŞóæøõæÇ)
-        substitutions.add(new InfixSubstitution("øöíú","øöí"));// EX: (ÃäÊä Íóíøöíäó¡ Şóæøöíäó)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ’",""));// EX: (Ø­ÙÙŠÙ‘ÙØŒ Ù‚ÙÙˆÙ‘Ù)
+        substitutions.add(new InfixSubstitution("Ù‘ÙÙŠÙ","Ù‘Ù"));// EX: (Ø£Ù†ØªÙ Ø­ÙÙŠÙ‘ÙÙŠØŒ Ù‚ÙÙˆÙ‘ÙÙŠ)
+        substitutions.add(new InfixSubstitution("Ù‘ÙÙŠÙ","Ù‘Ù"));// EX: (Ø£Ù†ØªÙ… Ø­ÙÙŠÙ‘ÙÙˆØ§ØŒ Ù‚ÙÙˆÙ‘ÙÙˆØ§)
+        substitutions.add(new InfixSubstitution("Ù‘ÙÙŠÙ’","Ù‘ÙÙŠ"));// EX: (Ø£Ù†ØªÙ† Ø­ÙÙŠÙ‘ÙÙŠÙ†ÙØŒ Ù‚ÙÙˆÙ‘ÙÙŠÙ†Ù)
     }
 
 
@@ -39,6 +39,6 @@ public class Imperative2Vocalizer extends SubstitutionsApplier implements IAugme
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return (root.getC2() == 'æ' || root.getC2() == 'í') && root.getC3() == 'í' && (kov == 27 || kov == 28) && formulaNo == 2;
+        return (root.getC2() == 'Ùˆ' || root.getC2() == 'ÙŠ') && root.getC3() == 'ÙŠ' && (kov == 27 || kov == 28) && formulaNo == 2;
     }
 }

@@ -32,7 +32,7 @@ public class HamzaModifier {
         List imperativeList = new LinkedList();
         List emphasizedImperativeList = new LinkedList();
 
-        //ÎãÓ ÃäæÇÚ  ÃÓÇÓíÉ  ááãåãæÒ ááãÚáæã æÇáãÈäí áãÌåæá İí ÇáãÇÖí æÇáãÖÇÑÚ æÇáÃãÑ
+        //Ø®Ù…Ø³ Ø£Ù†ÙˆØ§Ø¹  Ø£Ø³Ø§Ø³ÙŠØ©  Ù„Ù„Ù…Ù‡Ù…ÙˆØ² Ù„Ù„Ù…Ø¹Ù„ÙˆÙ… ÙˆØ§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„ ÙÙŠ Ø§Ù„Ù…Ø§Ø¶ÙŠ ÙˆØ§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙˆØ§Ù„Ø£Ù…Ø±
         modifiersMap.put(SystemConstants.PAST_TENSE + "true", activePastList);
         modifiersMap.put(SystemConstants.PRESENT_TENSE + "true", activePresentList);
         modifiersMap.put(SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE + "true", imperativeList);
@@ -40,31 +40,31 @@ public class HamzaModifier {
         modifiersMap.put(SystemConstants.PAST_TENSE + "false", passivePastList);
         modifiersMap.put(SystemConstants.PRESENT_TENSE + "false", passivePresentList);
 
-        //ŞÇÆãÉ ÇáãÇÖí ÇáãÈäí áãÚáæã
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø§Ø¶ÙŠ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¹Ù„ÙˆÙ…
         activePastList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.ein.ActivePastMahmouz());
         activePastList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.faa.ActivePastMahmouz());
         activePastList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.lam.ActivePastMahmouz());
 
-        //ŞÇÆãÉ ÇáãÇÖí ÇáãÈäí áãÌåæá
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø§Ø¶ÙŠ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„
         passivePastList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.ein.PassivePastMahmouz());
         passivePastList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.faa.PassivePastMahmouz());
         passivePastList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.lam.PassivePastMahmouz());
 
 
-        //ŞÇÆãÉ ÇáãÖÇÑÚ ÇáãÈäí áãÚáæã
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¹Ù„ÙˆÙ…
         activePresentList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.ein.RaaPresentMahmouz());
         activePresentList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.ein.ActivePresentMahmouz());
         activePresentList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.faa.ActivePresentMahmouz());
         activePresentList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.lam.ActivePresentMahmouz());
 
-        //ŞÇÆãÉ ÇáãÖÇÑÚ ÇáãÈäí áãÌåæá
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„
         passivePresentList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.ein.RaaPresentMahmouz());
         passivePresentList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.ein.PassivePresentMahmouz());
         passivePresentList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.faa.PassivePresentMahmouz());
         passivePresentList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.lam.PassivePresentMahmouz());
 
-        //ŞÇÆãÉ ÇáÃãÑ
-        //æÖÚ ÇáÍÇáÇÊ ÇáÎÇÕÉ ÃæáÇğ
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø£Ù…Ø±
+        //ÙˆØ¶Ø¹ Ø§Ù„Ø­Ø§Ù„Ø§Øª Ø§Ù„Ø®Ø§ØµØ© Ø£ÙˆÙ„Ø§Ù‹
         imperativeList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.ein.RaaImperativeMahmouz());
         imperativeList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.faa.SpecialImperativeMahmouz1());
         imperativeList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.faa.SpecialImperativeMahmouz2());
@@ -73,7 +73,7 @@ public class HamzaModifier {
         imperativeList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.faa.ImperativeMahmouz());
         imperativeList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.lam.ImperativeMahmouz());
 
-        //ŞÇÆãÉ ÇáÃãÑ ÇáãÄßÏ
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø£Ù…Ø± Ø§Ù„Ù…Ø¤ÙƒØ¯
         emphasizedImperativeList.add(imperativeList.get(0));
         emphasizedImperativeList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.faa.SpecialEmphsizedImperativeMahmouz1());
         emphasizedImperativeList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.faa.SpecialEmphsizedImperativeMahmouz2());
@@ -84,8 +84,8 @@ public class HamzaModifier {
     }
 
     /**
-     * ÊØÈíŞ ÊÛííÑ  ÇáåãÒÉ ÍÓÈ ÇáÕíÛÉ ãÇÖí Ãæ ãÖÇÑÚ Ãæ ÃãÑ ááãÚáæã Ãæ áãÌåæá
-     * ŞÏ áÇ íØÈŞ Ãí äæÚ
+     * ØªØ·Ø¨ÙŠÙ‚ ØªØºÙŠÙŠØ±  Ø§Ù„Ù‡Ù…Ø²Ø© Ø­Ø³Ø¨ Ø§Ù„ØµÙŠØºØ© Ù…Ø§Ø¶ÙŠ Ø£Ùˆ Ù…Ø¶Ø§Ø±Ø¹ Ø£Ùˆ Ø£Ù…Ø± Ù„Ù„Ù…Ø¹Ù„ÙˆÙ… Ø£Ùˆ Ù„Ù…Ø¬Ù‡ÙˆÙ„
+     * Ù‚Ø¯ Ù„Ø§ ÙŠØ·Ø¨Ù‚ Ø£ÙŠ Ù†ÙˆØ¹
      * @param tense String
      * @param active boolean
      * @param conjResult ConjugationResult

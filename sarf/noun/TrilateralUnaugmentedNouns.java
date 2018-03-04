@@ -18,19 +18,19 @@ import sarf.verb.trilateral.unaugmented.*;
  */
 public class TrilateralUnaugmentedNouns {
 
-   //ãÈÇáÛÉ ÃÓãÇÁ ÇáİÇÚá
+   //Ù…Ø¨Ø§Ù„ØºØ© Ø£Ø³Ù…Ø§Ø¡ Ø§Ù„ÙØ§Ø¹Ù„
     private List standardExaggerations;
     private List nonStandardExaggerations;
-    //ÃÓãÇÁ ÇáÒãÇä æÇáãßÇä
+    //Ø£Ø³Ù…Ø§Ø¡ Ø§Ù„Ø²Ù…Ø§Ù† ÙˆØ§Ù„Ù…ÙƒØ§Ù†
     private List timeAndPlaces;
 
-    //ÃÓãÇÁ ÇáÂáÉ
+    //Ø£Ø³Ù…Ø§Ø¡ Ø§Ù„Ø¢Ù„Ø©
     private List standardInstrumentals;
     private List nonStandardInstrumentals;
 
-    //ÃÓãÇÁ ÇáÊİÖíá
+    //Ø£Ø³Ù…Ø§Ø¡ Ø§Ù„ØªÙØ¶ÙŠÙ„
     private List elatives;
-    //ÇáÕİÇÊ ÇáãÔÈåÉ
+    //Ø§Ù„ØµÙØ§Øª Ø§Ù„Ù…Ø´Ø¨Ù‡Ø©
     private List assimilates;
 
     private UnaugmentedTrilateralRoot root;

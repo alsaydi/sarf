@@ -29,6 +29,6 @@ public class NounFormula2 extends AugmentedQuadriliteralNoun {
      * @todo Implement this sarf.noun.quadriliteral.QuadriliteralNoun method
      */
     public String form() {
-        return "ã"+ArabCharUtil.DAMMA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+"ä"+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.FATHA+root.getC4()+suffix;
+        return "Ù…"+ArabCharUtil.DAMMA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+"Ù†"+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.FATHA+root.getC4()+suffix;
     }
 }

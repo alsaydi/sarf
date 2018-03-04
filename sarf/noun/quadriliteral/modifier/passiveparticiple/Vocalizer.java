@@ -23,16 +23,16 @@ public class Vocalizer extends QuadrilateralNounSubstitutionApplier implements I
     List substitutions = new LinkedList();
 
     public Vocalizer() {
-        substitutions.add(new InfixSubstitution("óíóÉ","óÇÉ"));// EX: (ãõŞóáúÓóÇÉñ¡)
-        substitutions.add(new InfixSubstitution("óíóÊ","óÇÊ"));// EX: (ãõŞóáúÓóÇÊÇä¡ ãõŞóáúÓóÇÊóíúäö)
-        substitutions.add(new InfixSubstitution("óíõæ","óæú"));// EX: (ãõŞóáúÓóæúäó)
-        substitutions.add(new InfixSubstitution("óíöí","óíú"));// EX: (ãõŞóáúÓóíúäó)
-        substitutions.add(new SuffixSubstitution("óíõ","óì"));// EX: (åĞÇ ÇáãõŞóáÓóì¡)
-        substitutions.add(new SuffixSubstitution("óíó","óì"));// EX: (ÑÃíÊõ ÇáãõŞóáÓóì ¡  )
-        substitutions.add(new SuffixSubstitution("óíö","óì"));// EX: (ãÑÑÊõ Úáì ÇáãõŞóáÓóì ¡ )
-        substitutions.add(new InfixSubstitution("óíñ","ğì"));// EX: (åĞÇ ãõŞóáúÓğì)
-        substitutions.add(new InfixSubstitution("óíğÇ","ğì"));// EX: (ÑÃíÊõ ãõŞóáúÓğì)
-        substitutions.add(new InfixSubstitution("óíò","ğì"));// EX: (ãÑÑÊõ Úáì ãõŞóáúÓğì)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙØ©","ÙØ§Ø©"));// EX: (Ù…ÙÙ‚ÙÙ„Ù’Ø³ÙØ§Ø©ÙŒØŒ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙØª","ÙØ§Øª"));// EX: (Ù…ÙÙ‚ÙÙ„Ù’Ø³ÙØ§ØªØ§Ù†ØŒ Ù…ÙÙ‚ÙÙ„Ù’Ø³ÙØ§ØªÙÙŠÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙˆ","ÙÙˆÙ’"));// EX: (Ù…ÙÙ‚ÙÙ„Ù’Ø³ÙÙˆÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙŠ","ÙÙŠÙ’"));// EX: (Ù…ÙÙ‚ÙÙ„Ù’Ø³ÙÙŠÙ’Ù†Ù)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙ‰"));// EX: (Ù‡Ø°Ø§ Ø§Ù„Ù…ÙÙ‚ÙÙ„Ø³ÙÙ‰ØŒ)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙ‰"));// EX: (Ø±Ø£ÙŠØªÙ Ø§Ù„Ù…ÙÙ‚ÙÙ„Ø³ÙÙ‰ ØŒ  )
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙ‰"));// EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ø§Ù„Ù…ÙÙ‚ÙÙ„Ø³ÙÙ‰ ØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙŠÙŒ","Ù‹Ù‰"));// EX: (Ù‡Ø°Ø§ Ù…ÙÙ‚ÙÙ„Ù’Ø³Ù‹Ù‰)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ‹Ø§","Ù‹Ù‰"));// EX: (Ø±Ø£ÙŠØªÙ Ù…ÙÙ‚ÙÙ„Ù’Ø³Ù‹Ù‰)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù‹Ù‰"));// EX: (Ù…Ø±Ø±ØªÙ Ø¹Ù„Ù‰ Ù…ÙÙ‚ÙÙ„Ù’Ø³Ù‹Ù‰)
     }
 
 
@@ -41,6 +41,6 @@ public class Vocalizer extends QuadrilateralNounSubstitutionApplier implements I
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC4() == 'í';
+        return conjugationResult.getRoot().getC4() == 'ÙŠ';
     }
 }

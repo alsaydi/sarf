@@ -27,17 +27,17 @@ public class ActivePrenentVocalizer extends SubstitutionsApplier implements IUna
     private List declineList = new LinkedList();
 
     public ActivePrenentVocalizer() {
-        acceptList.add("æĞÑ");
-        acceptList.add("æÓÚ");
-        acceptList.add("æØÁ");
+        acceptList.add("ÙˆØ°Ø±");
+        acceptList.add("ÙˆØ³Ø¹");
+        acceptList.add("ÙˆØ·Ø¡");
 
-        declineList.add("æÈÁ");
-        declineList.add("æÈå");
-        declineList.add("æÌÚ");
-        declineList.add("æÓÚ");
-        declineList.add("æåá");
+        declineList.add("ÙˆØ¨Ø¡");
+        declineList.add("ÙˆØ¨Ù‡");
+        declineList.add("ÙˆØ¬Ø¹");
+        declineList.add("ÙˆØ³Ø¹");
+        declineList.add("ÙˆÙ‡Ù„");
 
-        substitutions.add(new InfixSubstitution("óæú","ó"));
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’","Ù"));
     }
 
 
@@ -46,7 +46,7 @@ public class ActivePrenentVocalizer extends SubstitutionsApplier implements IUna
     }
 
     /**
-     * İÍÕ ÃÍÏ ËáÇËÉ ÇÍÊãÇáÇÊ
+     * ÙØ­Øµ Ø£Ø­Ø¯ Ø«Ù„Ø§Ø«Ø© Ø§Ø­ØªÙ…Ø§Ù„Ø§Øª
      * @param conjugationResult ConjugationResult
      * @return boolean
      */
@@ -54,15 +54,15 @@ public class ActivePrenentVocalizer extends SubstitutionsApplier implements IUna
         int kov = conjugationResult.getKov();
         int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
         return (kov == 9 || kov == 10 || kov == 11) &&
-                ((noc == 2 || noc == 6)  //ÇÍãÇá1
-                || isApplied1(conjugationResult) //ÇÍÊãÇá2
-                || isApplied2(conjugationResult)); // ÇÍÊãÇá 3
+                ((noc == 2 || noc == 6)  //Ø§Ø­Ù…Ø§Ù„1
+                || isApplied1(conjugationResult) //Ø§Ø­ØªÙ…Ø§Ù„2
+                || isApplied2(conjugationResult)); // Ø§Ø­ØªÙ…Ø§Ù„ 3
 
     }
 
     private boolean isApplied1(ConjugationResult conjugationResult) {
         UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
-        //İÍÕ ÇáÈÇÈ ÇáÊÕÑíİí ÃæáÇğ
+        //ÙØ­Øµ Ø§Ù„Ø¨Ø§Ø¨ Ø§Ù„ØªØµØ±ÙŠÙÙŠ Ø£ÙˆÙ„Ø§Ù‹
         if (!root.getConjugation().equals("4")) return false;
 
         Iterator iter = acceptList.iterator();
@@ -79,7 +79,7 @@ public class ActivePrenentVocalizer extends SubstitutionsApplier implements IUna
 
     private boolean isApplied2(ConjugationResult conjugationResult) {
         UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
-        //İÍÕ ÇáÈÇÈ ÇáÊÕÑíİí ÃæáÇğ
+        //ÙØ­Øµ Ø§Ù„Ø¨Ø§Ø¨ Ø§Ù„ØªØµØ±ÙŠÙÙŠ Ø£ÙˆÙ„Ø§Ù‹
         if (!root.getConjugation().equals("3")) return false;
 
         Iterator iter = declineList.iterator();

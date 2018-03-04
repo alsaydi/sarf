@@ -30,6 +30,6 @@ public class AugmentedImperativeVerb11 extends AugmentedImperativeVerb {
      *   method
      */
     public String form() {
-        return "ว"+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+"ๆ"+ArabCharUtil.SHADDA+ArabCharUtil.KASRA+root.getC3()+lastDim+connectedPronoun;
+        return "ุง"+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+"ู"+ArabCharUtil.SHADDA+ArabCharUtil.KASRA+root.getC3()+lastDim+connectedPronoun;
     }
 }

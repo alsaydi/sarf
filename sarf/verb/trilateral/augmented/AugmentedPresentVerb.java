@@ -19,7 +19,7 @@ public abstract class AugmentedPresentVerb {
     protected AugmentedTrilateralRoot root;
     protected String lastDpr;
     protected String connectedPronoun;
-    //ÍÑİ ÇáãÖÇÑÚ
+    //Ø­Ø±Ù Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹
     protected String cp;
 
     public AugmentedPresentVerb(AugmentedTrilateralRoot root, String cp, String lastDpr, String connectedPronoun) {

@@ -17,71 +17,71 @@ import sarf.noun.*;
  */
 public class StandardTrilateralUnaugmentedSuffixContainer implements INounSuffixContainer{
     private static StandardTrilateralUnaugmentedSuffixContainer instance = new StandardTrilateralUnaugmentedSuffixContainer();
-    //ÍÇáÉ ÇáäßÑÉ
+    //Ø­Ø§Ù„Ø© Ø§Ù„Ù†ÙƒØ±Ø©
     private ArrayList indefiniteSuffixList = new ArrayList(18);
-    //ÍÇáÉ ÇáãÚÑİÉ
+    //Ø­Ø§Ù„Ø© Ø§Ù„Ù…Ø¹Ø±ÙØ©
     private ArrayList definiteSuffixList = new ArrayList(18);
-    //ÍÇáÉ ÇáÇÖÇİÉ
+    //Ø­Ø§Ù„Ø© Ø§Ù„Ø§Ø¶Ø§ÙØ©
     private ArrayList annexedSuffixList = new ArrayList(18);
 
-    //Êßæä áåÇ ŞíãÉ ÚäÏãÇ Êßæä ÇáÍÇáÉ åí ãÚÑİÉ
+    //ØªÙƒÙˆÙ† Ù„Ù‡Ø§ Ù‚ÙŠÙ…Ø© Ø¹Ù†Ø¯Ù…Ø§ ØªÙƒÙˆÙ† Ø§Ù„Ø­Ø§Ù„Ø© Ù‡ÙŠ Ù…Ø¹Ø±ÙØ©
     private String prefix = "";
-    //íãËá ÇáŞÇÆãÉ ÇáãÎÊÇÑÉ ÊÈÚÇğ ááÍÇáÉ
+    //ÙŠÙ…Ø«Ù„ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø®ØªØ§Ø±Ø© ØªØ¨Ø¹Ø§Ù‹ Ù„Ù„Ø­Ø§Ù„Ø©
     private ArrayList currentSuffixList = indefiniteSuffixList ;
 
     private StandardTrilateralUnaugmentedSuffixContainer() {
-        indefiniteSuffixList.add("ñ");
-        indefiniteSuffixList.add("ñ");
+        indefiniteSuffixList.add("ÙŒ");
+        indefiniteSuffixList.add("ÙŒ");
         indefiniteSuffixList.add("");
         indefiniteSuffixList.add("");
         indefiniteSuffixList.add("");
         indefiniteSuffixList.add("");
-        indefiniteSuffixList.add("ğÇ");
-        indefiniteSuffixList.add("ğ");
+        indefiniteSuffixList.add("Ù‹Ø§");
+        indefiniteSuffixList.add("Ù‹");
         indefiniteSuffixList.add("");
         indefiniteSuffixList.add("");
         indefiniteSuffixList.add("");
         indefiniteSuffixList.add("");
-        indefiniteSuffixList.add("ò");
-        indefiniteSuffixList.add("ò");
+        indefiniteSuffixList.add("Ù");
+        indefiniteSuffixList.add("Ù");
         indefiniteSuffixList.add("");
         indefiniteSuffixList.add("");
         indefiniteSuffixList.add("");
         indefiniteSuffixList.add("");
 
-        definiteSuffixList.add("õ");
-        definiteSuffixList.add("õ");
+        definiteSuffixList.add("Ù");
+        definiteSuffixList.add("Ù");
         definiteSuffixList.add("");
         definiteSuffixList.add("");
         definiteSuffixList.add("");
         definiteSuffixList.add("");
-        definiteSuffixList.add("ó");
-        definiteSuffixList.add("ó");
+        definiteSuffixList.add("Ù");
+        definiteSuffixList.add("Ù");
         definiteSuffixList.add("");
         definiteSuffixList.add("");
         definiteSuffixList.add("");
         definiteSuffixList.add("");
-        definiteSuffixList.add("ö");
-        definiteSuffixList.add("ö");
+        definiteSuffixList.add("Ù");
+        definiteSuffixList.add("Ù");
         definiteSuffixList.add("");
         definiteSuffixList.add("");
         definiteSuffixList.add("");
         definiteSuffixList.add("");
 
-        annexedSuffixList.add("õ");
-        annexedSuffixList.add("õ");
+        annexedSuffixList.add("Ù");
+        annexedSuffixList.add("Ù");
         annexedSuffixList.add("");
         annexedSuffixList.add("");
         annexedSuffixList.add("");
         annexedSuffixList.add("");
-        annexedSuffixList.add("ó");
-        annexedSuffixList.add("ó");
+        annexedSuffixList.add("Ù");
+        annexedSuffixList.add("Ù");
         annexedSuffixList.add("");
         annexedSuffixList.add("");
         annexedSuffixList.add("");
         annexedSuffixList.add("");
-        annexedSuffixList.add("ö");
-        annexedSuffixList.add("ö");
+        annexedSuffixList.add("Ù");
+        annexedSuffixList.add("Ù");
         annexedSuffixList.add("");
         annexedSuffixList.add("");
         annexedSuffixList.add("");
@@ -89,7 +89,7 @@ public class StandardTrilateralUnaugmentedSuffixContainer implements INounSuffix
     }
 
     public void selectDefiniteMode() {
-        prefix = "Çá";
+        prefix = "Ø§Ù„";
         currentSuffixList = definiteSuffixList;
     }
 

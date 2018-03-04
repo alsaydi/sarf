@@ -46,7 +46,7 @@ public class AugmentedPassivePastConjugator {
 
     public List createVerbList(AugmentedQuadriliteralRoot root, int formulaNo) {
         AugmentationFormula augmentationFormula = root.getAugmentationFormula(formulaNo);
-        if (augmentationFormula.getTransitive() == 'á') {
+        if (augmentationFormula.getTransitive() == 'Ù„') {
             return createLazzemVerbList(root, formulaNo);
         }
         else {
@@ -61,7 +61,7 @@ public class AugmentedPassivePastConjugator {
         }
     }
 
-    //ÇáãÈäí áãÌåæá ÇááÇÒã İŞØ ãÚ åæ Çæ åí
+    //Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„ Ø§Ù„Ù„Ø§Ø²Ù… ÙÙ‚Ø· Ù…Ø¹ Ù‡Ùˆ Ø§Ùˆ Ù‡ÙŠ
     public List createLazzemVerbList(AugmentedQuadriliteralRoot root, int formulaNo) {
         List result = new LinkedList();
         for (int i = 0; i < 13; i++) {

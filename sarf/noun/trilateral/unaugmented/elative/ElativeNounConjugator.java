@@ -41,7 +41,7 @@ public class ElativeNounConjugator implements IUnaugmentedTrilateralNounConjugat
 
     static List formulas = new ArrayList(1);
     static {
-        formulas.add("ÃóİúÚóá");
+        formulas.add("Ø£ÙÙÙ’Ø¹ÙÙ„");
     }
     public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
         ElativeNounFormulaTree formulaTree =  DatabaseManager.getInstance().getElativeNounFormulaTree(root.getC1());

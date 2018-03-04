@@ -35,14 +35,14 @@ public class NounFormula1 extends NonStandardTimeAndPlaceNounFormula{
         case 9:
         case 13:
         case 15:
-            return "г"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+root.getC3()+suffix;
+            return "ўЕ"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+root.getC3()+suffix;
         }
 
         return "";
     }
 
     public String getFormulaName() {
-        return "гуЁъЏуб";
+        return "ўЕўОўБўТЎєўОўД";
     }
 
     public String getSymbol() {

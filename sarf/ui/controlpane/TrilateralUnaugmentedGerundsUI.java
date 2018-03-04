@@ -78,16 +78,16 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
 
         Collection standardGerundsSymbols = root.getGerundsSymbols();
         if (standardGerundsSymbols != null && !standardGerundsSymbols.isEmpty()) {
-            controlPanels.add("ÇáãÕÏÑ ÇáÃÕáí ", createControlPanel(TrilateralUnaugmentedGerundConjugator.getInstance(), UnaugmentedTrilateralStandardGerundModifier.getInstance(), StandardTrilateralUnaugmentedSuffixContainer.getInstance(), "ÇáãÕÏÑ ÇáÃÕáí"));
+            controlPanels.add("Ø§Ù„Ù…ØµØ¯Ø± Ø§Ù„Ø£ØµÙ„ÙŠ ", createControlPanel(TrilateralUnaugmentedGerundConjugator.getInstance(), UnaugmentedTrilateralStandardGerundModifier.getInstance(), StandardTrilateralUnaugmentedSuffixContainer.getInstance(), "Ø§Ù„Ù…ØµØ¯Ø± Ø§Ù„Ø£ØµÙ„ÙŠ"));
         }
 
-        controlPanels.add("ÇáãÕÏÑ Çáãíãí ", createControlPanel(MeemGerundConjugator.getInstance(), TitlateralUnaugmentedMeemModifier.getInstance(), GenericNounSuffixContainer.getInstance(), "ÇáãÕÏÑ Çáãíãí"));
+        controlPanels.add("Ø§Ù„Ù…ØµØ¯Ø± Ø§Ù„Ù…ÙŠÙ…ÙŠ ", createControlPanel(MeemGerundConjugator.getInstance(), TitlateralUnaugmentedMeemModifier.getInstance(), GenericNounSuffixContainer.getInstance(), "Ø§Ù„Ù…ØµØ¯Ø± Ø§Ù„Ù…ÙŠÙ…ÙŠ"));
 
-        controlPanels.add("ãÕÏÑ ÇáãÑÉ ", createControlPanel(TrilateralUnaugmentedNomenGerundConjugator.getInstance(), TitlateralUnaugmentedNomenModifier.getInstance(), GenericNounSuffixContainer.getInstance(), "ãÕÏÑ ÇáãÑÉ"));
+        controlPanels.add("Ù…ØµØ¯Ø± Ø§Ù„Ù…Ø±Ø© ", createControlPanel(TrilateralUnaugmentedNomenGerundConjugator.getInstance(), TitlateralUnaugmentedNomenModifier.getInstance(), GenericNounSuffixContainer.getInstance(), "Ù…ØµØ¯Ø± Ø§Ù„Ù…Ø±Ø©"));
 
-        controlPanels.add("ãÕÏÑ ÇáåíÆÉ ", qualityPane);
+        controlPanels.add("Ù…ØµØ¯Ø± Ø§Ù„Ù‡ÙŠØ¦Ø© ", qualityPane);
         qualityPane.removeAll();
-        AbstractButton btn = createButton("İöÚúáóÉ", QualityGerundConjugator.getInstance(), TitlateralUnaugmentedQualityModifier.getInstance(), GenericNounSuffixContainer.getInstance(), "ãÕÏÑ ÇáåíÆÉ");
+        AbstractButton btn = createButton("ÙÙØ¹Ù’Ù„ÙØ©", QualityGerundConjugator.getInstance(), TitlateralUnaugmentedQualityModifier.getInstance(), GenericNounSuffixContainer.getInstance(), "Ù…ØµØ¯Ø± Ø§Ù„Ù‡ÙŠØ¦Ø©");
         qualityPane.add(btn);
 
 

@@ -31,6 +31,6 @@ public class NounFormulaB extends NounFormula{
     }
 
     public String getFormulaName() {
-        return "έσΪφα";
+        return "ΩΩΨΉΩΩ„";
     }
 }

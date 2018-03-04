@@ -22,7 +22,7 @@ public class GenericSubstituter7 extends AbstractGenericSubstituter {
 
     public GenericSubstituter7() {
 
-        substitutions.add(new InfixSubstitution("ÖúÊ", "ÖúØ")); // EX: (ÇÖØáÇÚ¡ )
+        substitutions.add(new InfixSubstitution("Ø¶Ù’Øª", "Ø¶Ù’Ø·")); // EX: (Ø§Ø¶Ø·Ù„Ø§Ø¹ØŒ )
     }
 
     public List getSubstitutions() {
@@ -30,6 +30,6 @@ public class GenericSubstituter7 extends AbstractGenericSubstituter {
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC1() == 'Ö' && super.isApplied(conjugationResult);
+        return conjugationResult.getRoot().getC1() == 'Ø¶' && super.isApplied(conjugationResult);
     }
 }

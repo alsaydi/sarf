@@ -24,10 +24,10 @@ public class ActivePastAjwafYaeiVocalizer extends AbstractAjwafYaeiVocalizer {
     private List substitutions = new LinkedList();
 
     public ActivePastAjwafYaeiVocalizer() {
-        substitutions.add(new ExpressionInfixSubstitution("óíóC3ú","öC3ú"));// EX: (ÈöÚúÊõ¡ ŞöÆÊõ¡ ÅöäúÊõ¡)
-        substitutions.add(new ExpressionInfixSubstitution("óíóC3ø","öC3ø"));// EX: (äÍä áöäøóÇ¡ åä áöäøó¡ ÃäÇ áöÊøõ)
-        substitutions.add(new ExpressionInfixSubstitution("óíóC3ó","óÇC3ó"));// EX: (ÈÇÚ¡ ŞÇÁ¡ Âä¡)
-        substitutions.add(new ExpressionInfixSubstitution("óíóC3õ","óÇC3õ"));// EX: (ÈÇÚæÇ¡ ŞÇÄæÇ¡ ÂäæÇ¡)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù’","ÙC3Ù’"));// EX: (Ø¨ÙØ¹Ù’ØªÙØŒ Ù‚ÙØ¦ØªÙØŒ Ø¥ÙÙ†Ù’ØªÙØŒ)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù‘","ÙC3Ù‘"));// EX: (Ù†Ø­Ù† Ù„ÙÙ†Ù‘ÙØ§ØŒ Ù‡Ù† Ù„ÙÙ†Ù‘ÙØŒ Ø£Ù†Ø§ Ù„ÙØªÙ‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù","ÙØ§C3Ù"));// EX: (Ø¨Ø§Ø¹ØŒ Ù‚Ø§Ø¡ØŒ Ø¢Ù†ØŒ)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù","ÙØ§C3Ù"));// EX: (Ø¨Ø§Ø¹ÙˆØ§ØŒ Ù‚Ø§Ø¤ÙˆØ§ØŒ Ø¢Ù†ÙˆØ§ØŒ)
     }
 
     /**

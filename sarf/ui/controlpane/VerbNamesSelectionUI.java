@@ -26,10 +26,10 @@ public class VerbNamesSelectionUI extends JPanel implements IControlPane {
 
         JPanel buttonsPanel = new APanel(new GridLayout(1, 4));
 
-        JButton activeVerbBtn = new RenderedButton("ÇáÃİÚÇá ÇáãÈäíÉ ááãÚáæã");
-        JButton passiveVerbBtn = new RenderedButton("ÇáÃİÚÇá ÇáãÈäíÉ ááãÌåæá");
-        JButton derivedNamesBtn = new RenderedButton("ÇáÃÓãÇÁ ÇáãÔÊŞÉ");
-        JButton gerundBtn = new RenderedButton("ÇáãÕÇÏÑ");
+        JButton activeVerbBtn = new RenderedButton("Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ù…Ø¨Ù†ÙŠØ© Ù„Ù„Ù…Ø¹Ù„ÙˆÙ…");
+        JButton passiveVerbBtn = new RenderedButton("Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ù…Ø¨Ù†ÙŠØ© Ù„Ù„Ù…Ø¬Ù‡ÙˆÙ„");
+        JButton derivedNamesBtn = new RenderedButton("Ø§Ù„Ø£Ø³Ù…Ø§Ø¡ Ø§Ù„Ù…Ø´ØªÙ‚Ø©");
+        JButton gerundBtn = new RenderedButton("Ø§Ù„Ù…ØµØ§Ø¯Ø±");
 
         buttonsPanel.add(activeVerbBtn);
         buttonsPanel.add(passiveVerbBtn);

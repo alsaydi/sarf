@@ -49,7 +49,7 @@ public class TrilateralUnaugmentedNomenGerundConjugator implements IUnaugmentedT
             gerundDisplayList.set(suffixNo, gerund + suffix);
         }
 
-        if (root.getC2() == 'æ' || root.getC2() == 'í') {
+        if (root.getC2() == 'Ùˆ' || root.getC2() == 'ÙŠ') {
             gerund = GenericNounSuffixContainer.getInstance().getPrefix() + root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3();
             for (int i = 0; i < indexList2.length; i++) {
                 //because index in java start from zero
@@ -77,7 +77,7 @@ public class TrilateralUnaugmentedNomenGerundConjugator implements IUnaugmentedT
 
     static List formulas = new ArrayList(1);
     static {
-        formulas.add("ÝóÚúáóÉ");
+        formulas.add("ÙÙŽØ¹Ù’Ù„ÙŽØ©");
     }
 
     public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {

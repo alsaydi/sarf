@@ -8,7 +8,7 @@ import sarf.verb.trilateral.Substitution.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description:ßÇä  ãä  ÖãäåÇ  åĞÇ  ÇáÌĞÑ  Ãæ  áÇ İí ÍÇáÇÊ ÇáÇÚáÇá íÊã İÍÕ ŞÇÆãÉ ãä ÇáÌĞæÑ ÇĞÇ
+ * <p>Description:ÙƒØ§Ù†  Ù…Ù†  Ø¶Ù…Ù†Ù‡Ø§  Ù‡Ø°Ø§  Ø§Ù„Ø¬Ø°Ø±  Ø£Ùˆ  Ù„Ø§ ÙÙŠ Ø­Ø§Ù„Ø§Øª Ø§Ù„Ø§Ø¹Ù„Ø§Ù„ ÙŠØªÙ… ÙØ­Øµ Ù‚Ø§Ø¦Ù…Ø© Ù…Ù† Ø§Ù„Ø¬Ø°ÙˆØ± Ø§Ø°Ø§
  *  </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
@@ -33,7 +33,7 @@ public abstract class ListedVocalizer extends SubstitutionsApplier implements IU
      */
     public boolean isApplied(ConjugationResult conjugationResult) {
         UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
-        //İÍÕ ÇáÈÇÈ ÇáÊÕÑíİí ÃæáÇğ
+        //ÙØ­Øµ Ø§Ù„Ø¨Ø§Ø¨ Ø§Ù„ØªØµØ±ÙŠÙÙŠ Ø£ÙˆÙ„Ø§Ù‹
         if (!root.getConjugation().equals(getNoc()+"")) return false;
 
         Iterator iter = getAppliedRoots().iterator();

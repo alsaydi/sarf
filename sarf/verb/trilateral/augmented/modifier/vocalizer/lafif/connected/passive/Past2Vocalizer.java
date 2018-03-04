@@ -24,10 +24,10 @@ public class Past2Vocalizer extends SubstitutionsApplier implements IAugmentedTr
     private List substitutions = new LinkedList();
 
     public Past2Vocalizer() {
-        substitutions.add(new InfixSubstitution("öæõ","õ"));// EX: (ÇõÓúæõæÇ¡ ÓõææõæÇ¡ ÇäÛõæõæÇ¡ ÇÓÊõæõæÇ¡ ÊõÓõææõæÇ¡ ÇÓÊõÛúæõæÇ)
-        substitutions.add(new InfixSubstitution("øöæõ","øõ"));// EX: (ÓõæøõæÇ¡ ÊõÓõæøõæÇ¡ ÇÍúæõæøõæÇ)
-        substitutions.add(new InfixSubstitution("æó","íó"));// EX: (ÃõÓúæöíó¡ Óõæøöíó ÃõÓúæöíóÊú¡ ÃõÓúæöíóÇ¡ Óõææöíó¡ ÇäÛõæöíó¡ ÇÓÊõæöíó¡ ÊõÓõææöíó¡ ÇÓÊõÛúæöíó ÇÍúæõæøöíó)
-        substitutions.add(new InfixSubstitution("æú","í"));// EX: (ÃõÓúæöíÊõ¡ ÓõæøöíÊõ ÓõææöíÊõ¡ ÇäÛõæöíÊõ¡ ÇÓÊõæöíÊõ¡ ÊõÓõææöíÊõ¡ ÇÓÊõÛúæöíÊõ)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ","Ù"));// EX: (Ø§ÙØ³Ù’ÙˆÙÙˆØ§ØŒ Ø³ÙÙˆÙˆÙÙˆØ§ØŒ Ø§Ù†ØºÙÙˆÙÙˆØ§ØŒ Ø§Ø³ØªÙÙˆÙÙˆØ§ØŒ ØªÙØ³ÙÙˆÙˆÙÙˆØ§ØŒ Ø§Ø³ØªÙØºÙ’ÙˆÙÙˆØ§)
+        substitutions.add(new InfixSubstitution("Ù‘ÙÙˆÙ","Ù‘Ù"));// EX: (Ø³ÙÙˆÙ‘ÙÙˆØ§ØŒ ØªÙØ³ÙÙˆÙ‘ÙÙˆØ§ØŒ Ø§Ø­Ù’ÙˆÙÙˆÙ‘ÙÙˆØ§)
+        substitutions.add(new InfixSubstitution("ÙˆÙ","ÙŠÙ"));// EX: (Ø£ÙØ³Ù’ÙˆÙÙŠÙØŒ Ø³ÙÙˆÙ‘ÙÙŠÙ Ø£ÙØ³Ù’ÙˆÙÙŠÙØªÙ’ØŒ Ø£ÙØ³Ù’ÙˆÙÙŠÙØ§ØŒ Ø³ÙÙˆÙˆÙÙŠÙØŒ Ø§Ù†ØºÙÙˆÙÙŠÙØŒ Ø§Ø³ØªÙÙˆÙÙŠÙØŒ ØªÙØ³ÙÙˆÙˆÙÙŠÙØŒ Ø§Ø³ØªÙØºÙ’ÙˆÙÙŠÙ Ø§Ø­Ù’ÙˆÙÙˆÙ‘ÙÙŠÙ)
+        substitutions.add(new InfixSubstitution("ÙˆÙ’","ÙŠ"));// EX: (Ø£ÙØ³Ù’ÙˆÙÙŠØªÙØŒ Ø³ÙÙˆÙ‘ÙÙŠØªÙ Ø³ÙÙˆÙˆÙÙŠØªÙØŒ Ø§Ù†ØºÙÙˆÙÙŠØªÙØŒ Ø§Ø³ØªÙÙˆÙÙŠØªÙØŒ ØªÙØ³ÙÙˆÙˆÙÙŠØªÙØŒ Ø§Ø³ØªÙØºÙ’ÙˆÙÙŠØªÙ)
     }
 
 
@@ -39,7 +39,7 @@ public class Past2Vocalizer extends SubstitutionsApplier implements IAugmentedTr
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        if (root.getC2() == root.getC3() && root.getC3() == 'æ' && kov == 28) {
+        if (root.getC2() == root.getC3() && root.getC3() == 'Ùˆ' && kov == 28) {
             switch (formulaNo) {
             case 1:
             case 2:

@@ -23,9 +23,9 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTr
     private List substitutions = new LinkedList();
 
     public Past1Vocalizer() {
-        substitutions.add(new InfixSubstitution("æú", "í")); // EX: (ÃäÇ ÃõÏúäöíÊõ¡ ÍõæÈöíÊõ¡ ÇäÌõáíÊ¡ ÇÑÊÖíÊ¡ ÊõÓõæãöíÊõ¡ ÇÓÊõÑúÖöíÊõ¡ ÇÍúáõæáöíÊõ)
-        substitutions.add(new InfixSubstitution("æó", "íó")); // EX: (åæ ÃõÏúäöíó¡ ÍõæÈöíó¡ ÇäÌõáöíó¡ ÇÑÊÖíó¡ ÊõÓõæãöíó¡ ÇÓÊõÑúÖöíó¡ ÇÍúáõæáöíó)
-        substitutions.add(new InfixSubstitution("öæõ", "õ")); // EX: (åã ÃõÏúäõæÇ¡ ÍõæÈõæÇ¡ ÇäÌõáõæÇ¡ ÇÑÊÖõæÇ¡ ÊõÓõæãõæÇ¡ ÇÓÊõÑúÖõæÇ¡ ÇÍúáõæáõæÇ)
+        substitutions.add(new InfixSubstitution("ÙˆÙ’", "ÙŠ")); // EX: (Ø£Ù†Ø§ Ø£ÙØ¯Ù’Ù†ÙÙŠØªÙØŒ Ø­ÙÙˆØ¨ÙÙŠØªÙØŒ Ø§Ù†Ø¬ÙÙ„ÙŠØªØŒ Ø§Ø±ØªØ¶ÙŠØªØŒ ØªÙØ³ÙÙˆÙ…ÙÙŠØªÙØŒ Ø§Ø³ØªÙØ±Ù’Ø¶ÙÙŠØªÙØŒ Ø§Ø­Ù’Ù„ÙÙˆÙ„ÙÙŠØªÙ)
+        substitutions.add(new InfixSubstitution("ÙˆÙ", "ÙŠÙ")); // EX: (Ù‡Ùˆ Ø£ÙØ¯Ù’Ù†ÙÙŠÙØŒ Ø­ÙÙˆØ¨ÙÙŠÙØŒ Ø§Ù†Ø¬ÙÙ„ÙÙŠÙØŒ Ø§Ø±ØªØ¶ÙŠÙØŒ ØªÙØ³ÙÙˆÙ…ÙÙŠÙØŒ Ø§Ø³ØªÙØ±Ù’Ø¶ÙÙŠÙØŒ Ø§Ø­Ù’Ù„ÙÙˆÙ„ÙÙŠÙ)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "Ù")); // EX: (Ù‡Ù… Ø£ÙØ¯Ù’Ù†ÙÙˆØ§ØŒ Ø­ÙÙˆØ¨ÙÙˆØ§ØŒ Ø§Ù†Ø¬ÙÙ„ÙÙˆØ§ØŒ Ø§Ø±ØªØ¶ÙÙˆØ§ØŒ ØªÙØ³ÙÙˆÙ…ÙÙˆØ§ØŒ Ø§Ø³ØªÙØ±Ù’Ø¶ÙÙˆØ§ØŒ Ø§Ø­Ù’Ù„ÙÙˆÙ„ÙÙˆØ§)
     }
 
 

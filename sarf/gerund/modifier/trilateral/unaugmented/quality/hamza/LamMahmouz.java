@@ -21,8 +21,8 @@ public class LamMahmouz extends AbstractLamMahmouz {
     List substitutions = new LinkedList();
 
     public LamMahmouz() {
-        substitutions.add(new InfixSubstitution("íÁó", "íÆó")); // EX: (åöíÆóÉ¡ ÈöíÆóÉ)
-        substitutions.add(new InfixSubstitution("úÁó", "úÃó")); // EX: (ÈöÏÃÉ¡ æöØÃÉ)
+        substitutions.add(new InfixSubstitution("ÙŠØ¡Ù", "ÙŠØ¦Ù")); // EX: (Ù‡ÙÙŠØ¦ÙØ©ØŒ Ø¨ÙÙŠØ¦ÙØ©)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù", "Ù’Ø£Ù")); // EX: (Ø¨ÙØ¯Ø£Ø©ØŒ ÙˆÙØ·Ø£Ø©)
     }
 
 

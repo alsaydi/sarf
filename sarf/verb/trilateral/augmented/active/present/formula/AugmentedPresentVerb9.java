@@ -30,6 +30,6 @@ public class AugmentedPresentVerb9 extends AugmentedPresentVerb {
      *   method
      */
     public String form() {
-        return cp+ArabCharUtil.FATHA+"Ó"+ArabCharUtil.SKOON+ "Ê"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+lastDpr+connectedPronoun;
+        return cp+ArabCharUtil.FATHA+"Ø³"+ArabCharUtil.SKOON+ "Øª"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+lastDpr+connectedPronoun;
     }
 }

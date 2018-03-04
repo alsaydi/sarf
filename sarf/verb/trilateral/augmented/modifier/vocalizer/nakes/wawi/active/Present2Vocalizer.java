@@ -23,14 +23,14 @@ public class Present2Vocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public Present2Vocalizer() {
-        substitutions.add(new SuffixSubstitution("æõ", "ì")); // EX: (åæ íóÊóÓÇãóì¡ íóÊóÒóßøóì)
-        substitutions.add(new SuffixSubstitution("æó", "ì")); // EX: (áä íóÊóÓÇãóì¡ íóÊóÒóßøóì)
-        substitutions.add(new SuffixSubstitution("æú", "")); // EX: (áã íóÊóÓÇãó¡ íóÊóÒóßøó)
-        substitutions.add(new InfixSubstitution("æó", "íó")); // EX: (ÃäÊãÇ ÊÊÓÇãóíÇä¡ ÊÊÒßøóíÇä)
-        substitutions.add(new InfixSubstitution("æöí", "íú")); // EX: (ÃäÊö ÊÊÓÇãóíúäó¡ ÊÊÒóßøóíúäó)
-        substitutions.add(new InfixSubstitution("æöä", "íöä")); // EX: (ÃäÊö ÊÊÓÇãóíöäøó¡ ÊÊÒóßøóíöäøó)
-        substitutions.add(new InfixSubstitution("æõæ", "æú")); // EX: (ÃäÊã ÊÊÓÇãóæúäó¡ ÊÊÒóßøóæúäó)
-        substitutions.add(new InfixSubstitution("æúä","íúä"));// EX: (ÃäÊä ÊÊÓÇãóíúäó¡ ÊÊÒóßøóíúäó)
+        substitutions.add(new SuffixSubstitution("ÙˆÙ", "Ù‰")); // EX: (Ù‡Ùˆ ÙŠÙØªÙØ³Ø§Ù…ÙÙ‰ØŒ ÙŠÙØªÙØ²ÙÙƒÙ‘ÙÙ‰)
+        substitutions.add(new SuffixSubstitution("ÙˆÙ", "Ù‰")); // EX: (Ù„Ù† ÙŠÙØªÙØ³Ø§Ù…ÙÙ‰ØŒ ÙŠÙØªÙØ²ÙÙƒÙ‘ÙÙ‰)
+        substitutions.add(new SuffixSubstitution("ÙˆÙ’", "")); // EX: (Ù„Ù… ÙŠÙØªÙØ³Ø§Ù…ÙØŒ ÙŠÙØªÙØ²ÙÙƒÙ‘Ù)
+        substitutions.add(new InfixSubstitution("ÙˆÙ", "ÙŠÙ")); // EX: (Ø£Ù†ØªÙ…Ø§ ØªØªØ³Ø§Ù…ÙÙŠØ§Ù†ØŒ ØªØªØ²ÙƒÙ‘ÙÙŠØ§Ù†)
+        substitutions.add(new InfixSubstitution("ÙˆÙÙŠ", "ÙŠÙ’")); // EX: (Ø£Ù†ØªÙ ØªØªØ³Ø§Ù…ÙÙŠÙ’Ù†ÙØŒ ØªØªØ²ÙÙƒÙ‘ÙÙŠÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙˆÙÙ†", "ÙŠÙÙ†")); // EX: (Ø£Ù†ØªÙ ØªØªØ³Ø§Ù…ÙÙŠÙÙ†Ù‘ÙØŒ ØªØªØ²ÙÙƒÙ‘ÙÙŠÙÙ†Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙˆÙÙˆ", "ÙˆÙ’")); // EX: (Ø£Ù†ØªÙ… ØªØªØ³Ø§Ù…ÙÙˆÙ’Ù†ÙØŒ ØªØªØ²ÙÙƒÙ‘ÙÙˆÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙˆÙ’Ù†","ÙŠÙ’Ù†"));// EX: (Ø£Ù†ØªÙ† ØªØªØ³Ø§Ù…ÙÙŠÙ’Ù†ÙØŒ ØªØªØ²ÙÙƒÙ‘ÙÙŠÙ’Ù†Ù)
     }
 
 

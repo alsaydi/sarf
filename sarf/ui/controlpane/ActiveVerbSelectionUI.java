@@ -28,13 +28,13 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListen
 public class ActiveVerbSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
     private SelectionInfo selectionInfo;
 
-    ToggleRenderedButton pastBtn = new ToggleRenderedButton("ÇáãÇÖí");
-    ToggleRenderedButton presentNominativeBtn = new ToggleRenderedButton("ÇáãÖÇÑÚ ÇáãÑİæÚ");
-    ToggleRenderedButton presentAccusativeBtn = new ToggleRenderedButton("ÇáãÖÇÑÚ ÇáãäÕæÈ");
-    ToggleRenderedButton presentJussiveBtn = new ToggleRenderedButton("ÇáãÖÇÑÚ ÇáãÌÒæã");
-    ToggleRenderedButton presentEmphasizedBtn = new ToggleRenderedButton("ÇáãÖÇÑÚ ÇáãÄßÏ");
-    ToggleRenderedButton imperativeBtn = new ToggleRenderedButton("ÇáÃãÑ");
-    ToggleRenderedButton imperativeEmphasizedBtn = new ToggleRenderedButton("ÇáÃãÑ ÇáãÄßÏ");
+    ToggleRenderedButton pastBtn = new ToggleRenderedButton("Ø§Ù„Ù…Ø§Ø¶ÙŠ");
+    ToggleRenderedButton presentNominativeBtn = new ToggleRenderedButton("Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø±ÙÙˆØ¹");
+    ToggleRenderedButton presentAccusativeBtn = new ToggleRenderedButton("Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ù†ØµÙˆØ¨");
+    ToggleRenderedButton presentJussiveBtn = new ToggleRenderedButton("Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¬Ø²ÙˆÙ…");
+    ToggleRenderedButton presentEmphasizedBtn = new ToggleRenderedButton("Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¤ÙƒØ¯");
+    ToggleRenderedButton imperativeBtn = new ToggleRenderedButton("Ø§Ù„Ø£Ù…Ø±");
+    ToggleRenderedButton imperativeEmphasizedBtn = new ToggleRenderedButton("Ø§Ù„Ø£Ù…Ø± Ø§Ù„Ù…Ø¤ÙƒØ¯");
 
 
     public ActiveVerbSelectionUI() {
@@ -90,7 +90,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                     sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result, SystemConstants.PAST_TENSE, true);
                     result = conjResult.getFinalResult();
                 }
-                VerbConjugationUI ui = new VerbConjugationUI(result, "ÇáãÇÖí");
+                VerbConjugationUI ui = new VerbConjugationUI(result, "Ø§Ù„Ù…Ø§Ø¶ÙŠ");
                 ControlPaneContainer.getInstance().openResult(ui);
             }
         });
@@ -125,7 +125,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                     result = conjResult.getFinalResult();
 
                 }
-                VerbConjugationUI ui = new VerbConjugationUI(result, "ÇáãÖÇÑÚ ÇáãÑİæÚ");
+                VerbConjugationUI ui = new VerbConjugationUI(result, "Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø±ÙÙˆØ¹");
                 ControlPaneContainer.getInstance().openResult(ui);
             }
         });
@@ -161,7 +161,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                     result = conjResult.getFinalResult();
 
                 }
-                VerbConjugationUI ui = new VerbConjugationUI(result, "ÇáãÖÇÑÚ ÇáãäÕæÈ");
+                VerbConjugationUI ui = new VerbConjugationUI(result, "Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ù†ØµÙˆØ¨");
                 ControlPaneContainer.getInstance().openResult(ui);
             }
         });
@@ -227,7 +227,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                     return;
 
                 }
-                VerbConjugationUI ui = new VerbConjugationUI(result, "ÇáãÖÇÑÚ ÇáãÌÒæã");
+                VerbConjugationUI ui = new VerbConjugationUI(result, "Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¬Ø²ÙˆÙ…");
                 ControlPaneContainer.getInstance().openResult(ui);
             }
         });
@@ -263,7 +263,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                     result = conjResult.getFinalResult();
 
                 }
-                VerbConjugationUI ui = new VerbConjugationUI(result, "ÇáãÖÇÑÚ ÇáãÄßÏ");
+                VerbConjugationUI ui = new VerbConjugationUI(result, "Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¤ÙƒØ¯");
                 ControlPaneContainer.getInstance().openResult(ui);
             }
         });
@@ -334,7 +334,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                     ControlPaneContainer.getInstance().openResult(ui);
                     return;
                 }
-                VerbConjugationUI ui = new VerbConjugationUI(result, "ÇáÃãÑ");
+                VerbConjugationUI ui = new VerbConjugationUI(result, "Ø§Ù„Ø£Ù…Ø±");
                 ControlPaneContainer.getInstance().openResult(ui);
             }
         });
@@ -403,7 +403,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                     return;
 
                 }
-                VerbConjugationUI ui = new VerbConjugationUI(result, "ÇáÃãÑ ÇáãÄßÏ");
+                VerbConjugationUI ui = new VerbConjugationUI(result, "Ø§Ù„Ø£Ù…Ø± Ø§Ù„Ù…Ø¤ÙƒØ¯");
                 ControlPaneContainer.getInstance().openResult(ui);
             }
         });
@@ -438,8 +438,8 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
         }
 
         //it must select one of two states
-        String msg = "áåĞÇ ÇáİÚá ÍÇáÊÇä : ÇáÊÕÍíÍ æÇáÅÚáÇá¡ ÇÎÊÑ ÅÍÏì ÇáÍÇáÊíä";
-        Object[] options = {"ÇáÊÕÍíÍ", "ÇáÅÚáÇá"};
+        String msg = "Ù„Ù‡Ø°Ø§ Ø§Ù„ÙØ¹Ù„ Ø­Ø§Ù„ØªØ§Ù† : Ø§Ù„ØªØµØ­ÙŠØ­ ÙˆØ§Ù„Ø¥Ø¹Ù„Ø§Ù„ØŒ Ø§Ø®ØªØ± Ø¥Ø­Ø¯Ù‰ Ø§Ù„Ø­Ø§Ù„ØªÙŠÙ†";
+        Object[] options = {"Ø§Ù„ØªØµØ­ÙŠØ­", "Ø§Ù„Ø¥Ø¹Ù„Ø§Ù„"};
         int optionResult = JOptionPane.showOptionDialog(this, msg, "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
         cashedUserResponse = new Boolean(optionResult == JOptionPane.NO_OPTION);
         return cashedUserResponse.booleanValue();

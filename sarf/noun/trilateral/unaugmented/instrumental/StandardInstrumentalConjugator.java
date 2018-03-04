@@ -28,10 +28,10 @@ public class StandardInstrumentalConjugator implements IUnaugmentedTrilateralNou
 
     private static List formulas = new LinkedList();
     static {
-        formulas.add("ãöİúÚóá");
-        formulas.add("ãöİúÚóáóÉ");
-        formulas.add("ãöİúÚóÇá");
-        formulas.add("İóÚøóÇáóÉ");
+        formulas.add("Ù…ÙÙÙ’Ø¹ÙÙ„");
+        formulas.add("Ù…ÙÙÙ’Ø¹ÙÙ„ÙØ©");
+        formulas.add("Ù…ÙÙÙ’Ø¹ÙØ§Ù„");
+        formulas.add("ÙÙØ¹Ù‘ÙØ§Ù„ÙØ©");
     }
 
     public NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, int formulaNo) {
@@ -62,8 +62,8 @@ public class StandardInstrumentalConjugator implements IUnaugmentedTrilateralNou
     }
 
     public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
-        //İŞØ ááİÚá ÇáãÊÚÏí
-        if (root.getTransitive().equals("ã") || root.getTransitive().equals("ß"))
+        //ÙÙ‚Ø· Ù„Ù„ÙØ¹Ù„ Ø§Ù„Ù…ØªØ¹Ø¯ÙŠ
+        if (root.getTransitive().equals("Ù…") || root.getTransitive().equals("Ùƒ"))
             return formulas;
         return new LinkedList();
     }

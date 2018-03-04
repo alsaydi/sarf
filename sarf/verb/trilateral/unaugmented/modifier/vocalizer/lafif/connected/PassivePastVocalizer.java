@@ -23,11 +23,11 @@ public class PassivePastVocalizer extends SubstitutionsApplier implements IUnaug
     private List substitutions = new LinkedList();
 
     public PassivePastVocalizer() {
-        substitutions.add(new InfixSubstitution("öíú", "öí"));
-        substitutions.add(new InfixSubstitution("öæú", "öí"));
-        substitutions.add(new InfixSubstitution("öæó", "öíó"));
-        substitutions.add(new InfixSubstitution("öíõ", "õ"));
-        substitutions.add(new InfixSubstitution("öæõ", "õ"));
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ’", "ÙÙŠ"));
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’", "ÙÙŠ"));
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "ÙÙŠÙ"));
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ", "Ù"));
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "Ù"));
 
     }
 

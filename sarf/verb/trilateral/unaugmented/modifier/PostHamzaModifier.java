@@ -12,7 +12,7 @@ import java.util.Iterator;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: íØÈŞ ÎÕíÕÇğ áİÚá ÃËÃ áãÚÇáÌÉ ÍÇáÉ ãåãæÒ ÇáİÇÁ æÇááÇã         </p>
+ * <p>Description: ÙŠØ·Ø¨Ù‚ Ø®ØµÙŠØµØ§Ù‹ Ù„ÙØ¹Ù„ Ø£Ø«Ø£ Ù„Ù…Ø¹Ø§Ù„Ø¬Ø© Ø­Ø§Ù„Ø© Ù…Ù‡Ù…ÙˆØ² Ø§Ù„ÙØ§Ø¡ ÙˆØ§Ù„Ù„Ø§Ù…         </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -25,7 +25,7 @@ public class PostHamzaModifier {
     private Map modifiersMap = new HashMap();
 
     public PostHamzaModifier() {
-        //ÎãÓ ÃäæÇÚ  ÃÓÇÓíÉ  ááãåãæÒ ááãÚáæã æÇáãÈäí áãÌåæá İí ÇáãÇÖí æÇáãÖÇÑÚ æÇáÃãÑ
+        //Ø®Ù…Ø³ Ø£Ù†ÙˆØ§Ø¹  Ø£Ø³Ø§Ø³ÙŠØ©  Ù„Ù„Ù…Ù‡Ù…ÙˆØ² Ù„Ù„Ù…Ø¹Ù„ÙˆÙ… ÙˆØ§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„ ÙÙŠ Ø§Ù„Ù…Ø§Ø¶ÙŠ ÙˆØ§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙˆØ§Ù„Ø£Ù…Ø±
         modifiersMap.put(SystemConstants.PAST_TENSE + "true", new sarf.verb.trilateral.unaugmented.modifier.hamza.lam.ActivePastMahmouz());
         modifiersMap.put(SystemConstants.PRESENT_TENSE + "true", new sarf.verb.trilateral.unaugmented.modifier.hamza.lam.ActivePresentMahmouz());
         modifiersMap.put(SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE + "true", new sarf.verb.trilateral.unaugmented.modifier.hamza.lam.ImperativeMahmouz());
@@ -35,8 +35,8 @@ public class PostHamzaModifier {
      }
 
     /**
-     * ÊØÈíŞ ÊÛííÑ  ÇáåãÒÉ ÍÓÈ ÇáÕíÛÉ ãÇÖí Ãæ ãÖÇÑÚ Ãæ ÃãÑ ááãÚáæã Ãæ áãÌåæá
-     * ŞÏ áÇ íØÈŞ Ãí äæÚ
+     * ØªØ·Ø¨ÙŠÙ‚ ØªØºÙŠÙŠØ±  Ø§Ù„Ù‡Ù…Ø²Ø© Ø­Ø³Ø¨ Ø§Ù„ØµÙŠØºØ© Ù…Ø§Ø¶ÙŠ Ø£Ùˆ Ù…Ø¶Ø§Ø±Ø¹ Ø£Ùˆ Ø£Ù…Ø± Ù„Ù„Ù…Ø¹Ù„ÙˆÙ… Ø£Ùˆ Ù„Ù…Ø¬Ù‡ÙˆÙ„
+     * Ù‚Ø¯ Ù„Ø§ ÙŠØ·Ø¨Ù‚ Ø£ÙŠ Ù†ÙˆØ¹
      * @param tense String
      * @param active boolean
      * @param conjResult ConjugationResult

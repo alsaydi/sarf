@@ -23,18 +23,18 @@ public class NakesLafifVocalizer extends TrilateralNounSubstitutionApplier imple
 
     public NakesLafifVocalizer() {
 
-        substitutions.add(new InfixSubstitution("єцё", "Ёь")); // EX: (х╨╟ ує█·╥Ёь )
-        substitutions.add(new InfixSubstitution("єцЁ╟", "Ёь")); // EX: (╤├э╩ ує█·╥Ёь )
-        substitutions.add(new InfixSubstitution("єцЄ", "Ёь")); // EX: (╚Ўує█·╥Ёь )
-        substitutions.add(new SuffixSubstitution("єцї", "єь")); // EX: (х╨╟ ує█·╥єь ╟с├у╤)
-        substitutions.add(new SuffixSubstitution("єцє", "єь")); // EX: (╤├э╩ ує█·╥єь ╟с├у╤)
-        substitutions.add(new SuffixSubstitution("єцЎ", "єь")); // EX: (╚Ўує█·╥єь ╟с├у╤)
-        substitutions.add(new InfixSubstitution("єэё", "Ёь")); // EX: (х╨╟ у╤уЁь )
-        substitutions.add(new InfixSubstitution("єэЁ╟", "Ёь")); // EX: (╤├э╩ у╤уЁь)
-        substitutions.add(new InfixSubstitution("єэЄ", "Ёь")); // EX: (╚Ўу╤уЁь)
-        substitutions.add(new SuffixSubstitution("єэї", "єь")); // EX: (х╨╟ у╤уєь ╟с▐цу)
-        substitutions.add(new SuffixSubstitution("єэє", "єь")); // EX: (╤├э╩ у╤уєь ╟с▐цу)
-        substitutions.add(new SuffixSubstitution("єэЎ", "єь")); // EX: (╚Ўу╤уєь ╟с▐цу)
+        substitutions.add(new InfixSubstitution("┘О┘И┘М", "┘Л┘Й")); // EX: (┘З╪░╪з ┘Е┘О╪║┘Т╪▓┘Л┘Й )
+        substitutions.add(new InfixSubstitution("┘О┘И┘Л╪з", "┘Л┘Й")); // EX: (╪▒╪г┘К╪к ┘Е┘О╪║┘Т╪▓┘Л┘Й )
+        substitutions.add(new InfixSubstitution("┘О┘И┘Н", "┘Л┘Й")); // EX: (╪и┘Р┘Е┘О╪║┘Т╪▓┘Л┘Й )
+        substitutions.add(new SuffixSubstitution("┘О┘И┘П", "┘О┘Й")); // EX: (┘З╪░╪з ┘Е┘О╪║┘Т╪▓┘О┘Й ╪з┘Д╪г┘Е╪▒)
+        substitutions.add(new SuffixSubstitution("┘О┘И┘О", "┘О┘Й")); // EX: (╪▒╪г┘К╪к ┘Е┘О╪║┘Т╪▓┘О┘Й ╪з┘Д╪г┘Е╪▒)
+        substitutions.add(new SuffixSubstitution("┘О┘И┘Р", "┘О┘Й")); // EX: (╪и┘Р┘Е┘О╪║┘Т╪▓┘О┘Й ╪з┘Д╪г┘Е╪▒)
+        substitutions.add(new InfixSubstitution("┘О┘К┘М", "┘Л┘Й")); // EX: (┘З╪░╪з ┘Е╪▒┘Е┘Л┘Й )
+        substitutions.add(new InfixSubstitution("┘О┘К┘Л╪з", "┘Л┘Й")); // EX: (╪▒╪г┘К╪к ┘Е╪▒┘Е┘Л┘Й)
+        substitutions.add(new InfixSubstitution("┘О┘К┘Н", "┘Л┘Й")); // EX: (╪и┘Р┘Е╪▒┘Е┘Л┘Й)
+        substitutions.add(new SuffixSubstitution("┘О┘К┘П", "┘О┘Й")); // EX: (┘З╪░╪з ┘Е╪▒┘Е┘О┘Й ╪з┘Д┘В┘И┘Е)
+        substitutions.add(new SuffixSubstitution("┘О┘К┘О", "┘О┘Й")); // EX: (╪▒╪г┘К╪к ┘Е╪▒┘Е┘О┘Й ╪з┘Д┘В┘И┘Е)
+        substitutions.add(new SuffixSubstitution("┘О┘К┘Р", "┘О┘Й")); // EX: (╪и┘Р┘Е╪▒┘Е┘О┘Й ╪з┘Д┘В┘И┘Е)
     }
 
 
@@ -43,7 +43,7 @@ public class NakesLafifVocalizer extends TrilateralNounSubstitutionApplier imple
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (!conjugationResult.getNounFormula().equals("ує▌·┌єс")) {
+        if (!conjugationResult.getNounFormula().equals("┘Е┘О┘Б┘Т╪╣┘О┘Д")) {
             return false;
         }
 

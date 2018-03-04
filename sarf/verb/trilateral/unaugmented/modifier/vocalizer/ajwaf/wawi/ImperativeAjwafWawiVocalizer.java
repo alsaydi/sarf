@@ -23,11 +23,11 @@ public class ImperativeAjwafWawiVocalizer extends AbstractAjwafWawiVocalizer {
     private List substitutions = new LinkedList();
 
     public ImperativeAjwafWawiVocalizer() {
-        substitutions.add(new ExpressionInfixSubstitution("╟C1·цїC3ї","C1їцC3ї"));// EX: (▐їцуїц╟б ▐їцуїф°єб ╚ц┴ц╟б ├ц╚ц╟)
-        substitutions.add(new ExpressionInfixSubstitution("╟C1·цїC3Ў","C1їцC3Ў"));// EX: (▐цуЎэб ▐цуЎф°єб ╚ц╞эб ├ц╚э)
-        substitutions.add(new ExpressionInfixSubstitution("╟C1·цїC3є","C1їцC3є"));// EX: (▐цу╟б ▐цуєф°єб ╚ц┴╟б ├ц╚╟)
-        substitutions.add(new ExpressionInfixSubstitution("╟C1·цїC3·","C1їC3·"));// EX: (▐їу·б ▐їу·фє╟ф°Ўб ╚ї─·б ├ї╚·)
-        substitutions.add(new ExpressionInfixSubstitution("╟C1·цїC3°","C1їC3°"));// EX: (├ф╩ф ╒їф°є)
+        substitutions.add(new ExpressionInfixSubstitution("╪зC1┘Т┘И┘ПC3┘П","C1┘П┘ИC3┘П"));// EX: (┘В┘П┘И┘Е┘П┘И╪з╪М ┘В┘П┘И┘Е┘П┘Ж┘С┘О╪М ╪и┘И╪б┘И╪з╪М ╪г┘И╪и┘И╪з)
+        substitutions.add(new ExpressionInfixSubstitution("╪зC1┘Т┘И┘ПC3┘Р","C1┘П┘ИC3┘Р"));// EX: (┘В┘И┘Е┘Р┘К╪М ┘В┘И┘Е┘Р┘Ж┘С┘О╪М ╪и┘И╪ж┘К╪М ╪г┘И╪и┘К)
+        substitutions.add(new ExpressionInfixSubstitution("╪зC1┘Т┘И┘ПC3┘О","C1┘П┘ИC3┘О"));// EX: (┘В┘И┘Е╪з╪М ┘В┘И┘Е┘О┘Ж┘С┘О╪М ╪и┘И╪б╪з╪М ╪г┘И╪и╪з)
+        substitutions.add(new ExpressionInfixSubstitution("╪зC1┘Т┘И┘ПC3┘Т","C1┘ПC3┘Т"));// EX: (┘В┘П┘Е┘Т╪М ┘В┘П┘Е┘Т┘Ж┘О╪з┘Ж┘С┘Р╪М ╪и┘П╪д┘Т╪М ╪г┘П╪и┘Т)
+        substitutions.add(new ExpressionInfixSubstitution("╪зC1┘Т┘И┘ПC3┘С","C1┘ПC3┘С"));// EX: (╪г┘Ж╪к┘Ж ╪╡┘П┘Ж┘С┘О)
     }
 
     public List getSubstitutions() {

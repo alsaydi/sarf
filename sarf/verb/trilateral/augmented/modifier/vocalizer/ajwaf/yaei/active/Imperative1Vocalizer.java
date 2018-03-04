@@ -23,10 +23,10 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IAugme
     private List substitutions = new LinkedList();
 
     public Imperative1Vocalizer() {
-        substitutions.add(new ExpressionInfixSubstitution("úíöC3õ","öíC3õ"));// EX: (ÃäÊã ÃÈíÏæÇ¡ ÇÓÊŞíáæÇ)
-        substitutions.add(new ExpressionInfixSubstitution("úíöC3ö","öíC3ö"));// EX: (ÃäÊö ÃÈíÏí¡ ÇÓÊŞíáí)
-        substitutions.add(new ExpressionInfixSubstitution("úíöC3ó","öíC3ó"));// EX: (ÃäÊãÇ ÃÈíÏÇ¡ ÇÓÊŞíáÇ)
-        substitutions.add(new ExpressionInfixSubstitution("úíöC3ú","öC3ú"));// EX: (ÃäÊä ÃÈöÏúäó¡ ÇÓúÊóŞöáúäó)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù","ÙÙŠC3Ù"));// EX: (Ø£Ù†ØªÙ… Ø£Ø¨ÙŠØ¯ÙˆØ§ØŒ Ø§Ø³ØªÙ‚ÙŠÙ„ÙˆØ§)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù","ÙÙŠC3Ù"));// EX: (Ø£Ù†ØªÙ Ø£Ø¨ÙŠØ¯ÙŠØŒ Ø§Ø³ØªÙ‚ÙŠÙ„ÙŠ)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù","ÙÙŠC3Ù"));// EX: (Ø£Ù†ØªÙ…Ø§ Ø£Ø¨ÙŠØ¯Ø§ØŒ Ø§Ø³ØªÙ‚ÙŠÙ„Ø§)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù’","ÙC3Ù’"));// EX: (Ø£Ù†ØªÙ† Ø£Ø¨ÙØ¯Ù’Ù†ÙØŒ Ø§Ø³Ù’ØªÙÙ‚ÙÙ„Ù’Ù†Ù)
     }
 
 

@@ -31,7 +31,7 @@ public class SpecialImperativeMahmouz1 extends SubstitutionsApplier implements I
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC1() == 'Á' && root.getC2() == 'Î' && root.getC3() == 'Ğ' && root.getConjugation().equals("1");
+        return root.getC1() == 'Ø¡' && root.getC2() == 'Ø®' && root.getC3() == 'Ø°' && root.getConjugation().equals("1");
     }
 
     /**
@@ -40,10 +40,10 @@ public class SpecialImperativeMahmouz1 extends SubstitutionsApplier implements I
      * @param root TrilateralRoot
      */
     public void apply(List words, TrilateralRoot root) {
-        words.set(2, "ÎõĞú");
-        words.set(3, "ÎõĞöí");
-        words.set(4, "ÎõĞóÇ");
-        words.set(5, "ÎõĞõæÇ");
-        words.set(6, "ÎõĞúäó");
+        words.set(2, "Ø®ÙØ°Ù’");
+        words.set(3, "Ø®ÙØ°ÙÙŠ");
+        words.set(4, "Ø®ÙØ°ÙØ§");
+        words.set(5, "Ø®ÙØ°ÙÙˆØ§");
+        words.set(6, "Ø®ÙØ°Ù’Ù†Ù");
     }
 }

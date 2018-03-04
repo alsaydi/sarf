@@ -18,7 +18,7 @@ import sarf.verb.quadriliteral.substitution.SubstitutionsApplier;
  * @version 1.0
  */
 public class Vocalizer {
-    //ÇáãÚáæã  æ  ÇáãÌåæá ÊÍÊæí ŞÇÆãÉ ÈÇáÃäæÇÚ ÇáÎãÓÉ áÇÚáÇá áãÇÖí æÇáãÖÇÑÚ æÇáÃãÑ ÍÓÈ
+    //Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…  Ùˆ  Ø§Ù„Ù…Ø¬Ù‡ÙˆÙ„ ØªØ­ØªÙˆÙŠ Ù‚Ø§Ø¦Ù…Ø© Ø¨Ø§Ù„Ø£Ù†ÙˆØ§Ø¹ Ø§Ù„Ø®Ù…Ø³Ø© Ù„Ø§Ø¹Ù„Ø§Ù„ Ù„Ù…Ø§Ø¶ÙŠ ÙˆØ§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙˆØ§Ù„Ø£Ù…Ø± Ø­Ø³Ø¨
     private Map modifiersMap = new HashMap();
 
     public Vocalizer() {
@@ -28,7 +28,7 @@ public class Vocalizer {
         List passivePresentList = new LinkedList();
         List imperativeList = new LinkedList();
 
-        //ÎãÓ ÃäæÇÚ  ÃÓÇÓíÉ  ááÇÚáÇá ááãÚáæã æÇáãÈäí áãÌåæá İí ÇáãÇÖí æÇáãÖÇÑÚ æÇáÃãÑ
+        //Ø®Ù…Ø³ Ø£Ù†ÙˆØ§Ø¹  Ø£Ø³Ø§Ø³ÙŠØ©  Ù„Ù„Ø§Ø¹Ù„Ø§Ù„ Ù„Ù„Ù…Ø¹Ù„ÙˆÙ… ÙˆØ§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„ ÙÙŠ Ø§Ù„Ù…Ø§Ø¶ÙŠ ÙˆØ§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙˆØ§Ù„Ø£Ù…Ø±
         modifiersMap.put(SystemConstants.PAST_TENSE + "true", activePastList);
         modifiersMap.put(SystemConstants.PRESENT_TENSE + "true", activePresentList);
         modifiersMap.put(SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE + "true", imperativeList);
@@ -36,28 +36,28 @@ public class Vocalizer {
         modifiersMap.put(SystemConstants.PAST_TENSE + "false", passivePastList);
         modifiersMap.put(SystemConstants.PRESENT_TENSE + "false", passivePresentList);
 
-        //ŞÇÆãÉ ÇáãÇÖí ÇáãÈäí áãÚáæã
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø§Ø¶ÙŠ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¹Ù„ÙˆÙ…
         activePastList.add(new sarf.verb.quadriliteral.modifier.vocalizer.nakes.active.PastVocalizer());
 
-        //ŞÇÆãÉ ÇáãÇÖí ÇáãÈäí áãÌåæá
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø§Ø¶ÙŠ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„
         passivePastList.add(new sarf.verb.quadriliteral.modifier.vocalizer.nakes.passive.PastVocalizer());
 
-        //ŞÇÆãÉ ÇáãÖÇÑÚ ÇáãÈäí áãÚáæã
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¹Ù„ÙˆÙ…
         activePresentList.add(new sarf.verb.quadriliteral.modifier.vocalizer.nakes.active.Present1Vocalizer());
         activePresentList.add(new sarf.verb.quadriliteral.modifier.vocalizer.nakes.active.Present2Vocalizer());
 
 
-        //ŞÇÆãÉ ÇáãÖÇÑÚ ÇáãÈäí áãÌåæá
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ù…Ø¶Ø§Ø±Ø¹ Ø§Ù„Ù…Ø¨Ù†ÙŠ Ù„Ù…Ø¬Ù‡ÙˆÙ„
         passivePresentList.add(new sarf.verb.quadriliteral.modifier.vocalizer.nakes.passive.PresentVocalizer());
 
-        //ŞÇÆãÉ ÇáÃãÑ
+        //Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø£Ù…Ø±
         imperativeList.add(new sarf.verb.quadriliteral.modifier.vocalizer.nakes.active.Imperative1Vocalizer());
         imperativeList.add(new sarf.verb.quadriliteral.modifier.vocalizer.nakes.active.Imperative2Vocalizer());
     }
 
     /**
-     * ÊØÈíŞ ÇáÇÚáÇá ÍÓÈ ÇáÕíÛÉ ãÇÖí Ãæ ãÖÇÑÚ Ãæ ÃãÑ ááãÚáæã Ãæ áãÌåæá
-     * ŞÏ áÇ íØÈŞ Ãí äæÚ ãä ÇáÇÚáÇá
+     * ØªØ·Ø¨ÙŠÙ‚ Ø§Ù„Ø§Ø¹Ù„Ø§Ù„ Ø­Ø³Ø¨ Ø§Ù„ØµÙŠØºØ© Ù…Ø§Ø¶ÙŠ Ø£Ùˆ Ù…Ø¶Ø§Ø±Ø¹ Ø£Ùˆ Ø£Ù…Ø± Ù„Ù„Ù…Ø¹Ù„ÙˆÙ… Ø£Ùˆ Ù„Ù…Ø¬Ù‡ÙˆÙ„
+     * Ù‚Ø¯ Ù„Ø§ ÙŠØ·Ø¨Ù‚ Ø£ÙŠ Ù†ÙˆØ¹ Ù…Ù† Ø§Ù„Ø§Ø¹Ù„Ø§Ù„
      * @param tense String
      * @param active boolean
      * @param conjResult ConjugationResult

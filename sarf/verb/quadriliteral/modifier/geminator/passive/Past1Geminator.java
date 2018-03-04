@@ -22,8 +22,8 @@ public class Past1Geminator extends SubstitutionsApplier implements IQuadrilater
     private List substitutions = new LinkedList();
 
     public Past1Geminator() {
-        substitutions.add(new ExpressionInfixSubstitution("úC4öC4ó","öC4øó"));// EX: (ÇŞúÔõÚöÑøó)
-        substitutions.add(new ExpressionInfixSubstitution("úC4öC4õ","öC4øõ"));// EX: (ÇŞúÔõÚöÑøõæÇ)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C4ÙC4Ù","ÙC4Ù‘Ù"));// EX: (Ø§Ù‚Ù’Ø´ÙØ¹ÙØ±Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C4ÙC4Ù","ÙC4Ù‘Ù"));// EX: (Ø§Ù‚Ù’Ø´ÙØ¹ÙØ±Ù‘ÙÙˆØ§)
     }
 
 

@@ -24,7 +24,7 @@ public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
     List substitutions = new LinkedList();
 
     public YaeiLafifNakesVocalizer() {
-        substitutions.add(new InfixSubstitution("õæí","öíø"));// EX: (ãÃÊöíø¡ ãÑÆöíø¡ ãÑãöíø¡ ãóÔúæöíø¡ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙŠ","ÙÙŠÙ‘"));// EX: (Ù…Ø£ØªÙÙŠÙ‘ØŒ Ù…Ø±Ø¦ÙÙŠÙ‘ØŒ Ù…Ø±Ù…ÙÙŠÙ‘ØŒ Ù…ÙØ´Ù’ÙˆÙÙŠÙ‘ØŒ )
     }
 
 

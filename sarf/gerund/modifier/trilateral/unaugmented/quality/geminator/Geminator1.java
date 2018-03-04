@@ -24,7 +24,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IUn
     List substitutions = new LinkedList();
 
     public Geminator1() {
-        substitutions.add(new InfixSubstitution("öæúæó","öíøó"));// EX: (ÓöíøóÉ)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’ÙˆÙ","ÙÙŠÙ‘Ù"));// EX: (Ø³ÙÙŠÙ‘ÙØ©)
     }
 
 
@@ -33,6 +33,6 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IUn
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC2() =='æ' && conjugationResult.getRoot().getC3() == 'æ';
+        return conjugationResult.getRoot().getC2() =='Ùˆ' && conjugationResult.getRoot().getC3() == 'Ùˆ';
     }
 }

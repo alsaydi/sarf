@@ -24,16 +24,16 @@ public class Vocalizer extends QuadrilateralNounSubstitutionApplier implements I
 
     public Vocalizer() {
 
-        substitutions.add(new InfixSubstitution("óíóÉ","óÇÉ"));// EX: (ŞáÓÇÉ¡ ÖæÖÇÉ¡ ÍíÍÇÉ)
-        substitutions.add(new InfixSubstitution("óíóÊ","óÇÊ"));// EX: (ŞáÓÇÊÇä¡ ÖæÖÇÊÇä¡ ÍíÍÇÊÇä)
-        substitutions.add(new InfixSubstitution("óÇí","óÇÁ"));// EX: (ÇÓáäŞÇÁ)
-        substitutions.add(new SuffixSubstitution("õíõ","öí"));// EX: (åĞÇ ÇáÊŞáÓí)
-        substitutions.add(new SuffixSubstitution("õíó","öíó"));// EX: (ÑÃíÊõ ÇáÊŞáÓíó)
-        substitutions.add(new SuffixSubstitution("õíö","öí"));// EX: (ÈÇáÊŞáÓí)
-        substitutions.add(new InfixSubstitution("õíñ","ò"));// EX: (åĞÇ ÊŞáÓò)
-        substitutions.add(new InfixSubstitution("õíò","ò"));// EX: (ÈÊŞáÓò)
-        substitutions.add(new InfixSubstitution("õíğ","öíğ"));// EX: (ÊŞáÓíğÇ)
-        substitutions.add(new InfixSubstitution("õíó","öíó"));// EX: (ÊŞáÓíÇä)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙØ©","ÙØ§Ø©"));// EX: (Ù‚Ù„Ø³Ø§Ø©ØŒ Ø¶ÙˆØ¶Ø§Ø©ØŒ Ø­ÙŠØ­Ø§Ø©)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙØª","ÙØ§Øª"));// EX: (Ù‚Ù„Ø³Ø§ØªØ§Ù†ØŒ Ø¶ÙˆØ¶Ø§ØªØ§Ù†ØŒ Ø­ÙŠØ­Ø§ØªØ§Ù†)
+        substitutions.add(new InfixSubstitution("ÙØ§ÙŠ","ÙØ§Ø¡"));// EX: (Ø§Ø³Ù„Ù†Ù‚Ø§Ø¡)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠ"));// EX: (Ù‡Ø°Ø§ Ø§Ù„ØªÙ‚Ù„Ø³ÙŠ)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠÙ"));// EX: (Ø±Ø£ÙŠØªÙ Ø§Ù„ØªÙ‚Ù„Ø³ÙŠÙ)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠ"));// EX: (Ø¨Ø§Ù„ØªÙ‚Ù„Ø³ÙŠ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙŒ","Ù"));// EX: (Ù‡Ø°Ø§ ØªÙ‚Ù„Ø³Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ø¨ØªÙ‚Ù„Ø³Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ‹","ÙÙŠÙ‹"));// EX: (ØªÙ‚Ù„Ø³ÙŠÙ‹Ø§)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","ÙÙŠÙ"));// EX: (ØªÙ‚Ù„Ø³ÙŠØ§Ù†)
 
     }
 
@@ -43,6 +43,6 @@ public class Vocalizer extends QuadrilateralNounSubstitutionApplier implements I
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC4() == 'í';
+        return conjugationResult.getRoot().getC4() == 'ÙŠ';
     }
 }

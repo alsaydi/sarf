@@ -23,7 +23,7 @@ public class NounFormula8 extends NonStandardExaggerationNounFormula {
     public NounFormula8(UnaugmentedTrilateralRoot root, String suffixNo) {
         super(root, suffixNo);
         if (this.suffixNo == 7 && GenericNounSuffixContainer.getInstance().isInDefiniteMode()) {
-            suffix = "";
+            suffix = "Ÿã";
         }
     }
 
@@ -36,14 +36,14 @@ public class NounFormula8 extends NonStandardExaggerationNounFormula {
         case 1:
         case 7:
         case 13:
-            return root.getC1() + ArabCharUtil.FATHA + "«" + root.getC2() + ArabCharUtil.KASRA + root.getC3() + ArabCharUtil.FATHA + "…" + suffix;
+            return root.getC1() + ArabCharUtil.FATHA + "ÿß" + root.getC2() + ArabCharUtil.KASRA + root.getC3() + ArabCharUtil.FATHA + "ÿ©" + suffix;
         }
 
         return "";
     }
 
     public String getFormulaName() {
-        return "›Û«⁄ˆ·Û…";
+        return "ŸÅŸéÿßÿπŸêŸÑŸéÿ©";
     }
 
     public String getSymbol() {

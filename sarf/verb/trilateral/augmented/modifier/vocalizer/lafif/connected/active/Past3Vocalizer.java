@@ -25,12 +25,12 @@ public class Past3Vocalizer extends SubstitutionsApplier implements IAugmentedTr
 
     public Past3Vocalizer() {
 
-        substitutions.add(new SuffixSubstitution("ужу","ум"));// EX: (√”жум° ”ужшум ”«жум° «дџжм° «” жм°  ”«жм°  у”ужшум «” џжм «Ќъжужшум)
-        substitutions.add(new InfixSubstitution("жъ","нъ"));// EX: (√”ъжунъ х° ”ужшунъ х ”«жунъ х° «дџжн х° «” жунъ х°  ”«жн х°  ”жшунъ х «” џжунъ х «Ќжужшунъ х)
-        substitutions.add(new InfixSubstitution("жу«","ну«"));// EX: (√”ъжуну«° ”ужшун« ”«жун«° «дџжн«° «” жун«°  ”«жуну«°  у”ужшуну«° «” џжуну«° «Ќъжужшуну«)
-        substitutions.add(new InfixSubstitution("жхж","жъ"));// EX: (√”ъжужъ«° ”ужшужъ« ”«жужъ«° «дџжужъ«° «” жужъ«°  ”«жужъ«°  у”ужшужъ«° «” џжужъ«° «Ќъжужшужъ«)
-        substitutions.add(new InfixSubstitution("жужу","жу"));// EX: (√”ъжу ъ° )
-        substitutions.add(new InfixSubstitution("жшужу","жшу"));// EX: (”ужшу ъ° )
+        substitutions.add(new SuffixSubstitution("ўОўИўО","ўОўЙ"));// EX: (Ў£Ў≥ўИўОўЙЎМ Ў≥ўОўИўСўОўЙ Ў≥ЎІўИўОўЙЎМ ЎІўЖЎЇўИўЙЎМ ЎІЎ≥Ў™ўИўЙЎМ Ў™Ў≥ЎІўИўЙЎМ Ў™ўОЎ≥ўОўИўСўОўЙ ЎІЎ≥Ў™ЎЇўИўЙ ЎІЎ≠ўТўИўОўИўСўОўЙ)
+        substitutions.add(new InfixSubstitution("ўИўТ","ўКўТ"));// EX: (Ў£Ў≥ўТўИўОўКўТЎ™ўПЎМ Ў≥ўОўИўСўОўКўТЎ™ўП Ў≥ЎІўИўОўКўТЎ™ўПЎМ ЎІўЖЎЇўИўКЎ™ўПЎМ ЎІЎ≥Ў™ўИўОўКўТЎ™ўПЎМ Ў™Ў≥ЎІўИўКЎ™ўПЎМ Ў™Ў≥ўИўСўОўКўТЎ™ўП ЎІЎ≥Ў™ЎЇўИўОўКўТЎ™ўП ЎІЎ≠ўИўОўИўСўОўКўТЎ™ўП)
+        substitutions.add(new InfixSubstitution("ўИўОЎІ","ўКўОЎІ"));// EX: (Ў£Ў≥ўТўИўОўКўОЎІЎМ Ў≥ўОўИўСўОўКЎІ Ў≥ЎІўИўОўКЎІЎМ ЎІўЖЎЇўИўКЎІЎМ ЎІЎ≥Ў™ўИўОўКЎІЎМ Ў™Ў≥ЎІўИўОўКўОЎІЎМ Ў™ўОЎ≥ўОўИўСўОўКўОЎІЎМ ЎІЎ≥Ў™ЎЇўИўОўКўОЎІЎМ ЎІЎ≠ўТўИўОўИўСўОўКўОЎІ)
+        substitutions.add(new InfixSubstitution("ўИўПўИ","ўИўТ"));// EX: (Ў£Ў≥ўТўИўОўИўТЎІЎМ Ў≥ўОўИўСўОўИўТЎІ Ў≥ЎІўИўОўИўТЎІЎМ ЎІўЖЎЇўИўОўИўТЎІЎМ ЎІЎ≥Ў™ўИўОўИўТЎІЎМ Ў™Ў≥ЎІўИўОўИўТЎІЎМ Ў™ўОЎ≥ўОўИўСўОўИўТЎІЎМ ЎІЎ≥Ў™ЎЇўИўОўИўТЎІЎМ ЎІЎ≠ўТўИўОўИўСўОўИўТЎІ)
+        substitutions.add(new InfixSubstitution("ўИўОўИўО","ўИўО"));// EX: (Ў£Ў≥ўТўИўОЎ™ўТЎМ )
+        substitutions.add(new InfixSubstitution("ўИўСўОўИўО","ўИўСўО"));// EX: (Ў≥ўОўИўСўОЎ™ўТЎМ )
 
     }
 
@@ -43,7 +43,7 @@ public class Past3Vocalizer extends SubstitutionsApplier implements IAugmentedTr
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        if (root.getC2() == root.getC3() && root.getC3() == 'ж' && kov == 28) {
+        if (root.getC2() == root.getC3() && root.getC3() == 'ўИ' && kov == 28) {
             switch (formulaNo) {
             case 1:
             case 2:

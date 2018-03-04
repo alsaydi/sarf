@@ -24,7 +24,7 @@ public class B2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
     List substitutions = new LinkedList();
 
     public B2Vocalizer() {
-        substitutions.add(new InfixSubstitution("õæí","öíø"));// EX: (Ìóäöíø¡ Şóæöíø¡ æóİöíø )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙŠ","ÙÙŠÙ‘"));// EX: (Ø¬ÙÙ†ÙÙŠÙ‘ØŒ Ù‚ÙÙˆÙÙŠÙ‘ØŒ ÙˆÙÙÙÙŠÙ‘ )
     }
 
 
@@ -34,7 +34,7 @@ public class B2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
-        if (!nounFormula.equals("İóÚõæá")) {
+        if (!nounFormula.equals("ÙÙØ¹ÙÙˆÙ„")) {
             return false;
         }
 

@@ -23,7 +23,7 @@ public class Imperative2Vocalizer extends SubstitutionsApplier implements IUnaug
     private List substitutions = new LinkedList();
 
     public Imperative2Vocalizer() {
-        substitutions.add(new InfixSubstitution("Çæú","Çí"));// EX: (ÇíÌá¡ ÇíÈÃ¡ ÇíÏÏ¡ ÇíÆÈ )
+        substitutions.add(new InfixSubstitution("Ø§ÙˆÙ’","Ø§ÙŠ"));// EX: (Ø§ÙŠØ¬Ù„ØŒ Ø§ÙŠØ¨Ø£ØŒ Ø§ÙŠØ¯Ø¯ØŒ Ø§ÙŠØ¦Ø¨ )
     }
 
 

@@ -7,8 +7,8 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * <p>Title: Sarf Program</p>
  *
  * <p>Description: This is the facade for gemination subsystem
- * åæ ÇáÕİ ÇáãÓÄæá Úä ÚãáíÉ ÇáÇÏÛÇã Èßá ÍÇáÇÊåÇ
- *ÍíË íÊÎÇØÈ ãÚ ÇáÕİæİ ÇáãæÌæÏÉ İí ÍÒãÉ ÇáÇÏÛÇã
+ * Ù‡Ùˆ Ø§Ù„ØµÙ Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ Ø¹Ù† Ø¹Ù…Ù„ÙŠØ© Ø§Ù„Ø§Ø¯ØºØ§Ù… Ø¨ÙƒÙ„ Ø­Ø§Ù„Ø§ØªÙ‡Ø§
+ *Ø­ÙŠØ« ÙŠØªØ®Ø§Ø·Ø¨ Ù…Ø¹ Ø§Ù„ØµÙÙˆÙ Ø§Ù„Ù…ÙˆØ¬ÙˆØ¯Ø© ÙÙŠ Ø­Ø²Ù…Ø© Ø§Ù„Ø§Ø¯ØºØ§Ù…
  * </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
@@ -19,25 +19,25 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class Geminator {
-    //ÇÏÛÇã ÇáÚÇã
+    //Ø§Ø¯ØºØ§Ù… Ø§Ù„Ø¹Ø§Ù…
     private GenericGeminator genericGeminator = new GenericGeminator();
-    //ÇÏÛÇã ÇáãäÊåí ÈÍÑİ Çáäæä
+    //Ø§Ø¯ØºØ§Ù… Ø§Ù„Ù…Ù†ØªÙ‡ÙŠ Ø¨Ø­Ø±Ù Ø§Ù„Ù†ÙˆÙ†
     private NEndedGeminator nEndedGeminator = new NEndedGeminator();
-    //ÇÏÛÇã ÇáãÈÊÏÃ ÈÍÑİ Çáäæä
+    //Ø§Ø¯ØºØ§Ù… Ø§Ù„Ù…Ø¨ØªØ¯Ø£ Ø¨Ø­Ø±Ù Ø§Ù„Ù†ÙˆÙ†
     private NStartedGeminator nStartedGeminator = new NStartedGeminator();
 
-    //ÇÏÛÇã ÇáãäÊåí ÈÍÑİ ÇáÊÇÁ
+    //Ø§Ø¯ØºØ§Ù… Ø§Ù„Ù…Ù†ØªÙ‡ÙŠ Ø¨Ø­Ø±Ù Ø§Ù„ØªØ§Ø¡
     private TEndedGeminator tEndedGeminator = new TEndedGeminator();
-    //ÇÏÛÇã ÇáãÈÊÏÃ ÈÍÑİ ÇáÊÇÁ
+    //Ø§Ø¯ØºØ§Ù… Ø§Ù„Ù…Ø¨ØªØ¯Ø£ Ø¨Ø­Ø±Ù Ø§Ù„ØªØ§Ø¡
     private TStartedGeminator tStartedGeminator = new TStartedGeminator();
 
     public Geminator() {
     }
 
     /**
-     * ÊØÈíŞ ÇáÇÏÛÇã ÍÓÈ ÇáÕíÛÉ ãÇÖí Ãæ ãÖÇÑÚ Ãæ ÃãÑ ááãÚáæã Ãæ áãÌåæá
-     * ÊÌÑíÈ ÇáÍÇáÇÊ ÇáÎÇÕÉ ŞÈá ÇáÍÇáÉ ÇáÚÇãÉ
-     * ŞÏ áÇ íØÈŞ Ãí äæÚ ãä ÇáÇÏÛÇã
+     * ØªØ·Ø¨ÙŠÙ‚ Ø§Ù„Ø§Ø¯ØºØ§Ù… Ø­Ø³Ø¨ Ø§Ù„ØµÙŠØºØ© Ù…Ø§Ø¶ÙŠ Ø£Ùˆ Ù…Ø¶Ø§Ø±Ø¹ Ø£Ùˆ Ø£Ù…Ø± Ù„Ù„Ù…Ø¹Ù„ÙˆÙ… Ø£Ùˆ Ù„Ù…Ø¬Ù‡ÙˆÙ„
+     * ØªØ¬Ø±ÙŠØ¨ Ø§Ù„Ø­Ø§Ù„Ø§Øª Ø§Ù„Ø®Ø§ØµØ© Ù‚Ø¨Ù„ Ø§Ù„Ø­Ø§Ù„Ø© Ø§Ù„Ø¹Ø§Ù…Ø©
+     * Ù‚Ø¯ Ù„Ø§ ÙŠØ·Ø¨Ù‚ Ø£ÙŠ Ù†ÙˆØ¹ Ù…Ù† Ø§Ù„Ø§Ø¯ØºØ§Ù…
      * @param tense String
      * @param active boolean
      * @param conjResult ConjugationResult

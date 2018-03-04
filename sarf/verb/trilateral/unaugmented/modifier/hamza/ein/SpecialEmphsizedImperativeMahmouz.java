@@ -31,7 +31,7 @@ public class SpecialEmphsizedImperativeMahmouz extends SubstitutionsApplier impl
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC1() == 'Ó' && root.getC2() == 'Á' && root.getC3() == 'á';
+        return root.getC1() == 'Ø³' && root.getC2() == 'Ø¡' && root.getC3() == 'Ù„';
     }
 
     /**
@@ -40,10 +40,10 @@ public class SpecialEmphsizedImperativeMahmouz extends SubstitutionsApplier impl
      * @param root TrilateralRoot
      */
     public void apply(List words, TrilateralRoot root) {
-        words.set(2, "Óóáóäøó/ÇÓúÃáóäøó");
-        words.set(3, "Óóáöäøó/ÇÓúÃáöäøó");
-        words.set(4, "ÓóáÇóäøö/ÇÓúÃáÇóäøö");
-        words.set(5, "Óóáõäøó/ÇÓúÃáõäøó");
-        words.set(6, "ÓóáúäóÇäøö/ÇÓúÃáúäóÇäøö");
+        words.set(2, "Ø³ÙÙ„ÙÙ†Ù‘Ù/Ø§Ø³Ù’Ø£Ù„ÙÙ†Ù‘Ù");
+        words.set(3, "Ø³ÙÙ„ÙÙ†Ù‘Ù/Ø§Ø³Ù’Ø£Ù„ÙÙ†Ù‘Ù");
+        words.set(4, "Ø³ÙÙ„Ø§ÙÙ†Ù‘Ù/Ø§Ø³Ù’Ø£Ù„Ø§ÙÙ†Ù‘Ù");
+        words.set(5, "Ø³ÙÙ„ÙÙ†Ù‘Ù/Ø§Ø³Ù’Ø£Ù„ÙÙ†Ù‘Ù");
+        words.set(6, "Ø³ÙÙ„Ù’Ù†ÙØ§Ù†Ù‘Ù/Ø§Ø³Ù’Ø£Ù„Ù’Ù†ÙØ§Ù†Ù‘Ù");
     }
 }

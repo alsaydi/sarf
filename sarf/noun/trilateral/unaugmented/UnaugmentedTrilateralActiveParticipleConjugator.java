@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: ┼ф╘╟┴ ╟╙у ╟с▌╟┌с ╟с╦с╟╦э ╟су╠╤╧    </p>
+ * <p>Description: ╪е┘Ж╪┤╪з╪б ╪з╪│┘Е ╪з┘Д┘Б╪з╪╣┘Д ╪з┘Д╪л┘Д╪з╪л┘К ╪з┘Д┘Е╪м╪▒╪п    </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *

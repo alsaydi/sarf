@@ -23,15 +23,15 @@ public class EinMahmouz extends AbstractEinMahmouz {
 
     public EinMahmouz() {
 
-        substitutions.add(new InfixSubstitution("ÇÁò","ÇÁò"));// EX: (ãÊÑÇÁò¡ ãÊÔÇÁò)
-        substitutions.add(new InfixSubstitution("úÁò","úÁò"));// EX: (ãõäúÁò¡ ãóãúÁò)
-        substitutions.add(new InfixSubstitution("óÁò","óÃò"));// EX: (ãõäúİóÃò)
-        substitutions.add(new InfixSubstitution("óÁøò","óÃøò"));// EX: (ãõÑóÃøò¡ ãõÊóÑóÃøò)
-        substitutions.add(new InfixSubstitution("Áõ","Äõ"));// EX: (ãõäúÄõæä¡ ãõãúÄõæä¡ ãõÑÇÄõæä)
-        substitutions.add(new InfixSubstitution("Áö","Æö"));// EX: (ãõÔúÆöãñ¡ ãõÈúÊóÆöÓñ¡ ãõÊóÓÇÆöáñ¡ ãõÓúÊóÑÆöİñ)
-        substitutions.add(new InfixSubstitution("Áøö","Æøö"));// EX: (ãõÑóÆøöÓñ¡ ãõÊóÑóÆøöİñ)
-        substitutions.add(new InfixSubstitution("Áøõ","Äøõ"));// EX: (ãõÑóÄøõæä)
-        substitutions.add(new InfixSubstitution("úÁó","úÃó"));// EX: (ãõÌúÃóáøñ)
+        substitutions.add(new InfixSubstitution("Ø§Ø¡Ù","Ø§Ø¡Ù"));// EX: (Ù…ØªØ±Ø§Ø¡ÙØŒ Ù…ØªØ´Ø§Ø¡Ù)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù","Ù’Ø¡Ù"));// EX: (Ù…ÙÙ†Ù’Ø¡ÙØŒ Ù…ÙÙ…Ù’Ø¡Ù)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù","ÙØ£Ù"));// EX: (Ù…ÙÙ†Ù’ÙÙØ£Ù)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù‘Ù","ÙØ£Ù‘Ù"));// EX: (Ù…ÙØ±ÙØ£Ù‘ÙØŒ Ù…ÙØªÙØ±ÙØ£Ù‘Ù)
+        substitutions.add(new InfixSubstitution("Ø¡Ù","Ø¤Ù"));// EX: (Ù…ÙÙ†Ù’Ø¤ÙÙˆÙ†ØŒ Ù…ÙÙ…Ù’Ø¤ÙÙˆÙ†ØŒ Ù…ÙØ±Ø§Ø¤ÙÙˆÙ†)
+        substitutions.add(new InfixSubstitution("Ø¡Ù","Ø¦Ù"));// EX: (Ù…ÙØ´Ù’Ø¦ÙÙ…ÙŒØŒ Ù…ÙØ¨Ù’ØªÙØ¦ÙØ³ÙŒØŒ Ù…ÙØªÙØ³Ø§Ø¦ÙÙ„ÙŒØŒ Ù…ÙØ³Ù’ØªÙØ±Ø¦ÙÙÙŒ)
+        substitutions.add(new InfixSubstitution("Ø¡Ù‘Ù","Ø¦Ù‘Ù"));// EX: (Ù…ÙØ±ÙØ¦Ù‘ÙØ³ÙŒØŒ Ù…ÙØªÙØ±ÙØ¦Ù‘ÙÙÙŒ)
+        substitutions.add(new InfixSubstitution("Ø¡Ù‘Ù","Ø¤Ù‘Ù"));// EX: (Ù…ÙØ±ÙØ¤Ù‘ÙÙˆÙ†)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù","Ù’Ø£Ù"));// EX: (Ù…ÙØ¬Ù’Ø£ÙÙ„Ù‘ÙŒ)
 
     }
 

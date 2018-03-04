@@ -25,10 +25,10 @@ public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier implement
     public EndedMahmouz() {
 
 
-        substitutions.add(new InfixSubstitution("ÇÁğÇ","ÇÁğ"));// EX: (ÌöÆÌÇÁğ¡ ÇÍÈäØÇÁğ)
-        substitutions.add(new InfixSubstitution("óÁóÇ","óÂ"));// EX: (ÌÃÌÂÊ¡ ÛÑŞÂÊ¡ íÑäÂÊ)
-        substitutions.add(new InfixSubstitution("óÁó","óÃó"));// EX: (ÌÃÌÃÉ¡ ÛÑŞÃÉ¡ íÑäÃÉ)
-        substitutions.add(new InfixSubstitution("õÁ","õÄ"));// EX: (ÊÌÃÌõÄ¡ ÊÏÑÈÄ)
+        substitutions.add(new InfixSubstitution("Ø§Ø¡Ù‹Ø§","Ø§Ø¡Ù‹"));// EX: (Ø¬ÙØ¦Ø¬Ø§Ø¡Ù‹ØŒ Ø§Ø­Ø¨Ù†Ø·Ø§Ø¡Ù‹)
+        substitutions.add(new InfixSubstitution("ÙØ¡ÙØ§","ÙØ¢"));// EX: (Ø¬Ø£Ø¬Ø¢ØªØŒ ØºØ±Ù‚Ø¢ØªØŒ ÙŠØ±Ù†Ø¢Øª)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù","ÙØ£Ù"));// EX: (Ø¬Ø£Ø¬Ø£Ø©ØŒ ØºØ±Ù‚Ø£Ø©ØŒ ÙŠØ±Ù†Ø£Ø©)
+        substitutions.add(new InfixSubstitution("ÙØ¡","ÙØ¤"));// EX: (ØªØ¬Ø£Ø¬ÙØ¤ØŒ ØªØ¯Ø±Ø¨Ø¤)
 
     }
 
@@ -38,6 +38,6 @@ public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier implement
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC4() == 'Á';
+        return conjugationResult.getRoot().getC4() == 'Ø¡';
     }
 }

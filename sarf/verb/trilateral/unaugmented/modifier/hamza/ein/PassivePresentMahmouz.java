@@ -20,8 +20,8 @@ public class PassivePresentMahmouz extends AbstractEinMahmouz {
     private List substitutions = new ArrayList();
 
     public PassivePresentMahmouz() {
-        substitutions.add(new InfixSubstitution("íúÁó","úÆó"));// EX: (íõíúÆóÓ)
-        substitutions.add(new InfixSubstitution("úÁó","úÃó"));// EX: (íõÓúÃóá¡ íõäúÃóã¡ íõÖúÃóá)
+        substitutions.add(new InfixSubstitution("ÙŠÙ’Ø¡Ù","Ù’Ø¦Ù"));// EX: (ÙŠÙÙŠÙ’Ø¦ÙØ³)
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù","Ù’Ø£Ù"));// EX: (ÙŠÙØ³Ù’Ø£ÙÙ„ØŒ ÙŠÙÙ†Ù’Ø£ÙÙ…ØŒ ÙŠÙØ¶Ù’Ø£ÙÙ„)
     }
 
     public List getSubstitutions() {

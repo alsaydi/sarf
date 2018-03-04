@@ -23,10 +23,10 @@ public class Present2Vocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public Present2Vocalizer() {
-        substitutions.add(new ExpressionInfixSubstitution("óæöC3õ","óÇC3õ"));// EX: (åæ íóäúŞÇÏõ¡ íóŞúÊÇÏ)
-        substitutions.add(new ExpressionInfixSubstitution("óæöC3ö","óÇC3ö"));// EX: (ÃäÊö ÊóäúŞÇÏöíäó¡ ÊóŞúÊÇÏöíäó)
-        substitutions.add(new ExpressionInfixSubstitution("óæöC3ó","óÇC3ó"));// EX: (ÃäÊãÇ ÊóäúŞóÇÏóÇäö¡ ÊóŞúÊÇÏóÇäö)
-        substitutions.add(new ExpressionInfixSubstitution("óæöC3ú","óC3ú"));// EX: (åäø íóäúŞóÏúäó¡ íóŞúÊóÏúäó)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙC3Ù","ÙØ§C3Ù"));// EX: (Ù‡Ùˆ ÙŠÙÙ†Ù’Ù‚Ø§Ø¯ÙØŒ ÙŠÙÙ‚Ù’ØªØ§Ø¯)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙC3Ù","ÙØ§C3Ù"));// EX: (Ø£Ù†ØªÙ ØªÙÙ†Ù’Ù‚Ø§Ø¯ÙÙŠÙ†ÙØŒ ØªÙÙ‚Ù’ØªØ§Ø¯ÙÙŠÙ†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙC3Ù","ÙØ§C3Ù"));// EX: (Ø£Ù†ØªÙ…Ø§ ØªÙÙ†Ù’Ù‚ÙØ§Ø¯ÙØ§Ù†ÙØŒ ØªÙÙ‚Ù’ØªØ§Ø¯ÙØ§Ù†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙC3Ù’","ÙC3Ù’"));// EX: (Ù‡Ù†Ù‘ ÙŠÙÙ†Ù’Ù‚ÙØ¯Ù’Ù†ÙØŒ ÙŠÙÙ‚Ù’ØªÙØ¯Ù’Ù†Ù)
     }
 
 

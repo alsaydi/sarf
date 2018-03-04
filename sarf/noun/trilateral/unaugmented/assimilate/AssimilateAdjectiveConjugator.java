@@ -33,7 +33,7 @@ public class AssimilateAdjectiveConjugator implements IUnaugmentedTrilateralNoun
         loadFormulaName("B");
         loadFormulaName("C");
         loadFormulaName("D");
-        //Êã ÊİÑíŞ åĞå ÇáÕíÛÉ Åáì ÕíÛÊíä
+        //ØªÙ… ØªÙØ±ÙŠÙ‚ Ù‡Ø°Ù‡ Ø§Ù„ØµÙŠØºØ© Ø¥Ù„Ù‰ ØµÙŠØºØªÙŠÙ†
         loadFormulaName("E1");
         loadFormulaName("E2");
     }

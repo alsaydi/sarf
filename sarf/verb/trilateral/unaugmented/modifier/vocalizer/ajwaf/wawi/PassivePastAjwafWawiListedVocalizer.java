@@ -7,7 +7,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description:İÍÕ ÇáÃÌæİ ÍÓÈ ŞÇÆãÉ    </p>
+ * <p>Description:ÙØ­Øµ Ø§Ù„Ø£Ø¬ÙˆÙ Ø­Ø³Ø¨ Ù‚Ø§Ø¦Ù…Ø©    </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -21,9 +21,9 @@ public class PassivePastAjwafWawiListedVocalizer extends AbstractAjwafWawiListed
 
     public PassivePastAjwafWawiListedVocalizer() {
 
-        substitutions.add(new ExpressionInfixSubstitution("õæöC3ú","õC3ú"));// EX: ( ÈõåúÊõ¡ ÏõÆúÊõ)
-        substitutions.add(new ExpressionInfixSubstitution("õæöC3ó","öíC3ó"));// EX: (Èöíå¡ ÏöíÁ)
-        substitutions.add(new ExpressionInfixSubstitution("õæöC3õ","öíC3õ"));// EX: (ÈöíåæÇ¡ ÏöíÆæÇ)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙC3Ù’","ÙC3Ù’"));// EX: ( Ø¨ÙÙ‡Ù’ØªÙØŒ Ø¯ÙØ¦Ù’ØªÙ)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙC3Ù","ÙÙŠC3Ù"));// EX: (Ø¨ÙÙŠÙ‡ØŒ Ø¯ÙÙŠØ¡)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙˆÙC3Ù","ÙÙŠC3Ù"));// EX: (Ø¨ÙÙŠÙ‡ÙˆØ§ØŒ Ø¯ÙÙŠØ¦ÙˆØ§)
 
 
     }

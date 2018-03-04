@@ -38,8 +38,8 @@ public class Mahmouz {
             }
         }
 
-        //วแรÝฺวแ วแหแวหํษ วแใฬัฯษ วแใๅใๆาษ วแÝวม ๆวแใๅใๆาษ วแแวใ (ๆๅํ: รศรก รหรก รฬรก รารก ร฿ร)
-        if (conjResult.getRoot().getC3() == 'ม')
+        //ุงูุฃูุนุงู ุงูุซูุงุซูุฉ ุงูู…ุฌุฑุฏุฉ ุงูู…ูู…ูุฒุฉ ุงููุงุก ูุงูู…ูู…ูุฒุฉ ุงููุงู… (ููู: ุฃุจุฃุ ุฃุซุฃุ ุฃุฌุฃุ ุฃุฒุฃุ ุฃูุฃ)
+        if (conjResult.getRoot().getC3() == 'ุก')
             ((SubstitutionsApplier)modifiers.get(2)).apply(conjResult.getFinalResult(), conjResult.getRoot());
 
     }

@@ -22,8 +22,8 @@ public class PastVocalizer extends SubstitutionsApplier implements IQuadrilatera
     private List substitutions = new LinkedList();
 
     public PastVocalizer() {
-        substitutions.add(new InfixSubstitution("öíú","öí"));// EX: (ÃäÇ ŞõáúÓöíÊõ¡ ÊõŞõáúÓöíÊõ¡ ÇÓáõäúŞöíÊõ)
-        substitutions.add(new InfixSubstitution("öíõ", "õ")); // EX: (åã ŞõáúÓõæÇ¡ ÊõŞõáúÓõæÇ¡ ÇÓúáõäúŞõæÇ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ’","ÙÙŠ"));// EX: (Ø£Ù†Ø§ Ù‚ÙÙ„Ù’Ø³ÙÙŠØªÙØŒ ØªÙÙ‚ÙÙ„Ù’Ø³ÙÙŠØªÙØŒ Ø§Ø³Ù„ÙÙ†Ù’Ù‚ÙÙŠØªÙ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ", "Ù")); // EX: (Ù‡Ù… Ù‚ÙÙ„Ù’Ø³ÙÙˆØ§ØŒ ØªÙÙ‚ÙÙ„Ù’Ø³ÙÙˆØ§ØŒ Ø§Ø³Ù’Ù„ÙÙ†Ù’Ù‚ÙÙˆØ§)
     }
 
 
@@ -32,7 +32,7 @@ public class PastVocalizer extends SubstitutionsApplier implements IQuadrilatera
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC4() != 'í')
+        if (conjugationResult.getRoot().getC4() != 'ÙŠ')
             return false;
 
         switch (conjugationResult.getFormulaNo()) {

@@ -64,12 +64,12 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
 
         List gerundDisplayList = createEmptyList();
         String gerundText = StandardTrilateralUnaugmentedSuffixContainer.getInstance().getPrefix() + gerund.getValue();
-        //İÍÕ æÇĞÇ äÌÍ ÇáÇÎÊÈÇÑ Êßæä ÇáŞÇÆãÉ ÌÇåÒÉ
+        //ÙØ­Øµ ÙˆØ§Ø°Ø§ Ù†Ø¬Ø­ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø± ØªÙƒÙˆÙ† Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ø¬Ø§Ù‡Ø²Ø©
         if (isSpecialCase(gerundText, gerundDisplayList, gerundDescription)) {
             return gerundDisplayList;
         }
 
-        //ÇáÍÇáÉ ÇáÚÇãÉ
+        //Ø§Ù„Ø­Ø§Ù„Ø© Ø§Ù„Ø¹Ø§Ù…Ø©
         if (gerundDescription.isFeminine()) {
             gerundDisplayList.set(1, gerundText + StandardTrilateralUnaugmentedSuffixContainer.getInstance().get(1));
             gerundDisplayList.set(7, gerundText + StandardTrilateralUnaugmentedSuffixContainer.getInstance().get(7));
@@ -85,8 +85,8 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
 
     private boolean isSpecialCase(String gerundText, List gerundDisplayList, GerundDescription gerundDescription) {
         if (StandardTrilateralUnaugmentedSuffixContainer.getInstance().isIndefinite()) {
-            if (gerundText.endsWith("óì") || gerundText.endsWith("øóì") || gerundText.endsWith("íóÇ")) {
-                //áÇ ÊÖíİ Ãí ÔíÁ
+            if (gerundText.endsWith("ÙÙ‰") || gerundText.endsWith("Ù‘ÙÙ‰") || gerundText.endsWith("ÙŠÙØ§")) {
+                //Ù„Ø§ ØªØ¶ÙŠÙ Ø£ÙŠ Ø´ÙŠØ¡
                 if (gerundDescription.isFeminine()) {
                     gerundDisplayList.set(1, gerundText);
                     gerundDisplayList.set(7, gerundText);
@@ -102,15 +102,15 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
             }
 
             if (!gerundDescription.isFeminine()) {
-                if (gerundText.endsWith("ÇÁ") || gerundText.endsWith("óÃ")) {
+                if (gerundText.endsWith("Ø§Ø¡") || gerundText.endsWith("ÙØ£")) {
                     gerundDisplayList.set(0, gerundText + StandardTrilateralUnaugmentedSuffixContainer.getInstance().get(0));
-                    //ÇÖÇİÉ İŞØ ÇáÊäæíä
-                    gerundDisplayList.set(6, gerundText + "ğ");
+                    //Ø§Ø¶Ø§ÙØ© ÙÙ‚Ø· Ø§Ù„ØªÙ†ÙˆÙŠÙ†
+                    gerundDisplayList.set(6, gerundText + "Ù‹");
                     gerundDisplayList.set(12, gerundText + StandardTrilateralUnaugmentedSuffixContainer.getInstance().get(12));
                     return true;
                 }
-                else if (gerundText.endsWith("ğì") || gerundText.endsWith("ğÇ") || gerundText.endsWith("áÇğ")) {
-                    //áÇ ÊÖíİ Ãí ÔíÁ
+                else if (gerundText.endsWith("Ù‹Ù‰") || gerundText.endsWith("Ù‹Ø§") || gerundText.endsWith("Ù„Ø§Ù‹")) {
+                    //Ù„Ø§ ØªØ¶ÙŠÙ Ø£ÙŠ Ø´ÙŠØ¡
                     gerundDisplayList.set(0, gerundText);
                     gerundDisplayList.set(6, gerundText);
                     gerundDisplayList.set(12, gerundText);
@@ -119,10 +119,10 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
             }
 
         }
-        //ãÚÇáÌÉ ÇáÇÖÇİÉ æÇáãÚÑİÉ
+        //Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ø§Ø¶Ø§ÙØ© ÙˆØ§Ù„Ù…Ø¹Ø±ÙØ©
         else {
-            if (gerundText.endsWith("óì") || gerundText.endsWith("øóì") || gerundText.endsWith("íóÇ")) {
-                //áÇ ÊÖíİ Ãí ÔíÁ
+            if (gerundText.endsWith("ÙÙ‰") || gerundText.endsWith("Ù‘ÙÙ‰") || gerundText.endsWith("ÙŠÙØ§")) {
+                //Ù„Ø§ ØªØ¶ÙŠÙ Ø£ÙŠ Ø´ÙŠØ¡
                 if (gerundDescription.isFeminine()) {
                     gerundDisplayList.set(1, gerundText);
                     gerundDisplayList.set(7, gerundText);
@@ -138,10 +138,10 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
             }
 
             if (!gerundDescription.isFeminine()) {
-                if (gerundText.endsWith("ğì") || gerundText.endsWith("ğÇ") || gerundText.endsWith("áÇğ")) {
-                    //áÇ ÊÖíİ Ãí ÔíÁ
-                    //ÊÓÊÈÏá ÇáÊäæíä ÈİÊÍÉ
-                    String text = gerundText.replaceAll("ğ", "ó");
+                if (gerundText.endsWith("Ù‹Ù‰") || gerundText.endsWith("Ù‹Ø§") || gerundText.endsWith("Ù„Ø§Ù‹")) {
+                    //Ù„Ø§ ØªØ¶ÙŠÙ Ø£ÙŠ Ø´ÙŠØ¡
+                    //ØªØ³ØªØ¨Ø¯Ù„ Ø§Ù„ØªÙ†ÙˆÙŠÙ† Ø¨ÙØªØ­Ø©
+                    String text = gerundText.replaceAll("Ù‹", "Ù");
                     gerundDisplayList.set(0, text);
                     gerundDisplayList.set(6, text);
                     gerundDisplayList.set(12, text);

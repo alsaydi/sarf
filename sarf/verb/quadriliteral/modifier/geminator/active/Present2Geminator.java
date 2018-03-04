@@ -22,11 +22,11 @@ public class Present2Geminator extends SubstitutionsApplier implements IQuadrila
     private List substitutions = new LinkedList();
 
     public Present2Geminator() {
-        substitutions.add(new InfixSubstitution("äúäó", "äøó")); // EX: (ÃäÊä ÊóØúãóÃúäöäøó¡ åäøó íóØúãóÃúäöäøó)
-        substitutions.add(new ExpressionInfixSubstitution("úC4öC4õ", "öC4øõ")); // EX: (åæ íóŞúÔóÚöÑøõ)
-        substitutions.add(new ExpressionInfixSubstitution("úC4öC4ó", "öC4øó")); // EX: (åãÇ íóŞúÔóÚöÑøóÇäö)
-        substitutions.add(new ExpressionInfixSubstitution("úC4öC4ö", "öC4øö")); // EX: (ÃäÊö ÊóŞúÔóÚöÑøöíäó)
-        substitutions.add(new ExpressionSuffixSubstitution("úC4öC4ú", "öC4øó")); // EX: (áã íóŞúÔóÚöÑøó)
+        substitutions.add(new InfixSubstitution("Ù†Ù’Ù†Ù", "Ù†Ù‘Ù")); // EX: (Ø£Ù†ØªÙ† ØªÙØ·Ù’Ù…ÙØ£Ù’Ù†ÙÙ†Ù‘ÙØŒ Ù‡Ù†Ù‘Ù ÙŠÙØ·Ù’Ù…ÙØ£Ù’Ù†ÙÙ†Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C4ÙC4Ù", "ÙC4Ù‘Ù")); // EX: (Ù‡Ùˆ ÙŠÙÙ‚Ù’Ø´ÙØ¹ÙØ±Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C4ÙC4Ù", "ÙC4Ù‘Ù")); // EX: (Ù‡Ù…Ø§ ÙŠÙÙ‚Ù’Ø´ÙØ¹ÙØ±Ù‘ÙØ§Ù†Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’C4ÙC4Ù", "ÙC4Ù‘Ù")); // EX: (Ø£Ù†ØªÙ ØªÙÙ‚Ù’Ø´ÙØ¹ÙØ±Ù‘ÙÙŠÙ†Ù)
+        substitutions.add(new ExpressionSuffixSubstitution("Ù’C4ÙC4Ù’", "ÙC4Ù‘Ù")); // EX: (Ù„Ù… ÙŠÙÙ‚Ù’Ø´ÙØ¹ÙØ±Ù‘Ù)
 
     }
 
@@ -36,7 +36,7 @@ public class Present2Geminator extends SubstitutionsApplier implements IQuadrila
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC4() != 'ä') {
+        if (conjugationResult.getRoot().getC4() != 'Ù†') {
             return false;
         }
         return true;

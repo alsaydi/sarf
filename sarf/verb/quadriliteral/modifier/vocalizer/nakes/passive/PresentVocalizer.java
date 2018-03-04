@@ -22,12 +22,12 @@ public class PresentVocalizer extends SubstitutionsApplier implements IQuadrilat
     private List substitutions = new LinkedList();
 
     public PresentVocalizer() {
-        substitutions.add(new SuffixSubstitution("νυ", "μ")); // EX: (νυήσαϊΣσμ΅ νυΚσήσαϊΣσμ΅ νυΣϊασδϊήσμ)
-        substitutions.add(new SuffixSubstitution("νσ", "μ")); // EX: (αδ νυήσαϊΣσμ΅ νυΚσήσαϊΣσμ΅ νυΣϊασδϊήσμ)
-        substitutions.add(new SuffixSubstitution("νϊ", "")); // EX: (αγ νυήσαϊΣσ΅ νυΚσήσαϊΣσ΅ νυΣϊασδϊήσ)
-        substitutions.add(new InfixSubstitution("νφν", "νϊ")); // EX: (ΓδΚφ ΚυήσαϊΣσνϊδσ΅ ΚυυΚσήσαϊΣσνϊδσ΅ ΚυΣϊασδϊήσνϊδσ)
-        substitutions.add(new InfixSubstitution("νυζ", "ζϊ")); // EX: (ΓδΚγ ΚυήσαϊΣσζϊδσ΅ ΚυυΚσήσαϊΣσζϊδσ΅ ΚυΣϊασδϊήσζϊδσ)
-        substitutions.add(new InfixSubstitution("νυδ", "ζυδ")); // EX: (ΓδΚδ ΚυήσαϊΣσζυδψσ΅ ΚυυΚσήσαϊΣσζυδψσ΅ ΚυΣϊασδϊήσζυδψσ)
+        substitutions.add(new SuffixSubstitution("ΩΩ", "Ω‰")); // EX: (ΩΩΩ‚ΩΩ„Ω’Ψ³ΩΩ‰Ψ ΩΩΨªΩΩ‚ΩΩ„Ω’Ψ³ΩΩ‰Ψ ΩΩΨ³Ω’Ω„ΩΩ†Ω’Ω‚ΩΩ‰)
+        substitutions.add(new SuffixSubstitution("ΩΩ", "Ω‰")); // EX: (Ω„Ω† ΩΩΩ‚ΩΩ„Ω’Ψ³ΩΩ‰Ψ ΩΩΨªΩΩ‚ΩΩ„Ω’Ψ³ΩΩ‰Ψ ΩΩΨ³Ω’Ω„ΩΩ†Ω’Ω‚ΩΩ‰)
+        substitutions.add(new SuffixSubstitution("ΩΩ’", "")); // EX: (Ω„Ω… ΩΩΩ‚ΩΩ„Ω’Ψ³ΩΨ ΩΩΨªΩΩ‚ΩΩ„Ω’Ψ³ΩΨ ΩΩΨ³Ω’Ω„ΩΩ†Ω’Ω‚Ω)
+        substitutions.add(new InfixSubstitution("ΩΩΩ", "ΩΩ’")); // EX: (Ψ£Ω†ΨªΩ ΨªΩΩ‚ΩΩ„Ω’Ψ³ΩΩΩ’Ω†ΩΨ ΨªΩΩΨªΩΩ‚ΩΩ„Ω’Ψ³ΩΩΩ’Ω†ΩΨ ΨªΩΨ³Ω’Ω„ΩΩ†Ω’Ω‚ΩΩΩ’Ω†Ω)
+        substitutions.add(new InfixSubstitution("ΩΩΩ", "ΩΩ’")); // EX: (Ψ£Ω†ΨªΩ… ΨªΩΩ‚ΩΩ„Ω’Ψ³ΩΩΩ’Ω†ΩΨ ΨªΩΩΨªΩΩ‚ΩΩ„Ω’Ψ³ΩΩΩ’Ω†ΩΨ ΨªΩΨ³Ω’Ω„ΩΩ†Ω’Ω‚ΩΩΩ’Ω†Ω)
+        substitutions.add(new InfixSubstitution("ΩΩΩ†", "ΩΩΩ†")); // EX: (Ψ£Ω†ΨªΩ† ΨªΩΩ‚ΩΩ„Ω’Ψ³ΩΩΩΩ†Ω‘ΩΨ ΨªΩΩΨªΩΩ‚ΩΩ„Ω’Ψ³ΩΩΩΩ†Ω‘ΩΨ ΨªΩΨ³Ω’Ω„ΩΩ†Ω’Ω‚ΩΩΩΩ†Ω‘Ω)
     }
 
 
@@ -36,7 +36,7 @@ public class PresentVocalizer extends SubstitutionsApplier implements IQuadrilat
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC4() != 'ν')
+        if (conjugationResult.getRoot().getC4() != 'Ω')
             return false;
 
         switch (conjugationResult.getFormulaNo()) {

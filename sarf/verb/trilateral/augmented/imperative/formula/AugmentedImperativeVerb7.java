@@ -30,6 +30,6 @@ public class AugmentedImperativeVerb7 extends AugmentedImperativeVerb {
      *   method
      */
     public String form() {
-        return "Ê"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.FATHA+"Ç"+root.getC2()+ArabCharUtil.FATHA+root.getC3()+lastDim+connectedPronoun;
+        return "Øª"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.FATHA+"Ø§"+root.getC2()+ArabCharUtil.FATHA+root.getC3()+lastDim+connectedPronoun;
     }
 }

@@ -38,7 +38,7 @@ public class NounFormula2 extends NounFormula {
     }
 
     public String getFormulaName() {
-        return "έυΪϊασμ";
+        return "ΩΩΨΉΩ’Ω„ΩΩ‰";
     }
 
     protected INounSuffixContainer getNounSuffixContainer() {

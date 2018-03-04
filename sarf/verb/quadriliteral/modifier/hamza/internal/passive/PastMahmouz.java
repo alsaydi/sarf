@@ -21,8 +21,8 @@ public class PastMahmouz extends SubstitutionsApplier {
     private List substitutions = new LinkedList();
 
     public PastMahmouz() {
-        substitutions.add(new InfixSubstitution("Áö", "Æö")); // EX: (ØõãúÆöäó¡ ÊõØõãúÆöäó¡ ÊõãõÑúÆöíó¡ ÇØúãõÆöäøó)
-        substitutions.add(new InfixSubstitution("õÁú", "õÄú")); // EX: (ÈõÄúÏöáó¡ ÊõËõÄúáöáó¡ ÇØúãõÄúäöäúÊõ)
+        substitutions.add(new InfixSubstitution("Ø¡Ù", "Ø¦Ù")); // EX: (Ø·ÙÙ…Ù’Ø¦ÙÙ†ÙØŒ ØªÙØ·ÙÙ…Ù’Ø¦ÙÙ†ÙØŒ ØªÙÙ…ÙØ±Ù’Ø¦ÙÙŠÙØŒ Ø§Ø·Ù’Ù…ÙØ¦ÙÙ†Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙØ¡Ù’", "ÙØ¤Ù’")); // EX: (Ø¨ÙØ¤Ù’Ø¯ÙÙ„ÙØŒ ØªÙØ«ÙØ¤Ù’Ù„ÙÙ„ÙØŒ Ø§Ø·Ù’Ù…ÙØ¤Ù’Ù†ÙÙ†Ù’ØªÙ)
     }
 
 

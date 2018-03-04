@@ -72,7 +72,7 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
     }
 
     /**
-     * ÅÚÇÏÉ ÇáÕíÛ ÇáããßäÉ ááÌĞÑ
+     * Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØµÙŠØº Ø§Ù„Ù…Ù…ÙƒÙ†Ø© Ù„Ù„Ø¬Ø°Ø±
      * @param root UnaugmentedTrilateralRoot
      * @return List
      */

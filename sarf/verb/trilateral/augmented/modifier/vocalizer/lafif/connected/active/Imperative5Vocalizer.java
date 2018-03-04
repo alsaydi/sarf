@@ -24,11 +24,11 @@ public class Imperative5Vocalizer extends SubstitutionsApplier implements IAugme
     private List substitutions = new LinkedList();
 
     public Imperative5Vocalizer() {
-        substitutions.add(new SuffixSubstitution("æú", "")); // EX: (Óóæøö¡ ÇÍúæóæøö)
-        substitutions.add(new InfixSubstitution("øöæö", "øö")); // EX: (ÃäÊö Óóæøöí¡ ÇÍúæóæøöí)
-        substitutions.add(new InfixSubstitution("øöæó", "øöíó")); // EX: (ÃäÊãÇ ÓóæøöíÇ¡ ÇÍúæóæøöíÇ)
-        substitutions.add(new InfixSubstitution("øöæõ", "øõ")); // EX: (ÃäÊã ÓóæøõæÇ¡ ÇÍúæóæøõæÇ)
-        substitutions.add(new InfixSubstitution("øöæú", "øöí")); // EX: (ÃäÊä Óóæøöíäó¡ ÇÍúæóæøöíäó)
+        substitutions.add(new SuffixSubstitution("ÙˆÙ’", "")); // EX: (Ø³ÙÙˆÙ‘ÙØŒ Ø§Ø­Ù’ÙˆÙÙˆÙ‘Ù)
+        substitutions.add(new InfixSubstitution("Ù‘ÙÙˆÙ", "Ù‘Ù")); // EX: (Ø£Ù†ØªÙ Ø³ÙÙˆÙ‘ÙÙŠØŒ Ø§Ø­Ù’ÙˆÙÙˆÙ‘ÙÙŠ)
+        substitutions.add(new InfixSubstitution("Ù‘ÙÙˆÙ", "Ù‘ÙÙŠÙ")); // EX: (Ø£Ù†ØªÙ…Ø§ Ø³ÙÙˆÙ‘ÙÙŠØ§ØŒ Ø§Ø­Ù’ÙˆÙÙˆÙ‘ÙÙŠØ§)
+        substitutions.add(new InfixSubstitution("Ù‘ÙÙˆÙ", "Ù‘Ù")); // EX: (Ø£Ù†ØªÙ… Ø³ÙÙˆÙ‘ÙÙˆØ§ØŒ Ø§Ø­Ù’ÙˆÙÙˆÙ‘ÙÙˆØ§)
+        substitutions.add(new InfixSubstitution("Ù‘ÙÙˆÙ’", "Ù‘ÙÙŠ")); // EX: (Ø£Ù†ØªÙ† Ø³ÙÙˆÙ‘ÙÙŠÙ†ÙØŒ Ø§Ø­Ù’ÙˆÙÙˆÙ‘ÙÙŠÙ†Ù)
     }
 
 
@@ -40,7 +40,7 @@ public class Imperative5Vocalizer extends SubstitutionsApplier implements IAugme
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC2() == root.getC3() && root.getC3() == 'æ' &&  kov == 28 && (formulaNo == 2 || formulaNo == 11);
+        return root.getC2() == root.getC3() && root.getC3() == 'Ùˆ' &&  kov == 28 && (formulaNo == 2 || formulaNo == 11);
 
     }
 }

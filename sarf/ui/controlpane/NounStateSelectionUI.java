@@ -24,9 +24,9 @@ import sarf.ui.*;
  */
 public class NounStateSelectionUI extends JPanel implements INounStateSelectionUI{
 
-    ToggleRenderedButton definiteBtn = new ToggleRenderedButton("İí ÍÇáÉ ÇáãÚÑİÉ  ");
-    ToggleRenderedButton annexedBtn = new ToggleRenderedButton("İí ÍÇáÉ ÇáÅÖÇİÉ  ");
-    ToggleRenderedButton indefiniteBtn = new ToggleRenderedButton("İí ÍÇáÉ ÇáäßÑÉ  ");
+    ToggleRenderedButton definiteBtn = new ToggleRenderedButton("ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ù…Ø¹Ø±ÙØ©  ");
+    ToggleRenderedButton annexedBtn = new ToggleRenderedButton("ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ø¥Ø¶Ø§ÙØ©  ");
+    ToggleRenderedButton indefiniteBtn = new ToggleRenderedButton("ÙÙŠ Ø­Ø§Ù„Ø© Ø§Ù„Ù†ÙƒØ±Ø©  ");
 
     public NounStateSelectionUI() {
         super(new BorderLayout());

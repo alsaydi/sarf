@@ -32,7 +32,7 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
     private String title;
 
     /**
-     * ÇÙåÇÑ ÇáŞÇÆãÉ ÈÇÓÊÚãÇá æÈÏæä ÇáÇÏÛÇã
+     * Ø§Ø¸Ù‡Ø§Ø± Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ø¨Ø§Ø³ØªØ¹Ù…Ø§Ù„ ÙˆØ¨Ø¯ÙˆÙ† Ø§Ù„Ø§Ø¯ØºØ§Ù…
      * @param verbConjugationList List
      * @param notGeminatedVerbConjugationList List
      */
@@ -44,10 +44,10 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
         List pronounsList = SeparatedPronounsContainer.getInstance().getPronouns();
         JLabel lbl = null;
         for (int i=0; i<6;i++) {
-            //ÅÖÇİÉ äÕ íãËá ÇáÖãíÑ
+            //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„Ø¶Ù…ÙŠØ±
             add(lbl = new JLabel((String) pronounsList.get(i)));
             decorateLabel(lbl);
-            //ÅÖÇİÉ äÕ íãËá ÇáİÚá
+            //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„ÙØ¹Ù„
             add(lbl = new JLabel(verbConjugationList.get(i)+""));
             decorateVerbLabel(lbl);
 
@@ -56,17 +56,17 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
                     lbl.setText(lbl.getText() + " / "+notGeminatedVerbConjugationList.get(2));
             }
 
-            //ÅÖÇİÉ äÕ íãËá ÇáÖãíÑ
+            //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„Ø¶Ù…ÙŠØ±
             add(lbl = new JLabel((String) pronounsList.get(i+7)));
             decorateLabel(lbl);
-            //ÅÖÇİÉ äÕ íãËá ÇáİÚá
+            //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„ÙØ¹Ù„
             add(lbl = new JLabel(verbConjugationList.get(i+7)+""));
             decorateVerbLabel(lbl);
         }
-        //ÅÖÇİÉ äÕ íãËá ÇáÖãíÑ
+        //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„Ø¶Ù…ÙŠØ±
         add(lbl = new JLabel((String) pronounsList.get(6)));
         decorateLabel(lbl);
-        //ÅÖÇİÉ äÕ íãËá ÇáİÚá
+        //Ø¥Ø¶Ø§ÙØ© Ù†Øµ ÙŠÙ…Ø«Ù„ Ø§Ù„ÙØ¹Ù„
         add(lbl = new JLabel(verbConjugationList.get(6)+""));
         decorateVerbLabel(lbl);
 
@@ -97,7 +97,7 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
     public boolean saveToHtml(File file) {
         String content = FileUtil.getContents(new File("db/verbs.html"));
 
-        String docTitle = "ÊÕÑíİ "+ " ( "+ title + " ) " +" ááİÚá "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
+        String docTitle = "ØªØµØ±ÙŠÙ "+ " ( "+ title + " ) " +" Ù„Ù„ÙØ¹Ù„ "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
         //put the title
         content = content.replaceFirst("DocTitle", docTitle);
 
@@ -132,7 +132,7 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
     }
 
     public String getSavedFileNameTitle() {
-        return "ÊÕÑíİ "+ " "+ title + " " +" ááİÚá "+ "  "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText();
+        return "ØªØµØ±ÙŠÙ "+ " "+ title + " " +" Ù„Ù„ÙØ¹Ù„ "+ "  "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText();
     }
 
 

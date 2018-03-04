@@ -24,15 +24,15 @@ public class Present9Vocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public Present9Vocalizer() {
-        substitutions.add(new SuffixSubstitution("æõ", "ì")); // EX: (íóÊóÓÇæóì¡ íóÊóÓóæøóì)
-        substitutions.add(new SuffixSubstitution("æú", "")); // EX: (áã íóÊóÓÇæó¡ áã íóÊóÓóæøó)
-        substitutions.add(new SuffixSubstitution("æó", "ì")); // EX: (áä íóÊóÓÇæóì¡ áä íÊÓæøóì)
-        substitutions.add(new InfixSubstitution("æóÇ", "íóÇ")); // EX: (ÃäÊãÇ ÊóÊóÓÇæóíÇäö¡ ÊÊÓæøóíÇäö)
-        substitutions.add(new InfixSubstitution("æöí", "íú")); // EX: (ÃäÊö ÊóÊóÓÇæóíúäó¡ ÊÊÓæøóíúäó)
-        substitutions.add(new InfixSubstitution("æöä", "íöä")); // EX: (ÃäÊö ÊóÊóÓÇæóíöäøó¡ ÊÊÓæøóíöäøó)
-        substitutions.add(new InfixSubstitution("æõæ", "æú")); // EX: (ÃäÊã ÊóÊóÓÇæóæúäó¡ ÊÊÓæøóæúäó)
-        substitutions.add(new InfixSubstitution("æúä", "íúä")); // EX: (ÃäÊä ÊóÊóÓÇæóíúäó¡ ÊÊÓæøóíúäó)
-        substitutions.add(new InfixSubstitution("æóä", "íóä")); // EX: (ÊóÊóÓÇæóíóäó¡ ÊÊÓæøóíóäó)
+        substitutions.add(new SuffixSubstitution("ÙˆÙ", "Ù‰")); // EX: (ÙŠÙØªÙØ³Ø§ÙˆÙÙ‰ØŒ ÙŠÙØªÙØ³ÙÙˆÙ‘ÙÙ‰)
+        substitutions.add(new SuffixSubstitution("ÙˆÙ’", "")); // EX: (Ù„Ù… ÙŠÙØªÙØ³Ø§ÙˆÙØŒ Ù„Ù… ÙŠÙØªÙØ³ÙÙˆÙ‘Ù)
+        substitutions.add(new SuffixSubstitution("ÙˆÙ", "Ù‰")); // EX: (Ù„Ù† ÙŠÙØªÙØ³Ø§ÙˆÙÙ‰ØŒ Ù„Ù† ÙŠØªØ³ÙˆÙ‘ÙÙ‰)
+        substitutions.add(new InfixSubstitution("ÙˆÙØ§", "ÙŠÙØ§")); // EX: (Ø£Ù†ØªÙ…Ø§ ØªÙØªÙØ³Ø§ÙˆÙÙŠØ§Ù†ÙØŒ ØªØªØ³ÙˆÙ‘ÙÙŠØ§Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙˆÙÙŠ", "ÙŠÙ’")); // EX: (Ø£Ù†ØªÙ ØªÙØªÙØ³Ø§ÙˆÙÙŠÙ’Ù†ÙØŒ ØªØªØ³ÙˆÙ‘ÙÙŠÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙˆÙÙ†", "ÙŠÙÙ†")); // EX: (Ø£Ù†ØªÙ ØªÙØªÙØ³Ø§ÙˆÙÙŠÙÙ†Ù‘ÙØŒ ØªØªØ³ÙˆÙ‘ÙÙŠÙÙ†Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙˆÙÙˆ", "ÙˆÙ’")); // EX: (Ø£Ù†ØªÙ… ØªÙØªÙØ³Ø§ÙˆÙÙˆÙ’Ù†ÙØŒ ØªØªØ³ÙˆÙ‘ÙÙˆÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙˆÙ’Ù†", "ÙŠÙ’Ù†")); // EX: (Ø£Ù†ØªÙ† ØªÙØªÙØ³Ø§ÙˆÙÙŠÙ’Ù†ÙØŒ ØªØªØ³ÙˆÙ‘ÙÙŠÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙˆÙÙ†", "ÙŠÙÙ†")); // EX: (ØªÙØªÙØ³Ø§ÙˆÙÙŠÙÙ†ÙØŒ ØªØªØ³ÙˆÙ‘ÙÙŠÙÙ†Ù)
     }
 
 
@@ -44,6 +44,6 @@ public class Present9Vocalizer extends SubstitutionsApplier implements IAugmente
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC2() == root.getC3() && root.getC3() == 'æ' &&  kov == 28 && (formulaNo == 7 || formulaNo == 8);
+        return root.getC2() == root.getC3() && root.getC3() == 'Ùˆ' &&  kov == 28 && (formulaNo == 7 || formulaNo == 8);
     }
 }

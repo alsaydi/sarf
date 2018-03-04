@@ -23,11 +23,11 @@ public class ImperativeAjwafYaeiVocalizer extends AbstractAjwafYaeiVocalizer {
     private List substitutions = new LinkedList();
 
     public ImperativeAjwafYaeiVocalizer() {
-        substitutions.add(new ExpressionInfixSubstitution("ÇC1úíöC3õ", "C1öíC3õ")); // EX: (ÈöíÚõæÇ¡ ÈöíÚõäøó)
-        substitutions.add(new ExpressionInfixSubstitution("ÇC1úíöC3ö", "C1öíC3ö")); // EX: (ÈíÚí¡ ÈíÚöäøó)
-        substitutions.add(new ExpressionInfixSubstitution("ÇC1úíöC3ó", "C1öíC3ó")); // EX: (ÈíÚÇ¡ ÈíÚÇäøó)
-        substitutions.add(new ExpressionInfixSubstitution("ÇC1úíöC3ú", "C1öC3ú")); // EX: (ÈöÚú¡ ÈöÚúäÇäøö)
-        substitutions.add(new ExpressionInfixSubstitution("ÇC1úíöC3ø", "C1öC3ø")); // EX: (ÃäÊä áöäøó)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C1Ù’ÙŠÙC3Ù", "C1ÙÙŠC3Ù")); // EX: (Ø¨ÙÙŠØ¹ÙÙˆØ§ØŒ Ø¨ÙÙŠØ¹ÙÙ†Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C1Ù’ÙŠÙC3Ù", "C1ÙÙŠC3Ù")); // EX: (Ø¨ÙŠØ¹ÙŠØŒ Ø¨ÙŠØ¹ÙÙ†Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C1Ù’ÙŠÙC3Ù", "C1ÙÙŠC3Ù")); // EX: (Ø¨ÙŠØ¹Ø§ØŒ Ø¨ÙŠØ¹Ø§Ù†Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C1Ù’ÙŠÙC3Ù’", "C1ÙC3Ù’")); // EX: (Ø¨ÙØ¹Ù’ØŒ Ø¨ÙØ¹Ù’Ù†Ø§Ù†Ù‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ø§C1Ù’ÙŠÙC3Ù‘", "C1ÙC3Ù‘")); // EX: (Ø£Ù†ØªÙ† Ù„ÙÙ†Ù‘Ù)
     }
 
     public List getSubstitutions() {

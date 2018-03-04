@@ -23,9 +23,9 @@ public class WawiPastVocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public WawiPastVocalizer() {
-        substitutions.add(new InfixSubstitution("öíú","öí"));// EX: (ÃäÇ ÃõæÕöíÊõ¡ æõİøöíÊõ¡ æõæáöíÊõ¡ ÇÊøõŞöíÊõ¡ ÊõæõæÑíÊõ¡ ÊõæõáøöíÊõ¡ ÇÓÊõæİöíÊõ)
-        substitutions.add(new InfixSubstitution("öíõ","õ"));// EX: (åã ÃõæÕõæÇ¡ æõæáõæÇ¡ ÇÊøõŞõæÇ¡ ÊõæõæÑõæÇ¡ ÇÓÊõæİõæÇ)
-        substitutions.add(new InfixSubstitution("øöíõ","øõ"));// EX: (åã æõİøõæÇ¡ ÊõæõáøõæÇ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ’","ÙÙŠ"));// EX: (Ø£Ù†Ø§ Ø£ÙÙˆØµÙÙŠØªÙØŒ ÙˆÙÙÙ‘ÙÙŠØªÙØŒ ÙˆÙÙˆÙ„ÙÙŠØªÙØŒ Ø§ØªÙ‘ÙÙ‚ÙÙŠØªÙØŒ ØªÙÙˆÙÙˆØ±ÙŠØªÙØŒ ØªÙÙˆÙÙ„Ù‘ÙÙŠØªÙØŒ Ø§Ø³ØªÙÙˆÙÙÙŠØªÙ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ù‡Ù… Ø£ÙÙˆØµÙÙˆØ§ØŒ ÙˆÙÙˆÙ„ÙÙˆØ§ØŒ Ø§ØªÙ‘ÙÙ‚ÙÙˆØ§ØŒ ØªÙÙˆÙÙˆØ±ÙÙˆØ§ØŒ Ø§Ø³ØªÙÙˆÙÙÙˆØ§)
+        substitutions.add(new InfixSubstitution("Ù‘ÙÙŠÙ","Ù‘Ù"));// EX: (Ù‡Ù… ÙˆÙÙÙ‘ÙÙˆØ§ØŒ ØªÙÙˆÙÙ„Ù‘ÙÙˆØ§)
     }
 
 
@@ -34,7 +34,7 @@ public class WawiPastVocalizer extends SubstitutionsApplier implements IAugmente
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC1() != 'æ')
+        if (conjugationResult.getRoot().getC1() != 'Ùˆ')
             return false;
 
         int kov = conjugationResult.getKov();

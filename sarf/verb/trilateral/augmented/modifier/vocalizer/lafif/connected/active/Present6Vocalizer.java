@@ -24,12 +24,12 @@ public class Present6Vocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public Present6Vocalizer() {
-        substitutions.add(new SuffixSubstitution("íõ", "ì")); // EX: (íóÊóÏÇæóì¡ íÊŞæøóì)
-        substitutions.add(new SuffixSubstitution("íó", "ì")); // EX: (áä íóÊóÏÇæóì¡ áä íÊŞæøóì)
-        substitutions.add(new SuffixSubstitution("íú", "")); // EX: (áã íóÊóÏóÇæó¡ áã íÊŞæøó)
-        substitutions.add(new InfixSubstitution("íöí", "íú")); // EX: (ÃäÊö ÊÊÏÇæóíúäó¡ ÊÊŞæøóíúäó)
-        substitutions.add(new InfixSubstitution("íõæ", "æú")); // EX: (ÃäÊã ÊÊÏÇæóæúäó¡ ÊÊŞæøóæúäó)
-        substitutions.add(new InfixSubstitution("íõä", "æõä")); // EX: (ÃäÊã ÊóÊóÏÇæóæõäøó¡ ÊÊŞæøóæõäøó)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ", "Ù‰")); // EX: (ÙŠÙØªÙØ¯Ø§ÙˆÙÙ‰ØŒ ÙŠØªÙ‚ÙˆÙ‘ÙÙ‰)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ", "Ù‰")); // EX: (Ù„Ù† ÙŠÙØªÙØ¯Ø§ÙˆÙÙ‰ØŒ Ù„Ù† ÙŠØªÙ‚ÙˆÙ‘ÙÙ‰)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ’", "")); // EX: (Ù„Ù… ÙŠÙØªÙØ¯ÙØ§ÙˆÙØŒ Ù„Ù… ÙŠØªÙ‚ÙˆÙ‘Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙŠ", "ÙŠÙ’")); // EX: (Ø£Ù†ØªÙ ØªØªØ¯Ø§ÙˆÙÙŠÙ’Ù†ÙØŒ ØªØªÙ‚ÙˆÙ‘ÙÙŠÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙˆ", "ÙˆÙ’")); // EX: (Ø£Ù†ØªÙ… ØªØªØ¯Ø§ÙˆÙÙˆÙ’Ù†ÙØŒ ØªØªÙ‚ÙˆÙ‘ÙÙˆÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙ†", "ÙˆÙÙ†")); // EX: (Ø£Ù†ØªÙ… ØªÙØªÙØ¯Ø§ÙˆÙÙˆÙÙ†Ù‘ÙØŒ ØªØªÙ‚ÙˆÙ‘ÙÙˆÙÙ†Ù‘Ù)
     }
 
 
@@ -41,6 +41,6 @@ public class Present6Vocalizer extends SubstitutionsApplier implements IAugmente
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC2() == 'æ' && root.getC3() == 'í' && (kov == 27 || kov == 28) && (formulaNo == 7 || formulaNo == 8);
+        return root.getC2() == 'Ùˆ' && root.getC3() == 'ÙŠ' && (kov == 27 || kov == 28) && (formulaNo == 7 || formulaNo == 8);
     }
 }

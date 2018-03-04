@@ -5,8 +5,8 @@ import sarf.verb.quadriliteral.QuadrilateralRoot;
 /**
  * <p>Title: Sarf</p>
  *
- * <p>Description: ╟с╠╨╤ ╟с╤╚╟┌э ╟су╠╤╧
- * у╩╓уф╟ ╟с├═╤▌ ╟с├╤╚┌╔ ц╟сс╥цу ├ц ╟с╩┌╧э╔               </p>
+ * <p>Description: ╪з┘Д╪м╪░╪▒ ╪з┘Д╪▒╪и╪з╪╣┘К ╪з┘Д┘Е╪м╪▒╪п
+ * ┘Е╪к╪╢┘Е┘Ж╪з ╪з┘Д╪г╪н╪▒┘Б ╪з┘Д╪г╪▒╪и╪╣╪й ┘И╪з┘Д┘Д╪▓┘И┘Е ╪г┘И ╪з┘Д╪к╪╣╪п┘К╪й               </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *

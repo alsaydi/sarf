@@ -23,8 +23,8 @@ public class RaaImperativeMahmouz extends SubstitutionsApplier implements IAugme
 
     public RaaImperativeMahmouz() {
 
-        substitutions.add(new InfixSubstitution("úÁö","ö"));// EX: (ÃóÑö¡ )
-        substitutions.add(new InfixSubstitution("úÁõ","õ"));// EX: (ÃóÑõæÇ¡ )
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù","Ù"));// EX: (Ø£ÙØ±ÙØŒ )
+        substitutions.add(new InfixSubstitution("Ù’Ø¡Ù","Ù"));// EX: (Ø£ÙØ±ÙÙˆØ§ØŒ )
 
     }
 
@@ -34,6 +34,6 @@ public class RaaImperativeMahmouz extends SubstitutionsApplier implements IAugme
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         TrilateralRoot root = conjugationResult.getRoot();
-        return conjugationResult.getFormulaNo() == 1 && root.getC1() == 'Ñ' && root.getC2() == 'Á' && root.getC3() == 'í';
+        return conjugationResult.getFormulaNo() == 1 && root.getC1() == 'Ø±' && root.getC2() == 'Ø¡' && root.getC3() == 'ÙŠ';
     }
 }

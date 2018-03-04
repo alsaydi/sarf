@@ -24,11 +24,11 @@ public class ActivePresentAjwafYaeiVocalizer extends AbstractAjwafYaeiVocalizer 
     private List substitutions = new LinkedList();
 
     public ActivePresentAjwafYaeiVocalizer() {
-        substitutions.add(new ExpressionInfixSubstitution("úíöC3õ", "öíC3õ")); // EX: (íÈíÚ¡ íŞíÁ¡ íÆíä)
-        substitutions.add(new ExpressionInfixSubstitution("úíöC3ö", "öíC3ö")); // EX: (ÊÈíÚíä¡ áä ÊÈíÚí¡ ÊŞíÆíä¡ ÊÆíäíä)
-        substitutions.add(new ExpressionInfixSubstitution("úíöC3ó", "öíC3ó")); // EX: (ÊÈíÚÇä¡ áä íÈíÚÇ¡ ÊŞíÆÇä¡ ÊÆíäÇä)
-        substitutions.add(new ExpressionInfixSubstitution("úíöC3ú", "öC3ú")); // EX: (ÊóÈöÚúäó¡ áã íóÈöÚú¡ íóŞöÆú¡ íóÆöäú)
-        substitutions.add(new ExpressionInfixSubstitution("úíöC3ø", "öC3ø")); // EX: (ÃäÊä Êóáöäøó ¡ åä íóáöäøó)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù", "ÙÙŠC3Ù")); // EX: (ÙŠØ¨ÙŠØ¹ØŒ ÙŠÙ‚ÙŠØ¡ØŒ ÙŠØ¦ÙŠÙ†)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù", "ÙÙŠC3Ù")); // EX: (ØªØ¨ÙŠØ¹ÙŠÙ†ØŒ Ù„Ù† ØªØ¨ÙŠØ¹ÙŠØŒ ØªÙ‚ÙŠØ¦ÙŠÙ†ØŒ ØªØ¦ÙŠÙ†ÙŠÙ†)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù", "ÙÙŠC3Ù")); // EX: (ØªØ¨ÙŠØ¹Ø§Ù†ØŒ Ù„Ù† ÙŠØ¨ÙŠØ¹Ø§ØŒ ØªÙ‚ÙŠØ¦Ø§Ù†ØŒ ØªØ¦ÙŠÙ†Ø§Ù†)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù’", "ÙC3Ù’")); // EX: (ØªÙØ¨ÙØ¹Ù’Ù†ÙØŒ Ù„Ù… ÙŠÙØ¨ÙØ¹Ù’ØŒ ÙŠÙÙ‚ÙØ¦Ù’ØŒ ÙŠÙØ¦ÙÙ†Ù’)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù‘", "ÙC3Ù‘")); // EX: (Ø£Ù†ØªÙ† ØªÙÙ„ÙÙ†Ù‘Ù ØŒ Ù‡Ù† ÙŠÙÙ„ÙÙ†Ù‘Ù)
     }
 
     public List getSubstitutions() {

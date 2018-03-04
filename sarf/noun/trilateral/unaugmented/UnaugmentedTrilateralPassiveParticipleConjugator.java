@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: ลไิวม วำใ วแใÝฺๆแ วแหแวหํ วแใฬัฯ    </p>
+ * <p>Description: ุฅูุดุงุก ุงุณู… ุงูู…ูุนูู ุงูุซูุงุซู ุงูู…ุฌุฑุฏ    </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *

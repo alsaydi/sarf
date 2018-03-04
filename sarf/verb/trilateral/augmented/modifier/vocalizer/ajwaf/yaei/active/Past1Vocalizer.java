@@ -24,10 +24,10 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTr
 
     public Past1Vocalizer() {
 
-        substitutions.add(new ExpressionInfixSubstitution("úíóC3ú","óC3ú"));// EX: (ÃÈóÏúÊõ¡ ÇÓÊŞáÊõ)
-        substitutions.add(new ExpressionInfixSubstitution("úíóC3ø","óC3ø"));// EX: (ÃÈóÊøõ)
-        substitutions.add(new ExpressionInfixSubstitution("úíóC3ó","óÇC3ó"));// EX: (ÃÈÇÏó¡ ÇÓÊŞÇá)
-        substitutions.add(new ExpressionInfixSubstitution("úíóC3õ","óÇC3õ"));// EX: (ÃÈÇÏõæÇ¡ ÇÓÊŞÇáæÇ)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù’","ÙC3Ù’"));// EX: (Ø£Ø¨ÙØ¯Ù’ØªÙØŒ Ø§Ø³ØªÙ‚Ù„ØªÙ)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù‘","ÙC3Ù‘"));// EX: (Ø£Ø¨ÙØªÙ‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù","ÙØ§C3Ù"));// EX: (Ø£Ø¨Ø§Ø¯ÙØŒ Ø§Ø³ØªÙ‚Ø§Ù„)
+        substitutions.add(new ExpressionInfixSubstitution("Ù’ÙŠÙC3Ù","ÙØ§C3Ù"));// EX: (Ø£Ø¨Ø§Ø¯ÙÙˆØ§ØŒ Ø§Ø³ØªÙ‚Ø§Ù„ÙˆØ§)
 
 
     }

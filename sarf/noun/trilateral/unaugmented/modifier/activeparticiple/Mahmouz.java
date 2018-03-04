@@ -38,8 +38,8 @@ public class Mahmouz {
                 break;
             }
         }
-        //ÎÕíÕÇ ááİÚá ÃËÃ
-        if (conjResult.getRoot().getC1() == 'Á' && conjResult.getRoot().getC3() == 'Á')
+        //Ø®ØµÙŠØµØ§ Ù„Ù„ÙØ¹Ù„ Ø£Ø«Ø£
+        if (conjResult.getRoot().getC1() == 'Ø¡' && conjResult.getRoot().getC3() == 'Ø¡')
             lamMahmouz.apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
 }

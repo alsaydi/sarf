@@ -21,7 +21,7 @@ import sarf.util.*;
  */
 public class IntroPane extends JPanel {
     private MainFrame mainFrame;
-    private JCheckBox hideIntroChkBox = new JCheckBox("ÚÏã ÅÙåÇÑ åĞå ÇáÔÇÔÉ İí ÇáãÑÇÊ ÇáŞÇÏãÉ");
+    private JCheckBox hideIntroChkBox = new JCheckBox("Ø¹Ø¯Ù… Ø¥Ø¸Ù‡Ø§Ø± Ù‡Ø°Ù‡ Ø§Ù„Ø´Ø§Ø´Ø© ÙÙŠ Ø§Ù„Ù…Ø±Ø§Øª Ø§Ù„Ù‚Ø§Ø¯Ù…Ø©");
 
     public IntroPane(MainFrame mainFrame) {
         super(new BorderLayout());

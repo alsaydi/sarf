@@ -6,9 +6,9 @@ import sarf.verb.trilateral.unaugmented.*;
 
 
 /**
- * ÇáİÚá ÇáãÇÖí
+ * Ø§Ù„ÙØ¹Ù„ Ø§Ù„Ù…Ø§Ø¶ÙŠ
  * <p>Title: Sarf</p>
- * <p>Description: ÈÑäÇãÌ ÇáÊÕÑíİ</p>
+ * <p>Description: Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØµØ±ÙŠÙ</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
  * @author Haytham Mohtasseb Billah
@@ -17,16 +17,16 @@ import sarf.verb.trilateral.unaugmented.*;
 public class ActivePastVerb {
     private UnaugmentedTrilateralRoot root;
 
-    //ÍÑßÉ İÇÁ ÇáİÚá æåí ÇáİÊÍÉ ÏÇÆãÇğ
+    //Ø­Ø±ÙƒØ© ÙØ§Ø¡ Ø§Ù„ÙØ¹Ù„ ÙˆÙ‡ÙŠ Ø§Ù„ÙØªØ­Ø© Ø¯Ø§Ø¦Ù…Ø§Ù‹
     private static final String dpa1 = ArabCharUtil.FATHA;
 
-    //ÍÑßÉ Úíä ÇáİÚá ÍÓÈ ÈÇÈ ÇáÊÕÑíİ
+    //Ø­Ø±ÙƒØ© Ø¹ÙŠÙ† Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø¨Ø§Ø¨ Ø§Ù„ØªØµØ±ÙŠÙ
     private String dpa2;
 
-    //ÍÑßÉ áÇã ÇáİÚá ÍÓÈ ÇáÖãíÑ
+    //Ø­Ø±ÙƒØ© Ù„Ø§Ù… Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
     private String lastDpa;
 
-    //ÖãíÑ ÇáÑİÚ ÇáãÊÕá
+    //Ø¶Ù…ÙŠØ± Ø§Ù„Ø±ÙØ¹ Ø§Ù„Ù…ØªØµÙ„
     private String connectedPronoun;
 
     public ActivePastVerb(UnaugmentedTrilateralRoot root, String dpa2, String lastDpa, String connectedPronoun) {

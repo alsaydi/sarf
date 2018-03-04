@@ -23,11 +23,11 @@ import sarf.NounSunLamModifier;
  */
 public class UnaugmentedTrilateralStandardGerundModifier extends AbstractLamMahmouz implements IUnaugmentedTrilateralNounModifier{
     private List substitutions = new LinkedList();
-    private String appliedCharactersString = "ÈÊËÌÍÎÓÔÕÖØÙÚÛİŞßáãäåí";
+    private String appliedCharactersString = "Ø¨ØªØ«Ø¬Ø­Ø®Ø³Ø´ØµØ¶Ø·Ø¸Ø¹ØºÙÙ‚ÙƒÙ„Ù…Ù†Ù‡ÙŠ";
 
     private UnaugmentedTrilateralStandardGerundModifier() {
-        substitutions.add(new ExpressionInfixSubstitution("C2úÁğÇ","C2úÆğÇ"));// EX: (ÎöØúÆğÇ)
-        substitutions.add(new InfixSubstitution("íÁğÇ","íÆğÇ"));// EX: (ãóÌöíÆğÇ)
+        substitutions.add(new ExpressionInfixSubstitution("C2Ù’Ø¡Ù‹Ø§","C2Ù’Ø¦Ù‹Ø§"));// EX: (Ø®ÙØ·Ù’Ø¦Ù‹Ø§)
+        substitutions.add(new InfixSubstitution("ÙŠØ¡Ù‹Ø§","ÙŠØ¦Ù‹Ø§"));// EX: (Ù…ÙØ¬ÙÙŠØ¦Ù‹Ø§)
     }
 
     private static UnaugmentedTrilateralStandardGerundModifier instance = new UnaugmentedTrilateralStandardGerundModifier();
@@ -50,8 +50,8 @@ public class UnaugmentedTrilateralStandardGerundModifier extends AbstractLamMahm
         return conjResult;
     }
 
-    //İÍÕ ÔÑØ ÇáãåãæÒ ÍÓÈ KOV
-    //æãä Ëã İÍÕ ÇĞÇ ßÇä ÇáÍÑİ ãäÇÓÈÇ
+    //ÙØ­Øµ Ø´Ø±Ø· Ø§Ù„Ù…Ù‡Ù…ÙˆØ² Ø­Ø³Ø¨ KOV
+    //ÙˆÙ…Ù† Ø«Ù… ÙØ­Øµ Ø§Ø°Ø§ ÙƒØ§Ù† Ø§Ù„Ø­Ø±Ù Ù…Ù†Ø§Ø³Ø¨Ø§
     public boolean isApplied(ConjugationResult conjugationResult) {
         char c2 = conjugationResult.getRoot().getC2();
         return super.isApplied(conjugationResult) && appliedCharactersString.indexOf(c2) != -1;

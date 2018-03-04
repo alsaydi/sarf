@@ -23,10 +23,10 @@ public class Imperative3Vocalizer extends SubstitutionsApplier implements IUnaug
     private List substitutions = new LinkedList();
 
     public Imperative3Vocalizer() {
-        substitutions.add(new SuffixSubstitution("óíú", "ó")); // EX: (ÃäÊó ÇæúÌó)
-        substitutions.add(new InfixSubstitution("óíöí", "óíú")); // EX: (ÃäÊö ÇæúÌóíú)
-        substitutions.add(new InfixSubstitution("óíõæ", "óæú")); // EX: (ÃäÊã ÇæúÌóæúÇ)
-        substitutions.add(new InfixSubstitution("óíõæ", "óæõ")); // EX: (ÃäÊã ÇæúÌóæõäøó)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ’", "Ù")); // EX: (Ø£Ù†ØªÙ Ø§ÙˆÙ’Ø¬Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙŠ", "ÙÙŠÙ’")); // EX: (Ø£Ù†ØªÙ Ø§ÙˆÙ’Ø¬ÙÙŠÙ’)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙˆ", "ÙÙˆÙ’")); // EX: (Ø£Ù†ØªÙ… Ø§ÙˆÙ’Ø¬ÙÙˆÙ’Ø§)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙˆ", "ÙÙˆÙ")); // EX: (Ø£Ù†ØªÙ… Ø§ÙˆÙ’Ø¬ÙÙˆÙÙ†Ù‘Ù)
     }
 
 

@@ -3,7 +3,7 @@ package sarf.util;
 /**
  * <p>Title: </p>
  *
- * <p>Description: ËæÇÈÊ ÊãËá ÚáÇãÇÊ ÇáÊÔßíá   </p>
+ * <p>Description: Ø«ÙˆØ§Ø¨Øª ØªÙ…Ø«Ù„ Ø¹Ù„Ø§Ù…Ø§Øª Ø§Ù„ØªØ´ÙƒÙŠÙ„   </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -16,9 +16,9 @@ public class ArabCharUtil {
     private ArabCharUtil() {
     }
 
-    public static final String FATHA = "ó";
-    public static final String DAMMA = "õ";
-    public static final String KASRA = "ö";
-    public static final String SKOON = "ú";
-    public static final String SHADDA = "ø";
+    public static final String FATHA = "Ù";
+    public static final String DAMMA = "Ù";
+    public static final String KASRA = "Ù";
+    public static final String SKOON = "Ù’";
+    public static final String SHADDA = "Ù‘";
 }

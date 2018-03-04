@@ -24,7 +24,7 @@ public class WawiLafifNakes2Vocalizer extends TrilateralNounSubstitutionApplier 
     List substitutions = new LinkedList();
 
     public WawiLafifNakes2Vocalizer() {
-        substitutions.add(new InfixSubstitution("õææ","öíø"));// EX: (ãóÑúÖöíø , ãÓæöíøñ)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙˆ","ÙÙŠÙ‘"));// EX: (Ù…ÙØ±Ù’Ø¶ÙÙŠÙ‘ , Ù…Ø³ÙˆÙÙŠÙ‘ÙŒ)
     }
 
 
@@ -33,7 +33,7 @@ public class WawiLafifNakes2Vocalizer extends TrilateralNounSubstitutionApplier 
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC3() != 'æ')
+        if (conjugationResult.getRoot().getC3() != 'Ùˆ')
             return false;
 
         int kov = conjugationResult.getKov();

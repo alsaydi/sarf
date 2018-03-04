@@ -24,18 +24,18 @@ public class ImperativeVocalizer extends SubstitutionsApplier implements IUnaugm
 
     public ImperativeVocalizer() {
 
-        substitutions.add(new SuffixSubstitution("õæú", "õ")); // EX: (ÇÛúÒõ¡ ÇÓÑõ)
-        substitutions.add(new InfixSubstitution("õæö", "ö")); // EX: (ÃäÊö ÇÛÒí¡ ÇÓÑí )
-        substitutions.add(new InfixSubstitution("õæõæ", "õæ")); // EX: (ÃäÊã ÇÛÒæÇ¡ ÇÓÑæÇ )
-        substitutions.add(new InfixSubstitution("õæúä", "õæä")); // EX: (ÃäÊä ÇÛÒæä¡ ÇÓÑæä)
-        substitutions.add(new InfixSubstitution("õæõä", "õä")); // EX: (ÃäÊã ÇÛúÒõäøó )
-        substitutions.add(new SuffixSubstitution("óæú", "ó")); // EX: (ÇÒúåó¡ ÇÑÖó)
-        substitutions.add(new InfixSubstitution("óæöí", "óíú")); // EX: (ÃäÊö ÇÒåóíú¡ ÇÑÖóíú )
-        substitutions.add(new InfixSubstitution("óæöä", "óíöä")); // EX: (ÃäÊö ÇÒåóíöäøó¡ ÇÑÖíöäøó)
-        substitutions.add(new InfixSubstitution("óæúä", "óíúä")); // EX: (ÃäÊä ÇÒåóíúäó¡ ÇÒúåóíúäóÇäøö¡ ÇÑÖóíúäó)
-        substitutions.add(new InfixSubstitution("óæõæ", "óæú")); // EX: (ÃäÊã ÇÒåóæúÇ¡ ÇÑÖóæúÇ)
-        substitutions.add(new InfixSubstitution("óæóÇ", "óíóÇ")); // EX: (ÃäÊãÇ ÇÑÖíÇ¡ ÇÒúåóíóÇ¡ )
-        substitutions.add(new InfixSubstitution("óæóä", "óíóä")); // EX: (ÃäÊó ÇÑÖíóäøó¡ )
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ’", "Ù")); // EX: (Ø§ØºÙ’Ø²ÙØŒ Ø§Ø³Ø±Ù)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ", "Ù")); // EX: (Ø£Ù†ØªÙ Ø§ØºØ²ÙŠØŒ Ø§Ø³Ø±ÙŠ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙˆ", "ÙÙˆ")); // EX: (Ø£Ù†ØªÙ… Ø§ØºØ²ÙˆØ§ØŒ Ø§Ø³Ø±ÙˆØ§ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’Ù†", "ÙÙˆÙ†")); // EX: (Ø£Ù†ØªÙ† Ø§ØºØ²ÙˆÙ†ØŒ Ø§Ø³Ø±ÙˆÙ†)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙ†", "ÙÙ†")); // EX: (Ø£Ù†ØªÙ… Ø§ØºÙ’Ø²ÙÙ†Ù‘Ù )
+        substitutions.add(new SuffixSubstitution("ÙÙˆÙ’", "Ù")); // EX: (Ø§Ø²Ù’Ù‡ÙØŒ Ø§Ø±Ø¶Ù)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙŠ", "ÙÙŠÙ’")); // EX: (Ø£Ù†ØªÙ Ø§Ø²Ù‡ÙÙŠÙ’ØŒ Ø§Ø±Ø¶ÙÙŠÙ’ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙ†", "ÙÙŠÙÙ†")); // EX: (Ø£Ù†ØªÙ Ø§Ø²Ù‡ÙÙŠÙÙ†Ù‘ÙØŒ Ø§Ø±Ø¶ÙŠÙÙ†Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙ’Ù†", "ÙÙŠÙ’Ù†")); // EX: (Ø£Ù†ØªÙ† Ø§Ø²Ù‡ÙÙŠÙ’Ù†ÙØŒ Ø§Ø²Ù’Ù‡ÙÙŠÙ’Ù†ÙØ§Ù†Ù‘ÙØŒ Ø§Ø±Ø¶ÙÙŠÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙˆ", "ÙÙˆÙ’")); // EX: (Ø£Ù†ØªÙ… Ø§Ø²Ù‡ÙÙˆÙ’Ø§ØŒ Ø§Ø±Ø¶ÙÙˆÙ’Ø§)
+        substitutions.add(new InfixSubstitution("ÙÙˆÙØ§", "ÙÙŠÙØ§")); // EX: (Ø£Ù†ØªÙ…Ø§ Ø§Ø±Ø¶ÙŠØ§ØŒ Ø§Ø²Ù’Ù‡ÙÙŠÙØ§ØŒ )
+        substitutions.add(new InfixSubstitution("ÙÙˆÙÙ†", "ÙÙŠÙÙ†")); // EX: (Ø£Ù†ØªÙ Ø§Ø±Ø¶ÙŠÙÙ†Ù‘ÙØŒ )
 
     }
 

@@ -22,12 +22,12 @@ public class Present2Vocalizer extends SubstitutionsApplier implements IQuadrila
     private List substitutions = new LinkedList();
 
     public Present2Vocalizer() {
-        substitutions.add(new SuffixSubstitution("íõ", "ì")); // EX: (íóÊóŞóáúÓóì)
-        substitutions.add(new SuffixSubstitution("íó", "ì")); // EX: (áä íóÊóŞóáúÓóì)
-        substitutions.add(new SuffixSubstitution("íú", "")); // EX: (áã íóÊóŞóáúÓó)
-        substitutions.add(new InfixSubstitution("íöí", "íú")); // EX: (ÃäÊö ÊóÊóŞóáúÓóíúäó)
-        substitutions.add(new InfixSubstitution("íõæ", "æú")); // EX: (ÃäÊã ÊóÊóŞóáúÓóæúäó)
-        substitutions.add(new InfixSubstitution("íõä", "æõä")); // EX: (ÃäÊã ÊóÊóŞóáúÓóæõäøó)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ", "Ù‰")); // EX: (ÙŠÙØªÙÙ‚ÙÙ„Ù’Ø³ÙÙ‰)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ", "Ù‰")); // EX: (Ù„Ù† ÙŠÙØªÙÙ‚ÙÙ„Ù’Ø³ÙÙ‰)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ’", "")); // EX: (Ù„Ù… ÙŠÙØªÙÙ‚ÙÙ„Ù’Ø³Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙŠ", "ÙŠÙ’")); // EX: (Ø£Ù†ØªÙ ØªÙØªÙÙ‚ÙÙ„Ù’Ø³ÙÙŠÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙˆ", "ÙˆÙ’")); // EX: (Ø£Ù†ØªÙ… ØªÙØªÙÙ‚ÙÙ„Ù’Ø³ÙÙˆÙ’Ù†Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙ†", "ÙˆÙÙ†")); // EX: (Ø£Ù†ØªÙ… ØªÙØªÙÙ‚ÙÙ„Ù’Ø³ÙÙˆÙÙ†Ù‘Ù)
     }
 
 
@@ -36,7 +36,7 @@ public class Present2Vocalizer extends SubstitutionsApplier implements IQuadrila
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC4() == 'í' && conjugationResult.getFormulaNo() == 1) {
+        if (conjugationResult.getRoot().getC4() == 'ÙŠ' && conjugationResult.getFormulaNo() == 1) {
             return true;
         }
         return false;

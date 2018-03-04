@@ -29,24 +29,24 @@ public class NounSunLamModifier extends SubstitutionsApplier {
 
     private NounSunLamModifier() {
         List sunLetters = new LinkedList();
-        sunLetters.add("Ê");
-        sunLetters.add("Ë");
-        sunLetters.add("Ï");
-        sunLetters.add("Ğ");
-        sunLetters.add("Ñ");
-        sunLetters.add("Ò");
-        sunLetters.add("Ó");
-        sunLetters.add("Ô");
-        sunLetters.add("Õ");
-        sunLetters.add("Ö");
-        sunLetters.add("Ø");
-        sunLetters.add("Ù");
-        sunLetters.add("á");
-        sunLetters.add("ä");
+        sunLetters.add("Øª");
+        sunLetters.add("Ø«");
+        sunLetters.add("Ø¯");
+        sunLetters.add("Ø°");
+        sunLetters.add("Ø±");
+        sunLetters.add("Ø²");
+        sunLetters.add("Ø³");
+        sunLetters.add("Ø´");
+        sunLetters.add("Øµ");
+        sunLetters.add("Ø¶");
+        sunLetters.add("Ø·");
+        sunLetters.add("Ø¸");
+        sunLetters.add("Ù„");
+        sunLetters.add("Ù†");
 
-        substitutions.add(new ListedInfixSubstitution(sunLetters,"ÇáSLó","ÇáSLøó"));
-        substitutions.add(new ListedInfixSubstitution(sunLetters,"ÇáSLõ","ÇáSLøõ"));
-        substitutions.add(new ListedInfixSubstitution(sunLetters,"ÇáSLö","ÇáSLøö"));
+        substitutions.add(new ListedInfixSubstitution(sunLetters,"Ø§Ù„SLÙ","Ø§Ù„SLÙ‘Ù"));
+        substitutions.add(new ListedInfixSubstitution(sunLetters,"Ø§Ù„SLÙ","Ø§Ù„SLÙ‘Ù"));
+        substitutions.add(new ListedInfixSubstitution(sunLetters,"Ø§Ù„SLÙ","Ø§Ù„SLÙ‘Ù"));
     }
 
     private static NounSunLamModifier instance = new NounSunLamModifier();

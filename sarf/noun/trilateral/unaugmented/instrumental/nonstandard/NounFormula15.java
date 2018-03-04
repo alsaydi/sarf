@@ -29,12 +29,12 @@ public class NounFormula15 extends NonStandardInstrumentalNounFormula{
 
     public String form() {
         if (suffixNo % 2 == 0)
-            return "ã"+ArabCharUtil.DAMMA+root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SHADDA+ArabCharUtil.KASRA+root.getC3()+suffix;
+            return "Ù…"+ArabCharUtil.DAMMA+root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SHADDA+ArabCharUtil.KASRA+root.getC3()+suffix;
         return "";
     }
 
     public String getFormulaName() {
-        return "ãõİóÚøöáóÉ";
+        return "Ù…ÙÙÙØ¹Ù‘ÙÙ„ÙØ©";
     }
 
     public String getSymbol() {

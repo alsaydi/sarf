@@ -24,11 +24,11 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
     private List substitutions = new LinkedList();
 
     public Present1Vocalizer() {
-        substitutions.add(new SuffixSubstitution("öíõ","öí"));// EX: (íõÍúíöí¡ íÍÇíöí¡ íÒÏíí¡ íÓÊÍíí)
-        substitutions.add(new SuffixSubstitution("öíú","ö"));// EX: (áã íõÍúíö¡ áã íõÍÇíö¡ áã íóÒÏóíö¡ áã íóÓúÊóÍöí)
-        substitutions.add(new InfixSubstitution("öíöí","öí"));// EX: (ÃäÊö ÊõÍúíöíäó¡ ÊõÍÇíöíäó¡ ÊÒÏííä¡ ÊÓÊÍííä)
-        substitutions.add(new InfixSubstitution("öíõ","õ"));// EX: (ÃäÊã ÊõÍúíõæä¡ ÊõÍÇíõæä¡ ÊÒÏíæä¡ ÊÓÊÍíæä)
-        substitutions.add(new InfixSubstitution("öíú","öí"));// EX: (ÃäÊä ÊõÍúíöíäó¡ ÊõÍÇíöíä¡ ÊÒÏííä¡ ÊÓÊÍííä)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ","ÙÙŠ"));// EX: (ÙŠÙØ­Ù’ÙŠÙÙŠØŒ ÙŠØ­Ø§ÙŠÙÙŠØŒ ÙŠØ²Ø¯ÙŠÙŠØŒ ÙŠØ³ØªØ­ÙŠÙŠ)
+        substitutions.add(new SuffixSubstitution("ÙÙŠÙ’","Ù"));// EX: (Ù„Ù… ÙŠÙØ­Ù’ÙŠÙØŒ Ù„Ù… ÙŠÙØ­Ø§ÙŠÙØŒ Ù„Ù… ÙŠÙØ²Ø¯ÙÙŠÙØŒ Ù„Ù… ÙŠÙØ³Ù’ØªÙØ­ÙÙŠ)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙŠ","ÙÙŠ"));// EX: (Ø£Ù†ØªÙ ØªÙØ­Ù’ÙŠÙÙŠÙ†ÙØŒ ØªÙØ­Ø§ÙŠÙÙŠÙ†ÙØŒ ØªØ²Ø¯ÙŠÙŠÙ†ØŒ ØªØ³ØªØ­ÙŠÙŠÙ†)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ","Ù"));// EX: (Ø£Ù†ØªÙ… ØªÙØ­Ù’ÙŠÙÙˆÙ†ØŒ ØªÙØ­Ø§ÙŠÙÙˆÙ†ØŒ ØªØ²Ø¯ÙŠÙˆÙ†ØŒ ØªØ³ØªØ­ÙŠÙˆÙ†)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙ’","ÙÙŠ"));// EX: (Ø£Ù†ØªÙ† ØªÙØ­Ù’ÙŠÙÙŠÙ†ÙØŒ ØªÙØ­Ø§ÙŠÙÙŠÙ†ØŒ ØªØ²Ø¯ÙŠÙŠÙ†ØŒ ØªØ³ØªØ­ÙŠÙŠÙ†)
     }
 
 
@@ -40,7 +40,7 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        if (root.getC2() == root.getC3() && root.getC3() == 'í' && kov == 28) {
+        if (root.getC2() == root.getC3() && root.getC3() == 'ÙŠ' && kov == 28) {
             switch (formulaNo) {
             case 1:
             case 3:

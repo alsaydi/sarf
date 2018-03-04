@@ -23,7 +23,7 @@ public class SpecialSubstituter2 extends TrilateralNounSubstitutionApplier imple
     private List substitutions = new LinkedList();
 
     public SpecialSubstituter2() {
-        substitutions.add(new InfixSubstitution("íúÊ","Êø"));// EX: (ÇÊøöÓÇÑ¡)
+        substitutions.add(new InfixSubstitution("ÙŠÙ’Øª","ØªÙ‘"));// EX: (Ø§ØªÙ‘ÙØ³Ø§Ø±ØŒ)
     }
 
     public List getSubstitutions() {
@@ -33,6 +33,6 @@ public class SpecialSubstituter2 extends TrilateralNounSubstitutionApplier imple
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
-        return conjugationResult.getRoot().getC1() == 'í' && formulaNo == 5 && (kov == 13 || kov == 14);
+        return conjugationResult.getRoot().getC1() == 'ÙŠ' && formulaNo == 5 && (kov == 13 || kov == 14);
     }
 }

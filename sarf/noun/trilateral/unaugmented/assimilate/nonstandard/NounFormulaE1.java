@@ -45,14 +45,14 @@ public class NounFormulaE1 extends NounFormula {
         case 10:
         case 14:
         case 16:
-            return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.FATHA+"Çä"+suffix;
+            return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.FATHA+"Ø§Ù†"+suffix;
         }
 
         return "";
     }
 
     public String getFormulaName() {
-        return "İóÚúáÇä / İóÚúáÇäÉ" ;
+        return "ÙÙØ¹Ù’Ù„Ø§Ù† / ÙÙØ¹Ù’Ù„Ø§Ù†Ø©" ;
     }
 
     protected INounSuffixContainer getNounSuffixContainer() {

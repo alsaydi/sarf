@@ -29,6 +29,6 @@ public class NounFormula12 extends AugmentedTrilateralNoun {
      * @todo Implement this sarf.noun.trilateral.TrilateralNoun method
      */
     public String form() {
-        return "ใ"+ArabCharUtil.DAMMA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+"ว"+root.getC3()+ArabCharUtil.KASRA+ root.getC3()+suffix;
+        return "ู…"+ArabCharUtil.DAMMA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+"ุง"+root.getC3()+ArabCharUtil.KASRA+ root.getC3()+suffix;
     }
 }

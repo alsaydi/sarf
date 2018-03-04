@@ -22,9 +22,9 @@ public class PastVocalizer extends SubstitutionsApplier implements IQuadrilatera
     private List substitutions = new LinkedList();
 
     public PastVocalizer() {
-        substitutions.add(new SuffixSubstitution("νσ","μ"));// EX: (εζ ήσαϊΣσμ΅ ΚσήσαϊΣσμ΅ ΗΣαδήσμ)
-        substitutions.add(new InfixSubstitution("νυζ", "ζϊ")); // EX: (εγ ήσαϊΣσζϊΗ΅ ΚσήσαϊΣσζϊΗ΅ ΗΣϊασδϊήσζϊΗ)
-        substitutions.add(new InfixSubstitution("νσΚ", "Κ")); // EX: (εν ήσαϊΣσΚϊ΅ ΚσήσαϊΣσΚϊ΅ ΗΣϊασδϊήσΚϊ)
+        substitutions.add(new SuffixSubstitution("ΩΩ","Ω‰"));// EX: (Ω‡Ω Ω‚ΩΩ„Ω’Ψ³ΩΩ‰Ψ ΨªΩΩ‚ΩΩ„Ω’Ψ³ΩΩ‰Ψ Ψ§Ψ³Ω„Ω†Ω‚ΩΩ‰)
+        substitutions.add(new InfixSubstitution("ΩΩΩ", "ΩΩ’")); // EX: (Ω‡Ω… Ω‚ΩΩ„Ω’Ψ³ΩΩΩ’Ψ§Ψ ΨªΩΩ‚ΩΩ„Ω’Ψ³ΩΩΩ’Ψ§Ψ Ψ§Ψ³Ω’Ω„ΩΩ†Ω’Ω‚ΩΩΩ’Ψ§)
+        substitutions.add(new InfixSubstitution("ΩΩΨª", "Ψª")); // EX: (Ω‡Ω Ω‚ΩΩ„Ω’Ψ³ΩΨªΩ’Ψ ΨªΩΩ‚ΩΩ„Ω’Ψ³ΩΨªΩ’Ψ Ψ§Ψ³Ω’Ω„ΩΩ†Ω’Ω‚ΩΨªΩ’)
     }
 
 
@@ -33,7 +33,7 @@ public class PastVocalizer extends SubstitutionsApplier implements IQuadrilatera
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC4() != 'ν')
+        if (conjugationResult.getRoot().getC4() != 'Ω')
             return false;
 
         switch (conjugationResult.getFormulaNo()) {

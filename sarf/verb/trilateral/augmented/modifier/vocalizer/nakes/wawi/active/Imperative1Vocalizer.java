@@ -23,12 +23,12 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IAugme
     private List substitutions = new LinkedList();
 
     public Imperative1Vocalizer() {
-        substitutions.add(new InfixSubstitution("๖ๆ๕ๆ","๕ๆ"));// EX: (รไสใ รฯ๚ไ๕ๆวก อวศ๕ๆวก วไฬแ๕ๆวก วัสึ๕ๆวก วัฺ๓ๆ๕ๆวก วำสัึ๕ๆวก วอแ๓ๆ๚แ๕ๆว)
-        substitutions.add(new InfixSubstitution("๖ๆ๕ไ","๕ไ"));// EX: (รไสใ รฯ๚ไ๕ไ๘๓ก อวศ๕ไ๘๓ก วไฬแ๕ไ๘๓ก วัสึ๕ไ๘๓ก วัฺ๓ๆ๕ไ๘๓ก วำสัึ๕ไ๘๓ก วอแ๓ๆ๚แ๕ไ๘๓)
-        substitutions.add(new SuffixSubstitution("ๆ๚",""));// EX: (รฯ๚ไ๖ก อวศ๖ก วไฬแ๖ก วัสึ๖ก วัฺ๓ๆ๖ก วำสัึ๖ก วอแ๓ๆ๚แ๖)
-        substitutions.add(new InfixSubstitution("ๆ๚ไ","ํไ"));// EX: (รไสไ รฯไ๖ํไ๓ก อวศ๖ํไก วไฬแ๖ํไก วัสึํไก วัฺๆํไก วำสัึํไก วอแๆแํไ)
-        substitutions.add(new InfixSubstitution("๖ๆ๖","๖"));// EX: (รไส๖ รฯ๚ไ๖ํก อวศ๖ํก วไฬแ๖ํก วัสึํก วัฺๆํก วำสัึํก วอแๆแํ)
-        substitutions.add(new InfixSubstitution("ๆ๓","ํ๓"));// EX: (รไสใว รฯ๚ไ๖ํวก อวศ๖ํวก วไฬแ๖ํวก วัสึํวก วัฺๆํวก วำสัึํวก วอแๆแํว)
+        substitutions.add(new InfixSubstitution("ูููู","ูู"));// EX: (ุฃูุชู… ุฃุฏู’ูููุงุ ุญุงุจููุงุ ุงูุฌูููุงุ ุงุฑุชุถููุงุ ุงุฑุนููููุงุ ุงุณุชุฑุถููุงุ ุงุญูููู’ูููุง)
+        substitutions.add(new InfixSubstitution("ูููู","ูู"));// EX: (ุฃูุชู… ุฃุฏู’ูููู‘ูุ ุญุงุจููู‘ูุ ุงูุฌูููู‘ูุ ุงุฑุชุถููู‘ูุ ุงุฑุนููููู‘ูุ ุงุณุชุฑุถููู‘ูุ ุงุญูููู’ูููู‘ู)
+        substitutions.add(new SuffixSubstitution("ูู’",""));// EX: (ุฃุฏู’ููุ ุญุงุจูุ ุงูุฌููุ ุงุฑุชุถูุ ุงุฑุนูููุ ุงุณุชุฑุถูุ ุงุญูููู’ูู)
+        substitutions.add(new InfixSubstitution("ูู’ู","ูู"));// EX: (ุฃูุชู ุฃุฏูููููุ ุญุงุจูููุ ุงูุฌููููุ ุงุฑุชุถููุ ุงุฑุนูููุ ุงุณุชุฑุถููุ ุงุญููููู)
+        substitutions.add(new InfixSubstitution("ููู","ู"));// EX: (ุฃูุชู ุฃุฏู’ูููุ ุญุงุจููุ ุงูุฌูููุ ุงุฑุชุถูุ ุงุฑุนููุ ุงุณุชุฑุถูุ ุงุญูููู)
+        substitutions.add(new InfixSubstitution("ูู","ูู"));// EX: (ุฃูุชู…ุง ุฃุฏู’ูููุงุ ุญุงุจููุงุ ุงูุฌูููุงุ ุงุฑุชุถูุงุ ุงุฑุนููุงุ ุงุณุชุฑุถูุงุ ุงุญููููุง)
     }
 
 

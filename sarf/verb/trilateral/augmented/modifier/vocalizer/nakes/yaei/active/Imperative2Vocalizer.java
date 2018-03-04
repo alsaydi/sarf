@@ -23,10 +23,10 @@ public class Imperative2Vocalizer extends SubstitutionsApplier implements IAugme
     private List substitutions = new LinkedList();
 
     public Imperative2Vocalizer() {
-        substitutions.add(new SuffixSubstitution("íú", "")); // EX: (ÊóäÇÓó¡ ÊóÑóŞøó)
-        substitutions.add(new InfixSubstitution("íöí", "íú")); // EX: (ÃäÊö ÊóäÇÓóíú¡ ÊóÑóŞøóíú)
-        substitutions.add(new InfixSubstitution("íõæ", "æú")); // EX: (ÃäÊã ÊóäÇÓóæúÇ¡ ÊóÑóŞøóæúÇ)
-        substitutions.add(new InfixSubstitution("íõä", "æõä")); // EX: (ÃäÊã ÊóäÇÓóæõäøó¡ ÊóÑóŞøóæõäøó)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ’", "")); // EX: (ØªÙÙ†Ø§Ø³ÙØŒ ØªÙØ±ÙÙ‚Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙŠ", "ÙŠÙ’")); // EX: (Ø£Ù†ØªÙ ØªÙÙ†Ø§Ø³ÙÙŠÙ’ØŒ ØªÙØ±ÙÙ‚Ù‘ÙÙŠÙ’)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙˆ", "ÙˆÙ’")); // EX: (Ø£Ù†ØªÙ… ØªÙÙ†Ø§Ø³ÙÙˆÙ’Ø§ØŒ ØªÙØ±ÙÙ‚Ù‘ÙÙˆÙ’Ø§)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙ†", "ÙˆÙÙ†")); // EX: (Ø£Ù†ØªÙ… ØªÙÙ†Ø§Ø³ÙÙˆÙÙ†Ù‘ÙØŒ ØªÙØ±ÙÙ‚Ù‘ÙÙˆÙÙ†Ù‘Ù)
     }
 
 

@@ -12,9 +12,9 @@ import sarf.verb.trilateral.unaugmented.modifier.geminator.ngeminator.*;
  * <p>Title: Sarf Program</p>
  *
  * <p>Description:
- * ÇáÇÏÛÇã ááãäÊåí ÈÇáäæä åæ äİÓå ãä ÃÌá ßá ÇáÕíÛ ááãÚáæã æááãÌåæá
- * æáßä ÊÎÊáİ İíãÇ ÈíäåÇ ÈÃÑŞÇã ÇáÖãÇÆÑ
- * İåæ ÇáÕİ ÇáÃÈ ááËáÇË ÇáÕİæİ İí ÇáãÇÖí æÇáãÖÇÑÚ æÇáÃãÑ
+ * Ø§Ù„Ø§Ø¯ØºØ§Ù… Ù„Ù„Ù…Ù†ØªÙ‡ÙŠ Ø¨Ø§Ù„Ù†ÙˆÙ† Ù‡Ùˆ Ù†ÙØ³Ù‡ Ù…Ù† Ø£Ø¬Ù„ ÙƒÙ„ Ø§Ù„ØµÙŠØº Ù„Ù„Ù…Ø¹Ù„ÙˆÙ… ÙˆÙ„Ù„Ù…Ø¬Ù‡ÙˆÙ„
+ * ÙˆÙ„ÙƒÙ† ØªØ®ØªÙ„Ù ÙÙŠÙ…Ø§ Ø¨ÙŠÙ†Ù‡Ø§ Ø¨Ø£Ø±Ù‚Ø§Ù… Ø§Ù„Ø¶Ù…Ø§Ø¦Ø±
+ * ÙÙ‡Ùˆ Ø§Ù„ØµÙ Ø§Ù„Ø£Ø¨ Ù„Ù„Ø«Ù„Ø§Ø« Ø§Ù„ØµÙÙˆÙ ÙÙŠ Ø§Ù„Ù…Ø§Ø¶ÙŠ ÙˆØ§Ù„Ù…Ø¶Ø§Ø±Ø¹ ÙˆØ§Ù„Ø£Ù…Ø±
  * A composite pattern is applied here
  * </p>
  *
@@ -28,11 +28,11 @@ import sarf.verb.trilateral.unaugmented.modifier.geminator.ngeminator.*;
 public class NGeminator extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier{
 
     private List substitutions = new LinkedList();
-    //ÃÑŞÇã ÇáÖãÇÆÑ ÇáÊí íãßä ÇáÊØÈíŞ ãä ÃÌáåÇ ÍÓÈ ÇáÕíÛÉÉ  ãÇÖí Ãæ ãÖÇÑÚ Ãæ ÃãÑ
+    //Ø£Ø±Ù‚Ø§Ù… Ø§Ù„Ø¶Ù…Ø§Ø¦Ø± Ø§Ù„ØªÙŠ ÙŠÙ…ÙƒÙ† Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ Ù…Ù† Ø£Ø¬Ù„Ù‡Ø§ Ø­Ø³Ø¨ Ø§Ù„ØµÙŠØºØ©Ø©  Ù…Ø§Ø¶ÙŠ Ø£Ùˆ Ù…Ø¶Ø§Ø±Ø¹ Ø£Ùˆ Ø£Ù…Ø±
     private Map indeciesMap = new HashMap();
 
     public NGeminator() {
-        substitutions.add(new ExpressionInfixSubstitution("äúäó","äøó"));
+        substitutions.add(new ExpressionInfixSubstitution("Ù†Ù’Ù†Ù","Ù†Ù‘Ù"));
 
         List indecies = new ArrayList(2);
         indecies.add("2");
@@ -56,7 +56,7 @@ public class NGeminator extends SubstitutionsApplier implements IUnaugmentedTril
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
-        return (conjugationResult.getRoot().getC3()=='ä' && (kov == 1 || kov == 2 || kov == 3 || kov == 5 || kov == 6 || kov == 11 || kov == 14 || kov == 15 || kov == 17 || kov == 18 || kov == 20));
+        return (conjugationResult.getRoot().getC3()=='Ù†' && (kov == 1 || kov == 2 || kov == 3 || kov == 5 || kov == 6 || kov == 11 || kov == 14 || kov == 15 || kov == 17 || kov == 18 || kov == 20));
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {

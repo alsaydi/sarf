@@ -35,24 +35,24 @@ public class GerundPattern2 extends TrilateralAugmentedNomenGerund {
      *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
      */
     public String form() {
-//        if (root.getC3() == 'æ' || root.getC3() == 'í')
+//        if (root.getC3() == 'Ùˆ' || root.getC3() == 'ÙŠ')
 //            return form2();
-//        else if (root.getC3() == 'Á')
+//        else if (root.getC3() == 'Ø¡')
 //            return form3();
         return form1();
 
     }
 
     public String form1() {
-        return "Ê"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+"í"+root.getC3()+suffix;
+        return "Øª"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+"ÙŠ"+root.getC3()+suffix;
     }
 
     public String form2() {
-        return "Ê"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
+        return "Øª"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
     }
 
     public String form3() {
-        return "Ê"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+"Æ"+suffix;
+        return "Øª"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+"Ø¦"+suffix;
     }
 
     /**
@@ -63,6 +63,6 @@ public class GerundPattern2 extends TrilateralAugmentedNomenGerund {
      *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
      */
     public String getPattern() {
-        return "ÊóİúÚöíáÉ";
+        return "ØªÙÙÙ’Ø¹ÙÙŠÙ„Ø©";
     }
 }

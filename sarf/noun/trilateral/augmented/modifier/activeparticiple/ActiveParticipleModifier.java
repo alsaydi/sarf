@@ -12,8 +12,8 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListen
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: ╩╪╚э▐ ╟су┌╟с╠╔ ╟с╬╟╒╔ ┌сь ╟╙у ╟с▌╟┌с
- * ╟╚╩╧╟┴ ╚╟с╟╧█╟у ╦у ╟с╟┌с╟с ц╟╬э╤╟ ╟сху╥╔
+ * <p>Description: ╪к╪╖╪и┘К┘В ╪з┘Д┘Е╪╣╪з┘Д╪м╪й ╪з┘Д╪о╪з╪╡╪й ╪╣┘Д┘Й ╪з╪│┘Е ╪з┘Д┘Б╪з╪╣┘Д
+ * ╪з╪и╪к╪п╪з╪б ╪и╪з┘Д╪з╪п╪║╪з┘Е ╪л┘Е ╪з┘Д╪з╪╣┘Д╪з┘Д ┘И╪з╪о┘К╪▒╪з ╪з┘Д┘З┘Е╪▓╪й
  * </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>

@@ -4,9 +4,9 @@ import sarf.util.*;
 
 
 /**
- * İÚá ÇáÃãÑ ÇáÑÈÇÚí ÇáãÌÑÏ
+ * ÙØ¹Ù„ Ø§Ù„Ø£Ù…Ø± Ø§Ù„Ø±Ø¨Ø§Ø¹ÙŠ Ø§Ù„Ù…Ø¬Ø±Ø¯
  * <p>Title: Sarf</p>
- * <p>Description: ÈÑäÇãÌ ÇáÊÕÑíİ</p>
+ * <p>Description: Ø¨Ø±Ù†Ø§Ù…Ø¬ Ø§Ù„ØªØµØ±ÙŠÙ</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
  * @author Haytham Mohtasseb Billah
@@ -15,10 +15,10 @@ import sarf.util.*;
 public class ImperativeVerb {
     private UnaugmentedQuadriliteralRoot root;
 
-    //ÍÑßÉ áÇã ÇáİÚá ÍÓÈ ÇáÖãíÑ
+    //Ø­Ø±ÙƒØ© Ù„Ø§Ù… Ø§Ù„ÙØ¹Ù„ Ø­Ø³Ø¨ Ø§Ù„Ø¶Ù…ÙŠØ±
     private String lastDim;
 
-    //ÖãíÑ ÇáÑİÚ ÇáãÊÕá
+    //Ø¶Ù…ÙŠØ± Ø§Ù„Ø±ÙØ¹ Ø§Ù„Ù…ØªØµÙ„
     private String connectedPronoun;
 
     public ImperativeVerb(UnaugmentedQuadriliteralRoot root, String lastDim, String connectedPronoun) {

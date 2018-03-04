@@ -7,7 +7,7 @@ import sarf.verb.trilateral.augmented.imperative.*;
 /**
  * <p>Title: Sarf</p>
  *
- * <p>Description: »—‰«„Ã «· ’—Ì›</p>
+ * <p>Description: ÿ®ÿ±ŸÜÿßŸÖÿ¨ ÿßŸÑÿ™ÿµÿ±ŸäŸÅ</p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -29,6 +29,6 @@ public class AugmentedImperativeVerb10 extends AugmentedImperativeVerb {
      *   method
      */
     public String form() {
-        return "«"+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+"Ê"+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+lastDim+connectedPronoun;
+        return "ÿß"+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+"Ÿà"+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+lastDim+connectedPronoun;
     }
 }

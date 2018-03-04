@@ -7,7 +7,7 @@ import sarf.verb.trilateral.unaugmented.*;
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: íãËá äÊíÌÉ ÇáÊÕÑíİ ãÚ ÇáÌĞÑ æäæÚ ÇáÌĞÑ      </p>
+ * <p>Description: ÙŠÙ…Ø«Ù„ Ù†ØªÙŠØ¬Ø© Ø§Ù„ØªØµØ±ÙŠÙ Ù…Ø¹ Ø§Ù„Ø¬Ø°Ø± ÙˆÙ†ÙˆØ¹ Ø§Ù„Ø¬Ø°Ø±      </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *

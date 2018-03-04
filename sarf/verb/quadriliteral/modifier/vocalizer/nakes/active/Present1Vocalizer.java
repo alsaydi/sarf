@@ -22,13 +22,13 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IQuadrila
     private List substitutions = new LinkedList();
 
     public Present1Vocalizer() {
-        substitutions.add(new SuffixSubstitution("íõ", "í")); // EX: (íõŞóáúÓöí¡ íóÓúáóäúŞöí)
-        substitutions.add(new SuffixSubstitution("íú", "")); // EX: (áã íõŞóáúÓö¡ íóÓúáóäúŞö)
-        substitutions.add(new InfixSubstitution("íöä", "ä")); // EX: (ÃäÊö ÊõŞóáúÓöäøó¡ ÊõÓúáóäúŞöäøó)
-        substitutions.add(new InfixSubstitution("íöí", "í")); // EX: (ÃäÊö ÊõŞóáúÓöíäó¡ ÊõÓúáóŞöíäó)
-        substitutions.add(new InfixSubstitution("íúä", "íä")); // EX: (ÃäÊä ÊõŞóáúÓöíäó¡ ÊõÓúáóŞöíäó)
-        substitutions.add(new InfixSubstitution("öíõæ", "õæ")); // EX: (ÃäÊã ÊõŞóáúÓõæäó¡ ÊóÓúáóäúŞõæäó)
-        substitutions.add(new InfixSubstitution("öíõä", "õä")); // EX: (ÃäÊã ÊõŞóáúÓõäøó¡ ÊóÓúáóäúŞõäøó)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ", "ÙŠ")); // EX: (ÙŠÙÙ‚ÙÙ„Ù’Ø³ÙÙŠØŒ ÙŠÙØ³Ù’Ù„ÙÙ†Ù’Ù‚ÙÙŠ)
+        substitutions.add(new SuffixSubstitution("ÙŠÙ’", "")); // EX: (Ù„Ù… ÙŠÙÙ‚ÙÙ„Ù’Ø³ÙØŒ ÙŠÙØ³Ù’Ù„ÙÙ†Ù’Ù‚Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙ†", "Ù†")); // EX: (Ø£Ù†ØªÙ ØªÙÙ‚ÙÙ„Ù’Ø³ÙÙ†Ù‘ÙØŒ ØªÙØ³Ù’Ù„ÙÙ†Ù’Ù‚ÙÙ†Ù‘Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙÙŠ", "ÙŠ")); // EX: (Ø£Ù†ØªÙ ØªÙÙ‚ÙÙ„Ù’Ø³ÙÙŠÙ†ÙØŒ ØªÙØ³Ù’Ù„ÙÙ‚ÙÙŠÙ†Ù)
+        substitutions.add(new InfixSubstitution("ÙŠÙ’Ù†", "ÙŠÙ†")); // EX: (Ø£Ù†ØªÙ† ØªÙÙ‚ÙÙ„Ù’Ø³ÙÙŠÙ†ÙØŒ ØªÙØ³Ù’Ù„ÙÙ‚ÙÙŠÙ†Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙˆ", "ÙÙˆ")); // EX: (Ø£Ù†ØªÙ… ØªÙÙ‚ÙÙ„Ù’Ø³ÙÙˆÙ†ÙØŒ ØªÙØ³Ù’Ù„ÙÙ†Ù’Ù‚ÙÙˆÙ†Ù)
+        substitutions.add(new InfixSubstitution("ÙÙŠÙÙ†", "ÙÙ†")); // EX: (Ø£Ù†ØªÙ… ØªÙÙ‚ÙÙ„Ù’Ø³ÙÙ†Ù‘ÙØŒ ØªÙØ³Ù’Ù„ÙÙ†Ù’Ù‚ÙÙ†Ù‘Ù)
     }
 
 
@@ -37,7 +37,7 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IQuadrila
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC4() != 'í')
+        if (conjugationResult.getRoot().getC4() != 'ÙŠ')
             return false;
 
         switch (conjugationResult.getFormulaNo()) {

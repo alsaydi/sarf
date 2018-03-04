@@ -25,11 +25,11 @@ public class PassivePastAjwafYaeiVocalizer extends AbstractAjwafYaeiVocalizer {
 
     public PassivePastAjwafYaeiVocalizer() {
 
-        substitutions.add(new ExpressionInfixSubstitution("õíöC3ø","õC3ø"));// EX: ( ÈõÊøõ)
-        substitutions.add(new ExpressionInfixSubstitution("õíöC3ú","õC3ú"));// EX: (ÈõÚúÊõ¡ ŞõÆÊõ¡ ÃõäúÊõ¡ ÔõÆúÊõ)
-        substitutions.add(new ExpressionInfixSubstitution("õíöC3ø","õC3ø"));// EX: (äÍä áõäøóÇ¡ åä áõäøó¡ ÃäÇ áöÊøõ)
-        substitutions.add(new ExpressionInfixSubstitution("õíöC3ó","öíC3ó"));// EX: (ÈöíÚ¡ ŞöíÁ¡ Åíä¡ ÔöíÁ¡ ÈöíÊ)
-        substitutions.add(new ExpressionInfixSubstitution("õíöC3õ","öíC3õ"));// EX: (ÈöíÚæÇ¡ ŞöíÆæÇ¡ ÅíäæÇ¡ ÔöíÆæÇ¡ ÈöíÊæÇ)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù‘","ÙC3Ù‘"));// EX: ( Ø¨ÙØªÙ‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù’","ÙC3Ù’"));// EX: (Ø¨ÙØ¹Ù’ØªÙØŒ Ù‚ÙØ¦ØªÙØŒ Ø£ÙÙ†Ù’ØªÙØŒ Ø´ÙØ¦Ù’ØªÙ)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù‘","ÙC3Ù‘"));// EX: (Ù†Ø­Ù† Ù„ÙÙ†Ù‘ÙØ§ØŒ Ù‡Ù† Ù„ÙÙ†Ù‘ÙØŒ Ø£Ù†Ø§ Ù„ÙØªÙ‘Ù)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù","ÙÙŠC3Ù"));// EX: (Ø¨ÙÙŠØ¹ØŒ Ù‚ÙÙŠØ¡ØŒ Ø¥ÙŠÙ†ØŒ Ø´ÙÙŠØ¡ØŒ Ø¨ÙÙŠØª)
+        substitutions.add(new ExpressionInfixSubstitution("ÙÙŠÙC3Ù","ÙÙŠC3Ù"));// EX: (Ø¨ÙÙŠØ¹ÙˆØ§ØŒ Ù‚ÙÙŠØ¦ÙˆØ§ØŒ Ø¥ÙŠÙ†ÙˆØ§ØŒ Ø´ÙÙŠØ¦ÙˆØ§ØŒ Ø¨ÙÙŠØªÙˆØ§)
 
     }
 

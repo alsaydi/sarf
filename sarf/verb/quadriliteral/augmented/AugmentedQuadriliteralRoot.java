@@ -8,8 +8,8 @@ import sarf.verb.quadriliteral.*;
 /**
  * <p>Title: Sarf</p>
  *
- * <p>Description: ÇáÌĞÑ ÇáÑÈÇÚí ÇáãÒíÏ
- * ãÊÖãäÇ ÇáÃÍÑİ ÇáÃÑÈÚÉ                </p>
+ * <p>Description: Ø§Ù„Ø¬Ø°Ø± Ø§Ù„Ø±Ø¨Ø§Ø¹ÙŠ Ø§Ù„Ù…Ø²ÙŠØ¯
+ * Ù…ØªØ¶Ù…Ù†Ø§ Ø§Ù„Ø£Ø­Ø±Ù Ø§Ù„Ø£Ø±Ø¨Ø¹Ø©                </p>
  *
 
  *
@@ -26,7 +26,7 @@ public class AugmentedQuadriliteralRoot implements QuadrilateralRoot{
     private char c3;
     private char c4;
 
-    //ŞÇÆãÉ ÕíÛ ÇáãÒíÏ ÇáããßäÉ áåĞÇ ÇáÌĞÑ
+    //Ù‚Ø§Ø¦Ù…Ø© ØµÙŠØº Ø§Ù„Ù…Ø²ÙŠØ¯ Ø§Ù„Ù…Ù…ÙƒÙ†Ø© Ù„Ù‡Ø°Ø§ Ø§Ù„Ø¬Ø°Ø±
     private Map augmentations = new HashMap();
 
     public AugmentedQuadriliteralRoot() {
