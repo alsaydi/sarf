@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<formulas>
+	<formula c1="ق" c2="ح" c3="ط" symbol1="C" gerund1="مَقْحَطَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ق" c2="د" c3="ر" symbol1="E" gerund1="مَقْدِرَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ق" c2="ن" c3="ء" symbol1="C" gerund1="مَقْنَأَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ق" c2="و" c3="ل" symbol1="C" gerund1="مَقَالَة" symbol2="" gerund2="">
+	</formula>
+</formulas>

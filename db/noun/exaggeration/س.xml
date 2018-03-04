@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<formulas>
+	<formula c1="س" c2="ء" c3="ل" form1="B" form2="D" form3="">
+	</formula>
+	<formula c1="س" c2="ء" c3="م" form1="B" form2="I" form3="">
+	</formula>
+	<formula c1="س" c2="خ" c3="ر" form1="D" form2="" form3="">
+	</formula>
+	<formula c1="س" c2="ر" c3="ف" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="س" c2="ع" c3="ر" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="س" c2="ف" c3="ر" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="س" c2="ف" c3="ك" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="س" c2="ق" c3="ط" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="س" c2="ق" c3="م" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="س" c2="ك" c3="ت" form1="B" form2="E" form3="H">
+	</formula>
+	<formula c1="س" c2="ك" c3="ر" form1="B" form2="E" form3="K">
+	</formula>
+	<formula c1="س" c2="ك" c3="ن" form1="K" form2="" form3="">
+	</formula>
+	<formula c1="س" c2="ل" c3="ب" form1="G" form2="" form3="">
+	</formula>
+	<formula c1="س" c2="ل" c3="ق" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="س" c2="م" c3="ح" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="س" c2="م" c3="ع" form1="F" form2="" form3="">
+	</formula>
+	<formula c1="س" c2="ه" c3="ر" form1="C" form2="D" form3="">
+	</formula>
+	<formula c1="س" c2="و" c3="ط" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="س" c2="ي" c3="ح" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="س" c2="ي" c3="ر" form1="D" form2="" form3="">
+	</formula>
+</formulas>

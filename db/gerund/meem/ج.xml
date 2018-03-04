@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<formulas>
+	<formula c1="ج" c2="ب" c3="ن" symbol1="C" gerund1="مَجْبَنَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ج" c2="د" c3="ر" symbol1="C" gerund1="مَجْدَرَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ج" c2="ف" c3="ر" symbol1="C" gerund1="مَجْفَرَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ج" c2="م" c3="م" symbol1="C" gerund1="مَجَمَّة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ج" c2="ن" c3="ن" symbol1="C" gerund1="مَجَنَّة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ج" c2="ه" c3="ل" symbol1="C" gerund1="مَجْهَلَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ج" c2="و" c3="ب" symbol1="D" gerund1="مَجُوبَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ج" c2="و" c3="ع" symbol1="C" gerund1="مَجَاعَة" symbol2="D" gerund2="مَجُوعَة">
+	</formula>
+</formulas>

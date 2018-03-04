@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<formulas>
+	<formula c1="ع" c2="و" c3="ر" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ج" c3="ل" conjugation="4" adj1="E" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ف" c3="ف" conjugation="2" adj1="A" adj2="D" adj3="">
+	</formula>
+	<formula c1="ع" c2="ل" c3="و" conjugation="4" adj1="A" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ذ" c3="ب" conjugation="5" adj1="D" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ب" c3="ل" conjugation="5" adj1="D" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ت" c3="ق" conjugation="5" adj1="A" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ج" c3="ر" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ج" c3="ز" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ج" c3="ف" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ج" c3="م" conjugation="5" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ر" c3="ج" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ر" c3="ض" conjugation="5" adj1="A" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ر" c3="ف" conjugation="5" adj1="A" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ر" c3="ق" conjugation="4" adj1="E" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="س" c3="ر" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="س" c3="ر" conjugation="5" adj1="A" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ش" c3="ب" conjugation="4" adj1="A" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ص" c3="ل" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ض" c3="ب" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ض" c3="ب" conjugation="5" adj1="D" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ض" c3="ل" conjugation="4" adj1="B" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ط" c3="ر" conjugation="4" adj1="B" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ط" c3="ش" conjugation="4" adj1="B" adj2="E" adj3="">
+	</formula>
+	<formula c1="ع" c2="ط" c3="ن" conjugation="4" adj1="B" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ظ" c3="م" conjugation="5" adj1="A" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ف" c3="ر" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ف" c3="ن" conjugation="4" adj1="B" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ق" c3="م" conjugation="4" adj1="A" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ق" c3="م" conjugation="5" adj1="A" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ك" c3="ر" conjugation="4" adj1="B" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ل" c3="ن" conjugation="4" adj1="B" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="م" c3="ر" conjugation="5" adj1="A" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="م" c3="ش" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="م" c3="ق" conjugation="5" adj1="A" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="م" c3="ه" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="م" c3="ي" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ن" c3="ت" conjugation="4" adj1="B" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ن" c3="ف" conjugation="5" adj1="A" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ن" c3="ق" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="و" c3="ج" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="و" c3="ص" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+	<formula c1="ع" c2="ي" c3="ن" conjugation="4" adj1="C" adj2="" adj3="">
+	</formula>
+</formulas>

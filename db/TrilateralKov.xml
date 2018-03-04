@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="windows-1256"?>
+<rules>
+	<rule c1="و" c2="ء" c3="ي" kov="29" desc="لفيف مفروق مهموز العين" example="وأى">
+	</rule>
+	<rule c1="ء" c2="و" c3="ي" kov="27" desc="لفيف مقرون مهموز الفاء" example="أوى">
+	</rule>
+	<rule c1="و" c2="?" c3="ي" kov="30" desc="لفيف مفروق" example="وقى">
+	</rule>
+	<rule c1="ي" c2="?" c3="ي" kov="30" desc="لفيف مفروق" example="يدى">
+	</rule>
+	<rule c1="?" c2="و" c3="ي" kov="28" desc="لفيف مقرون" example="شوى">
+	</rule>
+	<rule c1="?" c2="و" c3="و" kov="28" desc="لفيف مقرون" example="حوي">
+	</rule>
+	<rule c1="?" c2="ي" c3="ي" kov="28" desc="لفيف مقرون" example="حيي">
+	</rule>
+	<rule c1="ء" c2="?" c3="ي" kov="24" desc="ناقص يائي مهموز الفاء" example="أبى">
+	</rule>
+	<rule c1="?" c2="ء" c3="ي" kov="25" desc="ناقص يائي مهموز العين" example="رأى">
+	</rule>
+	<rule c1="ء" c2="?" c3="و" kov="21" desc="ناقص واوي مهموز الفاء" example="أسا">
+	</rule>
+	<rule c1="?" c2="ء" c3="و" kov="22" desc="ناقص واوي مهموز العين" example="مأا">
+	</rule>
+	<rule c1="ء" c2="ي" c3="?" kov="18" desc="أجوف يائي مهموز الفاء" example="آن">
+	</rule>
+	<rule c1="?" c2="ي" c3="ء" kov="19" desc="أجوف يائي مهموز اللام" example="شاء">
+	</rule>
+	<rule c1="ء" c2="و" c3="?" kov="15" desc="أجوف واوي مهموز الفاء" example="آب">
+	</rule>
+	<rule c1="?" c2="و" c3="ء" kov="16" desc="أجوف واوي مهموز اللام" example="باء">
+	</rule>
+	<rule c1="ي" c2="C3" c3="C2" kov="12" desc="مثال يائي مضعّف" example="يسّ">
+	</rule>
+	<rule c1="ي" c2="ء" c3="?" kov="13" desc="مثال يائي مهموز العين" example="يئس">
+	</rule>
+	<rule c1="و" c2="C3" c3="C2" kov="8" desc="مثال واوي مضعّف" example="ودّ">
+	</rule>
+	<rule c1="و" c2="ء" c3="?" kov="9" desc="مثال واوي مهموز العين" example="وأد">
+	</rule>
+	<rule c1="و" c2="?" c3="ء" kov="10" desc="مثال واوي مهموز اللام" example="وجأ">
+	</rule>
+	<rule c1="ء" c2="C3" c3="C2" kov="3" desc="مهموز الفاء مضعّف" example="أمّ">
+	</rule>
+	<rule c1="ء" c2="?" c3="ء" kov="4" desc="مهموز الفاء مهموز اللام" example="أثأ">
+	</rule>
+	<rule c1="?" c2="?" c3="ي" kov="26" desc="ناقص يائي" example="رمى">
+	</rule>
+	<rule c1="?" c2="?" c3="و" kov="23" desc="ناقص واوي" example="غزا">
+	</rule>
+	<rule c1="?" c2="ي" c3="?" kov="20" desc="أجوف يائي" example="باع">
+	</rule>
+	<rule c1="?" c2="و" c3="?" kov="17" desc="أجوف واوي" example="قام">
+	</rule>
+	<rule c1="ي" c2="?" c3="?" kov="14" desc="مثال يائي" example="يسر">
+	</rule>
+	<rule c1="و" c2="?" c3="?" kov="11" desc="مثال واوي" example="وعد">
+	</rule>
+	<rule c1="?" c2="?" c3="ء" kov="7" desc="مهموز اللام" example="بدأ">
+	</rule>
+	<rule c1="?" c2="ء" c3="?" kov="6" desc="مهموز العين" example="سأل">
+	</rule>
+	<rule c1="ء" c2="?" c3="?" kov="5" desc="مهموز الفاء" example="أكل">
+	</rule>
+	<rule c1="?" c2="C3" c3="C2" kov="2" desc="مضعّف" example="مدّ">
+	</rule>
+	<rule c1="?" c2="?" c3="?" kov="1" desc="سالم" example="نصر">
+	</rule>
+</rules>

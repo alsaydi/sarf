@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<rules>
+	<rule c1="و" c2="ء" c3="و" c4="ء" kov="5" desc="مثال مهموز مضاعف " example="وأوأ">
+	</rule>
+	<rule c1="ي" c2="ء" c3="ي" c4="ء" kov="5" desc="مثال مهموز مضاعف " example="يأيأ">
+	</rule>
+	<rule c1="و" c2="C4" c3="و" c4="C2" kov="6" desc="مثال مضاعف " example="وسوس">
+	</rule>
+	<rule c1="ي" c2="C4" c3="ي" c4="C2" kov="6" desc="مثال مضاعف " example="يعيع">
+	</rule>
+	<rule c1="C3" c2="و" c3="C1" c4="ي" kov="11" desc="لفيف " example="ضوضى">
+	</rule>
+	<rule c1="C3" c2="ي" c3="C1" c4="ي" kov="11" desc="لفيف " example="حيحي">
+	</rule>
+	<rule c1="?" c2="و" c3="?" c4="ء" kov="8" desc="أجوف مهموز" example="تودأ">
+	</rule>
+	<rule c1="?" c2="?" c3="ي" c4="ء" kov="8" desc="أجوف مهموز" example="رهيأ">
+	</rule>
+	<rule c1="C3" c2="ء" c3="C1" c4="ء" kov="3" desc="مهموز مضاعف " example="جأجأ">
+	</rule>
+	<rule c1="?" c2="?" c3="ء" c4="ي" kov="10" desc="ناقص مهموز " example="مرءي">
+	</rule>
+	<rule c1="ي" c2="?" c3="?" c4="ء" kov="7" desc="مثال مهموز" example="يرنأ">
+	</rule>
+	<rule c1="C3" c2="C4" c3="C1" c4="C2" kov="2" desc="مضاعف" example="زلزل">
+	</rule>
+	<rule c1="?" c2="ء" c3="?" c4="?" kov="4" desc="مهموز" example="بأدل">
+	</rule>
+	<rule c1="?" c2="?" c3="ء" c4="?" kov="4" desc="مهموز" example="طمأن">
+	</rule>
+	<rule c1="?" c2="?" c3="?" c4="ء" kov="4" desc="مهموز" example="غرقأ">
+	</rule>
+	<rule c1="?" c2="و" c3="?" c4="?" kov="9" desc="أجوف" example="حوجل">
+	</rule>
+	<rule c1="?" c2="?" c3="و" c4="?" kov="9" desc="أجوف" example="بلور">
+	</rule>
+	<rule c1="?" c2="ي" c3="?" c4="?" kov="9" desc="أجوف" example="بيطر">
+	</rule>
+	<rule c1="?" c2="?" c3="ي" c4="?" kov="9" desc="أجوف" example="شريف">
+	</rule>
+	<rule c1="?" c2="?" c3="?" c4="ي" kov="10" desc="ناقص" example="قلسى">
+	</rule>
+	<rule c1="?" c2="?" c3="?" c4="?" kov="1" desc="سالم" example="دحرج">
+	</rule>
+</rules>

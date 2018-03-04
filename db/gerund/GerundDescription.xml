@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<gerunds>
+	<gerund symbol="B1" pattern="تَفْعَال">
+	</gerund>
+	<gerund symbol="B2" pattern="تِفْعَال">
+	</gerund>
+	<gerund symbol="B7" pattern="تَفْعُلَة">
+	</gerund>
+	<gerund symbol="C1" pattern="عَلَة">
+	</gerund>
+	<gerund symbol="C3" pattern="عِلَة">
+	</gerund>
+	<gerund symbol="D2" pattern="فَاعِلَة">
+	</gerund>
+	<gerund symbol="E1" pattern="فَعَال">
+	</gerund>
+	<gerund symbol="E2" pattern="فُعَال">
+	</gerund>
+	<gerund symbol="E3" pattern="فِعَال">
+	</gerund>
+	<gerund symbol="E4" pattern="فِعَّال">
+	</gerund>
+	<gerund symbol="F1" pattern="فَعَالَة">
+	</gerund>
+	<gerund symbol="F2" pattern="فُعَالَة">
+	</gerund>
+	<gerund symbol="F3" pattern="فِعَالَة">
+	</gerund>
+	<gerund symbol="F4" pattern="فَعَالِيَة">
+	</gerund>
+	<gerund symbol="H1" pattern="فَعْل">
+	</gerund>
+	<gerund symbol="H2" pattern="فَعَل">
+	</gerund>
+	<gerund symbol="H3" pattern="فَعِل">
+	</gerund>
+	<gerund symbol="H4" pattern="فُعْل">
+	</gerund>
+	<gerund symbol="H5" pattern="فُعَل">
+	</gerund>
+	<gerund symbol="H6" pattern="فُعُل">
+	</gerund>
+	<gerund symbol="H7" pattern="فِعْل">
+	</gerund>
+	<gerund symbol="H8" pattern="فِعَل">
+	</gerund>
+	<gerund symbol="J2" pattern="فَعَلان">
+	</gerund>
+	<gerund symbol="J3" pattern="فُعْلان">
+	</gerund>
+	<gerund symbol="J5" pattern="فِعْلان">
+	</gerund>
+	<gerund symbol="K1" pattern="فَعْلَة">
+	</gerund>
+	<gerund symbol="K2" pattern="فَعَلَة">
+	</gerund>
+	<gerund symbol="K3" pattern="فَعِلَة">
+	</gerund>
+	<gerund symbol="K4" pattern="فُعْلَة">
+	</gerund>
+	<gerund symbol="K6" pattern="فِعْلَة">
+	</gerund>
+	<gerund symbol="K7" pattern="فِعَلَة">
+	</gerund>
+	<gerund symbol="N2" pattern="فَعَلُوت">
+	</gerund>
+	<gerund symbol="O1" pattern="فَعْلُولَة">
+	</gerund>
+	<gerund symbol="P1" pattern="فَعْلَى">
+	</gerund>
+	<gerund symbol="P3" pattern="فُعْلَى">
+	</gerund>
+	<gerund symbol="P4" pattern="فِعْلَى">
+	</gerund>
+	<gerund symbol="Q2" pattern="فِعْلِيّ">
+	</gerund>
+	<gerund symbol="R2" pattern="فُعْلِيَّة">
+	</gerund>
+	<gerund symbol="S1" pattern="فَعُول">
+	</gerund>
+	<gerund symbol="S2" pattern="فُعُول">
+	</gerund>
+	<gerund symbol="S5" pattern="فُعُولَة">
+	</gerund>
+	<gerund symbol="T2" pattern="فُعُولِيَّة">
+	</gerund>
+	<gerund symbol="U1" pattern="فَعِيل">
+	</gerund>
+	<gerund symbol="U2" pattern="فِعِيل">
+	</gerund>
+	<gerund symbol="U3" pattern="فَعِيلَة">
+	</gerund>
+	<gerund symbol="U5" pattern="فِعِّيْلَى">
+	</gerund>
+	<gerund symbol="U7" pattern="فَيْلُولَة">
+	</gerund>
+	<gerund symbol="W1" pattern="مَفْعَل">
+	</gerund>
+	<gerund symbol="W3" pattern="مَفْعِل">
+	</gerund>
+	<gerund symbol="X1" pattern="مَفْعَلَة">
+	</gerund>
+	<gerund symbol="X3" pattern="مَفْعِلَة">
+	</gerund>
+	<gerund symbol="Y1" pattern="مَفْعُول">
+	</gerund>
+</gerunds>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<formulas>
+	<formula c1="ش" c2="ج" c3="ع">
+	</formula>
+	<formula c1="ش" c2="د" c3="د">
+	</formula>
+	<formula c1="ش" c2="ر" c3="ر">
+	</formula>
+	<formula c1="ش" c2="ر" c3="س">
+	</formula>
+	<formula c1="ش" c2="ر" c3="ف">
+	</formula>
+	<formula c1="ش" c2="غ" c3="ل">
+	</formula>
+	<formula c1="ش" c2="ن" c3="ع">
+	</formula>
+	<formula c1="ش" c2="ه" c3="ر">
+	</formula>
+</formulas>

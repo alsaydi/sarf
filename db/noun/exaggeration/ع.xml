@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<formulas>
+	<formula c1="ع" c2="ب" c3="ث" form1="E" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ب" c3="ر" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ت" c3="ب" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ث" c3="ر" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ج" c3="ل" form1="B" form2="C" form3="">
+	</formula>
+	<formula c1="ع" c2="د" c3="د" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ذ" c3="ل" form1="B" form2="D" form3="">
+	</formula>
+	<formula c1="ع" c2="ر" c3="ق" form1="D" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ز" c3="ف" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ز" c3="ل" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ش" c3="ق" form1="E" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ض" c3="ض" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ط" c3="ر" form1="C" form2="K" form3="">
+	</formula>
+	<formula c1="ع" c2="ط" c3="س" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ط" c3="ف" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ف" c3="و" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ق" c3="ب" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ق" c3="ر" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ق" c3="ل" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ل" c3="ق" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ل" c3="م" form1="F" form2="G" form3="">
+	</formula>
+	<formula c1="ع" c2="ل" c3="ن" form1="D" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="م" c3="س" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="م" c3="ل" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ن" c3="د" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="و" c3="ق" form1="D" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="و" c3="ن" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="و" c3="ي" form1="I" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ي" c3="ب" form1="D" form2="G" form3="">
+	</formula>
+	<formula c1="ع" c2="ي" c3="ث" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ي" c3="ص" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ي" c3="ف" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ع" c2="ي" c3="ن" form1="B" form2="C" form3="">
+	</formula>
+</formulas>

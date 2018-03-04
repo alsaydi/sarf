@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<roots>
+	<root c1="خ" c2="ب" c3="ء" c4="ن">
+		<augmentationFormula formulaNo="3" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ب" c3="خ" c4="ب">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ب" c3="د" c4="د">
+		<augmentationFormula formulaNo="2" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ب" c3="د" c4="ي">
+		<augmentationFormula formulaNo="2" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ب" c3="ع" c4="ث">
+		<augmentationFormula formulaNo="3" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ث" c3="ع" c4="م">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ذ" c3="ر" c4="ف">
+		<augmentationFormula formulaNo="1" transitive="ك" />
+	</root>
+	<root c1="خ" c2="ذ" c3="ل" c4="ج">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ر" c3="ب" c4="ق">
+		<augmentationFormula formulaNo="2" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ر" c3="خ" c4="ر">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ر" c3="ش" c4="م">
+		<augmentationFormula formulaNo="2" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ر" c3="ط" c4="م">
+		<augmentationFormula formulaNo="2" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ر" c3="ف" c4="ج">
+		<augmentationFormula formulaNo="2" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ر" c3="ف" c4="ق">
+		<augmentationFormula formulaNo="2" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ر" c3="م" c4="س">
+		<augmentationFormula formulaNo="2" transitive="ل" />
+		<augmentationFormula formulaNo="3" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ر" c3="م" c4="ص">
+		<augmentationFormula formulaNo="2" transitive="ل" />
+		<augmentationFormula formulaNo="3" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ر" c3="م" c4="ق">
+		<augmentationFormula formulaNo="3" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ر" c3="م" c4="ل">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ز" c3="ب" c4="ز">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ز" c3="ل" c4="ج">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ش" c3="خ" c4="ش">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ض" c3="ء" c4="ل">
+		<augmentationFormula formulaNo="3" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ض" c3="خ" c4="ض">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ض" c3="ر" c4="ع">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ض" c3="ر" c4="م">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ض" c3="ع" c4="ب">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ض" c3="ل" c4="ب">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ط" c3="خ" c4="ط">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ط" c3="ر" c4="ف">
+		<augmentationFormula formulaNo="1" transitive="ك" />
+	</root>
+	<root c1="خ" c2="ل" c3="خ" c4="ل">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ن" c3="ب" c4="ص">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ن" c3="ذ" c4="ذ">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ن" c3="ذ" c4="ي">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ن" c3="ظ" c4="ي">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="خ" c2="ي" c3="ع" c4="ل">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+</roots>

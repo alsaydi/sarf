@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<roots>
+	<root c1="ت" c2="ء" c3="ت" c4="ء" transitive="ل">
+	</root>
+	<root c1="ت" c2="ب" c3="ت" c4="ب" transitive="ل">
+	</root>
+	<root c1="ت" c2="ب" c3="ر" c4="ك" transitive="ل">
+	</root>
+	<root c1="ت" c2="ح" c3="ت" c4="ح" transitive="ك">
+	</root>
+	<root c1="ت" c2="خ" c3="ت" c4="خ" transitive="ل">
+	</root>
+	<root c1="ت" c2="ر" c3="ب" c4="س" transitive="م">
+	</root>
+	<root c1="ت" c2="ر" c3="ت" c4="ر" transitive="ك">
+	</root>
+	<root c1="ت" c2="ر" c3="ج" c4="م" transitive="ك">
+	</root>
+	<root c1="ت" c2="ر" c3="ق" c4="ي" transitive="م">
+	</root>
+	<root c1="ت" c2="ر" c3="م" c4="س" transitive="ل">
+	</root>
+	<root c1="ت" c2="ع" c3="ت" c4="ع" transitive="ك">
+	</root>
+	<root c1="ت" c2="غ" c3="ت" c4="غ" transitive="ك">
+	</root>
+	<root c1="ت" c2="ف" c3="ت" c4="ف" transitive="ل">
+	</root>
+	<root c1="ت" c2="ق" c3="ت" c4="ق" transitive="ل">
+	</root>
+	<root c1="ت" c2="ك" c3="ت" c4="ك" transitive="ك">
+	</root>
+	<root c1="ت" c2="ل" c3="ت" c4="ل" transitive="ك">
+	</root>
+	<root c1="ت" c2="ل" c3="ف" c4="ن" transitive="ل">
+	</root>
+	<root c1="ت" c2="ل" c3="م" c4="ذ" transitive="ك">
+	</root>
+	<root c1="ت" c2="م" c3="ت" c4="م" transitive="ك">
+	</root>
+	<root c1="ت" c2="م" c3="ه" c4="ل" transitive="ل">
+	</root>
+	<root c1="ت" c2="ن" c3="ت" c4="ل" transitive="ل">
+	</root>
+	<root c1="ت" c2="ن" c3="ت" c4="ن" transitive="ل">
+	</root>
+	<root c1="ت" c2="ه" c3="ت" c4="ه" transitive="ل">
+	</root>
+	<root c1="ت" c2="و" c3="د" c4="ء" transitive="ل">
+	</root>
+</roots>

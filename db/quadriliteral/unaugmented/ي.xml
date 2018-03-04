@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<roots>
+	<root c1="ي" c2="ء" c3="ي" c4="ء" transitive="ل">
+	</root>
+	<root c1="ي" c2="ر" c3="ن" c4="ء" transitive="م">
+	</root>
+	<root c1="ي" c2="ع" c3="ي" c4="ع" transitive="ل">
+	</root>
+	<root c1="ي" c2="ه" c3="ي" c4="ه" transitive="ل">
+	</root>
+</roots>

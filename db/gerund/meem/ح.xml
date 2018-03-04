@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<formulas>
+	<formula c1="ح" c2="ب" c3="ب" symbol1="C" gerund1="مَحَبَّة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ح" c2="ر" c3="م" symbol1="C" gerund1="مَحْرَمَة" symbol2="D" gerund2="مَحْرُمَة">
+	</formula>
+	<formula c1="ح" c2="س" c3="د" symbol1="C" gerund1="مَحْسَدَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ح" c2="س" c3="م" symbol1="C" gerund1="مَحْسَمَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ح" c2="ق" c3="ر" symbol1="C" gerund1="مَحْقَرَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ح" c2="و" c3="ر" symbol1="C" gerund1="مَحَارَة" symbol2="" gerund2="">
+	</formula>
+</formulas>

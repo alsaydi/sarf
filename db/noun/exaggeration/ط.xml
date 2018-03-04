@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<formulas>
+	<formula c1="ط" c2="ح" c3="ن" form1="B" form2="D" form3="">
+	</formula>
+	<formula c1="ط" c2="ر" c3="ب" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ط" c2="ر" c3="ح" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ط" c2="ر" c3="ق" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="ط" c2="ع" c3="م" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="ط" c2="ع" c3="ن" form1="C" form2="E" form3="">
+	</formula>
+	<formula c1="ط" c2="غ" c3="ي" form1="J" form2="" form3="">
+	</formula>
+	<formula c1="ط" c2="ل" c3="ب" form1="B" form2="F" form3="">
+	</formula>
+	<formula c1="ط" c2="ل" c3="ع" form1="D" form2="" form3="">
+	</formula>
+	<formula c1="ط" c2="ل" c3="ق" form1="C" form2="D" form3="E">
+	</formula>
+	<formula c1="ط" c2="م" c3="ح" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ط" c2="م" c3="ر" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="ط" c2="م" c3="ع" form1="B" form2="C" form3="">
+	</formula>
+	<formula c1="ط" c2="ن" c3="ب" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="ط" c2="و" c3="س" form1="H" form2="" form3="">
+	</formula>
+	<formula c1="ط" c2="و" c3="ع" form1="C" form2="" form3="">
+	</formula>
+</formulas>

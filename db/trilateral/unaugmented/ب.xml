@@ -1,0 +1,1348 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<roots>
+	<root c1="ب" c2="ء" c3="ج" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَأْج" />
+	</root>
+	<root c1="ب" c2="ء" c3="ر" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَأْر" />
+	</root>
+	<root c1="ب" c2="ء" c3="س" conjugation="4" transitive="ل">
+		<gerund symbol="H4" value="بُؤْس" />
+		<gerund symbol="P3" value="بُؤْسَى" />
+		<gerund symbol="H1" value="بَأْس" />
+		<gerund symbol="U1" value="بَئِيس" />
+		<gerund symbol="S2" value="بُؤُوس" />
+		<gerund symbol="U5" value="بِئِّيسَى" />
+	</root>
+	<root c1="ب" c2="ء" c3="س" conjugation="5" transitive="ل">
+		<gerund symbol="H1" value="بَأْس" />
+		<gerund symbol="K1" value="بَأْسَة" />
+		<gerund symbol="F1" value="بَآسَة" />
+	</root>
+	<root c1="ب" c2="ء" c3="ش" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَأْش" />
+	</root>
+	<root c1="ب" c2="ء" c3="ل" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَآلَة" />
+		<gerund symbol="S5" value="بُؤُولَة" />
+	</root>
+	<root c1="ب" c2="ء" c3="ه" conjugation="3" transitive="ل">
+		<gerund symbol="H1" value="بَأْه" />
+	</root>
+	<root c1="ب" c2="ء" c3="و" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَأْو" />
+	</root>
+	<root c1="ب" c2="ء" c3="ي" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَأْي" />
+	</root>
+	<root c1="ب" c2="ت" c3="ء" conjugation="3" transitive="ل">
+		<gerund symbol="S2" value="بُتُوء" />
+		<gerund symbol="H1" value="بَتْء" />
+	</root>
+	<root c1="ب" c2="ت" c3="ت" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَتّ" />
+		<gerund symbol="K1" value="بَتَّة" />
+		<gerund symbol="E1" value="بَتَات" />
+	</root>
+	<root c1="ب" c2="ت" c3="ت" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَتّ" />
+		<gerund symbol="S2" value="بُتُوت" />
+	</root>
+	<root c1="ب" c2="ت" c3="ر" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَتْر" />
+	</root>
+	<root c1="ب" c2="ت" c3="ر" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَتَر" />
+	</root>
+	<root c1="ب" c2="ت" c3="ع" conjugation="2" transitive="م">
+		<gerund symbol="H1" value="بَتْع" />
+	</root>
+	<root c1="ب" c2="ت" c3="ع" conjugation="3" transitive="ل">
+		<gerund symbol="S2" value="بُتُوع" />
+	</root>
+	<root c1="ب" c2="ت" c3="ع" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَتَع" />
+	</root>
+	<root c1="ب" c2="ت" c3="ك" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَتْك" />
+	</root>
+	<root c1="ب" c2="ت" c3="ك" conjugation="2" transitive="م">
+		<gerund symbol="H1" value="بَتْك" />
+	</root>
+	<root c1="ب" c2="ت" c3="ل" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَتْل" />
+	</root>
+	<root c1="ب" c2="ت" c3="ل" conjugation="2" transitive="م">
+		<gerund symbol="H1" value="بَتْل" />
+	</root>
+	<root c1="ب" c2="ت" c3="ل" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَتَل" />
+	</root>
+	<root c1="ب" c2="ت" c3="و" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَتْو" />
+	</root>
+	<root c1="ب" c2="ث" c3="ث" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَثّ" />
+	</root>
+	<root c1="ب" c2="ث" c3="ث" conjugation="2" transitive="م">
+		<gerund symbol="H1" value="بَثّ" />
+	</root>
+	<root c1="ب" c2="ث" c3="ر" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَثْر" />
+	</root>
+	<root c1="ب" c2="ث" c3="ر" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَثَر" />
+	</root>
+	<root c1="ب" c2="ث" c3="ر" conjugation="5" transitive="ل">
+		<gerund symbol="S2" value="بُثُور" />
+	</root>
+	<root c1="ب" c2="ث" c3="ط" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَثَط" />
+	</root>
+	<root c1="ب" c2="ث" c3="ع" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَثَع" />
+		<gerund symbol="S2" value="بُثُوع" />
+	</root>
+	<root c1="ب" c2="ث" c3="ق" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَثْق" />
+		<gerund symbol="H7" value="بِثْق" />
+		<gerund symbol="B1" value="تَبْثَاق" />
+		<gerund symbol="S2" value="بُثُوق" />
+	</root>
+	<root c1="ب" c2="ث" c3="و" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَثْو" />
+	</root>
+	<root c1="ب" c2="ج" c3="ج" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَجّ" />
+	</root>
+	<root c1="ب" c2="ج" c3="ج" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَجَج" />
+	</root>
+	<root c1="ب" c2="ج" c3="ح" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَجْح" />
+	</root>
+	<root c1="ب" c2="ج" c3="ح" conjugation="4" transitive="ك">
+		<gerund symbol="H2" value="بَجَح" />
+	</root>
+	<root c1="ب" c2="ج" c3="د" conjugation="1" transitive="ل">
+		<gerund symbol="H2" value="بَجَد" />
+		<gerund symbol="S2" value="بُجُود" />
+	</root>
+	<root c1="ب" c2="ج" c3="ر" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَجْر" />
+	</root>
+	<root c1="ب" c2="ج" c3="ر" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَجَر" />
+	</root>
+	<root c1="ب" c2="ج" c3="س" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَجْس" />
+		<gerund symbol="S2" value="بُجُوس" />
+	</root>
+	<root c1="ب" c2="ج" c3="س" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَجْس" />
+	</root>
+	<root c1="ب" c2="ج" c3="ع" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَجْع" />
+	</root>
+	<root c1="ب" c2="ج" c3="ل" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَجْل" />
+		<gerund symbol="S2" value="بُجُول" />
+	</root>
+	<root c1="ب" c2="ج" c3="ل" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَجَل" />
+		<gerund symbol="S2" value="بُجُول" />
+	</root>
+	<root c1="ب" c2="ج" c3="ل" conjugation="5" transitive="ل">
+		<gerund symbol="S5" value="بُجُولَة" />
+		<gerund symbol="F1" value="بَجَالَة" />
+		<gerund symbol="S2" value="بُجُول" />
+	</root>
+	<root c1="ب" c2="ج" c3="م" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَجْم" />
+		<gerund symbol="S2" value="بُجُوم" />
+	</root>
+	<root c1="ب" c2="ح" c3="ت" conjugation="5" transitive="ل">
+		<gerund symbol="H1" value="بَحْت" />
+		<gerund symbol="S5" value="بُحُوتَة" />
+	</root>
+	<root c1="ب" c2="ح" c3="ث" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَحْث" />
+	</root>
+	<root c1="ب" c2="ح" c3="ح" conjugation="3" transitive="ل">
+		<gerund symbol="H2" value="بَحَح" />
+		<gerund symbol="H1" value="بَحّ" />
+		<gerund symbol="E1" value="بَحَاح" />
+		<gerund symbol="S2" value="بُحُوح" />
+		<gerund symbol="S5" value="بُحُوحَة" />
+		<gerund symbol="F1" value="بَحَاحَة" />
+		<gerund symbol="E2" value="بُحَاح" />
+	</root>
+	<root c1="ب" c2="ح" c3="ح" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَحَح" />
+	</root>
+	<root c1="ب" c2="ح" c3="ر" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَحْر" />
+	</root>
+	<root c1="ب" c2="ح" c3="ر" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَحَر" />
+	</root>
+	<root c1="ب" c2="ح" c3="ز" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَحْز" />
+	</root>
+	<root c1="ب" c2="ح" c3="ش" conjugation="3" transitive="ل">
+		<gerund symbol="H1" value="بَحْش" />
+	</root>
+	<root c1="ب" c2="خ" c3="ت" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَخْت" />
+	</root>
+	<root c1="ب" c2="خ" c3="خ" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَخّ" />
+	</root>
+	<root c1="ب" c2="خ" c3="ر" conjugation="3" transitive="ل">
+		<gerund symbol="H1" value="بَخْر" />
+		<gerund symbol="E2" value="بُخَار" />
+	</root>
+	<root c1="ب" c2="خ" c3="ر" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَخَر" />
+	</root>
+	<root c1="ب" c2="خ" c3="ز" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَخْز" />
+	</root>
+	<root c1="ب" c2="خ" c3="س" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَخْس" />
+	</root>
+	<root c1="ب" c2="خ" c3="ص" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَخْص" />
+	</root>
+	<root c1="ب" c2="خ" c3="ص" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَخَص" />
+	</root>
+	<root c1="ب" c2="خ" c3="ع" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَخْع" />
+		<gerund symbol="S2" value="بُخُوع" />
+		<gerund symbol="F1" value="بَخَاعَة" />
+	</root>
+	<root c1="ب" c2="خ" c3="ع" conjugation="4" transitive="ل">
+		<gerund symbol="F1" value="بَخَاعَة" />
+		<gerund symbol="S2" value="بُخُوع" />
+	</root>
+	<root c1="ب" c2="خ" c3="ق" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَخْق" />
+		<gerund symbol="S2" value="بُخُوق" />
+	</root>
+	<root c1="ب" c2="خ" c3="ق" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَخَق" />
+	</root>
+	<root c1="ب" c2="خ" c3="ل" conjugation="4" transitive="ل">
+		<gerund symbol="H4" value="بُخْل" />
+		<gerund symbol="H2" value="بَخَل" />
+	</root>
+	<root c1="ب" c2="خ" c3="ل" conjugation="5" transitive="ل">
+		<gerund symbol="S2" value="بُخُول" />
+		<gerund symbol="H2" value="بَخَل" />
+		<gerund symbol="H6" value="بُخُل" />
+		<gerund symbol="H4" value="بُخْل" />
+	</root>
+	<root c1="ب" c2="خ" c3="ن" conjugation="3" transitive="ل">
+		<gerund symbol="H1" value="بَخْن" />
+	</root>
+	<root c1="ب" c2="خ" c3="و" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَخْو" />
+	</root>
+	<root c1="ب" c2="د" c3="ء" conjugation="3" transitive="ك">
+		<gerund symbol="K1" value="بَدْأَة" />
+		<gerund symbol="H1" value="بَدْء" />
+	</root>
+	<root c1="ب" c2="د" c3="ح" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَدْح" />
+		<gerund symbol="S2" value="بُدُوح" />
+	</root>
+	<root c1="ب" c2="د" c3="خ" conjugation="3" transitive="ل">
+		<gerund symbol="H1" value="بَدْخ" />
+	</root>
+	<root c1="ب" c2="د" c3="د" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَدّ" />
+	</root>
+	<root c1="ب" c2="د" c3="د" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَدَد" />
+	</root>
+	<root c1="ب" c2="د" c3="ر" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَدْر" />
+		<gerund symbol="S2" value="بُدُور" />
+	</root>
+	<root c1="ب" c2="د" c3="س" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَدْس" />
+	</root>
+	<root c1="ب" c2="د" c3="ع" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَدْع" />
+	</root>
+	<root c1="ب" c2="د" c3="ع" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَدَع" />
+	</root>
+	<root c1="ب" c2="د" c3="ع" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَدَاعَة" />
+		<gerund symbol="S2" value="بُدُوع" />
+		<gerund symbol="H1" value="بَدْع" />
+	</root>
+	<root c1="ب" c2="د" c3="غ" conjugation="4" transitive="ل">
+		<gerund symbol="H1" value="بَدْغ" />
+		<gerund symbol="H2" value="بَدَغ" />
+	</root>
+	<root c1="ب" c2="د" c3="غ" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَدَاغَة" />
+	</root>
+	<root c1="ب" c2="د" c3="ل" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَدْل" />
+	</root>
+	<root c1="ب" c2="د" c3="ل" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَدَل" />
+	</root>
+	<root c1="ب" c2="د" c3="ن" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَدْن" />
+		<gerund symbol="H4" value="بُدْن" />
+		<gerund symbol="S2" value="بُدُون" />
+		<gerund symbol="E1" value="بَدَان" />
+		<gerund symbol="F1" value="بَدَانَة" />
+	</root>
+	<root c1="ب" c2="د" c3="ن" conjugation="5" transitive="ل">
+		<gerund symbol="E1" value="بَدَان" />
+		<gerund symbol="F1" value="بَدَانَة" />
+		<gerund symbol="H4" value="بُدْن" />
+		<gerund symbol="S2" value="بُدُون" />
+		<gerund symbol="H1" value="بَدْن" />
+	</root>
+	<root c1="ب" c2="د" c3="ه" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَدْه" />
+		<gerund symbol="F1" value="بَدَاهَة" />
+		<gerund symbol="U3" value="بَدِيهَة" />
+	</root>
+	<root c1="ب" c2="د" c3="و" conjugation="1" transitive="ل">
+		<gerund symbol="S2" value="بُدُوّ" />
+		<gerund symbol="H1" value="بَدْو" />
+		<gerund symbol="F1" value="بَدَاوَة" />
+		<gerund symbol="H2" value="بَدًا" />
+		<gerund symbol="K2" value="بَدَاة" />
+	</root>
+	<root c1="ب" c2="د" c3="ي" conjugation="4" transitive="ل">
+		<gerund symbol="H8" value="بِدَى" />
+		<gerund symbol="H1" value="بَدْي" />
+	</root>
+	<root c1="ب" c2="ذ" c3="ء" conjugation="3" transitive="ك">
+		<gerund symbol="E1" value="بَذَاء" />
+		<gerund symbol="H1" value="بَذْء" />
+	</root>
+	<root c1="ب" c2="ذ" c3="ء" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَذَأ" />
+	</root>
+	<root c1="ب" c2="ذ" c3="ء" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَذَاءَة" />
+		<gerund symbol="E1" value="بَذَاء" />
+	</root>
+	<root c1="ب" c2="ذ" c3="ح" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَذْح" />
+	</root>
+	<root c1="ب" c2="ذ" c3="ح" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَذَح" />
+	</root>
+	<root c1="ب" c2="ذ" c3="خ" conjugation="1" transitive="ل">
+		<gerund symbol="S2" value="بُذُوخ" />
+		<gerund symbol="J2" value="بَذَخان" />
+	</root>
+	<root c1="ب" c2="ذ" c3="خ" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَذَخ" />
+	</root>
+	<root c1="ب" c2="ذ" c3="ذ" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَذّ" />
+	</root>
+	<root c1="ب" c2="ذ" c3="ذ" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَذَذ" />
+		<gerund symbol="E3" value="بِذَاذ" />
+		<gerund symbol="E1" value="بَذَاذ" />
+		<gerund symbol="F1" value="بَذَاذَة" />
+		<gerund symbol="S5" value="بُذُوذَة" />
+	</root>
+	<root c1="ب" c2="ذ" c3="ر" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَذْر" />
+	</root>
+	<root c1="ب" c2="ذ" c3="ر" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَذَارَة" />
+	</root>
+	<root c1="ب" c2="ذ" c3="ع" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَذْع" />
+	</root>
+	<root c1="ب" c2="ذ" c3="ل" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَذْل" />
+	</root>
+	<root c1="ب" c2="ذ" c3="ل" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَذْل" />
+	</root>
+	<root c1="ب" c2="ذ" c3="م" conjugation="5" transitive="ل">
+		<gerund symbol="H1" value="بَذْم" />
+		<gerund symbol="F1" value="بَذَامَة" />
+	</root>
+	<root c1="ب" c2="ذ" c3="و" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَذْو" />
+		<gerund symbol="E1" value="بَذَاء" />
+	</root>
+	<root c1="ب" c2="ذ" c3="و" conjugation="5" transitive="ل">
+		<gerund symbol="E1" value="بَذَاء" />
+		<gerund symbol="F1" value="بَذَاءَة" />
+	</root>
+	<root c1="ب" c2="ر" c3="ء" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَرْء" />
+		<gerund symbol="S2" value="بُرُوء" />
+		<gerund symbol="H4" value="بُرْء" />
+	</root>
+	<root c1="ب" c2="ر" c3="ء" conjugation="4" transitive="ل">
+		<gerund symbol="H4" value="بُرْء" />
+		<gerund symbol="H1" value="بَرْء" />
+		<gerund symbol="S2" value="بُرُوء" />
+		<gerund symbol="F1" value="بَرَاءَة" />
+		<gerund symbol="E1" value="بَرَاء" />
+	</root>
+	<root c1="ب" c2="ر" c3="ء" conjugation="5" transitive="ل">
+		<gerund symbol="H4" value="بُرْء" />
+		<gerund symbol="S2" value="بُرُوء" />
+		<gerund symbol="H1" value="بَرْء" />
+		<gerund symbol="E1" value="بَرَاء" />
+		<gerund symbol="F1" value="بَرَاءَة" />
+	</root>
+	<root c1="ب" c2="ر" c3="ت" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَرَت" />
+	</root>
+	<root c1="ب" c2="ر" c3="ث" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَرَث" />
+	</root>
+	<root c1="ب" c2="ر" c3="ج" conjugation="1" transitive="ل">
+		<gerund symbol="S2" value="بُرُوج" />
+	</root>
+	<root c1="ب" c2="ر" c3="ج" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَرَج" />
+	</root>
+	<root c1="ب" c2="ر" c3="ح" conjugation="1" transitive="ل">
+		<gerund symbol="S2" value="بُرُوح" />
+		<gerund symbol="H1" value="بَرْح" />
+	</root>
+	<root c1="ب" c2="ر" c3="ح" conjugation="4" transitive="ك">
+		<gerund symbol="S2" value="بُرُوح" />
+		<gerund symbol="E1" value="بَرَاح" />
+		<gerund symbol="H1" value="بَرْح" />
+		<gerund symbol="H2" value="بَرَح" />
+	</root>
+	<root c1="ب" c2="ر" c3="د" conjugation="1" transitive="ك">
+		<gerund symbol="S2" value="بُرُود" />
+		<gerund symbol="H1" value="بَرْد" />
+		<gerund symbol="E2" value="بُرَاد" />
+		<gerund symbol="U1" value="بَرِيد" />
+	</root>
+	<root c1="ب" c2="ر" c3="د" conjugation="5" transitive="ل">
+		<gerund symbol="S5" value="بُرُودَة" />
+	</root>
+	<root c1="ب" c2="ر" c3="ر" conjugation="2" transitive="ك">
+		<gerund symbol="H7" value="بِرّ" />
+		<gerund symbol="H1" value="بَرّ" />
+		<gerund symbol="S2" value="بُرُور" />
+	</root>
+	<root c1="ب" c2="ر" c3="ر" conjugation="4" transitive="ك">
+		<gerund symbol="H7" value="بِرّ" />
+		<gerund symbol="S2" value="بُرُور" />
+		<gerund symbol="H1" value="بَرّ" />
+	</root>
+	<root c1="ب" c2="ر" c3="ز" conjugation="1" transitive="ل">
+		<gerund symbol="S2" value="بُرُوز" />
+	</root>
+	<root c1="ب" c2="ر" c3="ز" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَرَز" />
+	</root>
+	<root c1="ب" c2="ر" c3="ز" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَرَازَة" />
+	</root>
+	<root c1="ب" c2="ر" c3="س" conjugation="4" transitive="ل">
+		<gerund symbol="H1" value="بَرْس" />
+	</root>
+	<root c1="ب" c2="ر" c3="ش" conjugation="4" transitive="ل">
+		<gerund symbol="K4" value="بُرْشَة" />
+		<gerund symbol="H2" value="بَرَش" />
+	</root>
+	<root c1="ب" c2="ر" c3="ص" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَرَص" />
+	</root>
+	<root c1="ب" c2="ر" c3="ض" conjugation="1" transitive="ل">
+		<gerund symbol="S2" value="بُرُوض" />
+		<gerund symbol="H1" value="بَرْض" />
+	</root>
+	<root c1="ب" c2="ر" c3="ض" conjugation="2" transitive="ل">
+		<gerund symbol="S2" value="بُرُوض" />
+		<gerund symbol="H1" value="بَرْض" />
+	</root>
+	<root c1="ب" c2="ر" c3="ع" conjugation="1" transitive="ك">
+		<gerund symbol="S2" value="بُرُوع" />
+		<gerund symbol="F1" value="بَرَاعَة" />
+	</root>
+	<root c1="ب" c2="ر" c3="ع" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَرَع" />
+	</root>
+	<root c1="ب" c2="ر" c3="ع" conjugation="5" transitive="ل">
+		<gerund symbol="S2" value="بُرُوع" />
+		<gerund symbol="F1" value="بَرَاعَة" />
+	</root>
+	<root c1="ب" c2="ر" c3="غ" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَرَغ" />
+	</root>
+	<root c1="ب" c2="ر" c3="ق" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَرْق" />
+		<gerund symbol="S2" value="بُرُوق" />
+		<gerund symbol="J2" value="بَرَقان" />
+		<gerund symbol="U1" value="بَرِيق" />
+	</root>
+	<root c1="ب" c2="ر" c3="ق" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَرَق" />
+	</root>
+	<root c1="ب" c2="ر" c3="ك" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَرْك" />
+		<gerund symbol="S2" value="بُرُوك" />
+		<gerund symbol="B1" value="تَبْرَاك" />
+	</root>
+	<root c1="ب" c2="ر" c3="م" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَرْم" />
+	</root>
+	<root c1="ب" c2="ر" c3="م" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَرَم" />
+		<gerund symbol="H1" value="بَرْم" />
+	</root>
+	<root c1="ب" c2="ر" c3="ه" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَرَه" />
+	</root>
+	<root c1="ب" c2="ر" c3="و" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَرْو" />
+	</root>
+	<root c1="ب" c2="ر" c3="ي" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَرْي" />
+	</root>
+	<root c1="ب" c2="ز" c3="ج" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَزْج" />
+	</root>
+	<root c1="ب" c2="ز" c3="خ" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَزْخ" />
+	</root>
+	<root c1="ب" c2="ز" c3="خ" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَزَخ" />
+	</root>
+	<root c1="ب" c2="ز" c3="ر" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَزْر" />
+	</root>
+	<root c1="ب" c2="ز" c3="ز" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَزّ" />
+		<gerund symbol="K1" value="بَزَّة" />
+		<gerund symbol="U5" value="بِزِّيزَى" />
+	</root>
+	<root c1="ب" c2="ز" c3="ع" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَزَاعَة" />
+	</root>
+	<root c1="ب" c2="ز" c3="غ" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَزْغ" />
+		<gerund symbol="S2" value="بُزُوغ" />
+	</root>
+	<root c1="ب" c2="ز" c3="ق" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَزْق" />
+		<gerund symbol="E2" value="بُزَاق" />
+	</root>
+	<root c1="ب" c2="ز" c3="ل" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَزْل" />
+		<gerund symbol="S2" value="بُزُول" />
+	</root>
+	<root c1="ب" c2="ز" c3="م" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَزْم" />
+	</root>
+	<root c1="ب" c2="ز" c3="م" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَزْم" />
+	</root>
+	<root c1="ب" c2="ز" c3="و" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَزْو" />
+		<gerund symbol="J2" value="بَزَوَان" />
+	</root>
+	<root c1="ب" c2="ز" c3="و" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَزًا" />
+		<gerund symbol="E1" value="بَزَاء" />
+	</root>
+	<root c1="ب" c2="س" c3="ء" conjugation="3" transitive="ل">
+		<gerund symbol="H1" value="بَسْء" />
+		<gerund symbol="E1" value="بَسَاء" />
+		<gerund symbol="S2" value="بُسُوء" />
+	</root>
+	<root c1="ب" c2="س" c3="ء" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَسَأ" />
+		<gerund symbol="E1" value="بَسَاء" />
+	</root>
+	<root c1="ب" c2="س" c3="ر" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَسْر" />
+		<gerund symbol="S2" value="بُسُور" />
+		<gerund symbol="E3" value="بِسَار" />
+	</root>
+	<root c1="ب" c2="س" c3="س" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَسّ" />
+	</root>
+	<root c1="ب" c2="س" c3="ط" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَسْط" />
+	</root>
+	<root c1="ب" c2="س" c3="ط" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَسَاطَة" />
+	</root>
+	<root c1="ب" c2="س" c3="ق" conjugation="1" transitive="ك">
+		<gerund symbol="S2" value="بُسُوق" />
+		<gerund symbol="H1" value="بَسْق" />
+	</root>
+	<root c1="ب" c2="س" c3="ل" conjugation="1" transitive="ك">
+		<gerund symbol="S2" value="بُسُول" />
+		<gerund symbol="H1" value="بَسْل" />
+	</root>
+	<root c1="ب" c2="س" c3="ل" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَسَالَة" />
+		<gerund symbol="E1" value="بَسَال" />
+	</root>
+	<root c1="ب" c2="س" c3="م" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَسْم" />
+	</root>
+	<root c1="ب" c2="ش" c3="ر" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَشْر" />
+		<gerund symbol="H7" value="بِشْر" />
+		<gerund symbol="H4" value="بُشْر" />
+		<gerund symbol="S2" value="بُشُور" />
+	</root>
+	<root c1="ب" c2="ش" c3="ر" conjugation="4" transitive="ل">
+		<gerund symbol="H7" value="بِشْر" />
+		<gerund symbol="S2" value="بُشُور" />
+	</root>
+	<root c1="ب" c2="ش" c3="ر" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَشَارَة" />
+	</root>
+	<root c1="ب" c2="ش" c3="ش" conjugation="4" transitive="ل">
+		<gerund symbol="H1" value="بَشّ" />
+		<gerund symbol="F1" value="بَشَاشَة" />
+	</root>
+	<root c1="ب" c2="ش" c3="ع" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَشَع" />
+		<gerund symbol="F1" value="بَشَاعَة" />
+	</root>
+	<root c1="ب" c2="ش" c3="ق" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَشْق" />
+	</root>
+	<root c1="ب" c2="ش" c3="ك" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَشْك" />
+		<gerund symbol="H2" value="بَشَك" />
+	</root>
+	<root c1="ب" c2="ش" c3="ك" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَشْك" />
+		<gerund symbol="H2" value="بَشَك" />
+	</root>
+	<root c1="ب" c2="ش" c3="م" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَشَم" />
+	</root>
+	<root c1="ب" c2="ش" c3="و" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَشْو" />
+	</root>
+	<root c1="ب" c2="ص" c3="ر" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَصْر" />
+	</root>
+	<root c1="ب" c2="ص" c3="ر" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَصَر" />
+	</root>
+	<root c1="ب" c2="ص" c3="ر" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَصَارَة" />
+		<gerund symbol="F3" value="بِصَارَة" />
+		<gerund symbol="H2" value="بَصَر" />
+	</root>
+	<root c1="ب" c2="ص" c3="ص" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَصّ" />
+		<gerund symbol="U1" value="بَصِيص" />
+	</root>
+	<root c1="ب" c2="ص" c3="ع" conjugation="3" transitive="ك">
+		<gerund symbol="F1" value="بَصَاعَة" />
+		<gerund symbol="H1" value="بَصْع" />
+	</root>
+	<root c1="ب" c2="ص" c3="ق" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَصْق" />
+	</root>
+	<root c1="ب" c2="ص" c3="م" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَصْم" />
+	</root>
+	<root c1="ب" c2="ص" c3="و" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَصْو" />
+		<gerund symbol="E3" value="بِصَاء" />
+	</root>
+	<root c1="ب" c2="ض" c3="ض" conjugation="1" transitive="ك">
+		<gerund symbol="S5" value="بُضُوضَة" />
+		<gerund symbol="F1" value="بَضَاضَة" />
+		<gerund symbol="H1" value="بَضّ" />
+	</root>
+	<root c1="ب" c2="ض" c3="ض" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَضّ" />
+		<gerund symbol="U1" value="بَضِيض" />
+		<gerund symbol="S2" value="بُضُوض" />
+		<gerund symbol="F1" value="بَضَاضَة" />
+		<gerund symbol="S5" value="بُضُوضَة" />
+	</root>
+	<root c1="ب" c2="ض" c3="ض" conjugation="4" transitive="ل">
+		<gerund symbol="F1" value="بَضَاضَة" />
+		<gerund symbol="S5" value="بُضُوضَة" />
+	</root>
+	<root c1="ب" c2="ض" c3="ع" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَضْع" />
+		<gerund symbol="S2" value="بُضُوع" />
+		<gerund symbol="E3" value="بِضَاع" />
+		<gerund symbol="E1" value="بَضَاع" />
+	</root>
+	<root c1="ب" c2="ض" c3="ك" conjugation="2" transitive="م">
+		<gerund symbol="H1" value="بَضْك" />
+	</root>
+	<root c1="ب" c2="ض" c3="م" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَضْم" />
+	</root>
+	<root c1="ب" c2="ط" c3="ء" conjugation="5" transitive="ل">
+		<gerund symbol="H4" value="بُطْء" />
+		<gerund symbol="E3" value="بِطَاء" />
+	</root>
+	<root c1="ب" c2="ط" c3="ح" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَطْح" />
+	</root>
+	<root c1="ب" c2="ط" c3="ر" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَطْر" />
+	</root>
+	<root c1="ب" c2="ط" c3="ر" conjugation="2" transitive="م">
+		<gerund symbol="H1" value="بَطْر" />
+	</root>
+	<root c1="ب" c2="ط" c3="ر" conjugation="4" transitive="ك">
+		<gerund symbol="H2" value="بَطَر" />
+	</root>
+	<root c1="ب" c2="ط" c3="ش" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَطْش" />
+	</root>
+	<root c1="ب" c2="ط" c3="ش" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَطْش" />
+	</root>
+	<root c1="ب" c2="ط" c3="ط" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَطّ" />
+	</root>
+	<root c1="ب" c2="ط" c3="غ" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَطَغ" />
+	</root>
+	<root c1="ب" c2="ط" c3="ل" conjugation="1" transitive="ل">
+		<gerund symbol="H4" value="بُطْل" />
+		<gerund symbol="S2" value="بُطُول" />
+		<gerund symbol="J3" value="بُطْلان" />
+		<gerund symbol="F3" value="بِطَالَة" />
+		<gerund symbol="F1" value="بَطَالَة" />
+	</root>
+	<root c1="ب" c2="ط" c3="ل" conjugation="4" transitive="ل">
+		<gerund symbol="F1" value="بَطَالَة" />
+		<gerund symbol="H2" value="بَطَل" />
+	</root>
+	<root c1="ب" c2="ط" c3="ل" conjugation="5" transitive="ل">
+		<gerund symbol="S5" value="بُطُولَة" />
+		<gerund symbol="F3" value="بِطَالَة" />
+		<gerund symbol="F1" value="بَطَالَة" />
+	</root>
+	<root c1="ب" c2="ط" c3="ن" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَطْن" />
+		<gerund symbol="S2" value="بُطُون" />
+		<gerund symbol="F3" value="بِطَانَة" />
+	</root>
+	<root c1="ب" c2="ط" c3="ن" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَطَن" />
+		<gerund symbol="K6" value="بِطْنَة" />
+	</root>
+	<root c1="ب" c2="ط" c3="ن" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَطَانَة" />
+	</root>
+	<root c1="ب" c2="ظ" c3="ر" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَظَر" />
+	</root>
+	<root c1="ب" c2="ظ" c3="ظ" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَظّ" />
+	</root>
+	<root c1="ب" c2="ظ" c3="و" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَظْو" />
+		<gerund symbol="S2" value="بُظُوّ" />
+	</root>
+	<root c1="ب" c2="ع" c3="ث" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَعْث" />
+	</root>
+	<root c1="ب" c2="ع" c3="ث" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَعَث" />
+	</root>
+	<root c1="ب" c2="ع" c3="ج" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَعْج" />
+	</root>
+	<root c1="ب" c2="ع" c3="د" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَعَد" />
+	</root>
+	<root c1="ب" c2="ع" c3="د" conjugation="5" transitive="ل">
+		<gerund symbol="H4" value="بُعْد" />
+	</root>
+	<root c1="ب" c2="ع" c3="ر" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَعْر" />
+	</root>
+	<root c1="ب" c2="ع" c3="ر" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَعَر" />
+	</root>
+	<root c1="ب" c2="ع" c3="ص" conjugation="3" transitive="ل">
+		<gerund symbol="H1" value="بَعْص" />
+	</root>
+	<root c1="ب" c2="ع" c3="ض" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَعْض" />
+	</root>
+	<root c1="ب" c2="ع" c3="ط" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَعْط" />
+	</root>
+	<root c1="ب" c2="ع" c3="ع" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَعّ" />
+	</root>
+	<root c1="ب" c2="ع" c3="ع" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَعّ" />
+		<gerund symbol="E1" value="بَعَاع" />
+	</root>
+	<root c1="ب" c2="ع" c3="ق" conjugation="3" transitive="ك">
+		<gerund symbol="E2" value="بُعَاق" />
+		<gerund symbol="H1" value="بَعْق" />
+	</root>
+	<root c1="ب" c2="ع" c3="ك" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَعْك" />
+	</root>
+	<root c1="ب" c2="ع" c3="ك" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَعَك" />
+	</root>
+	<root c1="ب" c2="ع" c3="ل" conjugation="3" transitive="ل">
+		<gerund symbol="H1" value="بَعْل" />
+		<gerund symbol="S5" value="بُعُولَة" />
+	</root>
+	<root c1="ب" c2="ع" c3="ل" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَعَل" />
+	</root>
+	<root c1="ب" c2="ع" c3="و" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَعْو" />
+	</root>
+	<root c1="ب" c2="ع" c3="و" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَعْو" />
+	</root>
+	<root c1="ب" c2="ع" c3="ي" conjugation="2" transitive="م">
+		<gerund symbol="H1" value="بَعْي" />
+	</root>
+	<root c1="ب" c2="غ" c3="ت" conjugation="3" transitive="م">
+		<gerund symbol="K1" value="بَغْتَة" />
+		<gerund symbol="H1" value="بَغْت" />
+	</root>
+	<root c1="ب" c2="غ" c3="ث" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَغَث" />
+		<gerund symbol="K4" value="بُغْثَة" />
+	</root>
+	<root c1="ب" c2="غ" c3="ر" conjugation="1" transitive="ك">
+		<gerund symbol="S2" value="بُغُور" />
+	</root>
+	<root c1="ب" c2="غ" c3="ر" conjugation="3" transitive="ل">
+		<gerund symbol="H1" value="بَغْر" />
+	</root>
+	<root c1="ب" c2="غ" c3="ر" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَغَر" />
+	</root>
+	<root c1="ب" c2="غ" c3="ز" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَغْز" />
+	</root>
+	<root c1="ب" c2="غ" c3="ش" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَغْش" />
+	</root>
+	<root c1="ب" c2="غ" c3="ض" conjugation="1" transitive="م">
+		<gerund symbol="H4" value="بُغْض" />
+	</root>
+	<root c1="ب" c2="غ" c3="ض" conjugation="4" transitive="ل">
+		<gerund symbol="H4" value="بُغْض" />
+	</root>
+	<root c1="ب" c2="غ" c3="ض" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَغَاضَة" />
+		<gerund symbol="K6" value="بِغْضَة" />
+	</root>
+	<root c1="ب" c2="غ" c3="غ" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَغّ" />
+	</root>
+	<root c1="ب" c2="غ" c3="ل" conjugation="5" transitive="ل">
+		<gerund symbol="S5" value="بُغُولَة" />
+	</root>
+	<root c1="ب" c2="غ" c3="م" conjugation="1" transitive="ك">
+		<gerund symbol="E2" value="بُغَام" />
+		<gerund symbol="H1" value="بَغْم" />
+		<gerund symbol="S2" value="بُغُوم" />
+	</root>
+	<root c1="ب" c2="غ" c3="م" conjugation="2" transitive="ك">
+		<gerund symbol="E2" value="بُغَام" />
+		<gerund symbol="H1" value="بَغْم" />
+		<gerund symbol="S2" value="بُغُوم" />
+	</root>
+	<root c1="ب" c2="غ" c3="م" conjugation="3" transitive="ك">
+		<gerund symbol="E2" value="بُغَام" />
+		<gerund symbol="H1" value="بَغْم" />
+		<gerund symbol="S2" value="بُغُوم" />
+	</root>
+	<root c1="ب" c2="غ" c3="و" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَغْو" />
+	</root>
+	<root c1="ب" c2="غ" c3="ي" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَغْي" />
+		<gerund symbol="E2" value="بُغَاء" />
+		<gerund symbol="E3" value="بِغَاء" />
+		<gerund symbol="K4" value="بُغْيَة" />
+	</root>
+	<root c1="ب" c2="ق" c3="ت" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَقْت" />
+	</root>
+	<root c1="ب" c2="ق" c3="ث" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَقْث" />
+	</root>
+	<root c1="ب" c2="ق" c3="ر" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَقْر" />
+	</root>
+	<root c1="ب" c2="ق" c3="ر" conjugation="4" transitive="ل">
+		<gerund symbol="H1" value="بَقْر" />
+		<gerund symbol="H2" value="بَقَر" />
+	</root>
+	<root c1="ب" c2="ق" c3="ط" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَقْط" />
+	</root>
+	<root c1="ب" c2="ق" c3="ع" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَقْع" />
+	</root>
+	<root c1="ب" c2="ق" c3="ع" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَقَع" />
+	</root>
+	<root c1="ب" c2="ق" c3="ق" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَقّ" />
+		<gerund symbol="S2" value="بُقُوق" />
+		<gerund symbol="E1" value="بَقَاق" />
+		<gerund symbol="U1" value="بَقِيق" />
+		<gerund symbol="H2" value="بَقَق" />
+	</root>
+	<root c1="ب" c2="ق" c3="ق" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَقّ" />
+		<gerund symbol="U1" value="بَقِيق" />
+		<gerund symbol="H2" value="بَقَق" />
+		<gerund symbol="E1" value="بَقَاق" />
+	</root>
+	<root c1="ب" c2="ق" c3="ل" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَقْل" />
+		<gerund symbol="S2" value="بُقُول" />
+	</root>
+	<root c1="ب" c2="ق" c3="م" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَقَم" />
+	</root>
+	<root c1="ب" c2="ق" c3="و" conjugation="1" transitive="م">
+		<gerund symbol="F1" value="بَقَاوَة" />
+	</root>
+	<root c1="ب" c2="ق" c3="ي" conjugation="2" transitive="م">
+		<gerund symbol="H1" value="بَقْي" />
+	</root>
+	<root c1="ب" c2="ق" c3="ي" conjugation="4" transitive="ل">
+		<gerund symbol="E1" value="بَقَاء" />
+		<gerund symbol="D2" value="بَاقِيَة" />
+	</root>
+	<root c1="ب" c2="ك" c3="ء" conjugation="3" transitive="ل">
+		<gerund symbol="H1" value="بَكْء" />
+		<gerund symbol="F1" value="بَكَاءَة" />
+		<gerund symbol="S2" value="بُكُوء" />
+	</root>
+	<root c1="ب" c2="ك" c3="ء" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَكَأ" />
+	</root>
+	<root c1="ب" c2="ك" c3="ء" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَكَاءَة" />
+		<gerund symbol="H1" value="بَكْء" />
+		<gerund symbol="S2" value="بُكُوء" />
+		<gerund symbol="H4" value="بُكْء" />
+		<gerund symbol="E2" value="بُكَاء" />
+	</root>
+	<root c1="ب" c2="ك" c3="ت" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَكْت" />
+	</root>
+	<root c1="ب" c2="ك" c3="ر" conjugation="1" transitive="ل">
+		<gerund symbol="S2" value="بُكُور" />
+	</root>
+	<root c1="ب" c2="ك" c3="ر" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَكَر" />
+	</root>
+	<root c1="ب" c2="ك" c3="س" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَكْس" />
+	</root>
+	<root c1="ب" c2="ك" c3="ش" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَكْش" />
+	</root>
+	<root c1="ب" c2="ك" c3="ع" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَكْع" />
+	</root>
+	<root c1="ب" c2="ك" c3="ك" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَكّ" />
+		<gerund symbol="K1" value="بَكَّة" />
+	</root>
+	<root c1="ب" c2="ك" c3="ل" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَكْل" />
+	</root>
+	<root c1="ب" c2="ك" c3="م" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَكَم" />
+		<gerund symbol="F1" value="بَكَامَة" />
+	</root>
+	<root c1="ب" c2="ك" c3="م" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَكَامَة" />
+	</root>
+	<root c1="ب" c2="ك" c3="ي" conjugation="2" transitive="ك">
+		<gerund symbol="E2" value="بُكَاء" />
+		<gerund symbol="H5" value="بُكًى" />
+	</root>
+	<root c1="ب" c2="ل" c3="ت" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَلْت" />
+	</root>
+	<root c1="ب" c2="ل" c3="ت" conjugation="2" transitive="م">
+		<gerund symbol="H1" value="بَلْت" />
+	</root>
+	<root c1="ب" c2="ل" c3="ت" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَلَت" />
+	</root>
+	<root c1="ب" c2="ل" c3="ت" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَلاتَة" />
+	</root>
+	<root c1="ب" c2="ل" c3="ج" conjugation="1" transitive="ل">
+		<gerund symbol="S2" value="بُلُوج" />
+	</root>
+	<root c1="ب" c2="ل" c3="ج" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَلْج" />
+	</root>
+	<root c1="ب" c2="ل" c3="ج" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَلَج" />
+	</root>
+	<root c1="ب" c2="ل" c3="ح" conjugation="3" transitive="ل">
+		<gerund symbol="H1" value="بَلْح" />
+		<gerund symbol="S2" value="بُلُوح" />
+	</root>
+	<root c1="ب" c2="ل" c3="خ" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَلَخ" />
+	</root>
+	<root c1="ب" c2="ل" c3="د" conjugation="1" transitive="ك">
+		<gerund symbol="S2" value="بُلُود" />
+	</root>
+	<root c1="ب" c2="ل" c3="د" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَلَد" />
+	</root>
+	<root c1="ب" c2="ل" c3="د" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَلادَة" />
+	</root>
+	<root c1="ب" c2="ل" c3="ط" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَلْط" />
+	</root>
+	<root c1="ب" c2="ل" c3="ع" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَلْع" />
+	</root>
+	<root c1="ب" c2="ل" c3="ع" conjugation="4" transitive="م">
+		<gerund symbol="H2" value="بَلَع" />
+	</root>
+	<root c1="ب" c2="ل" c3="غ" conjugation="1" transitive="ك">
+		<gerund symbol="S2" value="بُلُوغ" />
+		<gerund symbol="E1" value="بَلاغ" />
+		<gerund symbol="W1" value="مَبْلَغ" />
+	</root>
+	<root c1="ب" c2="ل" c3="غ" conjugation="5" transitive="ل">
+		<gerund symbol="F1" value="بَلاغَة" />
+	</root>
+	<root c1="ب" c2="ل" c3="ق" conjugation="1" transitive="ك">
+		<gerund symbol="S2" value="بُلُوق" />
+		<gerund symbol="H1" value="بَلْق" />
+	</root>
+	<root c1="ب" c2="ل" c3="ق" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَلَق" />
+		<gerund symbol="K4" value="بُلْقَة" />
+	</root>
+	<root c1="ب" c2="ل" c3="ق" conjugation="5" transitive="ل">
+		<gerund symbol="H2" value="بَلَق" />
+		<gerund symbol="K4" value="بُلْقَة" />
+	</root>
+	<root c1="ب" c2="ل" c3="ك" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَلْك" />
+	</root>
+	<root c1="ب" c2="ل" c3="ل" conjugation="1" transitive="ك">
+		<gerund symbol="E1" value="بَلال" />
+		<gerund symbol="H2" value="بَلَل" />
+		<gerund symbol="H1" value="بَلّ" />
+		<gerund symbol="K6" value="بِلَّة" />
+		<gerund symbol="E3" value="بِلال" />
+	</root>
+	<root c1="ب" c2="ل" c3="ل" conjugation="2" transitive="ل">
+		<gerund symbol="H2" value="بَلَل" />
+		<gerund symbol="S2" value="بُلُول" />
+		<gerund symbol="H1" value="بَلّ" />
+	</root>
+	<root c1="ب" c2="ل" c3="ل" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَلَل" />
+		<gerund symbol="F1" value="بَلالَة" />
+		<gerund symbol="S2" value="بُلُول" />
+		<gerund symbol="H1" value="بَلّ" />
+	</root>
+	<root c1="ب" c2="ل" c3="م" conjugation="4" transitive="ل">
+		<gerund symbol="K2" value="بَلَمَة" />
+	</root>
+	<root c1="ب" c2="ل" c3="ه" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَلَه" />
+		<gerund symbol="F1" value="بَلاهَة" />
+	</root>
+	<root c1="ب" c2="ل" c3="و" conjugation="1" transitive="م">
+		<gerund symbol="E1" value="بَلاء" />
+		<gerund symbol="H1" value="بَلْو" />
+	</root>
+	<root c1="ب" c2="ل" c3="ي" conjugation="4" transitive="ل">
+		<gerund symbol="E1" value="بَلاء" />
+		<gerund symbol="H8" value="بِلًى" />
+	</root>
+	<root c1="ب" c2="ن" c3="ج" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَنْج" />
+	</root>
+	<root c1="ب" c2="ن" c3="ح" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَنْح" />
+	</root>
+	<root c1="ب" c2="ن" c3="ش" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَنْش" />
+	</root>
+	<root c1="ب" c2="ن" c3="ق" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَنْق" />
+	</root>
+	<root c1="ب" c2="ن" c3="ن" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَنّ" />
+	</root>
+	<root c1="ب" c2="ن" c3="ي" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَنْي" />
+		<gerund symbol="E3" value="بِنَاء" />
+		<gerund symbol="H8" value="بِنًى" />
+		<gerund symbol="J3" value="بُنْيَان" />
+		<gerund symbol="K6" value="بِنْيَة" />
+		<gerund symbol="F3" value="بِنَايَة" />
+	</root>
+	<root c1="ب" c2="ه" c3="ء" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَهْء" />
+		<gerund symbol="E1" value="بَهَاء" />
+		<gerund symbol="S2" value="بُهُوء" />
+	</root>
+	<root c1="ب" c2="ه" c3="ء" conjugation="4" transitive="ل">
+		<gerund symbol="H1" value="بَهْء" />
+		<gerund symbol="E1" value="بَهَاء" />
+		<gerund symbol="S2" value="بُهُوء" />
+	</root>
+	<root c1="ب" c2="ه" c3="ء" conjugation="5" transitive="ل">
+		<gerund symbol="H1" value="بَهْء" />
+		<gerund symbol="E1" value="بَهَاء" />
+		<gerund symbol="S2" value="بُهُوء" />
+	</root>
+	<root c1="ب" c2="ه" c3="ت" conjugation="3" transitive="م">
+		<gerund symbol="J3" value="بُهْتان" />
+		<gerund symbol="H2" value="بَهَت" />
+		<gerund symbol="H1" value="بَهْت" />
+		<gerund symbol="K1" value="بَهْتَة" />
+	</root>
+	<root c1="ب" c2="ه" c3="ت" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَهَت" />
+	</root>
+	<root c1="ب" c2="ه" c3="ث" conjugation="3" transitive="ل">
+		<gerund symbol="H1" value="بَهْث" />
+	</root>
+	<root c1="ب" c2="ه" c3="ج" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَهْج" />
+	</root>
+	<root c1="ب" c2="ه" c3="ج" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَهَج" />
+		<gerund symbol="F1" value="بَهَاجَة" />
+		<gerund symbol="K1" value="بَهْجَة" />
+	</root>
+	<root c1="ب" c2="ه" c3="ج" conjugation="5" transitive="ل">
+		<gerund symbol="K1" value="بَهْجَة" />
+		<gerund symbol="F1" value="بَهَاجَة" />
+		<gerund symbol="J2" value="بَهَجان" />
+	</root>
+	<root c1="ب" c2="ه" c3="ر" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَهْر" />
+		<gerund symbol="S2" value="بُهُور" />
+	</root>
+	<root c1="ب" c2="ه" c3="ز" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَهْز" />
+	</root>
+	<root c1="ب" c2="ه" c3="س" conjugation="3" transitive="ل">
+		<gerund symbol="H1" value="بَهْس" />
+	</root>
+	<root c1="ب" c2="ه" c3="ش" conjugation="3" transitive="ك">
+		<gerund symbol="H1" value="بَهْش" />
+	</root>
+	<root c1="ب" c2="ه" c3="ص" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَهَص" />
+	</root>
+	<root c1="ب" c2="ه" c3="ض" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَهْض" />
+	</root>
+	<root c1="ب" c2="ه" c3="ظ" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَهْظ" />
+	</root>
+	<root c1="ب" c2="ه" c3="ق" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَهَق" />
+	</root>
+	<root c1="ب" c2="ه" c3="ل" conjugation="3" transitive="م">
+		<gerund symbol="H1" value="بَهْل" />
+	</root>
+	<root c1="ب" c2="ه" c3="ل" conjugation="4" transitive="ل">
+		<gerund symbol="H2" value="بَهَل" />
+	</root>
+	<root c1="ب" c2="ه" c3="ه" conjugation="4" transitive="ل">
+		<gerund symbol="H1" value="بَهّ" />
+	</root>
+	<root c1="ب" c2="ه" c3="و" conjugation="1" transitive="ك">
+		<gerund symbol="E1" value="بَهَاء" />
+		<gerund symbol="F1" value="بَهَاءَة" />
+	</root>
+	<root c1="ب" c2="ه" c3="و" conjugation="3" transitive="ك">
+		<gerund symbol="E1" value="بَهَاء" />
+		<gerund symbol="F1" value="بَهَاءَة" />
+	</root>
+	<root c1="ب" c2="ه" c3="و" conjugation="4" transitive="ل">
+		<gerund symbol="H1" value="بَهْو" />
+		<gerund symbol="E1" value="بَهَاء" />
+		<gerund symbol="F1" value="بَهَاءَة" />
+	</root>
+	<root c1="ب" c2="ه" c3="و" conjugation="5" transitive="ل">
+		<gerund symbol="E1" value="بَهَاء" />
+		<gerund symbol="F1" value="بَهَاءَة" />
+	</root>
+	<root c1="ب" c2="و" c3="ء" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَوْء" />
+		<gerund symbol="E1" value="بَوَاء" />
+	</root>
+	<root c1="ب" c2="و" c3="ب" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَوْب" />
+	</root>
+	<root c1="ب" c2="و" c3="ث" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَوْث" />
+	</root>
+	<root c1="ب" c2="و" c3="ج" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَوْج" />
+		<gerund symbol="J2" value="بَوَجان" />
+	</root>
+	<root c1="ب" c2="و" c3="ح" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَوْح" />
+		<gerund symbol="S5" value="بُؤُوحَة" />
+		<gerund symbol="S2" value="بُؤُوح" />
+	</root>
+	<root c1="ب" c2="و" c3="خ" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَوْخ" />
+		<gerund symbol="J2" value="بَوَخان" />
+		<gerund symbol="S2" value="بُؤُوخ" />
+	</root>
+	<root c1="ب" c2="و" c3="ذ" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَوْذ" />
+	</root>
+	<root c1="ب" c2="و" c3="ر" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَوْر" />
+		<gerund symbol="E1" value="بَوَار" />
+	</root>
+	<root c1="ب" c2="و" c3="ز" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَوْز" />
+	</root>
+	<root c1="ب" c2="و" c3="س" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَوْس" />
+	</root>
+	<root c1="ب" c2="و" c3="ش" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَوْش" />
+	</root>
+	<root c1="ب" c2="و" c3="ص" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَوْص" />
+	</root>
+	<root c1="ب" c2="و" c3="ض" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَوْض" />
+	</root>
+	<root c1="ب" c2="و" c3="ط" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَوْط" />
+	</root>
+	<root c1="ب" c2="و" c3="ظ" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَوْظ" />
+	</root>
+	<root c1="ب" c2="و" c3="ع" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَوْع" />
+	</root>
+	<root c1="ب" c2="و" c3="ق" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَوْق" />
+		<gerund symbol="S2" value="بُؤُوق" />
+		<gerund symbol="H4" value="بُوق" />
+	</root>
+	<root c1="ب" c2="و" c3="ك" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَوْك" />
+		<gerund symbol="S2" value="بُؤُوك" />
+	</root>
+	<root c1="ب" c2="و" c3="ل" conjugation="1" transitive="ل">
+		<gerund symbol="H1" value="بَوْل" />
+	</root>
+	<root c1="ب" c2="و" c3="ن" conjugation="1" transitive="م">
+		<gerund symbol="H1" value="بَوْن" />
+	</root>
+	<root c1="ب" c2="و" c3="ه" conjugation="1" transitive="ك">
+		<gerund symbol="H1" value="بَوْه" />
+		<gerund symbol="E1" value="بَوَاه" />
+	</root>
+	<root c1="ب" c2="و" c3="ه" conjugation="4" transitive="ل">
+		<gerund symbol="H1" value="بَوْه" />
+	</root>
+	<root c1="ب" c2="و" c3="ي" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَوْي" />
+	</root>
+	<root c1="ب" c2="ي" c3="ب" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَيْب" />
+	</root>
+	<root c1="ب" c2="ي" c3="ت" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَيْت" />
+		<gerund symbol="E1" value="بَيَات" />
+		<gerund symbol="O1" value="بَيْتُوتَة" />
+		<gerund symbol="W1" value="مَبَات" />
+		<gerund symbol="W3" value="مَبِيت" />
+	</root>
+	<root c1="ب" c2="ي" c3="ت" conjugation="4" transitive="ك">
+		<gerund symbol="H1" value="بَيْت" />
+		<gerund symbol="E1" value="بَيَات" />
+		<gerund symbol="O1" value="بَيْتُوتَة" />
+		<gerund symbol="W1" value="مَبَات" />
+		<gerund symbol="W3" value="مَبِيت" />
+	</root>
+	<root c1="ب" c2="ي" c3="ث" conjugation="2" transitive="م">
+		<gerund symbol="H1" value="بَيْث" />
+	</root>
+	<root c1="ب" c2="ي" c3="د" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَيْد" />
+		<gerund symbol="E1" value="بَيَاد" />
+		<gerund symbol="S2" value="بُيُود" />
+	</root>
+	<root c1="ب" c2="ي" c3="ز" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَيْز" />
+		<gerund symbol="S2" value="بُيُوز" />
+	</root>
+	<root c1="ب" c2="ي" c3="س" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَيْس" />
+	</root>
+	<root c1="ب" c2="ي" c3="ض" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَيْض" />
+	</root>
+	<root c1="ب" c2="ي" c3="ظ" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَيْظ" />
+	</root>
+	<root c1="ب" c2="ي" c3="ع" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَيْع" />
+		<gerund symbol="W3" value="مَبِيع" />
+	</root>
+	<root c1="ب" c2="ي" c3="غ" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَيْغ" />
+	</root>
+	<root c1="ب" c2="ي" c3="ن" conjugation="2" transitive="ك">
+		<gerund symbol="H1" value="بَيْن" />
+		<gerund symbol="O1" value="بَيْنُونَة" />
+		<gerund symbol="S2" value="بُيُون" />
+		<gerund symbol="E1" value="بَيَان" />
+		<gerund symbol="B1" value="تَبْيَان" />
+		<gerund symbol="B2" value="تِبْيَان" />
+	</root>
+	<root c1="ب" c2="ي" c3="ه" conjugation="2" transitive="ل">
+		<gerund symbol="H1" value="بَيْه" />
+	</root>
+</roots>
