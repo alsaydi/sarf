@@ -15,8 +15,6 @@ Features |   value
 ---------|---------------------------------------------------------------------------------
 Authors  | Haytham Mohtasseb Billah / [Kifeh Issa](http://github.com/kifehi)
 Organization | [ALECSO](http://www.alecso.org.tn) 
-Release  | 0.2
-License  |[GPL](https://github.com/linuxscout/sarf/master/LICENSE)
 
 
 All source code files *.java and *.xml are converted to UTF-8. 
