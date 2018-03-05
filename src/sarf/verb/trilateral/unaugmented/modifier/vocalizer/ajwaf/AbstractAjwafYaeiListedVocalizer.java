@@ -17,7 +17,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.*;
  * @version 1.0
  */
 public abstract class AbstractAjwafYaeiListedVocalizer extends ListedVocalizer {
-    private List appliedRoots = new LinkedList();
+    private List<String> appliedRoots = new LinkedList<String>();
 
     public AbstractAjwafYaeiListedVocalizer() {
         appliedRoots.add("بيت");

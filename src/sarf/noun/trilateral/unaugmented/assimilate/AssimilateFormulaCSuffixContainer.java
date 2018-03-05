@@ -18,16 +18,16 @@ import sarf.noun.*;
 public class AssimilateFormulaCSuffixContainer implements INounSuffixContainer{
     private static AssimilateFormulaCSuffixContainer instance = new AssimilateFormulaCSuffixContainer();
     //حالة النكرة
-    private ArrayList indefiniteSuffixList = new ArrayList(18);
+    private ArrayList<String>  indefiniteSuffixList = new ArrayList<String>(18);
     //حالة المعرفة
-    private ArrayList definiteSuffixList = new ArrayList(18);
+    private ArrayList<String>  definiteSuffixList = new ArrayList<String>(18);
     //حالة الاضافة
-    private ArrayList annexedSuffixList = new ArrayList(18);
+    private ArrayList<String>  annexedSuffixList = new ArrayList<String>(18);
 
     //تكون لها قيمة عندما تكون الحالة هي معرفة
     private String prefix = "";
     //يمثل القائمة المختارة تبعاً للحالة
-    private ArrayList currentSuffixList = indefiniteSuffixList ;
+    private ArrayList<String>  currentSuffixList = indefiniteSuffixList ;
 
     private AssimilateFormulaCSuffixContainer() {
         indefiniteSuffixList.add("ُ");

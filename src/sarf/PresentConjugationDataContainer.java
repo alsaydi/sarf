@@ -17,29 +17,29 @@ import sarf.verb.trilateral.unaugmented.*;
  */
 public class PresentConjugationDataContainer {
     //أحرف المضارعة حسب الضمير
-    private List cpList = new ArrayList(13);
+    private List<String> cpList = new ArrayList(13);
     //قائمة حركات عين الفعل حسب باب التصريف
-    private List dpr2List = new ArrayList(6);
+    private List<String> dpr2List = new ArrayList(6);
 
     //قائمة  حركات لام الفعل حسب ضمير الرفع
     //مرفوع
-    private List nominativeLastDprList = new ArrayList(13);
+    private List<String> nominativeLastDprList = new ArrayList(13);
     //منصوب
-    private List accusativeLastDprList = new ArrayList(13);
+    private List<String> accusativeLastDprList = new ArrayList(13);
     //مجزوم
-    private List jussiveLastDprList = new ArrayList(13);
+    private List<String> jussiveLastDprList = new ArrayList(13);
     //مؤكد
-    private List emphasizedLastDprList = new ArrayList(13);
+    private List<String> emphasizedLastDprList = new ArrayList(13);
 
     //قائمة ضمائر الرفع المتصلة
     //مرفوع
-    private List nominativeConnectedPronounList = new ArrayList(13);
+    private List<String> nominativeConnectedPronounList = new ArrayList(13);
     //منصوب
-    private List accusativeConnectedPronounList = new ArrayList(13);
+    private List<String> accusativeConnectedPronounList = new ArrayList(13);
     //مجزوم
-    private List jussiveConnectedPronounList = new ArrayList(13);
+    private List<String> jussiveConnectedPronounList = new ArrayList(13);
     //مؤكد
-    private List emphasizedConnectedPronounList = new ArrayList(13);
+    private List<String> emphasizedConnectedPronounList = new ArrayList(13);
 
     private static PresentConjugationDataContainer instance = new PresentConjugationDataContainer();
 
@@ -47,35 +47,35 @@ public class PresentConjugationDataContainer {
         return instance;
     }
 
-    public List getNominativeLastDprList() {
+    public List<String> getNominativeLastDprList() {
         return nominativeLastDprList;
     }
 
-    public List getNominativeConnectedPronounList() {
+    public List<String> getNominativeConnectedPronounList() {
         return nominativeConnectedPronounList;
     }
 
-    public List getEmphasizedLastDprList() {
+    public List<String> getEmphasizedLastDprList() {
         return emphasizedLastDprList;
     }
 
-    public List getEmphasizedConnectedPronounList() {
+    public List<String> getEmphasizedConnectedPronounList() {
         return emphasizedConnectedPronounList;
     }
 
-    public List getJussiveLastDprList() {
+    public List<String> getJussiveLastDprList() {
         return jussiveLastDprList;
     }
 
-    public List getJussiveConnectedPronounList() {
+    public List<String> getJussiveConnectedPronounList() {
         return jussiveConnectedPronounList;
     }
 
-    public List getAccusativeLastDprList() {
+    public List<String> getAccusativeLastDprList() {
         return accusativeLastDprList;
     }
 
-    public List getAccusativeConnectedPronounList() {
+    public List<String> getAccusativeConnectedPronounList() {
         return accusativeConnectedPronounList;
     }
 

@@ -21,7 +21,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class AVocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    List<Substitution> substitutions = new LinkedList<Substitution>();
 
     public AVocalizer() {
         substitutions.add(new InfixSubstitution("اوًا", "اءً")); // EX: (غَزَّاءً)
@@ -31,7 +31,7 @@ public class AVocalizer extends TrilateralNounSubstitutionApplier implements IUn
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

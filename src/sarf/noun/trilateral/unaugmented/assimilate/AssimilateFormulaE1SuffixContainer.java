@@ -19,16 +19,16 @@ import sarf.noun.*;
 public class AssimilateFormulaE1SuffixContainer implements INounSuffixContainer{
     private static AssimilateFormulaE1SuffixContainer instance = new AssimilateFormulaE1SuffixContainer();
     //حالة النكرة
-    private ArrayList indefiniteSuffixList = new ArrayList(18);
+    private ArrayList<String>  indefiniteSuffixList = new ArrayList<String>(18);
     //حالة المعرفة
-    private ArrayList definiteSuffixList = new ArrayList(18);
+    private ArrayList<String>  definiteSuffixList = new ArrayList<String>(18);
     //حالة الاضافة
-    private ArrayList annexedSuffixList = new ArrayList(18);
+    private ArrayList<String>  annexedSuffixList = new ArrayList<String>(18);
 
     //تكون لها قيمة عندما تكون الحالة هي معرفة
     private String prefix = "";
     //يمثل القائمة المختارة تبعاً للحالة
-    private ArrayList currentSuffixList = indefiniteSuffixList ;
+    private ArrayList<String>  currentSuffixList = indefiniteSuffixList ;
 
     private AssimilateFormulaE1SuffixContainer() {
         indefiniteSuffixList.add("ُ");
@@ -124,19 +124,19 @@ public class AssimilateFormulaE1SuffixContainer implements INounSuffixContainer{
         return prefix;
     }
 
-    public ArrayList getAnnexedSuffixList() {
+    public ArrayList<String>  getAnnexedSuffixList() {
         return annexedSuffixList;
     }
 
-    public ArrayList getCurrentSuffixList() {
+    public ArrayList<String>  getCurrentSuffixList() {
         return currentSuffixList;
     }
 
-    public ArrayList getDefiniteSuffixList() {
+    public ArrayList<String>  getDefiniteSuffixList() {
         return definiteSuffixList;
     }
 
-    public ArrayList getIndefiniteSuffixList() {
+    public ArrayList<String>  getIndefiniteSuffixList() {
         return indefiniteSuffixList;
     }
 

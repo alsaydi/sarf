@@ -21,10 +21,10 @@ import sarf.PresentConjugationDataContainer;
  */
 public class AbstractAugmentedPresentConjugator {
 
-    private List lastDprList;
-    private List connectedPronounList;
+    private List<String> lastDprList;
+    private List<String> connectedPronounList;
 
-    public AbstractAugmentedPresentConjugator(List lastDprList, List connectedPronounList) {
+    public AbstractAugmentedPresentConjugator(List<String> lastDprList, List<String> connectedPronounList) {
         this.lastDprList = lastDprList;
         this.connectedPronounList = connectedPronounList;
     }
@@ -46,8 +46,8 @@ public class AbstractAugmentedPresentConjugator {
         return null;
     }
 
-    public List createVerbList(AugmentedTrilateralRoot root, int formulaNo) {
-        List result = new LinkedList();
+    public List<AugmentedPresentVerb> createVerbList(AugmentedTrilateralRoot root, int formulaNo) {
+        List<AugmentedPresentVerb> result = new LinkedList<AugmentedPresentVerb>();
         for (int i = 0; i < 13; i++) {
             AugmentedPresentVerb verb = createVerb(root, i, formulaNo);
             result.add(verb);

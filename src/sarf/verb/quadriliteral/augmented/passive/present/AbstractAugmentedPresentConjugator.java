@@ -20,10 +20,10 @@ import sarf.verb.quadriliteral.augmented.*;
  */
 public class AbstractAugmentedPresentConjugator {
 
-    private List lastDprList;
-    private List connectedPronounList;
+    private List<String> lastDprList;
+    private List<String> connectedPronounList;
 
-    public AbstractAugmentedPresentConjugator(List lastDprList, List connectedPronounList) {
+    public AbstractAugmentedPresentConjugator(List<String> lastDprList, List<String> connectedPronounList) {
         this.lastDprList = lastDprList;
         this.connectedPronounList = connectedPronounList;
     }
@@ -52,7 +52,7 @@ public class AbstractAugmentedPresentConjugator {
         }
         else {
 
-            List result = new LinkedList();
+            List<AugmentedPresentVerb> result = new LinkedList<AugmentedPresentVerb>();
             for (int i = 0; i < 13; i++) {
                 AugmentedPresentVerb verb = createVerb(root, i, formulaNo);
                 result.add(verb);
@@ -63,8 +63,8 @@ public class AbstractAugmentedPresentConjugator {
     }
 
     //المبني لمجهول اللازم فقط مع هو او هي
-    public List createLazzemVerbList(AugmentedQuadriliteralRoot root, int formulaNo) {
-        List result = new LinkedList();
+    public List<AugmentedPresentVerb> createLazzemVerbList(AugmentedQuadriliteralRoot root, int formulaNo) {
+        List<AugmentedPresentVerb> result = new LinkedList<AugmentedPresentVerb>();
         for (int i = 0; i < 13; i++) {
             if (i == 7 || i == 8) {
                 AugmentedPresentVerb verb = createVerb(root, i, formulaNo);

@@ -20,7 +20,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public abstract class AbstractAjwafWawiListedVocalizer extends ListedVocalizer {
-    private List appliedRoots = new LinkedList();
+    private List<String> appliedRoots = new LinkedList<String>();
 
     public AbstractAjwafWawiListedVocalizer() {
         appliedRoots.add("بوه");

@@ -21,7 +21,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class ALafifNakesVocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    List<Substitution> substitutions = new LinkedList<Substitution>();
 
     public ALafifNakesVocalizer() {
         substitutions.add(new InfixSubstitution("يَيٌ", "يَا")); // EX: (هذا المَحيا )
@@ -34,7 +34,7 @@ public class ALafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
@@ -89,5 +89,4 @@ public class ALafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
         }
         return false;
     }
-
 }

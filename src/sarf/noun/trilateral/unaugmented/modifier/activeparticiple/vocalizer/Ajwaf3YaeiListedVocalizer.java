@@ -22,24 +22,24 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Ajwaf3YaeiListedVocalizer extends AbstractAjwafYaeiListedVocalizer implements IUnaugmentedTrilateralNounModificationApplier {
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new LinkedList<Substitution>();
 
     public Ajwaf3YaeiListedVocalizer() {
         substitutions.add(new InfixSubstitution("ايِ", "ائِ")); // EX: (بائِعٌ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
-    protected static List appliedProunounsIndecies = new ArrayList(18);
+    protected static List<String> appliedProunounsIndecies = new ArrayList<String>(18);
     static {
         for (int i = 0; i < 18; i++) {
             appliedProunounsIndecies.add(i + 1 + "");
         }
     }
 
-    protected List getAppliedPronounsIndecies() {
+    protected List<String> getAppliedPronounsIndecies() {
         return appliedProunounsIndecies;
     }
 

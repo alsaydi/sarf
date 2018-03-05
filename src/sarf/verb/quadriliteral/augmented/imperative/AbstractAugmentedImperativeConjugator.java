@@ -19,17 +19,17 @@ import sarf.verb.quadriliteral.augmented.*;
  */
 public class AbstractAugmentedImperativeConjugator {
 
-    private List lastDimList;
-    private List connectedPronounList;
+    private List<String> lastDimList;
+    private List<String> connectedPronounList;
 
-    public AbstractAugmentedImperativeConjugator(List lastDimList, List connectedPronounList) {
+    public AbstractAugmentedImperativeConjugator(List<String> lastDimList, List<String> connectedPronounList) {
         this.lastDimList = lastDimList;
         this.connectedPronounList = connectedPronounList;
     }
 
     public AugmentedImperativeVerb createVerb(AugmentedQuadriliteralRoot root, int pronounIndex, int formulaNo) {
-        String lastDim = (String) lastDimList.get(pronounIndex);
-        String connectedPronoun = (String) connectedPronounList.get(pronounIndex);
+        String lastDim = lastDimList.get(pronounIndex);
+        String connectedPronoun = connectedPronounList.get(pronounIndex);
         String formulaClassName = getClass().getPackage().getName()+".formula."+"AugmentedImperativeVerb"+formulaNo;
         Object [] parameters = {root,  lastDim, connectedPronoun};
 
@@ -43,8 +43,8 @@ public class AbstractAugmentedImperativeConjugator {
         return null;
     }
 
-    public List createVerbList(AugmentedQuadriliteralRoot root, int formulaNo) {
-        List result = new LinkedList();
+    public List<AugmentedImperativeVerb> createVerbList(AugmentedQuadriliteralRoot root, int formulaNo) {
+        List<AugmentedImperativeVerb> result = new LinkedList<AugmentedImperativeVerb>();
         result.add(null);
         result.add(null);
         //that indexing because the pronouns is existed only for that indecis
@@ -62,12 +62,12 @@ public class AbstractAugmentedImperativeConjugator {
         return result;
     }
 
-    public Map createAllVerbList(AugmentedQuadriliteralRoot root) {
-        Map result = new HashMap();
-        Iterator iter = root.getAugmentationList().iterator();
+    public Map<String, List<AugmentedImperativeVerb>> createAllVerbList(AugmentedQuadriliteralRoot root) {
+        Map<String, List<AugmentedImperativeVerb>> result = new HashMap<String, List<AugmentedImperativeVerb>>();
+        Iterator<AugmentationFormula> iter = root.getAugmentationList().iterator();
         while (iter.hasNext()) {
-            AugmentationFormula formula = (AugmentationFormula) iter.next();
-            List formulaVerbList = createVerbList(root, formula.getFormulaNo());
+            AugmentationFormula formula = iter.next();
+            List<AugmentedImperativeVerb> formulaVerbList = createVerbList(root, formula.getFormulaNo());
             result.put(formula.getFormulaNo()+"", formulaVerbList);
         }
         return result;
