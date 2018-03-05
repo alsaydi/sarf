@@ -22,3 +22,8 @@ License  |[GPL](https://github.com/linuxscout/sarf/master/LICENSE)
 All source code files *.java and *.xml are converted to UTF-8. 
 I relaxed the screen resolution requirement and will remove that in the future hopefully.
 
+#Credit
+
+![alt credits](https://github.com/argsv/sarf/blob/master/src/sarf/ui/about.jpg?raw=true)
+
+
