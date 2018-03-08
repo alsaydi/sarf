@@ -1,10 +1,7 @@
 package sarf.noun.trilateral.unaugmented.modifier.timeandplace.vocalizer;
 
 import java.util.*;
-
 import sarf.noun.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
-
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 
@@ -21,14 +18,14 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class ACAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    List<InfixSubstitution> substitutions = new LinkedList<>();
 
     public ACAjwaf1Vocalizer() {
         substitutions.add(new InfixSubstitution("ْوَ","َا"));// EX: (مَزَار، مَقامَة)
     }
 
 
-    public List getSubstitutions() {
+    public List<InfixSubstitution> getSubstitutions() {
         return substitutions;
     }
 
