@@ -76,7 +76,7 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
     }
 
     private XmlMeemGerundNounFormula appliedXmlMeemGerundNounFormula;
-    public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
+    public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) throws Exception {
         LinkedList result = new LinkedList();
 
         //add the standard pattern first

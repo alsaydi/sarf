@@ -105,8 +105,8 @@ public class Validator {
      * @param root String
      * @return List
      */
-    public List getTrilateralAlefAlternatives(String root) {
-        List result = new LinkedList();
+    public List<String> getTrilateralAlefAlternatives(String root) {
+        List<String> result = new LinkedList<>();
         if (root.charAt(1) == 'ا' && (root.charAt(2) == 'ا' || root.charAt(2) == 'ى')) {
             result.add(root.charAt(0) + "و" + "و");
             result.add(root.charAt(0) + "و" + "ي");

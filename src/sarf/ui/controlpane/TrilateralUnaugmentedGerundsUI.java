@@ -33,7 +33,11 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  * @version 1.0
  */
 public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPane {
-    private SelectionInfo selectionInfo;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private SelectionInfo selectionInfo;
     private UnaugmentedTrilateralRoot root;
 
     APanel nomenPane = new APanel(new GridLayout(1, 3));
@@ -69,7 +73,7 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
         return this;
     }
 
-    public void setInfo(SelectionInfo selectionInfo) {
+    public void setInfo(SelectionInfo selectionInfo) throws Exception {
 
         this.selectionInfo = selectionInfo;
         root = (UnaugmentedTrilateralRoot) selectionInfo.getRoot();
@@ -98,7 +102,7 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
         repaint();
     }
 
-    private APanel createControlPanel(IUnaugmentedTrilateralGerundConjugator conjugator, IUnaugmentedTrilateralNounModifier modifier, INounSuffixContainer nounSuffixContainer, final String title) {
+    private APanel createControlPanel(IUnaugmentedTrilateralGerundConjugator conjugator, IUnaugmentedTrilateralNounModifier modifier, INounSuffixContainer nounSuffixContainer, final String title) throws Exception {
         ButtonGroup bg = new ButtonGroup();
 
         List formulas = conjugator.getAppliedFormulaList(root);

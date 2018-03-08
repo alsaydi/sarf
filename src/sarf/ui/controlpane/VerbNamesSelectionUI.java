@@ -69,7 +69,11 @@ public class VerbNamesSelectionUI extends JPanel implements IControlPane {
             public void actionPerformed(ActionEvent e) {
                 if (selectionInfo.isTrilateral() && !selectionInfo.isAugmented()) {
                     TrilateralUnaugmentedGerundsUI gerundSelectionUI = (TrilateralUnaugmentedGerundsUI) ControlPaneContainer.getInstance().openControlPane(TrilateralUnaugmentedGerundsUI.class.getName());
-                    gerundSelectionUI.setInfo(selectionInfo);
+                    try {
+						gerundSelectionUI.setInfo(selectionInfo);
+					} catch (Exception e1) {
+						e1.printStackTrace();
+					}
                 }
                 else {
                     GerundSelectionUI gerundSelectionUI = (GerundSelectionUI) ControlPaneContainer.getInstance().openControlPane(GerundSelectionUI.class.getName());

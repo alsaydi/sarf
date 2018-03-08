@@ -29,7 +29,7 @@ public class SarfDictionary {
         return instance;
     }
 
-    public AugmentedTrilateralRoot getAugmentedTrilateralRoot(String rootText) {
+    public AugmentedTrilateralRoot getAugmentedTrilateralRoot(String rootText) throws Exception {
         char c1 = rootText.charAt(0);
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);
@@ -46,7 +46,7 @@ public class SarfDictionary {
         return null;
     }
 
-    public List getUnaugmentedTrilateralRoots(String rootText) {
+    public List getUnaugmentedTrilateralRoots(String rootText) throws Exception {
         char c1 = rootText.charAt(0);
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);

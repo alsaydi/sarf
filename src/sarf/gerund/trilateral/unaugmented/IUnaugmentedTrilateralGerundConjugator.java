@@ -17,5 +17,5 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
  */
 public interface IUnaugmentedTrilateralGerundConjugator {
     public List createGerundList(UnaugmentedTrilateralRoot root, String formulaName);
-    public List getAppliedFormulaList(UnaugmentedTrilateralRoot root);
+    public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) throws Exception;
 }

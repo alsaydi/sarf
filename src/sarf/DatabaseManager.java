@@ -67,18 +67,16 @@ public class DatabaseManager {
 	 * @param c1
 	 *            char
 	 * @return UnaugmentedTrilateralRootTree
+	 * @throws Exception
 	 */
-	public UnaugmentedTrilateralRootTree getUnaugmentedTrilateralRootTree(char c1) {
-		UnaugmentedTrilateralRootTree rootsTree = (UnaugmentedTrilateralRootTree) tripleUnaugmentedTreeMap.get(c1 + "");
-		if (rootsTree == null) {
-			try {
-				rootsTree = UnaugmentedTrilateralRootTreeCreator
-						.buildXmlVerbTree(new File("./db/trilateral/unaugmented/" + c1 + ".xml"));
-				tripleUnaugmentedTreeMap.put(c1 + "", rootsTree);
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-		}
+	public UnaugmentedTrilateralRootTree getUnaugmentedTrilateralRootTree(char c1) throws Exception {
+		UnaugmentedTrilateralRootTree rootsTree = tripleUnaugmentedTreeMap.get(c1 + "");
+		if (rootsTree != null)
+			return rootsTree;
+
+		rootsTree = UnaugmentedTrilateralRootTreeCreator
+				.buildXmlVerbTree(new File("./db/trilateral/unaugmented/" + c1 + ".xml"));
+		tripleUnaugmentedTreeMap.put(c1 + "", rootsTree);
 		return rootsTree;
 	}
 
@@ -88,18 +86,16 @@ public class DatabaseManager {
 	 * @param c1
 	 *            char
 	 * @return AugmentedTrilateralRootTree
+	 * @throws Exception
 	 */
-	public AugmentedTrilateralRootTree getAugmentedTrilateralRootTree(char c1) {
-		AugmentedTrilateralRootTree rootsTree = (AugmentedTrilateralRootTree) tripleAugmentedTreeMap.get(c1 + "");
-		if (rootsTree == null) {
-			try {
-				rootsTree = AugmentedTrilateralRootTreeCreator
-						.buildXmlVerbTree(new File("./db/trilateral/augmented/" + c1 + ".xml"));
-				tripleAugmentedTreeMap.put(c1 + "", rootsTree);
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-		}
+	public AugmentedTrilateralRootTree getAugmentedTrilateralRootTree(char c1) throws Exception {
+		AugmentedTrilateralRootTree rootsTree = tripleAugmentedTreeMap.get(c1 + "");
+		if (rootsTree != null)
+			return rootsTree;
+
+		rootsTree = AugmentedTrilateralRootTreeCreator
+				.buildXmlVerbTree(new File("./db/trilateral/augmented/" + c1 + ".xml"));
+		tripleAugmentedTreeMap.put(c1 + "", rootsTree);
 		return rootsTree;
 	}
 
@@ -111,15 +107,13 @@ public class DatabaseManager {
 	 * @return UnaugmentedQuadriliteralRootTree
 	 */
 	public UnaugmentedQuadriliteralRootTree getUnaugmentedQuadriliteralRootTree(char c1) throws Exception {
-		UnaugmentedQuadriliteralRootTree rootsTree = (UnaugmentedQuadriliteralRootTree) quadriliteralUnaugmentedTreeMap
-				.get(c1 + "");
-		if (rootsTree == null) {
+		UnaugmentedQuadriliteralRootTree rootsTree = quadriliteralUnaugmentedTreeMap.get(c1 + "");
+		if (rootsTree != null)
+			return rootsTree;
 
-			rootsTree = UnaugmentedQuadriliteralRootTreeCreator
-					.buildXmlVerbTree(new File("./db/quadriliteral/unaugmented/" + c1 + ".xml"));
-			quadriliteralUnaugmentedTreeMap.put(c1 + "", rootsTree);
-
-		}
+		rootsTree = UnaugmentedQuadriliteralRootTreeCreator
+				.buildXmlVerbTree(new File("./db/quadriliteral/unaugmented/" + c1 + ".xml"));
+		quadriliteralUnaugmentedTreeMap.put(c1 + "", rootsTree);
 		return rootsTree;
 	}
 
@@ -131,15 +125,13 @@ public class DatabaseManager {
 	 * @return AugmentedQuadriliteralRootTree
 	 */
 	public AugmentedQuadriliteralRootTree getAugmentedQuadriliteralRootTree(char c1) throws Exception {
-		AugmentedQuadriliteralRootTree rootsTree = (AugmentedQuadriliteralRootTree) quadriliteralAugmentedTreeMap
-				.get(c1 + "");
-		if (rootsTree == null) {
+		AugmentedQuadriliteralRootTree rootsTree = quadriliteralAugmentedTreeMap.get(c1 + "");
+		if (rootsTree != null)
+			return rootsTree;
 
-			rootsTree = AugmentedQuadriliteralRootTreeCreator
-					.buildXmlVerbTree(new File("./db/quadriliteral/augmented/" + c1 + ".xml"));
-			quadriliteralAugmentedTreeMap.put(c1 + "", rootsTree);
-
-		}
+		rootsTree = AugmentedQuadriliteralRootTreeCreator
+				.buildXmlVerbTree(new File("./db/quadriliteral/augmented/" + c1 + ".xml"));
+		quadriliteralAugmentedTreeMap.put(c1 + "", rootsTree);
 		return rootsTree;
 	}
 
@@ -149,52 +141,46 @@ public class DatabaseManager {
 	 * @param c1
 	 *            char
 	 * @return UnaugmentedTrilateralRootTree
+	 * @throws Exception
 	 */
-	public XmlNounFormulaTree getXmlNounFormulaTree(char c1, String folderName) {
+	public XmlNounFormulaTree getXmlNounFormulaTree(char c1, String folderName) throws Exception {
 		Map<String, XmlNounFormulaTree> folderMap = allNounsTreeMap.get(folderName);
 		if (folderMap == null) {
 			allNounsTreeMap.put(folderName, folderMap = new HashMap<>());
 		}
 
 		XmlNounFormulaTree formulaTree = folderMap.get(c1 + "");
-		if (formulaTree == null) {
-			try {
-				File file = new File("./db/noun/" + folderName + "/" + c1 + ".xml");
-				if (!file.exists())
-					// there is no applied file for this char
-					return null;
+		if (formulaTree != null)
+			return formulaTree;
 
-				formulaTree = XmlNounFormulaTreeCreator.buildNounFormulaTree(file);
-				folderMap.put(c1 + "", formulaTree);
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-		}
+		String fileName = "./db/noun/" + folderName + "/" + c1 + ".xml";
+		File file = new File(fileName);
+		if (!file.exists())
+			// there is no applied file for this char
+			throw new FileNotFoundException(fileName + " was not found.");
+
+		formulaTree = XmlNounFormulaTreeCreator.buildNounFormulaTree(file);
+		folderMap.put(c1 + "", formulaTree);
 		return formulaTree;
 	}
 
-	public XmlMeemGerundNounFormulaTree getMeemGerundFormulaTree(char c1) {
-
+	public XmlMeemGerundNounFormulaTree getMeemGerundFormulaTree(char c1) throws Exception {
 		XmlMeemGerundNounFormulaTree formulaTree = meemGerundMap.get(c1 + "");
-		if (formulaTree == null) {
-			try {
-				File file = new File("./db/gerund/meem/" + c1 + ".xml");
-				if (!file.exists())
-					// there is no applied file for this char
-					return null;
+		if (formulaTree != null)
+			return formulaTree;
 
-				formulaTree = XmlMeemGerundNounFormulaTreeCreator.buildNounFormulaTree(file);
-				meemGerundMap.put(c1 + "", formulaTree);
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-		}
+		File file = new File("./db/gerund/meem/" + c1 + ".xml");
+		if (!file.exists())
+			// there is no applied file for this char
+			return null;
+
+		formulaTree = XmlMeemGerundNounFormulaTreeCreator.buildNounFormulaTree(file);
+		meemGerundMap.put(c1 + "", formulaTree);
 		return formulaTree;
 	}
 
 	public AssimilateAdjectiveFormulaTree getAssimilateAdjectiveFormulaTree(char c1) {
-		AssimilateAdjectiveFormulaTree formulaTree = (AssimilateAdjectiveFormulaTree) assimilateAdjectiveMap
-				.get(c1 + "");
+		AssimilateAdjectiveFormulaTree formulaTree = assimilateAdjectiveMap.get(c1 + "");
 		if (formulaTree == null) {
 			try {
 				File file = new File("./db/noun/assimilate/" + c1 + ".xml");

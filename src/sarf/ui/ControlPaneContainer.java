@@ -31,7 +31,11 @@ import sarf.verb.trilateral.unaugmented.*;
  */
 public class ControlPaneContainer extends JPanel {
 
-    private Map controlPaneMap = new HashMap();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Map controlPaneMap = new HashMap();
     private JButton startBtn = new RenderedButton("أدخل جذراً ثلاثياً أو رباعياً");
     private JButton backBtn = new RenderedButton("عودة");
     private JTextField rootFld = new JTextField(5);
@@ -42,7 +46,7 @@ public class ControlPaneContainer extends JPanel {
 
     //store the opened panels so you can go back and forward
     private List panelCashSet = new LinkedList();
-    //used a s a refernce to the current panel for the back-forward
+    //used a s a reference to the current panel for the back-forward
     private IControlPane currentControlPane;
     private JTextField kovFld = new JTextField(14);
     private JTextField transitiveTypeFld = new JTextField(8);
@@ -85,6 +89,7 @@ public class ControlPaneContainer extends JPanel {
                 }
                 catch (IOException ex) {
                     ex.printStackTrace();
+                    ShowMessageBox(ex);
                 }
             }
         });
@@ -102,6 +107,7 @@ public class ControlPaneContainer extends JPanel {
                 }
                 catch (IOException ex) {
                     ex.printStackTrace();
+                    ShowMessageBox(ex);
                 }
             }
         });
@@ -243,7 +249,12 @@ public class ControlPaneContainer extends JPanel {
 
         rootFld.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                rootEntered();
+                try {
+					rootEntered();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
             }
         });
 
@@ -263,12 +274,17 @@ public class ControlPaneContainer extends JPanel {
 
         startBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                rootEntered();
+                try {
+					rootEntered();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+					ShowMessageBox(e1);
+				}
             }
         });
     }
 
-    private void rootEntered() {
+    private void rootEntered() throws Exception {
         reset();
         String root = rootFld.getText();
 
@@ -317,7 +333,7 @@ public class ControlPaneContainer extends JPanel {
         }
     }
 
-    private void processTrilateral(String root) {
+    private void processTrilateral(String root) throws Exception {
         List alefAlternatives = Validator.getInstance().getTrilateralAlefAlternatives(root);
         if (alefAlternatives.isEmpty()) {
             //لا يوجد احتمالات للألف
@@ -578,6 +594,7 @@ public class ControlPaneContainer extends JPanel {
             }
             catch (Exception ex) {
                 ex.printStackTrace();
+                ShowMessageBox(ex);
             }
         }
         return controlPane;
@@ -693,6 +710,10 @@ public class ControlPaneContainer extends JPanel {
         this.pref = pref;
         String result = pref.get("HideIntro", null);
         showIntroMnuItm.setSelected(result.equals("false"));
+    }
+    
+    private void ShowMessageBox(Object message) {
+    	JOptionPane.showMessageDialog(ControlPaneContainer.this, message, "البرنامج واجه خطأ", JOptionPane.ERROR_MESSAGE);
     }
 
 }
