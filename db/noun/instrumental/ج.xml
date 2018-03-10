@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf8" ?>
+<formulas>
+	<formula c1="ج" c2="د" c3="ف" form1="E" form2="">
+	</formula>
+	<formula c1="ج" c2="ر" c3="ف" form1="E" form2="">
+	</formula>
+	<formula c1="ج" c2="ر" c3="ر" form1="H" form2="K">
+	</formula>
+	<formula c1="ج" c2="د" c3="ل" form1="J" form2="">
+	</formula>
+</formulas>

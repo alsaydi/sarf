@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf8" ?>
+<formulas>
+	<formula c1="ز" c2="ب" c3="ل" noc="2" form1="C" form2="">
+	</formula>
+	<formula c1="ز" c2="ج" c3="ر" noc="1" form1="A" form2="">
+	</formula>
+	<formula c1="ز" c2="ج" c3="ل" noc="1" form1="A" form2="">
+	</formula>
+	<formula c1="ز" c2="ح" c3="ف" noc="3" form1="A" form2="">
+	</formula>
+	<formula c1="ز" c2="ح" c3="ل" noc="3" form1="A" form2="">
+	</formula>
+	<formula c1="ز" c2="ر" c3="ع" noc="3" form1="C" form2="">
+	</formula>
+	<formula c1="ز" c2="ل" c3="ق" noc="1" form1="A" form2="">
+	</formula>
+	<formula c1="ز" c2="ل" c3="ل" noc="2" form1="C" form2="">
+	</formula>
+	<formula c1="ز" c2="و" c3="ر" noc="1" form1="A" form2="">
+	</formula>
+	<formula c1="ز" c2="ي" c3="د" noc="2" form1="A" form2="">
+	</formula>
+</formulas>

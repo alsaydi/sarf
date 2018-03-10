@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf8" ?>
+<roots>
+	<root c1="ب" c2="ء" c3="ب" c4="ء" transitive="ك">
+	</root>
+	<root c1="ب" c2="ء" c3="د" c4="ل" transitive="ل">
+	</root>
+	<root c1="ب" c2="ء" c3="ذ" c4="ن" transitive="ل">
+	</root>
+	<root c1="ب" c2="ث" c3="ب" c4="ث" transitive="م">
+	</root>
+	<root c1="ب" c2="ج" c3="ب" c4="ج" transitive="ك">
+	</root>
+	<root c1="ب" c2="ح" c3="ب" c4="ح" transitive="ك">
+	</root>
+	<root c1="ب" c2="ح" c3="ت" c4="ن" transitive="ل">
+	</root>
+	<root c1="ب" c2="ح" c3="ث" c4="ر" transitive="ك">
+	</root>
+	<root c1="ب" c2="ح" c3="د" c4="ل" transitive="ل">
+	</root>
+	<root c1="ب" c2="ح" c3="ش" c4="ل" transitive="ل">
+	</root>
+	<root c1="ب" c2="ح" c3="ظ" c4="ل" transitive="ل">
+	</root>
+	<root c1="ب" c2="خ" c3="ب" c4="خ" transitive="ك">
+	</root>
+	<root c1="ب" c2="خ" c3="ت" c4="ر" transitive="ل">
+	</root>
+	<root c1="ب" c2="خ" c3="ث" c4="ر" transitive="م">
+	</root>
+	<root c1="ب" c2="خ" c3="ذ" c4="ع" transitive="م">
+	</root>
+	<root c1="ب" c2="خ" c3="ض" c4="ل" transitive="ل">
+	</root>
+	<root c1="ب" c2="خ" c3="ل" c4="ص" transitive="ل">
+	</root>
+	<root c1="ب" c2="خ" c3="ن" c4="ق" transitive="م">
+	</root>
+	<root c1="ب" c2="ذ" c3="ب" c4="ذ" transitive="ك">
+	</root>
+	<root c1="ب" c2="ذ" c3="ر" c4="ق" transitive="ك">
+	</root>
+	<root c1="ب" c2="ذ" c3="ق" c4="ط" transitive="م">
+	</root>
+	<root c1="ب" c2="ذ" c3="ل" c4="خ" transitive="ل">
+	</root>
+	<root c1="ب" c2="ر" c3="ء" c4="ل" transitive="ل">
+	</root>
+	<root c1="ب" c2="ر" c3="ب" c4="ر" transitive="ل">
+	</root>
+	<root c1="ب" c2="ر" c3="ب" c4="س" transitive="م">
+	</root>
+	<root c1="ب" c2="ر" c3="ب" c4="ص" transitive="م">
+	</root>
+	<root c1="ب" c2="ر" c3="ت" c4="ك" transitive="م">
+	</root>
+	<root c1="ب" c2="ر" c3="ث" c4="ط" transitive="ل">
+	</root>
+	<root c1="ب" c2="ر" c3="ج" c4="م" transitive="ك">
+	</root>
+	<root c1="ب" c2="ر" c3="ذ" c4="ن" transitive="ك">
+	</root>
+	<root c1="ب" c2="ر" c3="س" c4="م" transitive="م">
+	</root>
+	<root c1="ب" c2="ر" c3="ش" c4="ط" transitive="م">
+	</root>
+	<root c1="ب" c2="ر" c3="ش" c4="ق" transitive="م">
+	</root>
+	<root c1="ب" c2="ر" c3="ش" c4="ك" transitive="م">
+	</root>
+	<root c1="ب" c2="ر" c3="ش" c4="م" transitive="ك">
+	</root>
+	<root c1="ب" c2="ر" c3="ط" c4="س" transitive="ل">
+	</root>
+	<root c1="ب" c2="ر" c3="ط" c4="ل" transitive="ك">
+	</root>
+	<root c1="ب" c2="ر" c3="ط" c4="م" transitive="ك">
+	</root>
+	<root c1="ب" c2="ر" c3="ع" c4="م" transitive="ل">
+	</root>
+	<root c1="ب" c2="ر" c3="غ" c4="ث" transitive="ل">
+	</root>
+	<root c1="ب" c2="ر" c3="غ" c4="ش" transitive="ل">
+	</root>
+	<root c1="ب" c2="ر" c3="غ" c4="ل" transitive="ل">
+	</root>
+	<root c1="ب" c2="ر" c3="ق" c4="ح" transitive="ل">
+	</root>
+	<root c1="ب" c2="ر" c3="ق" c4="ش" transitive="ك">
+	</root>
+	<root c1="ب" c2="ر" c3="ق" c4="ط" transitive="ك">
+	</root>
+	<root c1="ب" c2="ر" c3="ق" c4="ع" transitive="م">
+	</root>
+	<root c1="ب" c2="ر" c3="ق" c4="ل" transitive="ل">
+	</root>
+	<root c1="ب" c2="ر" c3="ك" c4="ع" transitive="ك">
+	</root>
+	<root c1="ب" c2="ر" c3="م" c4="ج" transitive="م">
+	</root>
+	<root c1="ب" c2="ر" c3="ن" c4="س" transitive="م">
+	</root>
+	<root c1="ب" c2="ر" c3="ن" c4="ق" transitive="م">
+	</root>
+	<root c1="ب" c2="ر" c3="ه" c4="م" transitive="ل">
+	</root>
+	<root c1="ب" c2="ر" c3="ه" c4="ن" transitive="ك">
+	</root>
+	<root c1="ب" c2="ر" c3="و" c4="ز" transitive="م">
+	</root>
+	<root c1="ب" c2="ز" c3="ب" c4="ز" transitive="ك">
+	</root>
+	<root c1="ب" c2="ز" c3="م" c4="خ" transitive="ل">
+	</root>
+	<root c1="ب" c2="س" c3="ب" c4="س" transitive="ل">
+	</root>
+	<root c1="ب" c2="س" c3="ت" c4="ر" transitive="م">
+	</root>
+	<root c1="ب" c2="س" c3="م" c4="ل" transitive="ل">
+	</root>
+	<root c1="ب" c2="ش" c3="ب" c4="ش" transitive="ل">
+	</root>
+	<root c1="ب" c2="ص" c3="ب" c4="ص" transitive="ك">
+	</root>
+	<root c1="ب" c2="ض" c3="ب" c4="ض" transitive="م">
+	</root>
+	<root c1="ب" c2="ط" c3="ب" c4="ط" transitive="م">
+	</root>
+	<root c1="ب" c2="ظ" c3="ر" c4="م" transitive="ل">
+	</root>
+	<root c1="ب" c2="ع" c3="ب" c4="ع" transitive="ل">
+	</root>
+	<root c1="ب" c2="ع" c3="ث" c4="ر" transitive="ك">
+	</root>
+	<root c1="ب" c2="ع" c3="ذ" c4="ر" transitive="م">
+	</root>
+	<root c1="ب" c2="ع" c3="ز" c4="ق" transitive="م">
+	</root>
+	<root c1="ب" c2="ع" c3="ك" c4="ر" transitive="م">
+	</root>
+	<root c1="ب" c2="ع" c3="ن" c4="س" transitive="ل">
+	</root>
+	<root c1="ب" c2="غ" c3="ب" c4="غ" transitive="م">
+	</root>
+	<root c1="ب" c2="غ" c3="ث" c4="ر" transitive="ك">
+	</root>
+	<root c1="ب" c2="غ" c3="س" c4="ل" transitive="ل">
+	</root>
+	<root c1="ب" c2="ق" c3="ب" c4="ق" transitive="ك">
+	</root>
+	<root c1="ب" c2="ك" c3="ب" c4="ك" transitive="ك">
+	</root>
+	<root c1="ب" c2="ل" c3="ء" c4="ز" transitive="ل">
+	</root>
+	<root c1="ب" c2="ل" c3="ء" c4="ص" transitive="ل">
+	</root>
+	<root c1="ب" c2="ل" c3="ب" c4="ل" transitive="م">
+	</root>
+	<root c1="ب" c2="ل" c3="ت" c4="ي" transitive="م">
+	</root>
+	<root c1="ب" c2="ل" c3="ج" c4="م" transitive="م">
+	</root>
+	<root c1="ب" c2="ل" c3="ح" c4="م" transitive="م">
+	</root>
+	<root c1="ب" c2="ل" c3="د" c4="ح" transitive="ل">
+	</root>
+	<root c1="ب" c2="ل" c3="د" c4="م" transitive="ل">
+	</root>
+	<root c1="ب" c2="ل" c3="س" c4="م" transitive="ك">
+	</root>
+	<root c1="ب" c2="ل" c3="ص" c4="م" transitive="ل">
+	</root>
+	<root c1="ب" c2="ل" c3="ط" c4="ح" transitive="ك">
+	</root>
+	<root c1="ب" c2="ل" c3="ط" c4="م" transitive="ل">
+	</root>
+	<root c1="ب" c2="ل" c3="ع" c4="ك" transitive="م">
+	</root>
+	<root c1="ب" c2="ل" c3="ع" c4="م" transitive="م">
+	</root>
+	<root c1="ب" c2="ل" c3="ق" c4="ع" transitive="ل">
+	</root>
+	<root c1="ب" c2="ل" c3="ك" c4="ع" transitive="م">
+	</root>
+	<root c1="ب" c2="ل" c3="ه" c4="س" transitive="ل">
+	</root>
+	<root c1="ب" c2="ل" c3="ه" c4="ص" transitive="ل">
+	</root>
+	<root c1="ب" c2="ل" c3="ه" c4="ق" transitive="ل">
+	</root>
+	<root c1="ب" c2="ل" c3="و" c4="ر" transitive="م">
+	</root>
+	<root c1="ب" c2="ن" c3="ب" c4="ن" transitive="ل">
+	</root>
+	<root c1="ب" c2="ن" c3="د" c4="ق" transitive="ك">
+	</root>
+	<root c1="ب" c2="ه" c3="ب" c4="ه" transitive="ل">
+	</root>
+	<root c1="ب" c2="ه" c3="ت" c4="ر" transitive="ل">
+	</root>
+	<root c1="ب" c2="ه" c3="د" c4="ل" transitive="ل">
+	</root>
+	<root c1="ب" c2="ه" c3="ر" c4="ج" transitive="ك">
+	</root>
+	<root c1="ب" c2="ه" c3="ر" c4="م" transitive="م">
+	</root>
+	<root c1="ب" c2="ه" c3="ص" c4="ل" transitive="ك">
+	</root>
+	<root c1="ب" c2="ه" c3="ل" c4="ق" transitive="ك">
+	</root>
+	<root c1="ب" c2="ه" c3="ن" c4="س" transitive="ل">
+	</root>
+	<root c1="ب" c2="ي" c3="د" c4="ر" transitive="م">
+	</root>
+	<root c1="ب" c2="ي" c3="ط" c4="ر" transitive="ل">
+	</root>
+	<root c1="ب" c2="ي" c3="ق" c4="ر" transitive="ل">
+	</root>
+</roots>

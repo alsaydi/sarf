@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf8" ?>
+<formulas>
+	<formula c1="ص" c2="ب" c3="ح">
+	</formula>
+	<formula c1="ص" c2="ب" c3="ر">
+	</formula>
+	<formula c1="ص" c2="د" c3="ق">
+	</formula>
+	<formula c1="ص" c2="ر" c3="ح">
+	</formula>
+	<formula c1="ص" c2="ع" c3="ب">
+	</formula>
+	<formula c1="ص" c2="غ" c3="ر">
+	</formula>
+</formulas>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf8" ?>
+<formulas>
+	<formula c1="ح" c2="ب" c3="س" noc="2" form1="B" form2="">
+	</formula>
+	<formula c1="ح" c2="ب" c3="ل" noc="4" form1="A" form2="">
+	</formula>
+	<formula c1="ح" c2="ج" c3="ر" noc="1" form1="A" form2="">
+	</formula>
+	<formula c1="ح" c2="ج" c3="م" noc="1" form1="A" form2="">
+	</formula>
+	<formula c1="ح" c2="ز" c3="ز" noc="1" form1="A" form2="">
+	</formula>
+	<formula c1="ح" c2="ش" c3="ر" noc="1" form1="A" form2="">
+	</formula>
+	<formula c1="ح" c2="ص" c3="ب" noc="1" form1="C" form2="">
+	</formula>
+	<formula c1="ح" c2="ض" c3="ر" noc="1" form1="A" form2="">
+	</formula>
+	<formula c1="ح" c2="ط" c3="ط" noc="1" form1="A" form2="C">
+	</formula>
+	<formula c1="ح" c2="ف" c3="ل" noc="2" form1="B" form2="">
+	</formula>
+	<formula c1="ح" c2="ق" c3="ل" noc="2" form1="C" form2="">
+	</formula>
+	<formula c1="ح" c2="ك" c3="م" noc="1" form1="C" form2="">
+	</formula>
+	<formula c1="ح" c2="ل" c3="ب" noc="1" form1="A" form2="">
+	</formula>
+	<formula c1="ح" c2="ل" c3="ج" noc="1" form1="A" form2="">
+	</formula>
+	<formula c1="ح" c2="ل" c3="ل" noc="1" form1="A" form2="C">
+	</formula>
+	<formula c1="ح" c2="و" c3="ط" noc="1" form1="A" form2="">
+	</formula>
+</formulas>

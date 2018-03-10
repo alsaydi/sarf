@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf8" ?>
+<formulas>
+	<formula c1="ذ" c2="ر" c3="ب" form1="I" form2="" form3="">
+	</formula>
+	<formula c1="ذ" c2="ع" c3="ر" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ذ" c2="ع" c3="ن" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="ذ" c2="ك" c3="ر" form1="C" form2="" form3="">
+	</formula>
+	<formula c1="ذ" c2="ن" c3="ب" form1="B" form2="" form3="">
+	</formula>
+	<formula c1="ذ" c2="ي" c3="ع" form1="C" form2="" form3="">
+	</formula>
+</formulas>

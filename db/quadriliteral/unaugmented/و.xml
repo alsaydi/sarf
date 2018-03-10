@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf8" ?>
+<roots>
+	<root c1="و" c2="ء" c3="و" c4="ء" transitive="ل">
+	</root>
+	<root c1="و" c2="ح" c3="و" c4="ح" transitive="ل">
+	</root>
+	<root c1="و" c2="ذ" c3="و" c4="ذ" transitive="ل">
+	</root>
+	<root c1="و" c2="ر" c3="و" c4="ر" transitive="ك">
+	</root>
+	<root c1="و" c2="ز" c3="و" c4="ز" transitive="ك">
+	</root>
+	<root c1="و" c2="س" c3="و" c4="س" transitive="ك">
+	</root>
+	<root c1="و" c2="ش" c3="و" c4="ش" transitive="ك">
+	</root>
+	<root c1="و" c2="ص" c3="و" c4="ص" transitive="ك">
+	</root>
+	<root c1="و" c2="ط" c3="و" c4="ط" transitive="ل">
+	</root>
+	<root c1="و" c2="ع" c3="و" c4="ع" transitive="ك">
+	</root>
+	<root c1="و" c2="ق" c3="و" c4="ق" transitive="ل">
+	</root>
+	<root c1="و" c2="ك" c3="و" c4="ك" transitive="ل">
+	</root>
+	<root c1="و" c2="ل" c3="و" c4="ل" transitive="ل">
+	</root>
+	<root c1="و" c2="ه" c3="و" c4="ه" transitive="ل">
+	</root>
+</roots>

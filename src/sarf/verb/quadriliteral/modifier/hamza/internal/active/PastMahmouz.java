@@ -1,0 +1,33 @@
+package sarf.verb.quadriliteral.modifier.hamza.internal.active;
+
+import java.util.*;
+
+import sarf.verb.quadriliteral.substitution.*;
+
+/**
+ * <p>Title: Sarf Program</p>
+ *
+ * <p>Description: </p>
+ *
+ * <p>Copyright: Copyright (c) 2006</p>
+ *
+ * <p>Company: ALEXO</p>
+ *
+ * @author Haytham Mohtasseb Billah
+ * @version 1.0
+ */
+public class PastMahmouz extends SubstitutionsApplier {
+
+    private List substitutions = new LinkedList();
+
+    public PastMahmouz() {
+        substitutions.add(new InfixSubstitution("َءْ", "َأْ")); // EX: (بَأْدَلَ، تَثَأْلَلَ)
+        substitutions.add(new InfixSubstitution("ْءَ", "ْأَ")); // EX: (طَمْأَنَ، تَطَمْأَنَ، تَمَرْأَى، اشرَأْبَبْتُ)
+        substitutions.add(new InfixSubstitution("َءَ", "َأَ")); // EX: (اطْمَأَنَّ)
+    }
+
+
+    public List getSubstitutions() {
+        return substitutions;
+    }
+}

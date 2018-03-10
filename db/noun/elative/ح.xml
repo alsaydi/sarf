@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf8" ?>
+<formulas>
+	<formula c1="ح" c2="ب" c3="ب">
+	</formula>
+	<formula c1="ح" c2="ر" c3="ر">
+	</formula>
+	<formula c1="ح" c2="ر" c3="ص">
+	</formula>
+	<formula c1="ح" c2="ز" c3="م">
+	</formula>
+	<formula c1="ح" c2="س" c3="ن">
+	</formula>
+	<formula c1="ح" c2="ص" c3="ف">
+	</formula>
+	<formula c1="ح" c2="ق" c3="ر">
+	</formula>
+	<formula c1="ح" c2="ك" c3="م">
+	</formula>
+	<formula c1="ح" c2="ل" c3="م">
+	</formula>
+	<formula c1="ح" c2="ل" c3="و">
+	</formula>
+	<formula c1="ح" c2="م" c3="ض">
+	</formula>
+</formulas>

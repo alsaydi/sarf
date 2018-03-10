@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf8" ?>
+<formulas>
+	<formula c1="ء" c2="ث" c3="ر" symbol1="D" gerund1="مَأْثُرة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ء" c2="د" c3="ب" symbol1="D" gerund1="مَأْدُبَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ء" c2="ر" c3="ب" symbol1="D" gerund1="مَأْرُبَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ء" c2="ك" c3="ل" symbol1="C" gerund1="مَأْكَلَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ء" c2="ل" c3="ك" symbol1="D" gerund1="مَأْلُكَة" symbol2="" gerund2="">
+	</formula>
+	<formula c1="ء" c2="ن" c3="ن" symbol1="E" gerund1="مَئِنَّة" symbol2="" gerund2="">
+	</formula>
+</formulas>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf8" ?>
+<roots>
+	<root c1="ت" c2="ر" c3="ت" c4="ر">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="ت" c2="ع" c3="ت" c4="ع">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="ت" c2="ق" c3="ت" c4="ق">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+	<root c1="ت" c2="ل" c3="ء" c4="ب">
+		<augmentationFormula formulaNo="3" transitive="ل" />
+	</root>
+	<root c1="ت" c2="ل" c3="م" c4="ذ">
+		<augmentationFormula formulaNo="1" transitive="ك" />
+	</root>
+	<root c1="ت" c2="م" c3="ء" c4="ر">
+		<augmentationFormula formulaNo="3" transitive="ل" />
+	</root>
+	<root c1="ت" c2="م" c3="ء" c4="ل">
+		<augmentationFormula formulaNo="3" transitive="ل" />
+	</root>
+	<root c1="ت" c2="م" c3="ه" c4="ل">
+		<augmentationFormula formulaNo="3" transitive="ل" />
+	</root>
+	<root c1="ت" c2="ه" c3="ت" c4="ه">
+		<augmentationFormula formulaNo="1" transitive="ل" />
+	</root>
+</roots>

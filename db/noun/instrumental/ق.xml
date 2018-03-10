@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf8" ?>
+<formulas>
+	<formula c1="ق" c2="ن" c3="ن" form1="E" form2="">
+	</formula>
+	<formula c1="ق" c2="ط" c3="ر" form1="F" form2="G">
+	</formula>
+	<formula c1="ق" c2="ن" c3="ع" form1="F" form2="">
+	</formula>
+	<formula c1="ق" c2="ر" c3="ء" form1="G" form2="">
+	</formula>
+	<formula c1="ق" c2="ب" c3="ن" form1="H" form2="">
+	</formula>
+	<formula c1="ق" c2="ذ" c3="ف" form1="H" form2="">
+	</formula>
+	<formula c1="ق" c2="ر" c3="ع" form1="J" form2="">
+	</formula>
+</formulas>

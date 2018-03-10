@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf8" ?>
+<formulas>
+	<formula c1="ي" c2="ب" c3="س" conjugation="4" adj1="A" adj2="B" adj3="D">
+	</formula>
+	<formula c1="ي" c2="ب" c3="س" conjugation="6" adj1="A" adj2="B" adj3="D">
+	</formula>
+	<formula c1="ي" c2="ت" c3="م" conjugation="5" adj1="A" adj2="" adj3="">
+	</formula>
+	<formula c1="ي" c2="س" c3="ر" conjugation="4" adj1="A" adj2="B" adj3="">
+	</formula>
+	<formula c1="ي" c2="س" c3="ر" conjugation="5" adj1="A" adj2="B" adj3="">
+	</formula>
+	<formula c1="ي" c2="ق" c3="ظ" conjugation="4" adj1="B" adj2="E" adj3="">
+	</formula>
+	<formula c1="ي" c2="م" c3="ن" conjugation="5" adj1="C" adj2="" adj3="">
+	</formula>
+</formulas>
