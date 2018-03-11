@@ -1,9 +1,7 @@
 package sarf;
 
 import java.util.*;
-
 import sarf.util.*;
-import sarf.*;
 
 /**
  *  يحتوي على  المعلومات  الصرفية المطلوبة لتصريف الأفعال  في الأمر
