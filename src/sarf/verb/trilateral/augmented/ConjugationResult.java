@@ -20,19 +20,21 @@ public class ConjugationResult {
     private AugmentedTrilateralRoot root;
 
     //13 conjugated verbs
-    private List originalResult;
+    private List<String> originalResult;
     //القائمة بعد  الادغام والاعلال والهمزة
-    private List finalResult;
+    private List<String> finalResult;
 
-    public ConjugationResult(int kov, int formulaNo, AugmentedTrilateralRoot root, List originalResult) {
+    //TODO: I believe originalResult is of List<String> type.
+    
+    public ConjugationResult(int kov, int formulaNo, AugmentedTrilateralRoot root, List<String> originalResult) {
         this.kov = kov;
         this.formulaNo = formulaNo;
         this.originalResult = originalResult;
         this.root = root;
-        this.finalResult = new ArrayList(originalResult);
+        this.finalResult = new ArrayList<String>(originalResult);
     }
 
-    public List getFinalResult() {
+    public List<String> getFinalResult() {
         return finalResult;
     }
 
@@ -40,7 +42,7 @@ public class ConjugationResult {
         return kov;
     }
 
-    public List getOriginalResult() {
+    public List<String> getOriginalResult() {
         return originalResult;
     }
 
