@@ -18,15 +18,15 @@ public class ImperativeConjugationDataContainer {
 
     //قائمة حركات عين الفعل حسب باب التصريف
     //الأمر غير المؤكد
-    private List lastDimList = new ArrayList(13);
+    private List<String> lastDimList = new ArrayList<>(13);
     //الأمر المؤكد
-    private List emphasizedLastDimList = new ArrayList(13);
+    private List<String> emphasizedLastDimList = new ArrayList<>(13);
 
     //قائمة ضمائر الرفع المتصلة
     //الأمر غير المؤكد
-    private List connectedPronounList = new ArrayList(13);
+    private List<String> connectedPronounList = new ArrayList<>(13);
     //الأمر المؤكد
-    private List emphasizedConnectedPronounList = new ArrayList(13);
+    private List<String> emphasizedConnectedPronounList = new ArrayList<>(13);
 
     private static ImperativeConjugationDataContainer instance = new ImperativeConjugationDataContainer();
 
@@ -34,19 +34,19 @@ public class ImperativeConjugationDataContainer {
         return instance;
     }
 
-    public List getEmphasizedConnectedPronounList() {
+    public List<String> getEmphasizedConnectedPronounList() {
         return emphasizedConnectedPronounList;
     }
 
-    public List getEmphasizedLastDimList() {
+    public List<String> getEmphasizedLastDimList() {
         return emphasizedLastDimList;
     }
 
-    public List getConnectedPronounList() {
+    public List<String> getConnectedPronounList() {
         return connectedPronounList;
     }
 
-    public List getLastDimList() {
+    public List<String> getLastDimList() {
         return lastDimList;
     }
 
