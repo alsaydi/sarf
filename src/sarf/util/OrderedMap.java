@@ -15,8 +15,12 @@ import java.util.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class OrderedMap extends HashMap {
-    protected List orderedKeys = new LinkedList();
+public class OrderedMap<TKey, TValue> extends HashMap<TKey, TValue> {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	protected List<TKey> orderedKeys = new LinkedList<>();
 
     public OrderedMap() {
     }
@@ -27,18 +31,18 @@ public class OrderedMap extends HashMap {
      * @param value Object
      * @return Object
      */
-    public Object put(Object key, Object value) {
+    public TValue put(TKey key, TValue value) {
         orderedKeys.add(key);
         return super.put(key, value);
     }
 
-    public Object remove(Object key) {
+    public TValue remove(Object key) {
         orderedKeys.remove(key);
         return super.remove(key);
     }
 
 
-    public List getOrderedKeys() {
+    public List<TKey> getOrderedKeys() {
         return orderedKeys;
     }
 

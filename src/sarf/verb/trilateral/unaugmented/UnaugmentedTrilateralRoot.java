@@ -26,7 +26,7 @@ public class UnaugmentedTrilateralRoot implements TrilateralRoot{
     private String conjugation;
     private String transitive;
 
-    private OrderedMap gerundes = new OrderedMap();
+    private OrderedMap<String, Gerund> gerundes = new OrderedMap<>();
 
     public UnaugmentedTrilateralRoot() {
     }
@@ -51,12 +51,12 @@ public class UnaugmentedTrilateralRoot implements TrilateralRoot{
         return transitive;
     }
 
-    public Collection getGerundsSymbols() {
+    public Collection<String> getGerundsSymbols() {
         return gerundes.getOrderedKeys();
     }
 
     public Gerund getGerund(String symbol) {
-        return (Gerund) gerundes.get(symbol);
+        return gerundes.get(symbol);
     }
 
 
