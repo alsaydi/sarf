@@ -1,102 +1,102 @@
-ï»¿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <roots>
-	<root c1="Ù" c2="Á" c3="È" conjugation="3" transitive="á">
-		<gerund symbol="H1" value="ÙóÃúÈ" />
+	<root c1="Ø¸" c2="Ø¡" c3="Ø¨" conjugation="3" transitive="Ù„">
+		<gerund symbol="H1" value="Ø¸ÙŽØ£Ù’Ø¨" />
 	</root>
-	<root c1="Ù" c2="Á" c3="Ê" conjugation="3" transitive="ã">
-		<gerund symbol="H1" value="ÙóÃúÊ" />
+	<root c1="Ø¸" c2="Ø¡" c3="Øª" conjugation="3" transitive="Ù…">
+		<gerund symbol="H1" value="Ø¸ÙŽØ£Ù’Øª" />
 	</root>
-	<root c1="Ù" c2="Á" c3="Ñ" conjugation="3" transitive="ß">
-		<gerund symbol="H1" value="ÙóÃúÑ" />
-		<gerund symbol="E3" value="ÙöÆóÇÑ" />
-		<gerund symbol="S5" value="ÙõÄõæÑóÉ" />
+	<root c1="Ø¸" c2="Ø¡" c3="Ø±" conjugation="3" transitive="Ùƒ">
+		<gerund symbol="H1" value="Ø¸ÙŽØ£Ù’Ø±" />
+		<gerund symbol="E3" value="Ø¸ÙØ¦ÙŽØ§Ø±" />
+		<gerund symbol="S5" value="Ø¸ÙØ¤ÙÙˆØ±ÙŽØ©" />
 	</root>
-	<root c1="Ù" c2="Á" c3="Ý" conjugation="3" transitive="ã">
-		<gerund symbol="H1" value="ÙóÃúÝ" />
+	<root c1="Ø¸" c2="Ø¡" c3="Ù" conjugation="3" transitive="Ù…">
+		<gerund symbol="H1" value="Ø¸ÙŽØ£Ù’Ù" />
 	</root>
-	<root c1="Ù" c2="Ì" c3="Ì" conjugation="2" transitive="á">
-		<gerund symbol="H1" value="ÙóÌø" />
+	<root c1="Ø¸" c2="Ø¬" c3="Ø¬" conjugation="2" transitive="Ù„">
+		<gerund symbol="H1" value="Ø¸ÙŽØ¬Ù‘" />
 	</root>
-	<root c1="Ù" c2="Ñ" c3="È" conjugation="4" transitive="á">
-		<gerund symbol="H2" value="ÙóÑóÈ" />
+	<root c1="Ø¸" c2="Ø±" c3="Ø¨" conjugation="4" transitive="Ù„">
+		<gerund symbol="H2" value="Ø¸ÙŽØ±ÙŽØ¨" />
 	</root>
-	<root c1="Ù" c2="Ñ" c3="Ñ" conjugation="1" transitive="ß">
-		<gerund symbol="H1" value="ÙóÑø" />
-		<gerund symbol="X1" value="ãóÙóÑøóÉ" />
+	<root c1="Ø¸" c2="Ø±" c3="Ø±" conjugation="1" transitive="Ùƒ">
+		<gerund symbol="H1" value="Ø¸ÙŽØ±Ù‘" />
+		<gerund symbol="X1" value="Ù…ÙŽØ¸ÙŽØ±Ù‘ÙŽØ©" />
 	</root>
-	<root c1="Ù" c2="Ñ" c3="Ý" conjugation="5" transitive="á">
-		<gerund symbol="H1" value="ÙóÑúÝ" />
-		<gerund symbol="F1" value="ÙóÑóÇÝóÉ" />
-		<gerund symbol="H2" value="ÙóÑóÝ" />
+	<root c1="Ø¸" c2="Ø±" c3="Ù" conjugation="5" transitive="Ù„">
+		<gerund symbol="H1" value="Ø¸ÙŽØ±Ù’Ù" />
+		<gerund symbol="F1" value="Ø¸ÙŽØ±ÙŽØ§ÙÙŽØ©" />
+		<gerund symbol="H2" value="Ø¸ÙŽØ±ÙŽÙ" />
 	</root>
-	<root c1="Ù" c2="Ñ" c3="í" conjugation="2" transitive="á">
-		<gerund symbol="H1" value="ÙóÑúí" />
+	<root c1="Ø¸" c2="Ø±" c3="ÙŠ" conjugation="2" transitive="Ù„">
+		<gerund symbol="H1" value="Ø¸ÙŽØ±Ù’ÙŠ" />
 	</root>
-	<root c1="Ù" c2="Ñ" c3="í" conjugation="4" transitive="á">
-		<gerund symbol="H2" value="ÙóÑðì" />
+	<root c1="Ø¸" c2="Ø±" c3="ÙŠ" conjugation="4" transitive="Ù„">
+		<gerund symbol="H2" value="Ø¸ÙŽØ±Ù‹Ù‰" />
 	</root>
-	<root c1="Ù" c2="Ú" c3="ä" conjugation="3" transitive="á">
-		<gerund symbol="H1" value="ÙóÚúä" />
-		<gerund symbol="H2" value="ÙóÚóä" />
-		<gerund symbol="S2" value="ÙõÚõæä" />
+	<root c1="Ø¸" c2="Ø¹" c3="Ù†" conjugation="3" transitive="Ù„">
+		<gerund symbol="H1" value="Ø¸ÙŽØ¹Ù’Ù†" />
+		<gerund symbol="H2" value="Ø¸ÙŽØ¹ÙŽÙ†" />
+		<gerund symbol="S2" value="Ø¸ÙØ¹ÙÙˆÙ†" />
 	</root>
-	<root c1="Ù" c2="Ý" c3="Ñ" conjugation="2" transitive="ß">
-		<gerund symbol="H1" value="ÙóÝúÑ" />
+	<root c1="Ø¸" c2="Ù" c3="Ø±" conjugation="2" transitive="Ùƒ">
+		<gerund symbol="H1" value="Ø¸ÙŽÙÙ’Ø±" />
 	</root>
-	<root c1="Ù" c2="Ý" c3="Ñ" conjugation="4" transitive="ß">
-		<gerund symbol="H2" value="ÙóÝóÑ" />
+	<root c1="Ø¸" c2="Ù" c3="Ø±" conjugation="4" transitive="Ùƒ">
+		<gerund symbol="H2" value="Ø¸ÙŽÙÙŽØ±" />
 	</root>
-	<root c1="Ù" c2="Ý" c3="Ý" conjugation="1" transitive="ã">
-		<gerund symbol="H1" value="ÙóÝø" />
+	<root c1="Ø¸" c2="Ù" c3="Ù" conjugation="1" transitive="Ù…">
+		<gerund symbol="H1" value="Ø¸ÙŽÙÙ‘" />
 	</root>
-	<root c1="Ù" c2="á" c3="Ú" conjugation="3" transitive="ß">
-		<gerund symbol="H1" value="ÙóáúÚ" />
+	<root c1="Ø¸" c2="Ù„" c3="Ø¹" conjugation="3" transitive="Ùƒ">
+		<gerund symbol="H1" value="Ø¸ÙŽÙ„Ù’Ø¹" />
 	</root>
-	<root c1="Ù" c2="á" c3="Ý" conjugation="2" transitive="ã">
-		<gerund symbol="H1" value="ÙóáúÝ" />
+	<root c1="Ø¸" c2="Ù„" c3="Ù" conjugation="2" transitive="Ù…">
+		<gerund symbol="H1" value="Ø¸ÙŽÙ„Ù’Ù" />
 	</root>
-	<root c1="Ù" c2="á" c3="Ý" conjugation="4" transitive="á">
-		<gerund symbol="H2" value="ÙóáóÝ" />
+	<root c1="Ø¸" c2="Ù„" c3="Ù" conjugation="4" transitive="Ù„">
+		<gerund symbol="H2" value="Ø¸ÙŽÙ„ÙŽÙ" />
 	</root>
-	<root c1="Ù" c2="á" c3="á" conjugation="2" transitive="á">
-		<gerund symbol="F1" value="ÙóáÇáóÉ" />
+	<root c1="Ø¸" c2="Ù„" c3="Ù„" conjugation="2" transitive="Ù„">
+		<gerund symbol="F1" value="Ø¸ÙŽÙ„Ø§Ù„ÙŽØ©" />
 	</root>
-	<root c1="Ù" c2="á" c3="á" conjugation="4" transitive="á">
-		<gerund symbol="H1" value="Ùóáø" />
-		<gerund symbol="S2" value="Ùõáõæá" />
+	<root c1="Ø¸" c2="Ù„" c3="Ù„" conjugation="4" transitive="Ù„">
+		<gerund symbol="H1" value="Ø¸ÙŽÙ„Ù‘" />
+		<gerund symbol="S2" value="Ø¸ÙÙ„ÙÙˆÙ„" />
 	</root>
-	<root c1="Ù" c2="á" c3="ã" conjugation="2" transitive="ß">
-		<gerund symbol="H1" value="Ùóáúã" />
-		<gerund symbol="H4" value="Ùõáúã" />
-		<gerund symbol="X1" value="ãóÙúáóãóÉ" />
-		<gerund symbol="X3" value="ãóÙúáöãóÉ" />
+	<root c1="Ø¸" c2="Ù„" c3="Ù…" conjugation="2" transitive="Ùƒ">
+		<gerund symbol="H1" value="Ø¸ÙŽÙ„Ù’Ù…" />
+		<gerund symbol="H4" value="Ø¸ÙÙ„Ù’Ù…" />
+		<gerund symbol="X1" value="Ù…ÙŽØ¸Ù’Ù„ÙŽÙ…ÙŽØ©" />
+		<gerund symbol="X3" value="Ù…ÙŽØ¸Ù’Ù„ÙÙ…ÙŽØ©" />
 	</root>
-	<root c1="Ù" c2="á" c3="ã" conjugation="4" transitive="á">
-		<gerund symbol="H1" value="Ùóáúã" />
+	<root c1="Ø¸" c2="Ù„" c3="Ù…" conjugation="4" transitive="Ù„">
+		<gerund symbol="H1" value="Ø¸ÙŽÙ„Ù’Ù…" />
 	</root>
-	<root c1="Ù" c2="ã" c3="Á" conjugation="4" transitive="á">
-		<gerund symbol="H2" value="ÙóãóÃ" />
-		<gerund symbol="H1" value="ÙóãúÁ" />
-		<gerund symbol="E1" value="ÙóãóÇÁ" />
-		<gerund symbol="F1" value="ÙóãóÇÁóÉ" />
+	<root c1="Ø¸" c2="Ù…" c3="Ø¡" conjugation="4" transitive="Ù„">
+		<gerund symbol="H2" value="Ø¸ÙŽÙ…ÙŽØ£" />
+		<gerund symbol="H1" value="Ø¸ÙŽÙ…Ù’Ø¡" />
+		<gerund symbol="E1" value="Ø¸ÙŽÙ…ÙŽØ§Ø¡" />
+		<gerund symbol="F1" value="Ø¸ÙŽÙ…ÙŽØ§Ø¡ÙŽØ©" />
 	</root>
-	<root c1="Ù" c2="ã" c3="í" conjugation="4" transitive="á">
-		<gerund symbol="H2" value="Ùóãðì" />
-		<gerund symbol="W1" value="ãóÙúãðì" />
+	<root c1="Ø¸" c2="Ù…" c3="ÙŠ" conjugation="4" transitive="Ù„">
+		<gerund symbol="H2" value="Ø¸ÙŽÙ…Ù‹Ù‰" />
+		<gerund symbol="W1" value="Ù…ÙŽØ¸Ù’Ù…Ù‹Ù‰" />
 	</root>
-	<root c1="Ù" c2="ä" c3="ä" conjugation="1" transitive="ß">
-		<gerund symbol="H1" value="Ùóäø" />
+	<root c1="Ø¸" c2="Ù†" c3="Ù†" conjugation="1" transitive="Ùƒ">
+		<gerund symbol="H1" value="Ø¸ÙŽÙ†Ù‘" />
 	</root>
-	<root c1="Ù" c2="å" c3="Ñ" conjugation="3" transitive="ß">
-		<gerund symbol="S2" value="ÙõåõæÑ" />
-		<gerund symbol="H1" value="ÙóåúÑ" />
-		<gerund symbol="F1" value="ÙóåóÇÑóÉ" />
+	<root c1="Ø¸" c2="Ù‡" c3="Ø±" conjugation="3" transitive="Ùƒ">
+		<gerund symbol="S2" value="Ø¸ÙÙ‡ÙÙˆØ±" />
+		<gerund symbol="H1" value="Ø¸ÙŽÙ‡Ù’Ø±" />
+		<gerund symbol="F1" value="Ø¸ÙŽÙ‡ÙŽØ§Ø±ÙŽØ©" />
 	</root>
-	<root c1="Ù" c2="å" c3="Ñ" conjugation="4" transitive="á">
-		<gerund symbol="H2" value="ÙóåóÑ" />
+	<root c1="Ø¸" c2="Ù‡" c3="Ø±" conjugation="4" transitive="Ù„">
+		<gerund symbol="H2" value="Ø¸ÙŽÙ‡ÙŽØ±" />
 	</root>
-	<root c1="Ù" c2="æ" c3="Ý" conjugation="1" transitive="ã">
-		<gerund symbol="H1" value="ÙóæúÝ" />
-		<gerund symbol="H2" value="ÙóÇÝ" />
+	<root c1="Ø¸" c2="Ùˆ" c3="Ù" conjugation="1" transitive="Ù…">
+		<gerund symbol="H1" value="Ø¸ÙŽÙˆÙ’Ù" />
+		<gerund symbol="H2" value="Ø¸ÙŽØ§Ù" />
 	</root>
 </roots>
