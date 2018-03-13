@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <rules>
 	<rule c1="و" c2="ء" c3="ي" kov="29" desc="لفيف مفروق مهموز العين" example="وأى">
 	</rule>
