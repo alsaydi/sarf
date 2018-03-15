@@ -16,23 +16,21 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class NounLamAlefModifier extends SubstitutionsApplier{
-    protected static List appliedProunounsIndecies = new ArrayList(13);
+	//TODO: appliedProunounsIndecies needs not to be a list of strings.
+    protected static List<String> appliedProunounsIndecies = new ArrayList<>(13);
     static {
         for (int i=0; i<18; i++) {
             appliedProunounsIndecies.add(i+1 +"");
         }
     }
 
-
-    List substitutions = new LinkedList();
+    List<InfixSubstitution> substitutions = new LinkedList<>();
 
     private NounLamAlefModifier() {
-
         substitutions.add(new InfixSubstitution("لَا","لا"));// EX: (قالا)
         substitutions.add(new InfixSubstitution("لَّا","لاَّ"));// EX: (انْشَلاَّ)
         substitutions.add(new InfixSubstitution("لَأ","لأ"));// EX: (مَلأَ، مَلأْتُ)
         substitutions.add(new InfixSubstitution("لًا","لاً"));// EX: (حملاً)
-
     }
 
     private static NounLamAlefModifier instance = new NounLamAlefModifier();
@@ -60,13 +58,11 @@ public class NounLamAlefModifier extends SubstitutionsApplier{
         apply(conjResult.getFinalResult(), null);
     }
 
-    public List getSubstitutions() {
+    public List<InfixSubstitution> getSubstitutions() {
         return substitutions;
     }
 
-    protected List getAppliedPronounsIndecies() {
+    protected List<String> getAppliedPronounsIndecies() {
         return appliedProunounsIndecies;
     }
-
-
 }
