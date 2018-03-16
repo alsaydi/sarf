@@ -18,14 +18,14 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class ACAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List<InfixSubstitution> substitutions = new LinkedList<>();
+    List<Substitution> substitutions = new LinkedList<>();
 
     public ACAjwaf1Vocalizer() {
         substitutions.add(new InfixSubstitution("ْوَ","َا"));// EX: (مَزَار، مَقامَة)
     }
 
 
-    public List<InfixSubstitution> getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

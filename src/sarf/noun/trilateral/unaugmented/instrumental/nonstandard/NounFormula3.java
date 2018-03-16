@@ -19,12 +19,12 @@ import sarf.noun.trilateral.unaugmented.instrumental.*;
  */
 public class NounFormula3 extends NonStandardInstrumentalNounFormula{
 
-    public NounFormula3(UnaugmentedTrilateralRoot root, String suffixNo) {
-        super(root, suffixNo);
+	//to be used in refection getting the formula name
+    public NounFormula3() {
     }
 
-    //to be used in refection getting the formula name
-    public NounFormula3() {
+    public NounFormula3(UnaugmentedTrilateralRoot root, String suffixNo) {
+        super(root, suffixNo);
     }
 
     public String form() {

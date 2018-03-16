@@ -24,7 +24,7 @@ public class NounLamAlefModifier extends SubstitutionsApplier{
         }
     }
 
-    List<InfixSubstitution> substitutions = new LinkedList<>();
+    List<Substitution> substitutions = new LinkedList<>();
 
     private NounLamAlefModifier() {
         substitutions.add(new InfixSubstitution("لَا","لا"));// EX: (قالا)
@@ -58,7 +58,7 @@ public class NounLamAlefModifier extends SubstitutionsApplier{
         apply(conjResult.getFinalResult(), null);
     }
 
-    public List<InfixSubstitution> getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

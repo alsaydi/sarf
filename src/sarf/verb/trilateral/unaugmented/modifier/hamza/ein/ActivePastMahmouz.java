@@ -17,7 +17,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class ActivePastMahmouz extends AbstractEinMahmouz {
-    private List<InfixSubstitution> substitutions = new ArrayList<InfixSubstitution>();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public ActivePastMahmouz() {
         substitutions.add(new InfixSubstitution("َءَ", "َأَ")); // EX: (سأل)
@@ -25,7 +25,7 @@ public class ActivePastMahmouz extends AbstractEinMahmouz {
         substitutions.add(new InfixSubstitution("َءُ", "َؤُ")); // EX: (ضَؤُلَ)
     }
 
-    public List<InfixSubstitution> getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

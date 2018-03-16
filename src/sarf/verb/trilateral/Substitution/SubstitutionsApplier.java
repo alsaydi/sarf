@@ -18,7 +18,7 @@ import sarf.verb.trilateral.*;
  */
 public abstract class SubstitutionsApplier {
 
-    protected static List defaultAppliedProunounsIndecies = new ArrayList(13);
+    protected static List<String> defaultAppliedProunounsIndecies = new ArrayList<>(13);
     static {
         for (int i=0; i<13; i++) {
             defaultAppliedProunounsIndecies.add(i+1 +"");
@@ -35,7 +35,7 @@ public abstract class SubstitutionsApplier {
      * @param words List
      * @param root TrilateralRoot
      */
-    public void apply(List words, TrilateralRoot root) {
+    public void apply(List<String> words, TrilateralRoot root) {
         for (int i=0; i< getAppliedPronounsIndecies().size(); i++) {
             int index = Integer.parseInt(getAppliedPronounsIndecies().get(i).toString())-1;
             Object wordObj = words.get(index);
@@ -44,9 +44,9 @@ public abstract class SubstitutionsApplier {
             }
             String word = wordObj.toString().trim();
 
-            Iterator subIter = getSubstitutions().iterator();
+            Iterator<Substitution> subIter = getSubstitutions().iterator();
             while (subIter.hasNext()) {
-                Substitution substitution = (Substitution) subIter.next();
+                Substitution substitution = subIter.next();
                 String result = substitution.apply(word, root);
                 if (result != null) {
                     //تبديل الكلمة الجديدة المستبدلة بالكلمة القديمة
@@ -62,9 +62,9 @@ public abstract class SubstitutionsApplier {
      * قائمة الاستبدالات
      * @return List
      */
-    public abstract List getSubstitutions();
+    public abstract List<Substitution> getSubstitutions();
 
-    protected List getAppliedPronounsIndecies() {
+    protected List<String> getAppliedPronounsIndecies() {
         return defaultAppliedProunounsIndecies;
     }
 

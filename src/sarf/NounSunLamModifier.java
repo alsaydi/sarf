@@ -108,7 +108,7 @@ public class NounSunLamModifier extends SubstitutionsApplier {
 			return null;
 		}
 
-		public String apply(String word, String sl) {
+		private String apply(String word, String sl) {
 			String wordSegment = segment.replaceAll("SL", sl);
 
 			if (word.indexOf(wordSegment) == -1) {

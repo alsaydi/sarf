@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
 
 class NounLamAlefModifierTest {
 	
@@ -17,7 +17,7 @@ class NounLamAlefModifierTest {
 	
 	@Test
 	void getSubstitutions_returnsExpected() throws Exception {
-		List<InfixSubstitution> actual = NounLamAlefModifier.getInstance().getSubstitutions();
+		List<Substitution> actual = NounLamAlefModifier.getInstance().getSubstitutions();
 		
 		assertNotNull(actual);
 		assertEquals(4, actual.size());		
