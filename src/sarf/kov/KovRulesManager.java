@@ -2,6 +2,8 @@ package sarf.kov;
 
 import org.apache.commons.digester3.*;
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 /**
@@ -28,8 +30,8 @@ public class KovRulesManager {
 
     private KovRulesManager() {
         try {
-            trilateralRulesList = buildTrilateral(new File("./db/Trilateralkov.xml"));
-            quadrilateralRulesList = buildQuadrilateral(new File("./db/Quadrilateralkov.xml"));
+            trilateralRulesList = buildTrilateral(new File(getFullPath("./db/Trilateralkov.xml")));
+            quadrilateralRulesList = buildQuadrilateral(new File(getFullPath("./db/Quadrilateralkov.xml")));
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -114,6 +116,11 @@ public class KovRulesManager {
         return null;
     }
 
+    private static String getFullPath(String relativePath) throws IOException{
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
+        Path path = Paths.get(relativePath);
+        return path.toRealPath().toString();
+    }
 
     public static void main(String[] args) {
         char c1 = 'ح';
@@ -122,5 +129,4 @@ public class KovRulesManager {
         char c4 = 'ي';
         System.out.println(""+ KovRulesManager.getInstance().getQuadrilateralKov(c1,c2,c3,c4));
     }
-
 }

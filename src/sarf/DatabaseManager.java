@@ -1,6 +1,8 @@
 package sarf;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 import sarf.verb.quadriliteral.unaugmented.*;
@@ -75,7 +77,7 @@ public class DatabaseManager {
 			return rootsTree;
 
 		rootsTree = UnaugmentedTrilateralRootTreeCreator
-				.buildXmlVerbTree(new File("./db/trilateral/unaugmented/" + c1 + ".xml"));
+				.buildXmlVerbTree(new File(getFullPath("./db/trilateral/unaugmented/" + c1 + ".xml")));
 		tripleUnaugmentedTreeMap.put(c1 + "", rootsTree);
 		return rootsTree;
 	}
@@ -94,7 +96,7 @@ public class DatabaseManager {
 			return rootsTree;
 
 		rootsTree = AugmentedTrilateralRootTreeCreator
-				.buildXmlVerbTree(new File("./db/trilateral/augmented/" + c1 + ".xml"));
+				.buildXmlVerbTree(new File(getFullPath("./db/trilateral/augmented/" + c1 + ".xml")));
 		tripleAugmentedTreeMap.put(c1 + "", rootsTree);
 		return rootsTree;
 	}
@@ -112,7 +114,7 @@ public class DatabaseManager {
 			return rootsTree;
 
 		rootsTree = UnaugmentedQuadriliteralRootTreeCreator
-				.buildXmlVerbTree(new File("./db/quadriliteral/unaugmented/" + c1 + ".xml"));
+				.buildXmlVerbTree(new File(getFullPath("./db/quadriliteral/unaugmented/" + c1 + ".xml")));
 		quadriliteralUnaugmentedTreeMap.put(c1 + "", rootsTree);
 		return rootsTree;
 	}
@@ -130,7 +132,7 @@ public class DatabaseManager {
 			return rootsTree;
 
 		rootsTree = AugmentedQuadriliteralRootTreeCreator
-				.buildXmlVerbTree(new File("./db/quadriliteral/augmented/" + c1 + ".xml"));
+				.buildXmlVerbTree(new File(getFullPath("./db/quadriliteral/augmented/" + c1 + ".xml")));
 		quadriliteralAugmentedTreeMap.put(c1 + "", rootsTree);
 		return rootsTree;
 	}
@@ -153,7 +155,7 @@ public class DatabaseManager {
 		if (formulaTree != null)
 			return formulaTree;
 
-		String fileName = "./db/noun/" + folderName + "/" + c1 + ".xml";
+		String fileName = getFullPath("./db/noun/" + folderName + "/" + c1 + ".xml");
 		File file = new File(fileName);
 		if (!file.exists())
 			// there is no applied file for this char
@@ -169,7 +171,7 @@ public class DatabaseManager {
 		if (formulaTree != null)
 			return formulaTree;
 
-		File file = new File("./db/gerund/meem/" + c1 + ".xml");
+		File file = new File(getFullPath("./db/gerund/meem/" + c1 + ".xml"));
 		if (!file.exists())
 			// there is no applied file for this char
 			return null;
@@ -183,7 +185,7 @@ public class DatabaseManager {
 		AssimilateAdjectiveFormulaTree formulaTree = assimilateAdjectiveMap.get(c1 + "");
 		if (formulaTree == null) {
 			try {
-				File file = new File("./db/noun/assimilate/" + c1 + ".xml");
+				File file = new File(getFullPath("./db/noun/assimilate/" + c1 + ".xml"));
 				if (!file.exists())
 					// there is no applied file for this char
 					return null;
@@ -200,7 +202,7 @@ public class DatabaseManager {
 		ElativeNounFormulaTree formulaTree = elativeNounMap.get(c1 + "");
 		if (formulaTree == null) {
 			try {
-				File file = new File("./db/noun/elative/" + c1 + ".xml");
+				File file = new File(getFullPath("./db/noun/elative/" + c1 + ".xml"));
 				if (!file.exists())
 					// there is no applied file for this char
 					return null;
@@ -217,7 +219,7 @@ public class DatabaseManager {
 		XmlNonStandardInstrumentalNounFormulaTree formulaTree = instrumentalNounMap.get(c1 + "");
 		if (formulaTree == null) {
 			try {
-				File file = new File("./db/noun/instrumental/" + c1 + ".xml");
+				File file = new File(getFullPath("./db/noun/instrumental/" + c1 + ".xml"));
 				if (!file.exists())
 					// there is no applied file for this char
 					return null;
@@ -234,7 +236,7 @@ public class DatabaseManager {
 		XmExaggerationNounFormulaTree formulaTree = exaggerationNounMap.get(c1 + "");
 		if (formulaTree == null) {
 			try {
-				File file = new File("./db/noun/exaggeration/" + c1 + ".xml");
+				File file = new File(getFullPath("./db/noun/exaggeration/" + c1 + ".xml"));
 				if (!file.exists())
 					// there is no applied file for this char
 					return null;
@@ -251,7 +253,7 @@ public class DatabaseManager {
 		XmlTimeAndPlaceNounFormulaTree formulaTree = timeAndPlaceNounMap.get(c1 + "");
 		if (formulaTree == null) {
 			try {
-				File file = new File("./db/noun/timeandplace/" + c1 + ".xml");
+				File file = new File(getFullPath("./db/noun/timeandplace/" + c1 + ".xml"));
 				if (!file.exists())
 					// there is no applied file for this char
 					return null;
@@ -262,5 +264,11 @@ public class DatabaseManager {
 			}
 		}
 		return formulaTree;
+	}
+
+	private static String getFullPath(String relativePath) throws IOException{
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
+		Path path = Paths.get(relativePath);
+		return path.toRealPath().toString();
 	}
 }
