@@ -34,7 +34,7 @@ public class Validator {
      * @return boolean
      */
     public boolean checkLength(String root) {
-        return root.length() == 3 || root.length() == 4;
+        return root != null && (root.length() == 3 || root.length() == 4);
     }
 
     /**
@@ -43,6 +43,9 @@ public class Validator {
      * @return boolean
      */
     public boolean checkArabicLetters(String root) {
+    	if(root == null)
+    		return false;
+    	
         for (int i = 0; i < root.length(); i++) {
             if (arabicLetters.indexOf(root.charAt(i)) == -1) {
                 return false;
@@ -57,7 +60,7 @@ public class Validator {
      * @return boolean
      */
     public boolean checkStartedWithAlef(String root) {
-        return root.charAt(0) == 'ا';
+        return root != null && root.length() > 0 && root.charAt(0) == 'ا';
     }
 
     /**
@@ -66,7 +69,7 @@ public class Validator {
      * @return boolean
      */
     public boolean checkAlefMamdoda(String root) {
-        return root.indexOf("آ") != -1;
+        return root != null && root.indexOf("آ") != -1;
     }
 
     /**
@@ -75,6 +78,9 @@ public class Validator {
      * @return boolean
      */
     public boolean checkTashkil(String root) {
+    	if(root == null)
+    		return false;
+    	
         return
                 root.indexOf(ArabCharUtil.FATHA) != -1 ||
                 root.indexOf(ArabCharUtil.DAMMA) != -1 ||
@@ -90,6 +96,9 @@ public class Validator {
      * @return String
      */
     public String correctHamza(String root) {
+    	if(root == null)
+    		return null;
+    	
         char[] rootArray = root.toCharArray();
         for (int i = 0; i < rootArray.length; i++) {
             if (hamzaString.indexOf(rootArray[i]) != -1) {
@@ -134,8 +143,8 @@ public class Validator {
      * @param root String
      * @return List
      */
-    public List getQuadrilateralAlefAlternatives(String root) {
-        List result = new LinkedList();
+    public List<String> getQuadrilateralAlefAlternatives(String root) {
+        List<String> result = new LinkedList<>();
         if (root.charAt(1) == 'ا') {
             result.add(root.charAt(0) + "و" + root.charAt(2) + root.charAt(3));
             result.add(root.charAt(0) + "ي" + root.charAt(2) + root.charAt(3));
