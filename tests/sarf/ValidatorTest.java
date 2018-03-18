@@ -118,4 +118,42 @@ class ValidatorTest {
 		
 		assertLinesMatch(expected, actual);
 	}
+	
+	@Test
+	void رباعي_عينه_ألف_getQuadrilateralAlefAlternatives_returnsExpected() {
+		List<String> expected = new ArrayList<>();
+		expected.add("فوعل");
+		expected.add("فيعل");		
+		List<String> actual = Validator.getInstance().getQuadrilateralAlefAlternatives("فاعل");
+		
+		assertLinesMatch(expected, actual);
+	}
+	
+	@Test
+	void رباعي_لامه_الأولى_ألف_getQuadrilateralAlefAlternatives_returnsExpected() {
+		List<String> expected = new ArrayList<>();
+		expected.add("فعول");
+		expected.add("فعيل");				
+		List<String> actual = Validator.getInstance().getQuadrilateralAlefAlternatives("فعال");
+		
+		assertLinesMatch(expected, actual);
+	}
+	
+	@Test
+	void رباعي_لامه_الثانية_ألف_مقصورة_getQuadrilateralAlefAlternatives_returnsExpected() {
+		List<String> expected = new ArrayList<>();		
+		expected.add("فعلي");				
+		List<String> actual = Validator.getInstance().getQuadrilateralAlefAlternatives("فعلى");
+		
+		assertLinesMatch(expected, actual);
+	}
+	
+	@Test
+	void رباعي_لامه_الثانية_ألف_getQuadrilateralAlefAlternatives_returnsExpected() {
+		List<String> expected = new ArrayList<>();		
+		expected.add("فعلي");				
+		List<String> actual = Validator.getInstance().getQuadrilateralAlefAlternatives("فعلا");
+		
+		assertLinesMatch(expected, actual);
+	}
 }
