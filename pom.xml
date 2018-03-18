@@ -20,11 +20,6 @@
 				</excludes>
 			</resource>
 		</resources>
-		<testResources>
-			<testResource>
-				<directory>db/*.*</directory>
-			</testResource>
-		</testResources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -44,13 +39,7 @@
 						<artifactId>junit-platform-surefire-provider</artifactId>
 						<version>1.1.0</version>						
 					</dependency>
-				</dependencies>
-				<configuration>
-					<workingDirectory>D:/temp/</workingDirectory>					
-					<includes>
-						<include>**/*.java</include>
-					</includes>
-				</configuration>
+				</dependencies>				
 			</plugin>
 		</plugins>
 	</build>
