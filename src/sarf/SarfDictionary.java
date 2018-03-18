@@ -35,10 +35,10 @@ public class SarfDictionary {
         char c3 = rootText.charAt(2);
 
         AugmentedTrilateralRootTree augmentedRootsTree = DatabaseManager.getInstance().getAugmentedTrilateralRootTree(c1);
-        java.util.List roots = augmentedRootsTree.getRoots();
-        Iterator iter = roots.iterator();
+        List<AugmentedTrilateralRoot> roots = augmentedRootsTree.getRoots();
+        Iterator<AugmentedTrilateralRoot> iter = roots.iterator();
         while (iter.hasNext()) {
-            AugmentedTrilateralRoot aRoot = (AugmentedTrilateralRoot) iter.next();
+            AugmentedTrilateralRoot aRoot = iter.next();
             if (aRoot.getC1() == c1 && aRoot.getC2() == c2 && aRoot.getC3() == c3) {
                 return aRoot;
             }

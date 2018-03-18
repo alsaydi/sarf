@@ -20,6 +20,11 @@
 				</excludes>
 			</resource>
 		</resources>
+		<testResources>
+			<testResource>
+				<directory>db/*.*</directory>
+			</testResource>
+		</testResources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -74,6 +79,12 @@
 			<artifactId>junit-platform-launcher</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>5.1.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -104,6 +115,11 @@
 				</artifactId>
 				<version>1.1.0</version>
 				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.junit.platform</groupId>
+				<artifactId>junit-jupiter-params</artifactId>
+				<version>5.1.0</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
