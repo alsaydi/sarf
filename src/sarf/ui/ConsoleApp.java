@@ -1,25 +1,32 @@
 package sarf.ui;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.swing.JOptionPane;
 
 import sarf.AugmentationFormula;
 import sarf.SarfDictionary;
+import sarf.SystemConstants;
 import sarf.Validator;
 import sarf.kov.KovRulesManager;
 import sarf.kov.TrilateralKovRule;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
+import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 public class ConsoleApp {
 	public static void main(String[] args) {
 		try {
 			(new ConsoleApp()).Run();
 		} catch (Exception ex) {
+			System.err.println(ex.getMessage());
 			System.err.println(ex.getStackTrace());
 			System.exit(1);
 		}
@@ -41,7 +48,7 @@ public class ConsoleApp {
 
 	private void processTrilateral(String root) throws Exception {
 		AugmentedTrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedTrilateralRoot(root);
-		List unaugmentedList = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots(root);
+		List<UnaugmentedTrilateralRoot> unaugmentedList = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots(root);
 		if (augmentedRoot == null && unaugmentedList.isEmpty()) {
 			displayErrorMessage(root + ": لم يرد هذا الجذر في قاعدة المعطيات");
 		} else {
@@ -49,7 +56,7 @@ public class ConsoleApp {
 		}
 	}
 
-	private void displayTrilateral(String rootText, AugmentedTrilateralRoot augmentedRoot, List unaugmentedList) {
+	private void displayTrilateral(String rootText, AugmentedTrilateralRoot augmentedRoot, List<UnaugmentedTrilateralRoot> unaugmentedRoots) {
 		char c1 = rootText.charAt(0);
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);
@@ -59,6 +66,28 @@ public class ConsoleApp {
         int kov = rule.getKov();
         
         System.out.println("نوع الفعل: " + kovText);
+        Iterator<UnaugmentedTrilateralRoot> iter = unaugmentedRoots.iterator();
+        while (iter.hasNext()) {
+            UnaugmentedTrilateralRoot root = iter.next();
+            
+          //مع الضمير هو
+            //past text formatting
+            String pastRootText = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerb(7, root).toString();
+            List<String> conjugations = createEmptyList();
+            conjugations.set(7, pastRootText);
+            sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, ControlPaneContainer.getInstance().getKov(), conjugations, SystemConstants.PAST_TENSE, true);
+            pastRootText = conjResult.getFinalResult().get(7).toString();
+
+            //present text formatting
+            String presentRootText = sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator.getInstance().createNominativeVerb(7, root).toString();
+            conjugations = createEmptyList();
+            conjugations.set(7, presentRootText);
+            conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, ControlPaneContainer.getInstance().getKov(), conjugations, SystemConstants.PRESENT_TENSE, true);
+            presentRootText = conjResult.getFinalResult().get(7).toString();
+            
+            System.out.printf("%s %s\n",pastRootText, presentRootText);
+        }
+        
 //        if(augmentedRoot != null) {
 //        	Iterator itr = augmentedRoot.getAugmentationList();
 //        	while(itr.hasNext()) {
@@ -71,4 +100,10 @@ public class ConsoleApp {
 	private static void displayErrorMessage(String message) {
 		System.err.printf("%s - %s\n", LocalDateTime.now().toString(), message);
 	}
+	
+	private static List<String> createEmptyList() {
+		return IntStream.range(0,13)
+				.mapToObj(a -> "")
+				.collect(Collectors.toList());
+    }
 }

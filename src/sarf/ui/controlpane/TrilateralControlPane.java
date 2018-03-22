@@ -25,11 +25,11 @@ import java.awt.Color;
  * @version 1.0
  */
 public class TrilateralControlPane extends JPanel implements IControlPane{
+	private static final long serialVersionUID = 1865647471114470824L;
+	private List<ControlButton> unaugmentedButons = new ArrayList<>(6);
+    private List<ControlButton> augmentedButons = new ArrayList<>(12);
 
-    private List unaugmentedButons = new ArrayList(6);
-    private List augmentedButons = new ArrayList(12);
-
-    private List unaugmentedTrilateralRoots = new ArrayList(6);
+    private List<UnaugmentedTrilateralRoot> unaugmentedTrilateralRoots = new ArrayList<>(6);
     private AugmentedTrilateralRoot currentAugmentedTrilateralRoot;
 
     private JPanel unaugmentedPanel = new APanel(new GridLayout(1,6));
@@ -37,12 +37,13 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     public TrilateralControlPane() {
         super(new BorderLayout());
 
-        unaugmentedTrilateralRoots.add("");
-        unaugmentedTrilateralRoots.add("");
-        unaugmentedTrilateralRoots.add("");
-        unaugmentedTrilateralRoots.add("");
-        unaugmentedTrilateralRoots.add("");
-        unaugmentedTrilateralRoots.add("");
+        unaugmentedTrilateralRoots.add(new UnaugmentedTrilateralRoot());
+        unaugmentedTrilateralRoots.add(new UnaugmentedTrilateralRoot());
+        unaugmentedTrilateralRoots.add(new UnaugmentedTrilateralRoot());
+        unaugmentedTrilateralRoots.add(new UnaugmentedTrilateralRoot());
+        unaugmentedTrilateralRoots.add(new UnaugmentedTrilateralRoot());
+        unaugmentedTrilateralRoots.add(new UnaugmentedTrilateralRoot());
+        
 
         addUnaugmentedButton("فعَل يفعُل");
         addUnaugmentedButton("فعَل يفعِل");
@@ -120,23 +121,12 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     }
 
     public void disableAll() {
-        Iterator iter = augmentedButons.iterator();
-        while (iter.hasNext()) {
-            ControlButton btn = (ControlButton) iter.next();
-            btn.setEnabled(false);
-
-        }
-
-        iter = unaugmentedButons.iterator();
-        while (iter.hasNext()) {
-            ControlButton btn = (ControlButton) iter.next();
-            btn.setEnabled(false);
-        }
-
+    	augmentedButons.forEach(b -> b.setEnabled(false));
+    	unaugmentedButons.forEach(b -> b.setEnabled(false));
     }
 
-    public List createEmptyList() {
-        List result = new ArrayList(13);
+    private static List<String> createEmptyList() {
+        List<String> result = new ArrayList<String>(13);
         for (int i = 1; i <= 13; i++) {
             result.add("");
         }
@@ -144,26 +134,26 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     }
 
     public void enableUnaugmentedButton(int index, UnaugmentedTrilateralRoot root) {
-        ControlButton btn = (ControlButton)unaugmentedButons.get(index);
-        btn.setEnabled(true);
+        ControlButton unaugmentedButon = unaugmentedButons.get(index);
+        unaugmentedButon.setEnabled(true);
         unaugmentedTrilateralRoots.set(index, root);
 
         //مع الضمير هو
         //past text formatting
         String pastRootText = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerb(7, root).toString();
-        List conjugations = createEmptyList();
+        List<String> conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
         sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, ControlPaneContainer.getInstance().getKov(), conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
-        //past text formatting
+        //present text formatting
         String presentRootText = sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator.getInstance().createNominativeVerb(7, root).toString();
         conjugations = createEmptyList();
         conjugations.set(7, presentRootText);
         conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, ControlPaneContainer.getInstance().getKov(), conjugations, SystemConstants.PRESENT_TENSE, true);
         presentRootText = conjResult.getFinalResult().get(7).toString();
 
-        btn.setRootText(pastRootText + " "+ presentRootText);
+        unaugmentedButon.setRootText(pastRootText + " "+ presentRootText);
     }
 
     public void enableAugmentedButton(int index, AugmentedTrilateralRoot root) {
@@ -176,7 +166,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
         //مع الضمير هو
         //past text formatting
         String pastRootText = sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator.getInstance().createVerb(root, 7, formulaNo).toString();
-        List conjugations = createEmptyList();
+        List<String> conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
         sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build(root, ControlPaneContainer.getInstance().getKov(), formulaNo, conjugations, SystemConstants.PAST_TENSE, true, null);
         pastRootText = conjResult.getFinalResult().get(7).toString();
@@ -226,15 +216,9 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
             ControlPaneContainer.getInstance().setVerbText(controlButton.getVerbText());
         }
     }
-
-
-    private boolean opened = false;
     public void controlPaneOpened() {
-        opened = true;
     }
 
-
     public void controlPaneClosed() {
-        opened = false;
     }
 }
