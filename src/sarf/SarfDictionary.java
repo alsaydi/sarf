@@ -46,17 +46,17 @@ public class SarfDictionary {
         return null;
     }
 
-    public List getUnaugmentedTrilateralRoots(String rootText) throws Exception {
+    public List<UnaugmentedTrilateralRoot> getUnaugmentedTrilateralRoots(String rootText) throws Exception {
         char c1 = rootText.charAt(0);
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);
 
         UnaugmentedTrilateralRootTree unaugmentedRootsTree = DatabaseManager.getInstance().getUnaugmentedTrilateralRootTree(c1);
-        List roots = unaugmentedRootsTree.getRoots();
-        java.util.List result = new LinkedList();
-        Iterator iter = roots.iterator();
+        List<UnaugmentedTrilateralRoot> roots = unaugmentedRootsTree.getRoots();
+        java.util.List<UnaugmentedTrilateralRoot> result = new LinkedList<>();
+        Iterator<UnaugmentedTrilateralRoot> iter = roots.iterator();
         while (iter.hasNext()) {
-            UnaugmentedTrilateralRoot root = (UnaugmentedTrilateralRoot) iter.next();
+            UnaugmentedTrilateralRoot root = iter.next();
             if (root.getC1() == c1 && root.getC2() == c2 && root.getC3() == c3) {
                 result.add(root);
             }

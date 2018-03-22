@@ -405,7 +405,7 @@ public class ControlPaneContainer extends JPanel {
     }
 
 
-    private void displayTrilateral(String rootText, AugmentedTrilateralRoot augmentedRoot, List unaugmentedRoots) {
+    private void displayTrilateral(String rootText, AugmentedTrilateralRoot augmentedRoot, List<UnaugmentedTrilateralRoot> unaugmentedRoots) {
         char c1 = rootText.charAt(0);
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);
@@ -435,9 +435,9 @@ public class ControlPaneContainer extends JPanel {
             }
         }
 
-        Iterator iter = unaugmentedRoots.iterator();
+        Iterator<UnaugmentedTrilateralRoot> iter = unaugmentedRoots.iterator();
         while (iter.hasNext()) {
-            UnaugmentedTrilateralRoot root = (UnaugmentedTrilateralRoot) iter.next();
+            UnaugmentedTrilateralRoot root = iter.next();
             trilateralControlPane.enableUnaugmentedButton(Integer.parseInt(root.getConjugation()) - 1, root);
         }
     }

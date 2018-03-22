@@ -2,11 +2,14 @@ package sarf;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
+import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 class SarfDictionaryTest {
 
@@ -31,5 +34,20 @@ class SarfDictionaryTest {
 	@Test
 	void noRoot_getAugmentedTrilateralRoot_returnsNull() throws Exception {
 		assertNull(SarfDictionary.getInstance().getAugmentedTrilateralRoot("ككك"));
+	}
+	
+	@Test
+	void getUnaugmentedTrilateralRoots_returnsAllMatchingRoots() throws Exception {
+		List<UnaugmentedTrilateralRoot> sut = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots("فطم");
+		assertEquals(1, sut.size());
+		
+		sut = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots("فكر");
+		assertEquals(2, sut.size());
+	}
+	
+	@Test
+	void noRoot_getAugmentedTrilateralRoot_returnsEmptyList() throws Exception {
+		List<UnaugmentedTrilateralRoot> sut = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots("ببب");
+		assertEquals(0, sut.size());
 	}
 }
