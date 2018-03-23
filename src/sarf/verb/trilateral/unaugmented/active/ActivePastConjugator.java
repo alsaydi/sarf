@@ -45,13 +45,11 @@ public class ActivePastConjugator {
      * @param root UnaugmentedTrilateralRoot
      * @return List
      */
-    public List createVerbList(UnaugmentedTrilateralRoot root) {
-        List result = new LinkedList();
+    public List<ActivePastVerb> createVerbList(UnaugmentedTrilateralRoot root) {
+        List<ActivePastVerb> result = new LinkedList<>();
         for (int i=0; i<13; i++) {
             result.add(createVerb(i, root));
         }
-
         return result;
     }
-
 }
