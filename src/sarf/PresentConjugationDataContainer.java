@@ -17,29 +17,29 @@ import sarf.verb.trilateral.unaugmented.*;
  */
 public class PresentConjugationDataContainer {
     //أحرف المضارعة حسب الضمير
-    private List<String> cpList = new ArrayList(13);
+    private List<String> cpList = new ArrayList<>(13);
     //قائمة حركات عين الفعل حسب باب التصريف
-    private List<String> dpr2List = new ArrayList(6);
+    private List<String> dpr2List = new ArrayList<>(6);
 
     //قائمة  حركات لام الفعل حسب ضمير الرفع
     //مرفوع
-    private List<String> nominativeLastDprList = new ArrayList(13);
+    private List<String> nominativeLastDprList = new ArrayList<>(13);
     //منصوب
-    private List<String> accusativeLastDprList = new ArrayList(13);
+    private List<String> accusativeLastDprList = new ArrayList<>(13);
     //مجزوم
-    private List<String> jussiveLastDprList = new ArrayList(13);
+    private List<String> jussiveLastDprList = new ArrayList<>(13);
     //مؤكد
-    private List<String> emphasizedLastDprList = new ArrayList(13);
+    private List<String> emphasizedLastDprList = new ArrayList<>(13);
 
     //قائمة ضمائر الرفع المتصلة
     //مرفوع
-    private List<String> nominativeConnectedPronounList = new ArrayList(13);
+    private List<String> nominativeConnectedPronounList = new ArrayList<>(13);
     //منصوب
-    private List<String> accusativeConnectedPronounList = new ArrayList(13);
+    private List<String> accusativeConnectedPronounList = new ArrayList<>(13);
     //مجزوم
-    private List<String> jussiveConnectedPronounList = new ArrayList(13);
+    private List<String> jussiveConnectedPronounList = new ArrayList<>(13);
     //مؤكد
-    private List<String> emphasizedConnectedPronounList = new ArrayList(13);
+    private List<String> emphasizedConnectedPronounList = new ArrayList<>(13);
 
     private static PresentConjugationDataContainer instance = new PresentConjugationDataContainer();
 
@@ -232,6 +232,6 @@ public class PresentConjugationDataContainer {
      * @return String
      */
     public String getCp(int pronounIndex) {
-        return (String) cpList.get(pronounIndex);
+        return cpList.get(pronounIndex);
     }
 }
