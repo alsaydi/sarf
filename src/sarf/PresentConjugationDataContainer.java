@@ -232,6 +232,6 @@ public class PresentConjugationDataContainer {
      * @return String
      */
     public String getCp(int pronounIndex) {
-        return (String) cpList.get(pronounIndex);
+        return cpList.get(pronounIndex);
     }
 }
