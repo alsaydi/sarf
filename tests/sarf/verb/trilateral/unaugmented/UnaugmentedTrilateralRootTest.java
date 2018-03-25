@@ -1,7 +1,7 @@
 package sarf.verb.trilateral.unaugmented;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import sarf.Gerund;
 
 public class UnaugmentedTrilateralRootTest {
@@ -74,5 +74,17 @@ public class UnaugmentedTrilateralRootTest {
 		اخر.setC3('ع');
 		
 		assertFalse(sut.equals(اخر));
+	}
+	
+	@Test
+	void greaterThan6Conjugation_setConjugation_throws() throws Exception {
+		UnaugmentedTrilateralRoot sut = new UnaugmentedTrilateralRoot();
+		assertThrows(IllegalArgumentException.class, () -> sut.setConjugation("7"));
+	}
+	
+	@Test
+	void lessThan6Conjugation_setConjugation_throws() throws Exception {
+		UnaugmentedTrilateralRoot sut = new UnaugmentedTrilateralRoot();
+		assertThrows(IllegalArgumentException.class, () -> sut.setConjugation("0"));
 	}
 }

@@ -1,9 +1,7 @@
 package sarf;
 
 import java.util.*;
-import sarf.*;
 import sarf.util.ArabCharUtil;
-import sarf.verb.trilateral.*;
 import sarf.verb.trilateral.unaugmented.*;
 
 /**
@@ -17,11 +15,11 @@ import sarf.verb.trilateral.unaugmented.*;
  */
 public class PastConjugationDataContainer {
     //قائمة حركات عين الفعل حسب باب التصريف
-    private List dpa2List = new ArrayList(6);
+    private List<String> dpa2List = new ArrayList<>(6);
     //قائمة  حركات لام الفعل حسب ضمير الرفع
-    private List lastDpaList = new ArrayList(13);
+    private List<String> lastDpaList = new ArrayList<>(13);
     //قائمة ضمائر الرفع المتصلة
-    private List connectedPronounsList = new ArrayList(13);
+    private List<String> connectedPronounsList = new ArrayList<>(13);
 
     private static PastConjugationDataContainer instance = new PastConjugationDataContainer();
 
@@ -75,7 +73,7 @@ public class PastConjugationDataContainer {
      */
     public String getDpa2(UnaugmentedTrilateralRoot root) {
         //بسبب أن ترقيم الباب التصريفي يبدأ من الواحد على حين أن القائمة تبدأ من الصفر جرى طرح العدد واحد
-        return (String) dpa2List.get((Integer.parseInt(root.getConjugation())-1));
+        return dpa2List.get((Integer.parseInt(root.getConjugation())-1));
     }
 
     /**
@@ -84,7 +82,7 @@ public class PastConjugationDataContainer {
      * @return String
      */
     public String getLastDpa(int pronounIndex) {
-        return (String) lastDpaList.get(pronounIndex);
+        return lastDpaList.get(pronounIndex);
     }
 
     /**
@@ -93,7 +91,6 @@ public class PastConjugationDataContainer {
      * @return String
      */
     public String getConnectedPronoun(int pronounIndex) {
-        return (String) connectedPronounsList.get(pronounIndex);
+        return connectedPronounsList.get(pronounIndex);
     }
-
 }

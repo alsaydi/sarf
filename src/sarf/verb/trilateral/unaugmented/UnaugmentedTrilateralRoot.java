@@ -20,7 +20,7 @@ import sarf.util.OrderedMap;
  */
 public class UnaugmentedTrilateralRoot implements TrilateralRoot{
 
-    private char c1;
+	private char c1;
     private char c2;
     private char c3;
     private String conjugation;
@@ -64,8 +64,12 @@ public class UnaugmentedTrilateralRoot implements TrilateralRoot{
         this.transitive = transitive;
     }
 
-    public void setConjugation(String conjugation) {
-        this.conjugation = conjugation;
+    public void setConjugation(String conjugation) throws IllegalArgumentException {
+    	int babOfTasreef = Integer.parseInt(conjugation);
+    	if(babOfTasreef < 1 || babOfTasreef > 6) {
+    		throw new IllegalArgumentException(conjugation);
+    	}
+    	this.conjugation = conjugation;
     }
 
     public void setC3(char c3) {
