@@ -19,23 +19,23 @@ public class ConjugationResult {
     private QuadrilateralRoot root;
     private int kov;
 
-    private List originalResult;
+    private List<String> originalResult;
     //القائمة بعد  الادغام والاعلال والهمزة
-    private List finalResult;
+    private List<String> finalResult;
 
-    public ConjugationResult(int formulaNo, int kov, QuadrilateralRoot root, List originalResult) {
+    public ConjugationResult(int formulaNo, int kov, QuadrilateralRoot root, List<String> originalResult) {
         this.formulaNo = formulaNo;
         this.kov = kov;
         this.originalResult = originalResult;
         this.root = root;
-        this.finalResult = new ArrayList(originalResult);
+        this.finalResult = new ArrayList<>(originalResult);
     }
 
-    public List getFinalResult() {
+    public List<String> getFinalResult() {
         return finalResult;
     }
 
-    public List getOriginalResult() {
+    public List<String> getOriginalResult() {
         return originalResult;
     }
 
