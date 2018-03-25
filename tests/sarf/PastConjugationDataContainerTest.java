@@ -19,7 +19,7 @@ class PastConjugationDataContainerTest {
 		assertEquals(ArabCharUtil.KASRA, sut.getDpa2(getRootWithConjugation(6)));
 	}
 
-	private UnaugmentedTrilateralRoot getRootWithConjugation(int باب_التصريف) {
+	private UnaugmentedTrilateralRoot getRootWithConjugation(int باب_التصريف) throws IllegalArgumentException {
 		UnaugmentedTrilateralRoot root = new UnaugmentedTrilateralRoot();
 		root.setConjugation(String.valueOf(باب_التصريف));
 		return root;
