@@ -29,4 +29,52 @@ class PresentConjugationDataContainerTest {
         assertNotNull(actual);
         assertEquals(13, actual.size());
     }
+
+    @Test
+    void getEmphasizedLastDprList_returnsList() throws Exception{
+        List<String> actual = sut.getEmphasizedLastDprList();
+
+        assertNotNull(actual);
+        assertEquals(13, actual.size());
+    }
+
+    @Test
+    void getEmphasizedConnectedPronounList_returnsList() throws Exception{
+        List<String> actual = sut.getEmphasizedConnectedPronounList();
+
+        assertNotNull(actual);
+        assertEquals(13, actual.size());
+    }
+
+    @Test
+    void getJussiveLastDprList_returnsList() throws Exception{
+        List<String> actual = sut.getJussiveLastDprList();
+
+        assertNotNull(actual);
+        assertEquals(13, actual.size());
+    }
+
+    @Test
+    void getJussiveConnectedPronounList_returnsList() throws Exception{
+        List<String> actual = sut.getJussiveConnectedPronounList();
+
+        assertNotNull(actual);
+        assertEquals(13, actual.size());
+    }
+
+    @Test
+    void getAccusativeLastDprList_returnsList() throws Exception{
+        List<String> actual = sut.getAccusativeLastDprList();
+
+        assertNotNull(actual);
+        assertEquals(13, actual.size());
+    }
+
+    @Test
+    void getAccusativeConnectedPronounList_returnsList() throws Exception{
+        List<String> actual = sut.getAccusativeConnectedPronounList();
+
+        assertNotNull(actual);
+        assertEquals(13, actual.size());
+    }
 }
