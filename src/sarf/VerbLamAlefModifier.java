@@ -16,7 +16,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class VerbLamAlefModifier extends SubstitutionsApplier{
-    List substitutions = new LinkedList();
+    List<Substitution> substitutions = new LinkedList<>();
 
     private VerbLamAlefModifier() {
 
@@ -24,7 +24,6 @@ public class VerbLamAlefModifier extends SubstitutionsApplier{
         substitutions.add(new InfixSubstitution("لَّا","لاَّ"));// EX: (انْشَلاَّ)
         substitutions.add(new InfixSubstitution("لَأ","لأ"));// EX: (مَلأَ، مَلأْتُ)
         substitutions.add(new InfixSubstitution("لًا","لاً"));// EX: (حملاً)
-
     }
 
     private static VerbLamAlefModifier instance = new VerbLamAlefModifier();
@@ -45,7 +44,7 @@ public class VerbLamAlefModifier extends SubstitutionsApplier{
         apply(conjResult.getFinalResult(), null);
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

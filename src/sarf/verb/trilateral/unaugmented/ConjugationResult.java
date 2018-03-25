@@ -21,18 +21,18 @@ public class ConjugationResult {
     protected UnaugmentedTrilateralRoot root;
 
     //13 conjugated verbs
-    protected List originalResult;
+    protected List<String> originalResult;
     //القائمة بعد  الادغام والاعلال والهمزة
-    protected List finalResult;
+    protected List<String> finalResult;
 
-    public ConjugationResult(int kov, UnaugmentedTrilateralRoot root, List originalResult) {
+    public ConjugationResult(int kov, UnaugmentedTrilateralRoot root, List<String> originalResult) {
         this.kov = kov;
         this.originalResult = originalResult;
         this.root = root;
-        this.finalResult = new ArrayList(originalResult);
+        this.finalResult = new ArrayList<>(originalResult);
     }
 
-    public List getFinalResult() {
+    public List<String> getFinalResult() {
         return finalResult;
     }
 
@@ -40,7 +40,7 @@ public class ConjugationResult {
         return kov;
     }
 
-    public List getOriginalResult() {
+    public List<String> getOriginalResult() {
         return originalResult;
     }
 
