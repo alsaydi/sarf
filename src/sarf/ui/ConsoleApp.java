@@ -1,25 +1,23 @@
 package sarf.ui;
 
 import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
-import javax.swing.JOptionPane;
-
-import sarf.AugmentationFormula;
 import sarf.SarfDictionary;
 import sarf.SystemConstants;
-import sarf.Validator;
 import sarf.kov.KovRulesManager;
 import sarf.kov.TrilateralKovRule;
+import sarf.verb.trilateral.unaugmented.*;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
+import sarf.verb.trilateral.unaugmented.active.ActivePastVerb;
+import sarf.verb.trilateral.unaugmented.modifier.*;
 
 public class ConsoleApp {
 	public static void main(String[] args) {
@@ -33,8 +31,9 @@ public class ConsoleApp {
 	}
 
 	void Run() throws Exception {
-		Scanner scanner = new Scanner(System.in);
-		String root = scanner.nextLine();
+		//@SuppressWarnings("resource")
+		//String root = new Scanner(System.in).nextLine();
+		String root = "مثل";
 		System.out.println(root);
 
 		if (root.length() == 3) {
@@ -70,22 +69,7 @@ public class ConsoleApp {
         while (iter.hasNext()) {
             UnaugmentedTrilateralRoot root = iter.next();
             
-          //مع الضمير هو
-            //past text formatting
-            String pastRootText = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerb(7, root).toString();
-            List<String> conjugations = createEmptyList();
-            conjugations.set(7, pastRootText);
-            sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, ControlPaneContainer.getInstance().getKov(), conjugations, SystemConstants.PAST_TENSE, true);
-            pastRootText = conjResult.getFinalResult().get(7).toString();
-
-            //present text formatting
-            String presentRootText = sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator.getInstance().createNominativeVerb(7, root).toString();
-            conjugations = createEmptyList();
-            conjugations.set(7, presentRootText);
-            conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, ControlPaneContainer.getInstance().getKov(), conjugations, SystemConstants.PRESENT_TENSE, true);
-            presentRootText = conjResult.getFinalResult().get(7).toString();
-            
-            System.out.printf("%s %s\n",pastRootText, presentRootText);
+            printTrilateralTree(root, kov);
         }
         
 //        if(augmentedRoot != null) {
@@ -95,6 +79,47 @@ public class ConsoleApp {
 //        		System.out.println(forumla.getFormulaNo());
 //        	}
 //        }
+	}
+	
+	private String getTransitiveDescription(String type) {
+        if (type.equals("م")) return "متعد";
+        if (type.equals("ل")) return "لازم";
+        if (type.equals("ك")) return "لازم ومتعد";
+        throw new IllegalArgumentException("نوع رمز اللزوم و التعدي غير معروف");
+    }
+
+	private void printTrilateralTree(UnaugmentedTrilateralRoot root, int kov) {
+		String transivity = getTransitiveDescription(root.getTransitive());		
+		//مع الضمير هو
+		//past text formatting
+		
+		
+		String pastRootText = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerb(7, root).toString();
+		List<String> conjugations = createEmptyList();
+		conjugations.set(7, pastRootText);
+		sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, ControlPaneContainer.getInstance().getKov(), conjugations, SystemConstants.PAST_TENSE, true);
+		pastRootText = conjResult.getFinalResult().get(7).toString();
+
+		//present text formatting
+		String presentRootText = sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator.getInstance().createNominativeVerb(7, root).toString();
+		conjugations = createEmptyList();
+		conjugations.set(7, presentRootText);
+		conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, ControlPaneContainer.getInstance().getKov(), conjugations, SystemConstants.PRESENT_TENSE, true);
+		presentRootText = conjResult.getFinalResult().get(7).toString();
+		
+		System.out.printf("%s %s - %s\n",pastRootText, presentRootText, transivity);
+		
+		printActivePastConjugations(root, kov);
+	}
+
+	private void printActivePastConjugations(UnaugmentedTrilateralRoot root, int kov) {
+		List<ActivePastVerb> result = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerbList(root);
+        ConjugationResult conjResult = UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.PAST_TENSE, true);
+        List finalResult = conjResult.getFinalResult();
+        for (Object verb : finalResult) {
+			System.out.printf("%s ", verb);
+		}
+        System.out.println();
 	}
 
 	private static void displayErrorMessage(String message) {
