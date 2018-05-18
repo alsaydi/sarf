@@ -20,7 +20,7 @@ import sarf.verb.quadriliteral.substitution.*;
  * @version 1.0
  */
 public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier implements IQuadrilateralModifier {
-    List substitutions = new LinkedList();
+    List<InfixSubstitution> substitutions = new LinkedList<>();
 
     public InternalMahmouz() {
         substitutions.add(new InfixSubstitution("َءْ","َأْ"));// EX: (جأجأة، بأدلة،  تجأجُؤ، )
@@ -31,7 +31,7 @@ public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier implem
     }
 
 
-    public List getSubstitutions() {
+    public List<InfixSubstitution> getSubstitutions() {
         return substitutions;
     }
 

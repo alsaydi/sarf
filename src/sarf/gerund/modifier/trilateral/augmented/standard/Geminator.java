@@ -3,6 +3,7 @@ package sarf.gerund.modifier.trilateral.augmented.standard;
 import java.util.*;
 
 import sarf.gerund.modifier.trilateral.augmented.standard.geminator.*;
+import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.*;
@@ -20,7 +21,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @version 1.0
  */
 public class Geminator {
-    private List modifiers = new LinkedList();
+    private List<TrilateralNounSubstitutionApplier> modifiers = new LinkedList<TrilateralNounSubstitutionApplier>();
 
     public Geminator() {
         modifiers.add(new Geminator0());
@@ -30,7 +31,7 @@ public class Geminator {
     }
 
     public void apply(ConjugationResult conjResult) {
-        Iterator iter = modifiers.iterator();
+        var iter = modifiers.iterator();
         while (iter.hasNext()) {
             IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) iter.next();
             if (modifier.isApplied(conjResult)) {

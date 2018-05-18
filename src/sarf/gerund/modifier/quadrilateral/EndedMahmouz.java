@@ -20,7 +20,7 @@ import sarf.verb.quadriliteral.substitution.*;
  * @version 1.0
  */
 public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier implements IQuadrilateralModifier {
-    List substitutions = new LinkedList();
+    List<InfixSubstitution> substitutions = new LinkedList<InfixSubstitution>();
 
     public EndedMahmouz() {
 
@@ -33,7 +33,7 @@ public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier implement
     }
 
 
-    public List getSubstitutions() {
+    public List<InfixSubstitution> getSubstitutions() {
         return substitutions;
     }
 
