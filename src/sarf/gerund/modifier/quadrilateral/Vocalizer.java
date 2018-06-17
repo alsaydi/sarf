@@ -20,7 +20,7 @@ import sarf.verb.quadriliteral.substitution.*;
  * @version 1.0
  */
 public class Vocalizer extends QuadrilateralNounSubstitutionApplier implements IQuadrilateralModifier {
-    List substitutions = new LinkedList();
+    List<Substitution> substitutions = new LinkedList<>();
 
     public Vocalizer() {
 
@@ -38,7 +38,7 @@ public class Vocalizer extends QuadrilateralNounSubstitutionApplier implements I
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

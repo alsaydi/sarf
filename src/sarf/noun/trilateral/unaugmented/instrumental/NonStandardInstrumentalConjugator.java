@@ -18,16 +18,17 @@ import sarf.*;
  * @version 1.0
  */
 public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateralNounConjugator {
-    private Map formulaClassNamesMap = new HashMap();
+    private Map<String, Class<?>> formulaClassNamesMap = new HashMap<>();
     //map <symbol,formulaName>
-    private Map formulaSymbolsNamesMap = new HashMap();
+    private Map<String, String> formulaSymbolsNamesMap = new HashMap<>();
 
     private NonStandardInstrumentalConjugator() {
         for (int i = 1; i <= 15; i++) {
             String formulaClassName = getClass().getPackage().getName() + ".nonstandard.NounFormula" + i;
             try {
-                Class formulaClass = Class.forName(formulaClassName);
-                NonStandardInstrumentalNounFormula instrumentalNounFormula = (NonStandardInstrumentalNounFormula) formulaClass.newInstance();
+                @SuppressWarnings("unchecked")
+				Class<NonStandardInstrumentalNounFormula> formulaClass = (Class<NonStandardInstrumentalNounFormula>) Class.forName(formulaClassName);
+                NonStandardInstrumentalNounFormula instrumentalNounFormula = (NonStandardInstrumentalNounFormula) formulaClass.getConstructor().newInstance();
                 formulaClassNamesMap.put(instrumentalNounFormula.getFormulaName(), formulaClass);
                 formulaSymbolsNamesMap.put(instrumentalNounFormula.getSymbol(), instrumentalNounFormula.getFormulaName());
             }
@@ -48,8 +49,8 @@ public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateral
         Object[] parameters = {root, suffixNo + ""};
 
         try {
-            Class formulaClass = (Class) formulaClassNamesMap.get(formulaName);
-            NounFormula noun = (NounFormula) formulaClass.getConstructors()[1].newInstance(parameters);
+            Class<?> formulaClass = (Class<?>) formulaClassNamesMap.get(formulaName);
+            NounFormula noun = (NounFormula) formulaClass.getConstructor(root.getClass(), "".getClass()).newInstance(parameters);
             return noun;
         }
         catch (Exception ex) {
