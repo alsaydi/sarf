@@ -26,7 +26,7 @@ public class StandardInstrumentalConjugator implements IUnaugmentedTrilateralNou
         return instance;
     }
 
-    private static List formulas = new LinkedList();
+    private static List<String> formulas = new LinkedList<>();
     static {
         formulas.add("مِفْعَل");
         formulas.add("مِفْعَلَة");
@@ -48,8 +48,8 @@ public class StandardInstrumentalConjugator implements IUnaugmentedTrilateralNou
         return null;
     }
 
-    public List createNounList(UnaugmentedTrilateralRoot root, int formulaNo) {
-        List result = new LinkedList();
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, int formulaNo) {
+        List<NounFormula> result = new LinkedList<>();
         for (int i = 0; i < 18; i++) {
             NounFormula noun = createNoun(root, i, formulaNo);
             result.add(noun);
@@ -57,15 +57,15 @@ public class StandardInstrumentalConjugator implements IUnaugmentedTrilateralNou
         return result;
     }
 
-    public List createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
         return createNounList(root, formulas.indexOf(formulaName) + 1);
     }
 
-    public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
+    public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
         //فقط للفعل المتعدي
         if (root.getTransitive().equals("م") || root.getTransitive().equals("ك"))
             return formulas;
-        return new LinkedList();
+        return new LinkedList<String>();
     }
 
 

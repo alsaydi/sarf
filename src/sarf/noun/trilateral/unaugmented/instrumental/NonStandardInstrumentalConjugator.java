@@ -59,17 +59,16 @@ public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateral
         return null;
     }
 
-    public List createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
-        List result = new LinkedList();
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
+        List<NounFormula> result = new LinkedList<>();
         for (int i = 0; i < 18; i++) {
             NounFormula noun = createNoun(root, i, formulaName);
             result.add(noun);
         }
-
         return result;
     }
 
-    public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
+    public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
         //فقط للفعل المتعدي
         if (!root.getTransitive().equals("م") && !root.getTransitive().equals("ك")) {
             return null;
@@ -80,28 +79,24 @@ public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateral
             return null;
         }
 
-        List result = new LinkedList();
+        List<String> result = new LinkedList<>();
 
-        Iterator iter = formulaTree.getFormulaList().iterator();
+        var iter = formulaTree.getFormulaList().iterator();
         while (iter.hasNext()) {
-            XmlNonStandardInstrumentalNounFormula formula = (XmlNonStandardInstrumentalNounFormula) iter.next();
+            var formula = (XmlNonStandardInstrumentalNounFormula) iter.next();
             if (formula.getC2() == root.getC2() && formula.getC3() == root.getC3()) {
                 if (formula.getForm1() != null && formula.getForm1() != "") {
-                    //add the formula pattern insteaed of the symbol (form1)
+                    //add the formula pattern instead of the symbol (form1)
                     result.add(formulaSymbolsNamesMap.get(formula.getForm1()));
                 }
 
-                //may the verb has two forms of instumentals
+                //may the verb has two forms of instrumentals
                 if (formula.getForm2() != null && formula.getForm2() != "") {
-                    //add the formula pattern insteaed of the symbol (form2)
+                    //add the formula pattern instead of the symbol (form2)
                     result.add(formulaSymbolsNamesMap.get(formula.getForm2()));
                 }
             }
         }
-
         return result;
-
     }
-
-
 }
