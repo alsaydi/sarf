@@ -1,7 +1,6 @@
 package sarf.gerund.quadrilateral.unaugmented;
 
 import java.util.*;
-
 import sarf.noun.*;
 import sarf.util.*;
 import sarf.verb.quadriliteral.unaugmented.*;
@@ -33,8 +32,8 @@ public class QuadriliteralUnaugmentedGerundConjugator {
         return instance;
     }
 
-    public List createGerundList(UnaugmentedQuadriliteralRoot root) {
-        List gerundDisplayList = createEmptyList();
+    public List<String> createGerundList(UnaugmentedQuadriliteralRoot root) {
+        var gerundDisplayList = createEmptyList();
 
         boolean applyForm2 = false;
         if (root.getC1() == root.getC3() && root.getC2() == root.getC4()) {
@@ -63,8 +62,8 @@ public class QuadriliteralUnaugmentedGerundConjugator {
         return gerundDisplayList;
     }
 
-    public List createEmptyList() {
-        List result = new ArrayList(18);
+    public List<String> createEmptyList() {
+        var result = new ArrayList<String>(18);
         for (int i = 1; i <= 18; i++) {
             result.add("");
         }

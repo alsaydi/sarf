@@ -1,9 +1,8 @@
 package sarf.gerund.trilateral.augmented.nomen;
 
+import sarf.gerund.trilateral.augmented.nomen.pattern.GerundPatternEmpty;
 import sarf.verb.trilateral.augmented.*;
 import java.util.*;
-import sarf.*;
-import sarf.gerund.trilateral.*;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,7 +18,7 @@ import sarf.gerund.trilateral.*;
  */
 public class TrilateralAugmentedNomenGerundConjugator {
     private static TrilateralAugmentedNomenGerundConjugator instance = new TrilateralAugmentedNomenGerundConjugator();
-    private Map gerundClassMap = new HashMap();
+    private Map<String, TrilateralAugmentedNomenGerund> gerundClassMap = new HashMap<>();
 
     private int[] indexArray = {2, 4, 6, 8, 10, 12, 14, 16, 18};
 
@@ -27,8 +26,8 @@ public class TrilateralAugmentedNomenGerundConjugator {
         for (int i = 1; i <= 12; i++) {
             String gerundClassName = getClass().getPackage().getName() + ".pattern." + "GerundPattern" + i;
             try {
-                Class gerundClass = Class.forName(gerundClassName);
-                gerundClassMap.put(i + "", gerundClass.newInstance());
+                var gerundInstance = (TrilateralAugmentedNomenGerund) Class.forName(gerundClassName).getConstructor().newInstance();
+                gerundClassMap.put(i + "", gerundInstance);
             }
             catch (Exception ex) {
                 ex.printStackTrace();
@@ -40,18 +39,16 @@ public class TrilateralAugmentedNomenGerundConjugator {
         return instance;
     }
 
-    public List createGerundList(AugmentedTrilateralRoot root, int formulaNo) {
-        String gerundPatternClassName = getClass().getPackage().getName() + ".pattern." + "GerundPattern" + formulaNo;
-        List gerundDisplayList = createEmptyList();
-
-        TrilateralAugmentedNomenGerund gerundInstance = (TrilateralAugmentedNomenGerund) gerundClassMap.get(formulaNo + "");
+    public List<TrilateralAugmentedNomenGerund> createGerundList(AugmentedTrilateralRoot root, int formulaNo) {
+        var gerundPatternClassName = getClass().getPackage().getName() + ".pattern." + "GerundPattern" + formulaNo;
+        var gerundDisplayList = createEmptyList();
 
         for (int i = 0; i < indexArray.length; i++) {
             //because index in java start from zero
             int suffixNo = indexArray[i] - 1;
             Object[] parameters = {root, suffixNo + ""};
             try {
-                TrilateralAugmentedNomenGerund gerund = (TrilateralAugmentedNomenGerund) Class.forName(gerundPatternClassName).getConstructors()[0].newInstance(parameters);
+                TrilateralAugmentedNomenGerund gerund = (TrilateralAugmentedNomenGerund) Class.forName(gerundPatternClassName).getConstructor(root.getClass(), "".getClass()).newInstance(parameters);
                 gerundDisplayList.set(suffixNo, gerund);
             }
             catch (Exception ex) {
@@ -61,29 +58,10 @@ public class TrilateralAugmentedNomenGerundConjugator {
         return gerundDisplayList;
     }
 
-    /**
-     * the key in the map are the gerund pattern, the value are 18 string can be diplayed
-     * on the NounConjugationUI
-     * @param root AugmentedTrilateralRoot
-     * @return Map
-     */
-    public Map createGerundMap(AugmentedTrilateralRoot root) {
-        Map result = new HashMap();
-        Iterator iter = root.getAugmentationList().iterator();
-        while (iter.hasNext()) {
-            AugmentationFormula augmentationFormula = (AugmentationFormula) iter.next();
-
-            TrilateralAugmentedNomenGerund gerundInstance = (TrilateralAugmentedNomenGerund) gerundClassMap.get(augmentationFormula.getFormulaNo() + "");
-            result.put(gerundInstance.getPattern(), createGerundList(root, augmentationFormula.getFormulaNo()));
-
-        }
-        return result;
-    }
-
-    public List createEmptyList() {
-        List result = new ArrayList(18);
+    private List<TrilateralAugmentedNomenGerund> createEmptyList() {
+        var result = new ArrayList<TrilateralAugmentedNomenGerund>(18);
         for (int i = 1; i <= 18; i++) {
-            result.add("");
+            result.add(new GerundPatternEmpty());
         }
         return result;
     }

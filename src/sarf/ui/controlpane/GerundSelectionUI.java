@@ -94,7 +94,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
         nomenBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 sarf.Action action = new sarf.Action() {
-                    public List execute() {
+                    public List<String> execute() {
                         List gerunds = null;
                         if (selectionInfo.isTrilateral()) {
                             gerunds = sarf.gerund.trilateral.augmented.nomen.TrilateralAugmentedNomenGerundConjugator.getInstance().createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());

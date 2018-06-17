@@ -31,6 +31,12 @@ public class AugmentedTrilateralRoot implements TrilateralRoot {
 
 	public AugmentedTrilateralRoot() {
 	}
+	
+	public AugmentedTrilateralRoot(char c1, char c2, char c3, AugmentationFormula formula) {
+		this.setC1(c1);
+		this.setC2(c2);
+		this.setC3(c3);
+	}
 
 	public void addAugmentationFormula(AugmentationFormula formula) {
 		augmentations.put(formula.getFormulaNo() + "", formula);

@@ -88,9 +88,9 @@ public class TrilateralAugmentedGerundConjugator {
 
         for (int i = 0; i < 18; i++) {
             //because index in java start from zero
-            Object[] parameters = {root, i + ""};
+            Object[] parameters = {root, i + ""};            
             try {
-                TrilateralAugmentedGerund gerund = (TrilateralAugmentedGerund) Class.forName(gerundPatternClassName).getConstructors()[0].newInstance(parameters);
+                TrilateralAugmentedGerund gerund = (TrilateralAugmentedGerund) Class.forName(gerundPatternClassName).getConstructor(root.getClass(), "".getClass()).newInstance(parameters);
                 gerundDisplayList.set(i, gerund);
             }
             catch (Exception ex) {
