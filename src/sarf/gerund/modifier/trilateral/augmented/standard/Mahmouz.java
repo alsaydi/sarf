@@ -1,7 +1,8 @@
 package sarf.gerund.modifier.trilateral.augmented.standard;
 
 import java.util.*;
-import sarf.noun.trilateral.augmented.modifier.*;
+
+import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.gerund.modifier.trilateral.augmented.standard.hamza.*;
 import sarf.verb.trilateral.augmented.*;
@@ -20,7 +21,7 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @version 1.0
  */
 public class Mahmouz {
-    private List modifiers = new LinkedList();
+    private List<TrilateralNounSubstitutionApplier> modifiers = new LinkedList<>();
 
     public Mahmouz() {
         modifiers.add(new RaaEinMahmouz());
@@ -30,7 +31,7 @@ public class Mahmouz {
     }
 
     public void apply(ConjugationResult conjResult) {
-        Iterator iter = modifiers.iterator();
+        var iter = modifiers.iterator();
         while (iter.hasNext()) {
             IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) iter.next();
             if (modifier.isApplied(conjResult)) {

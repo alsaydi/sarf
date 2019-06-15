@@ -23,7 +23,9 @@ import java.awt.im.InputContext;
  * @version 1.0
  */
 public class MainFrame extends JFrame {
-    JPanel contentPane;
+   
+	private static final long serialVersionUID = 1L;
+	JPanel contentPane;
     BorderLayout borderLayout1 = new BorderLayout();
     IntroPane introPane;
     Preferences pref;

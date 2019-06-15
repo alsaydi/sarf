@@ -38,7 +38,7 @@ public class TitlateralAugmentedStandardModifier {
         return instance;
     }
 
-    public ConjugationResult build(AugmentedTrilateralRoot root, int kov, int formulaNo, List conjugations, AugmentedTrilateralModifierListener listener) {
+    public ConjugationResult build(AugmentedTrilateralRoot root, int kov, int formulaNo, List<String> conjugations, AugmentedTrilateralModifierListener listener) {
         ConjugationResult conjResult = new ConjugationResult(kov, formulaNo, root, conjugations);
         substituter.apply(conjResult);
         geminator.apply(conjResult);
@@ -52,7 +52,7 @@ public class TitlateralAugmentedStandardModifier {
             if (listener == null)
                 applyVocalization = true;
             else
-                //asking the listener to apply or not the vocaliztion
+                //asking the listener to apply or not the vocalization
                 applyVocalization = listener.doSelectVocalization();
         }
 

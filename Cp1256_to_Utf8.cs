@@ -8,7 +8,12 @@ namespace ConsTest
     {
         static void Main(string[] args)
         {
-            if(args.Length < 1)
+            WriteFileInUnicode(args);
+        }
+
+        private static void WriteFileInUnicode(string[] args)
+        {
+            if (args.Length < 1)
             {
                 Console.Error.WriteLine("Filename is required.");
                 Environment.Exit(1);
@@ -29,7 +34,7 @@ namespace ConsTest
                 Console.Error.WriteLine(ex);
                 Environment.Exit(2);
             }
-            
+
         }
     }
 }
