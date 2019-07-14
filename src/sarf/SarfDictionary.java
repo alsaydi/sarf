@@ -54,9 +54,7 @@ public class SarfDictionary {
         UnaugmentedTrilateralRootTree unaugmentedRootsTree = DatabaseManager.getInstance().getUnaugmentedTrilateralRootTree(c1);
         List<UnaugmentedTrilateralRoot> roots = unaugmentedRootsTree.getRoots();
         java.util.List<UnaugmentedTrilateralRoot> result = new LinkedList<>();
-        Iterator<UnaugmentedTrilateralRoot> iter = roots.iterator();
-        while (iter.hasNext()) {
-            UnaugmentedTrilateralRoot root = iter.next();
+        for (UnaugmentedTrilateralRoot root : roots) {
             if (root.getC1() == c1 && root.getC2() == c2 && root.getC3() == c3) {
                 result.add(root);
             }

@@ -27,7 +27,7 @@ class IntroPane extends JPanel {
         this.mainFrame = mainFrame;
 
 
-        System.err.println(java.nio.file.Path.of(".").toAbsolutePath());
+        System.err.println(java.nio.file.Paths.get(".").toAbsolutePath());
         Arrays.stream(ClassLoader.getSystemClassLoader().getDefinedPackages()).forEach(p -> {
             var x = MainFrame.class.getName();
             System.out.println(p.getName());
