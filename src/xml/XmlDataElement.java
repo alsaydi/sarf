@@ -4,7 +4,7 @@ public class XmlDataElement {
     protected String name;
     protected String value;
 
-    public XmlDataElement(String name, String value) {
+    XmlDataElement(String name, String value) {
         this.name = name;
         this.value = value;
     }

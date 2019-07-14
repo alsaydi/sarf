@@ -4,6 +4,7 @@ import java.io.*;
 import xml.*;
 import sarf.util.*;
 import java.sql.*;
+import java.util.Objects;
 
 /**
  * <p>Title: </p>
@@ -21,7 +22,7 @@ public class XmlDataGenerator {
     public XmlDataGenerator() {
     }
 
-    public static void generateTrilateralUnaugmented() throws FileNotFoundException {
+    private static void generateTrilateralUnaugmented() throws FileNotFoundException {
         QueryExecuter queryExecuter = new QueryExecuter("TripleUnaugmented");
         ResultSet charsResultSet = queryExecuter.executeQuery("Select distinct c1 from Base");
         try {
@@ -91,7 +92,7 @@ public class XmlDataGenerator {
 
                     for (int i = 1; i <= 12; i++) {
                         String transitive = resultSet.getString("F" + i);
-                        if (transitive != null && transitive != "" && !transitive.equals(".")) {
+                        if (transitive != null && !transitive.equals("") && !transitive.equals(".")) {
                             XmlElement infElement = rootElement.addElement("augmentationFormula");
                             infElement.addAttribute("formulaNo", i + "");
                             infElement.addAttribute("transitive", transitive);
@@ -280,16 +281,10 @@ public class XmlDataGenerator {
                     rootElement.addAttribute("c2", resultSet.getString("c2"));
                     rootElement.addAttribute("c3", resultSet.getString("c3"));
                     String form1 = resultSet.getString("form1");
-                    if (form1 != null)
-                        rootElement.addAttribute("form1", form1);
-                    else
-                        rootElement.addAttribute("form1", "");
+                    rootElement.addAttribute("form1", Objects.requireNonNullElse(form1, ""));
 
                     String form2 = resultSet.getString("form2");
-                    if (form2 != null)
-                        rootElement.addAttribute("form2", form2);
-                    else
-                        rootElement.addAttribute("form2", "");
+                    rootElement.addAttribute("form2", Objects.requireNonNullElse(form2, ""));
 
                     rootElement.closeStartTag();
                     rootElement.close();

@@ -5,23 +5,21 @@ import java.io.*;
 public class DefaultXmlElement implements XmlElement {
 
     private String name;
-    private XmlElement parent;
     private boolean closed = false;
     private int tabCount = 0;
 
     private PrintStream out;
     private boolean closedStartTag;
 
-    public DefaultXmlElement(String name, PrintStream out) {
+    DefaultXmlElement(String name, PrintStream out) {
         this.name = name;
         this.out = out;
         writeStartTag();
     }
 
-    public DefaultXmlElement(String name, PrintStream out, DefaultXmlElement parent) {
+    private DefaultXmlElement(String name, PrintStream out, DefaultXmlElement parent) {
         this.name = name;
         this.out = out;
-        this.parent = parent;
         tabCount = parent.tabCount + 1;
         writeStartTag();
     }
@@ -40,11 +38,7 @@ public class DefaultXmlElement implements XmlElement {
     }
 
     private String getTabString(int count) {
-        String tab = "";
-        for (int i = 0; i < count; i++) {
-            tab += "\t";
-        }
-        return tab;
+        return "\t".repeat(Math.max(0, count));
     }
 
     public void addDataElement(String name, String data) {

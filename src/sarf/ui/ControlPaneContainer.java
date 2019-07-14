@@ -442,7 +442,7 @@ public class ControlPaneContainer extends JPanel {
         }
     }
 
-    private void processQuadrilateral(String root) {
+    private void processQuadrilateral(String root) throws Exception {
         //فحص إذا كان الفعل يبتدأ بهمزة
         if (root.charAt(0) == 'ء') {
             displayErrorMessage("لا يوجد رباعي يبتدئ بهمزة");
@@ -465,13 +465,10 @@ public class ControlPaneContainer extends JPanel {
         else {
             //تجريب بدائل الألف
             List<String> rootTextList = new LinkedList<String>();
-            List<AugmentedQuadriliteralRoot> augmentedList = new LinkedList<AugmentedQuadriliteralRoot>();
-            List<UnaugmentedQuadriliteralRoot> unaugmentedList = new LinkedList<UnaugmentedQuadriliteralRoot>();
+            List<AugmentedQuadriliteralRoot> augmentedList = new LinkedList<>();
+            List<UnaugmentedQuadriliteralRoot> unaugmentedList = new LinkedList<>();
 
-            Iterator<String> iter = alefAlternatives.iterator();
-            while (iter.hasNext()) {
-                String alterativeRoot = iter.next();
-
+            for (String alterativeRoot : alefAlternatives) {
                 AugmentedQuadriliteralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedQuadrilateralRoot(alterativeRoot);
                 UnaugmentedQuadriliteralRoot unaugmentedRoot = SarfDictionary.getInstance().getUnaugmentedQuadrilateralRoot(alterativeRoot);
                 if (augmentedRoot != null || unaugmentedRoot != null) {

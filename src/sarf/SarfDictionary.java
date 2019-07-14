@@ -20,9 +20,6 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public class SarfDictionary {
-    private SarfDictionary() {
-    }
-
     private static SarfDictionary instance = new SarfDictionary();
 
     public static SarfDictionary getInstance() {
@@ -36,9 +33,7 @@ public class SarfDictionary {
 
         AugmentedTrilateralRootTree augmentedRootsTree = DatabaseManager.getInstance().getAugmentedTrilateralRootTree(c1);
         List<AugmentedTrilateralRoot> roots = augmentedRootsTree.getRoots();
-        Iterator<AugmentedTrilateralRoot> iter = roots.iterator();
-        while (iter.hasNext()) {
-            AugmentedTrilateralRoot aRoot = iter.next();
+        for (AugmentedTrilateralRoot aRoot : roots) {
             if (aRoot.getC1() == c1 && aRoot.getC2() == c2 && aRoot.getC3() == c3) {
                 return aRoot;
             }
@@ -87,20 +82,15 @@ public class SarfDictionary {
         return null;
     }
 
-    public UnaugmentedQuadriliteralRoot getUnaugmentedQuadrilateralRoot(String rootText) {
+    public UnaugmentedQuadriliteralRoot getUnaugmentedQuadrilateralRoot(String rootText) throws Exception {
         char c1 = rootText.charAt(0);
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);
         char c4 = rootText.charAt(3);
 
         UnaugmentedQuadriliteralRootTree rootsTree = null;
-        try {
-            rootsTree = DatabaseManager.getInstance().getUnaugmentedQuadriliteralRootTree(c1);
-        }
-        catch (Exception ex) {
-            //الملف غير موجود
-            return null;
-        }
+        rootsTree = DatabaseManager.getInstance().getUnaugmentedQuadriliteralRootTree(c1);
+
         java.util.List roots = rootsTree.getRoots();
 
         Iterator iter = roots.iterator();

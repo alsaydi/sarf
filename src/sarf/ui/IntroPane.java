@@ -2,7 +2,6 @@ package sarf.ui;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Arrays;
 import javax.swing.*;
 import sarf.util.*;
 
@@ -26,12 +25,6 @@ class IntroPane extends JPanel {
         super(new BorderLayout());
         this.mainFrame = mainFrame;
 
-
-        System.err.println(java.nio.file.Paths.get(".").toAbsolutePath());
-        Arrays.stream(ClassLoader.getSystemClassLoader().getDefinedPackages()).forEach(p -> {
-            var x = MainFrame.class.getName();
-            System.out.println(p.getName());
-        });
         SizedImagePane imagePane = new SizedImagePane(ClassLoader.getSystemResource("sarf/ui/Intro.jpg"));
 
         add(imagePane);
