@@ -25,7 +25,7 @@ class IntroPane extends JPanel {
         super(new BorderLayout());
         this.mainFrame = mainFrame;
 
-        SizedImagePane imagePane = new SizedImagePane(ClassLoader.getSystemResource("sarf/ui/Intro.jpg"));
+        SizedImagePane imagePane = new SizedImagePane(ClassLoader.getSystemResource("Intro.jpg"));
 
         add(imagePane);
         imagePane.addMouseListener(new MouseAdapter() {

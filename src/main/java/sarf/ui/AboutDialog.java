@@ -18,8 +18,8 @@ import sarf.util.SizedImagePane;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class AboutDialog extends JDialog {
-    public AboutDialog() {
+class AboutDialog extends JDialog {
+    AboutDialog() {
         try {
             jbInit();
         }
@@ -27,7 +27,7 @@ public class AboutDialog extends JDialog {
             ex.printStackTrace();
         }
 
-        SizedImagePane imagePane = new SizedImagePane(ClassLoader.getSystemResource("sarf/ui/about.jpg"));
+        SizedImagePane imagePane = new SizedImagePane(ClassLoader.getSystemResource("about.jpg"));
         imagePane.setLayout(new BorderLayout());
         this.getContentPane().setLayout(new BorderLayout());
         this.getContentPane().add(imagePane);
