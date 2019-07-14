@@ -1,4 +1,4 @@
-package xml;
+package sarf.xml;
 
 public class XmlDataElement {
     protected String name;

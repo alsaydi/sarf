@@ -1,4 +1,4 @@
-package xml;
+package sarf.xml;
 
 public interface XmlElement {
     XmlElement addElement(String name);
