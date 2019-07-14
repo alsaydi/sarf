@@ -3,7 +3,6 @@ package sarf.gerund.trilateral.augmented.pattern;
 import sarf.gerund.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.util.*;
-import sarf.gerund.trilateral.*;
 
 /**
  * <p>Title: Sarf Program</p>

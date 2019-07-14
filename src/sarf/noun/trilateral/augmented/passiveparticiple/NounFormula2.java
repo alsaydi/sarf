@@ -1,9 +1,8 @@
 package sarf.noun.trilateral.augmented.passiveparticiple;
 
-import sarf.noun.trilateral.*;
-import sarf.verb.trilateral.augmented.*;
+import sarf.noun.trilateral.augmented.AugmentedTrilateralNoun;
 import sarf.util.ArabCharUtil;
-import sarf.noun.trilateral.augmented.*;
+import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 
 /**
  * <p>Title: Sarf Program</p>

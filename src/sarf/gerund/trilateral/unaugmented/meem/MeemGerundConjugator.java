@@ -1,9 +1,7 @@
 package sarf.gerund.trilateral.unaugmented.meem;
 
-import sarf.verb.trilateral.augmented.*;
-import java.util.*;
 import sarf.*;
-import sarf.gerund.trilateral.*;
+import java.util.*;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.gerund.trilateral.unaugmented.meem.pattern.*;
 import sarf.noun.*;

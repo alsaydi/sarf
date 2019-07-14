@@ -1,9 +1,8 @@
 package sarf.gerund.trilateral.augmented.pattern;
 
-import sarf.gerund.trilateral.augmented.*;
-import sarf.verb.trilateral.augmented.*;
-import sarf.util.*;
-import sarf.gerund.trilateral.*;
+import sarf.gerund.trilateral.augmented.TrilateralAugmentedGerund;
+import sarf.util.ArabCharUtil;
+import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 
 /**
  * <p>Title: Sarf Program</p>

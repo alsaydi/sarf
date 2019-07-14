@@ -20,12 +20,11 @@ import javax.swing.JOptionPane;
  * @version 1.0
  */
 public class MainApp {
-    boolean packFrame = false;
 
     /**
      * Construct and show the application.
      */
-    public MainApp() {
+    private MainApp() {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         if (screenSize.height < 768 && screenSize.width < 1024) {
             Toolkit.getDefaultToolkit().beep();
@@ -37,12 +36,7 @@ public class MainApp {
         MainFrame frame = new MainFrame();
         // Validate frames that have preset sizes
         // Pack frames that have useful preferred size info, e.g. from their layout
-        if (packFrame) {
-            frame.pack();
-        }
-        else {
-            frame.validate();
-        }
+        frame.validate();
 
         // Center the window
 

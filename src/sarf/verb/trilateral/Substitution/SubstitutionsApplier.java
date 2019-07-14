@@ -18,7 +18,7 @@ import sarf.verb.trilateral.*;
  */
 public abstract class SubstitutionsApplier {
 
-    protected static List<String> defaultAppliedProunounsIndecies = new ArrayList<>(13);
+    protected static List<String> defaultAppliedProunounsIndecies = new ArrayList<String>(13);
     static {
         for (int i=0; i<13; i++) {
             defaultAppliedProunounsIndecies.add(i+1 +"");

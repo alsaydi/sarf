@@ -1,6 +1,5 @@
 package sarf.noun.trilateral.augmented.passiveparticiple;
 
-import sarf.noun.trilateral.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.util.ArabCharUtil;
 import sarf.noun.trilateral.augmented.*;

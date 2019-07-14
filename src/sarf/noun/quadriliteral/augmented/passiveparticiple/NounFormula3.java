@@ -1,9 +1,8 @@
 package sarf.noun.quadriliteral.augmented.passiveparticiple;
 
-import sarf.noun.quadriliteral.*;
-import sarf.verb.quadriliteral.augmented.*;
+import sarf.noun.quadriliteral.augmented.AugmentedQuadriliteralNoun;
 import sarf.util.ArabCharUtil;
-import sarf.noun.quadriliteral.augmented.*;
+import sarf.verb.quadriliteral.augmented.AugmentedQuadriliteralRoot;
 
 /**
  * <p>Title: Sarf Program</p>

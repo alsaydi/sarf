@@ -1,9 +1,7 @@
 package sarf.gerund.trilateral.augmented.nomen.pattern;
 
-import sarf.gerund.trilateral.augmented.*;
-import sarf.verb.trilateral.augmented.*;
 import sarf.util.*;
-import sarf.gerund.trilateral.*;
+import sarf.verb.trilateral.augmented.*;
 import sarf.gerund.trilateral.augmented.nomen.*;
 
 /**

@@ -1,16 +1,10 @@
 package sarf.noun.quadriliteral.augmented;
 
-import sarf.PastConjugationDataContainer;
-import java.util.Map;
-import java.util.HashMap;
-import sarf.verb.quadriliteral.augmented.AugmentedPastVerb;
-import sarf.verb.quadriliteral.augmented.AugmentedQuadriliteralRoot;
-import java.util.List;
-import java.util.LinkedList;
-import java.util.Iterator;
-import sarf.AugmentationFormula;
-import sarf.noun.quadriliteral.*;
 import sarf.noun.GenericNounSuffixContainer;
+import sarf.verb.quadriliteral.augmented.AugmentedQuadriliteralRoot;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>

@@ -19,17 +19,10 @@ import javax.swing.JPanel;
  * @version 1.0
  */
 public class SizedImagePane extends JPanel {
-    protected Image image;
-
-    public SizedImagePane() {
-    }
-
-    public SizedImagePane(String file) {
-
-        setImage(getToolkit().getImage(file));
-    }
+    private Image image;
 
     public SizedImagePane(URL url) {
+        System.err.println(url);
         setImage(getToolkit().getImage(url));
     }
 
@@ -37,14 +30,14 @@ public class SizedImagePane extends JPanel {
         return image;
     }
 
-    public void setImage(Image image) {
+    private void setImage(Image image) {
         this.image = image;
         MediaTracker mt = new MediaTracker(this);
         mt.addImage(image, 0);
         try {
             mt.waitForAll();
         }
-        catch (InterruptedException ep) {}
+        catch (InterruptedException ignored) {}
         //setPreferredSize(new Dimension(image.getWidth(this),image.getHeight(this)));
     }
 
@@ -54,5 +47,4 @@ public class SizedImagePane extends JPanel {
         int y = (getHeight() - image.getHeight(null))/2;
         g.drawImage(image, x, y, image.getWidth(null), image.getHeight(null), this);
     }
-
 }

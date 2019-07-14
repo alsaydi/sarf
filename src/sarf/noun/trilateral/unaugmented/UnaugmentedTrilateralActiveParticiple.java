@@ -2,7 +2,6 @@ package sarf.noun.trilateral.unaugmented;
 
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.util.*;
-import sarf.noun.trilateral.*;
 import sarf.noun.*;
 
 public class UnaugmentedTrilateralActiveParticiple  {

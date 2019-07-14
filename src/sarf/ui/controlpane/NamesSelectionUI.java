@@ -36,9 +36,9 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
     private SelectionInfo selectionInfo;
 
 
-    ToggleRenderedButton activeParticipleBtn = new ToggleRenderedButton("اسم الفاعل");
-    ToggleRenderedButton passiveParticipleBtn = new ToggleRenderedButton("اسم المفعول");
-    ToggleRenderedButton timeAndPlaceBtn = new ToggleRenderedButton("اسم الزمان والمكان  ");
+    private ToggleRenderedButton activeParticipleBtn = new ToggleRenderedButton("اسم الفاعل");
+    private ToggleRenderedButton passiveParticipleBtn = new ToggleRenderedButton("اسم المفعول");
+    private ToggleRenderedButton timeAndPlaceBtn = new ToggleRenderedButton("اسم الزمان والمكان  ");
 
 
     public NamesSelectionUI() {
@@ -163,7 +163,7 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
         return this;
     }
 
-    public void setInfo(SelectionInfo selectionInfo) {
+    void setInfo(SelectionInfo selectionInfo) {
         this.selectionInfo = selectionInfo;
 
         //to ask the user again for this new verb, reset the cashed user response
@@ -181,19 +181,19 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
         opened = false;
     }
 
-    Boolean cashedUserResponse = null;
+    private Boolean cashedUserResponse = null;
     //to let the user select when there is two states for the verb: with vocalization and without
     public boolean doSelectVocalization() {
         if (cashedUserResponse != null) {
-            return cashedUserResponse.booleanValue();
+            return cashedUserResponse;
         }
 
         //it must select one of two states
         String msg = "لهذا الفعل حالتان : التصحيح والإعلال، اختر إحدى الحالتين";
         Object[] options = {"التصحيح", "الإعلال"};
         int optionResult = JOptionPane.showOptionDialog(this, msg, "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-        cashedUserResponse = new Boolean(optionResult == JOptionPane.NO_OPTION);
-        return cashedUserResponse.booleanValue();
+        cashedUserResponse = optionResult == JOptionPane.NO_OPTION;
+        return cashedUserResponse;
     }
 
 

@@ -1,6 +1,5 @@
 package sarf.noun.quadriliteral.unaugmented;
 
-import sarf.noun.quadriliteral.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 import sarf.noun.*;
 import java.util.*;

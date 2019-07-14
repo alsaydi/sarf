@@ -35,7 +35,7 @@ public class ControlPaneContainer extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Map controlPaneMap = new HashMap();
+	private Map<String, IControlPane> controlPaneMap = new HashMap<>();
     private JButton startBtn = new RenderedButton("أدخل جذراً ثلاثياً أو رباعياً");
     private JButton backBtn = new RenderedButton("عودة");
     private JTextField rootFld = new JTextField(5);
@@ -45,7 +45,7 @@ public class ControlPaneContainer extends JPanel {
     private Preferences pref;
 
     //store the opened panels so you can go back and forward
-    private List panelCashSet = new LinkedList();
+    private List<IControlPane> panelCashSet = new LinkedList<IControlPane>();
     //used a s a reference to the current panel for the back-forward
     private IControlPane currentControlPane;
     private JTextField kovFld = new JTextField(14);
@@ -334,11 +334,11 @@ public class ControlPaneContainer extends JPanel {
     }
 
     private void processTrilateral(String root) throws Exception {
-        List alefAlternatives = Validator.getInstance().getTrilateralAlefAlternatives(root);
+        List<String> alefAlternatives = Validator.getInstance().getTrilateralAlefAlternatives(root);
         if (alefAlternatives.isEmpty()) {
             //لا يوجد احتمالات للألف
             AugmentedTrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedTrilateralRoot(root);
-            List unaugmentedList = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots(root);
+            List<UnaugmentedTrilateralRoot> unaugmentedList = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots(root);
             if (augmentedRoot == null && unaugmentedList.isEmpty()) {
                 container.removeAll();
                 validate();
@@ -351,15 +351,15 @@ public class ControlPaneContainer extends JPanel {
         }
         else {
             //تجريب بدائل الألف
-            List rootTextList = new LinkedList();
-            List augmentedList = new LinkedList();
-            List unaugmentedLists = new LinkedList();
+            List<String> rootTextList = new LinkedList<>();
+            List<AugmentedTrilateralRoot> augmentedList = new LinkedList<AugmentedTrilateralRoot>();
+            List<List<UnaugmentedTrilateralRoot>> unaugmentedLists = new LinkedList<List<UnaugmentedTrilateralRoot>>();
 
-            Iterator iter = alefAlternatives.iterator();
+            Iterator<String> iter = alefAlternatives.iterator();
             while (iter.hasNext()) {
-                String alterativeRoot = (String) iter.next();
+                String alterativeRoot = iter.next();
                 AugmentedTrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedTrilateralRoot(alterativeRoot);
-                List unaugmentedList = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots(alterativeRoot);
+                List<UnaugmentedTrilateralRoot> unaugmentedList = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots(alterativeRoot);
 
                 if (augmentedRoot != null || !unaugmentedList.isEmpty()) {
                     rootTextList.add(alterativeRoot);
@@ -391,8 +391,8 @@ public class ControlPaneContainer extends JPanel {
                 index = selectionResult == JOptionPane.YES_OPTION ? 0 : 1;
             }
             //عرض معلومات الجذر المنتقى
-            AugmentedTrilateralRoot augmentedRoot = (AugmentedTrilateralRoot) augmentedList.get(index);
-            List unaugmentedList = (List) unaugmentedLists.get(index);
+            AugmentedTrilateralRoot augmentedRoot = augmentedList.get(index);
+            List<UnaugmentedTrilateralRoot> unaugmentedList = unaugmentedLists.get(index);
             String newRoot = rootTextList.get(index).toString();
             //حتى لا يتم عرض رسالة نتبيهية
             //إلا في حالة جذر واحد
@@ -428,9 +428,9 @@ public class ControlPaneContainer extends JPanel {
         trilateralControlPane.disableAll();
 
         if (augmentedRoot != null) {
-            Iterator iter = augmentedRoot.getAugmentationList().iterator();
+            Iterator<AugmentationFormula> iter = augmentedRoot.getAugmentationList().iterator();
             while (iter.hasNext()) {
-                AugmentationFormula formula = (AugmentationFormula) iter.next();
+                AugmentationFormula formula = iter.next();
                 trilateralControlPane.enableAugmentedButton(formula.getFormulaNo() - 1, augmentedRoot);
             }
         }
@@ -449,7 +449,7 @@ public class ControlPaneContainer extends JPanel {
             return;
         }
 
-        List alefAlternatives = Validator.getInstance().getQuadrilateralAlefAlternatives(root);
+        List<String> alefAlternatives = Validator.getInstance().getQuadrilateralAlefAlternatives(root);
         if (alefAlternatives.isEmpty()) {
             //لا يوجد احتمالات للألف
             AugmentedQuadriliteralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedQuadrilateralRoot(root);
@@ -464,13 +464,13 @@ public class ControlPaneContainer extends JPanel {
         }
         else {
             //تجريب بدائل الألف
-            List rootTextList = new LinkedList();
-            List augmentedList = new LinkedList();
-            List unaugmentedList = new LinkedList();
+            List<String> rootTextList = new LinkedList<String>();
+            List<AugmentedQuadriliteralRoot> augmentedList = new LinkedList<AugmentedQuadriliteralRoot>();
+            List<UnaugmentedQuadriliteralRoot> unaugmentedList = new LinkedList<UnaugmentedQuadriliteralRoot>();
 
-            Iterator iter = alefAlternatives.iterator();
+            Iterator<String> iter = alefAlternatives.iterator();
             while (iter.hasNext()) {
-                String alterativeRoot = (String) iter.next();
+                String alterativeRoot = iter.next();
 
                 AugmentedQuadriliteralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedQuadrilateralRoot(alterativeRoot);
                 UnaugmentedQuadriliteralRoot unaugmentedRoot = SarfDictionary.getInstance().getUnaugmentedQuadrilateralRoot(alterativeRoot);
@@ -497,8 +497,8 @@ public class ControlPaneContainer extends JPanel {
                 index = selectionResult == JOptionPane.YES_OPTION ? 0 : 1;
             }
             //عرض معلومات الجذر المنتقى
-            AugmentedQuadriliteralRoot augmentedRoot = (AugmentedQuadriliteralRoot) augmentedList.get(index);
-            UnaugmentedQuadriliteralRoot unaugmentedRoot = (UnaugmentedQuadriliteralRoot) unaugmentedList.get(index);
+            AugmentedQuadriliteralRoot augmentedRoot = augmentedList.get(index);
+            UnaugmentedQuadriliteralRoot unaugmentedRoot = unaugmentedList.get(index);
 
             String newRoot = rootTextList.get(index).toString();
             //حتى لا يتم عرض رسالة نتبيهية
@@ -573,20 +573,20 @@ public class ControlPaneContainer extends JPanel {
         return kov;
     }
 
-    public JMenuBar getMenuBar() {
+    JMenuBar getMenuBar() {
         return menuBar;
     }
 
-    public JTextField getRootFld() {
+    JTextField getRootFld() {
         return rootFld;
     }
 
-    public JTextField getVerbTxtFld() {
+    JTextField getVerbTxtFld() {
         return verbTxtFld;
     }
 
-    public IControlPane getControlPane(String className) {
-        IControlPane controlPane = (IControlPane) controlPaneMap.get(className);
+    private IControlPane getControlPane(String className) {
+        IControlPane controlPane = controlPaneMap.get(className);
         if (controlPane == null) {
             try {
                 controlPane = (IControlPane) Class.forName(className).newInstance();
@@ -637,7 +637,7 @@ public class ControlPaneContainer extends JPanel {
         }
         int index = panelCashSet.indexOf(currentControlPane);
         if (index > 0) {
-            IControlPane controlPane = (IControlPane) panelCashSet.get(index - 1);
+            IControlPane controlPane = panelCashSet.get(index - 1);
             //first remove it from the cash so the flow will not get effected
             panelCashSet.remove(index);
 

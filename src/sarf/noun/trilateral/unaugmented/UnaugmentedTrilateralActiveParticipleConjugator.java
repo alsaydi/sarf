@@ -1,6 +1,5 @@
 package sarf.noun.trilateral.unaugmented;
 
-import sarf.noun.trilateral.*;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.noun.*;
 import java.util.*;

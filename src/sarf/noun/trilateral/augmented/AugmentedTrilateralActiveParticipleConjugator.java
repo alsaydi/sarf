@@ -1,16 +1,10 @@
 package sarf.noun.trilateral.augmented;
 
-import sarf.PastConjugationDataContainer;
-import java.util.Map;
-import java.util.HashMap;
-import sarf.verb.trilateral.augmented.AugmentedPastVerb;
-import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
-import java.util.List;
-import java.util.LinkedList;
-import java.util.Iterator;
 import sarf.AugmentationFormula;
-import sarf.noun.trilateral.*;
 import sarf.noun.GenericNounSuffixContainer;
+import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
+
+import java.util.*;
 
 /**
  * <p>Title: Sarf Program</p>
