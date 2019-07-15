@@ -534,7 +534,7 @@ public class XmlDataGenerator {
         QueryExecuter queryExecuter = new QueryExecuter("kov");
         ResultSet resultSet = queryExecuter.executeQuery("Select * from Base");
         try {
-            PrintStream out = new PrintStream(new FileOutputStream("c:/sarf/TrilateralKov.xml"));
+            PrintStream out = new PrintStream(new FileOutputStream("c:/sarf/trilateralKov.xml"));
             //for arabic supported xml
             out.println("<?xml version=\"1.0\" encoding=\"windows-1256\" ?>");
 

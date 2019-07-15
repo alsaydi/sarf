@@ -1,6 +1,9 @@
 package sarf.gerund.trilateral.unaugmented;
 
 import sarf.verb.trilateral.unaugmented.*;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.*;
 import org.apache.commons.digester3.Digester;
 import java.io.File;
@@ -24,11 +27,21 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
 
     private TrilateralUnaugmentedGerundConjugator() {
         try {
-            gerundDescriptionList = build(new File("./db/gerund/GerundDescription.xml"));
+            gerundDescriptionList = build(new File(getFullPath("db/gerund/GerundDescription.xml")));
         }
         catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    private static String getFullPath(String relativePath) {
+        String filepath = null;
+        try {
+            filepath = ClassLoader.getSystemResource(relativePath).toURI().getPath();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        return  filepath;
     }
 
     public static TrilateralUnaugmentedGerundConjugator getInstance() {

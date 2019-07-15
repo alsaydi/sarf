@@ -2,6 +2,7 @@ package sarf.kov;
 
 import org.apache.commons.digester3.*;
 import java.io.*;
+import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
@@ -30,8 +31,8 @@ public class KovRulesManager {
 
     private KovRulesManager() {
         try {
-            trilateralRulesList = buildTrilateral(new File(getFullPath("./db/Trilateralkov.xml")));
-            quadrilateralRulesList = buildQuadrilateral(new File(getFullPath("./db/Quadrilateralkov.xml")));
+            trilateralRulesList = buildTrilateral(new File(getFullPath("db/trilateralkov.xml")));
+            quadrilateralRulesList = buildQuadrilateral(new File(getFullPath("db/quadrilateralkov.xml")));
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -116,10 +117,14 @@ public class KovRulesManager {
         return null;
     }
 
-    private static String getFullPath(String relativePath) throws IOException{
-        System.out.println("Working Directory = " + System.getProperty("user.dir"));
-        Path path = Paths.get(relativePath);
-        return path.toRealPath().toString();
+    private static String getFullPath(String relativePath) {
+        String filename = null;
+        try {
+            filename = ClassLoader.getSystemResource(relativePath).toURI().getPath();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        return  filename;
     }
 
     public static void main(String[] args) {
