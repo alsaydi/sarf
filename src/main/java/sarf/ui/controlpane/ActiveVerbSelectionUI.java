@@ -12,6 +12,7 @@ import sarf.verb.quadriliteral.unaugmented.*;
 import sarf.*;
 import sarf.verb.quadriliteral.*;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
+import sarf.verb.trilateral.unaugmented.active.ActivePastVerb;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -75,7 +76,8 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                     }
                     else {
                         result = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerbList((UnaugmentedTrilateralRoot) selectionInfo.getRoot());
-                        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PAST_TENSE, true);
+                        sarf.verb.trilateral.unaugmented.ConjugationResult<ActivePastVerb> conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance()
+                                .build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PAST_TENSE, true);
                         result = conjResult.getFinalResult();
                     }
                 }

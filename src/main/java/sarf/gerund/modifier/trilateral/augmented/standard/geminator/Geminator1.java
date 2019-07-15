@@ -21,13 +21,13 @@ import sarf.verb.trilateral.augmented.*;
  */
 public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
 
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new LinkedList<>();
 
     public Geminator1() {
-        substitutions.add(new InfixSubstitution("ْتَاتَتَ","ْتَاتَتَ"));// EX: (إحتاتتا)
-        substitutions.add(new InfixSubstitution("ِتَاتَتَ","ِتَاتَتَ"));// EX: (انبتاتتان)
-        substitutions.add(new ExpressionInfixSubstitution("اC3َC3","اC3ّ"));// EX: (مُحاجَّة)
-        substitutions.add(new ExpressionInfixSubstitution("اC3ُC3","اC3ّ"));// EX: (تصامٌّ)
+        substitutions.add(new InfixSubstitution("ْتَاتَتَ", "ْتَاتَتَ"));// EX: (إحتاتتا)
+        substitutions.add(new InfixSubstitution("ِتَاتَتَ", "ِتَاتَتَ"));// EX: (انبتاتتان)
+        substitutions.add(new ExpressionInfixSubstitution("اC3َC3", "اC3ّ"));// EX: (مُحاجَّة)
+        substitutions.add(new ExpressionInfixSubstitution("اC3ُC3", "اC3ّ"));// EX: (تصامٌّ)
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {

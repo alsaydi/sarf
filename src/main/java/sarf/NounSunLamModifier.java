@@ -25,14 +25,14 @@ import sarf.verb.trilateral.TrilateralRoot;
  * @version 1.0
  */
 public class NounSunLamModifier extends SubstitutionsApplier {
-	protected static List<String> appliedProunounsIndecies = new ArrayList<>(13);
+	private static List<String> appliedPronounsIndexes = new ArrayList<>(13);
 	static {
 		for (int i = 0; i < 18; i++) {
-			appliedProunounsIndecies.add(i + 1 + "");
+			appliedPronounsIndexes.add(i + 1 + "");
 		}
 	}
 
-	List<Substitution> substitutions = new LinkedList<>();
+	private List<Substitution> substitutions = new LinkedList<>();
 
 	private NounSunLamModifier() {
 		List<String> sunLetters = new LinkedList<>();
@@ -79,13 +79,13 @@ public class NounSunLamModifier extends SubstitutionsApplier {
 	}
 
 	protected List<String> getAppliedPronounsIndecies() {
-		return appliedProunounsIndecies;
+		return appliedPronounsIndexes;
 	}
 
 	class ListedInfixSubstitution extends Substitution {
 		private List<String> probableChars;
 
-		public ListedInfixSubstitution(List<String> probableChars, String segment, String result) {
+		ListedInfixSubstitution(List<String> probableChars, String segment, String result) {
 			super(segment, result);
 			this.probableChars = probableChars;
 		}
@@ -97,12 +97,10 @@ public class NounSunLamModifier extends SubstitutionsApplier {
 		 * @return String
 		 */
 		public String apply(String word, TrilateralRoot root) {
-			Iterator<String> iter = probableChars.iterator();
-			while (iter.hasNext()) {
-				String sl = iter.next();
-				String appliedResut = apply(word, sl);
-				if (appliedResut != null) {
-					return appliedResut;
+			for (String sl : probableChars) {
+				String appliedResult = apply(word, sl);
+				if (appliedResult != null) {
+					return appliedResult;
 				}
 			}
 			return null;
@@ -111,7 +109,7 @@ public class NounSunLamModifier extends SubstitutionsApplier {
 		private String apply(String word, String sl) {
 			String wordSegment = segment.replaceAll("SL", sl);
 
-			if (word.indexOf(wordSegment) == -1) {
+			if (!word.contains(wordSegment)) {
 				return null;
 			}
 

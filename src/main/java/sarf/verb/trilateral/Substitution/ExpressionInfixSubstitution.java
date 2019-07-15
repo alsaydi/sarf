@@ -31,7 +31,7 @@ public class ExpressionInfixSubstitution extends Substitution {
         String wordSegment = segment.replaceAll("C1",root.getC1()+"");
         wordSegment = wordSegment.replaceAll("C2",root.getC2()+"");
         wordSegment = wordSegment.replaceAll("C3",root.getC3()+"");
-        if (word.indexOf(wordSegment) == -1) return null;
+        if (!word.contains(wordSegment)) return null;
 
         String replacedResult = result.replaceAll("C1",root.getC1()+"");
         replacedResult = replacedResult.replaceAll("C2",root.getC2()+"");

@@ -17,11 +17,6 @@ import sarf.verb.quadriliteral.substitution.Substitution;
  * @version 1.0
  */
 public abstract class SlashSubstitutionsApplier {
-
-    public SlashSubstitutionsApplier() {
-
-    }
-
     /**
      * حلقة تمسح الكلمات وتجرب الاستبدلات على كل  كلمة
      * اذا نجح أحد الاستبدالات لا نبحث عن أخر
@@ -35,7 +30,7 @@ public abstract class SlashSubstitutionsApplier {
                 continue;
             }
             String word = wordObj.toString().trim();
-            if (word.indexOf("/") != -1) {
+            if (word.contains("/")) {
                 StringTokenizer tokenizer = new StringTokenizer(word);
                 String word1 = tokenizer.nextToken().trim();
                 String newWord1 = apply(word1, root);
@@ -60,9 +55,8 @@ public abstract class SlashSubstitutionsApplier {
     }
 
     private String apply(String word, QuadrilateralRoot root) {
-        Iterator subIter = getSubstitutions().iterator();
-        while (subIter.hasNext()) {
-            Substitution substitution = (Substitution) subIter.next();
+        for (Object o : getSubstitutions()) {
+            Substitution substitution = (Substitution) o;
             String result = substitution.apply(word, root);
             if (result != null) {
                 return result;

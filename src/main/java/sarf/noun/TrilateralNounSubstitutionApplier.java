@@ -18,18 +18,18 @@ import sarf.verb.trilateral.Substitution.*;
  */
 public abstract class TrilateralNounSubstitutionApplier extends SubstitutionsApplier {
 
-    protected static List appliedProunounsIndecies = new ArrayList(18);
+    private static List<String> appliedPronounsIndexes = new ArrayList<String>(18);
     static {
         for (int i=0; i<18; i++) {
-            appliedProunounsIndecies.add(i+1 +"");
+            appliedPronounsIndexes.add(i+1 +"");
         }
     }
 
     public TrilateralNounSubstitutionApplier() {
     }
 
-    protected List getAppliedPronounsIndecies() {
-        return appliedProunounsIndecies;
+    protected List getAppliedPronounsIndexes() {
+        return appliedPronounsIndexes;
     }
 
 }

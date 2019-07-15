@@ -20,18 +20,14 @@ import sarf.verb.quadriliteral.substitution.*;
  * @version 1.0
  */
 public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier implements IQuadrilateralModifier {
-    List<InfixSubstitution> substitutions = new LinkedList<InfixSubstitution>();
+    private List<InfixSubstitution> substitutions = new LinkedList<>();
 
-    public EndedMahmouz() {
-
-
+    EndedMahmouz() {
         substitutions.add(new InfixSubstitution("اءًا","اءً"));// EX: (جِئجاءً، احبنطاءً)
         substitutions.add(new InfixSubstitution("َءَا","َآ"));// EX: (جأجآت، غرقآت، يرنآت)
         substitutions.add(new InfixSubstitution("َءَ","َأَ"));// EX: (جأجأة، غرقأة، يرنأة)
         substitutions.add(new InfixSubstitution("ُء","ُؤ"));// EX: (تجأجُؤ، تدربؤ)
-
     }
-
 
     public List<InfixSubstitution> getSubstitutions() {
         return substitutions;

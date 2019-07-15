@@ -5,6 +5,7 @@ import sarf.verb.trilateral.augmented.*;
 import sarf.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.Substitution.*;
+import sarf.verb.trilateral.augmented.modifier.substituter.AbstractGenericSubstituter;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -22,11 +23,11 @@ public class Substituter {
 
     //حسب التحليل فإن الماضي والمضارع والأمر تشترك في الابدال للمعلوم
     //ولكن للمجهول يختلف فقط الماضي أما المضارع فهو نفسه في المعلوم
-    private List activeList = new LinkedList();
-    private List passiveList = new LinkedList();
+    private List<SubstitutionsApplier> activeList = new LinkedList<>();
+    private List<SubstitutionsApplier> passiveList = new LinkedList<>();
 
 
-    public Substituter() {
+    Substituter() {
         activeList.add(new sarf.verb.trilateral.augmented.modifier.substituter.active.GenericSubstituter1());
         activeList.add(new sarf.verb.trilateral.augmented.modifier.substituter.active.GenericSubstituter2());
         activeList.add(new sarf.verb.trilateral.augmented.modifier.substituter.active.GenericSubstituter3());
@@ -52,22 +53,15 @@ public class Substituter {
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
-        List modifiers = null;
-        if (!active ) {
-            modifiers = passiveList;
-        }
-        else {
-            modifiers = activeList;
-        }
+        List<SubstitutionsApplier> modifiers = null;
+        modifiers = active ? activeList : passiveList;
 
-        Iterator iter = modifiers.iterator();
-        while (iter.hasNext()) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) iter.next();
+        for (SubstitutionsApplier o : modifiers) {
+            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier)modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                o.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }
     }
-
 }

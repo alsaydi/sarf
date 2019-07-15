@@ -21,7 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  */
 public class Geminator3 extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
 
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new LinkedList<>();
 
     public Geminator3() {
         substitutions.add(new InfixSubstitution("تْت","تّ"));// EX: (اتِّباعٌ، اتِّآم)
@@ -34,7 +34,7 @@ public class Geminator3 extends TrilateralNounSubstitutionApplier implements IAu
         return conjugationResult.getRoot().getC1() == 'ت' && (kov == 1 || kov == 6) && formulaNo == 5;
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

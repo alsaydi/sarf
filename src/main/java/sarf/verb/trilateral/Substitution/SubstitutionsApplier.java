@@ -2,6 +2,8 @@
 package sarf.verb.trilateral.Substitution;
 
 import java.util.*;
+import java.util.stream.IntStream;
+
 import sarf.verb.trilateral.*;
 
 /**
@@ -16,17 +18,13 @@ import sarf.verb.trilateral.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class SubstitutionsApplier {
+public abstract class SubstitutionsApplier<T> {
 
-    protected static List<String> defaultAppliedProunounsIndecies = new ArrayList<String>(13);
+    private static List<String> defaultAppliedPronounsIndexes = new ArrayList<>(13);
     static {
-        for (int i=0; i<13; i++) {
-            defaultAppliedProunounsIndecies.add(i+1 +"");
-        }
-    }
-
-    public SubstitutionsApplier() {
-
+        IntStream.range(1, 14).forEach(i -> {
+            defaultAppliedPronounsIndexes.add("" + i);
+        });
     }
 
     /**
@@ -35,18 +33,16 @@ public abstract class SubstitutionsApplier {
      * @param words List
      * @param root TrilateralRoot
      */
-    public void apply(List<String> words, TrilateralRoot root) {
-        for (int i=0; i< getAppliedPronounsIndecies().size(); i++) {
-            int index = Integer.parseInt(getAppliedPronounsIndecies().get(i).toString())-1;
-            Object wordObj = words.get(index);
+    public void apply(List words, TrilateralRoot root) {
+        for (String defaultAppliedPronounsIndex : defaultAppliedPronounsIndexes) {
+            int index = Integer.parseInt(defaultAppliedPronounsIndex) - 1;
+            var wordObj = words.get(index);
             if (wordObj == null) {
                 continue;
             }
-            String word = wordObj.toString().trim();
+            var word = wordObj.toString().trim();
 
-            Iterator<Substitution> subIter = getSubstitutions().iterator();
-            while (subIter.hasNext()) {
-                Substitution substitution = subIter.next();
+            for (Substitution substitution : getSubstitutions()) {
                 String result = substitution.apply(word, root);
                 if (result != null) {
                     //تبديل الكلمة الجديدة المستبدلة بالكلمة القديمة
@@ -63,10 +59,4 @@ public abstract class SubstitutionsApplier {
      * @return List
      */
     public abstract List<Substitution> getSubstitutions();
-
-    protected List<String> getAppliedPronounsIndecies() {
-        return defaultAppliedProunounsIndecies;
-    }
-
-
 }

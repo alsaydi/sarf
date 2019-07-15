@@ -16,15 +16,15 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class NounLamAlefModifier extends SubstitutionsApplier{
-	//TODO: appliedProunounsIndecies needs not to be a list of strings.
-    protected static List<String> appliedProunounsIndecies = new ArrayList<>(13);
+	//TODO: appliedPronounsIndexes needs not to be a list of strings.
+    protected static List<String> appliedPronounsIndexes = new ArrayList<>(13);
     static {
         for (int i=0; i<18; i++) {
-            appliedProunounsIndecies.add(i+1 +"");
+            appliedPronounsIndexes.add(i+1 +"");
         }
     }
 
-    List<Substitution> substitutions = new LinkedList<>();
+    private List<Substitution> substitutions = new LinkedList<>();
 
     private NounLamAlefModifier() {
         substitutions.add(new InfixSubstitution("لَا","لا"));// EX: (قالا)
@@ -63,6 +63,6 @@ public class NounLamAlefModifier extends SubstitutionsApplier{
     }
 
     protected List<String> getAppliedPronounsIndecies() {
-        return appliedProunounsIndecies;
+        return appliedPronounsIndexes;
     }
 }

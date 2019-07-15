@@ -21,7 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  */
 public class Geminator0 extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
 
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new LinkedList<>();
 
     public Geminator0() {
         substitutions.add(new InfixSubstitution("ْيِييَ","ِيَّ"));// EX: (تحيَّة)
@@ -32,7 +32,7 @@ public class Geminator0 extends TrilateralNounSubstitutionApplier implements IAu
         return conjugationResult.getFormulaNo() == 2 && conjugationResult.getRoot().getC2() == 'ي' && conjugationResult.getRoot().getC3() == 'ي';
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

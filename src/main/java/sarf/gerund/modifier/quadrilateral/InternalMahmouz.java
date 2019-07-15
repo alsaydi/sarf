@@ -20,16 +20,15 @@ import sarf.verb.quadriliteral.substitution.*;
  * @version 1.0
  */
 public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier implements IQuadrilateralModifier {
-    List<InfixSubstitution> substitutions = new LinkedList<>();
+    private List<InfixSubstitution> substitutions = new LinkedList<>();
 
-    public InternalMahmouz() {
+    InternalMahmouz() {
         substitutions.add(new InfixSubstitution("َءْ","َأْ"));// EX: (جأجأة، بأدلة،  تجأجُؤ، )
         substitutions.add(new InfixSubstitution("ْءَ","ْأَ"));// EX: (طمأنة، )
         substitutions.add(new InfixSubstitution("ْءُ","ْؤُ"));// EX: (تطمؤن، )
         substitutions.add(new InfixSubstitution("ْءِ","ْئِ"));// EX: (تَمَرْئِيًا)
         substitutions.add(new InfixSubstitution("ِءْ","ِئْ"));// EX: (اطمِئْنان، اكوِئْداد، ازيِئْنان)
     }
-
 
     public List<InfixSubstitution> getSubstitutions() {
         return substitutions;

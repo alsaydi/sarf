@@ -20,14 +20,14 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @version 1.0
  */
 public class RaaEinMahmouz extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
-    List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new LinkedList<>();
 
     public RaaEinMahmouz() {
         substitutions.add(new InfixSubstitution("ْءَا","َا"));// EX: (إراء، إراءة)
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

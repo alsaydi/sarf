@@ -20,8 +20,6 @@ import sarf.*;
  * @version 1.0
  */
 public class UnaugmentedTrilateralRootTreeCreator {
-    public UnaugmentedTrilateralRootTreeCreator() {
-    }
 
     public static UnaugmentedTrilateralRootTree buildXmlVerbTree(File xmlDiagramFile) throws Exception{
         Digester digester = new Digester();

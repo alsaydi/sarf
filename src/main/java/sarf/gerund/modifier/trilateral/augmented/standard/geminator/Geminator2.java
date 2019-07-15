@@ -21,7 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  */
 public class Geminator2 extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
 
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new LinkedList<>();
 
     public Geminator2() {
         substitutions.add(new InfixSubstitution("نْن","نّ"));// EX: (انِّماسٌ)
@@ -34,7 +34,7 @@ public class Geminator2 extends TrilateralNounSubstitutionApplier implements IAu
         return conjugationResult.getRoot().getC1() == 'ن' && kov == 1 && formulaNo == 4;
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

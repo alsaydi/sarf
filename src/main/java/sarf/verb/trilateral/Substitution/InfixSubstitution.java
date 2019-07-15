@@ -20,12 +20,7 @@ public class InfixSubstitution extends Substitution {
         super(segment, result);
     }
 
-    /**
-     *
-     * @param word String
-     * @return String
-     */
     public String apply(String word, TrilateralRoot root) {
-        return word.indexOf(segment) != -1? word.replaceAll(segment,result): null;
+        return word.contains(segment) ? word.replaceAll(segment,result): null;
     }
 }

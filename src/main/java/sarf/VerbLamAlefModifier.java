@@ -16,7 +16,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class VerbLamAlefModifier extends SubstitutionsApplier{
-    List<Substitution> substitutions = new LinkedList<>();
+    private List<Substitution> substitutions = new LinkedList<>();
 
     private VerbLamAlefModifier() {
 

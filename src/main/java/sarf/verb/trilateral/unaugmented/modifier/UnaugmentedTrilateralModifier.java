@@ -45,12 +45,12 @@ public class UnaugmentedTrilateralModifier {
      * @param tense String (From SystemConstans class the values are stored)  ماضي أو مضارع او أمر
      * @return ConjugationResult
      */
-    public ConjugationResult build(UnaugmentedTrilateralRoot root, int kov, List conjugations, String tense, boolean active) {
+    public<T> ConjugationResult build(UnaugmentedTrilateralRoot root, int kov, List<T> conjugations, String tense, boolean active) {
         return build(root, kov, conjugations, tense, active, true);
     }
 
-    public ConjugationResult build(UnaugmentedTrilateralRoot root, int kov, List conjugations, String tense, boolean active, boolean applyGemination) {
-        ConjugationResult conjResult = new ConjugationResult(kov, root, conjugations);
+    public<T> ConjugationResult build(UnaugmentedTrilateralRoot root, int kov, List<T> conjugations, String tense, boolean active, boolean applyGemination) {
+        ConjugationResult<T> conjResult = new ConjugationResult<>(kov, root, conjugations);
         if (applyGemination)
             geminator.apply(tense, active, conjResult);
         vocalizer.apply(tense, active, conjResult);

@@ -25,6 +25,6 @@ class NounLamAlefModifierTest {
 	
 	@Test
 	void assertApplied() throws Exception {
-		assertEquals(18, NounLamAlefModifier.appliedProunounsIndecies.size());		
+		assertEquals(18, NounLamAlefModifier.appliedPronounsIndexes.size());
 	}
 }

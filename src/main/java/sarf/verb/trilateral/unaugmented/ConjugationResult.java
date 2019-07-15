@@ -16,23 +16,23 @@ import java.util.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ConjugationResult {
+public class ConjugationResult<T> {
     protected int kov;
     protected UnaugmentedTrilateralRoot root;
 
     //13 conjugated verbs
-    protected List<String> originalResult;
+    private List<T> originalResult;
     //القائمة بعد  الادغام والاعلال والهمزة
-    protected List<String> finalResult;
+    private List<T> finalResult;
 
-    public ConjugationResult(int kov, UnaugmentedTrilateralRoot root, List<String> originalResult) {
+    public ConjugationResult(int kov, UnaugmentedTrilateralRoot root, List<T> originalResult) {
         this.kov = kov;
         this.originalResult = originalResult;
         this.root = root;
-        this.finalResult = new ArrayList<>(originalResult);
+        this.finalResult = new ArrayList<T>(originalResult);
     }
 
-    public List<String> getFinalResult() {
+    public List<T> getFinalResult() {
         return finalResult;
     }
 
@@ -40,7 +40,7 @@ public class ConjugationResult {
         return kov;
     }
 
-    public List<String> getOriginalResult() {
+    public List<T> getOriginalResult() {
         return originalResult;
     }
 

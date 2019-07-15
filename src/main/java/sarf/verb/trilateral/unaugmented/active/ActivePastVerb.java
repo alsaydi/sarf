@@ -29,7 +29,7 @@ public class ActivePastVerb {
     //ضمير الرفع المتصل
     private String connectedPronoun;
 
-    public ActivePastVerb(UnaugmentedTrilateralRoot root, String dpa2, String lastDpa, String connectedPronoun) {
+    ActivePastVerb(UnaugmentedTrilateralRoot root, String dpa2, String lastDpa, String connectedPronoun) {
         this.root = root;
         this.dpa2 = dpa2;
         this.lastDpa = lastDpa;
