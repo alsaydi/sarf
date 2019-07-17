@@ -36,8 +36,7 @@ public class AugmentedActivePastConjugator {
         Object [] parameters = {root, lastDpa, connectedPronoun};
 
         try {
-            AugmentedPastVerb verb = (AugmentedPastVerb) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
-            return verb;
+            return (AugmentedPastVerb) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -45,8 +44,8 @@ public class AugmentedActivePastConjugator {
         return null;
     }
 
-    public List createVerbList(AugmentedTrilateralRoot root, int formulaNo) {
-        List result = new LinkedList();
+    public List<AugmentedPastVerb> createVerbList(AugmentedTrilateralRoot root, int formulaNo) {
+        List<AugmentedPastVerb> result = new LinkedList<>();
         for (int i = 0; i < 13; i++) {
             AugmentedPastVerb verb = createVerb(root, i, formulaNo);
             result.add(verb);
@@ -57,14 +56,11 @@ public class AugmentedActivePastConjugator {
     }
 
     public Map createAllVerbList(AugmentedTrilateralRoot root) {
-        Map result = new HashMap();
-        Iterator iter = root.getAugmentationList().iterator();
-        while (iter.hasNext()) {
-            AugmentationFormula formula = (AugmentationFormula) iter.next();
-            List formulaVerbList = createVerbList(root, formula.getFormulaNo());
-            result.put(formula.getFormulaNo()+"", formulaVerbList);
+        Map<String, List<AugmentedPastVerb>> result = new HashMap<>();
+        for (AugmentationFormula formula : root.getAugmentationList()) {
+            var formulaVerbList = createVerbList(root, formula.getFormulaNo());
+            result.put(formula.getFormulaNo() + "", formulaVerbList);
         }
         return result;
     }
-
 }

@@ -18,33 +18,22 @@ import sarf.util.OrderedMap;
  * @author not attributable
  * @version 1.0
  */
-public class UnaugmentedTrilateralRoot implements TrilateralRoot{
+public class UnaugmentedTrilateralRoot extends TrilateralRoot{
 
-	private char c1;
-    private char c2;
-    private char c3;
     private String conjugation;
     private String transitive;
 
-    private OrderedMap<String, Gerund> gerundes = new OrderedMap<>();
-
+    private OrderedMap<String, Gerund> gerunds = new OrderedMap<>();
     public UnaugmentedTrilateralRoot() {
+        super();
     }
 
-    public char getC1() {
-        return c1;
-    }
-
-    public char getC2() {
-        return c2;
+    public UnaugmentedTrilateralRoot(char c1, char c2, char c3) {
+        super(c1, c2, c3);
     }
 
     public String getConjugation() {
         return conjugation;
-    }
-
-    public char getC3() {
-        return c3;
     }
 
     public String getTransitive() {
@@ -52,11 +41,11 @@ public class UnaugmentedTrilateralRoot implements TrilateralRoot{
     }
 
     public Collection<String> getGerundsSymbols() {
-        return gerundes.getOrderedKeys();
+        return gerunds.getOrderedKeys();
     }
 
     public Gerund getGerund(String symbol) {
-        return gerundes.get(symbol);
+        return gerunds.get(symbol);
     }
 
 
@@ -72,24 +61,15 @@ public class UnaugmentedTrilateralRoot implements TrilateralRoot{
     	this.conjugation = conjugation;
     }
 
-    public void setC3(char c3) {
-        this.c3 = c3;
-    }
-
-    public void setC2(char c2) {
-        this.c2 = c2;
-    }
-
-    public void setC1(char c1) {
-        this.c1 = c1;
-    }
-
     public void addGerund(Gerund gerund) {
-        gerundes.put(gerund.getSymbol(), gerund);
+        gerunds.put(gerund.getSymbol(), gerund);
     }
 
     public boolean equals(Object obj) {
-        UnaugmentedTrilateralRoot root = (UnaugmentedTrilateralRoot) obj;
-        return root.c1 == c1 && root.c2 == c2 && root.c3 == c3;
+        if(!(obj instanceof UnaugmentedTrilateralRoot))
+            return false;
+
+        var other = (UnaugmentedTrilateralRoot) obj;
+        return other.getC1() == this.getC1() && other.getC2() == this.getC2() && other.getC3() == this.getC3();
     }
 }

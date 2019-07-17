@@ -26,8 +26,8 @@ import java.awt.Color;
  */
 public class TrilateralControlPane extends JPanel implements IControlPane{
 	private static final long serialVersionUID = 1865647471114470824L;
-	private List<ControlButton> unaugmentedButons = new ArrayList<>(6);
-    private List<ControlButton> augmentedButons = new ArrayList<>(12);
+	private List<ControlButton> unaugmentedButtons = new ArrayList<>(6);
+    private List<ControlButton> augmentedButtons = new ArrayList<>(12);
 
     private List<UnaugmentedTrilateralRoot> unaugmentedTrilateralRoots = new ArrayList<>(6);
     private AugmentedTrilateralRoot currentAugmentedTrilateralRoot;
@@ -100,7 +100,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     private ActionListener unaugmentedActionListener = new UnaugmentedActionListener();
     private void addUnaugmentedButton(String text) {
         ControlButton btn = new ControlButton(text);
-        unaugmentedButons.add(btn);
+        unaugmentedButtons.add(btn);
         unaugmentedPanel.add(btn);
         btn.getButton().setName(++conjugationNoCounter + "");
         btn.getButton().addActionListener(unaugmentedActionListener);
@@ -110,7 +110,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     private ActionListener augmentedActionListener = new AugmentedActionListener();
     private void addAugmentedButton(String text, JPanel containerPnl) {
         ControlButton btn = new ControlButton(text);
-        augmentedButons.add(btn);
+        augmentedButtons.add(btn);
         containerPnl.add(btn);
         btn.getButton().setName(++formulaNoCounter + "");
         btn.getButton().addActionListener(augmentedActionListener);
@@ -121,8 +121,8 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     }
 
     public void disableAll() {
-    	augmentedButons.forEach(b -> b.setEnabled(false));
-    	unaugmentedButons.forEach(b -> b.setEnabled(false));
+    	augmentedButtons.forEach(b -> b.setEnabled(false));
+    	unaugmentedButtons.forEach(b -> b.setEnabled(false));
     }
 
     private static List<String> createEmptyList() {
@@ -134,7 +134,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     }
 
     public void enableUnaugmentedButton(int index, UnaugmentedTrilateralRoot root) {
-        ControlButton unaugmentedButon = unaugmentedButons.get(index);
+        ControlButton unaugmentedButon = unaugmentedButtons.get(index);
         unaugmentedButon.setEnabled(true);
         unaugmentedTrilateralRoots.set(index, root);
 
@@ -157,7 +157,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     }
 
     public void enableAugmentedButton(int index, AugmentedTrilateralRoot root) {
-        ControlButton btn = (ControlButton)augmentedButons.get(index);
+        ControlButton btn = (ControlButton) augmentedButtons.get(index);
         btn.setEnabled(true);
         currentAugmentedTrilateralRoot = root;
 
@@ -189,7 +189,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
             UnaugmentedTrilateralRoot root = (UnaugmentedTrilateralRoot) unaugmentedTrilateralRoots.get(conjugationNo-1);
             SelectionInfo selectionInfo = new SelectionInfo(root, true, false, ControlPaneContainer.getInstance().getKov());
 
-            ControlButton controlButton = (ControlButton) unaugmentedButons.get(conjugationNo-1);
+            ControlButton controlButton = (ControlButton) unaugmentedButtons.get(conjugationNo-1);
             selectionInfo.setFormulaText(controlButton.getFormulaText());
             selectionInfo.setVerbText(controlButton.getVerbText());
 
@@ -206,7 +206,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
             SelectionInfo selectionInfo = new SelectionInfo(currentAugmentedTrilateralRoot, true, true, ControlPaneContainer.getInstance().getKov());
             int formulaNo = Integer.parseInt(((JButton)e.getSource()).getName());
             selectionInfo.setAugmentationFormulaNo(formulaNo);
-            ControlButton controlButton = (ControlButton) augmentedButons.get(formulaNo-1);
+            ControlButton controlButton = (ControlButton) augmentedButtons.get(formulaNo-1);
             selectionInfo.setFormulaText(controlButton.getFormulaText());
             selectionInfo.setVerbText(controlButton.getVerbText());
 

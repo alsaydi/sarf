@@ -23,7 +23,7 @@ class TrilateralAugmentedNomenGerundConjugatorTest {
 		var augFormula = new AugmentationFormula();
 		augFormula.setFormulaNo(1);
 		var verb = "برد".toCharArray();
-		var root = new AugmentedTrilateralRoot(verb[0],verb[1],verb[2], augFormula);
+		var root = new AugmentedTrilateralRoot(verb[0],verb[1],verb[2]);
 		
 		var list = instance.createGerundList(root, augFormula.getFormulaNo());
 		

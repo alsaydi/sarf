@@ -7,7 +7,7 @@ import sarf.Gerund;
 public class UnaugmentedTrilateralRootTest {
 
 	@Test
-	public void gerund_addGernud_gerundAdded() {
+	public void gerund_addGerund_gerundAdded() {
 		UnaugmentedTrilateralRoot sut = new UnaugmentedTrilateralRoot();
 		Gerund gerund = new Gerund();
 		gerund.setSymbol("ض");
@@ -47,7 +47,7 @@ public class UnaugmentedTrilateralRootTest {
 	}
 	
 	@Test
-	void sameRoots_equals_retunsTrue() throws Exception {
+	void sameRoots_equals_rerunsTrue() throws Exception {
 		UnaugmentedTrilateralRoot sut = new UnaugmentedTrilateralRoot();
 		sut.setC1('ق');
 		sut.setC2('f');
@@ -57,12 +57,12 @@ public class UnaugmentedTrilateralRootTest {
 		اخر.setC1('ق');
 		اخر.setC2('f');
 		اخر.setC3('r');
-		
-		assertTrue(sut.equals(اخر));
+
+		assertEquals(sut, اخر);
 	}
 	
 	@Test
-	void differentRoots_equals_retunsTrue() throws Exception {
+	void differentRoots_equals_returnsFalse() throws Exception {
 		UnaugmentedTrilateralRoot sut = new UnaugmentedTrilateralRoot();
 		sut.setC1('ق');
 		sut.setC2('f');
@@ -72,8 +72,8 @@ public class UnaugmentedTrilateralRootTest {
 		اخر.setC1('ق');
 		اخر.setC2('f');
 		اخر.setC3('ع');
-		
-		assertFalse(sut.equals(اخر));
+
+		assertNotEquals(sut, اخر);
 	}
 	
 	@Test

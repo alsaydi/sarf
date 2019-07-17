@@ -428,16 +428,12 @@ public class ControlPaneContainer extends JPanel {
         trilateralControlPane.disableAll();
 
         if (augmentedRoot != null) {
-            Iterator<AugmentationFormula> iter = augmentedRoot.getAugmentationList().iterator();
-            while (iter.hasNext()) {
-                AugmentationFormula formula = iter.next();
+            for (AugmentationFormula formula : augmentedRoot.getAugmentationList()) {
                 trilateralControlPane.enableAugmentedButton(formula.getFormulaNo() - 1, augmentedRoot);
             }
         }
 
-        Iterator<UnaugmentedTrilateralRoot> iter = unaugmentedRoots.iterator();
-        while (iter.hasNext()) {
-            UnaugmentedTrilateralRoot root = iter.next();
+        for (UnaugmentedTrilateralRoot root : unaugmentedRoots) {
             trilateralControlPane.enableUnaugmentedButton(Integer.parseInt(root.getConjugation()) - 1, root);
         }
     }

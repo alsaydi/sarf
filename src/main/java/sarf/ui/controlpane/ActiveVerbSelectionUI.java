@@ -45,8 +45,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
         add(buttonsPanel);
 
         pastBtn.addActionListener(e -> {
-            List result = null;
-            String title = "";
+            List result;
             if (selectionInfo.isTrilateral()) {
                 result = generateTrilateralResult();
             }
