@@ -28,7 +28,7 @@ public class AugmentedPassivePastConjugator {
         return instance;
     }
 
-    public AugmentedPastVerb createVerb(AugmentedQuadriliteralRoot root, int pronounIndex, int formulaNo) {
+    public AugmentedPastVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
         String lastDpa = PastConjugationDataContainer.getInstance().getLastDpa(pronounIndex);
         String connectedPronoun = PastConjugationDataContainer.getInstance().getConnectedPronoun(pronounIndex);
         String formulaClassName = getClass().getPackage().getName()+".formula."+"AugmentedPastVerb"+formulaNo;
@@ -44,7 +44,7 @@ public class AugmentedPassivePastConjugator {
         return null;
     }
 
-    public List createVerbList(AugmentedQuadriliteralRoot root, int formulaNo) {
+    public List createVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
         AugmentationFormula augmentationFormula = root.getAugmentationFormula(formulaNo);
         if (augmentationFormula.getTransitive() == 'ل') {
             return createLazzemVerbList(root, formulaNo);
@@ -62,7 +62,7 @@ public class AugmentedPassivePastConjugator {
     }
 
     //المبني لمجهول اللازم فقط مع هو او هي
-    public List createLazzemVerbList(AugmentedQuadriliteralRoot root, int formulaNo) {
+    public List createLazzemVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
         List result = new LinkedList();
         for (int i = 0; i < 13; i++) {
             if (i == 7 || i == 8) {

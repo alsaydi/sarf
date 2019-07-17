@@ -3,7 +3,6 @@ package sarf.verb.quadriliteral.unaugmented.passive;
 import java.util.*;
 
 import sarf.*;
-import sarf.verb.quadriliteral.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 
 /**
@@ -31,12 +30,12 @@ public class PassivePresentConjugator {
     /**
      * إنشاء الفعل المضارع بغض النظر عن حالته الإعرابية
      * @param pronounIndex int
-     * @param root UnaugmentedQuadriliteralRoot
+     * @param root UnaugmentedQuadrilateralRoot
      * @param lastDprList List
      * @param connectedPronounList List
      * @return PassivePresentVerb
      */
-    private PassivePresentVerb createVerb(int pronounIndex, UnaugmentedQuadriliteralRoot root, List lastDprList, List connectedPronounList) {
+    private PassivePresentVerb createVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root, List lastDprList, List connectedPronounList) {
         //	اظهار مع هو وهي فقط للمجهول اللازم
         if (root.getTransitive().equals("ل") && pronounIndex != 7 && pronounIndex != 8) {
             return null;
@@ -55,7 +54,7 @@ public class PassivePresentConjugator {
      * @param root QuadriliteralVerb
      * @return PresentConjugation
      */
-    public PassivePresentVerb createNominativeVerb(int pronounIndex, UnaugmentedQuadriliteralRoot root) {
+    public PassivePresentVerb createNominativeVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getNominativeLastDprList(), PresentConjugationDataContainer.getInstance().getNominativeConnectedPronounList());
     }
 
@@ -66,7 +65,7 @@ public class PassivePresentConjugator {
      * @param root QuadriliteralVerb
      * @return PresentConjugation
      */
-    public PassivePresentVerb createAccusativeVerb(int pronounIndex, UnaugmentedQuadriliteralRoot root) {
+    public PassivePresentVerb createAccusativeVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getAccusativeLastDprList(), PresentConjugationDataContainer.getInstance().getAccusativeConnectedPronounList());
     }
 
@@ -77,7 +76,7 @@ public class PassivePresentConjugator {
      * @param root QuadriliteralVerb
      * @return PresentConjugation
      */
-    public PassivePresentVerb createJussiveVerb(int pronounIndex, UnaugmentedQuadriliteralRoot root) {
+    public PassivePresentVerb createJussiveVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getJussiveLastDprList(), PresentConjugationDataContainer.getInstance().getJussiveConnectedPronounList());
     }
 
@@ -88,7 +87,7 @@ public class PassivePresentConjugator {
      * @param root QuadriliteralVerb
      * @return PresentConjugation
      */
-    public PassivePresentVerb createEmphasizedVerb(int pronounIndex, UnaugmentedQuadriliteralRoot root) {
+    public PassivePresentVerb createEmphasizedVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getEmphasizedLastDprList(), PresentConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList());
     }
 
@@ -98,7 +97,7 @@ public class PassivePresentConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createNominativeVerbList(UnaugmentedQuadriliteralRoot root) {
+    public List createNominativeVerbList(UnaugmentedQuadrilateralRoot root) {
         List result = new LinkedList();
         for (int i = 0; i < 13; i++) {
             result.add(createNominativeVerb(i, root));
@@ -113,7 +112,7 @@ public class PassivePresentConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createAccusativeVerbList(UnaugmentedQuadriliteralRoot root) {
+    public List createAccusativeVerbList(UnaugmentedQuadrilateralRoot root) {
         List result = new LinkedList();
         for (int i = 0; i < 13; i++) {
             result.add(createAccusativeVerb(i, root));
@@ -128,7 +127,7 @@ public class PassivePresentConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createJussiveVerbList(UnaugmentedQuadriliteralRoot root) {
+    public List createJussiveVerbList(UnaugmentedQuadrilateralRoot root) {
         List result = new LinkedList();
         for (int i = 0; i < 13; i++) {
             result.add(createJussiveVerb(i, root));
@@ -144,7 +143,7 @@ public class PassivePresentConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createEmphasizedVerbList(UnaugmentedQuadriliteralRoot root) {
+    public List createEmphasizedVerbList(UnaugmentedQuadrilateralRoot root) {
         List result = new LinkedList();
         for (int i = 0; i < 13; i++) {
             result.add(createEmphasizedVerb(i, root));

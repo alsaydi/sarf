@@ -2,7 +2,7 @@ package sarf.noun.quadriliteral.augmented;
 
 import java.util.Map;
 import java.util.HashMap;
-import sarf.verb.quadriliteral.augmented.AugmentedQuadriliteralRoot;
+import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
 import java.util.List;
 import java.util.LinkedList;
 import java.util.Iterator;
@@ -31,7 +31,7 @@ public class AugmentedQuadriliteralActiveParticipleConjugator {
         return instance;
     }
 
-    public AugmentedQuadriliteralNoun createNoun(AugmentedQuadriliteralRoot root, int suffixIndex, int formulaNo) {
+    public AugmentedQuadriliteralNoun createNoun(AugmentedQuadrilateralRoot root, int suffixIndex, int formulaNo) {
         String suffix = GenericNounSuffixContainer.getInstance().get(suffixIndex);
         String formulaClassName = getClass().getPackage().getName()+".activeparticiple."+"NounFormula"+formulaNo;
         Object [] parameters = {root, suffix};
@@ -46,7 +46,7 @@ public class AugmentedQuadriliteralActiveParticipleConjugator {
         return null;
     }
 
-    public List createNounList(AugmentedQuadriliteralRoot root, int formulaNo) {
+    public List createNounList(AugmentedQuadrilateralRoot root, int formulaNo) {
         List result = new LinkedList();
         for (int i = 0; i < 18; i++) {
             AugmentedQuadriliteralNoun noun = createNoun(root, i, formulaNo);
@@ -57,7 +57,7 @@ public class AugmentedQuadriliteralActiveParticipleConjugator {
 
     }
 
-    public Map createAllNounList(AugmentedQuadriliteralRoot root) {
+    public Map createAllNounList(AugmentedQuadrilateralRoot root) {
         Map result = new HashMap();
         Iterator iter = root.getAugmentationList().iterator();
         while (iter.hasNext()) {

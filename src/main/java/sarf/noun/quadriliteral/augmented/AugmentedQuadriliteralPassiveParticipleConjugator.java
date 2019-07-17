@@ -1,7 +1,7 @@
 package sarf.noun.quadriliteral.augmented;
 
 import sarf.noun.GenericNounSuffixContainer;
-import sarf.verb.quadriliteral.augmented.AugmentedQuadriliteralRoot;
+import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class AugmentedQuadriliteralPassiveParticipleConjugator {
         return instance;
     }
 
-    public AugmentedQuadriliteralNoun createNoun(AugmentedQuadriliteralRoot root, int suffixIndex, int formulaNo) {
+    public AugmentedQuadriliteralNoun createNoun(AugmentedQuadrilateralRoot root, int suffixIndex, int formulaNo) {
         String suffix = GenericNounSuffixContainer.getInstance().get(suffixIndex);
         String formulaClassName = getClass().getPackage().getName()+".passiveparticiple."+"NounFormula"+formulaNo;
         Object [] parameters = {root, suffix};
@@ -43,7 +43,7 @@ public class AugmentedQuadriliteralPassiveParticipleConjugator {
         return null;
     }
 
-    public List createNounList(AugmentedQuadriliteralRoot root, int formulaNo) {
+    public List createNounList(AugmentedQuadrilateralRoot root, int formulaNo) {
         List result = new LinkedList();
         for (int i = 0; i < 18; i++) {
             AugmentedQuadriliteralNoun noun = createNoun(root, i, formulaNo);
@@ -54,7 +54,7 @@ public class AugmentedQuadriliteralPassiveParticipleConjugator {
     }
 
     //تستعمل في اسم الزمان والمكان والمصدر الميمي
-    private List createNounList(AugmentedQuadriliteralRoot root, int formulaNo, List indecies) {
+    private List createNounList(AugmentedQuadrilateralRoot root, int formulaNo, List indecies) {
         List result = new LinkedList();
 
         for (int i=0; i<18; i++) {
@@ -83,7 +83,7 @@ public class AugmentedQuadriliteralPassiveParticipleConjugator {
 
     }
 
-    public List createTimeAndPlaceNounList(AugmentedQuadriliteralRoot root, int formulaNo) {
+    public List createTimeAndPlaceNounList(AugmentedQuadrilateralRoot root, int formulaNo) {
         return createNounList(root, formulaNo, timeAndPlaceIndeciesList);
     }
 
@@ -96,7 +96,7 @@ public class AugmentedQuadriliteralPassiveParticipleConjugator {
         meemGerundIndeciesList.add("12");
     }
 
-    public List createMeemGerundNounList(AugmentedQuadriliteralRoot root, int formulaNo) {
+    public List createMeemGerundNounList(AugmentedQuadrilateralRoot root, int formulaNo) {
         return createNounList(root, formulaNo, meemGerundIndeciesList);
     }
 

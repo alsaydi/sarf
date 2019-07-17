@@ -3,7 +3,6 @@ package sarf.verb.quadriliteral.unaugmented.active;
 import java.util.List;
 import java.util.LinkedList;
 import sarf.*;
-import sarf.verb.quadriliteral.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 
 /**
@@ -31,10 +30,10 @@ public class ActivePastConjugator {
     /**
     *  إنشاء الفعل حسب الضمير
      * @param pronounIndex int
-     * @param root UnaugmentedQuadriliteralRoot
+     * @param root UnaugmentedQuadrilateralRoot
      * @return PastConjugation
      */
-    public ActivePastVerb createVerb(int pronounIndex, UnaugmentedQuadriliteralRoot root) {
+    public ActivePastVerb createVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         String lastDpa = PastConjugationDataContainer.getInstance().getLastDpa(pronounIndex);
         String connectedPronoun = PastConjugationDataContainer.getInstance().getConnectedPronoun(pronounIndex);
         return new ActivePastVerb(root, lastDpa, connectedPronoun);
@@ -42,10 +41,10 @@ public class ActivePastConjugator {
 
     /**
      *  إنشاء  قائمة تحتوي الأفعال مع الضمائر الثلاثة عشر
-     * @param root UnaugmentedQuadriliteralRoot
+     * @param root UnaugmentedQuadrilateralRoot
      * @return List
      */
-    public List createVerbList(UnaugmentedQuadriliteralRoot root) {
+    public List createVerbList(UnaugmentedQuadrilateralRoot root) {
         List result = new LinkedList();
         for (int i=0; i<13; i++) {
             result.add(createVerb(i, root));

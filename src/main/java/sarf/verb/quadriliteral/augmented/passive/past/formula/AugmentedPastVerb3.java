@@ -2,7 +2,6 @@ package sarf.verb.quadriliteral.augmented.passive.past.formula;
 
 import sarf.util.*;
 import sarf.verb.quadriliteral.augmented.*;
-import sarf.verb.quadriliteral.augmented.*;
 
 /**
  * <p>Title: Sarf</p>
@@ -18,7 +17,7 @@ import sarf.verb.quadriliteral.augmented.*;
  */
 public class AugmentedPastVerb3 extends AugmentedPastVerb {
 
-    public AugmentedPastVerb3(AugmentedQuadriliteralRoot root, String lastDpa, String connectedPronoun) {
+    public AugmentedPastVerb3(AugmentedQuadrilateralRoot root, String lastDpa, String connectedPronoun) {
         super(root, lastDpa, connectedPronoun);
     }
 

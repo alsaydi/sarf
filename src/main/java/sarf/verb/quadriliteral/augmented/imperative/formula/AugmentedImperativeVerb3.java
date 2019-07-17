@@ -2,8 +2,6 @@ package sarf.verb.quadriliteral.augmented.imperative.formula;
 
 import sarf.util.*;
 import sarf.verb.quadriliteral.augmented.*;
-import sarf.verb.quadriliteral.augmented.*;
-import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.augmented.imperative.*;
 
 /**
@@ -20,7 +18,7 @@ import sarf.verb.quadriliteral.augmented.imperative.*;
  */
 public class AugmentedImperativeVerb3 extends AugmentedImperativeVerb {
 
-    public AugmentedImperativeVerb3(AugmentedQuadriliteralRoot root,  String lastDim, String connectedPronoun) {
+    public AugmentedImperativeVerb3(AugmentedQuadrilateralRoot root, String lastDim, String connectedPronoun) {
         super(root, lastDim, connectedPronoun);
     }
 

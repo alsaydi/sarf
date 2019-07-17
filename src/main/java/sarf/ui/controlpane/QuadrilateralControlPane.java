@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.unaugmented.*;
-import java.awt.event.*;
+
 import java.awt.BorderLayout;
 import sarf.SystemConstants;
 import java.awt.Color;
@@ -30,8 +30,8 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
     private List augmentedButons = new ArrayList(12);
 
     private ControlButton unaugmentedBtn = new ControlButton("فَعْلَل يُفَعْلِل");
-    private AugmentedQuadriliteralRoot currentAugmentedRoot;
-    private UnaugmentedQuadriliteralRoot currentUnaugmentedRoot;
+    private AugmentedQuadrilateralRoot currentAugmentedRoot;
+    private UnaugmentedQuadrilateralRoot currentUnaugmentedRoot;
 
     public QuadrilateralControlPane() {
         super(new BorderLayout());
@@ -111,7 +111,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
     }
 
 
-    public void enableUnaugmentedButton(UnaugmentedQuadriliteralRoot root) {
+    public void enableUnaugmentedButton(UnaugmentedQuadrilateralRoot root) {
         unaugmentedBtn.setEnabled(true);
         unaugmentedBtn.setRootText("");
         currentUnaugmentedRoot = root;
@@ -134,7 +134,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
         unaugmentedBtn.setRootText(pastRootText + " "+ presentRootText);
     }
 
-    public void enableAugmentedButton(int index, AugmentedQuadriliteralRoot root) {
+    public void enableAugmentedButton(int index, AugmentedQuadrilateralRoot root) {
         ControlButton btn = (ControlButton) augmentedButons.get(index);
         btn.setEnabled(true);
         btn.setRootText("");

@@ -448,8 +448,8 @@ public class ControlPaneContainer extends JPanel {
         List<String> alefAlternatives = Validator.getInstance().getQuadrilateralAlefAlternatives(root);
         if (alefAlternatives.isEmpty()) {
             //لا يوجد احتمالات للألف
-            AugmentedQuadriliteralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedQuadrilateralRoot(root);
-            UnaugmentedQuadriliteralRoot unaugmentedRoot = SarfDictionary.getInstance().getUnaugmentedQuadrilateralRoot(root);
+            AugmentedQuadrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedQuadrilateralRoot(root);
+            UnaugmentedQuadrilateralRoot unaugmentedRoot = SarfDictionary.getInstance().getUnaugmentedQuadrilateralRoot(root);
             if (augmentedRoot == null && unaugmentedRoot == null) {
                 displayErrorMessage("لم يرد هذا الجذر في قاعدة المعطيات      ");
             }
@@ -461,12 +461,12 @@ public class ControlPaneContainer extends JPanel {
         else {
             //تجريب بدائل الألف
             List<String> rootTextList = new LinkedList<String>();
-            List<AugmentedQuadriliteralRoot> augmentedList = new LinkedList<>();
-            List<UnaugmentedQuadriliteralRoot> unaugmentedList = new LinkedList<>();
+            List<AugmentedQuadrilateralRoot> augmentedList = new LinkedList<>();
+            List<UnaugmentedQuadrilateralRoot> unaugmentedList = new LinkedList<>();
 
             for (String alterativeRoot : alefAlternatives) {
-                AugmentedQuadriliteralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedQuadrilateralRoot(alterativeRoot);
-                UnaugmentedQuadriliteralRoot unaugmentedRoot = SarfDictionary.getInstance().getUnaugmentedQuadrilateralRoot(alterativeRoot);
+                AugmentedQuadrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedQuadrilateralRoot(alterativeRoot);
+                UnaugmentedQuadrilateralRoot unaugmentedRoot = SarfDictionary.getInstance().getUnaugmentedQuadrilateralRoot(alterativeRoot);
                 if (augmentedRoot != null || unaugmentedRoot != null) {
                     rootTextList.add(alterativeRoot);
                     augmentedList.add(augmentedRoot);
@@ -490,8 +490,8 @@ public class ControlPaneContainer extends JPanel {
                 index = selectionResult == JOptionPane.YES_OPTION ? 0 : 1;
             }
             //عرض معلومات الجذر المنتقى
-            AugmentedQuadriliteralRoot augmentedRoot = augmentedList.get(index);
-            UnaugmentedQuadriliteralRoot unaugmentedRoot = unaugmentedList.get(index);
+            AugmentedQuadrilateralRoot augmentedRoot = augmentedList.get(index);
+            UnaugmentedQuadrilateralRoot unaugmentedRoot = unaugmentedList.get(index);
 
             String newRoot = rootTextList.get(index).toString();
             //حتى لا يتم عرض رسالة نتبيهية
@@ -504,7 +504,7 @@ public class ControlPaneContainer extends JPanel {
     }
 
 
-    private void displayQuadrilateral(String rootText, AugmentedQuadriliteralRoot augmentedRoot, UnaugmentedQuadriliteralRoot unaugmentedRoot) {
+    private void displayQuadrilateral(String rootText, AugmentedQuadrilateralRoot augmentedRoot, UnaugmentedQuadrilateralRoot unaugmentedRoot) {
         char c1 = rootText.charAt(0);
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);

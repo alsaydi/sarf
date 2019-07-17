@@ -1,7 +1,6 @@
 package sarf.verb.quadriliteral.unaugmented.active;
 
 import sarf.util.*;
-import sarf.verb.quadriliteral.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 
 
@@ -15,7 +14,7 @@ import sarf.verb.quadriliteral.unaugmented.*;
  * @version 1.0
  */
 public class ActivePresentVerb {
-    private UnaugmentedQuadriliteralRoot root;
+    private UnaugmentedQuadrilateralRoot root;
 
     //حرف المضارع
     private String cp;
@@ -25,7 +24,7 @@ public class ActivePresentVerb {
     //الأحرف المضافة لنهاية الفعل حسب الضمير
     private String connectedPronoun;
 
-    public ActivePresentVerb(UnaugmentedQuadriliteralRoot root, String cp, String lastDpr, String connectedPronoun) {
+    public ActivePresentVerb(UnaugmentedQuadrilateralRoot root, String cp, String lastDpr, String connectedPronoun) {
         this.root = root;
         this.cp = cp;
         this.lastDpr = lastDpr;
@@ -36,7 +35,7 @@ public class ActivePresentVerb {
         return connectedPronoun;
     }
 
-    public UnaugmentedQuadriliteralRoot getRoot() {
+    public UnaugmentedQuadrilateralRoot getRoot() {
         return root;
     }
 

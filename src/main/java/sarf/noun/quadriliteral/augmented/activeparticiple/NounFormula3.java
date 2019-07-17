@@ -17,7 +17,7 @@ import sarf.noun.quadriliteral.augmented.*;
  * @version 1.0
  */
 public class NounFormula3 extends AugmentedQuadriliteralNoun {
-    public NounFormula3(AugmentedQuadriliteralRoot root, String suffix) {
+    public NounFormula3(AugmentedQuadrilateralRoot root, String suffix) {
         super(root, suffix);
     }
 

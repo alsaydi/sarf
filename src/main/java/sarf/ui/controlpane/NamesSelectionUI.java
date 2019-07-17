@@ -13,10 +13,7 @@ import sarf.ui.*;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 import sarf.verb.trilateral.augmented.*;
-import java.util.Map;
-import java.util.HashMap;
 import sarf.Action;
-import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.quadriliteral.*;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
 
@@ -76,10 +73,10 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
 
                         List result = null;
                         if (selectionInfo.isAugmented()) {
-                            result = AugmentedQuadriliteralActiveParticipleConjugator.getInstance().createNounList((AugmentedQuadriliteralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                            result = AugmentedQuadriliteralActiveParticipleConjugator.getInstance().createNounList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                         }
                         else {
-                            result = UnaugmentedQuadriliteralActiveParticipleConjugator.getInstance().createNounList((UnaugmentedQuadriliteralRoot) selectionInfo.getRoot());
+                            result = UnaugmentedQuadriliteralActiveParticipleConjugator.getInstance().createNounList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
                         }
                         sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.noun.quadriliteral.modifier.activeparticiple.ActiveParticipleModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result);
 
@@ -107,10 +104,10 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
 
                         List result = null;
                         if (selectionInfo.isAugmented()) {
-                            result = AugmentedQuadriliteralPassiveParticipleConjugator.getInstance().createNounList((AugmentedQuadriliteralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                            result = AugmentedQuadriliteralPassiveParticipleConjugator.getInstance().createNounList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                         }
                         else {
-                            result = UnaugmentedQuadriliteralPassiveParticipleConjugator.getInstance().createNounList((UnaugmentedQuadriliteralRoot) selectionInfo.getRoot());
+                            result = UnaugmentedQuadriliteralPassiveParticipleConjugator.getInstance().createNounList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
                         }
 
                         sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result);
@@ -140,10 +137,10 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
 
                         List result = null;
                         if (selectionInfo.isAugmented()) {
-                            result = AugmentedQuadriliteralPassiveParticipleConjugator.getInstance().createTimeAndPlaceNounList((AugmentedQuadriliteralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                            result = AugmentedQuadriliteralPassiveParticipleConjugator.getInstance().createTimeAndPlaceNounList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                         }
                         else {
-                            result = UnaugmentedQuadriliteralPassiveParticipleConjugator.getInstance().createTimeAndPlaceNounList((UnaugmentedQuadriliteralRoot) selectionInfo.getRoot());
+                            result = UnaugmentedQuadriliteralPassiveParticipleConjugator.getInstance().createTimeAndPlaceNounList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
                         }
 
                         sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result);

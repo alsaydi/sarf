@@ -57,7 +57,7 @@ public class SarfDictionary {
         return result;
     }
 
-    public AugmentedQuadriliteralRoot getAugmentedQuadrilateralRoot(String rootText) {
+    public AugmentedQuadrilateralRoot getAugmentedQuadrilateralRoot(String rootText) {
         char c1 = rootText.charAt(0);
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);
@@ -74,7 +74,7 @@ public class SarfDictionary {
         List roots = augmentedRootsTree.getRoots();
         Iterator iter = roots.iterator();
         while (iter.hasNext()) {
-            AugmentedQuadriliteralRoot aRoot = (AugmentedQuadriliteralRoot) iter.next();
+            AugmentedQuadrilateralRoot aRoot = (AugmentedQuadrilateralRoot) iter.next();
             if (aRoot.getC1() == c1 && aRoot.getC2() == c2 && aRoot.getC3() == c3 && aRoot.getC4() == c4) {
                 return aRoot;
             }
@@ -82,7 +82,7 @@ public class SarfDictionary {
         return null;
     }
 
-    public UnaugmentedQuadriliteralRoot getUnaugmentedQuadrilateralRoot(String rootText) throws Exception {
+    public UnaugmentedQuadrilateralRoot getUnaugmentedQuadrilateralRoot(String rootText) throws Exception {
         char c1 = rootText.charAt(0);
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);
@@ -95,7 +95,7 @@ public class SarfDictionary {
 
         Iterator iter = roots.iterator();
         while (iter.hasNext()) {
-            UnaugmentedQuadriliteralRoot aRoot = (UnaugmentedQuadriliteralRoot) iter.next();
+            UnaugmentedQuadrilateralRoot aRoot = (UnaugmentedQuadrilateralRoot) iter.next();
             if (aRoot.getC1() == c1 && aRoot.getC2() == c2 && aRoot.getC3() == c3 && aRoot.getC4() == c4) {
                 return aRoot;
             }

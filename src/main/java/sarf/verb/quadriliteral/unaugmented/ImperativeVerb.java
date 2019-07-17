@@ -13,7 +13,7 @@ import sarf.util.*;
  * @version 1.0
  */
 public class ImperativeVerb {
-    private UnaugmentedQuadriliteralRoot root;
+    private UnaugmentedQuadrilateralRoot root;
 
     //حركة لام الفعل حسب الضمير
     private String lastDim;
@@ -21,7 +21,7 @@ public class ImperativeVerb {
     //ضمير الرفع المتصل
     private String connectedPronoun;
 
-    public ImperativeVerb(UnaugmentedQuadriliteralRoot root, String lastDim, String connectedPronoun) {
+    public ImperativeVerb(UnaugmentedQuadrilateralRoot root, String lastDim, String connectedPronoun) {
         this.root = root;
         this.lastDim = lastDim;
         this.connectedPronoun = connectedPronoun;
@@ -31,7 +31,7 @@ public class ImperativeVerb {
         return connectedPronoun;
     }
 
-    public UnaugmentedQuadriliteralRoot getRoot() {
+    public UnaugmentedQuadrilateralRoot getRoot() {
         return root;
     }
 

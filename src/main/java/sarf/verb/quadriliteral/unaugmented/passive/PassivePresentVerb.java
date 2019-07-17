@@ -1,6 +1,5 @@
 package sarf.verb.quadriliteral.unaugmented.passive;
 
-import sarf.verb.quadriliteral.*;
 import sarf.util.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 
@@ -15,7 +14,7 @@ import sarf.verb.quadriliteral.unaugmented.*;
  * @version 1.0
  */
 public class PassivePresentVerb {
-    private UnaugmentedQuadriliteralRoot root;
+    private UnaugmentedQuadrilateralRoot root;
 
     //حرف المضارع
     private String cp;
@@ -26,7 +25,7 @@ public class PassivePresentVerb {
     //الأحرف المضافة لنهاية الفعل حسب الضمير
     private String connectedPronoun;
 
-    public PassivePresentVerb(UnaugmentedQuadriliteralRoot root, String cp, String lastDpr, String connectedPronoun) {
+    public PassivePresentVerb(UnaugmentedQuadrilateralRoot root, String cp, String lastDpr, String connectedPronoun) {
         this.root = root;
         this.cp = cp;
         this.lastDpr = lastDpr;
@@ -37,7 +36,7 @@ public class PassivePresentVerb {
         return connectedPronoun;
     }
 
-    public UnaugmentedQuadriliteralRoot getRoot() {
+    public UnaugmentedQuadrilateralRoot getRoot() {
         return root;
     }
 

@@ -4,7 +4,6 @@ import java.util.*;
 import sarf.AugmentationFormula;
 import sarf.PastConjugationDataContainer;
 import sarf.verb.quadriliteral.augmented.*;
-import sarf.verb.quadriliteral.augmented.*;
 
 /**
  * <p>Title: Sarf</p>
@@ -28,7 +27,7 @@ public class AugmentedActivePastConjugator {
         return instance;
     }
 
-    public AugmentedPastVerb createVerb(AugmentedQuadriliteralRoot root, int pronounIndex, int formulaNo) {
+    public AugmentedPastVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
         String lastDpa = PastConjugationDataContainer.getInstance().getLastDpa(pronounIndex);
         String connectedPronoun = PastConjugationDataContainer.getInstance().getConnectedPronoun(pronounIndex);
         String formulaClassName = getClass().getPackage().getName()+".formula."+"AugmentedPastVerb"+formulaNo;
@@ -44,7 +43,7 @@ public class AugmentedActivePastConjugator {
         return null;
     }
 
-    public List createVerbList(AugmentedQuadriliteralRoot root, int formulaNo) {
+    public List createVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
         List result = new LinkedList();
         for (int i = 0; i < 13; i++) {
             AugmentedPastVerb verb = createVerb(root, i, formulaNo);
@@ -55,7 +54,7 @@ public class AugmentedActivePastConjugator {
 
     }
 
-    public Map createAllVerbList(AugmentedQuadriliteralRoot root) {
+    public Map createAllVerbList(AugmentedQuadrilateralRoot root) {
         Map result = new HashMap();
         Iterator iter = root.getAugmentationList().iterator();
         while (iter.hasNext()) {

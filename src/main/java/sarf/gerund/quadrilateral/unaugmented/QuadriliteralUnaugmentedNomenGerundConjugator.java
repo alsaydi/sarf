@@ -3,7 +3,6 @@ package sarf.gerund.quadrilateral.unaugmented;
 import java.util.*;
 import sarf.noun.*;
 import sarf.util.*;
-import sarf.verb.trilateral.unaugmented.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 
 /**
@@ -30,7 +29,7 @@ public class QuadriliteralUnaugmentedNomenGerundConjugator {
         return instance;
     }
 
-    public List createGerundList(UnaugmentedQuadriliteralRoot root) {
+    public List createGerundList(UnaugmentedQuadrilateralRoot root) {
         List gerundDisplayList = createEmptyList();
 
         String gerund = GenericNounSuffixContainer.getInstance().getPrefix()+root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3()+ArabCharUtil.FATHA+root.getC4();

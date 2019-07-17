@@ -3,7 +3,6 @@ package sarf.verb.quadriliteral.augmented.imperative;
 import java.util.*;
 import sarf.AugmentationFormula;
 import sarf.verb.quadriliteral.augmented.*;
-import sarf.verb.quadriliteral.augmented.*;
 
 /**
  * <p>Title: Sarf</p>
@@ -27,7 +26,7 @@ public class AbstractAugmentedImperativeConjugator {
         this.connectedPronounList = connectedPronounList;
     }
 
-    public AugmentedImperativeVerb createVerb(AugmentedQuadriliteralRoot root, int pronounIndex, int formulaNo) {
+    public AugmentedImperativeVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
         String lastDim = lastDimList.get(pronounIndex);
         String connectedPronoun = connectedPronounList.get(pronounIndex);
         String formulaClassName = getClass().getPackage().getName()+".formula."+"AugmentedImperativeVerb"+formulaNo;
@@ -43,7 +42,7 @@ public class AbstractAugmentedImperativeConjugator {
         return null;
     }
 
-    public List<AugmentedImperativeVerb> createVerbList(AugmentedQuadriliteralRoot root, int formulaNo) {
+    public List<AugmentedImperativeVerb> createVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
         List<AugmentedImperativeVerb> result = new LinkedList<AugmentedImperativeVerb>();
         result.add(null);
         result.add(null);
@@ -62,7 +61,7 @@ public class AbstractAugmentedImperativeConjugator {
         return result;
     }
 
-    public Map<String, List<AugmentedImperativeVerb>> createAllVerbList(AugmentedQuadriliteralRoot root) {
+    public Map<String, List<AugmentedImperativeVerb>> createAllVerbList(AugmentedQuadrilateralRoot root) {
         Map<String, List<AugmentedImperativeVerb>> result = new HashMap<String, List<AugmentedImperativeVerb>>();
         Iterator<AugmentationFormula> iter = root.getAugmentationList().iterator();
         while (iter.hasNext()) {

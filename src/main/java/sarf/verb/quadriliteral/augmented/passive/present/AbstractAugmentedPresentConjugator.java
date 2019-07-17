@@ -28,7 +28,7 @@ public class AbstractAugmentedPresentConjugator {
         this.connectedPronounList = connectedPronounList;
     }
 
-    public AugmentedPresentVerb createVerb(AugmentedQuadriliteralRoot root, int pronounIndex, int formulaNo) {
+    public AugmentedPresentVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
         String cp = PresentConjugationDataContainer.getInstance().getCp(pronounIndex);
         String lastDpr = (String) lastDprList.get(pronounIndex);
         String connectedPronoun = (String) connectedPronounList.get(pronounIndex);
@@ -45,7 +45,7 @@ public class AbstractAugmentedPresentConjugator {
         return null;
     }
 
-    public List createVerbList(AugmentedQuadriliteralRoot root, int formulaNo) {
+    public List createVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
         AugmentationFormula augmentationFormula = root.getAugmentationFormula(formulaNo);
         if (augmentationFormula.getTransitive() == 'ل') {
             return createLazzemVerbList(root, formulaNo);
@@ -63,7 +63,7 @@ public class AbstractAugmentedPresentConjugator {
     }
 
     //المبني لمجهول اللازم فقط مع هو او هي
-    public List<AugmentedPresentVerb> createLazzemVerbList(AugmentedQuadriliteralRoot root, int formulaNo) {
+    public List<AugmentedPresentVerb> createLazzemVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
         List<AugmentedPresentVerb> result = new LinkedList<AugmentedPresentVerb>();
         for (int i = 0; i < 13; i++) {
             if (i == 7 || i == 8) {

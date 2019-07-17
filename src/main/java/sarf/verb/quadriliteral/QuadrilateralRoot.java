@@ -12,9 +12,39 @@ package sarf.verb.quadriliteral;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public interface QuadrilateralRoot {
-    public char getC1();
-    public char getC2();
-    public char getC3();
-    public char getC4();
+public abstract class QuadrilateralRoot {
+    private char c1;
+    private char c2;
+    private char c3;
+    private char c4;
+
+
+    public char getC1() {
+        return c1;
+    }
+    public char getC2() {
+        return c2;
+    }
+    public char getC3() {
+        return c3;
+    }
+    public char getC4() {
+        return c4;
+    }
+
+    public void setC3(char c3) {
+        this.c3 = c3;
+    }
+
+    public void setC2(char c2) {
+        this.c2 = c2;
+    }
+
+    public void setC1(char c1) {
+        this.c1 = c1;
+    }
+
+    public void setC4(char c4) {
+        this.c4 = c4;
+    }
 }

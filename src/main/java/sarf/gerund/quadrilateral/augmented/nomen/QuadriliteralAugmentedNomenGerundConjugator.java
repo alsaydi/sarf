@@ -1,6 +1,5 @@
 package sarf.gerund.quadrilateral.augmented.nomen;
 
-import sarf.verb.trilateral.augmented.*;
 import java.util.*;
 import sarf.*;
 import sarf.verb.quadriliteral.augmented.*;
@@ -40,7 +39,7 @@ public class QuadriliteralAugmentedNomenGerundConjugator {
         return instance;
     }
 
-    public List createGerundList(AugmentedQuadriliteralRoot root, int formulaNo) {
+    public List createGerundList(AugmentedQuadrilateralRoot root, int formulaNo) {
         String gerundPatternClassName = getClass().getPackage().getName() + ".pattern." + "GerundPattern" + formulaNo;
         List gerundDisplayList = createEmptyList();
 
@@ -67,7 +66,7 @@ public class QuadriliteralAugmentedNomenGerundConjugator {
      * @param root AugmentedTrilateralRoot
      * @return Map
      */
-    public Map createGerundMap(AugmentedQuadriliteralRoot root) {
+    public Map createGerundMap(AugmentedQuadrilateralRoot root) {
         Map result = new HashMap();
         Iterator iter = root.getAugmentationList().iterator();
         while (iter.hasNext()) {

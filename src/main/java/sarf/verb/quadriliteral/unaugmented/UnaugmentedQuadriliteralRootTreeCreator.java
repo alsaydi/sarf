@@ -3,7 +3,7 @@ package sarf.verb.quadriliteral.unaugmented;
 
 import java.io.File;
 import org.apache.commons.digester3.Digester;
-import sarf.*;
+
 import java.io.IOException;
 
 /**
@@ -28,7 +28,7 @@ public class UnaugmentedQuadriliteralRootTreeCreator {
 
         digester.addObjectCreate("roots", UnaugmentedQuadriliteralRootTree.class );
 
-        digester.addObjectCreate("roots/root", UnaugmentedQuadriliteralRoot.class );
+        digester.addObjectCreate("roots/root", UnaugmentedQuadrilateralRoot.class );
         digester.addSetProperties("roots/root", "c1","c1" );
         digester.addSetProperties( "roots/root", "c2","c2" );
         digester.addSetProperties( "roots/root", "c3", "c3" );

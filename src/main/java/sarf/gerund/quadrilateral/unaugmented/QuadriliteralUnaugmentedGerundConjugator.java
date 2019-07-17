@@ -32,7 +32,7 @@ public class QuadriliteralUnaugmentedGerundConjugator {
         return instance;
     }
 
-    public List<String> createGerundList(UnaugmentedQuadriliteralRoot root) {
+    public List<String> createGerundList(UnaugmentedQuadrilateralRoot root) {
         var gerundDisplayList = createEmptyList();
 
         boolean applyForm2 = false;

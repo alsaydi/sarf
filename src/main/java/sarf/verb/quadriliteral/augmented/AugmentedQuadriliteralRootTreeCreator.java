@@ -29,7 +29,7 @@ public class AugmentedQuadriliteralRootTreeCreator {
 
         digester.addObjectCreate("roots", AugmentedQuadriliteralRootTree.class );
 
-        digester.addObjectCreate("roots/root", AugmentedQuadriliteralRoot.class );
+        digester.addObjectCreate("roots/root", AugmentedQuadrilateralRoot.class );
         digester.addSetProperties("roots/root", "c1","c1" );
         digester.addSetProperties( "roots/root", "c2","c2" );
         digester.addSetProperties( "roots/root", "c3", "c3" );

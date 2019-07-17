@@ -26,12 +26,12 @@ public class UnaugmentedQuadriliteralActiveParticipleConjugator {
         return instance;
     }
 
-    public UnaugmentedQuadriliteralActiveParticiple createNoun(UnaugmentedQuadriliteralRoot root, int suffixIndex) {
+    public UnaugmentedQuadriliteralActiveParticiple createNoun(UnaugmentedQuadrilateralRoot root, int suffixIndex) {
         String suffix = GenericNounSuffixContainer.getInstance().get(suffixIndex);
         return new UnaugmentedQuadriliteralActiveParticiple(root, suffix);
     }
 
-    public List createNounList(UnaugmentedQuadriliteralRoot root) {
+    public List createNounList(UnaugmentedQuadrilateralRoot root) {
         List result = new ArrayList(18);
         for (int i=0; i<18; i++)
             result.add(createNoun(root, i));

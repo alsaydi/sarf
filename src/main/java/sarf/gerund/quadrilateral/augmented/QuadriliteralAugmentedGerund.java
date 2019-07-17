@@ -16,17 +16,17 @@ import sarf.verb.quadriliteral.augmented.*;
  * @version 1.0
  */
 public abstract class QuadriliteralAugmentedGerund {
-    protected AugmentedQuadriliteralRoot root;
+    protected AugmentedQuadrilateralRoot root;
     protected int suffixNo;
     protected String suffix;
 
     public QuadriliteralAugmentedGerund() {}
 
-    public QuadriliteralAugmentedGerund(AugmentedQuadriliteralRoot root, String suffixNo) {
+    public QuadriliteralAugmentedGerund(AugmentedQuadrilateralRoot root, String suffixNo) {
         init(root, suffixNo);
     }
 
-    protected void init(AugmentedQuadriliteralRoot root, String suffixNo) {
+    protected void init(AugmentedQuadrilateralRoot root, String suffixNo) {
         this.root = root;
         this.suffixNo = Integer.parseInt(suffixNo);
 

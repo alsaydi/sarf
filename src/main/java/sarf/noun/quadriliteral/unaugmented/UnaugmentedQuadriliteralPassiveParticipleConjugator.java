@@ -26,12 +26,12 @@ public class UnaugmentedQuadriliteralPassiveParticipleConjugator {
         return instance;
     }
 
-    public UnaugmentedQuadriliteralPassiveParticiple createNoun(UnaugmentedQuadriliteralRoot root, int suffixIndex) {
+    public UnaugmentedQuadriliteralPassiveParticiple createNoun(UnaugmentedQuadrilateralRoot root, int suffixIndex) {
         String suffix = GenericNounSuffixContainer.getInstance().get(suffixIndex);
         return new UnaugmentedQuadriliteralPassiveParticiple(root, suffix);
     }
 
-    public List createNounList(UnaugmentedQuadriliteralRoot root) {
+    public List createNounList(UnaugmentedQuadrilateralRoot root) {
         List result = new ArrayList(18);
         for (int i=0; i<18; i++)
             result.add(createNoun(root, i));
@@ -39,7 +39,7 @@ public class UnaugmentedQuadriliteralPassiveParticipleConjugator {
     }
 
     //تستعمل في اسم الزمان والمكان والمصدر الميمي
-    private List createNounList(UnaugmentedQuadriliteralRoot root, List indecies) {
+    private List createNounList(UnaugmentedQuadrilateralRoot root, List indecies) {
         List result = new LinkedList();
 
         for (int i=0; i<18; i++) {
@@ -67,7 +67,7 @@ public class UnaugmentedQuadriliteralPassiveParticipleConjugator {
         timeAndPlaceIndeciesList.add("14");
     }
 
-    public List createTimeAndPlaceNounList(UnaugmentedQuadriliteralRoot root) {
+    public List createTimeAndPlaceNounList(UnaugmentedQuadrilateralRoot root) {
         return createNounList(root, timeAndPlaceIndeciesList);
     }
 
@@ -79,7 +79,7 @@ public class UnaugmentedQuadriliteralPassiveParticipleConjugator {
         meemGerundIndeciesList.add("12");
     }
 
-    public List createMeemGerundNounList(UnaugmentedQuadriliteralRoot root) {
+    public List createMeemGerundNounList(UnaugmentedQuadrilateralRoot root) {
         return createNounList(root, meemGerundIndeciesList);
     }
 

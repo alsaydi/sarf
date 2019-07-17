@@ -1,7 +1,6 @@
 package sarf.verb.quadriliteral.augmented.imperative;
 
 import sarf.verb.quadriliteral.augmented.*;
-import sarf.verb.quadriliteral.augmented.*;
 
 /**
  * <p>Title: Sarf</p>
@@ -17,11 +16,11 @@ import sarf.verb.quadriliteral.augmented.*;
  */
 public abstract class AugmentedImperativeVerb {
 
-    protected AugmentedQuadriliteralRoot root;
+    protected AugmentedQuadrilateralRoot root;
     protected String lastDim;
     protected String connectedPronoun;
 
-    public AugmentedImperativeVerb(AugmentedQuadriliteralRoot root, String lastDim, String connectedPronoun) {
+    public AugmentedImperativeVerb(AugmentedQuadrilateralRoot root, String lastDim, String connectedPronoun) {
         this.root = root;
         this.lastDim = lastDim;
         this.connectedPronoun = connectedPronoun;
@@ -33,7 +32,7 @@ public abstract class AugmentedImperativeVerb {
         return connectedPronoun;
     }
 
-    public AugmentedQuadriliteralRoot getRoot() {
+    public AugmentedQuadrilateralRoot getRoot() {
         return root;
     }
 

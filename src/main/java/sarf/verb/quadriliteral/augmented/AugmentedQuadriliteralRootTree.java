@@ -20,7 +20,7 @@ public class AugmentedQuadriliteralRootTree {
     public AugmentedQuadriliteralRootTree() {
     }
 
-    public void addRoot(AugmentedQuadriliteralRoot root) {
+    public void addRoot(AugmentedQuadrilateralRoot root) {
         roots.add(root);
     }
 

@@ -5,10 +5,10 @@ import sarf.util.*;
 import sarf.noun.GenericNounSuffixContainer;
 
 public class UnaugmentedQuadriliteralActiveParticiple {
-    private UnaugmentedQuadriliteralRoot root;
+    private UnaugmentedQuadrilateralRoot root;
     private String suffix;
 
-    public UnaugmentedQuadriliteralActiveParticiple(UnaugmentedQuadriliteralRoot root, String suffix) {
+    public UnaugmentedQuadriliteralActiveParticiple(UnaugmentedQuadrilateralRoot root, String suffix) {
         this.root = root;
         this.suffix = suffix;
     }

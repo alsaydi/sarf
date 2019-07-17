@@ -20,7 +20,7 @@ public class GerundPattern2 extends QuadriliteralAugmentedGerund {
     public GerundPattern2() {
     }
 
-    public GerundPattern2(AugmentedQuadriliteralRoot root, String suffixNo) {
+    public GerundPattern2(AugmentedQuadrilateralRoot root, String suffixNo) {
         init(root, suffixNo);
     }
 

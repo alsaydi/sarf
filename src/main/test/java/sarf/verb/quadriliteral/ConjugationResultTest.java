@@ -4,13 +4,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadriliteralRoot;
+import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
 
 class ConjugationResultTest {
 	
 	@Test
 	void propertiesAreSet() throws Exception {
-		QuadrilateralRoot root = new UnaugmentedQuadriliteralRoot();
+		QuadrilateralRoot root = new UnaugmentedQuadrilateralRoot();
 		List<String> originalResult = new ArrayList<>();
 		originalResult.add("Test");
 		

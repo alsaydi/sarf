@@ -3,7 +3,6 @@ package sarf.verb.quadriliteral.unaugmented.active;
 import java.util.List;
 import java.util.LinkedList;
 import sarf.PresentConjugationDataContainer;
-import sarf.verb.quadriliteral.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 
 /**
@@ -31,12 +30,12 @@ public class ActivePresentConjugator {
     /**
      * *إنشاء الفعل المضارع بغض النظر عن حالته الإعرابية
      * @param pronounIndex int
-     * @param root UnaugmentedQuadriliteralRoot
+     * @param root UnaugmentedQuadrilateralRoot
      * @param lastDprList List
      * @param connectedPronounList List
      * @return ActivePresentVerb
      */
-    private ActivePresentVerb createVerb(int pronounIndex, UnaugmentedQuadriliteralRoot root, List lastDprList, List connectedPronounList) {
+    private ActivePresentVerb createVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root, List lastDprList, List connectedPronounList) {
         String cp = PresentConjugationDataContainer.getInstance().getCp(pronounIndex);
         String lastDpr = (String) lastDprList.get(pronounIndex);
         String connectedPronoun = (String) connectedPronounList.get(pronounIndex);
@@ -50,7 +49,7 @@ public class ActivePresentConjugator {
      * @param root QuadriliteralVerb
      * @return PresentConjugation
      */
-    public ActivePresentVerb createNominativeVerb(int pronounIndex, UnaugmentedQuadriliteralRoot root) {
+    public ActivePresentVerb createNominativeVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getNominativeLastDprList() , PresentConjugationDataContainer.getInstance().getNominativeConnectedPronounList());
     }
 
@@ -61,7 +60,7 @@ public class ActivePresentConjugator {
      * @param root QuadriliteralVerb
      * @return PresentConjugation
      */
-    public ActivePresentVerb createAccusativeVerb(int pronounIndex, UnaugmentedQuadriliteralRoot root) {
+    public ActivePresentVerb createAccusativeVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getAccusativeLastDprList() , PresentConjugationDataContainer.getInstance().getAccusativeConnectedPronounList());
     }
 
@@ -72,7 +71,7 @@ public class ActivePresentConjugator {
      * @param root QuadriliteralVerb
      * @return PresentConjugation
      */
-    public ActivePresentVerb createJussiveVerb(int pronounIndex, UnaugmentedQuadriliteralRoot root) {
+    public ActivePresentVerb createJussiveVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getJussiveLastDprList() , PresentConjugationDataContainer.getInstance().getJussiveConnectedPronounList());
     }
 
@@ -83,7 +82,7 @@ public class ActivePresentConjugator {
      * @param root QuadriliteralVerb
      * @return PresentConjugation
      */
-    public ActivePresentVerb createEmphasizedVerb(int pronounIndex, UnaugmentedQuadriliteralRoot root) {
+    public ActivePresentVerb createEmphasizedVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getEmphasizedLastDprList() , PresentConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList());
     }
 
@@ -93,7 +92,7 @@ public class ActivePresentConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createNominativeVerbList(UnaugmentedQuadriliteralRoot root) {
+    public List createNominativeVerbList(UnaugmentedQuadrilateralRoot root) {
         List result = new LinkedList();
         for (int i = 0; i < 13; i++) {
             result.add(createNominativeVerb(i, root));
@@ -108,7 +107,7 @@ public class ActivePresentConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createAccusativeVerbList(UnaugmentedQuadriliteralRoot root) {
+    public List createAccusativeVerbList(UnaugmentedQuadrilateralRoot root) {
         List result = new LinkedList();
         for (int i = 0; i < 13; i++) {
             result.add(createAccusativeVerb(i, root));
@@ -123,7 +122,7 @@ public class ActivePresentConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createJussiveVerbList(UnaugmentedQuadriliteralRoot root) {
+    public List createJussiveVerbList(UnaugmentedQuadrilateralRoot root) {
         List result = new LinkedList();
         for (int i = 0; i < 13; i++) {
             result.add(createJussiveVerb(i, root));
@@ -139,7 +138,7 @@ public class ActivePresentConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createEmphasizedVerbList(UnaugmentedQuadriliteralRoot root) {
+    public List createEmphasizedVerbList(UnaugmentedQuadrilateralRoot root) {
         List result = new LinkedList();
         for (int i = 0; i < 13; i++) {
             result.add(createEmphasizedVerb(i, root));

@@ -2,7 +2,6 @@ package sarf.verb.quadriliteral.augmented.active.present.formula;
 
 import sarf.util.*;
 import sarf.verb.quadriliteral.augmented.*;
-import sarf.verb.quadriliteral.augmented.*;
 
 /**
  * <p>Title: Sarf</p>
@@ -18,7 +17,7 @@ import sarf.verb.quadriliteral.augmented.*;
  */
 public class AugmentedPresentVerb2 extends AugmentedPresentVerb {
 
-    public AugmentedPresentVerb2(AugmentedQuadriliteralRoot root, String cp, String lastDpr, String connectedPronoun) {
+    public AugmentedPresentVerb2(AugmentedQuadrilateralRoot root, String cp, String lastDpr, String connectedPronoun) {
         super(root, cp, lastDpr, connectedPronoun);
     }
 

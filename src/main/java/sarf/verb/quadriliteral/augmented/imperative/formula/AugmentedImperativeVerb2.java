@@ -19,7 +19,7 @@ import sarf.verb.quadriliteral.augmented.imperative.*;
  */
 public class AugmentedImperativeVerb2 extends AugmentedImperativeVerb {
 
-    public AugmentedImperativeVerb2(AugmentedQuadriliteralRoot root,  String lastDim, String connectedPronoun) {
+    public AugmentedImperativeVerb2(AugmentedQuadrilateralRoot root, String lastDim, String connectedPronoun) {
         super(root, lastDim, connectedPronoun);
     }
 

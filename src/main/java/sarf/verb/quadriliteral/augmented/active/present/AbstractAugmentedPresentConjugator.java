@@ -28,7 +28,7 @@ public class AbstractAugmentedPresentConjugator {
         this.connectedPronounList = connectedPronounList;
     }
 
-    public AugmentedPresentVerb createVerb(AugmentedQuadriliteralRoot root, int pronounIndex, int formulaNo) {
+    public AugmentedPresentVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
         String cp = PresentConjugationDataContainer.getInstance().getCp(pronounIndex);
         String lastDpr = (String) lastDprList.get(pronounIndex);
         String connectedPronoun = (String) connectedPronounList.get(pronounIndex);
@@ -45,7 +45,7 @@ public class AbstractAugmentedPresentConjugator {
         return null;
     }
 
-    public List createVerbList(AugmentedQuadriliteralRoot root, int formulaNo) {
+    public List createVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
         List result = new LinkedList();
         for (int i = 0; i < 13; i++) {
             AugmentedPresentVerb verb = createVerb(root, i, formulaNo);
@@ -55,7 +55,7 @@ public class AbstractAugmentedPresentConjugator {
         return result;
     }
 
-    public Map createAllVerbList(AugmentedQuadriliteralRoot root) {
+    public Map createAllVerbList(AugmentedQuadrilateralRoot root) {
         Map result = new HashMap();
         Iterator iter = root.getAugmentationList().iterator();
         while (iter.hasNext()) {

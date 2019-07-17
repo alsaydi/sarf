@@ -16,10 +16,10 @@ import sarf.noun.GenericNounSuffixContainer;
  * @version 1.0
  */
 public abstract class AugmentedQuadriliteralNoun {
-    protected AugmentedQuadriliteralRoot root;
+    protected AugmentedQuadrilateralRoot root;
     protected String suffix;
 
-    public AugmentedQuadriliteralNoun(AugmentedQuadriliteralRoot root, String suffix) {
+    public AugmentedQuadriliteralNoun(AugmentedQuadrilateralRoot root, String suffix) {
         this.root = root;
         this.suffix = suffix;
     }
