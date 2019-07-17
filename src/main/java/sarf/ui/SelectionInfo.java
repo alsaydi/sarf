@@ -1,5 +1,7 @@
 package sarf.ui;
 
+import sarf.verb.Root;
+
 /**
  * <p>Title: Sarf Program</p>
  *
@@ -19,14 +21,14 @@ public class SelectionInfo {
     private boolean active;
     private int kov;
 
-    private Object root;
+    private Root root;
 
     private int augmentationFormulaNo;
 
     private String formulaText;
     private String verbText;
 
-    public SelectionInfo(Object root, boolean trilateral, boolean augmented, int kov) {
+    public SelectionInfo(Root root, boolean trilateral, boolean augmented, int kov) {
         this.root = root;
         this.trilateral = trilateral;
         this.augmented = augmented;
@@ -45,7 +47,7 @@ public class SelectionInfo {
         return augmented;
     }
 
-    public Object getRoot() {
+    public Root getRoot() {
         return root;
     }
 
@@ -77,7 +79,7 @@ public class SelectionInfo {
         this.active = active;
     }
 
-    public void setRoot(Object root) {
+    public void setRoot(Root root) {
         this.root = root;
     }
 

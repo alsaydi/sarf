@@ -162,9 +162,8 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
 
 
     public void disableAll() {
-        Iterator iter = augmentedButons.iterator();
-        while (iter.hasNext()) {
-            ControlButton btn = (ControlButton) iter.next();
+        for (Object augmentedButon : augmentedButons) {
+            ControlButton btn = (ControlButton) augmentedButon;
             btn.setEnabled(false);
 
         }
