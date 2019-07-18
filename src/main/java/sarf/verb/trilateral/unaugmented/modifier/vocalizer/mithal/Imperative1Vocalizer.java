@@ -2,6 +2,7 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.mithal;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -20,11 +21,10 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
  * @version 1.0
  */
 public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+    private List<Substitution> substitutions = new ArrayList<>();
 
-    private List substitutions = new LinkedList();
-
-    private List acceptList = new LinkedList();
-    private List declineList = new LinkedList();
+    private List<String> acceptList = new ArrayList<>();
+    private List<String> declineList = new ArrayList<>();
 
     public Imperative1Vocalizer() {
         acceptList.add("وذر");
@@ -40,8 +40,7 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaug
         substitutions.add(new InfixSubstitution("اوْ",""));
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
@@ -52,9 +51,9 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaug
      */
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
-        return (kov == 9 && noc == 2)
-                || (kov == 11 && (noc == 2 || noc == 6))
+        var noc = conjugationResult.getRoot().getConjugation();
+        return (kov == 9 && noc == Conjugation.Second)
+                || (kov == 11 && (noc == Conjugation.Second || noc == Conjugation.Sixth))
                 || isApplied1(conjugationResult) //احتمال2
                 || isApplied2(conjugationResult); // احتمال 3
 
@@ -63,11 +62,9 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaug
     private boolean isApplied1(ConjugationResult conjugationResult) {
         UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
         //فحص الباب التصريفي أولاً
-        if (!root.getConjugation().equals("4")) return false;
+        if (root.getConjugation() != Conjugation.Forth) return false;
 
-        Iterator iter = acceptList.iterator();
-        while (iter.hasNext()) {
-            String appliedRoot = (String) iter.next();
+        for (String appliedRoot : acceptList) {
             char c1 = appliedRoot.charAt(0);
             char c2 = appliedRoot.charAt(1);
             char c3 = appliedRoot.charAt(2);
@@ -80,11 +77,9 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaug
     private boolean isApplied2(ConjugationResult conjugationResult) {
         UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
         //فحص الباب التصريفي أولاً
-        if (!root.getConjugation().equals("3")) return false;
+        if (root.getConjugation() != Conjugation.Third) return false;
 
-        Iterator iter = declineList.iterator();
-        while (iter.hasNext()) {
-            String appliedRoot = (String) iter.next();
+        for (String appliedRoot : declineList) {
             char c1 = appliedRoot.charAt(0);
             char c2 = appliedRoot.charAt(1);
             char c3 = appliedRoot.charAt(2);

@@ -39,6 +39,6 @@ public class WawiLafifNakes2Vocalizer extends TrilateralNounSubstitutionApplier 
         int kov = conjugationResult.getKov();
         int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
 
-        return (kov == 23 || kov == 28) && noc == 4;
+        return (kov == 23 || kov == 28) && noc == Conjugation.Forth;
     }
 }

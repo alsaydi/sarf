@@ -14,12 +14,14 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public class PastConjugationDataContainer {
+    private static final int PRONOUN_RANGE_END = 13;
+
     //قائمة حركات عين الفعل حسب باب التصريف
     private List<String> dpa2List = new ArrayList<>(6);
     //قائمة  حركات لام الفعل حسب ضمير الرفع
-    private List<String> lastDpaList = new ArrayList<>(13);
+    private List<String> lastDpaList = new ArrayList<>(PRONOUN_RANGE_END);
     //قائمة ضمائر الرفع المتصلة
-    private List<String> connectedPronounsList = new ArrayList<>(13);
+    private List<String> connectedPronounsList = new ArrayList<>(PRONOUN_RANGE_END);
 
     private static PastConjugationDataContainer instance = new PastConjugationDataContainer();
 
@@ -73,7 +75,7 @@ public class PastConjugationDataContainer {
      */
     public String getDpa2(UnaugmentedTrilateralRoot root) {
         //بسبب أن ترقيم الباب التصريفي يبدأ من الواحد على حين أن القائمة تبدأ من الصفر جرى طرح العدد واحد
-        return dpa2List.get((Integer.parseInt(root.getConjugation())-1));
+        return dpa2List.get(root.getConjugation().getValue()-1);
     }
 
     /**

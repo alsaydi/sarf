@@ -2,6 +2,7 @@ package sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.vocalizer;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -21,21 +22,21 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Ajwaf2Vocalizer() {
         substitutions.add(new InfixSubstitution("ْيُو","ِي"));// EX: (مَئِين، مَقِيء، مَبِيع)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
+        var noc = conjugationResult.getRoot().getConjugation();
 
-        return (kov == 18 || kov == 19 || kov == 20) && (noc == 2 || noc == 4);
+        //return (kov == 18 || kov == 19 || kov == 20) && (noc == 2 || noc == Conjugation.Forth);
+        return (kov == 18 || kov == 19 || kov == 20) && (noc == Conjugation.Second || noc == Conjugation.Forth);
     }
 }

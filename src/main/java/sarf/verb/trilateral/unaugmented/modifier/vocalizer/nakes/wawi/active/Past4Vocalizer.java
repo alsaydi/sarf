@@ -2,6 +2,7 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.nakes.wawi.active;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -20,13 +21,12 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  */
 public class Past4Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
 
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Past4Vocalizer() {
         substitutions.add(new InfixSubstitution("ُوْ", "ُو"));
         substitutions.add(new InfixSubstitution("ُوُ", "ُ"));
     }
-
 
     public List getSubstitutions() {
         return substitutions;
@@ -34,7 +34,8 @@ public class Past4Vocalizer extends SubstitutionsApplier implements IUnaugmented
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
-        return (kov == 21 || kov == 23) && (noc == 5);
+        var noc = conjugationResult.getRoot().getConjugation();
+        //return (kov == 21 || kov == 23) && (noc == Conjugation.Fifth);
+        return (kov == 21 || kov == 23) && (noc == Conjugation.Fifth);
     }
 }

@@ -2,8 +2,8 @@ package sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.vocalizer;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.noun.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
 
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
@@ -21,21 +21,21 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Ajwaf1Vocalizer() {
         substitutions.add(new InfixSubstitution("ْوُو","ُو"));// EX: (مَؤُوب، مَبُوء، مَقُول،)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
+        var noc = conjugationResult.getRoot().getConjugation();
 
-        return ((kov == 15 || kov == 16) && (noc ==1 || noc == 4) || (kov == 17 && (noc == 4 || noc == 1 || noc == 5)));
+        return ((kov == 15 || kov == 16) && (noc == Conjugation.First || noc == Conjugation.Forth)
+                || (kov == 17 && (noc == Conjugation.Forth || noc == Conjugation.First || noc == Conjugation.Fifth)));
     }
 }

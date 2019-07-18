@@ -50,7 +50,7 @@ public class B2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
                 return true;
             }
         case 28:
-            return noc == 2 || noc == 4;
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
         case 30:
             switch (noc) {
             case 2:

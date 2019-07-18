@@ -40,7 +40,7 @@ public class ACAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier impleme
         switch (kov) {
         case 15:
         case 16:
-            return noc == 1 || noc == 4;
+            return Conjugation.First || noc == Conjugation.Forth;
 
         case 17:
             switch (noc) {

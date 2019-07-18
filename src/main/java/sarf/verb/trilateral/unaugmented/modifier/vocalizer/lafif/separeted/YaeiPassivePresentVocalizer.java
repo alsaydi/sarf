@@ -2,6 +2,7 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.lafif.separeted;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -19,8 +20,7 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  * @version 1.0
  */
 public class YaeiPassivePresentVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public YaeiPassivePresentVocalizer() {
         substitutions.add(new ExpressionSuffixSubstitution("يْC2َيُ", "وC2َى")); // EX: (يُودَى)
@@ -33,8 +33,7 @@ public class YaeiPassivePresentVocalizer extends SubstitutionsApplier implements
         substitutions.add(new ExpressionInfixSubstitution("يْC2َيُن", "وC2َوُن")); // EX: (أنتم تُودَوُنَّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
@@ -44,8 +43,8 @@ public class YaeiPassivePresentVocalizer extends SubstitutionsApplier implements
         }
 
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
-        return ((kov == 29 || kov == 30) && (noc == 2)) ||
-                (kov == 30 && (noc == 6 || noc == 4));
+        var noc = conjugationResult.getRoot().getConjugation();
+        return ((kov == 29 || kov == 30) && (noc == Conjugation.Second)) ||
+                (kov == 30 && (noc == Conjugation.Sixth || noc == Conjugation.Forth));
     }
 }

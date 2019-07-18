@@ -2,6 +2,7 @@ package sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -21,10 +22,9 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class Ajwaf4Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Ajwaf4Vocalizer() {
-
         substitutions.add(new InfixSubstitution("ايِءٌ","اءٍ"));// EX: (هذا جاءٍ)
         substitutions.add(new InfixSubstitution("ايِءٍ","اءٍ"));// EX: (مررتُ على جاءٍ)
         substitutions.add(new SuffixSubstitution("ايِءُ","ائِي"));// EX: (هذا الجائِي، )
@@ -32,18 +32,17 @@ public class Ajwaf4Vocalizer extends TrilateralNounSubstitutionApplier implement
         substitutions.add(new InfixSubstitution("ايِءُ","اؤُ"));// EX: (جاؤُونَ، )
         substitutions.add(new InfixSubstitution("ايِءِ","ائِ"));// EX: (جائِينَ، )
         substitutions.add(new InfixSubstitution("ايِء","ائِي"));// EX: (جائيان، جائيَيْن، جائية، جائيًا، رأيتُ الجائِيَ)
-
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
+        var noc = conjugationResult.getRoot().getConjugation();
 
-        return kov == 19 && (noc == 2 || noc == 4);
+        return kov == 19 && (noc == Conjugation.Second || noc == Conjugation.Forth);
     }
 }

@@ -20,7 +20,7 @@ import sarf.util.OrderedMap;
  */
 public class UnaugmentedTrilateralRoot extends TrilateralRoot{
 
-    private String conjugation;
+    private Conjugation conjugation;
     private String transitive;
 
     private OrderedMap<String, Gerund> gerunds = new OrderedMap<>();
@@ -32,7 +32,7 @@ public class UnaugmentedTrilateralRoot extends TrilateralRoot{
         super(c1, c2, c3);
     }
 
-    public String getConjugation() {
+    public Conjugation getConjugation() {
         return conjugation;
     }
 
@@ -53,11 +53,7 @@ public class UnaugmentedTrilateralRoot extends TrilateralRoot{
         this.transitive = transitive;
     }
 
-    public void setConjugation(String conjugation) throws IllegalArgumentException {
-    	int babOfTasreef = Integer.parseInt(conjugation);
-    	if(babOfTasreef < 1 || babOfTasreef > 6) {
-    		throw new IllegalArgumentException(conjugation);
-    	}
+    public void setConjugation(Conjugation conjugation) {
     	this.conjugation = conjugation;
     }
 

@@ -2,6 +2,7 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.mithal;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -19,14 +20,13 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ActivePrenentVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class ActivePresentVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+    private List<Substitution> substitutions = new ArrayList<>();
 
-    private List substitutions = new LinkedList();
+    private List<String> acceptList = new ArrayList<>();
+    private List<String> declineList = new ArrayList<>();
 
-    private List acceptList = new LinkedList();
-    private List declineList = new LinkedList();
-
-    public ActivePrenentVocalizer() {
+    public ActivePresentVocalizer() {
         acceptList.add("وذر");
         acceptList.add("وسع");
         acceptList.add("وطء");
@@ -52,9 +52,9 @@ public class ActivePrenentVocalizer extends SubstitutionsApplier implements IUna
      */
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
+        var noc = conjugationResult.getRoot().getConjugation();
         return (kov == 9 || kov == 10 || kov == 11) &&
-                ((noc == 2 || noc == 6)  //احمال1
+                ((noc == Conjugation.Second || noc == Conjugation.Sixth)  //احمال1
                 || isApplied1(conjugationResult) //احتمال2
                 || isApplied2(conjugationResult)); // احتمال 3
 
@@ -63,11 +63,10 @@ public class ActivePrenentVocalizer extends SubstitutionsApplier implements IUna
     private boolean isApplied1(ConjugationResult conjugationResult) {
         UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
         //فحص الباب التصريفي أولاً
-        if (!root.getConjugation().equals("4")) return false;
+        //if (!root.getConjugation().equals("4")) return false;
+        if (root.getConjugation() != Conjugation.Forth) return false;
 
-        Iterator iter = acceptList.iterator();
-        while (iter.hasNext()) {
-            String appliedRoot = (String) iter.next();
+        for (String appliedRoot : acceptList) {
             char c1 = appliedRoot.charAt(0);
             char c2 = appliedRoot.charAt(1);
             char c3 = appliedRoot.charAt(2);
@@ -80,11 +79,10 @@ public class ActivePrenentVocalizer extends SubstitutionsApplier implements IUna
     private boolean isApplied2(ConjugationResult conjugationResult) {
         UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
         //فحص الباب التصريفي أولاً
-        if (!root.getConjugation().equals("3")) return false;
+        //if (!root.getConjugation().equals("3")) return false;
+        if (root.getConjugation() != Conjugation.Third ) return false;
 
-        Iterator iter = declineList.iterator();
-        while (iter.hasNext()) {
-            String appliedRoot = (String) iter.next();
+        for (String appliedRoot : declineList) {
             char c1 = appliedRoot.charAt(0);
             char c2 = appliedRoot.charAt(1);
             char c3 = appliedRoot.charAt(2);

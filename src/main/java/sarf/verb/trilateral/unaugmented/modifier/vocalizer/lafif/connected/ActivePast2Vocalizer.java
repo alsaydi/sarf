@@ -2,6 +2,7 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.lafif.connected;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -19,8 +20,7 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  * @version 1.0
  */
 public class ActivePast2Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public ActivePast2Vocalizer() {
         substitutions.add(new InfixSubstitution("ِوْ", "ِي"));
@@ -30,14 +30,13 @@ public class ActivePast2Vocalizer extends SubstitutionsApplier implements IUnaug
         substitutions.add(new InfixSubstitution("ِوَ","ِيَ"));
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
-        return (kov == 28 && noc == 4);
+        var noc = conjugationResult.getRoot().getConjugation();
+        return (kov == 28 && noc == Conjugation.Forth);
     }
 }

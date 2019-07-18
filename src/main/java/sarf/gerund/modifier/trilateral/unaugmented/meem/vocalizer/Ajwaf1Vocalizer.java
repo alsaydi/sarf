@@ -2,6 +2,7 @@ package sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -21,29 +22,29 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Ajwaf1Vocalizer() {
         substitutions.add(new InfixSubstitution("ْيِ","ِي"));// EX: ( مَبِيع، )
         substitutions.add(new InfixSubstitution("ْيَ","َا"));// EX: (محار)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
+        var noc = conjugationResult.getRoot().getConjugation();
 
         switch (kov) {
         case 18:
         case 20:
-            return noc == 2;
+            //return noc == 2;
+            return  noc == Conjugation.Second;
         case 19:
-            return noc == 2 || noc == 4;
-
+            //return noc == 2 || noc == Conjugation.Forth;
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
         }
         return false;
     }

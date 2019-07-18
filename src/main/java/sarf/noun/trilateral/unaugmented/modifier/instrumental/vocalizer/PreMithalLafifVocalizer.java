@@ -37,9 +37,9 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
 
         switch (kov) {
         case 8:
-            return noc == 4;
+            return noc == Conjugation.Forth;
         case 9:
-            return noc == 2;
+            return noc == Conjugation.Second;
         case 10:
             switch (noc) {
             case 3:
@@ -59,9 +59,9 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
         case 12:
-            return noc == 2 || noc == 4;
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
         case 13:
-            return noc == 4 || noc == 6;
+            return noc == Conjugation.Forth || noc == Conjugation.Sixth;
 
         case 14:
             switch (noc) {
@@ -74,7 +74,7 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
                 return true;
             }
         case 29:
-            return noc == 2;
+            return noc == Conjugation.Second;
 
         case 30:
             switch (noc) {

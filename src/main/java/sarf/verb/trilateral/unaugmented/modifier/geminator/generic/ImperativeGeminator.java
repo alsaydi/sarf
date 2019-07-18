@@ -16,8 +16,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class ImperativeGeminator extends SubstitutionsApplier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public ImperativeGeminator() {
         substitutions.add(new ExpressionInfixSubstitution("اC1ْC3ُC3ُ","C1ُC3ُّ"));// EX: (مُدُّوا)
@@ -34,7 +33,7 @@ public class ImperativeGeminator extends SubstitutionsApplier {
         substitutions.add(new ExpressionSuffixSubstitution("اC1ْC3َC3ْ","C1َC3َّ"));// EX: (عَضَّ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

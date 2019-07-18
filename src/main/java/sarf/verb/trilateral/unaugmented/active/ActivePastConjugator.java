@@ -2,6 +2,9 @@ package sarf.verb.trilateral.unaugmented.active;
 
 import java.util.List;
 import java.util.LinkedList;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.*;
 
@@ -18,6 +21,7 @@ import sarf.*;
  * @version 1.0
  */
 public class ActivePastConjugator {
+    private static final int PRONOUN_RANGE_END = 13;
     private ActivePastConjugator() {
     }
 
@@ -46,10 +50,8 @@ public class ActivePastConjugator {
      * @return List
      */
     public List<ActivePastVerb> createVerbList(UnaugmentedTrilateralRoot root) {
-        List<ActivePastVerb> result = new LinkedList<>();
-        for (int i=0; i<13; i++) {
-            result.add(createVerb(i, root));
-        }
-        return result;
+        return IntStream.range(0, PRONOUN_RANGE_END)
+                .mapToObj(i -> createVerb(i, root))
+                .collect(Collectors.toList());
     }
 }

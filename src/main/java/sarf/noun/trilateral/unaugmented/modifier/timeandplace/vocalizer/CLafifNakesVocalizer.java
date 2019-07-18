@@ -44,9 +44,9 @@ public class CLafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
 
         switch (kov) {
         case 21:
-            return noc == 1 || noc == 5;
+            return Conjugation.First || noc == Conjugation.Fifth;
         case 22:
-            return noc == 1 || noc == 3;
+            return Conjugation.First || Conjugation.Third;
         case 23:
             switch (noc) {
             case 1:
@@ -66,13 +66,13 @@ public class CLafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
             }
 
         case 25:
-            return noc == 3 || noc == 4;
+            return Conjugation.Third || noc == Conjugation.Forth;
 
         case 27:
         case 29:
-            return noc == 2;
+            return noc == Conjugation.Second;
         case 28:
-            return noc == 2 || noc == 4;
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
 
         case 30:
             switch (noc) {

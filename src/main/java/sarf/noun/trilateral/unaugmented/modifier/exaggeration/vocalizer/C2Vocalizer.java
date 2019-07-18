@@ -2,7 +2,9 @@ package sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.noun.*;
+import sarf.util.ArabCharUtil;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
 import sarf.verb.trilateral.Substitution.*;
@@ -21,15 +23,14 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class C2Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public C2Vocalizer() {
         substitutions.add(new InfixSubstitution("او","اء"));// EX: (مِعطاء )
         substitutions.add(new InfixSubstitution("اي","اء"));// EX: (مِجْناء، مِعْواء )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
@@ -40,30 +41,28 @@ public class C2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
         }
 
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
+        var noc = conjugationResult.getRoot().getConjugation();
 
         switch (kov) {
         case 23:
             switch (noc) {
-            case 1:
-            case 3:
-            case 5:
-                return true;
+                case First:
+                case Third:
+                case Fifth:
+                    return true;
             }
 
         case 26:
             switch (noc) {
-            case 2:
-            case 3:
-            case 4:
-                return true;
+                case Second:
+                case Third:
+                case Forth:
+                    return true;
             }
 
         case 28:
-            return noc == 2 || noc == 4;
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
         }
         return false;
-
     }
-
 }

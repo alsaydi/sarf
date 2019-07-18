@@ -2,6 +2,7 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.nakes.yaei.passive;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -34,8 +35,8 @@ public class PastVocalizer extends SubstitutionsApplier implements IUnaugmentedT
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
-        return ((kov == 24 || kov == 26) && (noc == 2)) ||
-                ((kov == 24 || kov == 25 || kov == 26) && (noc == 3 || noc == 4));
+        var noc = conjugationResult.getRoot().getConjugation();
+        return ((kov == 24 || kov == 26) && (noc == Conjugation.Second)) ||
+                ((kov == 24 || kov == 25 || kov == 26) && (noc == Conjugation.Third || noc == Conjugation.Forth));
     }
 }

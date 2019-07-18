@@ -55,5 +55,4 @@ public class ActivePastVerb {
     public String toString() {
         return root.getC1()+dpa1+root.getC2()+dpa2+root.getC3()+lastDpa+connectedPronoun;
     }
-
 }

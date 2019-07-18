@@ -44,7 +44,7 @@ public class ACAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier impleme
         case 18:
         case 19:
         case 20:
-            return noc == 2 || noc == 4;
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
         }
         return false;
 

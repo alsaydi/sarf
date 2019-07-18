@@ -2,8 +2,8 @@ package sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.noun.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
 
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
@@ -21,12 +21,11 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class C1Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public C1Vocalizer() {
         substitutions.add(new InfixSubstitution("مِوْ","مِي"));// EX: (مِيصال )
     }
-
 
     public List getSubstitutions() {
         return substitutions;
@@ -35,9 +34,10 @@ public class C1Vocalizer extends TrilateralNounSubstitutionApplier implements IU
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
+        var noc = conjugationResult.getRoot().getConjugation();
 
-        return nounFormula.equals("مِفْعَال") && (kov == 11 && (noc == 2 || noc == 3 || noc == 5 || noc == 6));
+        return nounFormula.equals("مِفْعَال") && (kov == 11
+                && (noc == Conjugation.Second || noc == Conjugation.Third || noc == Conjugation.Fifth || noc == Conjugation.Sixth));
     }
 
 }

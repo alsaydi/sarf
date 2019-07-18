@@ -2,6 +2,7 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.lafif.separeted;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -19,8 +20,7 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  * @version 1.0
  */
 public class ActivePresent2Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public ActivePresent2Vocalizer() {
         substitutions.add(new ExpressionSuffixSubstitution("َوْC2ِيُ", "َC2ِي")); // EX: (يَقِي، يَلِي)
@@ -32,15 +32,14 @@ public class ActivePresent2Vocalizer extends SubstitutionsApplier implements IUn
         substitutions.add(new ExpressionInfixSubstitution("َوْC2ِيَ","َC2ِيَ"));// EX: (أنتما تقيان)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
-        return ((kov == 29 || kov == 30) && (noc == 2)) ||
-                (kov == 30 && noc == 6);
+        var noc = conjugationResult.getRoot().getConjugation();
+        return ((kov == 29 || kov == 30) && (noc == Conjugation.Second)) ||
+                (kov == 30 && noc == Conjugation.Sixth);
     }
 }

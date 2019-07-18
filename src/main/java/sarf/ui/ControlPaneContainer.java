@@ -355,9 +355,7 @@ public class ControlPaneContainer extends JPanel {
             List<AugmentedTrilateralRoot> augmentedList = new LinkedList<AugmentedTrilateralRoot>();
             List<List<UnaugmentedTrilateralRoot>> unaugmentedLists = new LinkedList<List<UnaugmentedTrilateralRoot>>();
 
-            Iterator<String> iter = alefAlternatives.iterator();
-            while (iter.hasNext()) {
-                String alterativeRoot = iter.next();
+            for (String alterativeRoot : alefAlternatives) {
                 AugmentedTrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedTrilateralRoot(alterativeRoot);
                 List<UnaugmentedTrilateralRoot> unaugmentedList = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots(alterativeRoot);
 
@@ -434,7 +432,7 @@ public class ControlPaneContainer extends JPanel {
         }
 
         for (UnaugmentedTrilateralRoot root : unaugmentedRoots) {
-            trilateralControlPane.enableUnaugmentedButton(Integer.parseInt(root.getConjugation()) - 1, root);
+            trilateralControlPane.enableUnaugmentedButton(root.getConjugation().getValue() - 1, root);
         }
     }
 
@@ -532,9 +530,8 @@ public class ControlPaneContainer extends JPanel {
         }
 
         if (augmentedRoot != null) {
-            Iterator iter = augmentedRoot.getAugmentationList().iterator();
-            while (iter.hasNext()) {
-                AugmentationFormula formula = (AugmentationFormula) iter.next();
+            for (Object o : augmentedRoot.getAugmentationList()) {
+                AugmentationFormula formula = (AugmentationFormula) o;
                 quadrilateralControlPane.enableAugmentedButton(formula.getFormulaNo() - 1, augmentedRoot);
             }
         }
@@ -668,7 +665,7 @@ public class ControlPaneContainer extends JPanel {
 
     }
 
-    JComponent currentResultPane = null;
+    private JComponent currentResultPane = null;
     public void openResult(JComponent resultComponent) {
         resultPane.removeAll();
         resultPane.add(resultComponent);
@@ -699,7 +696,7 @@ public class ControlPaneContainer extends JPanel {
         kovFld.setText(kovText);
     }
 
-    public void setPref(Preferences pref) {
+    void setPref(Preferences pref) {
         this.pref = pref;
         String result = pref.get("HideIntro", null);
         showIntroMnuItm.setSelected(result.equals("false"));

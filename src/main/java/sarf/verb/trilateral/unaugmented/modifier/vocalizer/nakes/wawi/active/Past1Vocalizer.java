@@ -2,6 +2,7 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.nakes.wawi.active;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -20,8 +21,7 @@ import sarf.util.ArabCharUtil;
  * @version 1.0
  */
 public class Past1Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Past1Vocalizer() {
         substitutions.add(new SuffixSubstitution("َوَ","َا"));// EX: (غزا، أسا، عثا)
@@ -29,14 +29,13 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IUnaugmented
         substitutions.add(new InfixSubstitution("َوَت","َت"));// EX: (غَزَتْ، غَزَتَا، أسَتْ، أسَتَا، عَثَتْ، عَثَتَا)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
-        return (kov == 21 || kov == 23) && (noc == 1 || noc == 3);
+        var noc = conjugationResult.getRoot().getConjugation();
+        return (kov == 21 || kov == 23) && (noc == Conjugation.First || noc == Conjugation.Third);
     }
 }

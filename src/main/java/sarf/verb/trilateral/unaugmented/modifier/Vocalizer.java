@@ -5,6 +5,7 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import java.util.*;
 import sarf.*;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.verb.trilateral.unaugmented.modifier.vocalizer.mithal.ActivePresentVocalizer;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -74,7 +75,7 @@ public class Vocalizer {
         activePresentList.add(new sarf.verb.trilateral.unaugmented.modifier.vocalizer.lafif.separeted.ActivePresent1Vocalizer());
         activePresentList.add(new sarf.verb.trilateral.unaugmented.modifier.vocalizer.lafif.separeted.ActivePresent2Vocalizer());
         activePresentList.add(new sarf.verb.trilateral.unaugmented.modifier.vocalizer.lafif.separeted.ActivePresent3Vocalizer());
-        activePresentList.add(new sarf.verb.trilateral.unaugmented.modifier.vocalizer.mithal.ActivePrenentVocalizer());
+        activePresentList.add(new ActivePresentVocalizer());
 
         //قائمة المضارع المبني لمجهول
         passivePresentList.add(new sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.wawi.PassivePresentAjwafWawiListedVocalizer());

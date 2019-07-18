@@ -2,6 +2,7 @@ package sarf.noun.trilateral.unaugmented.modifier.assimilate.vocalizer;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -21,7 +22,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class Vocalizer42 extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Vocalizer42() {
         substitutions.add(new SuffixSubstitution("ِيُ","ِي"));// EX: (هذا الصّدِي )
@@ -33,17 +34,16 @@ public class Vocalizer42 extends TrilateralNounSubstitutionApplier implements IU
         substitutions.add(new InfixSubstitution("ِيِي","ِي"));// EX: (صَدِينَ )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
+        var noc = conjugationResult.getRoot().getConjugation();
 
-        return nounFormula.equals("فَعِل") && (kov == 24 || kov == 26 || kov == 28) && noc == 4;
+        return nounFormula.equals("فَعِل") && (kov == 24 || kov == 26 || kov == 28) && noc == Conjugation.Forth;
     }
 
 }
