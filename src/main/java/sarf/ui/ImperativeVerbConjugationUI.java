@@ -87,7 +87,7 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
         //lbl.setBackground(backgroundcolor2);
     }
 
-    static final Color backgroundcolor2 = new Color(250,231,226);
+    private static final Color backgroundcolor2 = new Color(250,231,226);
     private void decorateVerbLabel(JLabel lbl) {
         decorateLabel(lbl);
         lbl.setOpaque(true);
@@ -95,7 +95,7 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
     }
 
     public boolean saveToHtml(File file) {
-        String content = FileUtil.getContents(new File("db/verbs.html"));
+        String content = FileUtil.getContents("db/verbs.html");
 
         String docTitle = "تصريف "+ " ( "+ title + " ) " +" للفعل "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
         //put the title
@@ -119,12 +119,7 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
 
         try {
             FileUtil.saveContents(file, content);
-        }
-        catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-            return false;
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
             return false;
         }

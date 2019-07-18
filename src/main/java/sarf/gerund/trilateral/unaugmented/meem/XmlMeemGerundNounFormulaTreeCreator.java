@@ -1,6 +1,8 @@
 package sarf.gerund.trilateral.unaugmented.meem;
 
 import org.apache.commons.digester3.*;
+import org.xml.sax.SAXException;
+
 import java.io.*;
 
 /**
@@ -19,7 +21,7 @@ public class XmlMeemGerundNounFormulaTreeCreator {
     private XmlMeemGerundNounFormulaTreeCreator() {
     }
 
-    public static XmlMeemGerundNounFormulaTree buildNounFormulaTree(File xmlDiagramFile) throws Exception{
+    public static XmlMeemGerundNounFormulaTree buildNounFormulaTree(InputStream inputStream) throws IOException, SAXException {
         Digester digester = new Digester();
         digester.setValidating( false );
 
@@ -36,7 +38,7 @@ public class XmlMeemGerundNounFormulaTreeCreator {
 
         digester.addSetNext( "formulas/formula" , "addFormula" );
 
-        return (XmlMeemGerundNounFormulaTree)digester.parse(xmlDiagramFile);
+        return (XmlMeemGerundNounFormulaTree)digester.parse(inputStream);
     }
 
 }

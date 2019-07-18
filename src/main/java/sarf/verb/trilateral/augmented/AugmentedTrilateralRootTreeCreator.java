@@ -2,7 +2,11 @@ package sarf.verb.trilateral.augmented;
 
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+
 import org.apache.commons.digester3.Digester;
+import org.xml.sax.SAXException;
 import sarf.*;
 
 /**
@@ -21,7 +25,7 @@ public class AugmentedTrilateralRootTreeCreator {
     private AugmentedTrilateralRootTreeCreator() {
     }
 
-    public static AugmentedTrilateralRootTree buildXmlVerbTree(File xmlDiagramFile) throws Exception{
+    public static AugmentedTrilateralRootTree buildXmlVerbTree(InputStream inputStream) throws IOException, SAXException {
         Digester digester = new Digester();
         digester.setValidating( false );
 
@@ -39,7 +43,7 @@ public class AugmentedTrilateralRootTreeCreator {
 
         digester.addSetNext( "roots/root" , "addRoot" );
 
-        return (AugmentedTrilateralRootTree)digester.parse(xmlDiagramFile);
+        return (AugmentedTrilateralRootTree)digester.parse(inputStream);
     }
 
 }

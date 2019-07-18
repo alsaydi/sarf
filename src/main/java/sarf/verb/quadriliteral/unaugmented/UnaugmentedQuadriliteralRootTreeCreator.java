@@ -3,8 +3,10 @@ package sarf.verb.quadriliteral.unaugmented;
 
 import java.io.File;
 import org.apache.commons.digester3.Digester;
+import org.xml.sax.SAXException;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * <p>Title: تحويل ملف المعطيات إلى قائمة الجذور الرباعية المجردة       </p>
@@ -19,10 +21,7 @@ import java.io.IOException;
  * @version 1.0
  */
 public class UnaugmentedQuadriliteralRootTreeCreator {
-    public UnaugmentedQuadriliteralRootTreeCreator() {
-    }
-
-    public static UnaugmentedQuadriliteralRootTree buildXmlVerbTree(File xmlDiagramFile) throws Exception, IOException{
+    public static UnaugmentedQuadriliteralRootTree buildXmlVerbTree(InputStream inputStream) throws IOException, SAXException {
         Digester digester = new Digester();
         digester.setValidating( false );
 
@@ -37,7 +36,7 @@ public class UnaugmentedQuadriliteralRootTreeCreator {
 
         digester.addSetNext( "roots/root" , "addRoot" );
 
-        return (UnaugmentedQuadriliteralRootTree)digester.parse(xmlDiagramFile);
+        return (UnaugmentedQuadriliteralRootTree)digester.parse(inputStream);
     }
 
 }

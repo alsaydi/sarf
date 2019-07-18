@@ -26,9 +26,9 @@ import java.net.*;
  * @version 1.0
  */
 public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
-    List dataFieldsList;
+    private List dataFieldsList;
     public static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 30);
-    public static final Border BORDER = BorderFactory.createEtchedBorder();
+    static final Border BORDER = BorderFactory.createEtchedBorder();
     private String title;
 
 
@@ -79,7 +79,7 @@ public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
         //lbl.setBackground(backgroundcolor2);
     }
 
-    static final Color backgroundcolor2 = new Color(250, 231, 226);
+    private static final Color backgroundcolor2 = new Color(250, 231, 226);
     private void decorateVerbLabel(JLabel lbl) {
         decorateLabel(lbl);
         lbl.setOpaque(true);
@@ -87,7 +87,7 @@ public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
     }
 
     public boolean saveToHtml(File file) {
-        String content = FileUtil.getContents(new File("db/verbs.html"));
+        String content = FileUtil.getContents("db/verbs.html");
 
         String docTitle = "تصريف "+ " ( "+ title + " ) " +" للفعل "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
         //put the title
@@ -111,12 +111,7 @@ public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
 
         try {
             FileUtil.saveContents(file, content);
-        }
-        catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-            return false;
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
             return false;
         }

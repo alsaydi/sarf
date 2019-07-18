@@ -47,10 +47,10 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
         pastBtn.addActionListener(e -> {
             List result;
             if (selectionInfo.isTrilateral()) {
-                result = generateTrilateralResult();
+                result = generateTrilateralActivePastResult();
             }
             else {
-                result = generateQuadrilateralResult();
+                result = generateQuadrilateralActivePastResult();
             }
             VerbConjugationUI ui = new VerbConjugationUI(result, "الماضي");
             ControlPaneContainer.getInstance().openResult(ui);
@@ -358,7 +358,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
         });
     }
 
-    private List<String> generateQuadrilateralResult() {
+    private List<String> generateQuadrilateralActivePastResult() {
         List<String> result = null;
         if (selectionInfo.isAugmented()) {
             result = sarf.verb.quadriliteral.augmented.active.past.AugmentedActivePastConjugator.getInstance().createVerbList((AugmentedQuadrilateralRoot)
@@ -372,7 +372,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
         return result;
     }
 
-    private List generateTrilateralResult() {
+    private List generateTrilateralActivePastResult() {
         List result;
         if (selectionInfo.isAugmented()) {
             result = sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator.getInstance().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());

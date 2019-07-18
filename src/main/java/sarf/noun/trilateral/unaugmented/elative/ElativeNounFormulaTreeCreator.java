@@ -2,6 +2,8 @@
 package sarf.noun.trilateral.unaugmented.elative;
 
 import org.apache.commons.digester3.*;
+import org.xml.sax.SAXException;
+
 import java.io.*;
 
 /**
@@ -20,7 +22,7 @@ public class ElativeNounFormulaTreeCreator {
     private ElativeNounFormulaTreeCreator() {
     }
 
-    public static ElativeNounFormulaTree buildNounFormulaTree(File xmlDiagramFile) throws Exception{
+    public static ElativeNounFormulaTree buildNounFormulaTree(InputStream inputStream) throws IOException, SAXException {
         Digester digester = new Digester();
         digester.setValidating( false );
 
@@ -33,7 +35,7 @@ public class ElativeNounFormulaTreeCreator {
 
         digester.addSetNext( "formulas/formula" , "addFormula" );
 
-        return (ElativeNounFormulaTree)digester.parse(xmlDiagramFile);
+        return (ElativeNounFormulaTree)digester.parse(inputStream);
     }
 
 }

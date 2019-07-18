@@ -1,9 +1,6 @@
 package sarf;
 
 import java.io.*;
-import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 
 import sarf.verb.quadriliteral.unaugmented.*;
@@ -72,13 +69,12 @@ public class DatabaseManager {
 	 * @return UnaugmentedTrilateralRootTree
 	 * @throws Exception
 	 */
-	public UnaugmentedTrilateralRootTree getUnaugmentedTrilateralRootTree(char c1) throws Exception {
+	UnaugmentedTrilateralRootTree getUnaugmentedTrilateralRootTree(char c1) throws Exception {
 		UnaugmentedTrilateralRootTree rootsTree = tripleUnaugmentedTreeMap.get(c1 + "");
 		if (rootsTree != null)
 			return rootsTree;
 
-		rootsTree = UnaugmentedTrilateralRootTreeCreator
-				.buildXmlVerbTree(new File(getFullPath("db/trilateral/unaugmented/" + c1 + ".xml")));
+		rootsTree = UnaugmentedTrilateralRootTreeCreator.buildXmlVerbTree(getResourceInputStream("db/trilateral/unaugmented/" + c1 + ".xml"));
 		tripleUnaugmentedTreeMap.put(c1 + "", rootsTree);
 		return rootsTree;
 	}
@@ -91,13 +87,13 @@ public class DatabaseManager {
 	 * @return AugmentedTrilateralRootTree
 	 * @throws Exception
 	 */
-	public AugmentedTrilateralRootTree getAugmentedTrilateralRootTree(char c1) throws Exception {
+	AugmentedTrilateralRootTree getAugmentedTrilateralRootTree(char c1) throws Exception {
 		AugmentedTrilateralRootTree rootsTree = tripleAugmentedTreeMap.get(c1 + "");
 		if (rootsTree != null)
 			return rootsTree;
 
-		rootsTree = AugmentedTrilateralRootTreeCreator
-				.buildXmlVerbTree(new File(getFullPath("db/trilateral/augmented/" + c1 + ".xml")));
+		var inputStream = getResourceInputStream("db/trilateral/augmented/" + c1 + ".xml");
+		rootsTree = AugmentedTrilateralRootTreeCreator.buildXmlVerbTree(inputStream);
 		tripleAugmentedTreeMap.put(c1 + "", rootsTree);
 		return rootsTree;
 	}
@@ -109,13 +105,13 @@ public class DatabaseManager {
 	 *            char
 	 * @return UnaugmentedQuadriliteralRootTree
 	 */
-	public UnaugmentedQuadriliteralRootTree getUnaugmentedQuadriliteralRootTree(char c1) throws Exception {
+	UnaugmentedQuadriliteralRootTree getUnaugmentedQuadriliteralRootTree(char c1) throws Exception {
 		UnaugmentedQuadriliteralRootTree rootsTree = quadriliteralUnaugmentedTreeMap.get(c1 + "");
 		if (rootsTree != null)
 			return rootsTree;
 
 		rootsTree = UnaugmentedQuadriliteralRootTreeCreator
-				.buildXmlVerbTree(new File(getFullPath("db/quadriliteral/unaugmented/" + c1 + ".xml")));
+				.buildXmlVerbTree(getResourceInputStream("db/quadriliteral/unaugmented/" + c1 + ".xml"));
 		quadriliteralUnaugmentedTreeMap.put(c1 + "", rootsTree);
 		return rootsTree;
 	}
@@ -127,13 +123,13 @@ public class DatabaseManager {
 	 *            char
 	 * @return AugmentedQuadriliteralRootTree
 	 */
-	public AugmentedQuadriliteralRootTree getAugmentedQuadriliteralRootTree(char c1) throws Exception {
+	AugmentedQuadriliteralRootTree getAugmentedQuadriliteralRootTree(char c1) throws Exception {
 		AugmentedQuadriliteralRootTree rootsTree = quadriliteralAugmentedTreeMap.get(c1 + "");
 		if (rootsTree != null)
 			return rootsTree;
 
 		rootsTree = AugmentedQuadriliteralRootTreeCreator
-				.buildXmlVerbTree(new File(getFullPath("db/quadriliteral/augmented/" + c1 + ".xml")));
+				.buildXmlVerbTree(getResourceInputStream("db/quadriliteral/augmented/" + c1 + ".xml"));
 		quadriliteralAugmentedTreeMap.put(c1 + "", rootsTree);
 		return rootsTree;
 	}
@@ -147,22 +143,18 @@ public class DatabaseManager {
 	 * @throws Exception
 	 */
 	public XmlNounFormulaTree getXmlNounFormulaTree(char c1, String folderName) throws Exception {
-		Map<String, XmlNounFormulaTree> folderMap = allNounsTreeMap.get(folderName);
-		if (folderMap == null) {
-			allNounsTreeMap.put(folderName, folderMap = new HashMap<>());
-		}
+		Map<String, XmlNounFormulaTree> folderMap = allNounsTreeMap.computeIfAbsent(folderName, k -> new HashMap<>());
 
 		XmlNounFormulaTree formulaTree = folderMap.get(c1 + "");
 		if (formulaTree != null)
 			return formulaTree;
 
-		String fileName = getFullPath("db/noun/" + folderName + "/" + c1 + ".xml");
-		File file = new File(fileName);
-		if (!file.exists())
+		var inputStream = getResourceInputStream("db/noun/" + folderName + "/" + c1 + ".xml");
+		if (inputStream == null)
 			// there is no applied file for this char
-			throw new FileNotFoundException(fileName + " was not found.");
+			throw new FileNotFoundException(inputStream + " was not found.");
 
-		formulaTree = XmlNounFormulaTreeCreator.buildNounFormulaTree(file);
+		formulaTree = XmlNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 		folderMap.put(c1 + "", formulaTree);
 		return formulaTree;
 	}
@@ -172,12 +164,12 @@ public class DatabaseManager {
 		if (formulaTree != null)
 			return formulaTree;
 
-		File file = new File(getFullPath("db/gerund/meem/" + c1 + ".xml"));
-		if (!file.exists())
-			// there is no applied file for this char
+		var inputStream = getResourceInputStream("db/gerund/meem/" + c1 + ".xml");
+		if (inputStream == null)
+			// there is no applied inputStream for this char
 			return null;
 
-		formulaTree = XmlMeemGerundNounFormulaTreeCreator.buildNounFormulaTree(file);
+		formulaTree = XmlMeemGerundNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 		meemGerundMap.put(c1 + "", formulaTree);
 		return formulaTree;
 	}
@@ -186,11 +178,11 @@ public class DatabaseManager {
 		AssimilateAdjectiveFormulaTree formulaTree = assimilateAdjectiveMap.get(c1 + "");
 		if (formulaTree == null) {
 			try {
-				File file = new File(getFullPath("db/noun/assimilate/" + c1 + ".xml"));
-				if (!file.exists())
-					// there is no applied file for this char
+				var inputStream = getResourceInputStream("db/noun/assimilate/" + c1 + ".xml");
+				if (null == inputStream)
+					// there is no applied inputStream for this char
 					return null;
-				formulaTree = AssimilateAdjectiveFormulaTreeCreator.buildNounFormulaTree(file);
+				formulaTree = AssimilateAdjectiveFormulaTreeCreator.buildNounFormulaTree(inputStream);
 				assimilateAdjectiveMap.put(c1 + "", formulaTree);
 			} catch (Exception ex) {
 				ex.printStackTrace();
@@ -203,11 +195,11 @@ public class DatabaseManager {
 		ElativeNounFormulaTree formulaTree = elativeNounMap.get(c1 + "");
 		if (formulaTree == null) {
 			try {
-				File file = new File(getFullPath("db/noun/elative/" + c1 + ".xml"));
-				if (!file.exists())
-					// there is no applied file for this char
+				var inputStream = getResourceInputStream("db/noun/elative/" + c1 + ".xml");
+				if (null == inputStream)
+					// there is no applied inputStream for this char
 					return null;
-				formulaTree = ElativeNounFormulaTreeCreator.buildNounFormulaTree(file);
+				formulaTree = ElativeNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 				elativeNounMap.put(c1 + "", formulaTree);
 			} catch (Exception ex) {
 				ex.printStackTrace();
@@ -220,11 +212,11 @@ public class DatabaseManager {
 		XmlNonStandardInstrumentalNounFormulaTree formulaTree = instrumentalNounMap.get(c1 + "");
 		if (formulaTree == null) {
 			try {
-				File file = new File(getFullPath("db/noun/instrumental/" + c1 + ".xml"));
-				if (!file.exists())
-					// there is no applied file for this char
+				var inputStream = getResourceInputStream("db/noun/instrumental/" + c1 + ".xml");
+				if (null == inputStream)
+					// there is no applied inputStream for this char
 					return null;
-				formulaTree = XmlNonStandardInstrumentalNounFormulaTreeCreator.buildNounFormulaTree(file);
+				formulaTree = XmlNonStandardInstrumentalNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 				instrumentalNounMap.put(c1 + "", formulaTree);
 			} catch (Exception ex) {
 				ex.printStackTrace();
@@ -237,11 +229,11 @@ public class DatabaseManager {
 		XmExaggerationNounFormulaTree formulaTree = exaggerationNounMap.get(c1 + "");
 		if (formulaTree == null) {
 			try {
-				File file = new File(getFullPath("db/noun/exaggeration/" + c1 + ".xml"));
-				if (!file.exists())
+				var inputStream = getResourceInputStream("db/noun/exaggeration/" + c1 + ".xml");
+				if (null == inputStream )
 					// there is no applied file for this char
 					return null;
-				formulaTree = XmExaggerationNounFormulaTreeCreator.buildNounFormulaTree(file);
+				formulaTree = XmExaggerationNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 				exaggerationNounMap.put(c1 + "", formulaTree);
 			} catch (Exception ex) {
 				ex.printStackTrace();
@@ -254,8 +246,8 @@ public class DatabaseManager {
 		XmlTimeAndPlaceNounFormulaTree formulaTree = timeAndPlaceNounMap.get(c1 + "");
 		if (formulaTree == null) {
 			try {
-				File file = new File(getFullPath("db/noun/timeandplace/" + c1 + ".xml"));
-				if (!file.exists())
+				var file = getResourceInputStream("db/noun/timeandplace/" + c1 + ".xml");
+				if (file == null)
 					// there is no applied file for this char
 					return null;
 				formulaTree = XmlTimeAndPlaceNounFormulaTreeCreator.buildNounFormulaTree(file);
@@ -267,13 +259,12 @@ public class DatabaseManager {
 		return formulaTree;
 	}
 
-	private static String getFullPath(String relativePath) {
-		String filepath = null;
-		try {
-			filepath = ClassLoader.getSystemResource(relativePath).toURI().getPath();
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
+	private static InputStream getResourceInputStream(String relativePath) throws IOException {
+		System.err.println("Retrieving " + relativePath + " from resources");
+		var inputStream = ClassLoader.getSystemResource(relativePath).openStream();
+		if(inputStream == null){
+			throw new IOException("inputStream is null when trying to load " + relativePath);
 		}
-		return  filepath;
+		return inputStream;
 	}
 }

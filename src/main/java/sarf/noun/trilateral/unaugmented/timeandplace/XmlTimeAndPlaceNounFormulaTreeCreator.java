@@ -1,6 +1,8 @@
 package sarf.noun.trilateral.unaugmented.timeandplace;
 
 import org.apache.commons.digester3.*;
+import org.xml.sax.SAXException;
+
 import java.io.*;
 
 /**
@@ -19,7 +21,7 @@ public class XmlTimeAndPlaceNounFormulaTreeCreator {
     private XmlTimeAndPlaceNounFormulaTreeCreator() {
     }
 
-    public static XmlTimeAndPlaceNounFormulaTree buildNounFormulaTree(File xmlDiagramFile) throws Exception{
+    public static XmlTimeAndPlaceNounFormulaTree buildNounFormulaTree(InputStream inputStream) throws IOException, SAXException {
         Digester digester = new Digester();
         digester.setValidating( false );
 
@@ -36,7 +38,7 @@ public class XmlTimeAndPlaceNounFormulaTreeCreator {
 
         digester.addSetNext( "formulas/formula" , "addFormula" );
 
-        return (XmlTimeAndPlaceNounFormulaTree)digester.parse(xmlDiagramFile);
+        return (XmlTimeAndPlaceNounFormulaTree)digester.parse(inputStream);
     }
 
 }

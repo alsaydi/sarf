@@ -1,6 +1,8 @@
 package sarf.noun.trilateral.unaugmented.assimilate;
 
 import org.apache.commons.digester3.*;
+import org.xml.sax.SAXException;
+
 import java.io.*;
 
 /**
@@ -19,7 +21,7 @@ public class AssimilateAdjectiveFormulaTreeCreator {
     private AssimilateAdjectiveFormulaTreeCreator() {
     }
 
-    public static AssimilateAdjectiveFormulaTree buildNounFormulaTree(File xmlDiagramFile) throws Exception{
+    public static AssimilateAdjectiveFormulaTree buildNounFormulaTree(InputStream inputStream) throws IOException, SAXException {
         Digester digester = new Digester();
         digester.setValidating( false );
 
@@ -37,7 +39,7 @@ public class AssimilateAdjectiveFormulaTreeCreator {
 
         digester.addSetNext( "formulas/formula" , "addFormula" );
 
-        return (AssimilateAdjectiveFormulaTree)digester.parse(xmlDiagramFile);
+        return (AssimilateAdjectiveFormulaTree)digester.parse(inputStream);
     }
 
 }

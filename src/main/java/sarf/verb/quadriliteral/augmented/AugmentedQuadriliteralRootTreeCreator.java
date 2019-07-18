@@ -6,6 +6,7 @@ import org.apache.commons.digester3.Digester;
 import sarf.*;
 import org.xml.sax.SAXException;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * <p>Title: </p>
@@ -23,7 +24,7 @@ public class AugmentedQuadriliteralRootTreeCreator {
     public AugmentedQuadriliteralRootTreeCreator() {
     }
 
-    public static AugmentedQuadriliteralRootTree buildXmlVerbTree(File xmlDiagramFile) throws SAXException, IOException {
+    public static AugmentedQuadriliteralRootTree buildXmlVerbTree(InputStream inputStream) throws SAXException, IOException {
         Digester digester = new Digester();
         digester.setValidating( false );
 
@@ -42,7 +43,7 @@ public class AugmentedQuadriliteralRootTreeCreator {
 
         digester.addSetNext( "roots/root" , "addRoot" );
 
-        return (AugmentedQuadriliteralRootTree)digester.parse(xmlDiagramFile);
+        return (AugmentedQuadriliteralRootTree)digester.parse(inputStream);
     }
 
 

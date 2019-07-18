@@ -160,7 +160,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
     }
 
     public boolean saveToHtml(File file) {
-        String content = FileUtil.getContents(new File("db/nouns.html"));
+        String content = FileUtil.getContents("db/nouns.html");
 
         String docTitle = "تصريف "+ " ( "+ title + " ) " +" للفعل "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
         //put the title

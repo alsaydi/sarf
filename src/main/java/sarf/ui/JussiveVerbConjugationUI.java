@@ -94,7 +94,7 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
         //lbl.setBackground(backgroundcolor2);
     }
 
-    static final Color backgroundcolor2 = new Color(250,231,226);
+    private static final Color backgroundcolor2 = new Color(250,231,226);
     private void decorateVerbLabel(JLabel lbl) {
         decorateLabel(lbl);
         lbl.setOpaque(true);
@@ -102,7 +102,7 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
     }
 
     public boolean saveToHtml(File file) {
-        String content = FileUtil.getContents(new File("db/verbs.html"));
+        String content = FileUtil.getContents("db/verbs.html");
 
         String docTitle = "تصريف "+ " ( "+ title + " ) " +" للفعل "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
         //put the title

@@ -1,6 +1,8 @@
 package sarf.noun;
 
 import org.apache.commons.digester3.*;
+import org.xml.sax.SAXException;
+
 import java.io.*;
 
 /**
@@ -19,7 +21,7 @@ public class XmlNounFormulaTreeCreator {
     private XmlNounFormulaTreeCreator() {
     }
 
-    public static XmlNounFormulaTree buildNounFormulaTree(File xmlDiagramFile) throws Exception{
+    public static XmlNounFormulaTree buildNounFormulaTree(InputStream inputStream) throws IOException, SAXException {
         Digester digester = new Digester();
         digester.setValidating( false );
 
@@ -35,7 +37,7 @@ public class XmlNounFormulaTreeCreator {
 
         digester.addSetNext( "formulas/formula" , "addFormula" );
 
-        return (XmlNounFormulaTree)digester.parse(xmlDiagramFile);
+        return (XmlNounFormulaTree)digester.parse(inputStream);
     }
 
 }

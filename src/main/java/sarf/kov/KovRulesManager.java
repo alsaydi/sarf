@@ -2,10 +2,6 @@ package sarf.kov;
 
 import org.apache.commons.digester3.*;
 import java.io.*;
-import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -31,15 +27,15 @@ public class KovRulesManager {
 
     private KovRulesManager() {
         try {
-            trilateralRulesList = buildTrilateral(new File(getFullPath("db/trilateralkov.xml")));
-            quadrilateralRulesList = buildQuadrilateral(new File(getFullPath("db/quadrilateralkov.xml")));
+            trilateralRulesList = buildTrilateral(getResourceInputStream("db/trilateralkov.xml"));
+            quadrilateralRulesList = buildQuadrilateral(getResourceInputStream("db/quadrilateralkov.xml"));
         }
         catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
-    private TrilateralKovRuleList buildTrilateral(File xmlFile) throws Exception{
+    private TrilateralKovRuleList buildTrilateral(InputStream inputStream) throws Exception{
         Digester digester = new Digester();
         digester.setValidating( false );
 
@@ -55,10 +51,10 @@ public class KovRulesManager {
 
         digester.addSetNext( "rules/rule" , "addRule" );
 
-        return (TrilateralKovRuleList)digester.parse(xmlFile);
+        return (TrilateralKovRuleList)digester.parse(inputStream);
     }
 
-    private QuadrilateralKovRuleList buildQuadrilateral(File xmlFile) throws Exception{
+    private QuadrilateralKovRuleList buildQuadrilateral(InputStream inputStream) throws Exception{
         Digester digester = new Digester();
         digester.setValidating( false );
 
@@ -75,7 +71,7 @@ public class KovRulesManager {
 
         digester.addSetNext( "rules/rule" , "addRule" );
 
-        return (QuadrilateralKovRuleList)digester.parse(xmlFile);
+        return (QuadrilateralKovRuleList)digester.parse(inputStream);
     }
 
 
@@ -93,38 +89,35 @@ public class KovRulesManager {
     }
 
     public TrilateralKovRule getTrilateralKovRule(char c1, char c2, char c3) {
-        Iterator iter = trilateralRulesList.getRules().iterator();
-        while (iter.hasNext()) {
-            TrilateralKovRule rule = (TrilateralKovRule) iter.next();
+        for (Object o : trilateralRulesList.getRules()) {
+            TrilateralKovRule rule = (TrilateralKovRule) o;
             if (rule.check(c1, c2, c3))
                 return rule;
         }
         return null;
     }
 
-    public int getQuadrilateralKov(char c1, char c2, char c3, char c4) {
+    private int getQuadrilateralKov(char c1, char c2, char c3, char c4) {
         QuadrilateralKovRule rule = getQuadrilateralKovRule(c1, c2, c3 ,c4);
         return rule!= null? rule.getKov(): -1;
     }
 
     public QuadrilateralKovRule getQuadrilateralKovRule(char c1, char c2, char c3, char c4) {
-        Iterator iter = quadrilateralRulesList.getRules().iterator();
-        while (iter.hasNext()) {
-            QuadrilateralKovRule rule = (QuadrilateralKovRule) iter.next();
+        for (Object o : quadrilateralRulesList.getRules()) {
+            QuadrilateralKovRule rule = (QuadrilateralKovRule) o;
             if (rule.check(c1, c2, c3, c4))
                 return rule;
         }
         return null;
     }
 
-    private static String getFullPath(String relativePath) {
-        String filename = null;
-        try {
-            filename = ClassLoader.getSystemResource(relativePath).toURI().getPath();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
+    private static InputStream getResourceInputStream(String relativePath) throws IOException {
+        System.err.println("Retrieving " + relativePath + " from resources");
+        var inputStream = ClassLoader.getSystemResource(relativePath).openStream();
+        if(inputStream == null){
+            throw new IOException("inputStream is null when trying to load " + relativePath);
         }
-        return  filename;
+        return inputStream;
     }
 
     public static void main(String[] args) {

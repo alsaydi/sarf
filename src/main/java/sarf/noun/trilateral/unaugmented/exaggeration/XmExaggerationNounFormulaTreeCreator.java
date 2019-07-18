@@ -1,6 +1,8 @@
 package sarf.noun.trilateral.unaugmented.exaggeration;
 
 import org.apache.commons.digester3.*;
+import org.xml.sax.SAXException;
+
 import java.io.*;
 
 /**
@@ -19,7 +21,7 @@ public class XmExaggerationNounFormulaTreeCreator {
     private XmExaggerationNounFormulaTreeCreator() {
     }
 
-    public static XmExaggerationNounFormulaTree buildNounFormulaTree(File xmlDiagramFile) throws Exception{
+    public static XmExaggerationNounFormulaTree buildNounFormulaTree(InputStream inputStream) throws IOException, SAXException {
         Digester digester = new Digester();
         digester.setValidating( false );
 
@@ -36,7 +38,7 @@ public class XmExaggerationNounFormulaTreeCreator {
 
         digester.addSetNext( "formulas/formula" , "addFormula" );
 
-        return (XmExaggerationNounFormulaTree)digester.parse(xmlDiagramFile);
+        return (XmExaggerationNounFormulaTree)digester.parse(inputStream);
     }
 
 }

@@ -2,6 +2,7 @@ package sarf.util;
 
 import java.io.File;
 import java.io.*;
+import java.nio.charset.Charset;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,16 +20,16 @@ public class FileUtil {
     public FileUtil() {
     }
 
-    static public String getContents(File aFile) {
+    static public String getContents(String relativePath) {
         //...checks on aFile are elided
-        StringBuffer contents = new StringBuffer();
+        StringBuilder contents = new StringBuilder();
 
         //declared here only to make visible to finally clause
         BufferedReader input = null;
         try {
             //use buffering, reading one line at a time
             //FileReader always assumes default encoding is OK!
-            input = new BufferedReader(new InputStreamReader(new FileInputStream(aFile), "cp1256"));
+            input = new BufferedReader(new InputStreamReader(ClassLoader.getSystemResource(relativePath).openStream(), Charset.availableCharsets().getOrDefault("UTF-8", Charset.defaultCharset())));
             String line = null; //not declared within while loop
             /*
              * readLine is a bit quirky :
@@ -40,11 +41,7 @@ public class FileUtil {
                 contents.append(line);
                 contents.append(System.getProperty("line.separator"));
             }
-        }
-        catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
             try {
@@ -60,11 +57,14 @@ public class FileUtil {
         return contents.toString();
     }
 
-    static public void saveContents(File aFile, String aContents) throws FileNotFoundException, IOException {
+    static public void saveContents(File aFile, String aContents) throws IOException {
         if (aFile == null) {
             throw new IllegalArgumentException("File should not be null.");
         }
-        aFile.createNewFile();
+        var created = aFile.createNewFile();
+        if(!created){
+            throw new IOException("could not created the file " + aFile.getAbsolutePath());
+        }
 
         //declared here only to make visible to finally clause; generic reference
         BufferedWriter output = null;
@@ -85,8 +85,5 @@ public class FileUtil {
                 output.close();
             }
         }
-
     }
-
-
 }

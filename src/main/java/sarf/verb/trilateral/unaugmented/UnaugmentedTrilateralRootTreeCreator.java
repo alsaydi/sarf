@@ -2,9 +2,13 @@ package sarf.verb.trilateral.unaugmented;
 
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import org.apache.commons.digester3.*;
+import org.xml.sax.SAXException;
 import sarf.*;
 
 /**
@@ -21,7 +25,7 @@ import sarf.*;
  */
 public class UnaugmentedTrilateralRootTreeCreator {
 
-    public static UnaugmentedTrilateralRootTree buildXmlVerbTree(File xmlDiagramFile) throws Exception{
+    public static UnaugmentedTrilateralRootTree buildXmlVerbTree(InputStream inputStream) throws IOException, SAXException {
         Digester digester = new Digester();
         digester.setValidating( false );
 
@@ -41,14 +45,15 @@ public class UnaugmentedTrilateralRootTreeCreator {
 
         digester.addSetNext( "roots/root" , "addRoot" );
 
-        return (UnaugmentedTrilateralRootTree)digester.parse(xmlDiagramFile);
+        return (UnaugmentedTrilateralRootTree)digester.parse(inputStream);
     }
 
     public static void main(String[] args) {
         try {
             char c1 = 'غ';
             String path = "./db/trilateral/unaugmented/"+c1+".xml";
-            UnaugmentedTrilateralRootTree rootTree = buildXmlVerbTree(new File(path));
+            var inputStream = new FileInputStream(path);
+            UnaugmentedTrilateralRootTree rootTree = buildXmlVerbTree(inputStream);
             List<?> roots = rootTree.getRoots();
             for (Object obj : roots) {
             	UnaugmentedTrilateralRoot root = (UnaugmentedTrilateralRoot) obj;
@@ -60,5 +65,4 @@ public class UnaugmentedTrilateralRootTreeCreator {
             ex.printStackTrace();
         }
     }
-
 }
