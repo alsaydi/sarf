@@ -2,6 +2,7 @@ package sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -21,23 +22,21 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class B1Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public B1Vocalizer() {
         substitutions.add(new InfixSubstitution("ُوو","ُوّ"));// EX: (عَفُوّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
+        var noc = conjugationResult.getRoot().getConjugation();
 
-        return nounFormula.equals("فَعُول") && (kov == 23 && (Conjugation.First || Conjugation.Third || noc == Conjugation.Fifth));
+        return nounFormula.equals("فَعُول") && (kov == 23 && (noc == Conjugation.First || noc == Conjugation.Third || noc == Conjugation.Fifth));
     }
-
 }

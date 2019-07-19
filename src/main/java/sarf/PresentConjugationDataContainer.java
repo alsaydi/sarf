@@ -222,9 +222,8 @@ public class PresentConjugationDataContainer {
      */
     public String getDpr2(UnaugmentedTrilateralRoot root) {
         //بسبب أن ترقيم الباب التصريفي يبدأ من الواحد على حين أن القائمة تبدأ من الصفر جرى طرح العدد واحد
-        return (String) dpr2List.get((Integer.parseInt(root.getConjugation()) - 1));
+        return (String) dpr2List.get(root.getConjugation().getValue() - 1);
     }
-
 
     /**
      * الحصول  على حرف المضارع حسب الضمير

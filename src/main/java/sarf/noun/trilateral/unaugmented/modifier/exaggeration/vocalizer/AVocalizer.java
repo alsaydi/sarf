@@ -2,6 +2,7 @@ package sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -21,7 +22,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class AVocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List<Substitution> substitutions = new LinkedList<Substitution>();
+    private List<Substitution> substitutions = new LinkedList<Substitution>();
 
     public AVocalizer() {
         substitutions.add(new InfixSubstitution("اوًا", "اءً")); // EX: (غَزَّاءً)
@@ -29,7 +30,6 @@ public class AVocalizer extends TrilateralNounSubstitutionApplier implements IUn
         substitutions.add(new InfixSubstitution("او", "اء")); // EX: (غَزَّاءٌ)
         substitutions.add(new InfixSubstitution("اي", "اء")); // EX: (رمَّاءٌ)
     }
-
 
     public List<Substitution> getSubstitutions() {
         return substitutions;
@@ -42,49 +42,47 @@ public class AVocalizer extends TrilateralNounSubstitutionApplier implements IUn
         }
 
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
+        var noc = conjugationResult.getRoot().getConjugation();
 
         switch (kov) {
-        case 21:
-            return Conjugation.First || noc == Conjugation.Fifth;
-        case 22:
-            return Conjugation.First || Conjugation.Third;
-        case 23:
-            switch (noc) {
-            case 1:
-            case 3:
-            case 4:
-            case 5:
-                return true;
-            }
+            case 21:
+                return noc == Conjugation.First || noc == Conjugation.Fifth;
+            case 22:
+                return noc == Conjugation.First || noc == Conjugation.Third;
+            case 23:
+                switch (noc) {
+                    case First:
+                    case Third:
+                    case Forth:
+                    case Fifth:
+                        return true;
+                }
 
-        case 24:
-        case 26:
-            switch (noc) {
-            case 2:
-            case 3:
-            case 4:
-                return true;
-            }
+            case 24:
+            case 26:
+                switch (noc) {
+                    case Second:
+                    case Third:
+                    case Forth:
+                        return true;
+                }
 
-        case 25:
-            return Conjugation.Third || noc == Conjugation.Forth;
+            case 25:
+                return noc == Conjugation.Third || noc == Conjugation.Forth;
 
-        case 27:
-        case 29:
-            return noc == Conjugation.Second;
-        case 28:
-            return noc == Conjugation.Second || noc == Conjugation.Forth;
-        case 30:
-            switch (noc) {
-            case 2:
-            case 4:
-            case 6:
-                return true;
-            }
-
+            case 27:
+            case 29:
+                return noc == Conjugation.Second;
+            case 28:
+                return noc == Conjugation.Second || noc == Conjugation.Forth;
+            case 30:
+                switch (noc) {
+                    case Second:
+                    case Forth:
+                    case Sixth:
+                        return true;
+                }
         }
         return false;
     }
-
 }

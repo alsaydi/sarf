@@ -7,9 +7,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.digester3.*;
 import org.xml.sax.SAXException;
 import sarf.*;
+import sarf.util.ConjugationConverter;
 
 /**
  * <p>Title: تحويل ملف المعطيات إلى قائمة الجذور الثلاثية المجردة       </p>
@@ -35,7 +37,7 @@ public class UnaugmentedTrilateralRootTreeCreator {
         digester.addSetProperties("roots/root", "c1","c1" );
         digester.addSetProperties( "roots/root", "c2","c2" );
         digester.addSetProperties( "roots/root", "c3", "c3" );
-        digester.addSetProperties( "roots/root", "conjugation","conjugation" );
+        digester.addSetProperties( "roots/root", "conjugation","conjugation");
         digester.addSetProperties( "roots/root", "transitive","transitive" );
 
         digester.addObjectCreate("roots/root/gerund", Gerund.class );
@@ -45,6 +47,7 @@ public class UnaugmentedTrilateralRootTreeCreator {
 
         digester.addSetNext( "roots/root" , "addRoot" );
 
+        ConvertUtils.register(new ConjugationConverter(), Conjugation.class);
         return (UnaugmentedTrilateralRootTree)digester.parse(inputStream);
     }
 

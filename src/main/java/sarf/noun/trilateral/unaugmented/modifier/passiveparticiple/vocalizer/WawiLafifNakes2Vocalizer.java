@@ -2,6 +2,7 @@ package sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.vocalizer;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -21,14 +22,13 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class WawiLafifNakes2Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public WawiLafifNakes2Vocalizer() {
         substitutions.add(new InfixSubstitution("ُوو","ِيّ"));// EX: (مَرْضِيّ , مسوِيٌّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
@@ -37,7 +37,7 @@ public class WawiLafifNakes2Vocalizer extends TrilateralNounSubstitutionApplier 
             return false;
 
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
+        var noc = conjugationResult.getRoot().getConjugation();
 
         return (kov == 23 || kov == 28) && noc == Conjugation.Forth;
     }

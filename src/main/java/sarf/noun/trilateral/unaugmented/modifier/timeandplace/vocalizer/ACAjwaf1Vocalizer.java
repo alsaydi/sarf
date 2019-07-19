@@ -1,6 +1,8 @@
 package sarf.noun.trilateral.unaugmented.modifier.timeandplace.vocalizer;
 
 import java.util.*;
+
+import sarf.Conjugation;
 import sarf.noun.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
@@ -18,12 +20,11 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class ACAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List<Substitution> substitutions = new LinkedList<>();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public ACAjwaf1Vocalizer() {
-        substitutions.add(new InfixSubstitution("ْوَ","َا"));// EX: (مَزَار، مَقامَة)
+        substitutions.add(new InfixSubstitution("ْوَ", "َا"));// EX: (مَزَار، مَقامَة)
     }
-
 
     public List<Substitution> getSubstitutions() {
         return substitutions;
@@ -35,23 +36,21 @@ public class ACAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier impleme
             return false;
 
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
+        var noc = conjugationResult.getRoot().getConjugation();
 
         switch (kov) {
-        case 15:
-        case 16:
-            return Conjugation.First || noc == Conjugation.Forth;
+            case 15:
+            case 16:
+                return noc == Conjugation.First || noc == Conjugation.Forth;
 
-        case 17:
-            switch (noc) {
-            case 1:
-            case 4:
-            case 5:
-                return true;
-            }
-
+            case 17:
+                switch (noc) {
+                    case First:
+                    case Forth:
+                    case Fifth:
+                        return true;
+                }
         }
         return false;
-
     }
 }

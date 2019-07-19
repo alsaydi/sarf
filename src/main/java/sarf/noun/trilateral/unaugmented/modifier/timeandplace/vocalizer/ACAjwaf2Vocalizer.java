@@ -2,6 +2,7 @@ package sarf.noun.trilateral.unaugmented.modifier.timeandplace.vocalizer;
 
 import java.util.*;
 
+import sarf.Conjugation;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -21,14 +22,13 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class ACAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public ACAjwaf2Vocalizer() {
-        substitutions.add(new InfixSubstitution("ْيَ","َا"));// EX: (مَفاض، مَفاضة)
+        substitutions.add(new InfixSubstitution("ْيَ", "َا"));// EX: (مَفاض، مَفاضة)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
@@ -38,15 +38,14 @@ public class ACAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier impleme
             return false;
 
         int kov = conjugationResult.getKov();
-        int noc = Integer.parseInt(conjugationResult.getRoot().getConjugation());
+        var noc = conjugationResult.getRoot().getConjugation();
 
         switch (kov) {
-        case 18:
-        case 19:
-        case 20:
-            return noc == Conjugation.Second || noc == Conjugation.Forth;
+            case 18:
+            case 19:
+            case 20:
+                return noc == Conjugation.Second || noc == Conjugation.Forth;
         }
         return false;
-
     }
 }

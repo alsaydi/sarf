@@ -83,12 +83,12 @@ class PresentConjugationDataContainerTest {
 
     @Test
     void UnaugmentedTrilateralRoot_getDpr2_returnsحركة_عين_الفعل() throws Exception{
-        تأكد_من_حركة_عين_الفعل("1", ArabCharUtil.DAMMA);
-        تأكد_من_حركة_عين_الفعل("2", ArabCharUtil.KASRA);
-        تأكد_من_حركة_عين_الفعل("3", ArabCharUtil.FATHA);
-        تأكد_من_حركة_عين_الفعل("4", ArabCharUtil.FATHA);
-        تأكد_من_حركة_عين_الفعل("5", ArabCharUtil.DAMMA);
-        تأكد_من_حركة_عين_الفعل("6", ArabCharUtil.KASRA);
+        تأكد_من_حركة_عين_الفعل(Conjugation.First, ArabCharUtil.DAMMA);
+        تأكد_من_حركة_عين_الفعل(Conjugation.Second, ArabCharUtil.KASRA);
+        تأكد_من_حركة_عين_الفعل(Conjugation.Third, ArabCharUtil.FATHA);
+        تأكد_من_حركة_عين_الفعل(Conjugation.Forth, ArabCharUtil.FATHA);
+        تأكد_من_حركة_عين_الفعل(Conjugation.Fifth, ArabCharUtil.DAMMA);
+        تأكد_من_حركة_عين_الفعل(Conjugation.Sixth, ArabCharUtil.KASRA);
     }
 
     @Test
@@ -108,7 +108,7 @@ class PresentConjugationDataContainerTest {
         assertEquals("ي", sut.getCp(12));
     }
 
-    void تأكد_من_حركة_عين_الفعل(String باب_الصرف, String المتوقع){
+    void تأكد_من_حركة_عين_الفعل(Conjugation باب_الصرف, String المتوقع){
         UnaugmentedTrilateralRoot root = new UnaugmentedTrilateralRoot();
         root.setConjugation(باب_الصرف);
 
