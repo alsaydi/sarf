@@ -1,6 +1,8 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.wawi;
 
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ListedVocalizer;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
 import sarf.verb.trilateral.Substitution.*;
@@ -19,7 +21,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
  * @version 1.0
  */
 public class PassivePresentAjwafWawiListedVocalizer extends AbstractAjwafWawiListedVocalizer {
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public PassivePresentAjwafWawiListedVocalizer() {
         substitutions.add(new ExpressionInfixSubstitution("ْوَC3ُ","َاC3ُ"));// EX: (يُقام، يُخاف، لن تُخافُوا، يُداء)
@@ -29,7 +31,7 @@ public class PassivePresentAjwafWawiListedVocalizer extends AbstractAjwafWawiLis
         substitutions.add(new ExpressionInfixSubstitution("ْوَC3ّ","َC3ّ"));// EX: (أنتن تُصَنَّ، هن يُصَنَّ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

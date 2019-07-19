@@ -17,18 +17,16 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
  * @version 1.0
  */
 public class PassivePastAjwafWawiListedVocalizer extends AbstractAjwafWawiListedVocalizer {
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public PassivePastAjwafWawiListedVocalizer() {
 
         substitutions.add(new ExpressionInfixSubstitution("ُوِC3ْ","ُC3ْ"));// EX: ( بُهْتُ، دُئْتُ)
         substitutions.add(new ExpressionInfixSubstitution("ُوِC3َ","ِيC3َ"));// EX: (بِيه، دِيء)
         substitutions.add(new ExpressionInfixSubstitution("ُوِC3ُ","ِيC3ُ"));// EX: (بِيهوا، دِيئوا)
-
-
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

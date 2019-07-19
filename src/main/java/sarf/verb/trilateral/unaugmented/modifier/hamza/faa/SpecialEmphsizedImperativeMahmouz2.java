@@ -1,6 +1,8 @@
 package sarf.verb.trilateral.unaugmented.modifier.hamza.faa;
 
 import java.util.*;
+
+import sarf.Conjugation;
 import sarf.verb.trilateral.unaugmented.modifier.hamza.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
@@ -25,13 +27,13 @@ public class SpecialEmphsizedImperativeMahmouz2 extends SubstitutionsApplier imp
     public SpecialEmphsizedImperativeMahmouz2() {
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return null;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC1() == 'ء' && root.getC2() == 'ك' && root.getC3() == 'ل'&& root.getConjugation().equals("1");
+        return root.getC1() == 'ء' && root.getC2() == 'ك' && root.getC3() == 'ل'&& root.getConjugation() == Conjugation.First;
     }
 
     /**

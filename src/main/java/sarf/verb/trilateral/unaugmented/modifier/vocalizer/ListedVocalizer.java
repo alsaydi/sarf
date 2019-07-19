@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer;
 
+import sarf.Conjugation;
 import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
@@ -34,11 +35,10 @@ public abstract class ListedVocalizer extends SubstitutionsApplier implements IU
     public boolean isApplied(ConjugationResult conjugationResult) {
         UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
         //فحص الباب التصريفي أولاً
-        if (!root.getConjugation().equals(getNoc()+"")) return false;
+        if (root.getConjugation() != getNoc()) return false;
 
-        Iterator iter = getAppliedRoots().iterator();
-        while (iter.hasNext()) {
-            String appliedRoot = (String) iter.next();
+        for (Object o : getAppliedRoots()) {
+            String appliedRoot = (String) o;
             char c1 = appliedRoot.charAt(0);
             char c2 = appliedRoot.charAt(1);
             char c3 = appliedRoot.charAt(2);
@@ -49,5 +49,5 @@ public abstract class ListedVocalizer extends SubstitutionsApplier implements IU
     }
 
     protected abstract List getAppliedRoots();
-    protected abstract int getNoc();
+    protected abstract Conjugation getNoc();
 }

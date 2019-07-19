@@ -32,7 +32,7 @@ public class Ajwaf3YaeiListedVocalizer extends AbstractAjwafYaeiListedVocalizer 
         return substitutions;
     }
 
-    protected static List<String> appliedProunounsIndecies = new ArrayList<String>(18);
+    private static List<String> appliedProunounsIndecies = new ArrayList<String>(18);
     static {
         for (int i = 0; i < 18; i++) {
             appliedProunounsIndecies.add(i + 1 + "");
@@ -46,5 +46,4 @@ public class Ajwaf3YaeiListedVocalizer extends AbstractAjwafYaeiListedVocalizer 
     public boolean isApplied(ConjugationResult conjugationResult) {
         return super.isApplied(conjugationResult);
     }
-
 }

@@ -20,18 +20,18 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class AjwafListed1Vocalizer extends AbstractAjwafYaeiListedVocalizer implements IUnaugmentedTrilateralNounModificationApplier{
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public AjwafListed1Vocalizer() {
         substitutions.add(new InfixSubstitution("ْيِ","ِي"));// EX: ( مَبِيع، )
         substitutions.add(new InfixSubstitution("ْيَ","َا"));// EX: (محار)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
-    protected static List appliedProunounsIndecies = new ArrayList(18);
+    private static List<String> appliedProunounsIndecies = new ArrayList<String>(18);
     static {
         for (int i=0; i<18; i++) {
             appliedProunounsIndecies.add(i+1 +"");
@@ -45,5 +45,4 @@ public class AjwafListed1Vocalizer extends AbstractAjwafYaeiListedVocalizer impl
     public boolean isApplied(ConjugationResult conjugationResult) {
         return super.isApplied(conjugationResult);
     }
-
 }

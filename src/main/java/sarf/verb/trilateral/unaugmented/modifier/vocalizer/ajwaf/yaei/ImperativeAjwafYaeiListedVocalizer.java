@@ -1,6 +1,8 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.yaei;
 
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ListedVocalizer;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
 import sarf.verb.trilateral.Substitution.*;
@@ -19,7 +21,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.AbstractAjwafYa
  * @version 1.0
  */
 public class ImperativeAjwafYaeiListedVocalizer extends AbstractAjwafYaeiListedVocalizer {
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public ImperativeAjwafYaeiListedVocalizer() {
         substitutions.add(new ExpressionInfixSubstitution("اC1ْيَC3ُ", "C1َاC3ُ"));
@@ -28,9 +30,7 @@ public class ImperativeAjwafYaeiListedVocalizer extends AbstractAjwafYaeiListedV
         substitutions.add(new ExpressionInfixSubstitution("اC1ْيَC3ْ", "C1َC3ْ"));
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
-
-
 }

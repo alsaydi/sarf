@@ -1,6 +1,8 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.yaei;
 
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ListedVocalizer;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
 import sarf.verb.trilateral.Substitution.*;
@@ -19,7 +21,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
  * @version 1.0
  */
 public class PassivePastAjwafYaeiListedVocalizer extends AbstractAjwafYaeiListedVocalizer {
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public PassivePastAjwafYaeiListedVocalizer() {
         substitutions.add(new ExpressionInfixSubstitution("ُيِC3ّ","ُC3ّ"));// EX: ( بُتُّ)
@@ -29,9 +31,7 @@ public class PassivePastAjwafYaeiListedVocalizer extends AbstractAjwafYaeiListed
         substitutions.add(new ExpressionInfixSubstitution("ُيِC3ُ","ِيC3ُ"));// EX: (بِيعوا، قِيئوا، إينوا، شِيئوا، بِيتوا)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
-
-
 }

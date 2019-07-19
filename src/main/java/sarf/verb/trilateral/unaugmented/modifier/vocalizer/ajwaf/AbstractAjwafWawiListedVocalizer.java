@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf;
 
+import sarf.Conjugation;
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ListedVocalizer;
 import java.util.List;
 import java.util.LinkedList;
@@ -22,7 +23,7 @@ import sarf.verb.trilateral.Substitution.*;
 public abstract class AbstractAjwafWawiListedVocalizer extends ListedVocalizer {
     private List<String> appliedRoots = new LinkedList<String>();
 
-    public AbstractAjwafWawiListedVocalizer() {
+    protected AbstractAjwafWawiListedVocalizer() {
         appliedRoots.add("بوه");
         appliedRoots.add("خوف");
         appliedRoots.add("دوء");
@@ -38,13 +39,11 @@ public abstract class AbstractAjwafWawiListedVocalizer extends ListedVocalizer {
         appliedRoots.add("هوع");
     }
 
-    protected List getAppliedRoots() {
+    protected List<String> getAppliedRoots() {
         return appliedRoots;
     }
 
-    protected int getNoc() {
-        return 4;
+    protected Conjugation getNoc() {
+        return Conjugation.Forth;
     }
-
-
 }

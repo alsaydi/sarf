@@ -29,7 +29,7 @@ public class Ajwaf3WawiListedVocalizer extends AbstractAjwafWawiListedVocalizer 
         return substitutions;
     }
 
-    protected static List<String> appliedProunounsIndecies = new ArrayList<String>(18);
+    private static List<String> appliedProunounsIndecies = new ArrayList<String>(18);
     static {
         for (int i=0; i<18; i++) {
             appliedProunounsIndecies.add(i+1 +"");
