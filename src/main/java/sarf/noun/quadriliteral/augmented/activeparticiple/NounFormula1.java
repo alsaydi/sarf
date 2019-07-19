@@ -1,5 +1,6 @@
 package sarf.noun.quadriliteral.augmented.activeparticiple;
 
+import sarf.noun.NounFormula;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.util.ArabCharUtil;
 import sarf.noun.quadriliteral.augmented.*;
@@ -28,6 +29,6 @@ public class NounFormula1 extends AugmentedQuadriliteralNoun {
      * @todo Implement this sarf.noun.quadriliteral.QuadriliteralNoun method
      */
     public String form() {
-        return "م"+ArabCharUtil.DAMMA+"ت"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.KASRA+root.getC4()+suffix;
+        return "م" + ArabCharUtil.DAMMA + "ت" + ArabCharUtil.FATHA + root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3() + ArabCharUtil.KASRA + root.getC4() + suffix;
     }
 }

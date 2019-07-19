@@ -1,5 +1,7 @@
 package sarf.noun.trilateral.unaugmented.assimilate;
 
+import sarf.Conjugation;
+
 /**
  * <p>Title: Sarf Program</p>
  *
@@ -16,7 +18,7 @@ public class AssimilateAdjectiveFormula {
     private char c1;
     private char c2;
     private char c3;
-    private String conjugation;
+    private Conjugation conjugation;
     private String adj1;
     private String adj2;
     private String adj3;
@@ -48,11 +50,11 @@ public class AssimilateAdjectiveFormula {
         return c3;
     }
 
-    public String getConjugation() {
+    public Conjugation getConjugation() {
         return conjugation;
     }
 
-    public void setConjugation(String conjugation) {
+    public void setConjugation(Conjugation conjugation) {
         this.conjugation = conjugation;
     }
 

@@ -58,10 +58,12 @@ public class AssimilateAdjectiveConjugator implements IUnaugmentedTrilateralNoun
         Object[] parameters = {root, suffixNo + ""};
 
         try {
+            /*
+                لكي تكون هنا: جرب بالفعل صب المضعف.
+             */
             String formulaClassName = getClass().getPackage().getName() + ".nonstandard.NounFormula" + formulaID;
             Class formulaClass = Class.forName(formulaClassName);
-            NounFormula noun = (NounFormula) formulaClass.getConstructors()[1].newInstance(parameters);
-            return noun;
+            return (NounFormula) formulaClass.getConstructors()[0].newInstance(parameters);
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -99,13 +101,11 @@ public class AssimilateAdjectiveConjugator implements IUnaugmentedTrilateralNoun
 
         List result = new LinkedList();
 
-        Iterator iter = formulaTree.getFormulaList().iterator();
-        while (iter.hasNext()) {
-            AssimilateAdjectiveFormula formula = (AssimilateAdjectiveFormula) iter.next();
+        for (AssimilateAdjectiveFormula formula : formulaTree.getFormulaList()) {
             if (formula.getConjugation().equals(root.getConjugation()) && formula.getC2() == root.getC2() && formula.getC3() == root.getC3()) {
-                addAdjectiveResult(result,  formula.getAdj1());
-                addAdjectiveResult(result,  formula.getAdj2());
-                addAdjectiveResult(result,  formula.getAdj3());
+                addAdjectiveResult(result, formula.getAdj1());
+                addAdjectiveResult(result, formula.getAdj2());
+                addAdjectiveResult(result, formula.getAdj3());
             }
         }
 

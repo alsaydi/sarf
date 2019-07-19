@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf;
 
+import sarf.Conjugation;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
 import java.util.List;
@@ -18,13 +19,12 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  * @version 1.0
  */
 public abstract class AbstractAjwafYaeiVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
-    public AbstractAjwafYaeiVocalizer() {
+    protected AbstractAjwafYaeiVocalizer() {
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         // تطبيق القانون العام للفحص
-        return (conjugationResult.getRoot().getConjugation().equals("2")) &&
+        return (conjugationResult.getRoot().getConjugation() == Conjugation.Second) &&
                 (conjugationResult.getKov() == 18 || conjugationResult.getKov() == 19 || conjugationResult.getKov() == 20);
     }
-
 }
