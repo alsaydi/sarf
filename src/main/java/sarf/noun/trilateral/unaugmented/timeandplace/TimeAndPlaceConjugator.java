@@ -51,7 +51,7 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
 
         try {
             Class formulaClass = (Class) formulaClassNamesMap.get(formulaName);
-            NounFormula noun = (NounFormula) formulaClass.getConstructors()[1].newInstance(parameters);
+            NounFormula noun = (NounFormula) formulaClass.getConstructors()[0].newInstance(parameters);
             return noun;
         }
         catch (Exception ex) {

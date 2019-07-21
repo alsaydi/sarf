@@ -1,5 +1,8 @@
 package sarf.verb;
 
+import java.util.Formattable;
+import java.util.Formatter;
+
 public abstract class Root {
     private char c1;
     private char c2;
@@ -35,5 +38,10 @@ public abstract class Root {
 
     public void setC1(char c1) {
         this.c1 = c1;
+    }
+
+    @Override
+    public String toString() {
+        return "" + c1 + "" + c2 + "" + c3;
     }
 }
