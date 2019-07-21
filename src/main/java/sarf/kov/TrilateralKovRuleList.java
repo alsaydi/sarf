@@ -15,7 +15,7 @@ import java.util.*;
  * @version 1.0
  */
 public class TrilateralKovRuleList {
-    private List rules = new ArrayList(33);
+    private List<TrilateralKovRule> rules = new ArrayList<>(33);
 
     public TrilateralKovRuleList() {
     }
@@ -24,7 +24,7 @@ public class TrilateralKovRuleList {
         rules.add(rule);
     }
 
-    public List getRules() {
+    public List<TrilateralKovRule> getRules() {
         return rules;
     }
 }

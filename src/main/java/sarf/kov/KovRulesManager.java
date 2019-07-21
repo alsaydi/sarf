@@ -89,12 +89,11 @@ public class KovRulesManager {
     }
 
     public TrilateralKovRule getTrilateralKovRule(char c1, char c2, char c3) {
-        for (Object o : trilateralRulesList.getRules()) {
-            TrilateralKovRule rule = (TrilateralKovRule) o;
-            if (rule.check(c1, c2, c3))
-                return rule;
-        }
-        return null;
+        return trilateralRulesList.getRules()
+                .stream()
+                .filter(rule -> rule.check(c1, c2, c3))
+                .findFirst()
+                .orElse(null);
     }
 
     private int getQuadrilateralKov(char c1, char c2, char c3, char c4) {
@@ -103,16 +102,14 @@ public class KovRulesManager {
     }
 
     public QuadrilateralKovRule getQuadrilateralKovRule(char c1, char c2, char c3, char c4) {
-        for (Object o : quadrilateralRulesList.getRules()) {
-            QuadrilateralKovRule rule = (QuadrilateralKovRule) o;
-            if (rule.check(c1, c2, c3, c4))
-                return rule;
-        }
-        return null;
+        return quadrilateralRulesList.getRules()
+                .stream()
+                .filter(rule -> rule.check(c1, c2, c3, c4))
+                .findFirst()
+                .orElse(null);
     }
 
     private static InputStream getResourceInputStream(String relativePath) throws IOException {
-        System.err.println("Retrieving " + relativePath + " from resources");
         var inputStream = ClassLoader.getSystemResource(relativePath).openStream();
         if(inputStream == null){
             throw new IOException("inputStream is null when trying to load " + relativePath);

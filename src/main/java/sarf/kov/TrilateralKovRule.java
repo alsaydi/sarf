@@ -1,5 +1,8 @@
 package sarf.kov;
 
+import java.util.Formatter;
+import java.util.Locale;
+
 /**
  * <p>Title: Sarf Program</p>
  *
@@ -25,7 +28,6 @@ public class TrilateralKovRule {
     }
 
     public String getDesc() {
-
         return desc;
     }
 
@@ -74,5 +76,10 @@ public class TrilateralKovRule {
             b3 = (c3.equals("?")) || c3.equals("null") || (c3.equals(verbC3+""));
         }
         return b1 && b2 && b3;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("KoV - Index: %s -  %d", getDesc(), getKov());
     }
 }
