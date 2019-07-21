@@ -81,7 +81,7 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
 
         for (Object o : formulaTree.getFormulaList()) {
             XmlTimeAndPlaceNounFormula formula = (XmlTimeAndPlaceNounFormula) o;
-            if (formula.getNoc().equals(root.getConjugation().getValue() + "") && formula.getC2() == root.getC2() && formula.getC3() == root.getC3()) {
+            if (formula.getNoc().equals(root.getConjugation()) && formula.getC2() == root.getC2() && formula.getC3() == root.getC3()) {
                 if (formula.getForm1() != null && formula.getForm1() != "")
                     //add the formula pattern insteaed of the symbol (form1)
                     result.add(formulaSymbolsNamesMap.get(formula.getForm1()));

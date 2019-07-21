@@ -1,5 +1,7 @@
 package sarf.noun.trilateral.unaugmented.timeandplace;
 
+import sarf.Conjugation;
+
 /**
  * <p>Title: Sarf Program</p>
  *
@@ -16,7 +18,7 @@ public class XmlTimeAndPlaceNounFormula {
     private char c1;
     private char c2;
     private char c3;
-    private String noc;
+    private Conjugation noc;
     private String form1;
     private String form2;
 
@@ -43,7 +45,7 @@ public class XmlTimeAndPlaceNounFormula {
         return form2;
     }
 
-    public String getNoc() {
+    public Conjugation getNoc() {
         return noc;
     }
 
@@ -67,7 +69,7 @@ public class XmlTimeAndPlaceNounFormula {
         this.form1 = form1;
     }
 
-    public void setNoc(String noc) {
+    public void setNoc(Conjugation noc) {
         this.noc = noc;
     }
 
