@@ -1,8 +1,5 @@
 package sarf.verb;
 
-import java.util.Formattable;
-import java.util.Formatter;
-
 public abstract class Root {
     private char c1;
     private char c2;

@@ -18,10 +18,10 @@ import sarf.*;
  * @version 1.0
  */
 public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjugator{
-    private Map formulaClassNamesMap = new HashMap();
+    private Map<String, Class> formulaClassNamesMap = new HashMap<>();
 
     //map <symbol,formulaName>
-    private Map formulaSymbolsNamesMap = new HashMap();
+    private Map<String, String> formulaSymbolsNamesMap = new HashMap<>();
 
     private TimeAndPlaceConjugator() {
         for (int i=1; i<=3;i++) {
@@ -44,15 +44,12 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
         return instance;
     }
 
-
-
     public NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaName) {
         Object [] parameters = {root, suffixNo+""};
 
         try {
-            Class formulaClass = (Class) formulaClassNamesMap.get(formulaName);
-            NounFormula noun = (NounFormula) formulaClass.getConstructors()[0].newInstance(parameters);
-            return noun;
+            Class formulaClass = formulaClassNamesMap.get(formulaName);
+            return (NounFormula) formulaClass.getConstructors()[0].newInstance(parameters);
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -60,15 +57,14 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
         return null;
     }
 
-    public List createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
-        List result = new LinkedList();
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
+        List<NounFormula> result = new ArrayList<>();
         for (int i = 0; i < 18; i++) {
             NounFormula noun = createNoun(root, i, formulaName);
             result.add(noun);
         }
 
         return result;
-
     }
 
     /**
@@ -76,12 +72,12 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
      * @param root UnaugmentedTrilateralRoot
      * @return List
      */
-    public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
+    public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
         XmlTimeAndPlaceNounFormulaTree formulaTree =  DatabaseManager.getInstance().getTimeAndPlaceNounFormulaTree(root.getC1());
         if (formulaTree == null)
             return null;
 
-        List result = new LinkedList();
+        List<String> result = new ArrayList<>();
 
         for (Object o : formulaTree.getFormulaList()) {
             XmlTimeAndPlaceNounFormula formula = (XmlTimeAndPlaceNounFormula) o;
@@ -96,8 +92,6 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
                     result.add(formulaSymbolsNamesMap.get(formula.getForm2()));
             }
         }
-
         return result;
     }
-
 }
