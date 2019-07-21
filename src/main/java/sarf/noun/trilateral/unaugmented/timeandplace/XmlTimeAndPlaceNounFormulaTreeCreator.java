@@ -1,7 +1,10 @@
 package sarf.noun.trilateral.unaugmented.timeandplace;
 
+import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.digester3.*;
 import org.xml.sax.SAXException;
+import sarf.Conjugation;
+import sarf.util.ConjugationConverter;
 
 import java.io.*;
 
@@ -37,6 +40,7 @@ public class XmlTimeAndPlaceNounFormulaTreeCreator {
 
 
         digester.addSetNext( "formulas/formula" , "addFormula" );
+        ConvertUtils.register(new ConjugationConverter(), Conjugation.class);
 
         return (XmlTimeAndPlaceNounFormulaTree)digester.parse(inputStream);
     }
