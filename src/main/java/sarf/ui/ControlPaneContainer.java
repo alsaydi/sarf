@@ -31,9 +31,6 @@ import sarf.verb.trilateral.unaugmented.*;
  */
 public class ControlPaneContainer extends JPanel {
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Map<String, IControlPane> controlPaneMap = new HashMap<>();
     private JButton startBtn = new RenderedButton("أدخل جذراً ثلاثياً أو رباعياً");
@@ -143,41 +140,27 @@ public class ControlPaneContainer extends JPanel {
         saveMnuItm.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         fileMainMenu.add(showIntroMnuItm);
-        showIntroMnuItm.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                pref.put("HideIntro", (!showIntroMnuItm.isSelected()) + "");
-            }
-        });
+        showIntroMnuItm.addActionListener(e -> pref.put("HideIntro", (!showIntroMnuItm.isSelected()) + ""));
         showIntroMnuItm.setFont(RenderedButton.FONT);
         showIntroMnuItm.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         helpMainMenu.add(aboutMnuItm);
-        aboutMnuItm.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                AboutDialog dialog = new AboutDialog();
-                dialog.setVisible(true);
-            }
+        aboutMnuItm.addActionListener(e -> {
+            AboutDialog dialog = new AboutDialog();
+            dialog.setVisible(true);
         });
         aboutMnuItm.setFont(RenderedButton.FONT);
         aboutMnuItm.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         fileMainMenu.add(backMnuItm);
         backMnuItm.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0));
-        backMnuItm.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                showPreviousPane();
-            }
-        });
+        backMnuItm.addActionListener(e -> showPreviousPane());
         backMnuItm.setFont(RenderedButton.FONT);
         backMnuItm.setEnabled(false);
         backMnuItm.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         fileMainMenu.add(exitMnuItm);
-        exitMnuItm.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+        exitMnuItm.addActionListener(e -> System.exit(0));
         exitMnuItm.setFont(RenderedButton.FONT);
         exitMnuItm.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
@@ -446,11 +429,11 @@ public class ControlPaneContainer extends JPanel {
             List<AugmentedQuadrilateralRoot> augmentedList = new LinkedList<>();
             List<UnaugmentedQuadrilateralRoot> unaugmentedList = new LinkedList<>();
 
-            for (String alterativeRoot : alefAlternatives) {
-                AugmentedQuadrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedQuadrilateralRoot(alterativeRoot);
-                UnaugmentedQuadrilateralRoot unaugmentedRoot = SarfDictionary.getInstance().getUnaugmentedQuadrilateralRoot(alterativeRoot);
+            for (String alternativeRoot : alefAlternatives) {
+                AugmentedQuadrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedQuadrilateralRoot(alternativeRoot);
+                UnaugmentedQuadrilateralRoot unaugmentedRoot = SarfDictionary.getInstance().getUnaugmentedQuadrilateralRoot(alternativeRoot);
                 if (augmentedRoot != null || unaugmentedRoot != null) {
-                    rootTextList.add(alterativeRoot);
+                    rootTextList.add(alternativeRoot);
                     augmentedList.add(augmentedRoot);
                     unaugmentedList.add(unaugmentedRoot);
                 }
