@@ -82,47 +82,41 @@ public class ControlPaneContainer extends JPanel {
         //menu.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         helpMainMenu.add(help3MnuItm);
-        help3MnuItm.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    Runtime.getRuntime().exec("rundll32 SHELL32.DLL,ShellExec_RunDLL .\\documents\\progspec.htm");
-                }
-                catch (IOException ex) {
-                    ex.printStackTrace();
-                    ShowMessageBox(ex);
-                }
+        help3MnuItm.addActionListener(e -> {
+            try {
+                Runtime.getRuntime().exec("rundll32 SHELL32.DLL,ShellExec_RunDLL .\\documents\\progspec.htm");
+            }
+            catch (IOException ex) {
+                ex.printStackTrace();
+                ShowMessageBox(ex);
             }
         });
         help3MnuItm.setFont(RenderedButton.FONT);
         help3MnuItm.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         helpMainMenu.add(help2MnuItm);
-        help2MnuItm.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    //for all win
-                    Runtime.getRuntime().exec("rundll32 SHELL32.DLL,ShellExec_RunDLL .\\documents\\userguide.doc");
-                    //for winnt and xp just
+        help2MnuItm.addActionListener(e -> {
+            try {
+                //for all win
+                Runtime.getRuntime().exec("rundll32 SHELL32.DLL,ShellExec_RunDLL .\\documents\\userguide.doc");
+                //for winnt and xp just
 //                    Runtime.getRuntime().exec("cmd /c .\\documents\\userguide.doc");
-                }
-                catch (IOException ex) {
-                    ex.printStackTrace();
-                    ShowMessageBox(ex);
-                }
+            }
+            catch (IOException ex) {
+                ex.printStackTrace();
+                ShowMessageBox(ex);
             }
         });
         help2MnuItm.setFont(RenderedButton.FONT);
         help2MnuItm.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         helpMainMenu.add(help1MnuItm);
-        help1MnuItm.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    Runtime.getRuntime().exec("rundll32 SHELL32.DLL,ShellExec_RunDLL .\\documents\\rules.doc");
-                }
-                catch (IOException ex) {
-                    ex.printStackTrace();
-                }
+        help1MnuItm.addActionListener(e -> {
+            try {
+                Runtime.getRuntime().exec("rundll32 SHELL32.DLL,ShellExec_RunDLL .\\documents\\rules.doc");
+            }
+            catch (IOException ex) {
+                ex.printStackTrace();
             }
         });
         help1MnuItm.setFont(RenderedButton.FONT);
@@ -130,20 +124,18 @@ public class ControlPaneContainer extends JPanel {
 
         fileMainMenu.add(saveMnuItm);
         saveMnuItm.setEnabled(false);
-        saveMnuItm.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                IHtmlContentSaver htmlContentSaverComponent = (IHtmlContentSaver) currentResultPane;
-                JFileChooser fileChooser = new JFileChooser();
+        saveMnuItm.addActionListener(e -> {
+            IHtmlContentSaver htmlContentSaverComponent = (IHtmlContentSaver) currentResultPane;
+            JFileChooser fileChooser = new JFileChooser();
 
-                fileChooser.setSelectedFile(new File(htmlContentSaverComponent.getSavedFileNameTitle()));
-                if (fileChooser.showSaveDialog(ControlPaneContainer.this) == JFileChooser.APPROVE_OPTION) {
-                    String fileName = fileChooser.getSelectedFile().getAbsolutePath();
-                    int index = fileName.indexOf(".");
-                    fileName = index == -1 ? fileName : fileName.substring(0, index);
+            fileChooser.setSelectedFile(new File(htmlContentSaverComponent.getSavedFileNameTitle()));
+            if (fileChooser.showSaveDialog(ControlPaneContainer.this) == JFileChooser.APPROVE_OPTION) {
+                String fileName = fileChooser.getSelectedFile().getAbsolutePath();
+                int index = fileName.indexOf(".");
+                fileName = index == -1 ? fileName : fileName.substring(0, index);
 
-                    File file = new File(fileName + ".html");
-                    htmlContentSaverComponent.saveToHtml(file);
-                }
+                File file = new File(fileName + ".html");
+                htmlContentSaverComponent.saveToHtml(file);
             }
         });
         saveMnuItm.setFont(RenderedButton.FONT);
@@ -247,14 +239,12 @@ public class ControlPaneContainer extends JPanel {
 
         backBtn.setBackground(new Color(255, 233, 233));
 
-        rootFld.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-					rootEntered();
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+        rootFld.addActionListener(e -> {
+            try {
+                rootEntered();
+            } catch (Exception e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
             }
         });
 
@@ -266,20 +256,14 @@ public class ControlPaneContainer extends JPanel {
         controlPane.add(container);
 
         backBtn.setEnabled(false);
-        backBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                showPreviousPane();
-            }
-        });
+        backBtn.addActionListener(e -> showPreviousPane());
 
-        startBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-					rootEntered();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-					ShowMessageBox(e1);
-				}
+        startBtn.addActionListener(e -> {
+            try {
+                rootEntered();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+                ShowMessageBox(e1);
             }
         });
     }
@@ -355,12 +339,12 @@ public class ControlPaneContainer extends JPanel {
             List<AugmentedTrilateralRoot> augmentedList = new LinkedList<AugmentedTrilateralRoot>();
             List<List<UnaugmentedTrilateralRoot>> unaugmentedLists = new LinkedList<List<UnaugmentedTrilateralRoot>>();
 
-            for (String alterativeRoot : alefAlternatives) {
-                AugmentedTrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedTrilateralRoot(alterativeRoot);
-                List<UnaugmentedTrilateralRoot> unaugmentedList = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots(alterativeRoot);
+            for (String alternativeRoot : alefAlternatives) {
+                AugmentedTrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedTrilateralRoot(alternativeRoot);
+                List<UnaugmentedTrilateralRoot> unaugmentedList = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots(alternativeRoot);
 
                 if (augmentedRoot != null || !unaugmentedList.isEmpty()) {
-                    rootTextList.add(alterativeRoot);
+                    rootTextList.add(alternativeRoot);
                     augmentedList.add(augmentedRoot);
                     unaugmentedLists.add(unaugmentedList);
                 }
