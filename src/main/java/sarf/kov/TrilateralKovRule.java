@@ -1,7 +1,9 @@
 package sarf.kov;
 
-import java.util.Formatter;
-import java.util.Locale;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -23,6 +25,7 @@ public class TrilateralKovRule {
     private int kov;
     private String desc;
     private String example;
+    private static List<Character> vowels = Arrays.asList('ء', 'و', 'ي');
 
     public TrilateralKovRule() {
     }
@@ -48,7 +51,6 @@ public class TrilateralKovRule {
     }
 
     public void setDesc(String desc) {
-
         this.desc = desc;
     }
 
@@ -64,18 +66,29 @@ public class TrilateralKovRule {
         this.c1 = c1;
     }
 
+    /**
+     * This check function can return true to multiple patterns. So the order in which the TrilateralKindOfVerb rules are checked matters.
+     * @param verbC1 the first character of the verb
+     * @param verbC2 the second character of the verb
+     * @param verbC3 the third character of the verb
+     * @return true if the passed in verb falls under the rule covered by the pattern "c1+c2+c3" of this rule.
+     */
     public boolean check(char verbC1, char verbC2, char verbC3) {
-        boolean b1 = (c1.equals("?")) || c1.equals("null") || (c1.equals(verbC1+""));
+        boolean b1 = (c1.equals("?") || c1.equals("null") && isConsonant(verbC1)) || (c1.equals(verbC1+""));
 
-        boolean b2 = false, b3 = false;
+        boolean b2, b3;
         if (c2.equalsIgnoreCase("c3") && c3.equalsIgnoreCase("c2")) {
-            b2 = b3= (verbC2 == verbC3);
+            b2 = b3 = (verbC2 == verbC3);
         }
         else {
-            b2 = (c2.equals("?")) || c2.equals("null") || (c2.equals(verbC2+""));
-            b3 = (c3.equals("?")) || c3.equals("null") || (c3.equals(verbC3+""));
+            b2 = (c2.equals("?") || c2.equals("null") && isConsonant(verbC2)) || (c2.equals(verbC2+""));
+            b3 = (c3.equals("?") || c3.equals("null") && isConsonant(verbC3)) || (c3.equals(verbC3+""));
         }
         return b1 && b2 && b3;
+    }
+
+    private static boolean isConsonant(char verbC1) {
+        return !vowels.contains(verbC1);
     }
 
     @Override
