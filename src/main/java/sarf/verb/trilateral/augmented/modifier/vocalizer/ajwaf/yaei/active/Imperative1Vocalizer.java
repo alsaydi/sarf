@@ -38,6 +38,6 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IAugme
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return ((kov == 18 || kov == 19 || kov == KindOfVerb.Ajwaf_Yaee) && formulaNo == 1) || ((kov == 18 || kov == 19 || kov == KindOfVerb.Ajwaf_Yaee) && formulaNo == 9);
+        return ((kov == 18 || kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam || kov == KindOfVerb.Ajwaf_Yaee) && formulaNo == 1) || ((kov == 18 || kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam || kov == KindOfVerb.Ajwaf_Yaee) && formulaNo == 9);
     }
 }
