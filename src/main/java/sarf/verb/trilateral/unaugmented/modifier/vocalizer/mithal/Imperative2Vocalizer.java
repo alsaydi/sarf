@@ -34,6 +34,6 @@ public class Imperative2Vocalizer extends SubstitutionsApplier implements IUnaug
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
-        return (kov == 8 || kov == KindOfVerb.Mithal_Wawi_Mahmouz_Ain || kov == KindOfVerb.Mithal_Wawi_Mahmouz_Laam || kov == KindOfVerb.Mithal_Wawi)  && noc == Conjugation.Forth ;
+        return (kov == KindOfVerb.Mithal_Wawi_Mudaaf || kov == KindOfVerb.Mithal_Wawi_Mahmouz_Ain || kov == KindOfVerb.Mithal_Wawi_Mahmouz_Laam || kov == KindOfVerb.Mithal_Wawi)  && noc == Conjugation.Forth ;
     }
 }
