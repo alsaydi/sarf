@@ -38,7 +38,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
             return formulaNo == 6;
         } else if (kov == KindOfVerb.Mithal_Wawi) {
             return formulaNo == 12;
-        } else if (kov == 2) {
+        } else if (kov == KindOfVerb.Mudaaf) {
             switch (formulaNo) {
                 case 1:
                 case 3:

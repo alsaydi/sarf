@@ -34,7 +34,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        if (kov == 2) {
+        if (kov == KindOfVerb.Mudaaf) {
             switch (formulaNo) {
                 case 1:
                 case 3:
