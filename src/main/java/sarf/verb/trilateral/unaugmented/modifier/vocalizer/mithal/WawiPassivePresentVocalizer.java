@@ -35,7 +35,7 @@ public class WawiPassivePresentVocalizer extends SubstitutionsApplier implements
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
         return (kov == 9  && noc == Conjugation.Second) ||
-                (kov == 10 && (noc == Conjugation.Third || noc == Conjugation.Forth || noc == Conjugation.Fifth)) ||
+                (kov == KindOfVerb.Mithal_Wawi_Mahmouz_Laam && (noc == Conjugation.Third || noc == Conjugation.Forth || noc == Conjugation.Fifth)) ||
                 (kov == KindOfVerb.Mithal_Wawi && (noc == Conjugation.Second || noc == Conjugation.Third || noc == Conjugation.Forth || noc == Conjugation.Fifth));
     }
 }

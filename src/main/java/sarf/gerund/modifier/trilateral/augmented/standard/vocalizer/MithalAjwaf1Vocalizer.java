@@ -2,6 +2,7 @@ package sarf.gerund.modifier.trilateral.augmented.standard.vocalizer;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
@@ -20,7 +21,6 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class MithalAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
-
     private List<Substitution> substitutions = new LinkedList<>();
 
     public MithalAjwaf1Vocalizer() {
@@ -32,7 +32,7 @@ public class MithalAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier imp
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return (formulaNo == 1 || formulaNo == 9) && (kov == 9 || kov == 10 || kov == KindOfVerb.Mithal_Wawi);
+        return (formulaNo == 1 || formulaNo == 9) && (kov == 9 || kov == KindOfVerb.Mithal_Wawi_Mahmouz_Laam || kov == KindOfVerb.Mithal_Wawi);
     }
 
     public List<Substitution> getSubstitutions() {
