@@ -35,7 +35,7 @@ public class Past2Vocalizer extends SubstitutionsApplier implements IUnaugmented
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
-        //return (kov == 24 || kov == 25 || kov == KindOfVerb.Naqis_Yaee) && (noc == Conjugation.Forth);
-        return (kov == 24 || kov == 25 || kov == KindOfVerb.Naqis_Yaee) && (noc == Conjugation.Forth);
+        //return (kov == 24 || kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain || kov == KindOfVerb.Naqis_Yaee) && (noc == Conjugation.Forth);
+        return (kov == 24 || kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain || kov == KindOfVerb.Naqis_Yaee) && (noc == Conjugation.Forth);
     }
 }

@@ -41,6 +41,6 @@ public class ImperativeVocalizer extends SubstitutionsApplier implements IUnaugm
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
         return ((kov == 24 || kov == KindOfVerb.Naqis_Yaee) && (noc == Conjugation.Second)) ||
-                ((kov == 24 || kov == 25 || kov == KindOfVerb.Naqis_Yaee) && (noc == Conjugation.Third || noc == Conjugation.Forth));
+                ((kov == 24 || kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain || kov == KindOfVerb.Naqis_Yaee) && (noc == Conjugation.Third || noc == Conjugation.Forth));
     }
 }

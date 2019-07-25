@@ -39,7 +39,7 @@ public class Vocalizer1 extends TrilateralNounSubstitutionApplier implements IUn
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return nounFormula.equals("أفعل") && (kov == 25 || kov == KindOfVerb.Naqis_Yaee) && noc == Conjugation.Forth;
+        return nounFormula.equals("أفعل") && (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain || kov == KindOfVerb.Naqis_Yaee) && noc == Conjugation.Forth;
     }
 
 }
