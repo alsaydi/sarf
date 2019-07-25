@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.instrumental.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.Substitution.*;
@@ -35,49 +36,60 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-            case 8:
-                return noc == Conjugation.Forth;
-            case 9:
-            case 29:
-                return noc == Conjugation.Second;
-            case 10:
-                switch (noc) {
-                    case Third:
-                    case Forth:
-                    case Fifth:
-                        return true;
-                }
-            case 11:
-                switch (noc) {
-                    case Second:
-                    case Third:
-                    case Forth:
-                    case Fifth:
-                    case Sixth:
-                        return true;
-                }
-            case 12:
-                return noc == Conjugation.Second || noc == Conjugation.Forth;
-            case 13:
-                return noc == Conjugation.Forth || noc == Conjugation.Sixth;
-            case 14:
-                switch (noc) {
-                    case First:
-                    case Second:
-                    case Third:
-                    case Forth:
-                    case Fifth:
-                    case Sixth:
-                        return true;
-                }
-            case 30:
-                switch (noc) {
-                    case Second:
-                    case Forth:
-                    case Sixth:
-                        return true;
-                }
+        if (kov == 8) {
+            return noc == Conjugation.Forth;
+        } else if (kov == 9 || kov == 29) {
+            return noc == Conjugation.Second;
+        } else if (kov == 10) {
+            switch (noc) {
+                case Third:
+                case Forth:
+                case Fifth:
+                    return true;
+            }
+
+            switch (noc) {
+                case Second:
+                case Third:
+                case Forth:
+                case Fifth:
+                case Sixth:
+                    return true;
+            }
+
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
+        } else if (kov == 11) {
+            switch (noc) {
+                case Second:
+                case Third:
+                case Forth:
+                case Fifth:
+                case Sixth:
+                    return true;
+            }
+
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
+        } else if (kov == 12) {
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
+        } else if (kov == 13) {
+            return noc == Conjugation.Forth || noc == Conjugation.Sixth;
+        } else if (kov == 14) {
+            switch (noc) {
+                case First:
+                case Second:
+                case Third:
+                case Forth:
+                case Fifth:
+                case Sixth:
+                    return true;
+            }
+        } else if (kov == 30) {
+            switch (noc) {
+                case Second:
+                case Forth:
+                case Sixth:
+                    return true;
+            }
         }
         return false;
     }

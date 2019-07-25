@@ -48,17 +48,18 @@ public class I2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-        case 26:
+        if (kov == 26) {
             switch (noc) {
                 case Second:
                 case Third:
                 case Forth:
                     return true;
             }
-        case 28:
+
             return noc == Conjugation.Second || noc == Conjugation.Forth;
-        case 30:
+        } else if (kov == 28) {
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
+        } else if (kov == 30) {
             switch (noc) {
                 case Second:
                 case Forth:

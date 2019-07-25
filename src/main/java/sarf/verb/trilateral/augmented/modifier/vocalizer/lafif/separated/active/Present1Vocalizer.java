@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.lafif.separated.active
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -19,8 +20,7 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class Present1Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Present1Vocalizer() {
         substitutions.add(new SuffixSubstitution("ِيُ","ِي"));// EX: (يُوصِي، يوالِي، يَتَّقِي، يستوفِي)
@@ -32,8 +32,7 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
         substitutions.add(new InfixSubstitution("ِيُن", "ُن")); // EX: (أنتم تُوصُنَّ، تُوالُنَّ، تَتَّقُنَّ، تَستوفُنَّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
@@ -41,21 +40,28 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        switch (kov) {
-        case 29:
+        if (kov == 29) {
             switch (formulaNo) {
-            case 5:
-            case 9:
-                return true;
+                case 5:
+                case 9:
+                    return true;
             }
 
-        case 30:
+
             switch (formulaNo) {
-            case 1:
-            case 3:
-            case 5:
-            case 9:
-                return true;
+                case 1:
+                case 3:
+                case 5:
+                case 9:
+                    return true;
+            }
+        } else if (kov == 30) {
+            switch (formulaNo) {
+                case 1:
+                case 3:
+                case 5:
+                case 9:
+                    return true;
             }
         }
         return false;

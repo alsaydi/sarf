@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.Substitution.*;
@@ -32,7 +33,6 @@ public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
         substitutions.add(new InfixSubstitution("ِيِ", "ِ")); // EX: (رامِينَ، )
     }
 
-
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
@@ -41,9 +41,7 @@ public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-        case 24:
-        case 26:
+        if (kov == 24 || kov == 26) {
             switch (noc) {
                 case Second:
                 case Third:
@@ -51,17 +49,15 @@ public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
                     return true;
             }
 
-        case 25:
+
             return noc == Conjugation.Third || noc == Conjugation.Forth;
-
-        case 27:
-        case 29:
+        } else if (kov == 25) {
+            return noc == Conjugation.Third || noc == Conjugation.Forth;
+        } else if (kov == 27 || kov == 29) {
             return noc == Conjugation.Second;
-        case 28:
+        } else if (kov == 28) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
-
-
-        case 30:
+        } else if (kov == 30) {
             switch (noc) {
                 case Second:
                 case Forth:
