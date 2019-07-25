@@ -53,7 +53,6 @@ public class C2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
 
             switch (noc) {
                 case Second:
-                case Third:
                 case Forth:
                     return true;
             }

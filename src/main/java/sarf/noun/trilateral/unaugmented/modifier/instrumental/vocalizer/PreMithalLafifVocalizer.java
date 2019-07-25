@@ -50,9 +50,6 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
 
             switch (noc) {
                 case Second:
-                case Third:
-                case Forth:
-                case Fifth:
                 case Sixth:
                     return true;
             }

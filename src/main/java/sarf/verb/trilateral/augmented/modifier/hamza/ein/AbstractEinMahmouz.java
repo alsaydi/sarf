@@ -40,56 +40,24 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
             }
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 5:
-                case 9:
-                    return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 3:
-                case 4:
-                case 5:
-                case 7:
-                case 8:
-                    return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
                 case 11:
                     return true;
             }
 
 
             switch (formulaNo) {
-                case 5:
-                case 7:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Mithal_Wawi_Mahmouz_Ain) {
             switch (formulaNo) {
@@ -105,44 +73,22 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 5:
-                case 9:
+            }
+
+
+            switch (formulaNo) {
+                case 4:
                     return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 3:
-                case 4:
-                case 5:
-                case 7:
-                case 8:
-                    return true;
-            }
-
-
-            switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
                 case 11:
                     return true;
             }
 
 
             switch (formulaNo) {
-                case 5:
-                case 7:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Mithal_Yaee_Mahmouz_Ain) {
             switch (formulaNo) {
@@ -155,10 +101,8 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
 
 
             switch (formulaNo) {
-                case 1:
                 case 3:
                 case 4:
-                case 5:
                 case 7:
                 case 8:
                     return true;
@@ -166,24 +110,12 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
                 case 11:
                     return true;
             }
 
 
             switch (formulaNo) {
-                case 5:
-                case 7:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Ain) {
             switch (formulaNo) {
@@ -198,13 +130,7 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
 
 
             switch (formulaNo) {
-                case 1:
                 case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 7:
-                case 8:
                 case 9:
                 case 11:
                     return true;
@@ -212,10 +138,6 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
 
 
             switch (formulaNo) {
-                case 5:
-                case 7:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             switch (formulaNo) {
@@ -233,10 +155,6 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
 
 
             switch (formulaNo) {
-                case 5:
-                case 7:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
             switch (formulaNo) {

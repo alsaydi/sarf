@@ -42,25 +42,10 @@ public abstract class AbstractLamMahmouz extends SubstitutionsApplier implements
             }
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Mithal_Wawi_Mahmouz_Laam || kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Laam) {
             switch (formulaNo) {
@@ -76,13 +61,6 @@ public abstract class AbstractLamMahmouz extends SubstitutionsApplier implements
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam) {
             switch (formulaNo) {

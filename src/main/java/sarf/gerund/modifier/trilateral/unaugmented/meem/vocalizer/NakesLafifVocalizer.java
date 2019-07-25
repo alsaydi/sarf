@@ -66,8 +66,6 @@ public class NakesLafifVocalizer extends TrilateralNounSubstitutionApplier imple
 
             switch (noc) {
                 case Second:
-                case Third:
-                case Forth:
                     return true;
             }
 

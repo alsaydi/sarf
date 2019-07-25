@@ -59,62 +59,27 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
                 case 4:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
                 case 11:
                     return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
                 case 10:
                     return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
             }
 
 
             switch (formulaNo) {
-                case 5:
-                case 7:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             switch (formulaNo) {
@@ -132,48 +97,20 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
                 case 10:
                     return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
             }
 
 
             switch (formulaNo) {
-                case 5:
-                case 7:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Naqis_Yaee) {
             switch (formulaNo) {
@@ -191,34 +128,14 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
             }
 
 
             switch (formulaNo) {
-                case 5:
-                case 7:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa) {
             switch (formulaNo) {
@@ -233,23 +150,13 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
                 case 3:
                 case 4:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
                     return true;
             }
 
 
             switch (formulaNo) {
-                case 5:
-                case 7:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Lafeef_Maqroon) {
             switch (formulaNo) {
@@ -266,10 +173,6 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
 
 
             switch (formulaNo) {
-                case 5:
-                case 7:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
             switch (formulaNo) {

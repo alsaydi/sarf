@@ -62,8 +62,6 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
 
             switch (noc) {
                 case Second:
-                case Third:
-                case Forth:
                     return true;
             }
 

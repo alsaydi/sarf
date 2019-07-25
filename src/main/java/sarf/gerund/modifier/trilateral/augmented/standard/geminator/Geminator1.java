@@ -47,11 +47,6 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
 
 
             switch (formulaNo) {
-                case 3:
-                case 5:
-                case 7:
-                case 9:
-                    return true;
             }
 
 

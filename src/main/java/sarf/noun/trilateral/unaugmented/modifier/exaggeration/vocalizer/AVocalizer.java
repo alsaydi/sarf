@@ -60,8 +60,6 @@ public class AVocalizer extends TrilateralNounSubstitutionApplier implements IUn
 
             switch (noc) {
                 case Second:
-                case Third:
-                case Forth:
                     return true;
             }
 

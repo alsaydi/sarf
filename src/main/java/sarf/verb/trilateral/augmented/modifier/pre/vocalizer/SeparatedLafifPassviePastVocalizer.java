@@ -45,8 +45,6 @@ public class SeparatedLafifPassviePastVocalizer extends SubstitutionsApplier imp
             switch (formulaNo) {
                 case 1:
                 case 3:
-                case 5:
-                case 9:
                     return true;
             }
         } else if (kov == KindOfVerb.Lafeef_Mafrooq ) {

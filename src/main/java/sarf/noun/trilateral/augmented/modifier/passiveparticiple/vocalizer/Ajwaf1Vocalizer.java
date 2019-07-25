@@ -43,18 +43,11 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
 
             switch (formulaNo) {
                 case 1:
-                case 5:
-                case 9:
                     return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 4:
-                case 5:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Laam) {
             switch (formulaNo) {
@@ -66,10 +59,7 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
 
 
             switch (formulaNo) {
-                case 1:
                 case 4:
-                case 5:
-                case 9:
                     return true;
             }
         } else if (kov == KindOfVerb.Ajwaf_Wawi) {

@@ -53,37 +53,14 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
 
 
             switch (formulaNo) {
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 5:
-                case 8:
-                case 9:
-                    return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Faa) {
             switch (formulaNo) {
@@ -100,24 +77,11 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
 
             switch (formulaNo) {
                 case 1:
-                case 2:
-                case 3:
-                case 5:
-                case 8:
-                case 9:
                     return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa) {
             switch (formulaNo) {
@@ -132,13 +96,7 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
 
 
             switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 5:
                 case 7:
-                case 8:
-                case 9:
                     return true;
             }
         } else if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa) {

@@ -67,8 +67,6 @@ public class NakesLafifMahmouz extends TrilateralNounSubstitutionApplier impleme
 
             switch (noc) {
                 case Second:
-                case Third:
-                case Forth:
                     return true;
             }
 

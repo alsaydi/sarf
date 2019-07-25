@@ -49,11 +49,8 @@ public class Present4Vocalizer extends SubstitutionsApplier implements IAugmente
 
 
                 switch (formulaNo) {
-                    case 1:
                     case 3:
                     case 4:
-                    case 5:
-                    case 9:
                         return true;
                 }
             } else if (kov == KindOfVerb.Lafeef_Maqroon) {

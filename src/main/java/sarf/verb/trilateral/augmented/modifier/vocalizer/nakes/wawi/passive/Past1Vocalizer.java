@@ -48,23 +48,13 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTr
 
 
             switch (formulaNo) {
-                case 1:
-                case 3:
                 case 4:
-                case 5:
-                case 7:
                     return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 3:
-                case 4:
-                case 5:
                 case 6:
-                case 7:
-                case 9:
                 case 10:
                     return true;
             }
@@ -80,12 +70,7 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTr
 
 
             switch (formulaNo) {
-                case 1:
-                case 3:
-                case 4:
-                case 5:
                 case 6:
-                case 7:
                 case 9:
                 case 10:
                     return true;

@@ -53,21 +53,10 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
 
 
             switch (formulaNo) {
-                case 1:
-                case 3:
-                case 4:
-                case 5:
-                case 9:
-                    return true;
             }
 
 
             switch (formulaNo) {
-                case 1:
-                case 3:
-                case 5:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             switch (formulaNo) {
@@ -81,11 +70,6 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
 
 
             switch (formulaNo) {
-                case 1:
-                case 3:
-                case 5:
-                case 9:
-                    return true;
             }
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa) {
             switch (formulaNo) {

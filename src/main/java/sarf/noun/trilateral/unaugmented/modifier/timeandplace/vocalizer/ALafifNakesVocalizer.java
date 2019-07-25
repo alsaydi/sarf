@@ -62,8 +62,6 @@ public class ALafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
 
             switch (noc) {
                 case Second:
-                case Third:
-                case Forth:
                     return true;
             }
 
