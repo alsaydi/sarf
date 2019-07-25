@@ -31,7 +31,7 @@ public class Mithal2Vocalizer extends TrilateralNounSubstitutionApplier implemen
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        if (kov == 13 || kov == KindOfVerb.Mithal_Yaee) {
+        if (kov == KindOfVerb.Mithal_Yaee_Mahmouz_Ain || kov == KindOfVerb.Mithal_Yaee) {
             return formulaNo == 1;
         }
 
