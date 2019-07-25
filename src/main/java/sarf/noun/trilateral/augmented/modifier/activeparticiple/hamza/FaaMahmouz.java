@@ -18,7 +18,7 @@ import sarf.noun.trilateral.augmented.modifier.*;
  * @version 1.0
  */
 public class FaaMahmouz extends AbstractFaaMahmouz {
-    final List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public FaaMahmouz() {
 
