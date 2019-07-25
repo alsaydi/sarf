@@ -1,6 +1,5 @@
 package sarf.noun.trilateral.unaugmented.modifier.timeandplace;
 
-import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
 import sarf.noun.trilateral.unaugmented.modifier.timeandplace.hamza.*;
 import sarf.verb.trilateral.Substitution.*;

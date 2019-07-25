@@ -3,8 +3,6 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.yaei;
 import java.util.*;
 
 import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.unaugmented.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
 
 /**

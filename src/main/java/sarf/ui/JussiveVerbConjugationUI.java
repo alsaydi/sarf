@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.*;
 import sarf.*;
 import javax.swing.border.*;
-import java.awt.color.*;
 import java.io.File;
 import java.io.IOException;
 import sarf.util.FileUtil;

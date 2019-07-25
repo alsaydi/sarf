@@ -36,9 +36,6 @@ public class Present2Vocalizer extends SubstitutionsApplier implements IQuadrila
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC4() == 'ي' && conjugationResult.getFormulaNo() == 1) {
-            return true;
-        }
-        return false;
+        return conjugationResult.getRoot().getC4() == 'ي' && conjugationResult.getFormulaNo() == 1;
     }
 }

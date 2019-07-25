@@ -3,10 +3,8 @@ package sarf.verb.trilateral.unaugmented.modifier.hamza.faa;
 import java.util.*;
 
 import sarf.Conjugation;
-import sarf.verb.trilateral.unaugmented.modifier.hamza.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import sarf.verb.trilateral.TrilateralRoot;
 import sarf.verb.trilateral.unaugmented.*;
 

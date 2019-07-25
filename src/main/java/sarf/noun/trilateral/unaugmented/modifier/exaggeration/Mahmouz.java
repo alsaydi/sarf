@@ -1,6 +1,5 @@
 package sarf.noun.trilateral.unaugmented.modifier.exaggeration;
 
-import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
 import sarf.noun.trilateral.unaugmented.modifier.exaggeration.hamza.*;
 import sarf.verb.trilateral.Substitution.*;

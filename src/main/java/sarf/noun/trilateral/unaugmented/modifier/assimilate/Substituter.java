@@ -4,7 +4,6 @@ import java.util.*;
 
 import sarf.noun.*;
 import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 
 /**
@@ -33,8 +32,6 @@ public class Substituter extends TrilateralNounSubstitutionApplier implements IU
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getNounFormula().equals("فَعْلان"))
-            return true;
-        return false;
+        return conjugationResult.getNounFormula().equals("فَعْلان");
     }
 }

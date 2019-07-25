@@ -3,7 +3,6 @@ package sarf;
 import java.util.*;
 
 import sarf.util.*;
-import sarf.verb.trilateral.*;
 import sarf.verb.trilateral.unaugmented.*;
 
 /**

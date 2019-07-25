@@ -36,9 +36,6 @@ public class Present2Geminator extends SubstitutionsApplier implements IQuadrila
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC4() != 'ن') {
-            return false;
-        }
-        return true;
+        return conjugationResult.getRoot().getC4() == 'ن';
     }
 }

@@ -1,6 +1,5 @@
 package sarf.util;
 
-import java.sql.Connection;
 import java.sql.*;
 
 /**

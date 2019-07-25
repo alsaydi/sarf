@@ -32,8 +32,6 @@ public class Geminator extends QuadrilateralNounSubstitutionApplier implements I
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getFormulaNo() == 3)
-            return true;
-        return false;
+        return conjugationResult.getFormulaNo() == 3;
     }
 }

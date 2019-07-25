@@ -7,10 +7,6 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import sarf.SystemConstants;
 import sarf.verb.trilateral.unaugmented.modifier.hamza.AbstractLamMahmouz;
 
-import java.util.List;
-import java.util.LinkedList;
-import java.util.Iterator;
-
 import static sarf.KindOfVerb.Mahmouz_Faa_Mahmouz_Laam;
 
 /**

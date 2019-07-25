@@ -35,8 +35,7 @@ public class AugmentedPassivePastConjugator {
         Object [] parameters = {root, lastDpa, connectedPronoun};
 
         try {
-            AugmentedPastVerb verb = (AugmentedPastVerb) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
-            return verb;
+            return (AugmentedPastVerb) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
         }
         catch (Exception ex) {
             ex.printStackTrace();

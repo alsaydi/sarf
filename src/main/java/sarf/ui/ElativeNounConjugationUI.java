@@ -2,8 +2,6 @@ package sarf.ui;
 
 import sarf.noun.INounSuffixContainer;
 import sarf.Action;
-import sarf.ui.controlpane.NounStateSelectionUI;
-import sarf.ui.controlpane.INounStateSelectionUI;
 import sarf.ui.controlpane.*;
 
 /**

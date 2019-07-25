@@ -2,9 +2,7 @@ package sarf.noun.trilateral.unaugmented.elative.nonstandard;
 
 import sarf.noun.NounFormula;
 import sarf.verb.trilateral.unaugmented.*;
-import sarf.util.*;
 import sarf.noun.INounSuffixContainer;
-import sarf.noun.GenericNounSuffixContainer;
 import sarf.noun.trilateral.unaugmented.elative.*;
 
 /**

@@ -35,8 +35,7 @@ public class AbstractAugmentedImperativeConjugator {
         Object [] parameters = {root,  lastDim, connectedPronoun};
 
         try {
-            AugmentedImperativeVerb verb = (AugmentedImperativeVerb) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
-            return verb;
+            return (AugmentedImperativeVerb) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
         }
         catch (Exception ex) {
             ex.printStackTrace();

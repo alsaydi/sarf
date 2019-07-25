@@ -39,8 +39,7 @@ public class StandardInstrumentalConjugator implements IUnaugmentedTrilateralNou
         Object [] parameters = {root, suffixNo+""};
 
         try {
-            NounFormula noun = (NounFormula) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
-            return noun;
+            return (NounFormula) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
         }
         catch (Exception ex) {
             ex.printStackTrace();

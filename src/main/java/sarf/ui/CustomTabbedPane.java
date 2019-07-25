@@ -1,7 +1,6 @@
 package sarf.ui;
 
 import javax.swing.*;
-import java.awt.Font;
 import java.awt.*;
 
 /**

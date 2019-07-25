@@ -3,7 +3,6 @@ package sarf.gerund.modifier.trilateral.unaugmented.quality.geminator;
 import java.util.*;
 
 import sarf.noun.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
 
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;

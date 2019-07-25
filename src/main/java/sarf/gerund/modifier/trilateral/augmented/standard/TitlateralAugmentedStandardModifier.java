@@ -3,7 +3,6 @@ package sarf.gerund.modifier.trilateral.augmented.standard;
 import java.util.List;
 import sarf.*;
 import sarf.noun.trilateral.augmented.modifier.Substituter;
-import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.IFormulaApplyingChecker;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.FormulaApplyingChecker;

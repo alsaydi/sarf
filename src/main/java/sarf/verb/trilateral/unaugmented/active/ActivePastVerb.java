@@ -1,6 +1,5 @@
 package sarf.verb.trilateral.unaugmented.active;
 
-import sarf.*;
 import sarf.util.ArabCharUtil;
 import sarf.verb.trilateral.unaugmented.*;
 

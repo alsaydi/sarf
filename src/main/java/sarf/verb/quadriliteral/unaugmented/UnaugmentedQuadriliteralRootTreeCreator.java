@@ -1,7 +1,6 @@
 package sarf.verb.quadriliteral.unaugmented;
 
 
-import java.io.File;
 import org.apache.commons.digester3.Digester;
 import org.xml.sax.SAXException;
 

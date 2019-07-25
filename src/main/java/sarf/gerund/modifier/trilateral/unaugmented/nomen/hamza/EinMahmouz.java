@@ -2,9 +2,7 @@ package sarf.gerund.modifier.trilateral.unaugmented.nomen.hamza;
 
 import java.util.*;
 
-import sarf.noun.*;
 import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 
 /**

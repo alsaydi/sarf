@@ -5,8 +5,6 @@ import java.util.*;
 import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.noun.*;
-import sarf.util.ArabCharUtil;
-import sarf.verb.trilateral.unaugmented.modifier.*;
 
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;

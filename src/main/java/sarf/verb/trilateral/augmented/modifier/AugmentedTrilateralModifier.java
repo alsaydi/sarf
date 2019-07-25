@@ -2,8 +2,6 @@ package sarf.verb.trilateral.augmented.modifier;
 
 import java.util.*;
 
-import javax.swing.*;
-
 import sarf.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.*;

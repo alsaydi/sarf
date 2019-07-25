@@ -7,7 +7,6 @@ import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
-import sarf.util.ArabCharUtil;
 
 /**
  * <p>Title: Sarf Program</p>

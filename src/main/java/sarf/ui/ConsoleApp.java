@@ -2,10 +2,7 @@ package sarf.ui;
 
 import java.time.LocalDateTime;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -17,7 +14,6 @@ import sarf.kov.KovRulesManager;
 import sarf.kov.TrilateralKovRule;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
-import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.active.ActivePastVerb;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 

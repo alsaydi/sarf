@@ -2,7 +2,6 @@ package sarf.ui;
 
 import javax.swing.table.*;
 import javax.swing.JLabel;
-import java.awt.Component;
 import javax.swing.JTable;
 import java.awt.*;
 

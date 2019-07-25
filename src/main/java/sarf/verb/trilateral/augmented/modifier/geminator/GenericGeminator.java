@@ -1,6 +1,5 @@
 package sarf.verb.trilateral.augmented.modifier.geminator;
 
-import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 import sarf.*;

@@ -35,9 +35,6 @@ public class Imperative1Geminator extends SubstitutionsApplier implements IQuadr
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getFormulaNo() != 3) {
-            return false;
-        }
-        return true;
+        return conjugationResult.getFormulaNo() == 3;
     }
 }

@@ -32,9 +32,6 @@ public class Past1Geminator extends SubstitutionsApplier implements IQuadrilater
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getFormulaNo() != 3) {
-            return false;
-        }
-        return true;
+        return conjugationResult.getFormulaNo() == 3;
     }
 }

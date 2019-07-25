@@ -1,9 +1,7 @@
 package sarf.noun.trilateral.unaugmented.modifier.elative;
 
-import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
 import sarf.noun.trilateral.unaugmented.modifier.elative.vocalizer.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.*;

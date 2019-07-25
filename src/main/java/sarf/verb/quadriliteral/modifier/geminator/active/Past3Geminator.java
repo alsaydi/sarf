@@ -33,8 +33,6 @@ public class Past3Geminator extends SubstitutionsApplier implements IQuadrilater
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC4() != 'ن')
-            return false;
-        return true;
+        return conjugationResult.getRoot().getC4() == 'ن';
     }
 }

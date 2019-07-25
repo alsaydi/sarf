@@ -1,10 +1,8 @@
 package sarf.verb.trilateral.unaugmented.modifier.geminator.generic;
 
 import sarf.verb.trilateral.Substitution.*;
-import java.util.List;
+
 import java.util.*;
-import sarf.verb.trilateral.unaugmented.active.*;
-import sarf.verb.trilateral.unaugmented.*;
 
 /**
  * <p>Title: Sarf Program</p>

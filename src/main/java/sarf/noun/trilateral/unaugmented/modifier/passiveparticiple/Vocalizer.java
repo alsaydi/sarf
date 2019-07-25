@@ -1,10 +1,8 @@
 
 package sarf.noun.trilateral.unaugmented.modifier.passiveparticiple;
 
-import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
 import sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.vocalizer.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;

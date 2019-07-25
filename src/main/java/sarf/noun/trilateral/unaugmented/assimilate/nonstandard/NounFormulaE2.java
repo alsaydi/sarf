@@ -3,7 +3,6 @@ package sarf.noun.trilateral.unaugmented.assimilate.nonstandard;
 import sarf.noun.NounFormula;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.util.*;
-import sarf.noun.trilateral.unaugmented.assimilate.AssimilateFormulaE1SuffixContainer;
 import sarf.noun.trilateral.unaugmented.assimilate.*;
 import sarf.noun.INounSuffixContainer;
 

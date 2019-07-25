@@ -34,9 +34,6 @@ public class Present1Geminator extends SubstitutionsApplier implements IQuadrila
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getFormulaNo() != 3) {
-            return false;
-        }
-        return true;
+        return conjugationResult.getFormulaNo() == 3;
     }
 }

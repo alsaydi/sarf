@@ -1,6 +1,5 @@
 package sarf.util;
 
-import java.io.File;
 import java.io.*;
 import java.nio.charset.Charset;
 

@@ -37,8 +37,7 @@ public class AbstractAugmentedPresentConjugator {
         Object [] parameters = {root, cp, lastDpr, connectedPronoun};
 
         try {
-            AugmentedPresentVerb verb = (AugmentedPresentVerb) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
-            return verb;
+            return (AugmentedPresentVerb) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
         }
         catch (Exception ex) {
             ex.printStackTrace();

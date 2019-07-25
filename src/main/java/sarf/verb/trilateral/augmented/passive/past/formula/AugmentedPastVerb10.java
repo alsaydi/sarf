@@ -1,6 +1,5 @@
 package sarf.verb.trilateral.augmented.passive.past.formula;
 
-import sarf.verb.trilateral.augmented.*;
 import sarf.util.ArabCharUtil;
 import sarf.verb.trilateral.augmented.*;
 

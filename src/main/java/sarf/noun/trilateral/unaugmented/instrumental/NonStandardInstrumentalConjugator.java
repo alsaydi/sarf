@@ -50,8 +50,7 @@ public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateral
 
         try {
             Class<?> formulaClass = (Class<?>) formulaClassNamesMap.get(formulaName);
-            NounFormula noun = (NounFormula) formulaClass.getConstructor(root.getClass(), "".getClass()).newInstance(parameters);
-            return noun;
+            return (NounFormula) formulaClass.getConstructor(root.getClass(), "".getClass()).newInstance(parameters);
         }
         catch (Exception ex) {
             ex.printStackTrace();

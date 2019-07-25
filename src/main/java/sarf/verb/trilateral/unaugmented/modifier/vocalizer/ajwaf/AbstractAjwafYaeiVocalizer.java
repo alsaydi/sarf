@@ -4,7 +4,6 @@ import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
-import java.util.List;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
 
 /**

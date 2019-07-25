@@ -1,6 +1,5 @@
 package sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer;
 
-import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ListedVocalizer;
 import java.util.List;
 import java.util.LinkedList;
 import sarf.verb.trilateral.Substitution.*;

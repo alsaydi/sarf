@@ -2,7 +2,6 @@ package sarf.gerund.trilateral.unaugmented;
 
 import sarf.verb.trilateral.unaugmented.*;
 
-import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.*;
 import org.apache.commons.digester3.Digester;

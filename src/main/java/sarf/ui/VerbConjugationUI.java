@@ -3,15 +3,11 @@ package sarf.ui;
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
-import java.util.*;
+
 import sarf.*;
 import javax.swing.border.*;
-import java.awt.color.*;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.*;
 import sarf.util.*;
-import java.net.*;
 
 /**
  * <p>Title: Sarf Program</p>

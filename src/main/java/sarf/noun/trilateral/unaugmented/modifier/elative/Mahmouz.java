@@ -1,6 +1,5 @@
 package sarf.noun.trilateral.unaugmented.modifier.elative;
 
-import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
 import sarf.noun.trilateral.unaugmented.modifier.elative.hamza.*;
 import sarf.verb.trilateral.Substitution.*;

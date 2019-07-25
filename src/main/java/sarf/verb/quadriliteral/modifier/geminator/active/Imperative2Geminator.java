@@ -35,9 +35,6 @@ public class Imperative2Geminator extends SubstitutionsApplier implements IQuadr
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC4() != 'ن') {
-            return false;
-        }
-        return true;
+        return conjugationResult.getRoot().getC4() == 'ن';
     }
 }

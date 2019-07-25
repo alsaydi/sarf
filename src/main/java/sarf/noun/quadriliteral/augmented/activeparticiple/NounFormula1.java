@@ -1,6 +1,5 @@
 package sarf.noun.quadriliteral.augmented.activeparticiple;
 
-import sarf.noun.NounFormula;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.util.ArabCharUtil;
 import sarf.noun.quadriliteral.augmented.*;

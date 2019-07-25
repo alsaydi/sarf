@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
 import java.util.*;
-import sarf.util.ImagePane;
 import java.util.prefs.Preferences;
 import java.awt.im.InputContext;
 

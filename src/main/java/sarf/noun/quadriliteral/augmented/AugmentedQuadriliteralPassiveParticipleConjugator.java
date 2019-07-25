@@ -34,8 +34,7 @@ public class AugmentedQuadriliteralPassiveParticipleConjugator {
         Object [] parameters = {root, suffix};
 
         try {
-            AugmentedQuadriliteralNoun noun = (AugmentedQuadriliteralNoun) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
-            return noun;
+            return (AugmentedQuadriliteralNoun) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
         }
         catch (Exception ex) {
             ex.printStackTrace();

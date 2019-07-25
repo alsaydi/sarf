@@ -34,8 +34,7 @@ public class AugmentedTrilateralActiveParticipleConjugator {
         Object [] parameters = {root, suffix};
 
         try {
-            AugmentedTrilateralNoun noun = (AugmentedTrilateralNoun) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
-            return noun;
+            return (AugmentedTrilateralNoun) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
         }
         catch (Exception ex) {
             ex.printStackTrace();
