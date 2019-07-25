@@ -41,6 +41,6 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTr
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return ((kov == 19 || kov == 20) && formulaNo == 1) || ((kov == 18 || kov == 19 || kov == 20) && formulaNo == 9);
+        return ((kov == 19 || kov == KindOfVerb.Ajwaf_Yaee) && formulaNo == 1) || ((kov == 18 || kov == 19 || kov == KindOfVerb.Ajwaf_Yaee) && formulaNo == 9);
     }
 }

@@ -29,6 +29,6 @@ public abstract class AbstractGenericSubstituter extends TrilateralNounSubstitut
             return false;
         }
 
-        return kov == 1 || kov == 2 || kov == 6 || kov == 7 || kov == 16 || kov == 17 || kov == 20 || kov == KindOfVerb.Naqis_Wawi || kov == KindOfVerb.Naqis_Yaee || kov == KindOfVerb.Lafeef_Maqroon;
+        return kov == 1 || kov == 2 || kov == 6 || kov == 7 || kov == 16 || kov == 17 || kov == KindOfVerb.Ajwaf_Yaee || kov == KindOfVerb.Naqis_Wawi || kov == KindOfVerb.Naqis_Yaee || kov == KindOfVerb.Lafeef_Maqroon;
     }
 }

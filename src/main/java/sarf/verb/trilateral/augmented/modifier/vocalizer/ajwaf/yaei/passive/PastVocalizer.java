@@ -41,9 +41,9 @@ public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTri
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return ((kov == 19 || kov == 20) && formulaNo == 1) ||
-                (kov == 20 && formulaNo == 4) ||
-                ((kov == 20 || kov == 18) && formulaNo == 5) ||
-                ((kov == 18 || kov == 19 || kov == 20) && formulaNo == 9);
+        return ((kov == 19 || kov == KindOfVerb.Ajwaf_Yaee) && formulaNo == 1) ||
+                (kov == KindOfVerb.Ajwaf_Yaee && formulaNo == 4) ||
+                ((kov == KindOfVerb.Ajwaf_Yaee || kov == 18) && formulaNo == 5) ||
+                ((kov == 18 || kov == 19 || kov == KindOfVerb.Ajwaf_Yaee) && formulaNo == 9);
     }
 }

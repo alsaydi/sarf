@@ -37,6 +37,6 @@ public class Present2Vocalizer extends SubstitutionsApplier implements IAugmente
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return (kov == 20 && formulaNo == 4) || ((kov == 18 || kov == 20 ) && formulaNo == 5);
+        return (kov == KindOfVerb.Ajwaf_Yaee && formulaNo == 4) || ((kov == 18 || kov == KindOfVerb.Ajwaf_Yaee ) && formulaNo == 5);
     }
 }

@@ -40,10 +40,10 @@ public class GenericGeminator implements IAugmentedTrilateralModifier {
 
         switch (formulaNo) {
             case 6:
-                return kov == 1 || kov == 6 || kov == 17 || kov == 20;
+                return kov == 1 || kov == 6 || kov == 17 || kov == KindOfVerb.Ajwaf_Yaee;
 
             case 12:
-                return kov == 1 || kov == 11 || kov == 17 || kov == 20;
+                return kov == 1 || kov == 11 || kov == 17 || kov == KindOfVerb.Ajwaf_Yaee;
             case 1:
             case 4:
                 return kov == 2;

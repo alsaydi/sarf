@@ -36,6 +36,6 @@ public class Ajwaf3YaeiVocalizer extends TrilateralNounSubstitutionApplier imple
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return kov == 20 && noc == Conjugation.Second;
+        return kov == KindOfVerb.Ajwaf_Yaee && noc == Conjugation.Second;
     }
 }

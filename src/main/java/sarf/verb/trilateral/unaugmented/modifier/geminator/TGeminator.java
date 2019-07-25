@@ -51,7 +51,7 @@ public class TGeminator extends SubstitutionsApplier implements IUnaugmentedTril
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
-        return (conjugationResult.getRoot().getC3()=='ت' && (kov == 1 || kov == 2 || kov == 3 || kov == 5 || kov == 6 || kov == 11 || kov == 17 || kov == 20));
+        return (conjugationResult.getRoot().getC3()=='ت' && (kov == 1 || kov == 2 || kov == 3 || kov == 5 || kov == 6 || kov == 11 || kov == 17 || kov == KindOfVerb.Ajwaf_Yaee));
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {

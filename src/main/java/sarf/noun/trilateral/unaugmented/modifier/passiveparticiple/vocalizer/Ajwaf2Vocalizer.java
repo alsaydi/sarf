@@ -37,7 +37,7 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        //return (kov == 18 || kov == 19 || kov == 20) && (noc == 2 || noc == Conjugation.Forth);
-        return (kov == 18 || kov == 19 || kov == 20) && (noc == Conjugation.Second || noc == Conjugation.Forth);
+        //return (kov == 18 || kov == 19 || kov == KindOfVerb.Ajwaf_Yaee) && (noc == 2 || noc == Conjugation.Forth);
+        return (kov == 18 || kov == 19 || kov == KindOfVerb.Ajwaf_Yaee) && (noc == Conjugation.Second || noc == Conjugation.Forth);
     }
 }
