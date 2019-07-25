@@ -37,10 +37,10 @@ public class Vocalizer31 extends TrilateralNounSubstitutionApplier implements IU
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        //return nounFormula.equals("فَعِيل") && conjugationResult.getRoot().getC3()=='و' &&   (kov == 23 && (noc == Conjugation.Forth || noc == Conjugation.Fifth) || (kov == KindOfVerb.Lafeef_Maqroon && noc == Conjugation.Forth));
+        //return nounFormula.equals("فَعِيل") && conjugationResult.getRoot().getC3()=='و' &&   (kov == KindOfVerb.Naqis_Wawi && (noc == Conjugation.Forth || noc == Conjugation.Fifth) || (kov == KindOfVerb.Lafeef_Maqroon && noc == Conjugation.Forth));
         return nounFormula.equals("فَعِيل")
                 && conjugationResult.getRoot().getC3() == 'و'
-                && (kov == 23 && (noc == Conjugation.Forth || noc == Conjugation.Fifth)
+                && (kov == KindOfVerb.Naqis_Wawi && (noc == Conjugation.Forth || noc == Conjugation.Fifth)
                 || (kov == KindOfVerb.Lafeef_Maqroon && noc == Conjugation.Forth));
     }
 }

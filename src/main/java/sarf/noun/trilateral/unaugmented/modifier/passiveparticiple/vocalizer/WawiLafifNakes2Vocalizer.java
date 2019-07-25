@@ -39,6 +39,6 @@ public class WawiLafifNakes2Vocalizer extends TrilateralNounSubstitutionApplier 
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return (kov == 23 || kov == KindOfVerb.Lafeef_Maqroon) && noc == Conjugation.Forth;
+        return (kov == KindOfVerb.Naqis_Wawi || kov == KindOfVerb.Lafeef_Maqroon) && noc == Conjugation.Forth;
     }
 }

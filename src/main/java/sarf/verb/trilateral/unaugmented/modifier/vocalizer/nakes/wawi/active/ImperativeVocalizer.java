@@ -44,9 +44,9 @@ public class ImperativeVocalizer extends SubstitutionsApplier implements IUnaugm
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
-        return ((kov == 21 || kov == 22 || kov == 23) && (noc == Conjugation.First)) ||
-                ((kov == 21 || kov == 23) && (noc == Conjugation.Fifth)) ||
-                ((kov == 22 || kov == 23) && (noc == Conjugation.Third)) ||
-                (kov == 23 && noc == Conjugation.Forth);
+        return ((kov == 21 || kov == 22 || kov == KindOfVerb.Naqis_Wawi) && (noc == Conjugation.First)) ||
+                ((kov == 21 || kov == KindOfVerb.Naqis_Wawi) && (noc == Conjugation.Fifth)) ||
+                ((kov == 22 || kov == KindOfVerb.Naqis_Wawi) && (noc == Conjugation.Third)) ||
+                (kov == KindOfVerb.Naqis_Wawi && noc == Conjugation.Forth);
     }
 }

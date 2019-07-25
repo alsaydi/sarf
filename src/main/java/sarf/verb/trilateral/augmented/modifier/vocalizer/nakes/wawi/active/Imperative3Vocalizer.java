@@ -39,6 +39,6 @@ public class Imperative3Vocalizer extends SubstitutionsApplier implements IAugme
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return (kov == 21 || kov == 23) && formulaNo == 2;
+        return (kov == 21 || kov == KindOfVerb.Naqis_Wawi) && formulaNo == 2;
     }
 }

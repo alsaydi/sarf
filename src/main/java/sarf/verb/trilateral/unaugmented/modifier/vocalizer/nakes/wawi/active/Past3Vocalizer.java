@@ -35,6 +35,6 @@ public class Past3Vocalizer extends SubstitutionsApplier implements IUnaugmented
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
-        return (kov == 23) && (noc == Conjugation.Forth);
+        return (kov == KindOfVerb.Naqis_Wawi) && (noc == Conjugation.Forth);
     }
 }

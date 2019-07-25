@@ -38,6 +38,6 @@ public class Past3Vocalizer extends SubstitutionsApplier implements IAugmentedTr
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return kov == 23 && formulaNo == 6;
+        return kov == KindOfVerb.Naqis_Wawi && formulaNo == 6;
     }
 }

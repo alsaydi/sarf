@@ -46,6 +46,6 @@ public class Vocalizer41 extends TrilateralNounSubstitutionApplier implements IU
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return nounFormula.equals("فَعِل") && kov == 23 && noc == Conjugation.Forth;
+        return nounFormula.equals("فَعِل") && kov == KindOfVerb.Naqis_Wawi && noc == Conjugation.Forth;
     }
 }
