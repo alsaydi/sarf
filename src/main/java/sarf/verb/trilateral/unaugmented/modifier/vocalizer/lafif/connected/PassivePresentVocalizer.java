@@ -47,6 +47,6 @@ public class PassivePresentVocalizer extends SubstitutionsApplier implements IUn
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
-        return ((kov == 27 || kov == 28) && (noc == Conjugation.Second)) || (kov == 28 && noc == Conjugation.Forth);
+        return ((kov == 27 || kov == KindOfVerb.Lafeef_Maqroon) && (noc == Conjugation.Second)) || (kov == KindOfVerb.Lafeef_Maqroon && noc == Conjugation.Forth);
     }
 }

@@ -37,6 +37,6 @@ public class ActivePast2Vocalizer extends SubstitutionsApplier implements IUnaug
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
-        return (kov == 28 && noc == Conjugation.Forth);
+        return (kov == KindOfVerb.Lafeef_Maqroon && noc == Conjugation.Forth);
     }
 }

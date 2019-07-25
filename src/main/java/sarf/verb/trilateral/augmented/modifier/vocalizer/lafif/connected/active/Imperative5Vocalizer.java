@@ -40,7 +40,7 @@ public class Imperative5Vocalizer extends SubstitutionsApplier implements IAugme
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC2() == root.getC3() && root.getC3() == 'و' &&  kov == 28 && (formulaNo == 2 || formulaNo == 11);
+        return root.getC2() == root.getC3() && root.getC3() == 'و' &&  kov == KindOfVerb.Lafeef_Maqroon && (formulaNo == 2 || formulaNo == 11);
 
     }
 }

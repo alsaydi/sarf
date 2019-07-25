@@ -38,7 +38,7 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTr
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        if (root.getC2() == root.getC3() && root.getC3() == 'ي' && kov == 28) {
+        if (root.getC2() == root.getC3() && root.getC3() == 'ي' && kov == KindOfVerb.Lafeef_Maqroon) {
             switch (formulaNo) {
             case 1:
             case 2:

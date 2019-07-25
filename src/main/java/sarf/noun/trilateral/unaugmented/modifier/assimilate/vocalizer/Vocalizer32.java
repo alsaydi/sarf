@@ -38,7 +38,7 @@ public class Vocalizer32 extends TrilateralNounSubstitutionApplier implements IU
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return nounFormula.equals("فَعِيل") && (kov == 24 || kov == 26 || kov == 28) && noc == Conjugation.Forth;
+        return nounFormula.equals("فَعِيل") && (kov == 24 || kov == 26 || kov == KindOfVerb.Lafeef_Maqroon) && noc == Conjugation.Forth;
     }
 
 }
