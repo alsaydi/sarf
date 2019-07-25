@@ -2,9 +2,12 @@ package sarf.noun.trilateral.unaugmented.modifier.elative.vocalizer;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.Substitution.*;
+
+import static sarf.KindOfVerb.Naqis_Wawi;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -37,8 +40,8 @@ public class WawiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
-        if (kov != 23) {
+        KindOfVerb kov = conjugationResult.getKov();
+        if (kov != Naqis_Wawi) {
             return false;
         }
 

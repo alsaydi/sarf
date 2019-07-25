@@ -1,5 +1,7 @@
 package sarf.verb.trilateral.augmented;
 
+import sarf.KindOfVerb;
+
 import java.util.*;
 
 /**
@@ -15,7 +17,7 @@ import java.util.*;
  * @version 1.0
  */
 public class ConjugationResult {
-    private int kov;
+    private KindOfVerb kov;
     private int formulaNo;
     private AugmentedTrilateralRoot root;
 
@@ -26,7 +28,7 @@ public class ConjugationResult {
 
     //TODO: I believe originalResult is of List<String> type.
     
-    public ConjugationResult(int kov, int formulaNo, AugmentedTrilateralRoot root, List<String> originalResult) {
+    public ConjugationResult(KindOfVerb kov, int formulaNo, AugmentedTrilateralRoot root, List<String> originalResult) {
         this.kov = kov;
         this.formulaNo = formulaNo;
         this.originalResult = originalResult;
@@ -38,7 +40,7 @@ public class ConjugationResult {
         return finalResult;
     }
 
-    public int getKov() {
+    public KindOfVerb getKov() {
         return kov;
     }
 

@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.lafif.connected.passiv
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -20,8 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class Present2Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Present2Vocalizer() {
         substitutions.add(new SuffixSubstitution("َيُ","َى"));// EX: (يُذْوَى، يُقَوَّى، يُداوَى، يُنْزَوَى، يُحْتَوَى، يُتَدَاوَى، يُتَقَوَّى، يُسْتَهْوَى)
@@ -32,39 +32,49 @@ public class Present2Vocalizer extends SubstitutionsApplier implements IAugmente
         substitutions.add(new InfixSubstitution("يُنّ","وُنّ"));// EX: (أنتم تُذْوَوُنَّ، تُقَوَّوُنَّ، تداوَوُنَّ، تنْزَوَوُنَّ، تحتوَوُنَّ، تتداوَوُنَّ، تتقوَّوُنَّ، تُسْتَهْوَوُنَّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
         if (root.getC2() == 'و' && root.getC3() == 'ي') {
-            switch (kov) {
-            case 27:
+            if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa) {
                 switch (formulaNo) {
-                case 1:
-                case 2:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
+                    case 1:
+                    case 2:
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 9:
+                        return true;
                 }
 
-            case 28:
+
                 switch (formulaNo) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 7:
-                case 8:
-                case 9:
-                    return true;
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 9:
+                        return true;
+                }
+            } else if (kov == KindOfVerb.Lafeef_Maqroon) {
+                switch (formulaNo) {
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 9:
+                        return true;
                 }
             }
         }

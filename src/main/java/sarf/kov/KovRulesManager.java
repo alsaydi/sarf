@@ -1,6 +1,10 @@
 package sarf.kov;
 
+import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.digester3.*;
+import sarf.KindOfVerb;
+import sarf.util.KindOfVerbConverter;
+
 import java.io.*;
 
 /**
@@ -50,6 +54,7 @@ public class KovRulesManager {
         digester.addSetProperties("rules/rule", "example","example" );
 
         digester.addSetNext( "rules/rule" , "addRule" );
+        ConvertUtils.register(new KindOfVerbConverter(), KindOfVerb.class);
 
         return (TrilateralKovRuleList)digester.parse(inputStream);
     }
@@ -70,6 +75,7 @@ public class KovRulesManager {
         digester.addSetProperties("rules/rule", "example","example" );
 
         digester.addSetNext( "rules/rule" , "addRule" );
+        ConvertUtils.register(new KindOfVerbConverter(), KindOfVerb.class);
 
         return (QuadrilateralKovRuleList)digester.parse(inputStream);
     }
@@ -83,9 +89,9 @@ public class KovRulesManager {
      * @param c3 char
      * @return int
      */
-    public int getTrilateralKov(char c1, char c2, char c3) {
+    public KindOfVerb getTrilateralKov(char c1, char c2, char c3) {
         TrilateralKovRule rule = getTrilateralKovRule(c1, c2, c3);
-        return rule != null? rule.getKov(): -1;
+        return rule != null? rule.getKov() : KindOfVerb.None;
     }
 
     public TrilateralKovRule getTrilateralKovRule(char c1, char c2, char c3) {
@@ -98,7 +104,7 @@ public class KovRulesManager {
 
     private int getQuadrilateralKov(char c1, char c2, char c3, char c4) {
         QuadrilateralKovRule rule = getQuadrilateralKovRule(c1, c2, c3 ,c4);
-        return rule!= null? rule.getKov(): -1;
+        return rule!= null? rule.getKov().getValue(): -1;
     }
 
     public QuadrilateralKovRule getQuadrilateralKovRule(char c1, char c2, char c3, char c4) {

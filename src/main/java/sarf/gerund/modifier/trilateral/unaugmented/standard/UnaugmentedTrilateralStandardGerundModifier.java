@@ -2,6 +2,7 @@ package sarf.gerund.modifier.trilateral.unaugmented.standard;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
 import sarf.verb.trilateral.Substitution.*;
@@ -22,7 +23,7 @@ import sarf.NounSunLamModifier;
  * @version 1.0
  */
 public class UnaugmentedTrilateralStandardGerundModifier extends AbstractLamMahmouz implements IUnaugmentedTrilateralNounModifier{
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
     private String appliedCharactersString = "بتثجحخسشصضطظعغفقكلمنهي";
 
     private UnaugmentedTrilateralStandardGerundModifier() {
@@ -36,11 +37,11 @@ public class UnaugmentedTrilateralStandardGerundModifier extends AbstractLamMahm
         return instance;
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
-    public ConjugationResult build(UnaugmentedTrilateralRoot root, int kov, List conjugations, String formula) {
+    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
         ConjugationResult conjResult = new ConjugationResult(kov, root, conjugations, formula);
         if (isApplied(conjResult))
             apply(conjResult.getFinalResult(), root);

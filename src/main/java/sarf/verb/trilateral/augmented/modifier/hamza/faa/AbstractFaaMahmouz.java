@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.augmented.modifier.hamza.faa;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
@@ -21,72 +22,135 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        switch (kov) {
-        case 3:
+        if (kov == KindOfVerb.Mahmouz_Faa_Mudaaf) {
             switch (formulaNo) {
-            case 2:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 9:
-                return true;
+                case 2:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
             }
-
-        case 4:
             return formulaNo == 5;
-
-        case 5:
+        } else if (kov == KindOfVerb.Mahmouz_Faa_Mahmouz_Laam) {
+            return formulaNo == 5;
+        } else if (kov == KindOfVerb.Mahmouz_Faa) {
             switch (formulaNo) {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 7:
-            case 8:
-            case 9:
-                return true;
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
             }
 
-        case 15:
+
             switch (formulaNo) {
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 7:
-            case 8:
-            case 9:
-                return true;
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
             }
 
-        case 18:
-        case 27:
+
             switch (formulaNo) {
-            case 1:
-            case 2:
-            case 3:
-            case 5:
-            case 8:
-            case 9:
-                return true;
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 8:
+                case 9:
+                    return true;
             }
 
-        case 21:
-        case 24:
+
             switch (formulaNo) {
-            case 1:
-            case 2:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 9:
-                return true;
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
+            }
+        } else if (kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Faa) {
+            switch (formulaNo) {
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 8:
+                case 9:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
+            }
+        } else if (kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa) {
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 8:
+                case 9:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
+            }
+        } else if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa) {
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
             }
         }
         return false;

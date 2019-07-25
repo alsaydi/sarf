@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.elative.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -38,11 +39,10 @@ public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-        case 26:
+        if (kov == KindOfVerb.Naqis_Yaee) {
             return noc == Conjugation.Second
                     || noc == Conjugation.Third
                     || noc == Conjugation.Forth;
@@ -52,8 +52,7 @@ public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
 ////            case 3:
 ////            case 4:return true;
 //            }
-        case 28:
-            //return noc == 2 || noc == Conjugation.Forth;
+        } else if (kov == KindOfVerb.Lafeef_Maqroon) {//return noc == 2 || noc == Conjugation.Forth;
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         }
         return false;

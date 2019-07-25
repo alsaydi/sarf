@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.nakes.wawi.active;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -19,8 +20,7 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class Present2Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Present2Vocalizer() {
         substitutions.add(new SuffixSubstitution("وُ", "ى")); // EX: (هو يَتَسامَى، يَتَزَكَّى)
@@ -33,23 +33,19 @@ public class Present2Vocalizer extends SubstitutionsApplier implements IAugmente
         substitutions.add(new InfixSubstitution("وْن","يْن"));// EX: (أنتن تتسامَيْنَ، تتزَكَّيْنَ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        switch (kov) {
-        case 21:
-        case 22:
-        case 23:
+        if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa || kov == KindOfVerb.Naqis_Wawi_Mahmouz_Ain || kov == KindOfVerb.Naqis_Wawi) {
             switch (formulaNo) {
-            case 7:
-            case 8:
-                return true;
+                case 7:
+                case 8:
+                    return true;
             }
         }
         return false;

@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.timeandplace.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
@@ -35,21 +36,18 @@ public class ACAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier impleme
         if (!nounFormula.equals("مَفْعَل") && !nounFormula.equals("مَفْعَلَة"))
             return false;
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-            case 15:
-            case 16:
-                return noc == Conjugation.First || noc == Conjugation.Forth;
-
-            case 17:
-                switch (noc) {
-                    case First:
-                    case Forth:
-                    case Fifth:
-                        return true;
-                }
+        if (kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Faa || kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Laam) {
+            return noc == Conjugation.First || noc == Conjugation.Forth;
+        } else if (kov == KindOfVerb.Ajwaf_Wawi) {
+            switch (noc) {
+                case First:
+                case Forth:
+                case Fifth:
+                    return true;
+            }
         }
         return false;
     }

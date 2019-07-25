@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -36,9 +37,9 @@ public class WawiLafifNakes2Vocalizer extends TrilateralNounSubstitutionApplier 
         if (conjugationResult.getRoot().getC3() != 'و')
             return false;
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return (kov == 23 || kov == 28) && noc == Conjugation.Forth;
+        return (kov == KindOfVerb.Naqis_Wawi || kov == KindOfVerb.Lafeef_Maqroon) && noc == Conjugation.Forth;
     }
 }

@@ -1,6 +1,8 @@
 package sarf.noun.trilateral.augmented.modifier.passiveparticiple;
 
 import java.util.List;
+
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.augmented.*;
 import sarf.noun.trilateral.augmented.modifier.*;
 import sarf.NounLamAlefModifier;
@@ -38,7 +40,7 @@ public class PassiveParticipleModifier {
         return instance;
     }
 
-    public ConjugationResult build(AugmentedTrilateralRoot root, int kov, int formulaNo, List conjugations, AugmentedTrilateralModifierListener listener) {
+    public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List conjugations, AugmentedTrilateralModifierListener listener) {
         ConjugationResult conjResult = new ConjugationResult(kov, formulaNo, root, conjugations);
         substituter.apply(conjResult);
         geminator.apply(conjResult);

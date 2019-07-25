@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.instrumental.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.Substitution.*;
@@ -32,52 +33,63 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-            case 8:
-                return noc == Conjugation.Forth;
-            case 9:
-            case 29:
-                return noc == Conjugation.Second;
-            case 10:
-                switch (noc) {
-                    case Third:
-                    case Forth:
-                    case Fifth:
-                        return true;
-                }
-            case 11:
-                switch (noc) {
-                    case Second:
-                    case Third:
-                    case Forth:
-                    case Fifth:
-                    case Sixth:
-                        return true;
-                }
-            case 12:
-                return noc == Conjugation.Second || noc == Conjugation.Forth;
-            case 13:
-                return noc == Conjugation.Forth || noc == Conjugation.Sixth;
-            case 14:
-                switch (noc) {
-                    case First:
-                    case Second:
-                    case Third:
-                    case Forth:
-                    case Fifth:
-                    case Sixth:
-                        return true;
-                }
-            case 30:
-                switch (noc) {
-                    case Second:
-                    case Forth:
-                    case Sixth:
-                        return true;
-                }
+        if (kov == KindOfVerb.Mithal_Wawi_Mudaaf) {
+            return noc == Conjugation.Forth;
+        } else if (kov == KindOfVerb.Mithal_Wawi_Mahmouz_Ain || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
+            return noc == Conjugation.Second;
+        } else if (kov == KindOfVerb.Mithal_Wawi_Mahmouz_Laam) {
+            switch (noc) {
+                case Third:
+                case Forth:
+                case Fifth:
+                    return true;
+            }
+
+            switch (noc) {
+                case Second:
+                case Third:
+                case Forth:
+                case Fifth:
+                case Sixth:
+                    return true;
+            }
+
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
+        } else if (kov == KindOfVerb.Mithal_Wawi) {
+            switch (noc) {
+                case Second:
+                case Third:
+                case Forth:
+                case Fifth:
+                case Sixth:
+                    return true;
+            }
+
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
+        } else if (kov == KindOfVerb.Mithal_Yaee_Mudaaf) {
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
+        } else if (kov == KindOfVerb.Mithal_Yaee_Mahmouz_Ain) {
+            return noc == Conjugation.Forth || noc == Conjugation.Sixth;
+        } else if (kov == KindOfVerb.Mithal_Yaee) {
+            switch (noc) {
+                case First:
+                case Second:
+                case Third:
+                case Forth:
+                case Fifth:
+                case Sixth:
+                    return true;
+            }
+        } else if (kov == KindOfVerb.Lafeef_Mafrooq) {
+            switch (noc) {
+                case Second:
+                case Forth:
+                case Sixth:
+                    return true;
+            }
         }
         return false;
     }

@@ -1,6 +1,8 @@
 package sarf.noun.trilateral.unaugmented.modifier.instrumental;
 
 import java.util.List;
+
+import sarf.KindOfVerb;
 import sarf.NounLamAlefModifier;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.noun.trilateral.unaugmented.modifier.*;
@@ -34,7 +36,7 @@ public class InstrumentalModifier implements IUnaugmentedTrilateralNounModifier{
         return instance;
     }
 
-    public ConjugationResult build(UnaugmentedTrilateralRoot root, int kov, List conjugations, String formula) {
+    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
         ConjugationResult conjResult = new ConjugationResult(kov, root, conjugations, formula);
         geminator.apply(conjResult.getFinalResult(), root);
         vocalizer.apply(conjResult);

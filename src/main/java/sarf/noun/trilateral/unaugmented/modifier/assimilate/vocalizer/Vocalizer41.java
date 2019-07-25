@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.assimilate.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -36,16 +37,15 @@ public class Vocalizer41 extends TrilateralNounSubstitutionApplier implements IU
         substitutions.add(new InfixSubstitution("ِوِي", "ِي")); // EX: (رَضِينَ )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return nounFormula.equals("فَعِل") && kov == 23 && noc == Conjugation.Forth;
+        return nounFormula.equals("فَعِل") && kov == KindOfVerb.Naqis_Wawi && noc == Conjugation.Forth;
     }
 }

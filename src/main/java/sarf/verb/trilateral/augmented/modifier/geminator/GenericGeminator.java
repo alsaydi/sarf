@@ -21,8 +21,7 @@ import sarf.verb.trilateral.augmented.modifier.geminator.generic.*;
  * @version 1.0
  */
 public class GenericGeminator implements IAugmentedTrilateralModifier {
-
-    private Map geminators = new HashMap();
+    private Map<String, SubstitutionsApplier> geminators = new HashMap<>();
 
     public GenericGeminator() {
         //خمس أنواع للادغام للمعلوم والمبني لمجهول في الماضي والمضارع والأمر
@@ -36,45 +35,31 @@ public class GenericGeminator implements IAugmentedTrilateralModifier {
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         switch (formulaNo) {
-        case 6:
-            switch (kov) {
-            case 1:
             case 6:
-            case 17:
-            case 20:
-                return true;
-            }
-            return false;
+                return kov == KindOfVerb.Salim || kov == KindOfVerb.Mahmouz_Ain || kov == KindOfVerb.Ajwaf_Wawi || kov == KindOfVerb.Ajwaf_Yaee;
 
-        case 12:
-            switch (kov) {
+            case 12:
+                return kov == KindOfVerb.Salim || kov == KindOfVerb.Mithal_Wawi || kov == KindOfVerb.Ajwaf_Wawi || kov == KindOfVerb.Ajwaf_Yaee;
             case 1:
-            case 11:
-            case 17:
-            case 20:
-                return true;
-            }
-            return false;
-        case 1:
-        case 4:
-            return kov == 2;
+            case 4:
+                return kov == KindOfVerb.Mudaaf;
 
-        case 3:
-        case 7:
-            return kov == 2 || kov == 3 || kov == 8;
-        case 5:
-        case 9:
-            return kov == 2 || kov == 3;
+            case 3:
+            case 7:
+                return kov == KindOfVerb.Mudaaf || kov == KindOfVerb.Mahmouz_Faa_Mudaaf || kov == KindOfVerb.Mithal_Wawi_Mudaaf;
+            case 5:
+            case 9:
+                return kov == KindOfVerb.Mudaaf || kov == KindOfVerb.Mahmouz_Faa_Mudaaf;
         }
         return false;
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
-        SubstitutionsApplier geminator = (SubstitutionsApplier) geminators.get(tense + active);
+        SubstitutionsApplier geminator = geminators.get(tense + active);
         geminator.apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
 }

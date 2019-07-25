@@ -1,5 +1,7 @@
 package sarf.kov;
 
+import sarf.KindOfVerb;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -22,7 +24,7 @@ public class TrilateralKovRule {
     private String c1;
     private String c2;
     private String c3;
-    private int kov;
+    private KindOfVerb kov;
     private String desc;
     private String example;
     private static List<Character> vowels = Arrays.asList('ء', 'و', 'ي');
@@ -38,11 +40,11 @@ public class TrilateralKovRule {
         return example;
     }
 
-    public int getKov() {
+    public KindOfVerb getKov() {
         return kov;
     }
 
-    public void setKov(int kov) {
+    public void setKov(KindOfVerb kov) {
         this.kov = kov;
     }
 

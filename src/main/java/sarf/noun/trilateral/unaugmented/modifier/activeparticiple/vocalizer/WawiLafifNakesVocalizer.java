@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.Substitution.*;
@@ -42,17 +43,14 @@ public class WawiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
         if (conjugationResult.getRoot().getC3() != 'و')
             return false;
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-        case 21:
+        if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa) {
             return noc == Conjugation.First || noc == Conjugation.Fifth;
-
-        case 22:
+        } else if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Ain) {
             return noc == Conjugation.First || noc == Conjugation.Third;
-
-        case 23:
+        } else if (kov == KindOfVerb.Naqis_Wawi) {
             switch (noc) {
                 case First:
                 case Third:
@@ -61,7 +59,9 @@ public class WawiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
                     return true;
             }
 
-        case 28:
+
+            return noc == Conjugation.Forth;
+        } else if (kov == KindOfVerb.Lafeef_Maqroon) {
             return noc == Conjugation.Forth;
         }
         return false;

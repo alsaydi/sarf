@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -34,15 +35,14 @@ public class Ajwaf4Vocalizer extends TrilateralNounSubstitutionApplier implement
         substitutions.add(new InfixSubstitution("ايِء","ائِي"));// EX: (جائيان، جائيَيْن، جائية، جائيًا، رأيتُ الجائِيَ)
     }
 
-
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return kov == 19 && (noc == Conjugation.Second || noc == Conjugation.Forth);
+        return kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam && (noc == Conjugation.Second || noc == Conjugation.Forth);
     }
 }

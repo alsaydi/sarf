@@ -31,7 +31,7 @@ public class TitlateralUnaugmentedQualityModifier implements IUnaugmentedTrilate
         return instance;
     }
 
-    public ConjugationResult build(UnaugmentedTrilateralRoot root, int kov, List conjugations, String formula) {
+    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
         ConjugationResult conjResult = new ConjugationResult(kov, root, conjugations, formula);
         geminator.apply(conjResult);
         if (ajwafVocalizer.isApplied(conjResult))

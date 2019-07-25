@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.nakes.yaei.active;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -19,8 +20,7 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class Present3Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Present3Vocalizer() {
         substitutions.add(new SuffixSubstitution("ِيُ","ِي"));// EX: (يُرَقِّي، يَجْأوِّي)
@@ -32,15 +32,14 @@ public class Present3Vocalizer extends SubstitutionsApplier implements IAugmente
         substitutions.add(new InfixSubstitution("ِّيُن", "ُّن")); // EX: (أنتم تُرَقُّنَّ، تَجْأوُّنَّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return ((kov == 26 || kov == 24) && formulaNo == 2) || (kov == 25 && (formulaNo == 2 || formulaNo == 11));
+        return (kov == KindOfVerb.Naqis_Yaee || kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa) && formulaNo == 2 || (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain && (formulaNo == 2 || formulaNo == 11));
     }
 }

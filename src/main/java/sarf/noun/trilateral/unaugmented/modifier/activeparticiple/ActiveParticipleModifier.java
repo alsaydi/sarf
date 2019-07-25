@@ -33,7 +33,7 @@ public class ActiveParticipleModifier implements IUnaugmentedTrilateralNounModif
         return instance;
     }
 
-    public ConjugationResult build(UnaugmentedTrilateralRoot root, int kov, List conjugations, String formula) {
+    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
         ConjugationResult conjResult = new ConjugationResult(kov, root, conjugations, formula);
         if (geminator.isApplied(conjResult))
             geminator.apply(conjResult.getFinalResult(), root);

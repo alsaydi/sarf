@@ -2,6 +2,7 @@ package sarf.verb.trilateral.unaugmented.modifier.geminator;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
@@ -27,36 +28,36 @@ import sarf.SystemConstants;
  */
 public class NGeminator extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier{
 
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
     //أرقام الضمائر التي يمكن التطبيق من أجلها حسب الصيغةة  ماضي أو مضارع أو أمر
-    private Map indeciesMap = new HashMap();
+    private Map<String, ArrayList<String>> indeciesMap = new HashMap<>();//TODO: is this needed at all?
 
     public NGeminator() {
         substitutions.add(new ExpressionInfixSubstitution("نْنَ","نَّ"));
 
-        List indecies = new ArrayList(2);
+        var indecies = new ArrayList<String>(2);
         indecies.add("2");
         indecies.add("13");
         indeciesMap.put(SystemConstants.PAST_TENSE, indecies);
 
-        indecies = new ArrayList(2);
+        indecies = new ArrayList<>(2);
         indecies.add("7");
         indecies.add("13");
         indeciesMap.put(SystemConstants.PRESENT_TENSE, indecies);
 
-        indecies = new ArrayList(1);
+        indecies = new ArrayList<>(1);
         indecies.add("7");
         indeciesMap.put(SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, indecies);
         indeciesMap.put(SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, indecies);
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
-        return (conjugationResult.getRoot().getC3()=='ن' && (kov == 1 || kov == 2 || kov == 3 || kov == 5 || kov == 6 || kov == 11 || kov == 14 || kov == 15 || kov == 17 || kov == 18 || kov == 20));
+        KindOfVerb kov = conjugationResult.getKov();
+        return (conjugationResult.getRoot().getC3()=='ن' && (kov == KindOfVerb.Salim || kov == KindOfVerb.Mudaaf || kov == KindOfVerb.Mahmouz_Faa_Mudaaf || kov == KindOfVerb.Mahmouz_Faa || kov == KindOfVerb.Mahmouz_Ain || kov == KindOfVerb.Mithal_Wawi || kov == KindOfVerb.Mithal_Yaee || kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Faa || kov == KindOfVerb.Ajwaf_Wawi || kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Faa || kov == KindOfVerb.Ajwaf_Yaee));
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {

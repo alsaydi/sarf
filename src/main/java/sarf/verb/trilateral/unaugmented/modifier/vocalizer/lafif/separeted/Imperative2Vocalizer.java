@@ -3,6 +3,7 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.lafif.separeted;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -35,9 +36,9 @@ public class Imperative2Vocalizer extends SubstitutionsApplier implements IUnaug
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
-        return ((kov == 29 || kov == 30) && (noc == Conjugation.Second)) ||
-                (kov == 30 && noc == Conjugation.Sixth);
+        return ((kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain || kov == KindOfVerb.Lafeef_Mafrooq ) && (noc == Conjugation.Second)) ||
+                (kov == KindOfVerb.Lafeef_Mafrooq  && noc == Conjugation.Sixth);
     }
 }

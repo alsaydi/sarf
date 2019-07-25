@@ -5,9 +5,13 @@ import java.util.Map;
 import java.util.HashMap;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import sarf.SystemConstants;
+import sarf.verb.trilateral.unaugmented.modifier.hamza.AbstractLamMahmouz;
+
 import java.util.List;
 import java.util.LinkedList;
 import java.util.Iterator;
+
+import static sarf.KindOfVerb.Mahmouz_Faa_Mahmouz_Laam;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -22,7 +26,7 @@ import java.util.Iterator;
  * @version 1.0
  */
 public class PostHamzaModifier {
-    private Map modifiersMap = new HashMap();
+    private Map<String, AbstractLamMahmouz> modifiersMap = new HashMap<>();
 
     public PostHamzaModifier() {
         //خمس أنواع  أساسية  للمهموز للمعلوم والمبني لمجهول في الماضي والمضارع والأمر
@@ -42,10 +46,10 @@ public class PostHamzaModifier {
      * @param conjResult ConjugationResult
      */
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
-        if (conjResult.getKov() != 4)
+        if (conjResult.getKov() != Mahmouz_Faa_Mahmouz_Laam)
             return;
 
-        IUnaugmentedTrilateralModifier modifier = (IUnaugmentedTrilateralModifier) modifiersMap.get(tense+active);
+        IUnaugmentedTrilateralModifier modifier = modifiersMap.get(tense+active);
         if (modifier.isApplied(conjResult)) {
             ((SubstitutionsApplier)modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
         }

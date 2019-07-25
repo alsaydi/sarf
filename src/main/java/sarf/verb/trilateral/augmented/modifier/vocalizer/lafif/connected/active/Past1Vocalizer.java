@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.lafif.connected.active
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -20,25 +21,23 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Past1Vocalizer() {
-        substitutions.add(new SuffixSubstitution("َيَ","َا"));// EX: (أحْيَا، حَيَّا، حايا، ازدَيَا، تحايا، تحَيَّا، استحيا)
+        substitutions.add(new SuffixSubstitution("َيَ", "َا"));// EX: (أحْيَا، حَيَّا، حايا، ازدَيَا، تحايا، تحَيَّا، استحيا)
         substitutions.add(new InfixSubstitution("يُو", "وْ")); // EX: (أحْيَوْا، حَيَّوْا حايَوْا، ، ازدَيَوْا، تحايَوْا، تَحَيَّوْا، استَحْيَوْا)
         substitutions.add(new InfixSubstitution("يَت", "ت")); // EX: (أحْيَتْ، حيَّت، حايَتْ، ، ازدَيَتْ،  تحايتْ، تَحَيَّتْ، استحيَتْ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        if (root.getC2() == root.getC3() && root.getC3() == 'ي' && kov == 28) {
+        if (root.getC2() == root.getC3() && root.getC3() == 'ي' && kov == KindOfVerb.Lafeef_Maqroon) {
             switch (formulaNo) {
             case 1:
             case 2:

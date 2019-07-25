@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.nakes.wawi.active;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -19,8 +20,7 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class Imperative3Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Imperative3Vocalizer() {
         substitutions.add(new SuffixSubstitution("وْ", "")); // EX: (سَمِّ)
@@ -30,15 +30,14 @@ public class Imperative3Vocalizer extends SubstitutionsApplier implements IAugme
         substitutions.add(new InfixSubstitution("وِ", "")); // EX: (أنتِ سَمِّي)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return (kov == 21 || kov == 23) && formulaNo == 2;
+        return (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa || kov == KindOfVerb.Naqis_Wawi) && formulaNo == 2;
     }
 }

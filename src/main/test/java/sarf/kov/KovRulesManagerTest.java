@@ -81,7 +81,7 @@ class KovRulesManagerTest {
         var c1 = verb.charAt(0);
         var c2 = verb.charAt(1);
         var c3 = verb.charAt(2);
-        var actual = sut.getTrilateralKov(c1, c2, c3);
+        var actual = sut.getTrilateralKov(c1, c2, c3).getValue();
         assertEquals(kindOfVerb, actual);
     }
 
@@ -92,7 +92,7 @@ class KovRulesManagerTest {
         var actual = sut.getTrilateralKovRule(verb.charAt(0), verb.charAt(1), verb.charAt(2));
 
         assertNotNull(actual);
-        assertEquals(kindOfVerb, actual.getKov());
+        assertEquals(kindOfVerb, actual.getKov().getValue());
     }
 
     @ParameterizedTest
@@ -102,6 +102,6 @@ class KovRulesManagerTest {
         var actual = sut.getQuadrilateralKovRule(verb.charAt(0), verb.charAt(1), verb.charAt(2), verb.charAt(3));
 
         assertNotNull(actual);
-        assertEquals(kindOfVerb, actual.getKov());
+        assertEquals(kindOfVerb, actual.getKov().getValue());
     }
 }

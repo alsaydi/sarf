@@ -89,9 +89,8 @@ public class MainFrame extends JFrame {
         //else searching for suitable arabic country one, if it is exists
 
         Locale [] locales = Locale.getAvailableLocales();
-        for (int i=0; i<locales.length; i++) {
-            Locale locale = locales[i];
-            System.out.println(i+"");
+        for (Locale locale : locales) {
+            //System.out.println(i+"");
             //if one of the arabic locales suceeded, then ok
             if (locale.getLanguage().equalsIgnoreCase("ar"))
                 if (inputContext.selectInputMethod(locale))
@@ -114,7 +113,7 @@ public class MainFrame extends JFrame {
         contentPane.setFont(new java.awt.Font("Arabic Transparent", Font.PLAIN, 12));
     }
 
-    public void this_windowActivated(WindowEvent windowEvent) {
+    void this_windowActivated(WindowEvent windowEvent) {
     }
 }
 

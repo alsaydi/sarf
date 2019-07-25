@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -34,9 +35,9 @@ public class C3Vocalizer extends TrilateralNounSubstitutionApplier implements IU
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return nounFormula.equals("مِفْعَال") && (kov == 30 && (noc == Conjugation.Second || noc == Conjugation.Forth || noc == Conjugation.Sixth));
+        return nounFormula.equals("مِفْعَال") && (kov == KindOfVerb.Lafeef_Mafrooq  && (noc == Conjugation.Second || noc == Conjugation.Forth || noc == Conjugation.Sixth));
     }
 }

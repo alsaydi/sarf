@@ -3,6 +3,7 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.nakes.wawi.active;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -20,7 +21,6 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  * @version 1.0
  */
 public class Past4Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
-
     private List<Substitution> substitutions = new ArrayList<>();
 
     public Past4Vocalizer() {
@@ -28,14 +28,14 @@ public class Past4Vocalizer extends SubstitutionsApplier implements IUnaugmented
         substitutions.add(new InfixSubstitution("ُوُ", "ُ"));
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
-        //return (kov == 21 || kov == 23) && (noc == Conjugation.Fifth);
-        return (kov == 21 || kov == 23) && (noc == Conjugation.Fifth);
+        //return (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa || kov == KindOfVerb.Naqis_Wawi) && (noc == Conjugation.Fifth);
+        return (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa || kov == KindOfVerb.Naqis_Wawi) && (noc == Conjugation.Fifth);
     }
 }

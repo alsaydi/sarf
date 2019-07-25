@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -44,20 +45,21 @@ public class I2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
             return false;
         }
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-        case 26:
+        if (kov == KindOfVerb.Naqis_Yaee) {
             switch (noc) {
                 case Second:
                 case Third:
                 case Forth:
                     return true;
             }
-        case 28:
+
             return noc == Conjugation.Second || noc == Conjugation.Forth;
-        case 30:
+        } else if (kov == KindOfVerb.Lafeef_Maqroon) {
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
+        } else if (kov == KindOfVerb.Lafeef_Mafrooq) {
             switch (noc) {
                 case Second:
                 case Forth:

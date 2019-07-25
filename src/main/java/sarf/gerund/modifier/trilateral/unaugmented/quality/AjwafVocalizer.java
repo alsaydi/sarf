@@ -3,6 +3,7 @@ package sarf.gerund.modifier.trilateral.unaugmented.quality;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -29,30 +30,26 @@ public class AjwafVocalizer extends TrilateralNounSubstitutionApplier implements
         substitutions.add(new InfixSubstitution("ِيْ", "ِي")); // EX: ( بِيعَة، )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-            case 15:
-            case 16:
-            case 17:
-                switch (noc) {
-                    case First:
-                    case Forth:
-                    case Fifth:
-                        return true;
-                }
+        if (kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Faa || kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Laam || kov == KindOfVerb.Ajwaf_Wawi) {
+            switch (noc) {
+                case First:
+                case Forth:
+                case Fifth:
+                    return true;
+            }
 
-            case 18:
-            case 19:
-            case 20:
-                return noc == Conjugation.Second || noc == Conjugation.Forth;
+
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
+        } else if (kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Faa || kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam || kov == KindOfVerb.Ajwaf_Yaee) {
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
         }
         return false;
     }

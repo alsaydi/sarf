@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -33,9 +34,9 @@ public class Ajwaf3YaeiVocalizer extends TrilateralNounSubstitutionApplier imple
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return kov == 20 && noc == Conjugation.Second;
+        return kov == KindOfVerb.Ajwaf_Yaee && noc == Conjugation.Second;
     }
 }

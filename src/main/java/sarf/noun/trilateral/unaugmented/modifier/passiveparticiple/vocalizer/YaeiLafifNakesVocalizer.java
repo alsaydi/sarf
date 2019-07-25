@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -33,28 +34,25 @@ public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-        case 24:
-        case 26:
+        if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee) {
             switch (noc) {
                 case Second:
                 case Third:
                 case Forth:
                     return true;
             }
-        case 25:
+
             return noc == Conjugation.Third || noc == Conjugation.Forth;
-
-        case 27:
-        case 29:
+        } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
+            return noc == Conjugation.Third || noc == Conjugation.Forth;
+        } else if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
             return noc == Conjugation.Second;
-        case 28:
+        } else if (kov == KindOfVerb.Lafeef_Maqroon) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
-
-        case 30:
+        } else if (kov == KindOfVerb.Lafeef_Mafrooq) {
             switch (noc) {
                 case Second:
                 case Forth:

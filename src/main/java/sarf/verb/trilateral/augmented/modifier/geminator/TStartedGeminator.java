@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.augmented.modifier.geminator;
 
+import sarf.verb.trilateral.Substitution.Substitution;
 import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
@@ -21,25 +22,21 @@ import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
  * @version 1.0
  */
 public class TStartedGeminator extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public TStartedGeminator() {
         substitutions.add(new InfixSubstitution("تْت","تّ"));// EX: (اتَّبَعَ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
-        if (conjugationResult.getRoot().getC1() == 'ت' && (kov == 1 || kov == 6) && (formulaNo == 5))
-            return true;
-
-        return false;
+        return conjugationResult.getRoot().getC1() == 'ت' && (kov == KindOfVerb.Salim || kov == KindOfVerb.Mahmouz_Ain) && (formulaNo == 5);
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {

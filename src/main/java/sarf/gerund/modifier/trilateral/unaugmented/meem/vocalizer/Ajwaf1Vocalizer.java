@@ -3,6 +3,7 @@ package sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -34,16 +35,12 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-        case 18:
-        case 20:
-            //return noc == 2;
-            return  noc == Conjugation.Second;
-        case 19:
-            //return noc == 2 || noc == Conjugation.Forth;
+        if (kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Faa || kov == KindOfVerb.Ajwaf_Yaee) {//return noc == 2;
+            return noc == Conjugation.Second;
+        } else if (kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam) {//return noc == 2 || noc == Conjugation.Forth;
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         }
         return false;

@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.pre.vocalizer;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -19,26 +20,21 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class SeparatedLafifActivePresentVocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public SeparatedLafifActivePresentVocalizer() {
         substitutions.add(new InfixSubstitution("ُوْ", "ُو")); // EX: (يُوصِي)
         substitutions.add(new InfixSubstitution("ُيْ", "ُو")); // EX: (يُودِي)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        if (kov == 30 && formulaNo == 1) {
-            return true;
-        }
-        return false;
+        return kov == KindOfVerb.Lafeef_Mafrooq  && formulaNo == 1;
     }
 }

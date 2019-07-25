@@ -1,10 +1,13 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
 import java.util.List;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
+
+import static sarf.KindOfVerb.*;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -25,7 +28,7 @@ public abstract class AbstractAjwafWawiVocalizer extends SubstitutionsApplier im
     public boolean isApplied(ConjugationResult conjugationResult) {
         // تطبيق القانون العام للفحص
         return (conjugationResult.getRoot().getConjugation()== Conjugation.First) &&
-                (conjugationResult.getKov() == 15 || conjugationResult.getKov() == 16 || conjugationResult.getKov() == 17);
+                (conjugationResult.getKov() == Ajwaf_Wawi_Mahmouz_Faa || conjugationResult.getKov() == Ajwaf_Wawi_Mahmouz_Laam || conjugationResult.getKov() == Ajwaf_Wawi);
     }
 
 }

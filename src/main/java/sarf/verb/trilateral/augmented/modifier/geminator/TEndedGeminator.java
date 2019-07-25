@@ -34,32 +34,24 @@ public class TEndedGeminator extends SubstitutionsApplier implements IAugmentedT
 
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         if (conjugationResult.getRoot().getC3() != 'ت') return false;
 
         switch (formulaNo) {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 7:
-        case 8:
-        case 9:
-        case 10:
-        case 11:
-            switch (kov) {
             case 1:
             case 2:
             case 3:
+            case 4:
             case 5:
-            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
             case 11:
-            case 17:
-            case 20:
-                return true;
-            }
+                if (kov == KindOfVerb.Salim || kov == KindOfVerb.Mudaaf || kov == KindOfVerb.Mahmouz_Faa_Mudaaf || kov == KindOfVerb.Mahmouz_Faa || kov == KindOfVerb.Mahmouz_Ain || kov == KindOfVerb.Mithal_Wawi || kov == KindOfVerb.Ajwaf_Wawi || kov == KindOfVerb.Ajwaf_Yaee) {
+                    return true;
+                }
         }
         return false;
     }

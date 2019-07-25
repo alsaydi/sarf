@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.lafif.separated.active
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -19,8 +20,7 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class Present2Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Present2Vocalizer() {
         substitutions.add(new SuffixSubstitution("يُ", "ى")); // EX: (يَتَوارَى، يَتَوَلَّى)
@@ -31,15 +31,14 @@ public class Present2Vocalizer extends SubstitutionsApplier implements IAugmente
         substitutions.add(new InfixSubstitution("يُن", "وُن")); // EX: (أنتم تَتَوارَوُنَّ، تَتَوَلَّوُنَّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return (kov == 29 && formulaNo == 7) || (kov == 30 && (formulaNo == 7 || formulaNo == 8));
+        return (kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain && formulaNo == 7) || (kov == KindOfVerb.Lafeef_Mafrooq  && (formulaNo == 7 || formulaNo == 8));
     }
 }

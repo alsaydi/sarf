@@ -22,7 +22,7 @@ public class QuadrilateralStandardModifier {
         return instance;
     }
 
-    public ConjugationResult build(QuadrilateralRoot root, int formulaNo, int kov, List<String> conjugations) {
+    public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List<String> conjugations) {
         ConjugationResult conjResult = new ConjugationResult(formulaNo, kov, root, conjugations);
         if (vocalizer.isApplied(conjResult))
             vocalizer.apply(conjResult.getFinalResult(), conjResult.getRoot());
