@@ -84,7 +84,7 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
             return noc == Conjugation.Second;
         } else if (kov == 28) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
-        } else if (kov == 30) {
+        } else if (kov == KindOfVerb.Lafeef_Mafrooq) {
             switch (noc) {
                 case Second:
                 case Forth:

@@ -53,7 +53,7 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IAugme
                 case 9:
                     return true;
             }
-        } else if (kov == 30) {
+        } else if (kov == KindOfVerb.Lafeef_Mafrooq) {
             switch (formulaNo) {
                 case 1:
                 case 3:

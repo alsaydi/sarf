@@ -53,7 +53,7 @@ public class B2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         } else if (kov == 28) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
-        } else if (kov == 30) {
+        } else if (kov == KindOfVerb.Lafeef_Mafrooq) {
             switch (noc) {
                 case Second:
                 case Forth:

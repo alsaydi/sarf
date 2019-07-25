@@ -59,7 +59,7 @@ public class YaeiPastVocalizer extends SubstitutionsApplier implements IAugmente
                 case 9:
                     return true;
             }
-        } else if (kov == 30) {
+        } else if (kov == KindOfVerb.Lafeef_Mafrooq) {
             switch (formulaNo) {
                 case 1:
                 case 2:

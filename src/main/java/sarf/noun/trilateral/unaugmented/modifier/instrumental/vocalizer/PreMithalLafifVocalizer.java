@@ -83,7 +83,7 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
                 case Sixth:
                     return true;
             }
-        } else if (kov == 30) {
+        } else if (kov == KindOfVerb.Lafeef_Mafrooq) {
             switch (noc) {
                 case Second:
                 case Forth:
