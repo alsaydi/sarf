@@ -62,7 +62,7 @@ public abstract class AbstractLamMahmouz extends SubstitutionsApplier implements
                 case 9:
                     return true;
             }
-        } else if (kov == 10 || kov == 16) {
+        } else if (kov == 10 || kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Laam) {
             switch (formulaNo) {
                 case 1:
                 case 2:

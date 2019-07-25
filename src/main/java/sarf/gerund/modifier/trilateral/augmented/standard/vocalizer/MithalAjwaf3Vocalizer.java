@@ -31,7 +31,7 @@ public class MithalAjwaf3Vocalizer extends TrilateralNounSubstitutionApplier imp
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return (formulaNo == 4 || formulaNo == 5) && (kov == 15 || kov == 16 || kov == KindOfVerb.Ajwaf_Wawi);
+        return (formulaNo == 4 || formulaNo == 5) && (kov == 15 || kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Laam || kov == KindOfVerb.Ajwaf_Wawi);
     }
 
     public List<Substitution> getSubstitutions() {
