@@ -69,7 +69,7 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
             return noc == Conjugation.Second || noc == Conjugation.Forth;
-        } else if (kov == 12) {
+        } else if (kov == KindOfVerb.Mithal_Yaee_Mudaaf) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Mithal_Yaee_Mahmouz_Ain) {
             return noc == Conjugation.Forth || noc == Conjugation.Sixth;
