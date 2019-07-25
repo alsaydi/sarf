@@ -41,7 +41,7 @@ public class BAjwafVocalizer extends TrilateralNounSubstitutionApplier implement
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        if (kov == 18 || kov == 19 || kov == KindOfVerb.Ajwaf_Yaee) {
+        if (kov == 18 || kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam || kov == KindOfVerb.Ajwaf_Yaee) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         }
         return false;
