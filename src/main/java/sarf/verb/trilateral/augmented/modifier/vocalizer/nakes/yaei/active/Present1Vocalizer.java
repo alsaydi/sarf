@@ -87,7 +87,7 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
                 case 9:
                     return true;
             }
-        } else if (kov == 24) {
+        } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa) {
             switch (formulaNo) {
                 case 1:
                 case 3:

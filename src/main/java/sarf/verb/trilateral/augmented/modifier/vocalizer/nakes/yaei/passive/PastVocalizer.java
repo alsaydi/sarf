@@ -36,7 +36,7 @@ public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTri
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        if (kov == 24) {
+        if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa) {
             switch (formulaNo) {
                 case 1:
                 case 2:

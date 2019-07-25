@@ -40,7 +40,7 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        if (kov == 24 || kov == KindOfVerb.Lafeef_Mafrooq) {
+        if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Mafrooq) {
             switch (formulaNo) {
                 case 1:
                 case 2:

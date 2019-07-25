@@ -66,7 +66,7 @@ public class CLafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
 
 
             return noc == Conjugation.Third || noc == Conjugation.Forth;
-        } else if (kov == 24 || kov == KindOfVerb.Naqis_Yaee) {
+        } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee) {
             switch (noc) {
                 case Second:
                 case Third:
