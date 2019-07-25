@@ -47,7 +47,7 @@ public class AVocalizer extends TrilateralNounSubstitutionApplier implements IUn
 
         if (kov == 21) {
             return noc == Conjugation.First || noc == Conjugation.Fifth;
-        } else if (kov == 22) {
+        } else if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Ain) {
             return noc == Conjugation.First || noc == Conjugation.Third;
         } else if (kov == KindOfVerb.Naqis_Wawi) {
             switch (noc) {
