@@ -38,6 +38,6 @@ public class YaeiVocalizer extends SubstitutionsApplier implements IAugmentedTri
             return false;
         }
 
-        return kov == 13 || kov == 14;
+        return kov == 13 || kov == KindOfVerb.Mithal_Yaee;
     }
 }

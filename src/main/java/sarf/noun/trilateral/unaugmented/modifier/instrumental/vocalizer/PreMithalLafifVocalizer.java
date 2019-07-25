@@ -73,7 +73,7 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         } else if (kov == 13) {
             return noc == Conjugation.Forth || noc == Conjugation.Sixth;
-        } else if (kov == 14) {
+        } else if (kov == KindOfVerb.Mithal_Yaee) {
             switch (noc) {
                 case First:
                 case Second:
