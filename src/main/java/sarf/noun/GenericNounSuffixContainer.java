@@ -15,13 +15,13 @@ import java.util.*;
  * @version 1.0
  */
 public class GenericNounSuffixContainer implements INounSuffixContainer{
-    private static GenericNounSuffixContainer instance = new GenericNounSuffixContainer();
+    private static final GenericNounSuffixContainer instance = new GenericNounSuffixContainer();
     //حالة النكرة
-    private ArrayList indefiniteSuffixList = new ArrayList(18);
+    private final ArrayList indefiniteSuffixList = new ArrayList(18);
     //حالة المعرفة
-    private ArrayList definiteSuffixList = new ArrayList(18);
+    private final ArrayList definiteSuffixList = new ArrayList(18);
     //حالة الاضافة
-    private ArrayList annexedSuffixList = new ArrayList(18);
+    private final ArrayList annexedSuffixList = new ArrayList(18);
 
     //تكون لها قيمة عندما تكون الحالة هي معرفة
     private String prefix = "";

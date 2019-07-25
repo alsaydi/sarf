@@ -19,14 +19,14 @@ import sarf.*;
  */
 public class AssimilateAdjectiveConjugator implements IUnaugmentedTrilateralNounConjugator{
 
-    private static AssimilateAdjectiveConjugator instance = new AssimilateAdjectiveConjugator();
+    private static final AssimilateAdjectiveConjugator instance = new AssimilateAdjectiveConjugator();
 
     public static AssimilateAdjectiveConjugator getInstance() {
         return instance;
     }
 
-    private Map formulaNamesMap = new HashMap();
-    private Map formulaIDsMap = new HashMap();
+    private final Map formulaNamesMap = new HashMap();
+    private final Map formulaIDsMap = new HashMap();
 
     private AssimilateAdjectiveConjugator() {
         loadFormulaName("A");

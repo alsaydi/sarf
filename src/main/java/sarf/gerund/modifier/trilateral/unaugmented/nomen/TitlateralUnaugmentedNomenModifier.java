@@ -20,13 +20,13 @@ import sarf.*;
  * @version 1.0
  */
 public class TitlateralUnaugmentedNomenModifier implements IUnaugmentedTrilateralNounModifier{
-    private Geminator geminator = new Geminator();
-    private Mahmouz mahmouz = new Mahmouz();
+    private final Geminator geminator = new Geminator();
+    private final Mahmouz mahmouz = new Mahmouz();
 
     private TitlateralUnaugmentedNomenModifier() {
     }
 
-    private static TitlateralUnaugmentedNomenModifier instance = new TitlateralUnaugmentedNomenModifier();
+    private static final TitlateralUnaugmentedNomenModifier instance = new TitlateralUnaugmentedNomenModifier();
 
     public static TitlateralUnaugmentedNomenModifier getInstance() {
         return instance;

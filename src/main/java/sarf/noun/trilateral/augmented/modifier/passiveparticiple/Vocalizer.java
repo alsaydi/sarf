@@ -19,9 +19,9 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @version 1.0
  */
 public class Vocalizer {
-    private List modifiers = new LinkedList();
+    private final List modifiers = new LinkedList();
 
-    private PreSeparatedLafifVocalizer preSeparatedLafifVocalizer = new PreSeparatedLafifVocalizer();
+    private final PreSeparatedLafifVocalizer preSeparatedLafifVocalizer = new PreSeparatedLafifVocalizer();
 
     public Vocalizer() {
         modifiers.add(new Mithal1Vocalizer());

@@ -19,7 +19,7 @@ import sarf.verb.quadriliteral.*;
  */
 public class Imperative1Vocalizer extends SubstitutionsApplier implements IQuadrilateralModifier {
 
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public Imperative1Vocalizer() {
         substitutions.add(new SuffixSubstitution("يْ", "")); // EX: (قَلْسِ، اسلَنْقِ)

@@ -14,19 +14,19 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public class ActivePastVerb {
-    private UnaugmentedTrilateralRoot root;
+    private final UnaugmentedTrilateralRoot root;
 
     //حركة فاء الفعل وهي الفتحة دائماً
     private static final String dpa1 = ArabCharUtil.FATHA;
 
     //حركة عين الفعل حسب باب التصريف
-    private String dpa2;
+    private final String dpa2;
 
     //حركة لام الفعل حسب الضمير
-    private String lastDpa;
+    private final String lastDpa;
 
     //ضمير الرفع المتصل
-    private String connectedPronoun;
+    private final String connectedPronoun;
 
     ActivePastVerb(UnaugmentedTrilateralRoot root, String dpa2, String lastDpa, String connectedPronoun) {
         this.root = root;

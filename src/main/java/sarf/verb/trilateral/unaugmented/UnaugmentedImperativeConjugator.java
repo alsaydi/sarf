@@ -15,7 +15,7 @@ import sarf.*;
  */
 public class UnaugmentedImperativeConjugator {
 
-    private static UnaugmentedImperativeConjugator instance = new UnaugmentedImperativeConjugator();
+    private static final UnaugmentedImperativeConjugator instance = new UnaugmentedImperativeConjugator();
 
     public static UnaugmentedImperativeConjugator getInstance() {
         return instance;

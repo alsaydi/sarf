@@ -23,7 +23,7 @@ public class KovRulesManager {
     private TrilateralKovRuleList trilateralRulesList;
     private QuadrilateralKovRuleList quadrilateralRulesList;
 
-    private static KovRulesManager instance = new KovRulesManager();
+    private static final KovRulesManager instance = new KovRulesManager();
 
     public static KovRulesManager getInstance() {
         return instance;

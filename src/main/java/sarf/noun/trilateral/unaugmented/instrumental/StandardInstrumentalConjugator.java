@@ -20,13 +20,13 @@ public class StandardInstrumentalConjugator implements IUnaugmentedTrilateralNou
     private StandardInstrumentalConjugator() {
     }
 
-    private static StandardInstrumentalConjugator instance = new StandardInstrumentalConjugator();
+    private static final StandardInstrumentalConjugator instance = new StandardInstrumentalConjugator();
 
     public static StandardInstrumentalConjugator getInstance() {
         return instance;
     }
 
-    private static List<String> formulas = new LinkedList<>();
+    private static final List<String> formulas = new LinkedList<>();
     static {
         formulas.add("مِفْعَل");
         formulas.add("مِفْعَلَة");

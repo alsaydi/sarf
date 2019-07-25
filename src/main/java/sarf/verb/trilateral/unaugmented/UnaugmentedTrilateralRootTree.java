@@ -15,7 +15,7 @@ import java.util.*;
  * @version 1.0
  */
 public class UnaugmentedTrilateralRootTree {
-    private List<UnaugmentedTrilateralRoot> roots = new LinkedList<>();
+    private final List<UnaugmentedTrilateralRoot> roots = new LinkedList<>();
 
     public UnaugmentedTrilateralRootTree() {
     }

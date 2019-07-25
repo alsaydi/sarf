@@ -21,7 +21,7 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  * @version 1.0
  */
 public class Imperative2Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public Imperative2Vocalizer() {
         substitutions.add(new InfixSubstitution("اوْ","اي"));// EX: (ايجل، ايبأ، ايدد، ايئب )

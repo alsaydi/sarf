@@ -15,7 +15,7 @@ import java.util.*;
  * @version 1.0
  */
 public class QuadrilateralKovRuleList {
-    private List<QuadrilateralKovRule> rules = new ArrayList<>(20);
+    private final List<QuadrilateralKovRule> rules = new ArrayList<>(20);
 
     public QuadrilateralKovRuleList() {
     }

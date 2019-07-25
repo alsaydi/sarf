@@ -19,7 +19,7 @@ import sarf.SystemConstants;
  * @version 1.0
  */
 public class EndedMahmouz {
-    private Map modifiersMap = new HashMap();
+    private final Map modifiersMap = new HashMap();
 
     public EndedMahmouz() {
         modifiersMap.put(SystemConstants.PAST_TENSE + "true", new sarf.verb.quadriliteral.modifier.hamza.ended.active.PastMahmouz());

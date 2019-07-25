@@ -13,14 +13,14 @@ import sarf.verb.quadriliteral.unaugmented.*;
  * @version 1.0
  */
 public class PassivePastVerb {
-    private UnaugmentedQuadrilateralRoot root;
+    private final UnaugmentedQuadrilateralRoot root;
 
 
     //حركة لام الفعل حسب الضمير
-    private String lastDpa;
+    private final String lastDpa;
 
     //الأحرف المضافة لنهاية الفعل حسب الضمير
-    private String connectedPronoun;
+    private final String connectedPronoun;
 
     public PassivePastVerb(UnaugmentedQuadrilateralRoot root, String lastDpa, String connectedPronoun) {
         this.root = root;

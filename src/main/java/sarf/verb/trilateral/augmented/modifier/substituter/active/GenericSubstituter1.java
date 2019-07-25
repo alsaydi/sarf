@@ -18,7 +18,7 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class GenericSubstituter1 extends AbstractGenericSubstituter {
-    private List<Substitution> substitutions = new LinkedList<>();
+    private final List<Substitution> substitutions = new LinkedList<>();
 
     public GenericSubstituter1() {
         substitutions.add(new InfixSubstitution("ثْتَ","ثَّ"));// EX: (اثَّمَدَ، يَثَّمِدُ، اثَّمِدْ)

@@ -20,7 +20,7 @@ public class UnaugmentedTrilateralPassiveParticipleConjugator implements IUnaugm
     private UnaugmentedTrilateralPassiveParticipleConjugator() {
     }
 
-    private static UnaugmentedTrilateralPassiveParticipleConjugator instance = new UnaugmentedTrilateralPassiveParticipleConjugator();
+    private static final UnaugmentedTrilateralPassiveParticipleConjugator instance = new UnaugmentedTrilateralPassiveParticipleConjugator();
 
     public static UnaugmentedTrilateralPassiveParticipleConjugator getInstance() {
         return instance;

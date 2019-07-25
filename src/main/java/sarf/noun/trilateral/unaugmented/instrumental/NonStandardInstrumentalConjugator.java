@@ -18,9 +18,9 @@ import sarf.*;
  * @version 1.0
  */
 public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateralNounConjugator {
-    private Map<String, Class<?>> formulaClassNamesMap = new HashMap<>();
+    private final Map<String, Class<?>> formulaClassNamesMap = new HashMap<>();
     //map <symbol,formulaName>
-    private Map<String, String> formulaSymbolsNamesMap = new HashMap<>();
+    private final Map<String, String> formulaSymbolsNamesMap = new HashMap<>();
 
     private NonStandardInstrumentalConjugator() {
         for (int i = 1; i <= 15; i++) {
@@ -38,7 +38,7 @@ public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateral
         }
     }
 
-    private static NonStandardInstrumentalConjugator instance = new NonStandardInstrumentalConjugator();
+    private static final NonStandardInstrumentalConjugator instance = new NonStandardInstrumentalConjugator();
 
     public static NonStandardInstrumentalConjugator getInstance() {
         return instance;

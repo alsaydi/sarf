@@ -20,7 +20,7 @@ public class UnaugmentedQuadriliteralActiveParticipleConjugator {
     private UnaugmentedQuadriliteralActiveParticipleConjugator() {
     }
 
-    private static UnaugmentedQuadriliteralActiveParticipleConjugator instance = new UnaugmentedQuadriliteralActiveParticipleConjugator();
+    private static final UnaugmentedQuadriliteralActiveParticipleConjugator instance = new UnaugmentedQuadriliteralActiveParticipleConjugator();
 
     public static UnaugmentedQuadriliteralActiveParticipleConjugator getInstance() {
         return instance;

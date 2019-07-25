@@ -14,7 +14,7 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public class PassivePastVerb {
-    private UnaugmentedTrilateralRoot root;
+    private final UnaugmentedTrilateralRoot root;
 
     //حركة فاء الفعل وهي دائماً  ضمة
     private static final String dpa1 = ArabCharUtil.DAMMA;
@@ -23,10 +23,10 @@ public class PassivePastVerb {
     private static final String dpa2 = ArabCharUtil.KASRA;
 
     //حركة لام الفعل حسب الضمير
-    private String lastDpa;
+    private final String lastDpa;
 
     //الأحرف المضافة لنهاية الفعل حسب الضمير
-    private String connectedPronoun;
+    private final String connectedPronoun;
 
     public PassivePastVerb(UnaugmentedTrilateralRoot root, String lastDpa, String connectedPronoun) {
         this.root = root;

@@ -20,7 +20,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @version 1.0
  */
 public class NEndedGeminator extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public NEndedGeminator() {
         substitutions.add(new InfixSubstitution("نْن","نّ"));// EX: (نحن سَكَّنَّا، هنَّ سَكَّنَّ)

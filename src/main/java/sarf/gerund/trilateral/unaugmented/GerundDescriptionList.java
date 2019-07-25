@@ -15,8 +15,8 @@ import java.util.*;
  * @version 1.0
  */
 public class GerundDescriptionList {
-    private Map gerundsBySymbol = new HashMap();
-    private Map gerundsByPattern = new HashMap();
+    private final Map gerundsBySymbol = new HashMap();
+    private final Map gerundsByPattern = new HashMap();
 
     public GerundDescriptionList() {
     }

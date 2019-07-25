@@ -18,10 +18,10 @@ import sarf.*;
  * @version 1.0
  */
 public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjugator{
-    private Map<String, Class> formulaClassNamesMap = new HashMap<>();
+    private final Map<String, Class> formulaClassNamesMap = new HashMap<>();
 
     //map <symbol,formulaName>
-    private Map<String, String> formulaSymbolsNamesMap = new HashMap<>();
+    private final Map<String, String> formulaSymbolsNamesMap = new HashMap<>();
 
     private TimeAndPlaceConjugator() {
         for (int i=1; i<=3;i++) {
@@ -38,7 +38,7 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
         }
     }
 
-    private static TimeAndPlaceConjugator instance = new TimeAndPlaceConjugator();
+    private static final TimeAndPlaceConjugator instance = new TimeAndPlaceConjugator();
 
     public static TimeAndPlaceConjugator getInstance() {
         return instance;

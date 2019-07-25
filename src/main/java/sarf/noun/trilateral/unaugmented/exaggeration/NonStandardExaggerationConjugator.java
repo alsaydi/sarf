@@ -18,9 +18,9 @@ import sarf.*;
  * @version 1.0
  */
 public class NonStandardExaggerationConjugator implements IUnaugmentedTrilateralNounConjugator{
-    private Map formulaClassNamesMap = new HashMap();
+    private final Map formulaClassNamesMap = new HashMap();
     //map <symbol,formulaName>
-    private Map formulaSymbolsNamesMap = new HashMap();
+    private final Map formulaSymbolsNamesMap = new HashMap();
 
     private NonStandardExaggerationConjugator() {
         for (int i=1; i<=10;i++) {
@@ -37,7 +37,7 @@ public class NonStandardExaggerationConjugator implements IUnaugmentedTrilateral
         }
     }
 
-    private static NonStandardExaggerationConjugator instance = new NonStandardExaggerationConjugator();
+    private static final NonStandardExaggerationConjugator instance = new NonStandardExaggerationConjugator();
 
     public static NonStandardExaggerationConjugator getInstance() {
         return instance;

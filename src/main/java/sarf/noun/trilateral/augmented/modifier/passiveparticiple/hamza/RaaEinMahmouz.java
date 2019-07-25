@@ -20,7 +20,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @version 1.0
  */
 public class RaaEinMahmouz extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
-    List<Substitution> substitutions = new ArrayList<>();
+    final List<Substitution> substitutions = new ArrayList<>();
 
     public RaaEinMahmouz() {
 

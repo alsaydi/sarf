@@ -23,15 +23,15 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
  * @version 1.0
  */
 public class UnaugmentedTrilateralModifier {
-    private Geminator geminator = new Geminator();
-    private Vocalizer vocalizer = new Vocalizer();
-    private HamzaModifier hamzaModifier = new HamzaModifier();
-    private PostHamzaModifier postHamzaModifier = new PostHamzaModifier();
+    private final Geminator geminator = new Geminator();
+    private final Vocalizer vocalizer = new Vocalizer();
+    private final HamzaModifier hamzaModifier = new HamzaModifier();
+    private final PostHamzaModifier postHamzaModifier = new PostHamzaModifier();
 
     private UnaugmentedTrilateralModifier() {
     }
 
-    private static UnaugmentedTrilateralModifier instance = new UnaugmentedTrilateralModifier();
+    private static final UnaugmentedTrilateralModifier instance = new UnaugmentedTrilateralModifier();
 
     public static UnaugmentedTrilateralModifier getInstance() {
         return instance;

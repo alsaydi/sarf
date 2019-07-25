@@ -22,7 +22,7 @@ import sarf.verb.trilateral.augmented.*;
  */
 public class Geminator3 extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
 
-    private List<Substitution> substitutions = new LinkedList<>();
+    private final List<Substitution> substitutions = new LinkedList<>();
 
     public Geminator3() {
         substitutions.add(new InfixSubstitution("تْت","تّ"));// EX: (اتِّباعٌ، اتِّآم)

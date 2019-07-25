@@ -18,7 +18,7 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public class ConjugationResult extends sarf.verb.trilateral.unaugmented.ConjugationResult{
-    private String nounFormula;
+    private final String nounFormula;
 
     public ConjugationResult(KindOfVerb kov, UnaugmentedTrilateralRoot root, List originalResult, String nounFormula) {
         super(kov, root, originalResult);

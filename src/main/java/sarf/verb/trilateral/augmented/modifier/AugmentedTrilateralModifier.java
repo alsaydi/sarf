@@ -26,13 +26,13 @@ public class AugmentedTrilateralModifier {
     private AugmentedTrilateralModifier() {
     }
 
-    private static AugmentedTrilateralModifier instance = new AugmentedTrilateralModifier();
+    private static final AugmentedTrilateralModifier instance = new AugmentedTrilateralModifier();
     //الابدال
-    private Substituter substituter = new Substituter();
-    private Geminator geminator = new Geminator();
-    private Vocalizer vocalizer = new Vocalizer();
-    private PreVocalizer preVocalizer = new PreVocalizer();
-    private HamzaModifier hamzaModifier = new HamzaModifier();
+    private final Substituter substituter = new Substituter();
+    private final Geminator geminator = new Geminator();
+    private final Vocalizer vocalizer = new Vocalizer();
+    private final PreVocalizer preVocalizer = new PreVocalizer();
+    private final HamzaModifier hamzaModifier = new HamzaModifier();
 
     public static AugmentedTrilateralModifier getInstance() {
         return instance;

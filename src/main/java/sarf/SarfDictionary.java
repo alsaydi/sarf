@@ -20,7 +20,7 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public class SarfDictionary {
-    private static SarfDictionary instance = new SarfDictionary();
+    private static final SarfDictionary instance = new SarfDictionary();
 
     public static SarfDictionary getInstance() {
         return instance;

@@ -21,8 +21,8 @@ public class ControlButton extends JPanel{
     public static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 24);
     //public static final Font FONT = new Font("Tahoma", Font.PLAIN, 12);
 
-    protected String formulaText;
-    protected JButton button = new JButton();
+    protected final String formulaText;
+    protected final JButton button = new JButton();
 
     public ControlButton(String text) {
         super(new GridLayout(2,1));

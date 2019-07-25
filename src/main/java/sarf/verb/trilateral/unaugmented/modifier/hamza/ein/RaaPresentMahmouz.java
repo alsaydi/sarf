@@ -20,7 +20,7 @@ import sarf.verb.trilateral.*;
  * @version 1.0
  */
 public class RaaPresentMahmouz extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
-    private List substitutions = new ArrayList();
+    private final List substitutions = new ArrayList();
 
     public RaaPresentMahmouz() {
         substitutions.add(new InfixSubstitution("ْءَ","َ"));// EX: (يَرَى)

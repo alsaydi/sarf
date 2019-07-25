@@ -16,8 +16,8 @@ import sarf.noun.GenericNounSuffixContainer;
  * @version 1.0
  */
 public abstract class AugmentedQuadriliteralNoun {
-    protected AugmentedQuadrilateralRoot root;
-    protected String suffix;
+    protected final AugmentedQuadrilateralRoot root;
+    protected final String suffix;
 
     public AugmentedQuadriliteralNoun(AugmentedQuadrilateralRoot root, String suffix) {
         this.root = root;

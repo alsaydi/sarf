@@ -20,8 +20,8 @@ import sarf.verb.quadriliteral.augmented.*;
  */
 public class AbstractAugmentedPresentConjugator {
 
-    private List<String> lastDprList;
-    private List<String> connectedPronounList;
+    private final List<String> lastDprList;
+    private final List<String> connectedPronounList;
 
     public AbstractAugmentedPresentConjugator(List<String> lastDprList, List<String> connectedPronounList) {
         this.lastDprList = lastDprList;

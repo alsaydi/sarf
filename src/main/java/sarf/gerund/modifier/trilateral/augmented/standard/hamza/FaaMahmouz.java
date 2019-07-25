@@ -18,7 +18,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class FaaMahmouz extends AbstractFaaMahmouz {
-    private List<Substitution> substitutions = new LinkedList<>();
+    private final List<Substitution> substitutions = new LinkedList<>();
 
     public FaaMahmouz() {
         substitutions.add(new InfixSubstitution("إِءْ", "إِي")); // EX: (إيثار)

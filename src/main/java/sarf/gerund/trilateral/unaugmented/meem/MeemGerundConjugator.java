@@ -20,10 +20,10 @@ import sarf.gerund.trilateral.unaugmented.IUnaugmentedTrilateralGerundConjugator
  * @version 1.0
  */
 public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjugator {
-    private static MeemGerundConjugator instance = new MeemGerundConjugator();
+    private static final MeemGerundConjugator instance = new MeemGerundConjugator();
 
-    private Map symbolToFormulaNameMap = new HashMap();
-    private Map formulaNameToSymbolMap = new HashMap();
+    private final Map symbolToFormulaNameMap = new HashMap();
+    private final Map formulaNameToSymbolMap = new HashMap();
 
     private MeemGerundConjugator() {
         symbolToFormulaNameMap.put("C","مَفْعَلَة");

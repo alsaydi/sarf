@@ -17,7 +17,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class ActivePresentMahmouz extends AbstractFaaMahmouz {
-    private List<Substitution> substitutions = new ArrayList<Substitution>();
+    private final List<Substitution> substitutions = new ArrayList<Substitution>();
 
     public ActivePresentMahmouz() {
         substitutions.add(new InfixSubstitution("أَءْ", "آ")); // EX: (آكُل)

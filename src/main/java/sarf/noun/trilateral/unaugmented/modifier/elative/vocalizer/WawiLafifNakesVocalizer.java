@@ -22,7 +22,7 @@ import static sarf.KindOfVerb.Naqis_Wawi;
  * @version 1.0
  */
 public class WawiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public WawiLafifNakesVocalizer() {
         substitutions.add(new SuffixSubstitution("َوُ", "َى"));// EX: (هذا الأعلى، )

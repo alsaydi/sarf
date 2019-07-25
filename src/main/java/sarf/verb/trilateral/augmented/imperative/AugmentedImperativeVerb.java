@@ -16,9 +16,9 @@ import sarf.verb.trilateral.augmented.*;
  */
 public abstract class AugmentedImperativeVerb {
 
-    protected AugmentedTrilateralRoot root;
-    protected String lastDim;
-    protected String connectedPronoun;
+    protected final AugmentedTrilateralRoot root;
+    protected final String lastDim;
+    protected final String connectedPronoun;
 
     public AugmentedImperativeVerb(AugmentedTrilateralRoot root, String lastDim, String connectedPronoun) {
         this.root = root;

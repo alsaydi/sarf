@@ -25,7 +25,7 @@ public class MainFrame extends JFrame {
    
 	private static final long serialVersionUID = 1L;
 	JPanel contentPane;
-    BorderLayout borderLayout1 = new BorderLayout();
+    final BorderLayout borderLayout1 = new BorderLayout();
     IntroPane introPane;
     Preferences pref;
 
@@ -118,7 +118,7 @@ public class MainFrame extends JFrame {
 
 
 class MainFrame_this_windowAdapter extends WindowAdapter {
-    private MainFrame adaptee;
+    private final MainFrame adaptee;
     MainFrame_this_windowAdapter(MainFrame adaptee) {
         this.adaptee = adaptee;
     }

@@ -20,7 +20,7 @@ import sarf.verb.trilateral.augmented.modifier.geminator.generic.*;
  * @version 1.0
  */
 public class GenericGeminator implements IAugmentedTrilateralModifier {
-    private Map<String, SubstitutionsApplier> geminators = new HashMap<>();
+    private final Map<String, SubstitutionsApplier> geminators = new HashMap<>();
 
     public GenericGeminator() {
         //خمس أنواع للادغام للمعلوم والمبني لمجهول في الماضي والمضارع والأمر

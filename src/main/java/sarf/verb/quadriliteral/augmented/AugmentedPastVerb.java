@@ -15,9 +15,9 @@ package sarf.verb.quadriliteral.augmented;
  */
 public abstract class AugmentedPastVerb {
 
-    protected AugmentedQuadrilateralRoot root;
-    protected String lastDpa;
-    protected String connectedPronoun;
+    protected final AugmentedQuadrilateralRoot root;
+    protected final String lastDpa;
+    protected final String connectedPronoun;
 
     public AugmentedPastVerb(AugmentedQuadrilateralRoot root, String lastDpa, String connectedPronoun) {
         this.root = root;

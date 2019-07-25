@@ -23,15 +23,15 @@ import sarf.NounSunLamModifier;
  * @version 1.0
  */
 public class UnaugmentedTrilateralStandardGerundModifier extends AbstractLamMahmouz implements IUnaugmentedTrilateralNounModifier{
-    private List<Substitution> substitutions = new ArrayList<>();
-    private String appliedCharactersString = "بتثجحخسشصضطظعغفقكلمنهي";
+    private final List<Substitution> substitutions = new ArrayList<>();
+    private final String appliedCharactersString = "بتثجحخسشصضطظعغفقكلمنهي";
 
     private UnaugmentedTrilateralStandardGerundModifier() {
         substitutions.add(new ExpressionInfixSubstitution("C2ْءًا","C2ْئًا"));// EX: (خِطْئًا)
         substitutions.add(new InfixSubstitution("يءًا","يئًا"));// EX: (مَجِيئًا)
     }
 
-    private static UnaugmentedTrilateralStandardGerundModifier instance = new UnaugmentedTrilateralStandardGerundModifier();
+    private static final UnaugmentedTrilateralStandardGerundModifier instance = new UnaugmentedTrilateralStandardGerundModifier();
 
     public static UnaugmentedTrilateralStandardGerundModifier getInstance() {
         return instance;

@@ -21,7 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class MithalAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new LinkedList<>();
+    private final List<Substitution> substitutions = new LinkedList<>();
 
     public MithalAjwaf1Vocalizer() {
         substitutions.add(new InfixSubstitution("إِوْ","إِي"));// EX: (إيجابٌ)

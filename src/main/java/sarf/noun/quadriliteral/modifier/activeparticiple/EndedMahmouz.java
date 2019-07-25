@@ -20,7 +20,7 @@ import sarf.verb.quadriliteral.substitution.*;
  * @version 1.0
  */
 public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier implements IQuadrilateralModifier {
-    List<Substitution> substitutions = new ArrayList<>();
+    final List<Substitution> substitutions = new ArrayList<>();
 
     public EndedMahmouz() {
         substitutions.add(new InfixSubstitution("ِء","ِئ"));// EX: (مُغَرْقِئٌ، مُحْبَنْطِئٌ)

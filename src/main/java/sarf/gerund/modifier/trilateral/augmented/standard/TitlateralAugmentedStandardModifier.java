@@ -23,15 +23,15 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListen
  * @version 1.0
  */
 public class TitlateralAugmentedStandardModifier {
-    private Geminator geminator = new Geminator();
-    private Vocalizer vocalizer = new Vocalizer();
-    private Mahmouz mahmouz = new Mahmouz();
-    private Substituter substituter = new Substituter();
+    private final Geminator geminator = new Geminator();
+    private final Vocalizer vocalizer = new Vocalizer();
+    private final Mahmouz mahmouz = new Mahmouz();
+    private final Substituter substituter = new Substituter();
 
     private TitlateralAugmentedStandardModifier() {
     }
 
-    private static TitlateralAugmentedStandardModifier instance = new TitlateralAugmentedStandardModifier();
+    private static final TitlateralAugmentedStandardModifier instance = new TitlateralAugmentedStandardModifier();
 
     public static TitlateralAugmentedStandardModifier getInstance() {
         return instance;

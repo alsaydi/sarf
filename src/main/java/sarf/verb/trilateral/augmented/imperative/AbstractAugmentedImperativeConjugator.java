@@ -20,8 +20,8 @@ import sarf.AugmentationFormula;
  */
 public class AbstractAugmentedImperativeConjugator {
 
-    private List lastDimList;
-    private List connectedPronounList;
+    private final List lastDimList;
+    private final List connectedPronounList;
 
     public AbstractAugmentedImperativeConjugator(List lastDimList, List connectedPronounList) {
         this.lastDimList = lastDimList;

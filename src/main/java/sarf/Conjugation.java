@@ -19,7 +19,7 @@ public enum  Conjugation {
     Fifth(5),
     Sixth(6);
 
-    private int value;
+    private final int value;
     Conjugation(int value){
         this.value = value;
     }

@@ -17,17 +17,17 @@ import sarf.util.*;
  * @version 1.0
  */
 public class ElativeSuffixContainer implements INounSuffixContainer{
-    private static ElativeSuffixContainer instance = new ElativeSuffixContainer();
+    private static final ElativeSuffixContainer instance = new ElativeSuffixContainer();
     //حالة المعرفة
-    private ArrayList definiteSuffixList = new ArrayList(18);
+    private final ArrayList definiteSuffixList = new ArrayList(18);
     //جدول تصريف اسم التفضيل المضاف إلى معرفة
-    private ArrayList annexedDefiniteSuffixList = new ArrayList(18);
+    private final ArrayList annexedDefiniteSuffixList = new ArrayList(18);
 
     // جدول تصريف اسم التفضيل المضاف إلى نكرة
-    private ArrayList annexedIndefiniteSuffixList = new ArrayList(18);
+    private final ArrayList annexedIndefiniteSuffixList = new ArrayList(18);
     //جدول تصريف اسم التفضيل غير المضاف
     //notAnnexedSuffixList is same as annexedIndefiniteSuffixList
-    private ArrayList notAnnexedSuffixList = new ArrayList(18);
+    private final ArrayList notAnnexedSuffixList = new ArrayList(18);
 
     //تكون لها قيمة عندما تكون الحالة هي معرفة
     private String prefix = "";

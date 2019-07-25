@@ -16,8 +16,8 @@ import sarf.noun.*;
  * @version 1.0
  */
 public abstract class AugmentedTrilateralNoun {
-    protected AugmentedTrilateralRoot root;
-    protected String suffix;
+    protected final AugmentedTrilateralRoot root;
+    protected final String suffix;
 
     public AugmentedTrilateralNoun(AugmentedTrilateralRoot root, String suffix) {
         this.root = root;

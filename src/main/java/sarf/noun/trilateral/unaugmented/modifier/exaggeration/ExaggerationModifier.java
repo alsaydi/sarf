@@ -23,13 +23,13 @@ import sarf.NounSunLamModifier;
  * @version 1.0
  */
 public class ExaggerationModifier implements IUnaugmentedTrilateralNounModifier{
-    private Vocalizer vocalizer = new Vocalizer();
-    private Mahmouz mahmouz = new Mahmouz();
+    private final Vocalizer vocalizer = new Vocalizer();
+    private final Mahmouz mahmouz = new Mahmouz();
 
     private ExaggerationModifier() {
     }
 
-    private static ExaggerationModifier instance = new ExaggerationModifier();
+    private static final ExaggerationModifier instance = new ExaggerationModifier();
 
     public static ExaggerationModifier getInstance() {
         return instance;

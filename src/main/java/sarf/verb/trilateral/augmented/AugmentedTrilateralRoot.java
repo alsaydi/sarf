@@ -24,7 +24,7 @@ import sarf.verb.trilateral.*;
 public class AugmentedTrilateralRoot extends TrilateralRoot {
 
 	// قائمة صيغ المزيد الممكنة لهذا الجذر
-	private Map<String, AugmentationFormula> augmentations = new HashMap<>();
+	private final Map<String, AugmentationFormula> augmentations = new HashMap<>();
 
 	public AugmentedTrilateralRoot(){
 		super();

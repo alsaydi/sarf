@@ -19,7 +19,7 @@ public class OrderedMap<TKey, TValue> extends HashMap<TKey, TValue> {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected List<TKey> orderedKeys = new LinkedList<>();
+	protected final List<TKey> orderedKeys = new LinkedList<>();
 
     public OrderedMap() {
     }

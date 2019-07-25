@@ -19,7 +19,7 @@ import sarf.verb.quadriliteral.*;
  */
 public class PresentVocalizer extends SubstitutionsApplier implements IQuadrilateralModifier {
 
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public PresentVocalizer() {
         substitutions.add(new SuffixSubstitution("يُ", "ى")); // EX: (يُقَلْسَى، يُتَقَلْسَى، يُسْلَنْقَى)

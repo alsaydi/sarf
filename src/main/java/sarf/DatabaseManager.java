@@ -41,21 +41,21 @@ public class DatabaseManager {
 	private DatabaseManager() {
 	}
 
-	private Map<String, UnaugmentedTrilateralRootTree> tripleUnaugmentedTreeMap = new HashMap<>();
-	private Map<String, AugmentedTrilateralRootTree> tripleAugmentedTreeMap = new HashMap<>();
+	private final Map<String, UnaugmentedTrilateralRootTree> tripleUnaugmentedTreeMap = new HashMap<>();
+	private final Map<String, AugmentedTrilateralRootTree> tripleAugmentedTreeMap = new HashMap<>();
 
-	private Map<String, UnaugmentedQuadriliteralRootTree> quadriliteralUnaugmentedTreeMap = new HashMap<>();
-	private Map<String, AugmentedQuadriliteralRootTree> quadriliteralAugmentedTreeMap = new HashMap<>();
+	private final Map<String, UnaugmentedQuadriliteralRootTree> quadriliteralUnaugmentedTreeMap = new HashMap<>();
+	private final Map<String, AugmentedQuadriliteralRootTree> quadriliteralAugmentedTreeMap = new HashMap<>();
 
-	private Map<String, AssimilateAdjectiveFormulaTree> assimilateAdjectiveMap = new HashMap<>();
-	private Map<String, ElativeNounFormulaTree> elativeNounMap = new HashMap<>();
-	private Map<String, XmlNonStandardInstrumentalNounFormulaTree> instrumentalNounMap = new HashMap<>();
-	private Map<String, XmlTimeAndPlaceNounFormulaTree> timeAndPlaceNounMap = new HashMap<>();
-	private Map<String, XmExaggerationNounFormulaTree> exaggerationNounMap = new HashMap<>();
-	private Map<String, XmlMeemGerundNounFormulaTree> meemGerundMap = new HashMap<>();
-	private Map<String, Map<String, XmlNounFormulaTree>> allNounsTreeMap = new HashMap<>();
+	private final Map<String, AssimilateAdjectiveFormulaTree> assimilateAdjectiveMap = new HashMap<>();
+	private final Map<String, ElativeNounFormulaTree> elativeNounMap = new HashMap<>();
+	private final Map<String, XmlNonStandardInstrumentalNounFormulaTree> instrumentalNounMap = new HashMap<>();
+	private final Map<String, XmlTimeAndPlaceNounFormulaTree> timeAndPlaceNounMap = new HashMap<>();
+	private final Map<String, XmExaggerationNounFormulaTree> exaggerationNounMap = new HashMap<>();
+	private final Map<String, XmlMeemGerundNounFormulaTree> meemGerundMap = new HashMap<>();
+	private final Map<String, Map<String, XmlNounFormulaTree>> allNounsTreeMap = new HashMap<>();
 
-	private static DatabaseManager instance = new DatabaseManager();
+	private static final DatabaseManager instance = new DatabaseManager();
 
 	public static DatabaseManager getInstance() {
 		return instance;

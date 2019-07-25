@@ -21,7 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class MithalAjwaf4Vocalizer extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public MithalAjwaf4Vocalizer() {
         substitutions.add(new InfixSubstitution("ْوَا","َا"));// EX: (إجابة، استجابة)

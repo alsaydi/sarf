@@ -20,7 +20,7 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class Present4Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public Present4Vocalizer() {
         substitutions.add(new SuffixSubstitution("ِيُ","ِي"));// EX: (يُذْوِي، يداوي، ينزوي، يحتوي، يستهوي)

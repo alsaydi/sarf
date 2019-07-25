@@ -23,7 +23,7 @@ import sarf.verb.quadriliteral.*;
 public class AugmentedQuadrilateralRoot extends QuadrilateralRoot{
 
     //قائمة صيغ المزيد الممكنة لهذا الجذر
-    private Map<String, AugmentationFormula> augmentations = new HashMap<>();
+    private final Map<String, AugmentationFormula> augmentations = new HashMap<>();
 
     public AugmentedQuadrilateralRoot() {
     }

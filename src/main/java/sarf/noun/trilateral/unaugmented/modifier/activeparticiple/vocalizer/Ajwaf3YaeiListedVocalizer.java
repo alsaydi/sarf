@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Ajwaf3YaeiListedVocalizer extends AbstractAjwafYaeiListedVocalizer implements IUnaugmentedTrilateralNounModificationApplier {
-    private List<Substitution> substitutions = new LinkedList<Substitution>();
+    private final List<Substitution> substitutions = new LinkedList<Substitution>();
 
     public Ajwaf3YaeiListedVocalizer() {
         substitutions.add(new InfixSubstitution("ايِ", "ائِ")); // EX: (بائِعٌ)
@@ -31,7 +31,7 @@ public class Ajwaf3YaeiListedVocalizer extends AbstractAjwafYaeiListedVocalizer 
         return substitutions;
     }
 
-    private static List<String> appliedProunounsIndecies = new ArrayList<String>(18);
+    private static final List<String> appliedProunounsIndecies = new ArrayList<String>(18);
     static {
         for (int i = 0; i < 18; i++) {
             appliedProunounsIndecies.add(i + 1 + "");

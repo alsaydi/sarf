@@ -19,7 +19,7 @@ import sarf.verb.trilateral.*;
  * @version 1.0
  */
 public class RaaPastMahmouz extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-    private List substitutions = new ArrayList();
+    private final List substitutions = new ArrayList();
 
     public RaaPastMahmouz() {
         substitutions.add(new InfixSubstitution("ْءَ","َ"));// EX: (أرَيْتُ، أرَيْنا، )

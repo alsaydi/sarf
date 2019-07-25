@@ -19,7 +19,7 @@ import sarf.verb.quadriliteral.substitution.SubstitutionsApplier;
  */
 public class Vocalizer {
     //المعلوم  و  المجهول تحتوي قائمة بالأنواع الخمسة لاعلال لماضي والمضارع والأمر حسب
-    private Map modifiersMap = new HashMap();
+    private final Map modifiersMap = new HashMap();
 
     public Vocalizer() {
         List activePastList = new LinkedList();

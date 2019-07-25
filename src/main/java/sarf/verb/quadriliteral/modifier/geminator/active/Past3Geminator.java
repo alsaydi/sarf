@@ -19,7 +19,7 @@ import sarf.verb.quadriliteral.*;
  */
 public class Past3Geminator extends SubstitutionsApplier implements IQuadrilateralModifier {
 
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public Past3Geminator() {
         substitutions.add(new InfixSubstitution("نْنَ","نَّ"));// EX: (نحن طَمْأنَّا، هنَّ طَمْأنَّ)

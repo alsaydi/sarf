@@ -16,7 +16,7 @@ import java.util.*;
  */
 public class XmlNounFormulaTree {
 
-    private List formulas = new LinkedList();
+    private final List formulas = new LinkedList();
 
     public XmlNounFormulaTree() {
     }

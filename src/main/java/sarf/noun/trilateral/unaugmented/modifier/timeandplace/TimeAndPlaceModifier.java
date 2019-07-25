@@ -23,14 +23,14 @@ import sarf.NounSunLamModifier;
  * @version 1.0
  */
 public class TimeAndPlaceModifier implements IUnaugmentedTrilateralNounModifier{
-    private Geminator geminator = new Geminator();
-    private Vocalizer vocalizer = new Vocalizer();
-    private Mahmouz mahmouz = new Mahmouz();
+    private final Geminator geminator = new Geminator();
+    private final Vocalizer vocalizer = new Vocalizer();
+    private final Mahmouz mahmouz = new Mahmouz();
 
     private TimeAndPlaceModifier() {
     }
 
-    private static TimeAndPlaceModifier instance = new TimeAndPlaceModifier();
+    private static final TimeAndPlaceModifier instance = new TimeAndPlaceModifier();
 
     public static TimeAndPlaceModifier getInstance() {
         return instance;

@@ -22,7 +22,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class WawiLafifNakes2Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public WawiLafifNakes2Vocalizer() {
         substitutions.add(new InfixSubstitution("ُوو","ِيّ"));// EX: (مَرْضِيّ , مسوِيٌّ)

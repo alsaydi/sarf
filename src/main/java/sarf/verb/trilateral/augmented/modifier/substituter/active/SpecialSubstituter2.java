@@ -20,7 +20,7 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @version 1.0
  */
 public class SpecialSubstituter2 extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public SpecialSubstituter2() {
         substitutions.add(new InfixSubstitution("يْتَ","تَّ"));// EX: (اتَّسَرَ، يَتَّسِرُ، اتَّسِرْ)

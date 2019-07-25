@@ -15,7 +15,7 @@ import java.util.*;
  * @version 1.0
  */
 public class UnaugmentedQuadriliteralRootTree {
-    private List roots = new LinkedList();
+    private final List roots = new LinkedList();
 
     public UnaugmentedQuadriliteralRootTree() {
     }

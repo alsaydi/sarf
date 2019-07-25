@@ -16,9 +16,9 @@ import sarf.verb.quadriliteral.augmented.*;
  */
 public abstract class AugmentedImperativeVerb {
 
-    protected AugmentedQuadrilateralRoot root;
-    protected String lastDim;
-    protected String connectedPronoun;
+    protected final AugmentedQuadrilateralRoot root;
+    protected final String lastDim;
+    protected final String connectedPronoun;
 
     public AugmentedImperativeVerb(AugmentedQuadrilateralRoot root, String lastDim, String connectedPronoun) {
         this.root = root;

@@ -4,11 +4,11 @@ import java.io.*;
 
 public class DefaultXmlElement implements XmlElement {
 
-    private String name;
+    private final String name;
     private boolean closed = false;
     private int tabCount = 0;
 
-    private PrintStream out;
+    private final PrintStream out;
     private boolean closedStartTag;
 
     DefaultXmlElement(String name, PrintStream out) {

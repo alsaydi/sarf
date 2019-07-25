@@ -18,7 +18,7 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class GenericSubstituter8 extends AbstractGenericSubstituter {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public GenericSubstituter8() {
         substitutions.add(new InfixSubstitution("ظْت","ظْط"));// EX: (اظْطُلِمَ)

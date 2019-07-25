@@ -17,7 +17,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class ImperativeMahmouz extends AbstractLamMahmouz {
-    private List substitutions = new ArrayList();
+    private final List substitutions = new ArrayList();
 
     public ImperativeMahmouz() {
         substitutions.add(new InfixSubstitution("َءْ","َأْ"));// EX: (ابدَأْ، دَأَ [داء]، شَأْ [شاء])

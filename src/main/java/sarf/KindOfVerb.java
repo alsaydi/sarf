@@ -43,7 +43,7 @@ public enum KindOfVerb {
     Lafeef_Mafrooq(30); /* لفيف مفروق -- وسى ؟ */
 
 
-    private int value;
+    private final int value;
     KindOfVerb(int value){
         this.value = value;
     }

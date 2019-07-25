@@ -21,7 +21,7 @@ public class StandardExaggerationConjugator implements IUnaugmentedTrilateralNou
     private StandardExaggerationConjugator() {
     }
 
-    private static StandardExaggerationConjugator instance = new StandardExaggerationConjugator();
+    private static final StandardExaggerationConjugator instance = new StandardExaggerationConjugator();
 
     public static StandardExaggerationConjugator getInstance() {
         return instance;
@@ -37,7 +37,7 @@ public class StandardExaggerationConjugator implements IUnaugmentedTrilateralNou
         return result;
     }
 
-    static List formulas = new ArrayList(1);
+    static final List formulas = new ArrayList(1);
     static {
         formulas.add("فَعَّال");
     }

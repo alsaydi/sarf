@@ -14,11 +14,11 @@ package sarf.verb.quadriliteral.augmented;
  */
 public abstract class AugmentedPresentVerb {
 
-    protected AugmentedQuadrilateralRoot root;
-    protected String lastDpr;
-    protected String connectedPronoun;
+    protected final AugmentedQuadrilateralRoot root;
+    protected final String lastDpr;
+    protected final String connectedPronoun;
     //حرف المضارع
-    protected String cp;
+    protected final String cp;
 
     public AugmentedPresentVerb(AugmentedQuadrilateralRoot root, String cp, String lastDpr, String connectedPronoun) {
         this.root = root;

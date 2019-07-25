@@ -19,7 +19,7 @@ import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
  * @version 1.0
  */
 public class Ajwaf3WawiListedVocalizer extends AbstractAjwafWawiListedVocalizer implements IUnaugmentedTrilateralNounModificationApplier{
-    private List<Substitution> substitutions = new LinkedList<Substitution>();
+    private final List<Substitution> substitutions = new LinkedList<Substitution>();
 
     public Ajwaf3WawiListedVocalizer() {
         substitutions.add(new InfixSubstitution("اوِ","ائِ"));// EX: (قائِمٌ)
@@ -29,7 +29,7 @@ public class Ajwaf3WawiListedVocalizer extends AbstractAjwafWawiListedVocalizer 
         return substitutions;
     }
 
-    private static List<String> appliedProunounsIndecies = new ArrayList<String>(18);
+    private static final List<String> appliedProunounsIndecies = new ArrayList<String>(18);
     static {
         for (int i=0; i<18; i++) {
             appliedProunounsIndecies.add(i+1 +"");

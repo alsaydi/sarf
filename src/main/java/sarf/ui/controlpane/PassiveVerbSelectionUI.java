@@ -28,11 +28,11 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListen
 public class PassiveVerbSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
     private SelectionInfo selectionInfo;
 
-    ToggleRenderedButton pastBtn = new ToggleRenderedButton("الماضي المجهول ");
-    ToggleRenderedButton presentNominativeBtn = new ToggleRenderedButton("المضارع المرفوع المجهول ");
-    ToggleRenderedButton presentAccusativeBtn = new ToggleRenderedButton("المضارع المنصوب المجهول ");
-    ToggleRenderedButton presentJussiveBtn = new ToggleRenderedButton("المضارع المجزوم المجهول ");
-    ToggleRenderedButton presentEmphasizedBtn = new ToggleRenderedButton("المضارع المؤكد المجهول ");
+    final ToggleRenderedButton pastBtn = new ToggleRenderedButton("الماضي المجهول ");
+    final ToggleRenderedButton presentNominativeBtn = new ToggleRenderedButton("المضارع المرفوع المجهول ");
+    final ToggleRenderedButton presentAccusativeBtn = new ToggleRenderedButton("المضارع المنصوب المجهول ");
+    final ToggleRenderedButton presentJussiveBtn = new ToggleRenderedButton("المضارع المجزوم المجهول ");
+    final ToggleRenderedButton presentEmphasizedBtn = new ToggleRenderedButton("المضارع المؤكد المجهول ");
 
 
     public PassiveVerbSelectionUI() {

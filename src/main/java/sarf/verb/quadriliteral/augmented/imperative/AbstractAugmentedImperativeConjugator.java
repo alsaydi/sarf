@@ -18,8 +18,8 @@ import sarf.verb.quadriliteral.augmented.*;
  */
 public class AbstractAugmentedImperativeConjugator {
 
-    private List<String> lastDimList;
-    private List<String> connectedPronounList;
+    private final List<String> lastDimList;
+    private final List<String> connectedPronounList;
 
     public AbstractAugmentedImperativeConjugator(List<String> lastDimList, List<String> connectedPronounList) {
         this.lastDimList = lastDimList;

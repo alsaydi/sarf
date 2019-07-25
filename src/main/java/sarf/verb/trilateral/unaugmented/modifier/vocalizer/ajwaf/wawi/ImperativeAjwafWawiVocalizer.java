@@ -18,7 +18,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
  * @version 1.0
  */
 public class ImperativeAjwafWawiVocalizer extends AbstractAjwafWawiVocalizer {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public ImperativeAjwafWawiVocalizer() {
         substitutions.add(new ExpressionInfixSubstitution("اC1ْوُC3ُ","C1ُوC3ُ"));// EX: (قُومُوا، قُومُنَّ، بوءوا، أوبوا)

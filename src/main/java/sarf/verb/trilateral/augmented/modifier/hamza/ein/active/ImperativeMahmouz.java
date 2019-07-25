@@ -19,7 +19,7 @@ import sarf.verb.trilateral.augmented.modifier.hamza.ein.*;
  */
 public class ImperativeMahmouz extends AbstractEinMahmouz {
 
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public ImperativeMahmouz() {
         substitutions.add(new InfixSubstitution("وْءُ","وْءُ"));// EX: (اسْتَوْءُوا)

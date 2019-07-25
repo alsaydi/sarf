@@ -19,7 +19,7 @@ public class GerundDescription {
     private String pattern;
     private boolean feminine = false;
 
-    private static List femininPatterns = new LinkedList();
+    private static final List femininPatterns = new LinkedList();
     static {
         femininPatterns.add("فَعْلَى");
         femininPatterns.add("فُعْلَى");

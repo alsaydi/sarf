@@ -14,9 +14,9 @@ package sarf.verb.trilateral.augmented;
  */
 public abstract class AugmentedPastVerb {
 
-    protected AugmentedTrilateralRoot root;
-    protected String lastDpa;
-    protected String connectedPronoun;
+    protected final AugmentedTrilateralRoot root;
+    protected final String lastDpa;
+    protected final String connectedPronoun;
 
     public AugmentedPastVerb(AugmentedTrilateralRoot root, String lastDpa, String connectedPronoun) {
         this.root = root;

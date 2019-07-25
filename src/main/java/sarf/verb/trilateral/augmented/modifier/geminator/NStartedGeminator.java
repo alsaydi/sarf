@@ -20,7 +20,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @version 1.0
  */
 public class NStartedGeminator extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public NStartedGeminator() {
         substitutions.add(new InfixSubstitution("نْن","نّ"));// EX: (انَّمَسَ)

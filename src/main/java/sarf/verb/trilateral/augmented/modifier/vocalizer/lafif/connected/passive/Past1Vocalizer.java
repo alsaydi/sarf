@@ -20,7 +20,7 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public Past1Vocalizer() {
         substitutions.add(new InfixSubstitution("ِيُ", "ُ"));// EX: (أُحْيُوا، أُذْوُوا، دُووُوا، حُويُوا، انزُوُوا، احتُوُوا، تُدُووُوا، استُهْوُوا)

@@ -19,13 +19,13 @@ import java.util.*;
  * @version 1.0
  */
 public class ConjugationResult<T> {
-    protected KindOfVerb kov;
-    protected UnaugmentedTrilateralRoot root;
+    protected final KindOfVerb kov;
+    protected final UnaugmentedTrilateralRoot root;
 
     //13 conjugated verbs
-    private List<T> originalResult;
+    private final List<T> originalResult;
     //القائمة بعد  الادغام والاعلال والهمزة
-    private List<T> finalResult;
+    private final List<T> finalResult;
 
     public ConjugationResult(KindOfVerb kov, UnaugmentedTrilateralRoot root, List<T> originalResult) {
         this.kov = kov;

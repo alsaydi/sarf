@@ -21,8 +21,8 @@ public class Substituter {
 
     //حسب التحليل فإن الماضي والمضارع والأمر تشترك في الابدال للمعلوم
     //ولكن للمجهول يختلف فقط الماضي أما المضارع فهو نفسه في المعلوم
-    private List<SubstitutionsApplier> activeList = new LinkedList<>();
-    private List<SubstitutionsApplier> passiveList = new LinkedList<>();
+    private final List<SubstitutionsApplier> activeList = new LinkedList<>();
+    private final List<SubstitutionsApplier> passiveList = new LinkedList<>();
 
 
     Substituter() {

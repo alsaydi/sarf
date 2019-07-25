@@ -16,7 +16,7 @@ import java.util.*;
  */
 public class AssimilateAdjectiveFormulaTree {
 
-    private List<AssimilateAdjectiveFormula> formulas = new ArrayList<>();
+    private final List<AssimilateAdjectiveFormula> formulas = new ArrayList<>();
 
     public AssimilateAdjectiveFormulaTree() {
     }

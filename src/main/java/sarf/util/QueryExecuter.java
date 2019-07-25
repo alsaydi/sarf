@@ -4,7 +4,7 @@ import java.sql.*;
 //تنفيذ استعلامات على قاعدة المعطيات
 public class QueryExecuter {
 
-    private Connection connection;
+    private final Connection connection;
 
     public QueryExecuter(String dbName) {
         connection = ConnectionManager.getInstance().createNewConnection(dbName);

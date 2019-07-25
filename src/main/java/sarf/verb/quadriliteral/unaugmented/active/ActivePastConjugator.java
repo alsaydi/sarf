@@ -21,7 +21,7 @@ public class ActivePastConjugator {
     private ActivePastConjugator() {
     }
 
-    private static ActivePastConjugator instance = new ActivePastConjugator();
+    private static final ActivePastConjugator instance = new ActivePastConjugator();
 
     public static ActivePastConjugator getInstance() {
         return instance;

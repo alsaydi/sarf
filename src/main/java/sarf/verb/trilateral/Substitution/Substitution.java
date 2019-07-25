@@ -15,8 +15,8 @@ import sarf.verb.trilateral.*;
  * @version 1.0
  */
 public abstract class Substitution {
-    protected String segment;
-    protected String result;
+    protected final String segment;
+    protected final String result;
 
     public Substitution(String segment, String result) {
         this.segment = segment;

@@ -17,7 +17,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
  * @version 1.0
  */
 public class ActivePastAjwafWawiListedVocalizer extends AbstractAjwafWawiListedVocalizer {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public ActivePastAjwafWawiListedVocalizer() {
         substitutions.add(new ExpressionInfixSubstitution("َوِC3ْ","ِC3ْ"));// EX: ( بِهْتُ، دِئْتُ)

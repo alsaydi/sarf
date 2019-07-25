@@ -22,7 +22,7 @@ import static sarf.KindOfVerb.Mahmouz_Faa_Mahmouz_Laam;
  * @version 1.0
  */
 public class PostHamzaModifier {
-    private Map<String, AbstractLamMahmouz> modifiersMap = new HashMap<>();
+    private final Map<String, AbstractLamMahmouz> modifiersMap = new HashMap<>();
 
     public PostHamzaModifier() {
         //خمس أنواع  أساسية  للمهموز للمعلوم والمبني لمجهول في الماضي والمضارع والأمر

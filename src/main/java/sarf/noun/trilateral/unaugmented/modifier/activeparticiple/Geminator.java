@@ -18,7 +18,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class Geminator extends AbstractGeminator {
-    List<Substitution> substitutions = new ArrayList<>();
+    final List<Substitution> substitutions = new ArrayList<>();
 
     public Geminator() {
         substitutions.add(new ExpressionInfixSubstitution("اC3ِC3","اC3ّ"));// EX: (مادٌّ، مادًّا، مادٍّ، مادَّةٌ، مادُّون، مادِّينَ)

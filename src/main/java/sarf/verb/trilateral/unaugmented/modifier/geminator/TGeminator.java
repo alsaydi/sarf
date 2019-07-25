@@ -25,8 +25,8 @@ import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
  * @version 1.0
  */
 public class TGeminator extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier{
-    private List<Substitution> substitutions = new ArrayList<>();
-    private List<String> appliedPronounsIndecies = new ArrayList<>(6);
+    private final List<Substitution> substitutions = new ArrayList<>();
+    private final List<String> appliedPronounsIndecies = new ArrayList<>(6);
 
     public TGeminator() {
         substitutions.add(new InfixSubstitution("تْتُ", "تُّ"));

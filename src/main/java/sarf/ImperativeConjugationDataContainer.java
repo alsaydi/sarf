@@ -16,17 +16,17 @@ public class ImperativeConjugationDataContainer {
 
     //قائمة حركات عين الفعل حسب باب التصريف
     //الأمر غير المؤكد
-    private List<String> lastDimList = new ArrayList<>(13);
+    private final List<String> lastDimList = new ArrayList<>(13);
     //الأمر المؤكد
-    private List<String> emphasizedLastDimList = new ArrayList<>(13);
+    private final List<String> emphasizedLastDimList = new ArrayList<>(13);
 
     //قائمة ضمائر الرفع المتصلة
     //الأمر غير المؤكد
-    private List<String> connectedPronounList = new ArrayList<>(13);
+    private final List<String> connectedPronounList = new ArrayList<>(13);
     //الأمر المؤكد
-    private List<String> emphasizedConnectedPronounList = new ArrayList<>(13);
+    private final List<String> emphasizedConnectedPronounList = new ArrayList<>(13);
 
-    private static ImperativeConjugationDataContainer instance = new ImperativeConjugationDataContainer();
+    private static final ImperativeConjugationDataContainer instance = new ImperativeConjugationDataContainer();
 
     public static ImperativeConjugationDataContainer getInstance() {
         return instance;

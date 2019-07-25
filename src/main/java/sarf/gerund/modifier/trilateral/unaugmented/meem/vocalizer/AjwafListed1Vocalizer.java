@@ -19,7 +19,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class AjwafListed1Vocalizer extends AbstractAjwafYaeiListedVocalizer implements IUnaugmentedTrilateralNounModificationApplier{
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public AjwafListed1Vocalizer() {
         substitutions.add(new InfixSubstitution("ْيِ","ِي"));// EX: ( مَبِيع، )
@@ -30,7 +30,7 @@ public class AjwafListed1Vocalizer extends AbstractAjwafYaeiListedVocalizer impl
         return substitutions;
     }
 
-    private static List<String> appliedProunounsIndecies = new ArrayList<String>(18);
+    private static final List<String> appliedProunounsIndecies = new ArrayList<String>(18);
     static {
         for (int i=0; i<18; i++) {
             appliedProunounsIndecies.add(i+1 +"");

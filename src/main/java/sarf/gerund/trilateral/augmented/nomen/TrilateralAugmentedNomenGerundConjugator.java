@@ -17,10 +17,10 @@ import java.util.*;
  * @version 1.0
  */
 public class TrilateralAugmentedNomenGerundConjugator {
-    private static TrilateralAugmentedNomenGerundConjugator instance = new TrilateralAugmentedNomenGerundConjugator();
-    private Map<String, TrilateralAugmentedNomenGerund> gerundClassMap = new HashMap<>();
+    private static final TrilateralAugmentedNomenGerundConjugator instance = new TrilateralAugmentedNomenGerundConjugator();
+    private final Map<String, TrilateralAugmentedNomenGerund> gerundClassMap = new HashMap<>();
 
-    private int[] indexArray = {2, 4, 6, 8, 10, 12, 14, 16, 18};
+    private final int[] indexArray = {2, 4, 6, 8, 10, 12, 14, 16, 18};
 
     private TrilateralAugmentedNomenGerundConjugator() {
         for (int i = 1; i <= 12; i++) {

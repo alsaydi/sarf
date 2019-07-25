@@ -15,10 +15,10 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public class ActivePresentVerb {
-    private UnaugmentedTrilateralRoot root;
+    private final UnaugmentedTrilateralRoot root;
 
     //حرف المضارع
-    private String cp;
+    private final String cp;
 
     //حركة حرف المضارع وهي دائماًً  فتحة
     private static final String vcp = ArabCharUtil.FATHA;
@@ -27,13 +27,13 @@ public class ActivePresentVerb {
     private static final String dpr1 = ArabCharUtil.SKOON;
 
     //حركة عين الفعل حسب باب التصريف
-    private String dpr2;
+    private final String dpr2;
 
     //حركة لام الفعل حسب الضمير
-    private String lastDpr;
+    private final String lastDpr;
 
     //الأحرف المضافة لنهاية الفعل حسب الضمير
-    private String connectedPronoun;
+    private final String connectedPronoun;
 
     public ActivePresentVerb(UnaugmentedTrilateralRoot root, String cp, String dpr2, String lastDpr, String connectedPronoun) {
         this.root = root;

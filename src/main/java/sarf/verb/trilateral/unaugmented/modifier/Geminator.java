@@ -20,11 +20,11 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  */
 public class Geminator {
     //ادغام العام
-    private GenericGeminator genericGeminator = new GenericGeminator();
+    private final GenericGeminator genericGeminator = new GenericGeminator();
     //ادغام المنتهي بحرف النون
-    private NGeminator nGeminator = new NGeminator();
+    private final NGeminator nGeminator = new NGeminator();
     //ادغام المنتهي بحرف التاء
-    private TGeminator tGeminator = new TGeminator();
+    private final TGeminator tGeminator = new TGeminator();
 
     public Geminator() {
     }

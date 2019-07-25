@@ -17,13 +17,13 @@ import java.util.*;
  * @version 1.0
  */
 public class ConjugationResult {
-    private int formulaNo;
-    private QuadrilateralRoot root;
-    private KindOfVerb kov;
+    private final int formulaNo;
+    private final QuadrilateralRoot root;
+    private final KindOfVerb kov;
 
-    private List<String> originalResult;
+    private final List<String> originalResult;
     //القائمة بعد  الادغام والاعلال والهمزة
-    private List<String> finalResult;
+    private final List<String> finalResult;
 
     public ConjugationResult(int formulaNo, KindOfVerb kov, QuadrilateralRoot root, List<String> originalResult) {
         this.formulaNo = formulaNo;

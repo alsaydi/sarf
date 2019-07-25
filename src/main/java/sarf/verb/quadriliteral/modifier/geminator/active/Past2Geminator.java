@@ -19,7 +19,7 @@ import sarf.verb.quadriliteral.*;
  */
 public class Past2Geminator extends SubstitutionsApplier implements IQuadrilateralModifier {
 
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public Past2Geminator() {
         substitutions.add(new InfixSubstitution("تْتُ", "تُّ")); // EX: (أنا كَبْرَتُّ)

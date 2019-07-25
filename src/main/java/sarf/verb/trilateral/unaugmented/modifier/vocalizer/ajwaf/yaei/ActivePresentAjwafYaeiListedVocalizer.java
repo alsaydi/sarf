@@ -19,7 +19,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.AbstractAjwafYa
  * @version 1.0
  */
 public class ActivePresentAjwafYaeiListedVocalizer extends AbstractAjwafYaeiListedVocalizer  {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public ActivePresentAjwafYaeiListedVocalizer() {
         substitutions.add(new ExpressionInfixSubstitution("ْيَC3ُ", "َاC3ُ"));

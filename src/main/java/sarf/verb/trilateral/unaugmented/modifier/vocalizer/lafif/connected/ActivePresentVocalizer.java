@@ -21,7 +21,7 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  * @version 1.0
  */
 public class ActivePresentVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public ActivePresentVocalizer() {
         substitutions.add(new SuffixSubstitution("ِيُ","ِي"));// EX: (يَشوي)

@@ -32,33 +32,33 @@ import sarf.verb.trilateral.unaugmented.*;
 public class ControlPaneContainer extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private Map<String, IControlPane> controlPaneMap = new HashMap<>();
-    private JButton startBtn = new RenderedButton("أدخل جذراً ثلاثياً أو رباعياً");
-    private JButton backBtn = new RenderedButton("عودة");
-    private JTextField rootFld = new JTextField(5);
-    private JPanel container = new JPanel(new BorderLayout());
+	private final Map<String, IControlPane> controlPaneMap = new HashMap<>();
+    private final JButton startBtn = new RenderedButton("أدخل جذراً ثلاثياً أو رباعياً");
+    private final JButton backBtn = new RenderedButton("عودة");
+    private final JTextField rootFld = new JTextField(5);
+    private final JPanel container = new JPanel(new BorderLayout());
 
-    private JPanel resultPane = new JPanel(new BorderLayout());
+    private final JPanel resultPane = new JPanel(new BorderLayout());
     private Preferences pref;
 
     //store the opened panels so you can go back and forward
-    private List<IControlPane> panelCashSet = new LinkedList<IControlPane>();
+    private final List<IControlPane> panelCashSet = new LinkedList<IControlPane>();
     //used a s a reference to the current panel for the back-forward
     private IControlPane currentControlPane;
-    private JTextField kovFld = new JTextField(14);
-    private JTextField transitiveTypeFld = new JTextField(8);
+    private final JTextField kovFld = new JTextField(14);
+    private final JTextField transitiveTypeFld = new JTextField(8);
     private KindOfVerb kov;
-    private JMenuBar menuBar = new JMenuBar();
-    private JMenuItem backMnuItm = new JMenuItem("عودة");
-    private JMenuItem help1MnuItm = new JMenuItem("قواعد النحو والصرف");
-    private JMenuItem help2MnuItm = new JMenuItem("دليل الاستعمال");
-    private JMenuItem help3MnuItm = new JMenuItem("تعريف بالنظام");
-    private JMenuItem saveMnuItm = new JMenuItem("حفظ الجدول");
-    private JMenuItem aboutMnuItm = new JMenuItem("حول البرنامج");
-    private JMenuItem showIntroMnuItm = new JCheckBoxMenuItem("إظهار الشاشة التقديمية");
-    private JMenuItem exitMnuItm = new JMenuItem("خروج");
+    private final JMenuBar menuBar = new JMenuBar();
+    private final JMenuItem backMnuItm = new JMenuItem("عودة");
+    private final JMenuItem help1MnuItm = new JMenuItem("قواعد النحو والصرف");
+    private final JMenuItem help2MnuItm = new JMenuItem("دليل الاستعمال");
+    private final JMenuItem help3MnuItm = new JMenuItem("تعريف بالنظام");
+    private final JMenuItem saveMnuItm = new JMenuItem("حفظ الجدول");
+    private final JMenuItem aboutMnuItm = new JMenuItem("حول البرنامج");
+    private final JMenuItem showIntroMnuItm = new JCheckBoxMenuItem("إظهار الشاشة التقديمية");
+    private final JMenuItem exitMnuItm = new JMenuItem("خروج");
 
-    private JTextField verbTxtFld = new JTextField(8);
+    private final JTextField verbTxtFld = new JTextField(8);
 
     private String kovText;
 
@@ -520,7 +520,7 @@ public class ControlPaneContainer extends JPanel {
     }
 
 
-    private static ControlPaneContainer instance = new ControlPaneContainer();
+    private static final ControlPaneContainer instance = new ControlPaneContainer();
 
     public static ControlPaneContainer getInstance() {
         return instance;

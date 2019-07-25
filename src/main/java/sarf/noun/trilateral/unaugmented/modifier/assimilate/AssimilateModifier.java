@@ -23,15 +23,15 @@ import sarf.NounSunLamModifier;
  * @version 1.0
  */
 public class AssimilateModifier implements IUnaugmentedTrilateralNounModifier{
-    private Substituter substituter = new Substituter();
-    private Geminator geminator = new Geminator();
-    private Vocalizer vocalizer = new Vocalizer();
-    private Mahmouz mahmouz = new Mahmouz();
+    private final Substituter substituter = new Substituter();
+    private final Geminator geminator = new Geminator();
+    private final Vocalizer vocalizer = new Vocalizer();
+    private final Mahmouz mahmouz = new Mahmouz();
 
     private AssimilateModifier() {
     }
 
-    private static AssimilateModifier instance = new AssimilateModifier();
+    private static final AssimilateModifier instance = new AssimilateModifier();
 
     public static AssimilateModifier getInstance() {
         return instance;

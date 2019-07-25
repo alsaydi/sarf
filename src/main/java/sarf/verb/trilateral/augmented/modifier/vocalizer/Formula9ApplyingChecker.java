@@ -14,8 +14,8 @@ import java.util.*;
  * @version 1.0
  */
 public class Formula9ApplyingChecker extends IFormulaApplyingChecker{
-    private List twoStateList = new LinkedList();
-    private List notVocalizedList = new LinkedList();
+    private final List twoStateList = new LinkedList();
+    private final List notVocalizedList = new LinkedList();
 
     public Formula9ApplyingChecker() {
         twoStateList.add("جوب");

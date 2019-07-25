@@ -21,7 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  */
 public class Geminator0 extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
 
-    private List<Substitution> substitutions = new LinkedList<>();
+    private final List<Substitution> substitutions = new LinkedList<>();
 
     public Geminator0() {
         substitutions.add(new InfixSubstitution("ْيِييَ","ِيَّ"));// EX: (تحيَّة)

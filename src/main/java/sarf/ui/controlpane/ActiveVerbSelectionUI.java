@@ -29,13 +29,13 @@ import sarf.verb.trilateral.unaugmented.active.ActivePastVerb;
 public class ActiveVerbSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
     private SelectionInfo selectionInfo;
 
-    private ToggleRenderedButton pastBtn = new ToggleRenderedButton("الماضي");
-    private ToggleRenderedButton presentNominativeBtn = new ToggleRenderedButton("المضارع المرفوع");
-    private ToggleRenderedButton presentAccusativeBtn = new ToggleRenderedButton("المضارع المنصوب");
-    private ToggleRenderedButton presentJussiveBtn = new ToggleRenderedButton("المضارع المجزوم");
-    private ToggleRenderedButton presentEmphasizedBtn = new ToggleRenderedButton("المضارع المؤكد");
-    private ToggleRenderedButton imperativeBtn = new ToggleRenderedButton("الأمر");
-    private ToggleRenderedButton imperativeEmphasizedBtn = new ToggleRenderedButton("الأمر المؤكد");
+    private final ToggleRenderedButton pastBtn = new ToggleRenderedButton("الماضي");
+    private final ToggleRenderedButton presentNominativeBtn = new ToggleRenderedButton("المضارع المرفوع");
+    private final ToggleRenderedButton presentAccusativeBtn = new ToggleRenderedButton("المضارع المنصوب");
+    private final ToggleRenderedButton presentJussiveBtn = new ToggleRenderedButton("المضارع المجزوم");
+    private final ToggleRenderedButton presentEmphasizedBtn = new ToggleRenderedButton("المضارع المؤكد");
+    private final ToggleRenderedButton imperativeBtn = new ToggleRenderedButton("الأمر");
+    private final ToggleRenderedButton imperativeEmphasizedBtn = new ToggleRenderedButton("الأمر المؤكد");
 
 
     public ActiveVerbSelectionUI() {

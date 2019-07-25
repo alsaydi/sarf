@@ -28,10 +28,10 @@ import java.io.FileNotFoundException;
  */
 public class NounConjugationUI extends APanel implements NounStateSelectionUIListener ,IHtmlContentSaver  {
 
-    private JPanel conjugationPane;
-    private JPanel headerPane;
+    private final JPanel conjugationPane;
+    private final JPanel headerPane;
     List dataFieldsList;
-    private String title;
+    private final String title;
 
     public NounConjugationUI(sarf.Action sarfAction, INounSuffixContainer nounSuffixContainer, String title) {
         setFont(VerbConjugationUI.FONT);
@@ -223,7 +223,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
 
 
     class StatePanel extends JPanel {
-        List labelList = new ArrayList(6);
+        final List labelList = new ArrayList(6);
 
         StatePanel(boolean isHeader) {
             setFont(VerbConjugationUI.FONT);

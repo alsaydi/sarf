@@ -21,7 +21,7 @@ public class ActivePresentConjugator {
     private ActivePresentConjugator() {
     }
 
-    private static ActivePresentConjugator instance = new ActivePresentConjugator();
+    private static final ActivePresentConjugator instance = new ActivePresentConjugator();
 
     public static ActivePresentConjugator getInstance() {
         return instance;

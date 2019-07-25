@@ -20,7 +20,7 @@ import sarf.verb.quadriliteral.substitution.*;
  * @version 1.0
  */
 public class Vocalizer extends QuadrilateralNounSubstitutionApplier implements IQuadrilateralModifier {
-    private List<Substitution> substitutions = new LinkedList<>();
+    private final List<Substitution> substitutions = new LinkedList<>();
 
     public Vocalizer() {
         substitutions.add(new InfixSubstitution("َيَة","َاة"));// EX: (قلساة، ضوضاة، حيحاة)

@@ -41,9 +41,9 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
     private UnaugmentedTrilateralRoot root;
 
     APanel nomenPane = new APanel(new GridLayout(1, 3));
-    APanel qualityPane = new APanel(new GridLayout(1, 3));
+    final APanel qualityPane = new APanel(new GridLayout(1, 3));
 
-    CustomTabbedPane controlPanels = new CustomTabbedPane();
+    final CustomTabbedPane controlPanels = new CustomTabbedPane();
 
 
     public TrilateralUnaugmentedGerundsUI() {

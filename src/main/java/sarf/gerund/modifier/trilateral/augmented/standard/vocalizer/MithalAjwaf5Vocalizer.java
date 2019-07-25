@@ -21,7 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class MithalAjwaf5Vocalizer extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public MithalAjwaf5Vocalizer() {
         substitutions.add(new InfixSubstitution("ْيَا","َا"));// EX: (إبادة، استقالة)

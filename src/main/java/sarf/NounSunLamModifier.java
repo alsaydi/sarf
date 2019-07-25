@@ -25,14 +25,14 @@ import sarf.verb.trilateral.TrilateralRoot;
  * @version 1.0
  */
 public class NounSunLamModifier extends SubstitutionsApplier {
-	private static List<String> appliedPronounsIndexes = new ArrayList<>(13);
+	private static final List<String> appliedPronounsIndexes = new ArrayList<>(13);
 	static {
 		for (int i = 0; i < 18; i++) {
 			appliedPronounsIndexes.add(i + 1 + "");
 		}
 	}
 
-	private List<Substitution> substitutions = new LinkedList<>();
+	private final List<Substitution> substitutions = new LinkedList<>();
 
 	private NounSunLamModifier() {
 		List<String> sunLetters = new LinkedList<>();
@@ -56,7 +56,7 @@ public class NounSunLamModifier extends SubstitutionsApplier {
 		substitutions.add(new ListedInfixSubstitution(sunLetters, "الSLِ", "الSLِّ"));
 	}
 
-	private static NounSunLamModifier instance = new NounSunLamModifier();
+	private static final NounSunLamModifier instance = new NounSunLamModifier();
 
 	public static NounSunLamModifier getInstance() {
 		return instance;
@@ -83,7 +83,7 @@ public class NounSunLamModifier extends SubstitutionsApplier {
 	}
 
 	class ListedInfixSubstitution extends Substitution {
-		private List<String> probableChars;
+		private final List<String> probableChars;
 
 		ListedInfixSubstitution(List<String> probableChars, String segment, String result) {
 			super(segment, result);

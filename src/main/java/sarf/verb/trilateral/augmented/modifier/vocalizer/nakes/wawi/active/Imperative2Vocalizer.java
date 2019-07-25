@@ -21,7 +21,7 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  */
 public class Imperative2Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
 
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public Imperative2Vocalizer() {
         substitutions.add(new SuffixSubstitution("وْ",""));// EX: (تَسامَ، تَزَكَّ)

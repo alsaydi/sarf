@@ -21,7 +21,7 @@ import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
  * @version 1.0
  */
 public class TStartedGeminator extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public TStartedGeminator() {
         substitutions.add(new InfixSubstitution("تْت","تّ"));// EX: (اتَّبَعَ)

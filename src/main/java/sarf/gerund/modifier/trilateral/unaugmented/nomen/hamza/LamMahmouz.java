@@ -18,7 +18,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class LamMahmouz extends AbstractLamMahmouz {
-    List<Substitution> substitutions = new ArrayList<>();
+    final List<Substitution> substitutions = new ArrayList<>();
 
     public LamMahmouz() {
         substitutions.add(new InfixSubstitution("َءَا","َآ"));// EX: (وطآت)

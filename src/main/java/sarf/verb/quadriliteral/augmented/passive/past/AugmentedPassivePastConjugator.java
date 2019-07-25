@@ -22,7 +22,7 @@ public class AugmentedPassivePastConjugator {
     private AugmentedPassivePastConjugator() {
     }
 
-    private static AugmentedPassivePastConjugator instance = new AugmentedPassivePastConjugator();
+    private static final AugmentedPassivePastConjugator instance = new AugmentedPassivePastConjugator();
 
     public static AugmentedPassivePastConjugator getInstance() {
         return instance;

@@ -15,10 +15,10 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public class PassivePresentVerb {
-    private UnaugmentedTrilateralRoot root;
+    private final UnaugmentedTrilateralRoot root;
 
     //حرف المضارع
-    private String cp;
+    private final String cp;
 
     //حركة حرف المضارع وهي دائماًً ضمة
     private static final String vcp = ArabCharUtil.DAMMA;
@@ -30,10 +30,10 @@ public class PassivePresentVerb {
     private static final String dpr2 = ArabCharUtil.FATHA;
 
     //حركة لام الفعل حسب الضمير
-    private String lastDpr;
+    private final String lastDpr;
 
     //الأحرف المضافة لنهاية الفعل حسب الضمير
-    private String connectedPronoun;
+    private final String connectedPronoun;
 
     public PassivePresentVerb(UnaugmentedTrilateralRoot root, String cp, String lastDpr, String connectedPronoun) {
         this.root = root;

@@ -16,11 +16,11 @@ import sarf.verb.trilateral.augmented.*;
  */
 public abstract class AugmentedPresentVerb {
 
-    protected AugmentedTrilateralRoot root;
-    protected String lastDpr;
-    protected String connectedPronoun;
+    protected final AugmentedTrilateralRoot root;
+    protected final String lastDpr;
+    protected final String connectedPronoun;
     //حرف المضارع
-    protected String cp;
+    protected final String cp;
 
     public AugmentedPresentVerb(AugmentedTrilateralRoot root, String cp, String lastDpr, String connectedPronoun) {
         this.root = root;

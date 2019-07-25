@@ -21,7 +21,7 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @version 1.0
  */
 public class Mahmouz {
-    private List<TrilateralNounSubstitutionApplier> modifiers = new LinkedList<>();
+    private final List<TrilateralNounSubstitutionApplier> modifiers = new LinkedList<>();
 
     public Mahmouz() {
         modifiers.add(new RaaEinMahmouz());

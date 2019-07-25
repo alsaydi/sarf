@@ -18,7 +18,7 @@ import sarf.gerund.modifier.trilateral.unaugmented.quality.hamza.*;
  * @version 1.0
  */
 public class Mahmouz {
-    private List modifiers = new LinkedList();
+    private final List modifiers = new LinkedList();
 
     public Mahmouz() {
         modifiers.add(new EinMahmouz());

@@ -22,7 +22,7 @@ public class AugmentedTrilateralActiveParticipleConjugator {
     private AugmentedTrilateralActiveParticipleConjugator() {
     }
 
-    private static AugmentedTrilateralActiveParticipleConjugator instance = new AugmentedTrilateralActiveParticipleConjugator();
+    private static final AugmentedTrilateralActiveParticipleConjugator instance = new AugmentedTrilateralActiveParticipleConjugator();
 
     public static AugmentedTrilateralActiveParticipleConjugator getInstance() {
         return instance;

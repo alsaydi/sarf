@@ -20,8 +20,8 @@ import sarf.gerund.trilateral.augmented.pattern.*;
  * @version 1.0
  */
 public class TrilateralAugmentedGerundConjugator {
-    private static TrilateralAugmentedGerundConjugator instance = new TrilateralAugmentedGerundConjugator();
-    private Map gerundClassMap = new HashMap();
+    private static final TrilateralAugmentedGerundConjugator instance = new TrilateralAugmentedGerundConjugator();
+    private final Map gerundClassMap = new HashMap();
     private TrilateralAugmentedGerundConjugatorListener listener;
 
     private AugmentedTrilateralModifierListener augmentedTrilateralModifierListener;

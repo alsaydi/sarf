@@ -23,7 +23,7 @@ import java.util.*;
  * @version 1.0
  */
 public class AugmentedTrilateralRootTree {
-	private List<AugmentedTrilateralRoot> roots = new LinkedList<>();
+	private final List<AugmentedTrilateralRoot> roots = new LinkedList<>();
 
 	public AugmentedTrilateralRootTree() {
 	}

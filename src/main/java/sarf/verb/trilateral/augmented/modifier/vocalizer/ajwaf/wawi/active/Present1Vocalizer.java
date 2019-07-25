@@ -20,7 +20,7 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class Present1Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public Present1Vocalizer() {
         substitutions.add(new ExpressionInfixSubstitution("ْوِC3ُ","ِيC3ُ"));// EX: (هو يُقِيمُ، يستدير)

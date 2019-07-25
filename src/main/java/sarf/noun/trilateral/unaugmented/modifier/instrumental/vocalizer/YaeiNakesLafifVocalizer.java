@@ -21,7 +21,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public YaeiNakesLafifVocalizer() {
         substitutions.add(new SuffixSubstitution("َيُ","َى"));// EX: (هذا المِسرى )

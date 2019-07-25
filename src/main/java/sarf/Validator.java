@@ -16,13 +16,13 @@ import sarf.util.*;
  * @version 1.0
  */
 public class Validator {
-    private String arabicLetters = "حخدذرزسشصطظعغفضقكلمنهويءبتثجىا";
-    private String hamzaString = "أؤئإ";
+    private final String arabicLetters = "حخدذرزسشصطظعغفضقكلمنهويءبتثجىا";
+    private final String hamzaString = "أؤئإ";
 
     private Validator() {
     }
 
-    private static Validator instance = new Validator();
+    private static final Validator instance = new Validator();
 
     public static Validator getInstance() {
         return instance;

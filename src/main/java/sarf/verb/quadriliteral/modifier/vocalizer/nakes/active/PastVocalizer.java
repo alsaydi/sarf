@@ -19,7 +19,7 @@ import sarf.verb.quadriliteral.*;
  */
 public class PastVocalizer extends SubstitutionsApplier implements IQuadrilateralModifier {
 
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public PastVocalizer() {
         substitutions.add(new SuffixSubstitution("يَ","ى"));// EX: (هو قَلْسَى، تَقَلْسَى، اسلنقَى)

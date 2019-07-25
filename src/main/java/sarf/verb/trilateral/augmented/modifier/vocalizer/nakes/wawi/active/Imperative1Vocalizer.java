@@ -20,7 +20,7 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class Imperative1Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public Imperative1Vocalizer() {
         substitutions.add(new InfixSubstitution("ِوُو","ُو"));// EX: (أنتم أدْنُوا، حابُوا، انجلُوا، ارتضُوا، ارعَوُوا، استرضُوا، احلَوْلُوا)

@@ -19,9 +19,9 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class Vocalizer {
-    private List modifiers = new LinkedList();
+    private final List modifiers = new LinkedList();
 
-    private PreMithalLafifVocalizer preMithalLafifVocalizer = new PreMithalLafifVocalizer();
+    private final PreMithalLafifVocalizer preMithalLafifVocalizer = new PreMithalLafifVocalizer();
 
     public Vocalizer() {
         modifiers.add(new WawiNakesLafifVocalizer());

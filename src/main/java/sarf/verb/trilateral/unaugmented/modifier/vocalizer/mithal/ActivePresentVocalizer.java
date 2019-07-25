@@ -22,10 +22,10 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
  * @version 1.0
  */
 public class ActivePresentVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
-    private List<String> acceptList = new ArrayList<>();
-    private List<String> declineList = new ArrayList<>();
+    private final List<String> acceptList = new ArrayList<>();
+    private final List<String> declineList = new ArrayList<>();
 
     public ActivePresentVocalizer() {
         acceptList.add("وذر");

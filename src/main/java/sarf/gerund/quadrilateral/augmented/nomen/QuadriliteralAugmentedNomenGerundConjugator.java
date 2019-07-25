@@ -17,10 +17,10 @@ import sarf.verb.quadriliteral.augmented.*;
  * @version 1.0
  */
 public class QuadriliteralAugmentedNomenGerundConjugator {
-    private static QuadriliteralAugmentedNomenGerundConjugator instance = new QuadriliteralAugmentedNomenGerundConjugator();
-    private Map gerundClassMap = new HashMap();
+    private static final QuadriliteralAugmentedNomenGerundConjugator instance = new QuadriliteralAugmentedNomenGerundConjugator();
+    private final Map gerundClassMap = new HashMap();
 
-    private int[] indexArray = {2, 4, 6, 8, 10, 12, 14, 16, 18};
+    private final int[] indexArray = {2, 4, 6, 8, 10, 12, 14, 16, 18};
 
     private QuadriliteralAugmentedNomenGerundConjugator() {
         for (int i = 1; i <= 3; i++) {

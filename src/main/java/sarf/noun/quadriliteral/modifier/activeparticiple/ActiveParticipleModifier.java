@@ -10,12 +10,12 @@ public class ActiveParticipleModifier {
     private ActiveParticipleModifier() {
     }
 
-    private static ActiveParticipleModifier instance = new ActiveParticipleModifier();
+    private static final ActiveParticipleModifier instance = new ActiveParticipleModifier();
 
-    private Geminator geminator = new Geminator();
-    private Vocalizer vocalizer = new Vocalizer();
-    private InternalMahmouz internalMahmouz = new InternalMahmouz();
-    private EndedMahmouz endedMahmouz = new EndedMahmouz();
+    private final Geminator geminator = new Geminator();
+    private final Vocalizer vocalizer = new Vocalizer();
+    private final InternalMahmouz internalMahmouz = new InternalMahmouz();
+    private final EndedMahmouz endedMahmouz = new EndedMahmouz();
 
 
 

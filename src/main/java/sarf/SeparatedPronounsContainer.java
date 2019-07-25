@@ -15,8 +15,8 @@ import java.util.*;
  * @version 1.0
  */
 public class SeparatedPronounsContainer {
-    private static SeparatedPronounsContainer instance = new SeparatedPronounsContainer();
-    private List pronouns = new ArrayList(13);
+    private static final SeparatedPronounsContainer instance = new SeparatedPronounsContainer();
+    private final List pronouns = new ArrayList(13);
 
     private SeparatedPronounsContainer() {
         pronouns.add("أنا");

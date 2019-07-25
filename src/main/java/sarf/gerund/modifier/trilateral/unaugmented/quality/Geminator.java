@@ -19,7 +19,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class Geminator {
-    private List modifiers = new LinkedList();
+    private final List modifiers = new LinkedList();
 
 
     public Geminator() {

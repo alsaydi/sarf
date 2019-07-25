@@ -33,9 +33,9 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
     private SelectionInfo selectionInfo;
 
 
-    private ToggleRenderedButton activeParticipleBtn = new ToggleRenderedButton("اسم الفاعل");
-    private ToggleRenderedButton passiveParticipleBtn = new ToggleRenderedButton("اسم المفعول");
-    private ToggleRenderedButton timeAndPlaceBtn = new ToggleRenderedButton("اسم الزمان والمكان  ");
+    private final ToggleRenderedButton activeParticipleBtn = new ToggleRenderedButton("اسم الفاعل");
+    private final ToggleRenderedButton passiveParticipleBtn = new ToggleRenderedButton("اسم المفعول");
+    private final ToggleRenderedButton timeAndPlaceBtn = new ToggleRenderedButton("اسم الزمان والمكان  ");
 
 
     public NamesSelectionUI() {

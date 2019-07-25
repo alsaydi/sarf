@@ -20,7 +20,7 @@ import sarf.noun.trilateral.unaugmented.elative.nonstandard.*;
  */
 public class ElativeNounConjugator implements IUnaugmentedTrilateralNounConjugator{
 
-    private static ElativeNounConjugator instance = new ElativeNounConjugator();
+    private static final ElativeNounConjugator instance = new ElativeNounConjugator();
 
     public static ElativeNounConjugator getInstance() {
         return instance;
@@ -39,7 +39,7 @@ public class ElativeNounConjugator implements IUnaugmentedTrilateralNounConjugat
 
     }
 
-    static List formulas = new ArrayList(1);
+    static final List formulas = new ArrayList(1);
     static {
         formulas.add("أَفْعَل");
     }

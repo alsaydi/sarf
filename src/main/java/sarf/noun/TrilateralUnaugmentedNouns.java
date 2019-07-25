@@ -19,19 +19,19 @@ import sarf.verb.trilateral.unaugmented.*;
 public class TrilateralUnaugmentedNouns {
 
    //مبالغة أسماء الفاعل
-    private List standardExaggerations;
-    private List nonStandardExaggerations;
+    private final List standardExaggerations;
+    private final List nonStandardExaggerations;
     //أسماء الزمان والمكان
-    private List timeAndPlaces;
+    private final List timeAndPlaces;
 
     //أسماء الآلة
-    private List standardInstrumentals;
-    private List nonStandardInstrumentals;
+    private final List standardInstrumentals;
+    private final List nonStandardInstrumentals;
 
     //أسماء التفضيل
-    private List elatives;
+    private final List elatives;
     //الصفات المشبهة
-    private List assimilates;
+    private final List assimilates;
 
     private UnaugmentedTrilateralRoot root;
 

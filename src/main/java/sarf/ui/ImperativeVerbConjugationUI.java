@@ -23,11 +23,11 @@ import sarf.util.FileUtil;
  * @version 1.0
  */
 public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentSaver{
-    List dataFieldsList = new ArrayList(13);
+    final List dataFieldsList = new ArrayList(13);
     public static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 30);
     public static final Border BORDER = BorderFactory.createEtchedBorder();
 
-    private String title;
+    private final String title;
 
     /**
      * اظهار القائمة باستعمال وبدون الادغام

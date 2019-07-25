@@ -20,7 +20,7 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class Present2Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public Present2Vocalizer() {
         substitutions.add(new SuffixSubstitution("َيُ","َى"));// EX: (يُذْوَى، يُقَوَّى، يُداوَى، يُنْزَوَى، يُحْتَوَى، يُتَدَاوَى، يُتَقَوَّى، يُسْتَهْوَى)

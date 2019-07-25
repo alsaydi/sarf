@@ -17,13 +17,13 @@ public class PastConjugationDataContainer {
     private static final int PRONOUN_RANGE_END = 13;
 
     //قائمة حركات عين الفعل حسب باب التصريف
-    private List<String> dpa2List = new ArrayList<>(6);
+    private final List<String> dpa2List = new ArrayList<>(6);
     //قائمة  حركات لام الفعل حسب ضمير الرفع
-    private List<String> lastDpaList = new ArrayList<>(PRONOUN_RANGE_END);
+    private final List<String> lastDpaList = new ArrayList<>(PRONOUN_RANGE_END);
     //قائمة ضمائر الرفع المتصلة
-    private List<String> connectedPronounsList = new ArrayList<>(PRONOUN_RANGE_END);
+    private final List<String> connectedPronounsList = new ArrayList<>(PRONOUN_RANGE_END);
 
-    private static PastConjugationDataContainer instance = new PastConjugationDataContainer();
+    private static final PastConjugationDataContainer instance = new PastConjugationDataContainer();
 
     public static PastConjugationDataContainer getInstance() {
         return instance;

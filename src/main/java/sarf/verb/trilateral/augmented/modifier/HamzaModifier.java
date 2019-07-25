@@ -22,7 +22,7 @@ import java.util.Iterator;
  * @version 1.0
  */
 public class HamzaModifier {
-    private Map modifiersMap = new HashMap();
+    private final Map modifiersMap = new HashMap();
 
     public HamzaModifier() {
         List activePastList = new LinkedList();

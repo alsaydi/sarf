@@ -55,7 +55,7 @@ public abstract class SubstitutionsApplier {
      */
     public abstract List getSubstitutions();
 
-    protected static List defaultAppliedProunounsIndecies = new ArrayList(13);
+    protected static final List defaultAppliedProunounsIndecies = new ArrayList(13);
     static {
         for (int i=0; i<13; i++) {
             defaultAppliedProunounsIndecies.add(i+1 +"");

@@ -20,7 +20,7 @@ public class SelectionInfo {
     public boolean trilateral;
     private boolean augmented;
     private boolean active;
-    private KindOfVerb kov;
+    private final KindOfVerb kov;
 
     private Root root;
 

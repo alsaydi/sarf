@@ -34,9 +34,9 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListen
 public class GerundSelectionUI extends JPanel implements IControlPane, TrilateralAugmentedGerundConjugatorListener, QuadriliteralUnaugmentedGerundConjugatorListener, AugmentedTrilateralModifierListener {
     private SelectionInfo selectionInfo;
 
-    private ToggleRenderedButton standardBtn = new ToggleRenderedButton("المصدر الأصلي");
-    private ToggleRenderedButton nomenBtn = new ToggleRenderedButton("مصدر المرة");
-    private ToggleRenderedButton meemBtn = new ToggleRenderedButton("المصدر الميمي ");
+    private final ToggleRenderedButton standardBtn = new ToggleRenderedButton("المصدر الأصلي");
+    private final ToggleRenderedButton nomenBtn = new ToggleRenderedButton("مصدر المرة");
+    private final ToggleRenderedButton meemBtn = new ToggleRenderedButton("المصدر الميمي ");
 
     public GerundSelectionUI() {
         super(new BorderLayout());

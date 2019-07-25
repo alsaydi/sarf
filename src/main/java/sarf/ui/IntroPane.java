@@ -18,8 +18,8 @@ import sarf.util.*;
  * @version 1.0
  */
 class IntroPane extends JPanel {
-    private MainFrame mainFrame;
-    private JCheckBox hideIntroChkBox = new JCheckBox("عدم إظهار هذه الشاشة في المرات القادمة");
+    private final MainFrame mainFrame;
+    private final JCheckBox hideIntroChkBox = new JCheckBox("عدم إظهار هذه الشاشة في المرات القادمة");
 
     IntroPane(MainFrame mainFrame) {
         super(new BorderLayout());

@@ -20,7 +20,7 @@ import sarf.verb.trilateral.Substitution.InfixSubstitution;
  * @version 1.0
  */
 public class GenericSubstituter1 extends AbstractGenericSubstituter {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public GenericSubstituter1() {
         substitutions.add(new InfixSubstitution("ثْت","ثّ"));// EX: (اثِّمادٌ،)

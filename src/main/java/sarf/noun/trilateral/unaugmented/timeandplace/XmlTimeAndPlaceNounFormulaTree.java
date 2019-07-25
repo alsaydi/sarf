@@ -16,7 +16,7 @@ import java.util.*;
  */
 public class XmlTimeAndPlaceNounFormulaTree {
 
-    private List formulas = new LinkedList();
+    private final List formulas = new LinkedList();
 
     public XmlTimeAndPlaceNounFormulaTree() {
     }

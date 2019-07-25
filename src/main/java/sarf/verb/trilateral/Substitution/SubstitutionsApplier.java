@@ -20,7 +20,7 @@ import sarf.verb.trilateral.*;
  */
 public abstract class SubstitutionsApplier<T> {
 
-    private static List<String> defaultAppliedPronounsIndexes = new ArrayList<>(13);
+    private static final List<String> defaultAppliedPronounsIndexes = new ArrayList<>(13);
     static {
         IntStream.range(1, 14).forEach(i -> {
             defaultAppliedPronounsIndexes.add("" + i);

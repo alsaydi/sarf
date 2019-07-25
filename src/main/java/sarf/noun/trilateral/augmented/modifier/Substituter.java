@@ -20,7 +20,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
  */
 public class Substituter {
 
-    private List modifiers = new LinkedList();
+    private final List modifiers = new LinkedList();
 
 
     public Substituter() {

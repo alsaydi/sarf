@@ -14,15 +14,15 @@ import sarf.verb.quadriliteral.unaugmented.*;
  * @version 1.0
  */
 public class ActivePresentVerb {
-    private UnaugmentedQuadrilateralRoot root;
+    private final UnaugmentedQuadrilateralRoot root;
 
     //حرف المضارع
-    private String cp;
+    private final String cp;
     //حركة لام الفعل حسب الضمير
-    private String lastDpr;
+    private final String lastDpr;
 
     //الأحرف المضافة لنهاية الفعل حسب الضمير
-    private String connectedPronoun;
+    private final String connectedPronoun;
 
     public ActivePresentVerb(UnaugmentedQuadrilateralRoot root, String cp, String lastDpr, String connectedPronoun) {
         this.root = root;

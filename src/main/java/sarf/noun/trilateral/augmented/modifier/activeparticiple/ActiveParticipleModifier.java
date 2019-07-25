@@ -26,15 +26,15 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListen
  * @version 1.0
  */
 public class ActiveParticipleModifier {
-    private Substituter substituter = new Substituter();
-    private Geminator geminator = new Geminator();
-    private Vocalizer vocalizer = new Vocalizer();
-    private Mahmouz mahmouz = new Mahmouz();
+    private final Substituter substituter = new Substituter();
+    private final Geminator geminator = new Geminator();
+    private final Vocalizer vocalizer = new Vocalizer();
+    private final Mahmouz mahmouz = new Mahmouz();
 
     private ActiveParticipleModifier() {
     }
 
-    private static ActiveParticipleModifier instance = new ActiveParticipleModifier();
+    private static final ActiveParticipleModifier instance = new ActiveParticipleModifier();
 
     public static ActiveParticipleModifier getInstance() {
         return instance;

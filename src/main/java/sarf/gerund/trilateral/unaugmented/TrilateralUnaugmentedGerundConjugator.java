@@ -21,7 +21,7 @@ import sarf.*;
  * @version 1.0
  */
 public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilateralGerundConjugator {
-    private static TrilateralUnaugmentedGerundConjugator instance = new TrilateralUnaugmentedGerundConjugator();
+    private static final TrilateralUnaugmentedGerundConjugator instance = new TrilateralUnaugmentedGerundConjugator();
     private GerundDescriptionList gerundDescriptionList;
 
     private TrilateralUnaugmentedGerundConjugator() {

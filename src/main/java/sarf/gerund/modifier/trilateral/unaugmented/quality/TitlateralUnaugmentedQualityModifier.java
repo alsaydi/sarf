@@ -18,14 +18,14 @@ import sarf.*;
  * @version 1.0
  */
 public class TitlateralUnaugmentedQualityModifier implements IUnaugmentedTrilateralNounModifier{
-    private Geminator geminator = new Geminator();
-    private AjwafVocalizer ajwafVocalizer = new AjwafVocalizer();
-    private Mahmouz mahmouz = new Mahmouz();
+    private final Geminator geminator = new Geminator();
+    private final AjwafVocalizer ajwafVocalizer = new AjwafVocalizer();
+    private final Mahmouz mahmouz = new Mahmouz();
 
     private TitlateralUnaugmentedQualityModifier() {
     }
 
-    private static TitlateralUnaugmentedQualityModifier instance = new TitlateralUnaugmentedQualityModifier();
+    private static final TitlateralUnaugmentedQualityModifier instance = new TitlateralUnaugmentedQualityModifier();
 
     public static TitlateralUnaugmentedQualityModifier getInstance() {
         return instance;

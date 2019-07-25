@@ -5,8 +5,8 @@ import sarf.util.*;
 import sarf.noun.GenericNounSuffixContainer;
 
 public class UnaugmentedQuadriliteralActiveParticiple {
-    private UnaugmentedQuadrilateralRoot root;
-    private String suffix;
+    private final UnaugmentedQuadrilateralRoot root;
+    private final String suffix;
 
     public UnaugmentedQuadriliteralActiveParticiple(UnaugmentedQuadrilateralRoot root, String suffix) {
         this.root = root;

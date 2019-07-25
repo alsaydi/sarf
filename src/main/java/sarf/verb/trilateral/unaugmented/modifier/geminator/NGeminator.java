@@ -28,9 +28,9 @@ import sarf.SystemConstants;
  */
 public class NGeminator extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier{
 
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
     //أرقام الضمائر التي يمكن التطبيق من أجلها حسب الصيغةة  ماضي أو مضارع أو أمر
-    private Map<String, ArrayList<String>> indeciesMap = new HashMap<>();//TODO: is this needed at all?
+    private final Map<String, ArrayList<String>> indeciesMap = new HashMap<>();//TODO: is this needed at all?
 
     public NGeminator() {
         substitutions.add(new ExpressionInfixSubstitution("نْنَ","نَّ"));

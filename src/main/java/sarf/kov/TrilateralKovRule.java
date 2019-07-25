@@ -25,7 +25,7 @@ public class TrilateralKovRule {
     private KindOfVerb kov;
     private String desc;
     private String example;
-    private static List<Character> vowels = Arrays.asList('ء', 'و', 'ي');
+    private static final List<Character> vowels = Arrays.asList('ء', 'و', 'ي');
 
     public TrilateralKovRule() {
     }

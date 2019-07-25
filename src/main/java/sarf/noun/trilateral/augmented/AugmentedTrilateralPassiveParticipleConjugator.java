@@ -22,7 +22,7 @@ public class AugmentedTrilateralPassiveParticipleConjugator {
     private AugmentedTrilateralPassiveParticipleConjugator() {
     }
 
-    private static AugmentedTrilateralPassiveParticipleConjugator instance = new AugmentedTrilateralPassiveParticipleConjugator();
+    private static final AugmentedTrilateralPassiveParticipleConjugator instance = new AugmentedTrilateralPassiveParticipleConjugator();
 
     public static AugmentedTrilateralPassiveParticipleConjugator getInstance() {
         return instance;
@@ -72,7 +72,7 @@ public class AugmentedTrilateralPassiveParticipleConjugator {
 
     }
 
-    static List timeAndPlaceIndeciesList = new LinkedList();
+    static final List timeAndPlaceIndeciesList = new LinkedList();
     static {
         //حذف المؤنث والجمع
         timeAndPlaceIndeciesList.add("0");
@@ -88,7 +88,7 @@ public class AugmentedTrilateralPassiveParticipleConjugator {
         return createNounList(root, formulaNo, timeAndPlaceIndeciesList);
     }
 
-    static List meemGerundIndeciesList = new LinkedList();
+    static final List meemGerundIndeciesList = new LinkedList();
     static {
         //المذكر المفرد
         meemGerundIndeciesList.add("0");

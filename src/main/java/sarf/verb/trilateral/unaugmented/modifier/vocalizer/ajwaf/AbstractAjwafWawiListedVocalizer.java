@@ -20,7 +20,7 @@ import java.util.LinkedList;
  * @version 1.0
  */
 public abstract class AbstractAjwafWawiListedVocalizer extends ListedVocalizer {
-    private List<String> appliedRoots = new LinkedList<String>();
+    private final List<String> appliedRoots = new LinkedList<String>();
 
     protected AbstractAjwafWawiListedVocalizer() {
         appliedRoots.add("بوه");

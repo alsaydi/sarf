@@ -40,10 +40,10 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
     private SelectionInfo selectionInfo;
     private UnaugmentedTrilateralRoot root;
 
-    APanel activeParticiplePane = new APanel(new GridLayout(1, 3));
-    APanel passiveParticiplePane = new APanel(new GridLayout(1, 3));
+    final APanel activeParticiplePane = new APanel(new GridLayout(1, 3));
+    final APanel passiveParticiplePane = new APanel(new GridLayout(1, 3));
 
-    CustomTabbedPane controlPanels = new CustomTabbedPane();
+    final CustomTabbedPane controlPanels = new CustomTabbedPane();
 
 
     public TrilateralUnaugmentedNounsUI() {

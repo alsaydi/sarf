@@ -27,9 +27,9 @@ import java.awt.Color;
  */
 public class QuadrilateralControlPane extends JPanel implements IControlPane {
 
-    private List augmentedButons = new ArrayList(12);
+    private final List augmentedButons = new ArrayList(12);
 
-    private ControlButton unaugmentedBtn = new ControlButton("فَعْلَل يُفَعْلِل");
+    private final ControlButton unaugmentedBtn = new ControlButton("فَعْلَل يُفَعْلِل");
     private AugmentedQuadrilateralRoot currentAugmentedRoot;
     private UnaugmentedQuadrilateralRoot currentUnaugmentedRoot;
 
@@ -89,7 +89,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
     }
 
     private int formulaNoCounter = 0;
-    private ActionListener augmentedActionListener = new AugmentedActionListener();
+    private final ActionListener augmentedActionListener = new AugmentedActionListener();
     private void addAugmentedButton(String text, JPanel containerPnl) {
         ControlButton btn = new ControlButton(text);
         augmentedButons.add(btn);

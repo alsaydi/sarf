@@ -23,17 +23,17 @@ import sarf.NounSunLamModifier;
  * @version 1.0
  */
 public class ElativeModifier implements IUnaugmentedTrilateralNounModifier{
-    private Geminator geminator = new Geminator();
-    private Vocalizer vocalizer = new Vocalizer();
-    private Mahmouz mahmouz = new Mahmouz();
+    private final Geminator geminator = new Geminator();
+    private final Vocalizer vocalizer = new Vocalizer();
+    private final Mahmouz mahmouz = new Mahmouz();
 
-    private AlkhairModifier alkhairModifier = new AlkhairModifier();
-    private AlSharModifier alSharModifier = new AlSharModifier();
+    private final AlkhairModifier alkhairModifier = new AlkhairModifier();
+    private final AlSharModifier alSharModifier = new AlSharModifier();
 
     private ElativeModifier() {
     }
 
-    private static ElativeModifier instance = new ElativeModifier();
+    private static final ElativeModifier instance = new ElativeModifier();
 
     public static ElativeModifier getInstance() {
         return instance;

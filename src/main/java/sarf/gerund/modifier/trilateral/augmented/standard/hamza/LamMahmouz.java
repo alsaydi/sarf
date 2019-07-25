@@ -18,7 +18,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class LamMahmouz extends AbstractLamMahmouz {
-    private List<Substitution> substitutions = new LinkedList<>();
+    private final List<Substitution> substitutions = new LinkedList<>();
 
     public LamMahmouz() {
         substitutions.add(new InfixSubstitution("اءًا","اءً"));// EX: (اجتزاءً، )

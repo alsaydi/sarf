@@ -18,7 +18,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
  * @version 1.0
  */
 public class PassivePresentAjwafYaeiVocalizer extends AbstractAjwafYaeiVocalizer {
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public PassivePresentAjwafYaeiVocalizer() {
         substitutions.add(new ExpressionInfixSubstitution("ْيَC3ُ", "َاC3ُ")); // EX: (يُباع، يُبات، لن تُباتوا)

@@ -25,7 +25,7 @@ public class AugmentedQuadriliteralActiveParticipleConjugator {
     private AugmentedQuadriliteralActiveParticipleConjugator() {
     }
 
-    private static AugmentedQuadriliteralActiveParticipleConjugator instance = new AugmentedQuadriliteralActiveParticipleConjugator();
+    private static final AugmentedQuadriliteralActiveParticipleConjugator instance = new AugmentedQuadriliteralActiveParticipleConjugator();
 
     public static AugmentedQuadriliteralActiveParticipleConjugator getInstance() {
         return instance;

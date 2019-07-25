@@ -26,13 +26,13 @@ import java.awt.Color;
  */
 public class TrilateralControlPane extends JPanel implements IControlPane{
 	private static final long serialVersionUID = 1865647471114470824L;
-	private List<ControlButton> unaugmentedButtons = new ArrayList<>(6);
-    private List<ControlButton> augmentedButtons = new ArrayList<>(12);
+	private final List<ControlButton> unaugmentedButtons = new ArrayList<>(6);
+    private final List<ControlButton> augmentedButtons = new ArrayList<>(12);
 
-    private List<UnaugmentedTrilateralRoot> unaugmentedTrilateralRoots = new ArrayList<>(6);
+    private final List<UnaugmentedTrilateralRoot> unaugmentedTrilateralRoots = new ArrayList<>(6);
     private AugmentedTrilateralRoot currentAugmentedTrilateralRoot;
 
-    private JPanel unaugmentedPanel = new APanel(new GridLayout(1,6));
+    private final JPanel unaugmentedPanel = new APanel(new GridLayout(1,6));
 
     public TrilateralControlPane() {
         super(new BorderLayout());
@@ -97,7 +97,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     }
 
     private int conjugationNoCounter=0;
-    private ActionListener unaugmentedActionListener = new UnaugmentedActionListener();
+    private final ActionListener unaugmentedActionListener = new UnaugmentedActionListener();
     private void addUnaugmentedButton(String text) {
         ControlButton btn = new ControlButton(text);
         unaugmentedButtons.add(btn);
@@ -107,7 +107,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     }
 
     private int formulaNoCounter=0;
-    private ActionListener augmentedActionListener = new AugmentedActionListener();
+    private final ActionListener augmentedActionListener = new AugmentedActionListener();
     private void addAugmentedButton(String text, JPanel containerPnl) {
         ControlButton btn = new ControlButton(text);
         augmentedButtons.add(btn);

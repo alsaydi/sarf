@@ -21,7 +21,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @version 1.0
  */
 public class Geminator {
-    private List<TrilateralNounSubstitutionApplier> modifiers = new LinkedList<TrilateralNounSubstitutionApplier>();
+    private final List<TrilateralNounSubstitutionApplier> modifiers = new LinkedList<TrilateralNounSubstitutionApplier>();
 
     public Geminator() {
         modifiers.add(new Geminator0());

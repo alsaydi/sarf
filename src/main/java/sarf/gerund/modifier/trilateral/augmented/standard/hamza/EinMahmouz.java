@@ -18,7 +18,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class EinMahmouz extends AbstractEinMahmouz {
-    private List<Substitution> substitutions = new LinkedList<>();
+    private final List<Substitution> substitutions = new LinkedList<>();
 
     public EinMahmouz() {
         substitutions.add(new InfixSubstitution("َءُّ","َؤُّ"));// EX: (تَشَؤُّم)

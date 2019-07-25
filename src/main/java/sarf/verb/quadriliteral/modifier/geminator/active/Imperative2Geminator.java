@@ -19,7 +19,7 @@ import sarf.verb.quadriliteral.*;
  */
 public class Imperative2Geminator extends SubstitutionsApplier implements IQuadrilateralModifier {
 
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public Imperative2Geminator() {
         substitutions.add(new InfixSubstitution("نْنَ", "نَّ")); // EX: (أنتن اطْمَأْنِنَّ)

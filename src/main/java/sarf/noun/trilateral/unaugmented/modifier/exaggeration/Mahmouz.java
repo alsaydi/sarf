@@ -19,9 +19,9 @@ import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
  * @version 1.0
  */
 public class Mahmouz {
-    private List modifiers = new LinkedList();
+    private final List modifiers = new LinkedList();
 
-    private NakesLafifMahmouz nakesLafifMahmouz = new NakesLafifMahmouz();
+    private final NakesLafifMahmouz nakesLafifMahmouz = new NakesLafifMahmouz();
 
     public Mahmouz() {
         modifiers.add(new FaaMahmouz());

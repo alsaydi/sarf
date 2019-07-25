@@ -18,9 +18,9 @@ import sarf.verb.quadriliteral.unaugmented.*;
  * @version 1.0
  */
 public class QuadriliteralUnaugmentedNomenGerundConjugator {
-    private static QuadriliteralUnaugmentedNomenGerundConjugator instance = new QuadriliteralUnaugmentedNomenGerundConjugator();
+    private static final QuadriliteralUnaugmentedNomenGerundConjugator instance = new QuadriliteralUnaugmentedNomenGerundConjugator();
 
-    private int[] indexList = {2, 4, 6, 8, 10, 12, 14, 16, 18};
+    private final int[] indexList = {2, 4, 6, 8, 10, 12, 14, 16, 18};
 
     private QuadriliteralUnaugmentedNomenGerundConjugator() {
     }

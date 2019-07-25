@@ -5,8 +5,8 @@ import sarf.util.*;
 import sarf.noun.GenericNounSuffixContainer;
 
 public class UnaugmentedTrilateralPassiveParticiple {
-    private UnaugmentedTrilateralRoot root;
-    private String suffix;
+    private final UnaugmentedTrilateralRoot root;
+    private final String suffix;
 
     public UnaugmentedTrilateralPassiveParticiple(UnaugmentedTrilateralRoot root, String suffix) {
         this.root = root;

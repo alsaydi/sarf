@@ -22,7 +22,7 @@ import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
  */
 public class TEndedGeminator extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
 
-    private List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public TEndedGeminator() {
         substitutions.add(new InfixSubstitution("تْت", "تّ")); // EX: (أنا سَكَّتُّ ، أنتَ سَكَّتَّ ، أنتِ سَكَّتِّ )    }

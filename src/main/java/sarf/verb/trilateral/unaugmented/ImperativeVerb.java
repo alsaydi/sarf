@@ -13,7 +13,7 @@ import sarf.util.*;
  * @version 1.0
  */
 public class ImperativeVerb {
-    private UnaugmentedTrilateralRoot root;
+    private final UnaugmentedTrilateralRoot root;
 
     //حرف الأمر
     private final static String ci = "ا";
@@ -23,13 +23,13 @@ public class ImperativeVerb {
 
     //حركة عين الفعل حسب باب التصريف
     //وهي نفسها في المضارع
-    private String dpr2;
+    private final String dpr2;
 
     //حركة لام الفعل حسب الضمير
-    private String lastDim;
+    private final String lastDim;
 
     //ضمير الرفع المتصل
-    private String connectedPronoun;
+    private final String connectedPronoun;
 
     public ImperativeVerb(UnaugmentedTrilateralRoot root, String dpr2, String lastDim, String connectedPronoun) {
         this.root = root;

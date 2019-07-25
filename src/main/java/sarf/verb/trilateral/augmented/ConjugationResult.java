@@ -17,14 +17,14 @@ import java.util.*;
  * @version 1.0
  */
 public class ConjugationResult {
-    private KindOfVerb kov;
-    private int formulaNo;
-    private AugmentedTrilateralRoot root;
+    private final KindOfVerb kov;
+    private final int formulaNo;
+    private final AugmentedTrilateralRoot root;
 
     //13 conjugated verbs
-    private List<String> originalResult;
+    private final List<String> originalResult;
     //القائمة بعد  الادغام والاعلال والهمزة
-    private List<String> finalResult;
+    private final List<String> finalResult;
 
     //TODO: I believe originalResult is of List<String> type.
     

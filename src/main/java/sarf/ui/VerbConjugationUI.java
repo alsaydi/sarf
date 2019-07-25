@@ -22,10 +22,10 @@ import sarf.util.*;
  * @version 1.0
  */
 public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
-    private List dataFieldsList;
+    private final List dataFieldsList;
     public static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 30);
     static final Border BORDER = BorderFactory.createEtchedBorder();
-    private String title;
+    private final String title;
 
 
     public VerbConjugationUI(List verbConjugationList, String title) {

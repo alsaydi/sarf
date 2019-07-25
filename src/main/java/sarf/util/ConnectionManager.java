@@ -35,7 +35,7 @@ public class ConnectionManager {
         }
     }
 
-    private static ConnectionManager instance = new ConnectionManager();
+    private static final ConnectionManager instance = new ConnectionManager();
 
     /**
      * getInstance

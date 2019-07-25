@@ -23,7 +23,7 @@ public class UnaugmentedTrilateralRoot extends TrilateralRoot{
     private Conjugation conjugation;
     private String transitive;
 
-    private OrderedMap<String, Gerund> gerunds = new OrderedMap<>();
+    private final OrderedMap<String, Gerund> gerunds = new OrderedMap<>();
     public UnaugmentedTrilateralRoot() {
         super();
     }

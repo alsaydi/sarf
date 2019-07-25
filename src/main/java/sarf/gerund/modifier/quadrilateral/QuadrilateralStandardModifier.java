@@ -10,11 +10,11 @@ public class QuadrilateralStandardModifier {
     private QuadrilateralStandardModifier() {
     }
 
-    private static QuadrilateralStandardModifier instance = new QuadrilateralStandardModifier();
+    private static final QuadrilateralStandardModifier instance = new QuadrilateralStandardModifier();
 
-    private Vocalizer vocalizer = new Vocalizer();
-    private InternalMahmouz internalMahmouz = new InternalMahmouz();
-    private EndedMahmouz endedMahmouz = new EndedMahmouz();
+    private final Vocalizer vocalizer = new Vocalizer();
+    private final InternalMahmouz internalMahmouz = new InternalMahmouz();
+    private final EndedMahmouz endedMahmouz = new EndedMahmouz();
 
 
 

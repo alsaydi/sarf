@@ -21,7 +21,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.mithal.ActivePresentV
  */
 public class Vocalizer {
     //المعلوم  و  المجهول تحتوي قائمة بالأنواع الخمسة لاعلال لماضي والمضارع والأمر حسب
-    private Map vocalizerMap = new HashMap();
+    private final Map vocalizerMap = new HashMap();
 
     public Vocalizer() {
         List activePastList = new LinkedList();

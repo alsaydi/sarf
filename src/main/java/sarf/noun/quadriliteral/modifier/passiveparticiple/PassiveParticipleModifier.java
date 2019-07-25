@@ -10,12 +10,12 @@ public class PassiveParticipleModifier {
     private PassiveParticipleModifier() {
     }
 
-    private static PassiveParticipleModifier instance = new PassiveParticipleModifier();
+    private static final PassiveParticipleModifier instance = new PassiveParticipleModifier();
 
-    private Geminator geminator = new Geminator();
-    private Vocalizer vocalizer = new Vocalizer();
-    private InternalMahmouz internalMahmouz = new InternalMahmouz();
-    private EndedMahmouz endedMahmouz = new EndedMahmouz();
+    private final Geminator geminator = new Geminator();
+    private final Vocalizer vocalizer = new Vocalizer();
+    private final InternalMahmouz internalMahmouz = new InternalMahmouz();
+    private final EndedMahmouz endedMahmouz = new EndedMahmouz();
 
 
 

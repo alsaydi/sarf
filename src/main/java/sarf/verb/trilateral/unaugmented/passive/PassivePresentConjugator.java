@@ -21,7 +21,7 @@ public class PassivePresentConjugator {
     private PassivePresentConjugator() {
     }
 
-    private static PassivePresentConjugator instance = new PassivePresentConjugator();
+    private static final PassivePresentConjugator instance = new PassivePresentConjugator();
 
     public static PassivePresentConjugator getInstance() {
         return instance;

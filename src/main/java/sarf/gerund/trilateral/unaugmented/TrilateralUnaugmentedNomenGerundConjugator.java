@@ -18,10 +18,10 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public class TrilateralUnaugmentedNomenGerundConjugator implements IUnaugmentedTrilateralGerundConjugator {
-    private static TrilateralUnaugmentedNomenGerundConjugator instance = new TrilateralUnaugmentedNomenGerundConjugator();
+    private static final TrilateralUnaugmentedNomenGerundConjugator instance = new TrilateralUnaugmentedNomenGerundConjugator();
 
-    private int[] indexList1 = {2, 4, 8, 10, 14, 16};
-    private int[] indexList2 = {6, 12, 18};
+    private final int[] indexList1 = {2, 4, 8, 10, 14, 16};
+    private final int[] indexList2 = {6, 12, 18};
 
     private TrilateralUnaugmentedNomenGerundConjugator() {
     }
@@ -75,7 +75,7 @@ public class TrilateralUnaugmentedNomenGerundConjugator implements IUnaugmentedT
 
 
 
-    static List formulas = new ArrayList(1);
+    static final List formulas = new ArrayList(1);
     static {
         formulas.add("فَعْلَة");
     }

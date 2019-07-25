@@ -15,14 +15,14 @@ import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
  * @version 1.0
  */
 public class FormulaApplyingChecker {
-    Formula1ApplyingChecker formula1ApplyingChecker = new Formula1ApplyingChecker();
-    Formula5ApplyingChecker formula5ApplyingChecker = new Formula5ApplyingChecker();
-    Formula9ApplyingChecker formula9ApplyingChecker = new Formula9ApplyingChecker();
+    final Formula1ApplyingChecker formula1ApplyingChecker = new Formula1ApplyingChecker();
+    final Formula5ApplyingChecker formula5ApplyingChecker = new Formula5ApplyingChecker();
+    final Formula9ApplyingChecker formula9ApplyingChecker = new Formula9ApplyingChecker();
 
     private FormulaApplyingChecker() {
     }
 
-    private static FormulaApplyingChecker instance = new FormulaApplyingChecker();
+    private static final FormulaApplyingChecker instance = new FormulaApplyingChecker();
 
     public static FormulaApplyingChecker getInstance() {
         return instance;

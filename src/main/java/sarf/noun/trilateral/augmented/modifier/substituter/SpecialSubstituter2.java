@@ -21,7 +21,7 @@ import sarf.noun.TrilateralNounSubstitutionApplier;
  * @version 1.0
  */
 public class SpecialSubstituter2 extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
-    private List<Substitution> substitutions = new LinkedList();
+    private final List<Substitution> substitutions = new LinkedList();
 
     public SpecialSubstituter2() {
         substitutions.add(new InfixSubstitution("يْت","تّ"));// EX: (اتِّسار،)

@@ -18,9 +18,9 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public class QualityGerundConjugator implements IUnaugmentedTrilateralGerundConjugator{
-    private static QualityGerundConjugator instance = new QualityGerundConjugator();
+    private static final QualityGerundConjugator instance = new QualityGerundConjugator();
 
-    private int[] indexList = {2, 8, 14};
+    private final int[] indexList = {2, 8, 14};
 
     private QualityGerundConjugator() {
     }

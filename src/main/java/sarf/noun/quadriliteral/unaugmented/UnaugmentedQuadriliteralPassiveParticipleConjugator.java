@@ -20,7 +20,7 @@ public class UnaugmentedQuadriliteralPassiveParticipleConjugator {
     private UnaugmentedQuadriliteralPassiveParticipleConjugator() {
     }
 
-    private static UnaugmentedQuadriliteralPassiveParticipleConjugator instance = new UnaugmentedQuadriliteralPassiveParticipleConjugator();
+    private static final UnaugmentedQuadriliteralPassiveParticipleConjugator instance = new UnaugmentedQuadriliteralPassiveParticipleConjugator();
 
     public static UnaugmentedQuadriliteralPassiveParticipleConjugator getInstance() {
         return instance;
@@ -56,7 +56,7 @@ public class UnaugmentedQuadriliteralPassiveParticipleConjugator {
 
     }
 
-    static List timeAndPlaceIndeciesList = new LinkedList();
+    static final List timeAndPlaceIndeciesList = new LinkedList();
     static {
         //حذف المؤنث والجمع
         timeAndPlaceIndeciesList.add("0");
@@ -71,7 +71,7 @@ public class UnaugmentedQuadriliteralPassiveParticipleConjugator {
         return createNounList(root, timeAndPlaceIndeciesList);
     }
 
-    static List meemGerundIndeciesList = new LinkedList();
+    static final List meemGerundIndeciesList = new LinkedList();
     static {
         //المذكر المفرد
         meemGerundIndeciesList.add("0");

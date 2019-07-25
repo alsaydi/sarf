@@ -17,7 +17,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class ActivePresentMahmouz extends AbstractEinMahmouz {
-    private List<Substitution> substitutions = new ArrayList<Substitution>();
+    private final List<Substitution> substitutions = new ArrayList<Substitution>();
 
     public ActivePresentMahmouz() {
         substitutions.add(new SuffixSubstitution("ْءُ", "ْؤُ")); // EX: (لم يَمْؤُ)

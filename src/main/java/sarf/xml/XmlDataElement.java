@@ -1,8 +1,8 @@
 package sarf.xml;
 
 public class XmlDataElement {
-    protected String name;
-    protected String value;
+    protected final String name;
+    protected final String value;
 
     XmlDataElement(String name, String value) {
         this.name = name;

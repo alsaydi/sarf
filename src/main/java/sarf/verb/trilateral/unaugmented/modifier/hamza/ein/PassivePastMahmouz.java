@@ -17,7 +17,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class PassivePastMahmouz extends AbstractEinMahmouz {
-    private List substitutions = new ArrayList();
+    private final List substitutions = new ArrayList();
 
     public PassivePastMahmouz() {
         substitutions.add(new InfixSubstitution("ُءِ","ُئِ"));// EX: (سُئِلْتُ)

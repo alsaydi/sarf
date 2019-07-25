@@ -19,7 +19,7 @@ import sarf.verb.quadriliteral.substitution.SubstitutionsApplier;
  */
 public class Geminator {
     //المعلوم  و  المجهول تحتوي قائمة بالأنواع الخمسة لادغام لماضي والمضارع والأمر حسب
-    private Map modifiersMap = new HashMap();
+    private final Map modifiersMap = new HashMap();
 
     public Geminator() {
         List activePastList = new LinkedList();
