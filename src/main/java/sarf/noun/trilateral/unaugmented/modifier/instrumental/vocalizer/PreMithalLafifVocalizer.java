@@ -36,7 +36,7 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        if (kov == 8) {
+        if (kov == KindOfVerb.Mithal_Wawi_Mudaaf) {
             return noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Mithal_Wawi_Mahmouz_Ain || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
             return noc == Conjugation.Second;
