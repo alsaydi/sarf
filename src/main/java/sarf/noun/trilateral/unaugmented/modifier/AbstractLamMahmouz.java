@@ -24,6 +24,6 @@ public abstract class AbstractLamMahmouz extends TrilateralNounSubstitutionAppli
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
-        return kov == 4 || kov == 7 || kov == 10 || kov == 16 || kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam;
+        return kov == 4 || kov == 7 || kov == 10 || kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Laam || kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam;
     }
 }

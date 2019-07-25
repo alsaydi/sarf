@@ -56,7 +56,7 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
                 case 9:
                     return true;
             }
-        } else if (kov == 16) {
+        } else if (kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Laam) {
             switch (formulaNo) {
                 case 1:
                 case 5:
