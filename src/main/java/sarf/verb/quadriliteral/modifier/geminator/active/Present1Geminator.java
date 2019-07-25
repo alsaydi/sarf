@@ -19,7 +19,7 @@ import sarf.verb.quadriliteral.*;
  */
 public class Present1Geminator extends SubstitutionsApplier implements IQuadrilateralModifier {
 
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Present1Geminator() {
         substitutions.add(new ExpressionInfixSubstitution("ْC4ِC4ُ", "ِC4ُّ")); // EX: (هو يَقْشَعِرُّ)

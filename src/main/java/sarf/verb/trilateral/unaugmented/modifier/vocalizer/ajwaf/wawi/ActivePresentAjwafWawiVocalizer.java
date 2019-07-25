@@ -21,7 +21,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
  * @version 1.0
  */
 public class ActivePresentAjwafWawiVocalizer extends AbstractAjwafWawiVocalizer {
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public ActivePresentAjwafWawiVocalizer() {
         substitutions.add(new ExpressionInfixSubstitution("ْوُC3ُ", "ُوC3ُ")); // EX: (يَقُومُ، يبوء، يؤوب)

@@ -19,7 +19,7 @@ import sarf.verb.trilateral.augmented.modifier.hamza.faa.*;
  */
 public class PresentMahmouz extends AbstractFaaMahmouz {
 
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public PresentMahmouz() {
         substitutions.add(new InfixSubstitution("أُءْ", "أُو")); // EX: (أُوثَرُ، أوْتَمَرُ، )

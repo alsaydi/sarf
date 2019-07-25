@@ -19,7 +19,7 @@ import sarf.verb.trilateral.augmented.modifier.hamza.lam.*;
  */
 public class PastMahmouz extends AbstractLamMahmouz {
 
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public PastMahmouz() {
         substitutions.add(new SuffixSubstitution("يءَ", "يءَ")); // EX: (أُسِيءَ، )

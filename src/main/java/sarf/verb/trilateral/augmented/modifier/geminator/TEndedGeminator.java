@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.augmented.modifier.geminator;
 
+import sarf.verb.trilateral.Substitution.Substitution;
 import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
@@ -22,7 +23,7 @@ import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
  */
 public class TEndedGeminator extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
 
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public TEndedGeminator() {
         substitutions.add(new InfixSubstitution("تْت", "تّ")); // EX: (أنا سَكَّتُّ ، أنتَ سَكَّتَّ ، أنتِ سَكَّتِّ )    }

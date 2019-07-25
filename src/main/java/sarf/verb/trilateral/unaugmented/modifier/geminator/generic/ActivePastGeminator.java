@@ -20,7 +20,7 @@ import sarf.verb.trilateral.unaugmented.*;
  */
 public class ActivePastGeminator extends SubstitutionsApplier{
 
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public ActivePastGeminator() {
         substitutions.add(new ExpressionInfixSubstitution("C2َC3َ","C3َّ"));

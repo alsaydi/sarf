@@ -21,7 +21,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class Geminator2 extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    List<Substitution> substitutions = new ArrayList<>();
 
     public Geminator2() {
         substitutions.add(new InfixSubstitution("َوْيَ","َيَّ"));// EX: (شيَّة، ليَّة)

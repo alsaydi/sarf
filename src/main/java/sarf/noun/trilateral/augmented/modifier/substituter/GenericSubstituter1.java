@@ -1,6 +1,8 @@
 package sarf.noun.trilateral.augmented.modifier.substituter;
 
 import java.util.*;
+
+import sarf.verb.trilateral.Substitution.Substitution;
 import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.noun.trilateral.augmented.modifier.AbstractGenericSubstituter;
 import sarf.verb.trilateral.Substitution.InfixSubstitution;
@@ -18,7 +20,7 @@ import sarf.verb.trilateral.Substitution.InfixSubstitution;
  * @version 1.0
  */
 public class GenericSubstituter1 extends AbstractGenericSubstituter {
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public GenericSubstituter1() {
         substitutions.add(new InfixSubstitution("ثْت","ثّ"));// EX: (اثِّمادٌ،)

@@ -20,7 +20,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class LamMahmouz extends AbstractLamMahmouz {
-    List substitutions = new LinkedList();
+    List<Substitution> substitutions = new ArrayList<>();
 
     public LamMahmouz() {
 

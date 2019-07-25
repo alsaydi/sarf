@@ -20,7 +20,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class EinMahmouz extends AbstractEinMahmouz {
-    List substitutions = new LinkedList();
+    List<Substitution> substitutions = new ArrayList<>();
 
     public EinMahmouz() {
         substitutions.add(new InfixSubstitution("َءْ","َأْ"));// EX: (نأْمَة، وَأْدَة)

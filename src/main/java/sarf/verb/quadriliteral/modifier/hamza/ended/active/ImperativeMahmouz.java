@@ -18,7 +18,7 @@ import sarf.verb.quadriliteral.substitution.*;
  */
 public class ImperativeMahmouz extends SubstitutionsApplier {
 
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public ImperativeMahmouz() {
         substitutions.add(new InfixSubstitution("ِء", "ِئ")); // EX: (غَرْقِئْ، احْبَنْطِئْ)

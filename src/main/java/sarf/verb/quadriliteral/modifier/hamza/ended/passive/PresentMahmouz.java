@@ -17,7 +17,7 @@ import sarf.verb.quadriliteral.substitution.*;
  */
 public class PresentMahmouz extends SubstitutionsApplier {
 
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public PresentMahmouz() {
         substitutions.add(new SuffixSubstitution("َءُ", "َأُ")); // EX: (يُغَرْقَأُ، يُتَدَرْبَأُ، يُحْبَنْطَأُ)

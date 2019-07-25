@@ -21,7 +21,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class Geminator3 extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    List<Substitution> substitutions = new ArrayList<>();
 
     public Geminator3() {
         substitutions.add(new ExpressionInfixSubstitution("ِC3ْC3َ","ِC3َّ"));// EX: (مِدَّة، حِيَّة)

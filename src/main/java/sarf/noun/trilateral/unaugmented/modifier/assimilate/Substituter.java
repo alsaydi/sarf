@@ -20,7 +20,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class Substituter extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-    List substitutions = new LinkedList();
+    List<Substitution> substitutions = new ArrayList<>();
 
     public Substituter() {
         substitutions.add(new InfixSubstitution("اءَا","اوَا"));// EX: (عَمْياوان)

@@ -18,7 +18,7 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class GenericSubstituter2 extends AbstractGenericSubstituter {
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public GenericSubstituter2() {
         substitutions.add(new InfixSubstitution("دْتَ","دَّ"));// EX: (ادَّخَرَ، يَدَّخِرُ، ادَّخِرْ)

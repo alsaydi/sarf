@@ -21,7 +21,7 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
  * @version 1.0
  */
 public class PassivePresentAjwafWawiVocalizer extends AbstractAjwafWawiVocalizer {
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public PassivePresentAjwafWawiVocalizer() {
         //نفس القائمة في listed

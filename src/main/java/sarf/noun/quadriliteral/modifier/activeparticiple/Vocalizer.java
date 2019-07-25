@@ -20,7 +20,7 @@ import sarf.verb.quadriliteral.substitution.*;
  * @version 1.0
  */
 public class Vocalizer extends QuadrilateralNounSubstitutionApplier implements IQuadrilateralModifier {
-    List substitutions = new LinkedList();
+    List<Substitution> substitutions = new ArrayList<>();
 
     public Vocalizer() {
         substitutions.add(new SuffixSubstitution("ِيُ","ِي"));// EX: (هذا المقلسِي، )
