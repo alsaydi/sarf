@@ -33,6 +33,6 @@ public class SpecialSubstituter2 extends TrilateralNounSubstitutionApplier imple
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
-        return conjugationResult.getRoot().getC1() == 'ي' && formulaNo == 5 && (kov == 13 || kov == 14);
+        return conjugationResult.getRoot().getC1() == 'ي' && formulaNo == 5 && (kov == 13 || kov == KindOfVerb.Mithal_Yaee);
     }
 }

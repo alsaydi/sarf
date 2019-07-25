@@ -35,6 +35,6 @@ public class YaeiPassivePresentVocalizer extends SubstitutionsApplier implements
         var noc = conjugationResult.getRoot().getConjugation();
         return (kov == 12  && (noc == Conjugation.Second || noc == Conjugation.Forth)) ||
                 (kov == 13  && (noc == Conjugation.Forth || noc == Conjugation.Sixth)) ||
-                (kov == 14 && (noc == Conjugation.First || noc == Conjugation.Second || noc == Conjugation.Third || noc == Conjugation.Forth || noc == Conjugation.Fifth || noc == Conjugation.Sixth));
+                (kov == KindOfVerb.Mithal_Yaee && (noc == Conjugation.First || noc == Conjugation.Second || noc == Conjugation.Third || noc == Conjugation.Forth || noc == Conjugation.Fifth || noc == Conjugation.Sixth));
     }
 }

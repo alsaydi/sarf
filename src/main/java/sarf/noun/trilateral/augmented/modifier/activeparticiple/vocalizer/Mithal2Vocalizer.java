@@ -2,6 +2,7 @@ package sarf.noun.trilateral.augmented.modifier.activeparticiple.vocalizer;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
@@ -20,8 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class Mithal2Vocalizer extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Mithal2Vocalizer() {
         substitutions.add(new InfixSubstitution("ُيْ","ُو"));// EX: (مُوقِظٌ، )
@@ -31,10 +31,10 @@ public class Mithal2Vocalizer extends TrilateralNounSubstitutionApplier implemen
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return formulaNo == 1 && (kov == 13 || kov == 14);
+        return formulaNo == 1 && (kov == 13 || kov == KindOfVerb.Mithal_Yaee);
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }
