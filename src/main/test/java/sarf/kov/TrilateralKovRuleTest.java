@@ -28,7 +28,7 @@ class TrilateralKovRuleTest {
     @Test
     void getKov() {
         var sut = new TrilateralKovRule();
-        assertEquals(0, sut.getKov());
+        assertNull(sut.getKov());
     }
 
     @Test
@@ -37,7 +37,7 @@ class TrilateralKovRuleTest {
 
         sut.setKov(KindOfVerb.Salim);
 
-        assertEquals(1, sut.getKov());
+        assertEquals(KindOfVerb.Salim, sut.getKov());
     }
 
     @Test

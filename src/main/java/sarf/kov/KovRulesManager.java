@@ -1,7 +1,9 @@
 package sarf.kov;
 
+import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.digester3.*;
 import sarf.KindOfVerb;
+import sarf.util.KindOfVerbConverter;
 
 import java.io.*;
 
@@ -52,6 +54,7 @@ public class KovRulesManager {
         digester.addSetProperties("rules/rule", "example","example" );
 
         digester.addSetNext( "rules/rule" , "addRule" );
+        ConvertUtils.register(new KindOfVerbConverter(), KindOfVerb.class);
 
         return (TrilateralKovRuleList)digester.parse(inputStream);
     }
@@ -72,6 +75,7 @@ public class KovRulesManager {
         digester.addSetProperties("rules/rule", "example","example" );
 
         digester.addSetNext( "rules/rule" , "addRule" );
+        ConvertUtils.register(new KindOfVerbConverter(), KindOfVerb.class);
 
         return (QuadrilateralKovRuleList)digester.parse(inputStream);
     }

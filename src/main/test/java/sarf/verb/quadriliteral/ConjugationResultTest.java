@@ -18,7 +18,7 @@ class ConjugationResultTest {
 		ConjugationResult sut = new ConjugationResult(1, KindOfVerb.Mudaaf, root, originalResult);
 		
 		assertEquals(1, sut.getFormulaNo());
-		assertEquals(2, sut.getKov());
+		assertEquals(KindOfVerb.Mudaaf, sut.getKov());
 		assertSame(root, sut.getRoot());
 		assertSame(originalResult, sut.getOriginalResult());
 		assertNotSame(originalResult, sut.getFinalResult());

@@ -17,7 +17,7 @@ public class ConjugationResultTest {
 		ConjugationResult sut = new ConjugationResult(KindOfVerb.Salim, 2, root, originalResult);
 		
 		assertEquals(originalResult.size(), sut.getFinalResult().size());
-		assertEquals(1, sut.getKov());
+		assertEquals(KindOfVerb.Salim, sut.getKov());
 		assertEquals(2, sut.getFormulaNo());
 		assertSame(root, sut.getRoot());
 		assertSame(originalResult, sut.getOriginalResult());
