@@ -36,6 +36,6 @@ public class WawiVocalizer extends SubstitutionsApplier implements IAugmentedTri
 
         if (formulaNo != 1) return false;
 
-        return kov == 9 || kov == 10 || kov == 11;
+        return kov == 9 || kov == 10 || kov == KindOfVerb.Mithal_Wawi;
     }
 }

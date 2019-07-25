@@ -58,7 +58,7 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
             return noc == Conjugation.Second || noc == Conjugation.Forth;
-        } else if (kov == 11) {
+        } else if (kov == KindOfVerb.Mithal_Wawi) {
             switch (noc) {
                 case Second:
                 case Third:
