@@ -25,7 +25,7 @@ public abstract class AbstractLamMahmouz extends SubstitutionsApplier implements
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        if (kov == 4) {
+        if (kov == KindOfVerb.Mahmouz_Faa_Mahmouz_Laam) {
             return formulaNo == 5;
         } else if (kov == KindOfVerb.Mahmouz_Laam) {
             switch (formulaNo) {
