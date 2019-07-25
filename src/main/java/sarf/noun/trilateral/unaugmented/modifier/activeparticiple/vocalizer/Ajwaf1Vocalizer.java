@@ -37,6 +37,6 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return kov == 15 && (noc == Conjugation.First || noc == Conjugation.Forth);
+        return kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Faa && (noc == Conjugation.First || noc == Conjugation.Forth);
     }
 }

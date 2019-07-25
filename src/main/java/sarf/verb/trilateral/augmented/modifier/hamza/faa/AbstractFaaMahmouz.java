@@ -85,7 +85,7 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
                 case 9:
                     return true;
             }
-        } else if (kov == 15) {
+        } else if (kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Faa) {
             switch (formulaNo) {
                 case 2:
                 case 3:
