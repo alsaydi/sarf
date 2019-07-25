@@ -72,7 +72,7 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
                 case 9:
                     return true;
             }
-        } else if (kov == 17) {
+        } else if (kov == KindOfVerb.Ajwaf_Wawi) {
             switch (formulaNo) {
                 case 1:
                 case 4:

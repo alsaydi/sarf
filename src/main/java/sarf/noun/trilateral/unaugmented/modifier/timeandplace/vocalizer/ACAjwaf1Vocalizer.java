@@ -41,7 +41,7 @@ public class ACAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier impleme
 
         if (kov == 15 || kov == 16) {
             return noc == Conjugation.First || noc == Conjugation.Forth;
-        } else if (kov == 17) {
+        } else if (kov == KindOfVerb.Ajwaf_Wawi) {
             switch (noc) {
                 case First:
                 case Forth:

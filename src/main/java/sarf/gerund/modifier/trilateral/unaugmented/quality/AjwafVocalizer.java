@@ -38,7 +38,7 @@ public class AjwafVocalizer extends TrilateralNounSubstitutionApplier implements
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        if (kov == 15 || kov == 16 || kov == 17) {
+        if (kov == 15 || kov == 16 || kov == KindOfVerb.Ajwaf_Wawi) {
             switch (noc) {
                 case First:
                 case Forth:

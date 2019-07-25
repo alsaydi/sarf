@@ -32,7 +32,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        if (kov == 1 || kov == 17 || kov == KindOfVerb.Ajwaf_Yaee) {
+        if (kov == 1 || kov == KindOfVerb.Ajwaf_Wawi || kov == KindOfVerb.Ajwaf_Yaee) {
             return formulaNo == 6 || formulaNo == 12;
         } else if (kov == 6) {
             return formulaNo == 6;
