@@ -1,6 +1,7 @@
 package sarf.gerund.trilateral.unaugmented.meem.pattern;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.util.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.gerund.trilateral.unaugmented.meem.*;

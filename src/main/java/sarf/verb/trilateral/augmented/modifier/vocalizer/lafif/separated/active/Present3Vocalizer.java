@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.lafif.separated.active
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -19,21 +20,19 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class Present3Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Present3Vocalizer() {
-        substitutions.add(new SuffixSubstitution("ِيُ","ِي"));// EX: (يُوَصِّي)
-        substitutions.add(new SuffixSubstitution("يْ",""));// EX: (لم يُوَصِّ)
-        substitutions.add(new InfixSubstitution("يِن","ن"));// EX: (أنتِ تُوَصِّنَّ)
-        substitutions.add(new InfixSubstitution("يِي","ي"));// EX: (أنتِ تُوَصِّينَ)
-        substitutions.add(new InfixSubstitution("يْن","ين"));// EX: (أنتن تُوَصِّينَ)
-        substitutions.add(new InfixSubstitution("ِّيُو","ُّو"));// EX: (أنتم تُوَصُّونَ)
-        substitutions.add(new InfixSubstitution("ِّيُن","ُّن"));// EX: (أنتم تُوَصُّنَّ)
+        substitutions.add(new SuffixSubstitution("ِيُ", "ِي"));// EX: (يُوَصِّي)
+        substitutions.add(new SuffixSubstitution("يْ", ""));// EX: (لم يُوَصِّ)
+        substitutions.add(new InfixSubstitution("يِن", "ن"));// EX: (أنتِ تُوَصِّنَّ)
+        substitutions.add(new InfixSubstitution("يِي", "ي"));// EX: (أنتِ تُوَصِّينَ)
+        substitutions.add(new InfixSubstitution("يْن", "ين"));// EX: (أنتن تُوَصِّينَ)
+        substitutions.add(new InfixSubstitution("ِّيُو", "ُّو"));// EX: (أنتم تُوَصُّونَ)
+        substitutions.add(new InfixSubstitution("ِّيُن", "ُّن"));// EX: (أنتم تُوَصُّنَّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

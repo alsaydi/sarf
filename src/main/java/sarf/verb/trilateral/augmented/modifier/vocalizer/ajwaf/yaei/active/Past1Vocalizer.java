@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.yaei.active;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -19,21 +20,16 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Past1Vocalizer() {
-
         substitutions.add(new ExpressionInfixSubstitution("ْيَC3ْ","َC3ْ"));// EX: (أبَدْتُ، استقلتُ)
         substitutions.add(new ExpressionInfixSubstitution("ْيَC3ّ","َC3ّ"));// EX: (أبَتُّ)
         substitutions.add(new ExpressionInfixSubstitution("ْيَC3َ","َاC3َ"));// EX: (أبادَ، استقال)
         substitutions.add(new ExpressionInfixSubstitution("ْيَC3ُ","َاC3ُ"));// EX: (أبادُوا، استقالوا)
-
-
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

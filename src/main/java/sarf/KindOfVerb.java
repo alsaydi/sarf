@@ -1,6 +1,7 @@
 package sarf;
 
 public enum KindOfVerb {
+    None(-1), //TODO: change to zero
     Salim(1), /* سالم  -- كتب */
     Mudaaf(2), /* مضعف -- مرّ*/
 

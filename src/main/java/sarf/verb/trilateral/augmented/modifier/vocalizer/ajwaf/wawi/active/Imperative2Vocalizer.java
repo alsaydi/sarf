@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.wawi.active;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -19,8 +20,7 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class Imperative2Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Imperative2Vocalizer() {
         substitutions.add(new ExpressionInfixSubstitution("َوِC3ُ","َاC3ُ"));// EX: (أنتم انقادوا، اقتادوا)
@@ -29,8 +29,7 @@ public class Imperative2Vocalizer extends SubstitutionsApplier implements IAugme
         substitutions.add(new ExpressionInfixSubstitution("َوِC3ْ","َC3ْ"));// EX: (أنتن انقدن، اقتدن)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

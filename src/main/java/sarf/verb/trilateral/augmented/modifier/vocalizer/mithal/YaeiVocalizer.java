@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.mithal;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -19,15 +20,13 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class YaeiVocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public YaeiVocalizer() {
         substitutions.add(new InfixSubstitution("ُيْ", "ُو")); // EX: (أوقَظُ، )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
@@ -39,12 +38,6 @@ public class YaeiVocalizer extends SubstitutionsApplier implements IAugmentedTri
             return false;
         }
 
-        switch (kov) {
-        case 13:
-        case 14:
-            return true;
-        }
-
-        return false;
+        return kov == 13 || kov == 14;
     }
 }

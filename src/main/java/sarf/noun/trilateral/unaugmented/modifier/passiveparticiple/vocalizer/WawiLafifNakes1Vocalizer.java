@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -36,14 +37,11 @@ public class WawiLafifNakes1Vocalizer extends TrilateralNounSubstitutionApplier 
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-        case 21:
+        if (kov == 21) {
             return noc == Conjugation.First || noc == Conjugation.Fifth;
-
-        case 22:
+        } else if (kov == 22) {
             return noc == Conjugation.First || noc == Conjugation.Third;
-
-        case 23:
+        } else if (kov == 23) {
             switch (noc) {
                 case First:
                 case Third:

@@ -3,6 +3,7 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.nakes.wawi.passive;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -34,8 +35,7 @@ public class PresentVocalizer extends SubstitutionsApplier implements IUnaugment
         substitutions.add(new InfixSubstitution("َوُو","َوْ"));// EX: (أنتم تُغْزَوْنَ )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

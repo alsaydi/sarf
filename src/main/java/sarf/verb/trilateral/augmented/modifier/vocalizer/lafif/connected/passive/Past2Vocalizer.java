@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.lafif.connected.passiv
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -20,8 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class Past2Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Past2Vocalizer() {
         substitutions.add(new InfixSubstitution("ِوُ","ُ"));// EX: (اُسْوُوا، سُووُوا، انغُوُوا، استُوُوا، تُسُووُوا، استُغْوُوا)
@@ -30,8 +30,7 @@ public class Past2Vocalizer extends SubstitutionsApplier implements IAugmentedTr
         substitutions.add(new InfixSubstitution("وْ","ي"));// EX: (أُسْوِيتُ، سُوِّيتُ سُووِيتُ، انغُوِيتُ، استُوِيتُ، تُسُووِيتُ، استُغْوِيتُ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

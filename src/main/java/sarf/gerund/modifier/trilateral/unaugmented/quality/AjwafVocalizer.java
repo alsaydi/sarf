@@ -3,6 +3,7 @@ package sarf.gerund.modifier.trilateral.unaugmented.quality;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -29,8 +30,7 @@ public class AjwafVocalizer extends TrilateralNounSubstitutionApplier implements
         substitutions.add(new InfixSubstitution("ِيْ", "ِي")); // EX: ( بِيعَة، )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
@@ -38,21 +38,18 @@ public class AjwafVocalizer extends TrilateralNounSubstitutionApplier implements
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-            case 15:
-            case 16:
-            case 17:
-                switch (noc) {
-                    case First:
-                    case Forth:
-                    case Fifth:
-                        return true;
-                }
+        if (kov == 15 || kov == 16 || kov == 17) {
+            switch (noc) {
+                case First:
+                case Forth:
+                case Fifth:
+                    return true;
+            }
 
-            case 18:
-            case 19:
-            case 20:
-                return noc == Conjugation.Second || noc == Conjugation.Forth;
+
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
+        } else if (kov == 18 || kov == 19 || kov == 20) {
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
         }
         return false;
     }

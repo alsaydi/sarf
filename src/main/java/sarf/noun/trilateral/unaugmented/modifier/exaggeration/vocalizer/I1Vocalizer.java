@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -36,7 +37,7 @@ public class I1Vocalizer extends TrilateralNounSubstitutionApplier implements IU
         substitutions.add(new InfixSubstitution("ِوِ","ِ"));// EX: (زَهِينَ، )
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

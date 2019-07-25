@@ -3,6 +3,7 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.lafif.connected;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -48,8 +49,7 @@ public class ActivePresentVocalizer extends SubstitutionsApplier implements IUna
         substitutions.add(new InfixSubstitution("َوَ","َيَ"));// EX: (أنتما تسْويانِ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.nakes.wawi.active;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -19,8 +20,7 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class Present1Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Present1Vocalizer() {
         substitutions.add(new InfixSubstitution("ِوُو","ُو"));// EX: (هم يُدْنُون، يحابون، ينجلون، يرتضون، يرعوون، يسترضون، يحلولون)
@@ -32,8 +32,7 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
         substitutions.add(new InfixSubstitution("وَ","يَ"));// EX: (لن يُدْنِيَ، هما يُدنِيان، يحابيان، ينجليان، يرتضيان، يرعويان، يسترضيان، يحلوليان)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
@@ -45,15 +44,12 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
         if ((kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa || kov == KindOfVerb.Naqis_Wawi) &&  formulaNo == 9) return true;
         if (kov == KindOfVerb.Naqis_Wawi && (formulaNo == 6 || formulaNo == 10)) return true;
 
-        switch (kov) {
-        case 21:
-        case 22:
-        case 23:
+        if (kov == 21 || kov == 22 || kov == 23) {
             switch (formulaNo) {
-            case 1:
-            case 3:
-            case 5:
-                return true;
+                case 1:
+                case 3:
+                case 5:
+                    return true;
             }
         }
         return false;

@@ -1,6 +1,8 @@
 package sarf.kov;
 
 import org.apache.commons.digester3.*;
+import sarf.KindOfVerb;
+
 import java.io.*;
 
 /**
@@ -83,9 +85,9 @@ public class KovRulesManager {
      * @param c3 char
      * @return int
      */
-    public int getTrilateralKov(char c1, char c2, char c3) {
+    public KindOfVerb getTrilateralKov(char c1, char c2, char c3) {
         TrilateralKovRule rule = getTrilateralKovRule(c1, c2, c3);
-        return rule != null? rule.getKov().getValue() : -1;
+        return rule != null? rule.getKov() : KindOfVerb.None;
     }
 
     public TrilateralKovRule getTrilateralKovRule(char c1, char c2, char c3) {

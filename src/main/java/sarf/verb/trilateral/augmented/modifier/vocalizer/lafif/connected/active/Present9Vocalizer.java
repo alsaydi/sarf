@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.lafif.connected.active
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -20,8 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class Present9Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Present9Vocalizer() {
         substitutions.add(new SuffixSubstitution("وُ", "ى")); // EX: (يَتَساوَى، يَتَسَوَّى)
@@ -35,8 +35,7 @@ public class Present9Vocalizer extends SubstitutionsApplier implements IAugmente
         substitutions.add(new InfixSubstitution("وَن", "يَن")); // EX: (تَتَساوَيَنَ، تتسوَّيَنَ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

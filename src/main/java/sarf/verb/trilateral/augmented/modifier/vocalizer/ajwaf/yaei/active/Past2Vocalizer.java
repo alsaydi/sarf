@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.yaei.active;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -19,20 +20,16 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class Past2Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Past2Vocalizer() {
-
-        substitutions.add(new ExpressionInfixSubstitution("َيَC3ْ","َC3ْ"));// EX: (انْهَلْتُ، اكتلتُ)
-        substitutions.add(new ExpressionInfixSubstitution("َيَC3ّ","َC3ّ"));// EX: (اختَتّ)
-        substitutions.add(new ExpressionInfixSubstitution("َيَC3َ","َاC3َ"));// EX: (انْهالَ، اكتال)
-        substitutions.add(new ExpressionInfixSubstitution("َيَC3ُ","َاC3ُ"));// EX: (انهالوا، اكتالوا)
-
+        substitutions.add(new ExpressionInfixSubstitution("َيَC3ْ", "َC3ْ"));// EX: (انْهَلْتُ، اكتلتُ)
+        substitutions.add(new ExpressionInfixSubstitution("َيَC3ّ", "َC3ّ"));// EX: (اختَتّ)
+        substitutions.add(new ExpressionInfixSubstitution("َيَC3َ", "َاC3َ"));// EX: (انْهالَ، اكتال)
+        substitutions.add(new ExpressionInfixSubstitution("َيَC3ُ", "َاC3ُ"));// EX: (انهالوا، اكتالوا)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

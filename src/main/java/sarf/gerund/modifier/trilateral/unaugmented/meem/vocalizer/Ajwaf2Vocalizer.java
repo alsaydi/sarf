@@ -3,6 +3,7 @@ package sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -37,21 +38,18 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-            case 15:
-            case 16:
-            case 17:
-                switch (noc) {
-                    case First:
-                    case Forth:
-                    case Fifth:
-                        return true;
-                }
+        if (kov == 15 || kov == 16 || kov == 17) {
+            switch (noc) {
+                case First:
+                case Forth:
+                case Fifth:
+                    return true;
+            }
 
-            case 18:
-            case 19:
-            case 20:
-                return noc == Conjugation.Forth;
+
+            return noc == Conjugation.Forth;
+        } else if (kov == 18 || kov == 19 || kov == 20) {
+            return noc == Conjugation.Forth;
         }
         return false;
     }

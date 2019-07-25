@@ -2,6 +2,7 @@ package sarf.noun.trilateral.unaugmented.modifier.elative.vocalizer;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.Substitution.*;

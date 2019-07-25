@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 

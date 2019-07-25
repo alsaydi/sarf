@@ -29,7 +29,7 @@ public class ActiveParticipleModifier {
      * @param tense String (From SystemConstans class the values are stored)  ماضي أو مضارع او أمر
      * @return ConjugationResult
      */
-    public ConjugationResult build(QuadrilateralRoot root, int formulaNo, int kov, List conjugations) {
+    public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations) {
         ConjugationResult conjResult = new ConjugationResult(formulaNo, kov, root, conjugations);
         if (geminator.isApplied(conjResult))
             geminator.apply(conjResult.getFinalResult(), conjResult.getRoot());

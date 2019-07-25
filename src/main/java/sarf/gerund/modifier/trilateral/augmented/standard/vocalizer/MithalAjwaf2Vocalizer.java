@@ -2,6 +2,7 @@ package sarf.gerund.modifier.trilateral.augmented.standard.vocalizer;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
@@ -20,8 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class MithalAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public MithalAjwaf2Vocalizer() {
         substitutions.add(new InfixSubstitution("إِيْ","إِي"));// EX: (إيقاظ)

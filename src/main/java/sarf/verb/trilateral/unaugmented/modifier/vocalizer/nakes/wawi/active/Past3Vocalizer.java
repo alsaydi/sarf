@@ -3,6 +3,7 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.nakes.wawi.active;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -28,7 +29,7 @@ public class Past3Vocalizer extends SubstitutionsApplier implements IUnaugmented
         substitutions.add(new InfixSubstitution("ِوُ", "ُ"));
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
