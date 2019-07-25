@@ -175,7 +175,7 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
                 case 9:
                     return true;
             }
-        } else if (kov == 26) {
+        } else if (kov == KindOfVerb.Naqis_Yaee) {
             switch (formulaNo) {
                 case 1:
                 case 2:

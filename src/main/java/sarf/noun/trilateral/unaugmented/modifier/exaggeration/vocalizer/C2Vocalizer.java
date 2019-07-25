@@ -62,7 +62,7 @@ public class C2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
 
 
             return noc == Conjugation.Second || noc == Conjugation.Forth;
-        } else if (kov == 26) {
+        } else if (kov == KindOfVerb.Naqis_Yaee) {
             switch (noc) {
                 case Second:
                 case Third:

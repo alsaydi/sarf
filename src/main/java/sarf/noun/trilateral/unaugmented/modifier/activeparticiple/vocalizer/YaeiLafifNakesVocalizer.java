@@ -41,7 +41,7 @@ public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        if (kov == 24 || kov == 26) {
+        if (kov == 24 || kov == KindOfVerb.Naqis_Yaee) {
             switch (noc) {
                 case Second:
                 case Third:

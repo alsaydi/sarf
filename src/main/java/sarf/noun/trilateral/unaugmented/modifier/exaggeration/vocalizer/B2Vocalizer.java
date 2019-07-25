@@ -42,7 +42,7 @@ public class B2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        if (kov == 26) {
+        if (kov == KindOfVerb.Naqis_Yaee) {
             switch (noc) {
                 case Second:
                 case Third:

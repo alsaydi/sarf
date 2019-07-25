@@ -40,7 +40,7 @@ public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTri
         if (kov == KindOfVerb.Naqis_Yaee &&  formulaNo == 10) return true;
         if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain  && formulaNo == 11) return true;
 
-        if (kov == 24 || kov == 25 || kov == 26) {
+        if (kov == 24 || kov == 25 || kov == KindOfVerb.Naqis_Yaee) {
             switch (formulaNo) {
                 case 1:
                 case 2:

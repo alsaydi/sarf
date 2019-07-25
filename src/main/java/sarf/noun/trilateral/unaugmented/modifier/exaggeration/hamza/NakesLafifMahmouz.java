@@ -75,7 +75,7 @@ public class NakesLafifMahmouz extends TrilateralNounSubstitutionApplier impleme
 
 
             return noc == Conjugation.Third || noc == Conjugation.Forth;
-        } else if (kov == 24 || kov == 26) {
+        } else if (kov == 24 || kov == KindOfVerb.Naqis_Yaee) {
             switch (noc) {
                 case Second:
                 case Third:

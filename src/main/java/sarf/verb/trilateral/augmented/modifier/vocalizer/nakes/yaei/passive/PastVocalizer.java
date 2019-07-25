@@ -102,7 +102,7 @@ public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTri
                 case 10:
                     return true;
             }
-        } else if (kov == 26) {
+        } else if (kov == KindOfVerb.Naqis_Yaee) {
             switch (formulaNo) {
                 case 1:
                 case 2:
