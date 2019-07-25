@@ -217,7 +217,7 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
                 case 9:
                     return true;
             }
-        } else if (kov == 25) {
+        } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             switch (formulaNo) {
                 case 1:
                 case 2:
