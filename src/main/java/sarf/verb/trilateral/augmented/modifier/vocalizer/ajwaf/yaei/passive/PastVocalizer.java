@@ -43,7 +43,7 @@ public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTri
 
         return ((kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam || kov == KindOfVerb.Ajwaf_Yaee) && formulaNo == 1) ||
                 (kov == KindOfVerb.Ajwaf_Yaee && formulaNo == 4) ||
-                ((kov == KindOfVerb.Ajwaf_Yaee || kov == 18) && formulaNo == 5) ||
-                ((kov == 18 || kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam || kov == KindOfVerb.Ajwaf_Yaee) && formulaNo == 9);
+                ((kov == KindOfVerb.Ajwaf_Yaee || kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Faa) && formulaNo == 5) ||
+                ((kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Faa || kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam || kov == KindOfVerb.Ajwaf_Yaee) && formulaNo == 9);
     }
 }

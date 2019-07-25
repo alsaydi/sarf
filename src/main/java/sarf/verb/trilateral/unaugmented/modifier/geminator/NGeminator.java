@@ -57,7 +57,7 @@ public class NGeminator extends SubstitutionsApplier implements IUnaugmentedTril
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
-        return (conjugationResult.getRoot().getC3()=='ن' && (kov == 1 || kov == 2 || kov == 3 || kov == 5 || kov == 6 || kov == 11 || kov == 14 || kov == 15 || kov == 17 || kov == 18 || kov == KindOfVerb.Ajwaf_Yaee));
+        return (conjugationResult.getRoot().getC3()=='ن' && (kov == 1 || kov == 2 || kov == 3 || kov == 5 || kov == 6 || kov == 11 || kov == 14 || kov == 15 || kov == 17 || kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Faa || kov == KindOfVerb.Ajwaf_Yaee));
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
