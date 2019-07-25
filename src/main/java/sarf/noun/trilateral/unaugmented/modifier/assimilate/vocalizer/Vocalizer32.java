@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.assimilate.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -29,7 +30,7 @@ public class Vocalizer32 extends TrilateralNounSubstitutionApplier implements IU
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
@@ -38,7 +39,7 @@ public class Vocalizer32 extends TrilateralNounSubstitutionApplier implements IU
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return nounFormula.equals("فَعِيل") && (kov == 24 || kov == 26 || kov == KindOfVerb.Lafeef_Maqroon) && noc == Conjugation.Forth;
+        return nounFormula.equals("فَعِيل") && (kov == 24 || kov == KindOfVerb.Naqis_Yaee || kov == KindOfVerb.Lafeef_Maqroon) && noc == Conjugation.Forth;
     }
 
 }
