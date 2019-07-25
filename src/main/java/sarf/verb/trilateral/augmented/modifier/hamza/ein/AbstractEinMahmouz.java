@@ -25,7 +25,7 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        if (kov == 6) {
+        if (kov == KindOfVerb.Mahmouz_Ain) {
             switch (formulaNo) {
                 case 1:
                 case 2:
