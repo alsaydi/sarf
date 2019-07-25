@@ -56,7 +56,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
 
 
             return formulaNo == 3 || formulaNo == 7;
-        } else if (kov == 3) {
+        } else if (kov == KindOfVerb.Mahmouz_Faa_Mudaaf) {
             switch (formulaNo) {
                 case 3:
                 case 5:
