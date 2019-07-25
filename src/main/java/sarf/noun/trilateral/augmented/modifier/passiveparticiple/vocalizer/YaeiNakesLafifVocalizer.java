@@ -90,9 +90,7 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
 
-            if (formulaNo == 10) {
-                return true;
-            }
+            return formulaNo == 10;
 
 
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
@@ -110,9 +108,7 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
 
-            if (formulaNo == 10) {
-                return true;
-            }
+            return formulaNo == 10;
 
 
         } else if (kov == KindOfVerb.Naqis_Yaee) {

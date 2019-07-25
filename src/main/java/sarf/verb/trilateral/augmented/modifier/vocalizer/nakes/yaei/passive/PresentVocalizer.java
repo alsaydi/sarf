@@ -59,9 +59,7 @@ public class PresentVocalizer extends SubstitutionsApplier implements IAugmented
             }
 
 
-            if (formulaNo == 10) {
-                return true;
-            }
+            return formulaNo == 10;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             switch (formulaNo) {
                 case 1:
@@ -77,9 +75,7 @@ public class PresentVocalizer extends SubstitutionsApplier implements IAugmented
             }
 
 
-            if (formulaNo == 10) {
-                return true;
-            }
+            return formulaNo == 10;
         } else if (kov == KindOfVerb.Naqis_Yaee) {
             switch (formulaNo) {
                 case 1:

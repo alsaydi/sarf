@@ -65,9 +65,7 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
             }
 
 
-            if (formulaNo == 1) {
-                return true;
-            }
+            return formulaNo == 1;
 
 
         } else if (kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa) {
@@ -82,9 +80,7 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
             }
 
 
-            if (formulaNo == 7) {
-                return true;
-            }
+            return formulaNo == 7;
         } else if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa) {
             switch (formulaNo) {
                 case 1:

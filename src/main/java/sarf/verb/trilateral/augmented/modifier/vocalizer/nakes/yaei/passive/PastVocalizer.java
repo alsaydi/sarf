@@ -56,9 +56,7 @@ public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTri
             }
 
 
-            if (formulaNo == 10) {
-                return true;
-            }
+            return formulaNo == 10;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             switch (formulaNo) {
                 case 1:
@@ -74,9 +72,7 @@ public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTri
             }
 
 
-            if (formulaNo == 10) {
-                return true;
-            }
+            return formulaNo == 10;
         } else if (kov == KindOfVerb.Naqis_Yaee) {
             switch (formulaNo) {
                 case 1:

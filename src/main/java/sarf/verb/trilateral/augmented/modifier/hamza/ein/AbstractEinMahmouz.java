@@ -40,9 +40,7 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
             }
 
 
-            if (formulaNo == 11) {
-                return true;
-            }
+            return formulaNo == 11;
 
 
         } else if (kov == KindOfVerb.Mithal_Wawi_Mahmouz_Ain) {
@@ -63,9 +61,7 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
             }
 
 
-            if (formulaNo == 11) {
-                return true;
-            }
+            return formulaNo == 11;
 
 
         } else if (kov == KindOfVerb.Mithal_Yaee_Mahmouz_Ain) {
@@ -87,9 +83,7 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
             }
 
 
-            if (formulaNo == 11) {
-                return true;
-            }
+            return formulaNo == 11;
 
 
         } else if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Ain) {
