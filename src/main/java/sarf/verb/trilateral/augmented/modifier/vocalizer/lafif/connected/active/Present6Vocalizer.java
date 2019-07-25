@@ -40,6 +40,6 @@ public class Present6Vocalizer extends SubstitutionsApplier implements IAugmente
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC2() == 'و' && root.getC3() == 'ي' && (kov == 27 || kov == KindOfVerb.Lafeef_Maqroon) && (formulaNo == 7 || formulaNo == 8);
+        return root.getC2() == 'و' && root.getC3() == 'ي' && (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Maqroon) && (formulaNo == 7 || formulaNo == 8);
     }
 }

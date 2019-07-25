@@ -56,7 +56,7 @@ public class ActivePresentVocalizer extends SubstitutionsApplier implements IUna
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
-        return ((kov == 27 || kov == KindOfVerb.Lafeef_Maqroon) && (noc == Conjugation.Second)) ||
+        return ((kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Maqroon) && (noc == Conjugation.Second)) ||
                 (kov == KindOfVerb.Lafeef_Maqroon && noc == Conjugation.Forth);
     }
 }
