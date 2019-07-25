@@ -41,11 +41,8 @@ public class BAjwafVocalizer extends TrilateralNounSubstitutionApplier implement
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-            case 18:
-            case 19:
-            case 20:
-                return noc == Conjugation.Second || noc == Conjugation.Forth;
+        if (kov == 18 || kov == 19 || kov == 20) {
+            return noc == Conjugation.Second || noc == Conjugation.Forth;
         }
         return false;
     }

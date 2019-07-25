@@ -36,47 +36,85 @@ public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTri
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        switch (kov) {
-            case 24:
-                switch (formulaNo) {
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 5:
-                    case 7:
-                    case 8:
-                    case 9:
-                        return true;
-                }
+        if (kov == 24) {
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
+            }
 
-            case 25:
-                switch (formulaNo) {
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 11:
-                        return true;
-                }
 
-            case 26:
-                switch (formulaNo) {
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 7:
-                    case 8:
-                    case 9:
-                    case 10:
-                        return true;
-                }
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                case 11:
+                    return true;
+            }
 
+
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                    return true;
+            }
+        } else if (kov == 25) {
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                case 11:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                    return true;
+            }
+        } else if (kov == 26) {
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                    return true;
+            }
         }
         return false;
     }

@@ -27,20 +27,6 @@ public abstract class AbstractGenericSubstituter extends SubstitutionsApplier im
         if (formulaNo != 5) return false;
 
         boolean kovCond = false;
-        switch (kov) {
-        case 1:
-        case 2:
-        case 6:
-        case 7:
-        case 16:
-        case 17:
-        case 20:
-        case 23:
-        case 26:
-        case 28:
-            return true;
-        }
-
-        return false;
+        return kov == 1 || kov == 2 || kov == 6 || kov == 7 || kov == 16 || kov == 17 || kov == 20 || kov == 23 || kov == 26 || kov == 28;
     }
 }

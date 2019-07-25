@@ -38,13 +38,9 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-        case 18:
-        case 20:
-            //return noc == 2;
-            return  noc == Conjugation.Second;
-        case 19:
-            //return noc == 2 || noc == Conjugation.Forth;
+        if (kov == 18 || kov == 20) {//return noc == 2;
+            return noc == Conjugation.Second;
+        } else if (kov == 19) {//return noc == 2 || noc == Conjugation.Forth;
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         }
         return false;

@@ -47,12 +47,11 @@ public class ALafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-        case 21:
+        if (kov == 21) {
             return noc == Conjugation.First || noc == Conjugation.Fifth;
-        case 22:
+        } else if (kov == 22) {
             return noc == Conjugation.First || noc == Conjugation.Third;
-        case 23:
+        } else if (kov == 23) {
             switch (noc) {
                 case First:
                 case Third:
@@ -60,8 +59,8 @@ public class ALafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
                 case Fifth:
                     return true;
             }
-        case 24:
-        case 26:
+
+
             switch (noc) {
                 case Second:
                 case Third:
@@ -69,16 +68,25 @@ public class ALafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
                     return true;
             }
 
-        case 25:
+
             return noc == Conjugation.Third || noc == Conjugation.Forth;
+        } else if (kov == 24 || kov == 26) {
+            switch (noc) {
+                case Second:
+                case Third:
+                case Forth:
+                    return true;
+            }
 
-        case 27:
-        case 29:
+
+            return noc == Conjugation.Third || noc == Conjugation.Forth;
+        } else if (kov == 25) {
+            return noc == Conjugation.Third || noc == Conjugation.Forth;
+        } else if (kov == 27 || kov == 29) {
             return noc == Conjugation.Second;
-        case 28:
+        } else if (kov == 28) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
-
-        case 30:
+        } else if (kov == 30) {
             switch (noc) {
                 case Second:
                 case Forth:

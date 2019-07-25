@@ -36,13 +36,6 @@ public class WawiVocalizer extends SubstitutionsApplier implements IAugmentedTri
 
         if (formulaNo != 1) return false;
 
-        switch (kov) {
-            case 9:
-            case 10:
-            case 11:
-                return true;
-        }
-
-        return false;
+        return kov == 9 || kov == 10 || kov == 11;
     }
 }

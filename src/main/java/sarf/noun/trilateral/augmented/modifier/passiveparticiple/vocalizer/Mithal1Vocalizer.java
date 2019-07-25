@@ -2,6 +2,7 @@ package sarf.noun.trilateral.augmented.modifier.passiveparticiple.vocalizer;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
@@ -20,8 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class Mithal1Vocalizer extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Mithal1Vocalizer() {
         substitutions.add(new InfixSubstitution("ُوْ","ُو"));// EX: (مُوجَبٌ، )
@@ -31,17 +31,14 @@ public class Mithal1Vocalizer extends TrilateralNounSubstitutionApplier implemen
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        switch (kov) {
-        case 9:
-        case 10:
-        case 11:
+        if (kov == 9 || kov == 10 || kov == 11) {
             return formulaNo == 1;
         }
 
         return false;
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

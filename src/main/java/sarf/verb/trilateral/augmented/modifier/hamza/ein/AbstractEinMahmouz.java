@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.augmented.modifier.hamza.ein;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
@@ -24,76 +25,227 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        switch (kov) {
-        case 6:
+        if (kov == 6) {
             switch (formulaNo) {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-                return true;
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
             }
 
-        case 9:
             switch (formulaNo) {
-            case 1:
-            case 2:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 9:
-                return true;
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
             }
 
-        case 13:
+
             switch (formulaNo) {
-            case 1:
-            case 2:
-            case 5:
-            case 9:
-                return true;
+                case 1:
+                case 2:
+                case 5:
+                case 9:
+                    return true;
             }
 
-        case 22:
+
             switch (formulaNo) {
-            case 1:
-            case 3:
-            case 4:
-            case 5:
-            case 7:
-            case 8:
-                return true;
+                case 1:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                    return true;
             }
 
-        case 25:
+
             switch (formulaNo) {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 7:
-            case 8:
-            case 9:
-            case 11:
-                return true;
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                case 11:
+                    return true;
             }
 
-        case 29:
+
             switch (formulaNo) {
-            case 5:
-            case 7:
-            case 9:
-                return true;
+                case 5:
+                case 7:
+                case 9:
+                    return true;
+            }
+        } else if (kov == 9) {
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 5:
+                case 9:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 1:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                case 11:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 5:
+                case 7:
+                case 9:
+                    return true;
+            }
+        } else if (kov == 13) {
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 5:
+                case 9:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 1:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                case 11:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 5:
+                case 7:
+                case 9:
+                    return true;
+            }
+        } else if (kov == 22) {
+            switch (formulaNo) {
+                case 1:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                case 11:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 5:
+                case 7:
+                case 9:
+                    return true;
+            }
+        } else if (kov == 25) {
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                case 11:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 5:
+                case 7:
+                case 9:
+                    return true;
+            }
+        } else if (kov == 29) {
+            switch (formulaNo) {
+                case 5:
+                case 7:
+                case 9:
+                    return true;
             }
         }
         return false;
     }
-
 }

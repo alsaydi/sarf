@@ -38,7 +38,7 @@ public class TitlateralAugmentedStandardModifier {
         return instance;
     }
 
-    public ConjugationResult build(AugmentedTrilateralRoot root, int kov, int formulaNo, List<String> conjugations, AugmentedTrilateralModifierListener listener) {
+    public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List<String> conjugations, AugmentedTrilateralModifierListener listener) {
         ConjugationResult conjResult = new ConjugationResult(kov, formulaNo, root, conjugations);
         substituter.apply(conjResult);
         geminator.apply(conjResult);
