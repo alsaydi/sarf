@@ -15,5 +15,5 @@ import java.util.*;
  * @version 1.0
  */
 public interface NounStateSelectionUIListener {
-    public void newStateConjugationResultGenerated(List result);
+    void newStateConjugationResultGenerated(List result);
 }

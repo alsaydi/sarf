@@ -18,9 +18,9 @@ import javax.swing.*;
  * @version 1.0
  */
 public interface INounStateSelectionUI {
-    public void init(Action action, INounSuffixContainer nounSuffixContainer, NounStateSelectionUIListener listener);
+    void init(Action action, INounSuffixContainer nounSuffixContainer, NounStateSelectionUIListener listener);
     //execute a selected button to refelct the result on the UI
-    public void selectOne();
+    void selectOne();
 
-    public JComponent getComponentUI();
+    JComponent getComponentUI();
 }

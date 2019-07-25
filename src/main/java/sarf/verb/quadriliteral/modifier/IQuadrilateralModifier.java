@@ -17,5 +17,5 @@ import sarf.verb.quadriliteral.*;
  * @version 1.0
  */
 public interface IQuadrilateralModifier {
-    public boolean isApplied(ConjugationResult conjugationResult);
+    boolean isApplied(ConjugationResult conjugationResult);
 }

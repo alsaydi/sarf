@@ -15,6 +15,6 @@ import java.io.File;
  * @version 1.0
  */
 public interface IHtmlContentSaver {
-    public boolean saveToHtml(File file);
-    public String getSavedFileNameTitle();
+    boolean saveToHtml(File file);
+    String getSavedFileNameTitle();
 }

@@ -15,8 +15,8 @@ import javax.swing.*;
  * @version 1.0
  */
 public interface IControlPane {
-    public JComponent getComponent();
-    public void controlPaneOpened();
-    public void controlPaneClosed();
+    JComponent getComponent();
+    void controlPaneOpened();
+    void controlPaneClosed();
 }
 

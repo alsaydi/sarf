@@ -13,5 +13,5 @@ package sarf.gerund.trilateral.augmented.pattern;
  * @version 1.0
  */
 public interface IChangedGerundPattern {
-    public void setForcedForm1Applying(boolean val);
+    void setForcedForm1Applying(boolean val);
 }

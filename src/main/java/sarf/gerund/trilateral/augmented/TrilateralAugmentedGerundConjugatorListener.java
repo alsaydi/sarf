@@ -13,5 +13,5 @@ package sarf.gerund.trilateral.augmented;
  * @version 1.0
  */
 public interface TrilateralAugmentedGerundConjugatorListener {
-    public int selectPatternFormNo(int formulaNo);
+    int selectPatternFormNo(int formulaNo);
 }
