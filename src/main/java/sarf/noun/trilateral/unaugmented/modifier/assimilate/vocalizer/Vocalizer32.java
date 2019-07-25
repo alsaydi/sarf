@@ -29,7 +29,6 @@ public class Vocalizer32 extends TrilateralNounSubstitutionApplier implements IU
         substitutions.add(new InfixSubstitution("ِيي","ِيّ"));// EX: (غَنِيّ، )
     }
 
-
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
@@ -39,7 +38,7 @@ public class Vocalizer32 extends TrilateralNounSubstitutionApplier implements IU
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return nounFormula.equals("فَعِيل") && (kov == 24 || kov == KindOfVerb.Naqis_Yaee || kov == KindOfVerb.Lafeef_Maqroon) && noc == Conjugation.Forth;
+        return nounFormula.equals("فَعِيل") && (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee || kov == KindOfVerb.Lafeef_Maqroon) && noc == Conjugation.Forth;
     }
 
 }

@@ -40,6 +40,6 @@ public class Present2Vocalizer extends SubstitutionsApplier implements IAugmente
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return (kov == KindOfVerb.Naqis_Yaee || kov == 24 || kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) && (formulaNo == 7 || formulaNo == 8);
+        return (kov == KindOfVerb.Naqis_Yaee || kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) && (formulaNo == 7 || formulaNo == 8);
     }
 }
