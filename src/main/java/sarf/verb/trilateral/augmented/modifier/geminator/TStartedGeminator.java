@@ -36,7 +36,7 @@ public class TStartedGeminator extends SubstitutionsApplier implements IAugmente
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
-        return conjugationResult.getRoot().getC1() == 'ت' && (kov == 1 || kov == 6) && (formulaNo == 5);
+        return conjugationResult.getRoot().getC1() == 'ت' && (kov == 1 || kov == KindOfVerb.Mahmouz_Ain) && (formulaNo == 5);
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {

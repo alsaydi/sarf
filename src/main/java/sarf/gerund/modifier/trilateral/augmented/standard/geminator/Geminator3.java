@@ -2,6 +2,7 @@ package sarf.gerund.modifier.trilateral.augmented.standard.geminator;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
@@ -31,7 +32,7 @@ public class Geminator3 extends TrilateralNounSubstitutionApplier implements IAu
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return conjugationResult.getRoot().getC1() == 'ت' && (kov == 1 || kov == 6) && formulaNo == 5;
+        return conjugationResult.getRoot().getC1() == 'ت' && (kov == 1 || kov == KindOfVerb.Mahmouz_Ain) && formulaNo == 5;
     }
 
     public List<Substitution> getSubstitutions() {
