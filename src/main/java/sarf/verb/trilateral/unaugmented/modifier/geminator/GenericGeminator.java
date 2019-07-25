@@ -41,7 +41,7 @@ public class GenericGeminator implements IUnaugmentedTrilateralModifier{
         return (kov == 2 && (noc == Conjugation.First || noc == Conjugation.Second || noc == Conjugation.Third || noc == Conjugation.Forth || noc == Conjugation.Fifth ) )
                 || (kov == 3 && (noc == Conjugation.First || noc == Conjugation.Second ) )
                 || (kov == 8 && noc == Conjugation.Forth)
-                || (kov == 12 && (noc == Conjugation.Second || noc == Conjugation.Forth ) );
+                || (kov == KindOfVerb.Mithal_Yaee_Mudaaf && (noc == Conjugation.Second || noc == Conjugation.Forth ) );
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
