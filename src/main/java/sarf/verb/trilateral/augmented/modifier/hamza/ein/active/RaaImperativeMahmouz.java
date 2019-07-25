@@ -19,7 +19,7 @@ import sarf.verb.trilateral.*;
  * @version 1.0
  */
 public class RaaImperativeMahmouz extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-    private final List substitutions = new ArrayList();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public RaaImperativeMahmouz() {
 

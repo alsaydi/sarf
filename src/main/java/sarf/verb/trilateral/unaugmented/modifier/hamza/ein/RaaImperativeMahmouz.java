@@ -20,7 +20,7 @@ import sarf.verb.trilateral.*;
  * @version 1.0
  */
 public class RaaImperativeMahmouz extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
-    private final List substitutions = new ArrayList();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public RaaImperativeMahmouz() {
         substitutions.add(new InfixSubstitution("ارْءَ","رَ"));// EX: (رَ، رَيْ، رَيا، رَوْا، رَيْنَ، رَيَنَّ، رَيِنَّ، رَيانِّ، رَوُنَّ، رَيْنانِّ)
