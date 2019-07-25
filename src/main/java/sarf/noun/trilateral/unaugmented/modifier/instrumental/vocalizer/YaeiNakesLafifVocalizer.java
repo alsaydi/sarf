@@ -60,9 +60,8 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
                     return true;
             }
 
-            switch (noc) {
-                case Second:
-                    return true;
+            if (noc == Conjugation.Second) {
+                return true;
             }
 
             return noc == Conjugation.Third || noc == Conjugation.Forth;

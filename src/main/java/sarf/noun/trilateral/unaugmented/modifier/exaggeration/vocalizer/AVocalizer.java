@@ -58,9 +58,8 @@ public class AVocalizer extends TrilateralNounSubstitutionApplier implements IUn
             }
 
 
-            switch (noc) {
-                case Second:
-                    return true;
+            if (noc == Conjugation.Second) {
+                return true;
             }
 
 

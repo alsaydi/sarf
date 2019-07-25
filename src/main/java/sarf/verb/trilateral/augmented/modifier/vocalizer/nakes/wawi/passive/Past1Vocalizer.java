@@ -47,9 +47,8 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTr
             }
 
 
-            switch (formulaNo) {
-                case 4:
-                    return true;
+            if (formulaNo == 4) {
+                return true;
             }
 
 

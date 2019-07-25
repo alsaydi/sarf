@@ -52,16 +52,6 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
             }
 
 
-            switch (formulaNo) {
-            }
-
-
-            switch (formulaNo) {
-            }
-
-
-            switch (formulaNo) {
-            }
         } else if (kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Faa) {
             switch (formulaNo) {
                 case 2:
@@ -75,14 +65,11 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
             }
 
 
-            switch (formulaNo) {
-                case 1:
-                    return true;
+            if (formulaNo == 1) {
+                return true;
             }
 
 
-            switch (formulaNo) {
-            }
         } else if (kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa) {
             switch (formulaNo) {
                 case 1:
@@ -95,9 +82,8 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
             }
 
 
-            switch (formulaNo) {
-                case 7:
-                    return true;
+            if (formulaNo == 7) {
+                return true;
             }
         } else if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa) {
             switch (formulaNo) {

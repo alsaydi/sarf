@@ -90,22 +90,11 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
 
-            switch (formulaNo) {
-                case 10:
-                    return true;
+            if (formulaNo == 10) {
+                return true;
             }
 
 
-            switch (formulaNo) {
-            }
-
-
-            switch (formulaNo) {
-            }
-
-
-            switch (formulaNo) {
-            }
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             switch (formulaNo) {
                 case 1:
@@ -121,22 +110,11 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
 
-            switch (formulaNo) {
-                case 10:
-                    return true;
+            if (formulaNo == 10) {
+                return true;
             }
 
 
-            switch (formulaNo) {
-            }
-
-
-            switch (formulaNo) {
-            }
-
-
-            switch (formulaNo) {
-            }
         } else if (kov == KindOfVerb.Naqis_Yaee) {
             switch (formulaNo) {
                 case 1:
@@ -152,16 +130,6 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
 
-            switch (formulaNo) {
-            }
-
-
-            switch (formulaNo) {
-            }
-
-
-            switch (formulaNo) {
-            }
         } else if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa) {
             switch (formulaNo) {
                 case 1:
@@ -181,8 +149,6 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
 
-            switch (formulaNo) {
-            }
         } else if (kov == KindOfVerb.Lafeef_Maqroon) {
             switch (formulaNo) {
                 case 1:
@@ -197,8 +163,6 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
 
-            switch (formulaNo) {
-            }
         } else if (kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
             switch (formulaNo) {
                 case 5:

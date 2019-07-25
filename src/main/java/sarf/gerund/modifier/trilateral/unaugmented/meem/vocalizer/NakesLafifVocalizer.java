@@ -64,9 +64,8 @@ public class NakesLafifVocalizer extends TrilateralNounSubstitutionApplier imple
             }
 
 
-            switch (noc) {
-                case Second:
-                    return true;
+            if (noc == Conjugation.Second) {
+                return true;
             }
 
 

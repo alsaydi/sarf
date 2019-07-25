@@ -50,12 +50,6 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IAugme
             }
 
 
-            switch (formulaNo) {
-            }
-
-
-            switch (formulaNo) {
-            }
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             switch (formulaNo) {
                 case 1:
@@ -67,8 +61,6 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IAugme
             }
 
 
-            switch (formulaNo) {
-            }
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa) {
             switch (formulaNo) {
                 case 1:

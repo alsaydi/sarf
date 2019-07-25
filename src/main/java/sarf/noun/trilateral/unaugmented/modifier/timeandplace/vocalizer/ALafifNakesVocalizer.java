@@ -60,9 +60,8 @@ public class ALafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
             }
 
 
-            switch (noc) {
-                case Second:
-                    return true;
+            if (noc == Conjugation.Second) {
+                return true;
             }
 
 

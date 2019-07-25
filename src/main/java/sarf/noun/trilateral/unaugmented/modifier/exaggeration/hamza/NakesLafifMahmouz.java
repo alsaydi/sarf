@@ -65,9 +65,8 @@ public class NakesLafifMahmouz extends TrilateralNounSubstitutionApplier impleme
             }
 
 
-            switch (noc) {
-                case Second:
-                    return true;
+            if (noc == Conjugation.Second) {
+                return true;
             }
 
 

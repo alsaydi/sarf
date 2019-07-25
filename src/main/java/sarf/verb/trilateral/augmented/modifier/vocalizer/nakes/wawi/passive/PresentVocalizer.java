@@ -55,9 +55,8 @@ public class PresentVocalizer extends SubstitutionsApplier implements IAugmented
             }
 
 
-            switch (formulaNo) {
-                case 4:
-                    return true;
+            if (formulaNo == 4) {
+                return true;
             }
 
 

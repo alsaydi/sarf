@@ -59,9 +59,8 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
 
-            switch (formulaNo) {
-                case 4:
-                    return true;
+            if (formulaNo == 4) {
+                return true;
             }
 
 
@@ -72,9 +71,8 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
 
-            switch (formulaNo) {
-                case 11:
-                    return true;
+            if (formulaNo == 11) {
+                return true;
             }
         } else if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Ain) {
             switch (formulaNo) {
@@ -97,9 +95,8 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
 
-            switch (formulaNo) {
-                case 11:
-                    return true;
+            if (formulaNo == 11) {
+                return true;
             }
         } else if (kov == KindOfVerb.Naqis_Wawi) {
             switch (formulaNo) {
@@ -117,9 +114,8 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
 
-            switch (formulaNo) {
-                case 11:
-                    return true;
+            if (formulaNo == 11) {
+                return true;
             }
         } else if (kov == KindOfVerb.Lafeef_Maqroon) {
             switch (formulaNo) {
