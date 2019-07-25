@@ -40,7 +40,7 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
             return noc == Conjugation.Forth;
         } else if (kov == 9 || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
             return noc == Conjugation.Second;
-        } else if (kov == 10) {
+        } else if (kov == KindOfVerb.Mithal_Wawi_Mahmouz_Laam) {
             switch (noc) {
                 case Third:
                 case Forth:
