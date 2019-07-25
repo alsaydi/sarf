@@ -85,7 +85,7 @@ public class NakesLafifVocalizer extends TrilateralNounSubstitutionApplier imple
             return noc == Conjugation.Third || noc == Conjugation.Forth;
         } else if (kov == 25) {
             return noc == Conjugation.Third || noc == Conjugation.Forth;
-        } else if (kov == 27 || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
+        } else if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
             return noc == Conjugation.Second;
         } else if (kov == KindOfVerb.Lafeef_Maqroon) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;

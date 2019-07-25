@@ -22,6 +22,6 @@ public abstract class AbstractFaaMahmouz extends TrilateralNounSubstitutionAppli
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
 
-        return kov == 3 || kov == 4 || kov == 5 || kov == 15 || kov == 18 || kov == 21 || kov == 24 || kov == 27;
+        return kov == 3 || kov == 4 || kov == 5 || kov == 15 || kov == 18 || kov == 21 || kov == 24 || kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa;
     }
 }

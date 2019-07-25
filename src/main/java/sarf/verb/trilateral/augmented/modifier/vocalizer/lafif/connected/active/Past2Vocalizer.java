@@ -38,7 +38,7 @@ public class Past2Vocalizer extends SubstitutionsApplier implements IAugmentedTr
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
         if (root.getC2() == 'و' && root.getC3() == 'ي') {
-            if (kov == 27) {
+            if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa) {
                 switch (formulaNo) {
                     case 1:
                     case 2:

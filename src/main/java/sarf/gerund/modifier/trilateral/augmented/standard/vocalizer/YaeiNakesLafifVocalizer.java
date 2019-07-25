@@ -220,7 +220,7 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
                 case 9:
                     return true;
             }
-        } else if (kov == 27) {
+        } else if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa) {
             switch (formulaNo) {
                 case 1:
                 case 2:
