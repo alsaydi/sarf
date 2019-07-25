@@ -70,7 +70,7 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
                 case 9:
                     return true;
             }
-        } else if (kov == 20) {
+        } else if (kov == KindOfVerb.Ajwaf_Yaee) {
             switch (formulaNo) {
                 case 1:
                 case 4:

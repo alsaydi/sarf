@@ -41,7 +41,7 @@ public class ACAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier impleme
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        if (kov == 18 || kov == 19 || kov == 20) {
+        if (kov == 18 || kov == 19 || kov == KindOfVerb.Ajwaf_Yaee) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         }
         return false;

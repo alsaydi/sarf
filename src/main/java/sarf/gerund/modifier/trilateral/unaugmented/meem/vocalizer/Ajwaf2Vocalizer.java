@@ -48,7 +48,7 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
 
 
             return noc == Conjugation.Forth;
-        } else if (kov == 18 || kov == 19 || kov == 20) {
+        } else if (kov == 18 || kov == 19 || kov == KindOfVerb.Ajwaf_Yaee) {
             return noc == Conjugation.Forth;
         }
         return false;
