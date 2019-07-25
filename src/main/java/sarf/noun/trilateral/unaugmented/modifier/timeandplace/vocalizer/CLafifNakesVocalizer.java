@@ -80,7 +80,7 @@ public class CLafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
             return noc == Conjugation.Third || noc == Conjugation.Forth;
         } else if (kov == 27 || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
             return noc == Conjugation.Second;
-        } else if (kov == 28) {
+        } else if (kov == KindOfVerb.Lafeef_Maqroon) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Lafeef_Mafrooq) {
             switch (noc) {

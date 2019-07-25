@@ -52,7 +52,7 @@ public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
 ////            case 3:
 ////            case 4:return true;
 //            }
-        } else if (kov == 28) {//return noc == 2 || noc == Conjugation.Forth;
+        } else if (kov == KindOfVerb.Lafeef_Maqroon) {//return noc == 2 || noc == Conjugation.Forth;
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         }
         return false;

@@ -57,7 +57,7 @@ public class I2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
             }
 
             return noc == Conjugation.Second || noc == Conjugation.Forth;
-        } else if (kov == 28) {
+        } else if (kov == KindOfVerb.Lafeef_Maqroon) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Lafeef_Mafrooq) {
             switch (noc) {

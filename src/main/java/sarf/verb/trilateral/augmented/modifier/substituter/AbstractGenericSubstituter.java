@@ -27,6 +27,6 @@ public abstract class AbstractGenericSubstituter extends SubstitutionsApplier im
         if (formulaNo != 5) return false;
 
         boolean kovCond = false;
-        return kov == 1 || kov == 2 || kov == 6 || kov == 7 || kov == 16 || kov == 17 || kov == 20 || kov == 23 || kov == 26 || kov == 28;
+        return kov == 1 || kov == 2 || kov == 6 || kov == 7 || kov == 16 || kov == 17 || kov == 20 || kov == 23 || kov == 26 || kov == KindOfVerb.Lafeef_Maqroon;
     }
 }
