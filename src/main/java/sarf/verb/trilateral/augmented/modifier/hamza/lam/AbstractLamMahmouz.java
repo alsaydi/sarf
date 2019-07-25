@@ -27,7 +27,7 @@ public abstract class AbstractLamMahmouz extends SubstitutionsApplier implements
 
         if (kov == 4) {
             return formulaNo == 5;
-        } else if (kov == 7) {
+        } else if (kov == KindOfVerb.Mahmouz_Laam) {
             switch (formulaNo) {
                 case 1:
                 case 2:
