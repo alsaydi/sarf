@@ -35,7 +35,7 @@ public class SeparatedLafifPassivePresentVocalizer extends SubstitutionsApplier 
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        if (kov == 29) {
+        if (kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
             switch (formulaNo) {
                 case 5:
                 case 9:
@@ -50,7 +50,7 @@ public class SeparatedLafifPassivePresentVocalizer extends SubstitutionsApplier 
                 case 9:
                     return true;
             }
-        } else if (kov == 30) {
+        } else if (kov == KindOfVerb.Lafeef_Mafrooq ) {
             switch (formulaNo) {
                 case 1:
                 case 3:

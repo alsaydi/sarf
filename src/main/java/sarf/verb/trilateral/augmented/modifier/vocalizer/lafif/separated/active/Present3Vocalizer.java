@@ -41,6 +41,6 @@ public class Present3Vocalizer extends SubstitutionsApplier implements IAugmente
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return (kov == 30 && formulaNo == 2);
+        return (kov == KindOfVerb.Lafeef_Mafrooq  && formulaNo == 2);
     }
 }

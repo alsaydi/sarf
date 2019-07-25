@@ -33,7 +33,7 @@ public class PreSeparatedLafifVocalizer extends TrilateralNounSubstitutionApplie
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return kov == 30 && (formulaNo == 1 || formulaNo == 9);
+        return kov == KindOfVerb.Lafeef_Mafrooq  && (formulaNo == 1 || formulaNo == 9);
     }
 
     public List getSubstitutions() {

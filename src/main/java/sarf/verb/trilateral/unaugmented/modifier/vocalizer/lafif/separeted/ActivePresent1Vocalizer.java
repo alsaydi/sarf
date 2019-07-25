@@ -40,6 +40,6 @@ public class ActivePresent1Vocalizer extends SubstitutionsApplier implements IUn
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
-        return (conjugationResult.getRoot().getC1()=='ي' && kov == 30 && noc == Conjugation.Second);
+        return (conjugationResult.getRoot().getC1()=='ي' && kov == KindOfVerb.Lafeef_Mafrooq  && noc == Conjugation.Second);
     }
 }

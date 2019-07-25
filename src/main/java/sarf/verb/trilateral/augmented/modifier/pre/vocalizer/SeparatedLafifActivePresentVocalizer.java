@@ -35,6 +35,6 @@ public class SeparatedLafifActivePresentVocalizer extends SubstitutionsApplier i
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return kov == 30 && formulaNo == 1;
+        return kov == KindOfVerb.Lafeef_Mafrooq  && formulaNo == 1;
     }
 }

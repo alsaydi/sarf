@@ -37,6 +37,6 @@ public class C3Vocalizer extends TrilateralNounSubstitutionApplier implements IU
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return nounFormula.equals("مِفْعَال") && (kov == 30 && (noc == Conjugation.Second || noc == Conjugation.Forth || noc == Conjugation.Sixth));
+        return nounFormula.equals("مِفْعَال") && (kov == KindOfVerb.Lafeef_Mafrooq  && (noc == Conjugation.Second || noc == Conjugation.Forth || noc == Conjugation.Sixth));
     }
 }

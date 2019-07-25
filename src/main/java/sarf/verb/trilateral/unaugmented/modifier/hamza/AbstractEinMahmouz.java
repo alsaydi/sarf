@@ -23,6 +23,6 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
-        return kov == 6 || kov == 9 || kov == 13 || kov == 22 || kov == 25 || kov == 29;
+        return kov == 6 || kov == 9 || kov == 13 || kov == 22 || kov == 25 || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain;
     }
 }

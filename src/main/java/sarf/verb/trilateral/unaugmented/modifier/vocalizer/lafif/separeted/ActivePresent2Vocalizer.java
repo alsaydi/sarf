@@ -39,7 +39,7 @@ public class ActivePresent2Vocalizer extends SubstitutionsApplier implements IUn
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
-        return ((kov == 29 || kov == 30) && (noc == Conjugation.Second)) ||
-                (kov == 30 && noc == Conjugation.Sixth);
+        return ((kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain || kov == KindOfVerb.Lafeef_Mafrooq ) && (noc == Conjugation.Second)) ||
+                (kov == KindOfVerb.Lafeef_Mafrooq  && noc == Conjugation.Sixth);
     }
 }
