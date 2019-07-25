@@ -30,7 +30,7 @@ public class NStartedGeminator extends SubstitutionsApplier implements IAugmente
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return (conjugationResult.getRoot().getC1() == 'ن') && kov == 1 && formulaNo == 4;
+        return (conjugationResult.getRoot().getC1() == 'ن') && kov == KindOfVerb.Salim && formulaNo == 4;
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {

@@ -31,7 +31,7 @@ public class Geminator2 extends TrilateralNounSubstitutionApplier implements IAu
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return conjugationResult.getRoot().getC1() == 'ن' && kov == 1 && formulaNo == 4;
+        return conjugationResult.getRoot().getC1() == 'ن' && kov == KindOfVerb.Salim && formulaNo == 4;
     }
 
     public List<Substitution> getSubstitutions() {
