@@ -36,6 +36,6 @@ public class WawiVocalizer extends SubstitutionsApplier implements IAugmentedTri
 
         if (formulaNo != 1) return false;
 
-        return kov == 9 || kov == KindOfVerb.Mithal_Wawi_Mahmouz_Laam || kov == KindOfVerb.Mithal_Wawi;
+        return kov == KindOfVerb.Mithal_Wawi_Mahmouz_Ain || kov == KindOfVerb.Mithal_Wawi_Mahmouz_Laam || kov == KindOfVerb.Mithal_Wawi;
     }
 }

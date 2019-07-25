@@ -38,7 +38,7 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
 
         if (kov == 8) {
             return noc == Conjugation.Forth;
-        } else if (kov == 9 || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
+        } else if (kov == KindOfVerb.Mithal_Wawi_Mahmouz_Ain || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
             return noc == Conjugation.Second;
         } else if (kov == KindOfVerb.Mithal_Wawi_Mahmouz_Laam) {
             switch (noc) {
