@@ -23,14 +23,6 @@ public abstract class AbstractLamMahmouz extends SubstitutionsApplier implements
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
-        switch (kov) {
-            case 4:
-            case 7:
-            case 10:
-            case 16:
-            case 19:
-                return true;
-        }
-        return false;
+        return kov == 4 || kov == 7 || kov == 10 || kov == 16 || kov == 19;
     }
 }

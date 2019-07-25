@@ -40,6 +40,6 @@ public class Present3Vocalizer extends SubstitutionsApplier implements IAugmente
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return ((kov == 26 || kov == 24) && formulaNo == 2) || (kov == 25 && (formulaNo == 2 || formulaNo == 11));
+        return (kov == 26 || kov == 24) && formulaNo == 2 || (kov == 25 && (formulaNo == 2 || formulaNo == 11));
     }
 }

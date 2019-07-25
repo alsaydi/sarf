@@ -24,18 +24,6 @@ public abstract class AbstractFaaMahmouz extends TrilateralNounSubstitutionAppli
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
-
-        switch (kov) {
-        case 3:
-        case 4:
-        case 5:
-        case 15:
-        case 18:
-        case 21:
-        case 24:
-        case 27:
-            return true;
-        }
-        return false;
+        return kov == 3 || kov == 4 || kov == 5 || kov == 15 || kov == 18 || kov == 21 || kov == 24 || kov == 27;
     }
 }

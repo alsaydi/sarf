@@ -43,17 +43,14 @@ public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTri
         if ((kov == 21 || kov == 23) && (formulaNo == 2 || formulaNo == 9)) return true;
         if (kov == 23 && (formulaNo == 6 || formulaNo == 10)) return true;
 
-        switch (kov) {
-        case 21:
-        case 22:
-        case 23:
+        if (kov == 21 || kov == 22 || kov == 23) {
             switch (formulaNo) {
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-                return true;
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                    return true;
             }
         }
         return false;

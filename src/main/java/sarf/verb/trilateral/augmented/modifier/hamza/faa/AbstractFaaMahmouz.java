@@ -25,69 +25,132 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        switch (kov) {
-        case 3:
+        if (kov == 3) {
             switch (formulaNo) {
-            case 2:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 9:
-                return true;
+                case 2:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
             }
-
-        case 4:
             return formulaNo == 5;
-
-        case 5:
+        } else if (kov == 4) {
+            return formulaNo == 5;
+        } else if (kov == 5) {
             switch (formulaNo) {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 7:
-            case 8:
-            case 9:
-                return true;
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
             }
 
-        case 15:
+
             switch (formulaNo) {
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 7:
-            case 8:
-            case 9:
-                return true;
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
             }
 
-        case 18:
-        case 27:
+
             switch (formulaNo) {
-            case 1:
-            case 2:
-            case 3:
-            case 5:
-            case 8:
-            case 9:
-                return true;
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 8:
+                case 9:
+                    return true;
             }
 
-        case 21:
-        case 24:
+
             switch (formulaNo) {
-            case 1:
-            case 2:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 9:
-                return true;
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
+            }
+        } else if (kov == 15) {
+            switch (formulaNo) {
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 8:
+                case 9:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
+            }
+        } else if (kov == 18 || kov == 27) {
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 8:
+                case 9:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
+            }
+        } else if (kov == 21 || kov == 24) {
+            switch (formulaNo) {
+                case 1:
+                case 2:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 9:
+                    return true;
             }
         }
         return false;

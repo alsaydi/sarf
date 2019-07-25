@@ -39,27 +39,19 @@ public class TEndedGeminator extends SubstitutionsApplier implements IAugmentedT
         if (conjugationResult.getRoot().getC3() != 'ت') return false;
 
         switch (formulaNo) {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 7:
-        case 8:
-        case 9:
-        case 10:
-        case 11:
-            switch (kov) {
             case 1:
             case 2:
             case 3:
+            case 4:
             case 5:
-            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
             case 11:
-            case 17:
-            case 20:
-                return true;
-            }
+                if (kov == 1 || kov == 2 || kov == 3 || kov == 5 || kov == 6 || kov == 11 || kov == 17 || kov == 20) {
+                    return true;
+                }
         }
         return false;
     }

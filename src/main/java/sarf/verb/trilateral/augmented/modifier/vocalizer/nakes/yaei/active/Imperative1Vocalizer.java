@@ -38,35 +38,60 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IAugme
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        switch (kov) {
-        case 26:
+        if (kov == 26) {
             switch (formulaNo) {
-            case 1:
-            case 3:
-            case 4:
-            case 5:
-            case 9:
-            case 10:
-                return true;
+                case 1:
+                case 3:
+                case 4:
+                case 5:
+                case 9:
+                case 10:
+                    return true;
             }
 
-        case 25:
+
             switch (formulaNo) {
-            case 1:
-            case 3:
-            case 4:
-            case 5:
-            case 9:
-                return true;
+                case 1:
+                case 3:
+                case 4:
+                case 5:
+                case 9:
+                    return true;
             }
 
-        case 24:
+
             switch (formulaNo) {
-            case 1:
-            case 3:
-            case 5:
-            case 9:
-                return true;
+                case 1:
+                case 3:
+                case 5:
+                case 9:
+                    return true;
+            }
+        } else if (kov == 25) {
+            switch (formulaNo) {
+                case 1:
+                case 3:
+                case 4:
+                case 5:
+                case 9:
+                    return true;
+            }
+
+
+            switch (formulaNo) {
+                case 1:
+                case 3:
+                case 5:
+                case 9:
+                    return true;
+            }
+        } else if (kov == 24) {
+            switch (formulaNo) {
+                case 1:
+                case 3:
+                case 5:
+                case 9:
+                    return true;
             }
         }
         return false;

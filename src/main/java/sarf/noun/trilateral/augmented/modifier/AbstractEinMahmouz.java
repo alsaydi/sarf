@@ -21,17 +21,6 @@ public abstract class AbstractEinMahmouz extends TrilateralNounSubstitutionAppli
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
-
-        switch (kov) {
-            case 6:
-            case 9:
-            case 13:
-            case 22:
-            case 25:
-            case 29:
-                return true;
-        }
-
-        return false;
+        return kov == 6 || kov == 9 || kov == 13 || kov == 22 || kov == 25 || kov == 29;
     }
 }

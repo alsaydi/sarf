@@ -20,7 +20,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class FaaMahmouz extends AbstractFaaMahmouz {
-    List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public FaaMahmouz() {
         substitutions.add(new InfixSubstitution("ِء", "ِئ")); // EX: (مِئْزَر، مِئزرة، مِئزار)
@@ -30,8 +30,7 @@ public class FaaMahmouz extends AbstractFaaMahmouz {
         substitutions.add(new InfixSubstitution("ءُ", "أُ")); // EX: (أُخْذَة، )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

@@ -1,5 +1,6 @@
 package sarf.noun.trilateral.augmented.modifier;
 
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.*;

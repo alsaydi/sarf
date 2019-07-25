@@ -40,14 +40,11 @@ public class Imperative2Vocalizer extends SubstitutionsApplier implements IAugme
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        switch (kov) {
-        case 21:
-        case 22:
-        case 23:
+        if (kov == 21 || kov == 22 || kov == 23) {
             switch (formulaNo) {
-            case 7:
-            case 8:
-                return true;
+                case 7:
+                case 8:
+                    return true;
             }
         }
         return false;

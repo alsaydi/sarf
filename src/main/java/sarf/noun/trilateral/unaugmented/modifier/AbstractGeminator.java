@@ -29,8 +29,7 @@ public abstract class AbstractGeminator extends TrilateralNounSubstitutionApplie
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        switch (kov) {
-        case 2:
+        if (kov == 2) {
             switch (noc) {
                 case First:
                 case Second:
@@ -39,14 +38,12 @@ public abstract class AbstractGeminator extends TrilateralNounSubstitutionApplie
                 case Fifth:
                     return true;
             }
-
-        case 3:
+            return noc == Conjugation.Second || noc == Conjugation.First; //TODO: simplify this
+        } else if (kov == 3) {
             return noc == Conjugation.Second || noc == Conjugation.First;
-
-        case 8:
+        } else if (kov == 8) {
             return noc == Conjugation.Forth;
-
-        case 12:
+        } else if (kov == 12) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         }
         return false;

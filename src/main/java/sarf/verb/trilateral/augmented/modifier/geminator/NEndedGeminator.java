@@ -31,32 +31,20 @@ public class NEndedGeminator extends SubstitutionsApplier implements IAugmentedT
         int formulaNo = conjugationResult.getFormulaNo();
         if (conjugationResult.getRoot().getC3() != 'ن') return false;
         switch (formulaNo) {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 7:
-        case 8:
-        case 9:
-        case 10:
-        case 11:
-            switch (kov) {
             case 1:
             case 2:
             case 3:
+            case 4:
             case 5:
-            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
             case 11:
-            case 14:
-            case 15:
-            case 17:
-            case 18:
-            case 20:
-                return true;
-            }
+                if (kov == 1 || kov == 2 || kov == 3 || kov == 5 || kov == 6 || kov == 11 || kov == 14 || kov == 15 || kov == 17 || kov == 18 || kov == 20) {
+                    return true;
+                }
         }
-
         return false;
     }
 
@@ -64,7 +52,7 @@ public class NEndedGeminator extends SubstitutionsApplier implements IAugmentedT
         apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }
