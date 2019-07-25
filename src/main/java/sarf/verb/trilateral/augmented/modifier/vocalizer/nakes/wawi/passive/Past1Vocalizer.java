@@ -90,7 +90,7 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTr
                 case 10:
                     return true;
             }
-        } else if (kov == 23) {
+        } else if (kov == KindOfVerb.Naqis_Wawi) {
             switch (formulaNo) {
                 case 1:
                 case 3:

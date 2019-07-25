@@ -104,7 +104,7 @@ public class PresentVocalizer extends SubstitutionsApplier implements IAugmented
                 case 10:
                     return true;
             }
-        } else if (kov == 23) {
+        } else if (kov == KindOfVerb.Naqis_Wawi) {
             switch (formulaNo) {
                 case 1:
                 case 2:

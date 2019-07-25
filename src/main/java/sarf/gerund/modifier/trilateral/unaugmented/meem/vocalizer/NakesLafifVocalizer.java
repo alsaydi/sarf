@@ -54,7 +54,7 @@ public class NakesLafifVocalizer extends TrilateralNounSubstitutionApplier imple
             return noc == Conjugation.First || noc == Conjugation.Fifth;
         } else if (kov == 22) {
             return noc == Conjugation.First || noc == Conjugation.Third;
-        } else if (kov == 23) {
+        } else if (kov == KindOfVerb.Naqis_Wawi) {
             switch (noc) {
                 case First:
                 case Third:

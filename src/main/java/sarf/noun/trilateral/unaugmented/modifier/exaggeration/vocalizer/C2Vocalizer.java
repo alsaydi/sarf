@@ -44,7 +44,7 @@ public class C2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        if (kov == 23) {
+        if (kov == KindOfVerb.Naqis_Wawi) {
             switch (noc) {
                 case First:
                 case Third:

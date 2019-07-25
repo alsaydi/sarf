@@ -44,7 +44,7 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
         if ((kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa || kov == KindOfVerb.Naqis_Wawi) &&  formulaNo == 9) return true;
         if (kov == KindOfVerb.Naqis_Wawi && (formulaNo == 6 || formulaNo == 10)) return true;
 
-        if (kov == 21 || kov == 22 || kov == 23) {
+        if (kov == 21 || kov == 22 || kov == KindOfVerb.Naqis_Wawi) {
             switch (formulaNo) {
                 case 1:
                 case 3:
