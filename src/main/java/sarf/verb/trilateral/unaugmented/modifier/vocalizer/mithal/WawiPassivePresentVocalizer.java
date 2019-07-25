@@ -36,6 +36,6 @@ public class WawiPassivePresentVocalizer extends SubstitutionsApplier implements
         var noc = conjugationResult.getRoot().getConjugation();
         return (kov == 9  && noc == Conjugation.Second) ||
                 (kov == 10 && (noc == Conjugation.Third || noc == Conjugation.Forth || noc == Conjugation.Fifth)) ||
-                (kov == 11 && (noc == Conjugation.Second || noc == Conjugation.Third || noc == Conjugation.Forth || noc == Conjugation.Fifth));
+                (kov == KindOfVerb.Mithal_Wawi && (noc == Conjugation.Second || noc == Conjugation.Third || noc == Conjugation.Forth || noc == Conjugation.Fifth));
     }
 }

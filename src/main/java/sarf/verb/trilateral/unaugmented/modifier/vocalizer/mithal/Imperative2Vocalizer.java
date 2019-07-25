@@ -33,6 +33,6 @@ public class Imperative2Vocalizer extends SubstitutionsApplier implements IUnaug
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
-        return (kov == 8 || kov == 9 || kov == 10 || kov == 11)  && noc == Conjugation.Forth ;
+        return (kov == 8 || kov == 9 || kov == 10 || kov == KindOfVerb.Mithal_Wawi)  && noc == Conjugation.Forth ;
     }
 }

@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 
 import sarf.verb.trilateral.Substitution.*;
@@ -36,7 +37,7 @@ public class C1Vocalizer extends TrilateralNounSubstitutionApplier implements IU
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return nounFormula.equals("مِفْعَال") && (kov == 11
+        return nounFormula.equals("مِفْعَال") && (kov == KindOfVerb.Mithal_Wawi
                 && (noc == Conjugation.Second || noc == Conjugation.Third || noc == Conjugation.Fifth || noc == Conjugation.Sixth));
     }
 

@@ -32,6 +32,6 @@ public class SpecialSubstituter1 extends SubstitutionsApplier implements IAugmen
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
-        return conjugationResult.getRoot().getC1() == 'و' && formulaNo == 5 && (kov == 9 || kov == 10 || kov == 11 || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain || kov == KindOfVerb.Lafeef_Mafrooq );
+        return conjugationResult.getRoot().getC1() == 'و' && formulaNo == 5 && (kov == 9 || kov == 10 || kov == KindOfVerb.Mithal_Wawi || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain || kov == KindOfVerb.Lafeef_Mafrooq );
     }
 }
