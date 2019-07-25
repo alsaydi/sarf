@@ -29,7 +29,7 @@ public abstract class AbstractGeminator extends TrilateralNounSubstitutionApplie
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        if (kov == 2) {
+        if (kov == KindOfVerb.Mudaaf) {
             switch (noc) {
                 case First:
                 case Second:

@@ -46,14 +46,14 @@ public class GenericGeminator implements IAugmentedTrilateralModifier {
                 return kov == 1 || kov == KindOfVerb.Mithal_Wawi || kov == KindOfVerb.Ajwaf_Wawi || kov == KindOfVerb.Ajwaf_Yaee;
             case 1:
             case 4:
-                return kov == 2;
+                return kov == KindOfVerb.Mudaaf;
 
             case 3:
             case 7:
-                return kov == 2 || kov == KindOfVerb.Mahmouz_Faa_Mudaaf || kov == KindOfVerb.Mithal_Wawi_Mudaaf;
+                return kov == KindOfVerb.Mudaaf || kov == KindOfVerb.Mahmouz_Faa_Mudaaf || kov == KindOfVerb.Mithal_Wawi_Mudaaf;
             case 5:
             case 9:
-                return kov == 2 || kov == KindOfVerb.Mahmouz_Faa_Mudaaf;
+                return kov == KindOfVerb.Mudaaf || kov == KindOfVerb.Mahmouz_Faa_Mudaaf;
         }
         return false;
     }
