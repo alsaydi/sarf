@@ -41,7 +41,7 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        if ((kov == 22 || kov == KindOfVerb.Naqis_Wawi) && formulaNo == 4) return true;
+        if ((kov == KindOfVerb.Naqis_Wawi_Mahmouz_Ain || kov == KindOfVerb.Naqis_Wawi) && formulaNo == 4) return true;
         if ((kov == 21 || kov == KindOfVerb.Naqis_Wawi) &&  formulaNo == 9) return true;
         if (kov == KindOfVerb.Naqis_Wawi && (formulaNo == 6 || formulaNo == 10)) return true;
 

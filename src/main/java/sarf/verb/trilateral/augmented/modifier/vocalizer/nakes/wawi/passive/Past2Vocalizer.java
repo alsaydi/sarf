@@ -39,6 +39,6 @@ public class Past2Vocalizer extends SubstitutionsApplier implements IAugmentedTr
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        return (kov == 22 && formulaNo == 8) || ((kov == KindOfVerb.Naqis_Wawi || kov == 21) && (formulaNo == 2 || formulaNo == 8));
+        return (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Ain && formulaNo == 8) || ((kov == KindOfVerb.Naqis_Wawi || kov == 21) && (formulaNo == 2 || formulaNo == 8));
     }
 }

@@ -39,11 +39,11 @@ public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTri
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        if ((kov == 22 || kov == KindOfVerb.Naqis_Wawi) && formulaNo == 4) return true;
+        if ((kov == KindOfVerb.Naqis_Wawi_Mahmouz_Ain || kov == KindOfVerb.Naqis_Wawi) && formulaNo == 4) return true;
         if ((kov == 21 || kov == KindOfVerb.Naqis_Wawi) && (formulaNo == 2 || formulaNo == 9)) return true;
         if (kov == KindOfVerb.Naqis_Wawi && (formulaNo == 6 || formulaNo == 10)) return true;
 
-        if (kov == 21 || kov == 22 || kov == KindOfVerb.Naqis_Wawi) {
+        if (kov == 21 || kov == KindOfVerb.Naqis_Wawi_Mahmouz_Ain || kov == KindOfVerb.Naqis_Wawi) {
             switch (formulaNo) {
                 case 1:
                 case 3:

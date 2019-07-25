@@ -93,7 +93,7 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
                 case 11:
                     return true;
             }
-        } else if (kov == 22) {
+        } else if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Ain) {
             switch (formulaNo) {
                 case 1:
                 case 3:
