@@ -36,6 +36,6 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
         var noc = conjugationResult.getRoot().getConjugation();
 
         return ((kov == 15 || kov == 16) && (noc == Conjugation.First || noc == Conjugation.Forth)
-                || (kov == 17 && (noc == Conjugation.Forth || noc == Conjugation.First || noc == Conjugation.Fifth)));
+                || (kov == KindOfVerb.Ajwaf_Wawi && (noc == Conjugation.Forth || noc == Conjugation.First || noc == Conjugation.Fifth)));
     }
 }

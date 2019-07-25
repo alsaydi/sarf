@@ -37,6 +37,6 @@ public class Ajwaf3WawiVocalizer extends TrilateralNounSubstitutionApplier imple
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        return kov == 17 && (noc == Conjugation.First || noc == Conjugation.Fifth);
+        return kov == KindOfVerb.Ajwaf_Wawi && (noc == Conjugation.First || noc == Conjugation.Fifth);
     }
 }

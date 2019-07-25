@@ -49,7 +49,7 @@ public class TEndedGeminator extends SubstitutionsApplier implements IAugmentedT
             case 9:
             case 10:
             case 11:
-                if (kov == 1 || kov == 2 || kov == 3 || kov == 5 || kov == 6 || kov == 11 || kov == 17 || kov == KindOfVerb.Ajwaf_Yaee) {
+                if (kov == 1 || kov == 2 || kov == 3 || kov == 5 || kov == 6 || kov == 11 || kov == KindOfVerb.Ajwaf_Wawi || kov == KindOfVerb.Ajwaf_Yaee) {
                     return true;
                 }
         }
