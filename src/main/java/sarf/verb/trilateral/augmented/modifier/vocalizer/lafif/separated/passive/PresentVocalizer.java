@@ -39,7 +39,7 @@ public class PresentVocalizer extends SubstitutionsApplier implements IAugmented
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        if (kov == 29) {
+        if (kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
             switch (formulaNo) {
                 case 5:
                 case 7:
