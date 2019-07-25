@@ -50,10 +50,10 @@ public class GenericGeminator implements IAugmentedTrilateralModifier {
 
             case 3:
             case 7:
-                return kov == 2 || kov == 3 || kov == KindOfVerb.Mithal_Wawi_Mudaaf;
+                return kov == 2 || kov == KindOfVerb.Mahmouz_Faa_Mudaaf || kov == KindOfVerb.Mithal_Wawi_Mudaaf;
             case 5:
             case 9:
-                return kov == 2 || kov == 3;
+                return kov == 2 || kov == KindOfVerb.Mahmouz_Faa_Mudaaf;
         }
         return false;
     }

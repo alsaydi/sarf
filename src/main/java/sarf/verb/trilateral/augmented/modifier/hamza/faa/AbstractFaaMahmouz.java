@@ -25,7 +25,7 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        if (kov == 3) {
+        if (kov == KindOfVerb.Mahmouz_Faa_Mudaaf) {
             switch (formulaNo) {
                 case 2:
                 case 3:

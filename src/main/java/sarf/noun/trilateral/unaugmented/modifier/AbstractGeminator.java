@@ -39,7 +39,7 @@ public abstract class AbstractGeminator extends TrilateralNounSubstitutionApplie
                     return true;
             }
             return noc == Conjugation.Second || noc == Conjugation.First; //TODO: simplify this
-        } else if (kov == 3) {
+        } else if (kov == KindOfVerb.Mahmouz_Faa_Mudaaf) {
             return noc == Conjugation.Second || noc == Conjugation.First;
         } else if (kov == KindOfVerb.Mithal_Wawi_Mudaaf) {
             return noc == Conjugation.Forth;

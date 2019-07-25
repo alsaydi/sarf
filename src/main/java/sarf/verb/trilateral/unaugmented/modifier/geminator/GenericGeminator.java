@@ -39,7 +39,7 @@ public class GenericGeminator implements IUnaugmentedTrilateralModifier{
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
         return (kov == 2 && (noc == Conjugation.First || noc == Conjugation.Second || noc == Conjugation.Third || noc == Conjugation.Forth || noc == Conjugation.Fifth ) )
-                || (kov == 3 && (noc == Conjugation.First || noc == Conjugation.Second ) )
+                || (kov == KindOfVerb.Mahmouz_Faa_Mudaaf && (noc == Conjugation.First || noc == Conjugation.Second ) )
                 || (kov == KindOfVerb.Mithal_Wawi_Mudaaf && noc == Conjugation.Forth)
                 || (kov == KindOfVerb.Mithal_Yaee_Mudaaf && (noc == Conjugation.Second || noc == Conjugation.Forth ) );
     }
