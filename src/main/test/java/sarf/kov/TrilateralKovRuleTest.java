@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import sarf.KindOfVerb;
 
 import java.util.stream.Stream;
 
@@ -34,7 +35,7 @@ class TrilateralKovRuleTest {
     void setKov() {
         var sut = new TrilateralKovRule();
 
-        sut.setKov(1);
+        sut.setKov(KindOfVerb.Salim);
 
         assertEquals(1, sut.getKov());
     }

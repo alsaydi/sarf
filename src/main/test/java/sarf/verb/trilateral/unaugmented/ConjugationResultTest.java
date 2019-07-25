@@ -6,11 +6,12 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import sarf.KindOfVerb;
 
 class ConjugationResultTest{
     ConjugationResult sut;
     UnaugmentedTrilateralRoot root;
-    KindOfVerb kov = 1;
+    KindOfVerb kov = KindOfVerb.Salim;
     List<String> originalResult;
 
     @BeforeEach

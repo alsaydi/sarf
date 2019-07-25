@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.LinkedList;
 import java.util.Iterator;
 
+import static sarf.KindOfVerb.Mahmouz_Faa_Mahmouz_Laam;
+
 /**
  * <p>Title: Sarf Program</p>
  *
@@ -44,7 +46,7 @@ public class PostHamzaModifier {
      * @param conjResult ConjugationResult
      */
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
-        if (conjResult.getKov() != 4)
+        if (conjResult.getKov() != Mahmouz_Faa_Mahmouz_Laam)
             return;
 
         IUnaugmentedTrilateralModifier modifier = modifiersMap.get(tense+active);
