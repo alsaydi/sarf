@@ -38,7 +38,7 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTr
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         return ((kov == 19 || kov == 20) && formulaNo == 1) || ((kov == 18 || kov == 19 || kov == 20) && formulaNo == 9);

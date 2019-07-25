@@ -35,7 +35,7 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaug
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
         return (conjugationResult.getRoot().getC1()=='ي' && kov == 30 && noc == Conjugation.Second);
     }

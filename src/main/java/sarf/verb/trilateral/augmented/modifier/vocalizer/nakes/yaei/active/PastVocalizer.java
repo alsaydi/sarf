@@ -34,7 +34,7 @@ public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTri
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         if ((kov == 25 || kov == 26) && formulaNo == 4) return true;

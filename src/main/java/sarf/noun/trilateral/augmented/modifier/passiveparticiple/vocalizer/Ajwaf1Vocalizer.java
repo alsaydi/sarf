@@ -29,7 +29,7 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         switch (kov) {

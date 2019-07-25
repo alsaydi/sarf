@@ -2,6 +2,7 @@ package sarf.verb.trilateral.unaugmented.modifier.geminator;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
@@ -24,9 +25,8 @@ import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
  * @version 1.0
  */
 public class TGeminator extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier{
-
-    private List substitutions = new LinkedList();
-    private List appliedPronounsIndecies = new ArrayList(6);
+    private List<Substitution> substitutions = new ArrayList<>();
+    private List<String> appliedPronounsIndecies = new ArrayList<>(6);
 
     public TGeminator() {
         substitutions.add(new InfixSubstitution("تْتُ", "تُّ"));
@@ -41,7 +41,7 @@ public class TGeminator extends SubstitutionsApplier implements IUnaugmentedTril
         appliedPronounsIndecies.add("7");
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
@@ -50,7 +50,7 @@ public class TGeminator extends SubstitutionsApplier implements IUnaugmentedTril
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         return (conjugationResult.getRoot().getC3()=='ت' && (kov == 1 || kov == 2 || kov == 3 || kov == 5 || kov == 6 || kov == 11 || kov == 17 || kov == 20));
     }
 

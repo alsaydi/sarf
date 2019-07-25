@@ -31,7 +31,7 @@ public class YaeiPassivePresentVocalizer extends SubstitutionsApplier implements
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
         return (kov == 12  && (noc == Conjugation.Second || noc == Conjugation.Forth)) ||
                 (kov == 13  && (noc == Conjugation.Forth || noc == Conjugation.Sixth)) ||

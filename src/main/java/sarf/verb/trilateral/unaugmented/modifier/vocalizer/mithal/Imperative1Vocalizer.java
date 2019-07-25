@@ -50,7 +50,7 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaug
      * @return boolean
      */
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
         return (kov == 9 && noc == Conjugation.Second)
                 || (kov == 11 && (noc == Conjugation.Second || noc == Conjugation.Sixth))

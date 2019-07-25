@@ -1,5 +1,6 @@
 package sarf.noun.trilateral.augmented.modifier;
 
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.*;
@@ -19,7 +20,7 @@ import sarf.verb.trilateral.augmented.*;
 public abstract class AbstractLamMahmouz extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
 
         switch (kov) {
         case 4:

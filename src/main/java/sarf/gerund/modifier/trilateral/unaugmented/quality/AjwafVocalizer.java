@@ -35,7 +35,7 @@ public class AjwafVocalizer extends TrilateralNounSubstitutionApplier implements
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         switch (kov) {

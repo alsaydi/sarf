@@ -36,7 +36,7 @@ public class WawiLafifNakes2Vocalizer extends TrilateralNounSubstitutionApplier 
         if (conjugationResult.getRoot().getC3() != 'و')
             return false;
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         return (kov == 23 || kov == 28) && noc == Conjugation.Forth;

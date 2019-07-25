@@ -21,7 +21,7 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         switch (kov) {
         case 6:
         case 9:

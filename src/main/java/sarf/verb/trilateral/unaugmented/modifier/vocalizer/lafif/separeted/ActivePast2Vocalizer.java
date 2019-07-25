@@ -32,7 +32,7 @@ public class ActivePast2Vocalizer extends SubstitutionsApplier implements IUnaug
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
         return kov == 30 && (noc == Conjugation.Forth || noc == Conjugation.Sixth);
     }

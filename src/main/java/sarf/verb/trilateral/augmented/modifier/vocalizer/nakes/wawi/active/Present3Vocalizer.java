@@ -37,7 +37,7 @@ public class Present3Vocalizer extends SubstitutionsApplier implements IAugmente
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         return (kov == 21 || kov == 23) && formulaNo == 2;

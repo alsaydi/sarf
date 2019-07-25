@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.augmented.modifier.substituter;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
@@ -21,7 +22,7 @@ public abstract class AbstractGenericSubstituter extends SubstitutionsApplier im
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         if (formulaNo != 5) return false;
 

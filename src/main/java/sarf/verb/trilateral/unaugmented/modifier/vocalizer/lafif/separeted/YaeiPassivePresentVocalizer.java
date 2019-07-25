@@ -42,7 +42,7 @@ public class YaeiPassivePresentVocalizer extends SubstitutionsApplier implements
             return false;
         }
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
         return ((kov == 29 || kov == 30) && (noc == Conjugation.Second)) ||
                 (kov == 30 && (noc == Conjugation.Sixth || noc == Conjugation.Forth));

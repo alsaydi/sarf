@@ -1,5 +1,7 @@
 package sarf.kov;
 
+import sarf.KindOfVerb;
+
 /**
  * <p>Title: Sarf Program</p>
  *
@@ -18,7 +20,7 @@ public class QuadrilateralKovRule {
     private String c2;
     private String c3;
     private String c4;
-    private int kov;
+    private KindOfVerb kov;
     private String desc;
     private String example;
 
@@ -34,11 +36,11 @@ public class QuadrilateralKovRule {
         return example;
     }
 
-    public int getKov() {
+    public KindOfVerb getKov() {
         return kov;
     }
 
-    public void setKov(int kov) {
+    public void setKov(KindOfVerb kov) {
         this.kov = kov;
     }
 

@@ -2,6 +2,7 @@ package sarf.verb.trilateral.unaugmented.modifier;
 
 import java.util.List;
 
+import sarf.KindOfVerb;
 import sarf.VerbLamAlefModifier;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
@@ -45,11 +46,11 @@ public class UnaugmentedTrilateralModifier {
      * @param tense String (From SystemConstans class the values are stored)  ماضي أو مضارع او أمر
      * @return ConjugationResult
      */
-    public<T> ConjugationResult build(UnaugmentedTrilateralRoot root, int kov, List<T> conjugations, String tense, boolean active) {
+    public<T> ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List<T> conjugations, String tense, boolean active) {
         return build(root, kov, conjugations, tense, active, true);
     }
 
-    public<T> ConjugationResult build(UnaugmentedTrilateralRoot root, int kov, List<T> conjugations, String tense, boolean active, boolean applyGemination) {
+    public<T> ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List<T> conjugations, String tense, boolean active, boolean applyGemination) {
         ConjugationResult<T> conjResult = new ConjugationResult<>(kov, root, conjugations);
         if (applyGemination)
             geminator.apply(tense, active, conjResult);

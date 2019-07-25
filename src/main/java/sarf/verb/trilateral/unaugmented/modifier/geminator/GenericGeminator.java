@@ -36,7 +36,7 @@ public class GenericGeminator implements IUnaugmentedTrilateralModifier{
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
         return (kov == 2 && (noc == Conjugation.First || noc == Conjugation.Second || noc == Conjugation.Third || noc == Conjugation.Forth || noc == Conjugation.Fifth ) )
                 || (kov == 3 && (noc == Conjugation.First || noc == Conjugation.Second ) )

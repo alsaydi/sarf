@@ -2,6 +2,7 @@ package sarf.noun.trilateral.augmented.modifier.activeparticiple.geminator;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
@@ -20,8 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Geminator1() {
         substitutions.add(new ExpressionInfixSubstitution("ْC3ِC3", "ِC3ّ")); // EX: (مُحِبٌّ، مُسْتَحِبٌّ)
@@ -29,7 +29,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         switch (kov) {
@@ -70,7 +70,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
         return false;
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

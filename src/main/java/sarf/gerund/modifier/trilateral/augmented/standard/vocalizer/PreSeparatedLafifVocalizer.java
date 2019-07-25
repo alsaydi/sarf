@@ -30,7 +30,7 @@ public class PreSeparatedLafifVocalizer extends TrilateralNounSubstitutionApplie
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         return kov == 30 && (formulaNo == 1 || formulaNo == 9);

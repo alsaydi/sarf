@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -28,13 +29,12 @@ public class Ajwaf3WawiVocalizer extends TrilateralNounSubstitutionApplier imple
         substitutions.add(new InfixSubstitution("اوِ","ائِ"));// EX: (قائِمٌ)
     }
 
-
     public List getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         return kov == 17 && (noc == Conjugation.First || noc == Conjugation.Fifth);

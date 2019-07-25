@@ -43,7 +43,7 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
         if (conjugationResult.getRoot().getC3() != 'و')
             return false;
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         switch (kov) {

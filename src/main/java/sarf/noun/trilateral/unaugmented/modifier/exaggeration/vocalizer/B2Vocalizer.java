@@ -38,7 +38,7 @@ public class B2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
             return false;
         }
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         switch (kov) {

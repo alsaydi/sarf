@@ -33,7 +33,7 @@ public class Ajwaf3YaeiVocalizer extends TrilateralNounSubstitutionApplier imple
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         return kov == 20 && noc == Conjugation.Second;

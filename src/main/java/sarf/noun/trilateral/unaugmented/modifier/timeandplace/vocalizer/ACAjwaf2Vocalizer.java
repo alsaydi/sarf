@@ -37,7 +37,7 @@ public class ACAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier impleme
         if (!nounFormula.equals("مَفْعَل") && !nounFormula.equals("مَفْعَلَة"))
             return false;
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         switch (kov) {

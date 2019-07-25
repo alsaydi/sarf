@@ -22,7 +22,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
 public abstract class AbstractEinMahmouz extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
 
         switch (kov) {
         case 6:

@@ -29,7 +29,7 @@ public class MithalAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier imp
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         return (formulaNo == 1 || formulaNo == 9) && (kov == 9 || kov == 10 || kov == 11);

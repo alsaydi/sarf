@@ -39,7 +39,7 @@ public class CLafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
             return false;
         }
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         switch (kov) {

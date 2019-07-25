@@ -32,7 +32,7 @@ public class WawiPassivePresentVocalizer extends SubstitutionsApplier implements
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
         return (kov == 9  && noc == Conjugation.Second) ||
                 (kov == 10 && (noc == Conjugation.Third || noc == Conjugation.Forth || noc == Conjugation.Fifth)) ||

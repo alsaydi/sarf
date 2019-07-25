@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.augmented.modifier.hamza.faa;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
@@ -21,7 +22,7 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         switch (kov) {

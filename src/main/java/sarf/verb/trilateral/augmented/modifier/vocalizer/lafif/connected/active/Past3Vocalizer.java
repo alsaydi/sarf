@@ -40,7 +40,7 @@ public class Past3Vocalizer extends SubstitutionsApplier implements IAugmentedTr
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
         if (root.getC2() == root.getC3() && root.getC3() == 'و' && kov == 28) {

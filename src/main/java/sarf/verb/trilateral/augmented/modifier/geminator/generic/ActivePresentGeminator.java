@@ -16,8 +16,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class ActivePresentGeminator extends SubstitutionsApplier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public ActivePresentGeminator() {
         substitutions.add(new ExpressionInfixSubstitution("ْC3ِC3ُ", "ِC3ُّ")); // EX: (يُتِمُّ)
@@ -38,7 +37,7 @@ public class ActivePresentGeminator extends SubstitutionsApplier {
         substitutions.add(new ExpressionSuffixSubstitution("اC3ِC3ْ", "اC3َّ")); // EX: (لم  ي Kُحاجَّ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

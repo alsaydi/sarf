@@ -25,7 +25,7 @@ public class StandardGerundPattern extends MeemGerund {
 
     public StandardGerundPattern(UnaugmentedTrilateralRoot root, String suffixNo) {
         init(root, suffixNo);
-        int kov = KovRulesManager.getInstance().getTrilateralKov(root.getC1(), root.getC2(), root.getC3());
+        KindOfVerb kov = KovRulesManager.getInstance().getTrilateralKov(root.getC1(), root.getC2(), root.getC3());
         var noc = root.getConjugation();
         //try first state
         form1 = (kov >= 8 &&  kov <= 11 && (noc == Conjugation.Second || noc == Conjugation.Third ||noc == Conjugation.Sixth));

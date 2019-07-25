@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.nakes.wawi.active;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -19,8 +20,7 @@ import sarf.verb.trilateral.augmented.ConjugationResult;
  * @version 1.0
  */
 public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public PastVocalizer() {
         substitutions.add(new SuffixSubstitution("وَ","ى"));// EX: (هو أدنى، سَمَّى ، حابى، انجلى، ارتضى، ارعَوَى، تسامى، تزكّى ، استرضى، احلولى)
@@ -31,13 +31,12 @@ public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTri
         substitutions.add(new InfixSubstitution("وَا", "يَا")); // EX: (هما أدنَيَا، سَمَّيَا ، حابَيَا، انْجَلَيَا، ارتضيا، ارعَوَيَا، تسامَيَا، تزكَّيَا ، استرضيا، احلوليا)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         if ((kov == 22 || kov == 23) && formulaNo == 4) return true;

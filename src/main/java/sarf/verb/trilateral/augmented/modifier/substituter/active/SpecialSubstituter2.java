@@ -1,6 +1,8 @@
 package sarf.verb.trilateral.augmented.modifier.substituter.active;
 
 import java.util.*;
+
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.substituter.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -19,18 +21,18 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @version 1.0
  */
 public class SpecialSubstituter2 extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public SpecialSubstituter2() {
         substitutions.add(new InfixSubstitution("يْتَ","تَّ"));// EX: (اتَّسَرَ، يَتَّسِرُ، اتَّسِرْ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         return conjugationResult.getRoot().getC1() == 'ي' && formulaNo == 5 && (kov == 13 || kov == 14);
     }

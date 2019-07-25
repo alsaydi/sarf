@@ -1,6 +1,8 @@
 package sarf.noun.trilateral.augmented.modifier.activeparticiple;
 
 import java.util.*;
+
+import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.augmented.modifier.activeparticiple.geminator.*;
 import sarf.noun.trilateral.augmented.modifier.geminator.*;
@@ -20,7 +22,7 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @version 1.0
  */
 public class Geminator {
-    private List modifiers = new LinkedList();
+    private List<TrilateralNounSubstitutionApplier> modifiers = new LinkedList<>();
 
     public Geminator() {
         modifiers.add(new Geminator1());
@@ -29,9 +31,8 @@ public class Geminator {
     }
 
     public void apply(ConjugationResult conjResult) {
-        Iterator iter = modifiers.iterator();
-        while (iter.hasNext()) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) iter.next();
+        for (TrilateralNounSubstitutionApplier trilateralNounSubstitutionApplier : modifiers) {
+            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) trilateralNounSubstitutionApplier;
             if (modifier.isApplied(conjResult)) {
                 ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;

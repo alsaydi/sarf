@@ -37,7 +37,7 @@ public class WawiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         if (kov != 23) {
             return false;
         }

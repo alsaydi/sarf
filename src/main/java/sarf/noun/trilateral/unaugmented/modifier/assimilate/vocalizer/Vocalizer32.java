@@ -35,7 +35,7 @@ public class Vocalizer32 extends TrilateralNounSubstitutionApplier implements IU
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         return nounFormula.equals("فَعِيل") && (kov == 24 || kov == 26 || kov == 28) && noc == Conjugation.Forth;

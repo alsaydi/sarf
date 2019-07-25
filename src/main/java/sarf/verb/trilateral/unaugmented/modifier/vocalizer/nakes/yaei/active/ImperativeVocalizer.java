@@ -38,7 +38,7 @@ public class ImperativeVocalizer extends SubstitutionsApplier implements IUnaugm
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
         return ((kov == 24 || kov == 26) && (noc == Conjugation.Second)) ||
                 ((kov == 24 || kov == 25 || kov == 26) && (noc == Conjugation.Third || noc == Conjugation.Forth));

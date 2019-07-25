@@ -47,7 +47,7 @@ public class ControlPaneContainer extends JPanel {
     private IControlPane currentControlPane;
     private JTextField kovFld = new JTextField(14);
     private JTextField transitiveTypeFld = new JTextField(8);
-    private int kov;
+    private KindOfVerb kov;
     private JMenuBar menuBar = new JMenuBar();
     private JMenuItem backMnuItm = new JMenuItem("عودة");
     private JMenuItem help1MnuItm = new JMenuItem("قواعد النحو والصرف");
@@ -526,7 +526,7 @@ public class ControlPaneContainer extends JPanel {
         return instance;
     }
 
-    public int getKov() {
+    public KindOfVerb getKov() {
         return kov;
     }
 

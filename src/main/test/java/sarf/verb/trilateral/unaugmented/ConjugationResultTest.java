@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 class ConjugationResultTest{
     ConjugationResult sut;
     UnaugmentedTrilateralRoot root;
-    int kov = 1;
+    KindOfVerb kov = 1;
     List<String> originalResult;
 
     @BeforeEach

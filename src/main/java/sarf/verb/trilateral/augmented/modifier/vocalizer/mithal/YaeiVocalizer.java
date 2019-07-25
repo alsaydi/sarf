@@ -32,7 +32,7 @@ public class YaeiVocalizer extends SubstitutionsApplier implements IAugmentedTri
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         if (formulaNo != 1) {

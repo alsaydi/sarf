@@ -21,8 +21,7 @@ import sarf.verb.trilateral.augmented.modifier.geminator.generic.*;
  * @version 1.0
  */
 public class GenericGeminator implements IAugmentedTrilateralModifier {
-
-    private Map geminators = new HashMap();
+    private Map<String, SubstitutionsApplier> geminators = new HashMap();
 
     public GenericGeminator() {
         //خمس أنواع للادغام للمعلوم والمبني لمجهول في الماضي والمضارع والأمر
@@ -36,7 +35,7 @@ public class GenericGeminator implements IAugmentedTrilateralModifier {
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         switch (formulaNo) {

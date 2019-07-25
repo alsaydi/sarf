@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.instrumental.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.Substitution.*;
@@ -44,7 +45,7 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
         if (conjugationResult.getRoot().getC3() != 'و')
             return false;
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         switch (kov) {

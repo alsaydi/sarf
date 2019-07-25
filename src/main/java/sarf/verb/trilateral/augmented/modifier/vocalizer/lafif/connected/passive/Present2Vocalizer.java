@@ -38,7 +38,7 @@ public class Present2Vocalizer extends SubstitutionsApplier implements IAugmente
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
         if (root.getC2() == 'و' && root.getC3() == 'ي') {

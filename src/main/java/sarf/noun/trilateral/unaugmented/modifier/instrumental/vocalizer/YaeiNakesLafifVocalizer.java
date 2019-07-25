@@ -43,7 +43,7 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
         if (conjugationResult.getRoot().getC3() != 'ي')
             return false;
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         switch (kov) {

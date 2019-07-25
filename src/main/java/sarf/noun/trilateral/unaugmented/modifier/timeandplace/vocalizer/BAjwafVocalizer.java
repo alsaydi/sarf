@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.timeandplace.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -37,7 +38,7 @@ public class BAjwafVocalizer extends TrilateralNounSubstitutionApplier implement
         if (!nounFormula.equals("مَفْعِل"))
             return false;
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         switch (kov) {

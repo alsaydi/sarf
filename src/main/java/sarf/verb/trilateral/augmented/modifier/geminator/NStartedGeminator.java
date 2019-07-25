@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.geminator;
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.*;
@@ -19,15 +20,14 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @version 1.0
  */
 public class NStartedGeminator extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public NStartedGeminator() {
         substitutions.add(new InfixSubstitution("نْن","نّ"));// EX: (انَّمَسَ)
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         return (conjugationResult.getRoot().getC1() == 'ن') && kov == 1 && formulaNo == 4;
@@ -37,8 +37,7 @@ public class NStartedGeminator extends SubstitutionsApplier implements IAugmente
         apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
-
 }

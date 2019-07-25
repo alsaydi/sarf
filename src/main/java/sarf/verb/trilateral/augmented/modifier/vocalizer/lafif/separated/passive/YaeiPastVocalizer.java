@@ -38,7 +38,7 @@ public class YaeiPastVocalizer extends SubstitutionsApplier implements IAugmente
             return false;
         }
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         switch (kov) {

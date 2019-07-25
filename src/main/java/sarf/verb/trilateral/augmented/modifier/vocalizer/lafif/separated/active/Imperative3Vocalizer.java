@@ -36,7 +36,7 @@ public class Imperative3Vocalizer extends SubstitutionsApplier implements IAugme
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         return (kov == 30 && formulaNo == 2);

@@ -28,7 +28,7 @@ public class Geminator3 extends TrilateralNounSubstitutionApplier implements IAu
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         return conjugationResult.getRoot().getC1() == 'ت' && (kov == 1 || kov == 6) && formulaNo == 5;

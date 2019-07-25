@@ -197,7 +197,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
         return -1;
     }
 
-    int cashedQuadPatternFormulaNo  = -1;
+    private int cashedQuadPatternFormulaNo  = -1;
     public int selectFormNo() {
         if (cashedQuadPatternFormulaNo != -1)
             return cashedQuadPatternFormulaNo;
@@ -209,20 +209,18 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
         return cashedQuadPatternFormulaNo = (optionResult == JOptionPane.NO_OPTION ? 2 : 1);
     }
 
-    Boolean cashedUserResponse = null;
+    private Boolean cashedUserResponse = null;
     //to let the user select when there is two states for the verb: with vocalization and without
     public boolean doSelectVocalization() {
         if (cashedUserResponse != null) {
-            return cashedUserResponse.booleanValue();
+            return cashedUserResponse;
         }
 
         //it must select one of two states
         String msg = "لهذا الفعل حالتان : التصحيح والإعلال، اختر إحدى الحالتين";
         Object[] options = {"التصحيح", "الإعلال"};
         int optionResult = JOptionPane.showOptionDialog(this, msg, "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-        cashedUserResponse = new Boolean(optionResult == JOptionPane.NO_OPTION);
-        return cashedUserResponse.booleanValue();
+        cashedUserResponse = optionResult == JOptionPane.NO_OPTION;
+        return cashedUserResponse;
     }
-
-
 }

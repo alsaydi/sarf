@@ -48,7 +48,7 @@ public class NakesLafifMahmouz extends TrilateralNounSubstitutionApplier impleme
             return false;
         }
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         switch (kov) {

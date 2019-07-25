@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -41,7 +42,7 @@ public class AVocalizer extends TrilateralNounSubstitutionApplier implements IUn
             return false;
         }
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         switch (kov) {

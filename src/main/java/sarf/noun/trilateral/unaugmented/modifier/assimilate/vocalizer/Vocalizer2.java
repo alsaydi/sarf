@@ -3,6 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.assimilate.vocalizer;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
@@ -28,14 +29,13 @@ public class Vocalizer2 extends TrilateralNounSubstitutionApplier implements IUn
         substitutions.add(new InfixSubstitution("يَى","يَا"));// EX: (صديا، )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         return nounFormula.equals("فَعْلَى") && (kov == 24 || kov == 26 || kov == 28) && noc == Conjugation.Forth;

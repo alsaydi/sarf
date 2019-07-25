@@ -67,7 +67,7 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
             return false;
         }
 
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
         switch (kov) {

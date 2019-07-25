@@ -19,8 +19,7 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public class ActivePastGeminator extends SubstitutionsApplier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public ActivePastGeminator() {
         substitutions.add(new ExpressionInfixSubstitution("ْC3َC3َ","َC3َّ"));// EX: (أَمَدَّ،)
@@ -31,7 +30,7 @@ public class ActivePastGeminator extends SubstitutionsApplier {
         substitutions.add(new ExpressionInfixSubstitution("َC3َC3ُ","َC3ُّ"));// EX: (احمرُّوا)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

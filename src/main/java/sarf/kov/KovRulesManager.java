@@ -85,7 +85,7 @@ public class KovRulesManager {
      */
     public int getTrilateralKov(char c1, char c2, char c3) {
         TrilateralKovRule rule = getTrilateralKovRule(c1, c2, c3);
-        return rule != null? rule.getKov(): -1;
+        return rule != null? rule.getKov().getValue() : -1;
     }
 
     public TrilateralKovRule getTrilateralKovRule(char c1, char c2, char c3) {
@@ -98,7 +98,7 @@ public class KovRulesManager {
 
     private int getQuadrilateralKov(char c1, char c2, char c3, char c4) {
         QuadrilateralKovRule rule = getQuadrilateralKovRule(c1, c2, c3 ,c4);
-        return rule!= null? rule.getKov(): -1;
+        return rule!= null? rule.getKov().getValue(): -1;
     }
 
     public QuadrilateralKovRule getQuadrilateralKovRule(char c1, char c2, char c3, char c4) {

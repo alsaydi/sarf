@@ -3,6 +3,7 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.lafif.separeted;
 import java.util.*;
 
 import sarf.Conjugation;
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -37,7 +38,7 @@ public class ActivePresent1Vocalizer extends SubstitutionsApplier implements IUn
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
         return (conjugationResult.getRoot().getC1()=='ي' && kov == 30 && noc == Conjugation.Second);
     }

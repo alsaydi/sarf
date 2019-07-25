@@ -33,7 +33,7 @@ public class PastVocalizer extends SubstitutionsApplier implements IUnaugmentedT
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
         return ((kov == 21 || kov == 22 || kov == 23) && (noc == Conjugation.First)) ||
                 ((kov == 21 || kov == 23) && (noc == Conjugation.Fifth)) ||

@@ -1,5 +1,6 @@
 package sarf.ui;
 
+import sarf.KindOfVerb;
 import sarf.verb.Root;
 
 /**
@@ -19,7 +20,7 @@ public class SelectionInfo {
     public boolean trilateral;
     private boolean augmented;
     private boolean active;
-    private int kov;
+    private KindOfVerb kov;
 
     private Root root;
 
@@ -28,7 +29,7 @@ public class SelectionInfo {
     private String formulaText;
     private String verbText;
 
-    public SelectionInfo(Root root, boolean trilateral, boolean augmented, int kov) {
+    public SelectionInfo(Root root, boolean trilateral, boolean augmented, KindOfVerb kov) {
         this.root = root;
         this.trilateral = trilateral;
         this.augmented = augmented;
@@ -63,7 +64,7 @@ public class SelectionInfo {
         return verbText;
     }
 
-    public int getKov() {
+    public KindOfVerb getKov() {
         return kov;
     }
 

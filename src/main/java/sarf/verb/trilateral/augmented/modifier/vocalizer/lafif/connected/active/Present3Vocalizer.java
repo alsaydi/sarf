@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.lafif.connected.active
 
 import java.util.*;
 
+import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.ConjugationResult;
@@ -20,8 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class Present3Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-
-    private List substitutions = new LinkedList();
+    private List<Substitution> substitutions = new ArrayList<>();
 
     public Present3Vocalizer() {
         substitutions.add(new SuffixSubstitution("يُ", "ا")); // EX: (يَتَحَايَا، يَتَحَيَّا)
@@ -32,13 +32,12 @@ public class Present3Vocalizer extends SubstitutionsApplier implements IAugmente
         substitutions.add(new InfixSubstitution("يُن", "وُن")); // EX: (أنتم تَتَحايَوُنَّ، تَتَحَيَّوُنَّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         AugmentedTrilateralRoot root = conjugationResult.getRoot();
         return root.getC2() == root.getC3() && root.getC3() == 'ي' && kov == 28 && (formulaNo == 7 || formulaNo == 8);

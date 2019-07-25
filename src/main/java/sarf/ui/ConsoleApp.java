@@ -9,6 +9,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import sarf.KindOfVerb;
 import sarf.SarfDictionary;
 import sarf.SystemConstants;
 import sarf.kov.KovRulesManager;
@@ -25,12 +27,12 @@ public class ConsoleApp {
 			(new ConsoleApp()).Run();
 		} catch (Exception ex) {
 			System.err.println(ex.getMessage());
-			System.err.println(ex.getStackTrace());
+			System.err.println(Arrays.toString(ex.getStackTrace()));
 			System.exit(1);
 		}
 	}
 
-	void Run() throws Exception {
+	private void Run() throws Exception {
 		//@SuppressWarnings("resource")
 		//String root = new Scanner(System.in).nextLine();
 		String root = "مثل";
@@ -62,15 +64,12 @@ public class ConsoleApp {
 
         TrilateralKovRule rule = KovRulesManager.getInstance().getTrilateralKovRule(c1, c2, c3);
         String kovText = rule.getDesc();
-        int kov = rule.getKov();
+        KindOfVerb kov = rule.getKov();
         
         System.out.println("نوع الفعل: " + kovText);
-        Iterator<UnaugmentedTrilateralRoot> iter = unaugmentedRoots.iterator();
-        while (iter.hasNext()) {
-            UnaugmentedTrilateralRoot root = iter.next();
-            
-            printTrilateralTree(root, kov);
-        }
+		for (UnaugmentedTrilateralRoot root : unaugmentedRoots) {
+			printTrilateralTree(root, kov);
+		}
         
 //        if(augmentedRoot != null) {
 //        	Iterator itr = augmentedRoot.getAugmentationList();
@@ -88,7 +87,7 @@ public class ConsoleApp {
         throw new IllegalArgumentException("نوع رمز اللزوم و التعدي غير معروف");
     }
 
-	private void printTrilateralTree(UnaugmentedTrilateralRoot root, int kov) {
+	private void printTrilateralTree(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
 		String transivity = getTransitiveDescription(root.getTransitive());		
 		//مع الضمير هو
 		//past text formatting
@@ -112,7 +111,7 @@ public class ConsoleApp {
 		printActivePastConjugations(root, kov);
 	}
 
-	private void printActivePastConjugations(UnaugmentedTrilateralRoot root, int kov) {
+	private void printActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
 		List<ActivePastVerb> result = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerbList(root);
         ConjugationResult conjResult = UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.PAST_TENSE, true);
         List finalResult = conjResult.getFinalResult();

@@ -34,7 +34,7 @@ public class C3Vocalizer extends TrilateralNounSubstitutionApplier implements IU
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         return nounFormula.equals("مِفْعَال") && (kov == 30 && (noc == Conjugation.Second || noc == Conjugation.Forth || noc == Conjugation.Sixth));

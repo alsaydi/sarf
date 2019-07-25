@@ -34,7 +34,7 @@ public class TEndedGeminator extends SubstitutionsApplier implements IAugmentedT
 
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
         if (conjugationResult.getRoot().getC3() != 'ت') return false;
 

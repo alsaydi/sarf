@@ -40,7 +40,7 @@ public class Ajwaf4Vocalizer extends TrilateralNounSubstitutionApplier implement
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        int kov = conjugationResult.getKov();
+        KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
         return kov == 19 && (noc == Conjugation.Second || noc == Conjugation.Forth);

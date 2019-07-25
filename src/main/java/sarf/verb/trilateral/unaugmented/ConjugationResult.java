@@ -1,5 +1,7 @@
 package sarf.verb.trilateral.unaugmented;
 
+import sarf.KindOfVerb;
+
 import java.util.*;
 
 /**
@@ -17,7 +19,7 @@ import java.util.*;
  * @version 1.0
  */
 public class ConjugationResult<T> {
-    protected int kov;
+    protected KindOfVerb kov;
     protected UnaugmentedTrilateralRoot root;
 
     //13 conjugated verbs
@@ -25,7 +27,7 @@ public class ConjugationResult<T> {
     //القائمة بعد  الادغام والاعلال والهمزة
     private List<T> finalResult;
 
-    public ConjugationResult(int kov, UnaugmentedTrilateralRoot root, List<T> originalResult) {
+    public ConjugationResult(KindOfVerb kov, UnaugmentedTrilateralRoot root, List<T> originalResult) {
         this.kov = kov;
         this.originalResult = originalResult;
         this.root = root;
@@ -36,7 +38,7 @@ public class ConjugationResult<T> {
         return finalResult;
     }
 
-    public int getKov() {
+    public KindOfVerb getKov() {
         return kov;
     }
 
