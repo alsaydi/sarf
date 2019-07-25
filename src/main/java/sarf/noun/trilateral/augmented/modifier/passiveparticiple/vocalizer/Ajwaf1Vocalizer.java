@@ -32,7 +32,7 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
         KindOfVerb kov = conjugationResult.getKov();
         int formulaNo = conjugationResult.getFormulaNo();
 
-        if (kov == 15) {
+        if (kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Faa) {
             switch (formulaNo) {
                 case 4:
                 case 5:

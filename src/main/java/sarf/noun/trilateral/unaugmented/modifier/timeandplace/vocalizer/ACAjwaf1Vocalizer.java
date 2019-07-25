@@ -39,7 +39,7 @@ public class ACAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier impleme
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        if (kov == 15 || kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Laam) {
+        if (kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Faa || kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Laam) {
             return noc == Conjugation.First || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Ajwaf_Wawi) {
             switch (noc) {
