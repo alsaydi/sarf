@@ -35,7 +35,7 @@ public class Past4Vocalizer extends SubstitutionsApplier implements IUnaugmented
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
-        //return (kov == 21 || kov == KindOfVerb.Naqis_Wawi) && (noc == Conjugation.Fifth);
-        return (kov == 21 || kov == KindOfVerb.Naqis_Wawi) && (noc == Conjugation.Fifth);
+        //return (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa || kov == KindOfVerb.Naqis_Wawi) && (noc == Conjugation.Fifth);
+        return (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa || kov == KindOfVerb.Naqis_Wawi) && (noc == Conjugation.Fifth);
     }
 }

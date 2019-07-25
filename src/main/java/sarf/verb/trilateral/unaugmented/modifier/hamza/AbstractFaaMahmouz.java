@@ -23,6 +23,6 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
-        return kov == 3 || kov == 4 || kov == 5 || kov == 15 || kov == 18 || kov == 21 || kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa;
+        return kov == 3 || kov == 4 || kov == 5 || kov == 15 || kov == 18 || kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa;
     }
 }
