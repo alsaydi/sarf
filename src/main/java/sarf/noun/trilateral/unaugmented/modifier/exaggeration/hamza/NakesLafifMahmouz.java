@@ -52,7 +52,7 @@ public class NakesLafifMahmouz extends TrilateralNounSubstitutionApplier impleme
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
-        if (kov == 21) {
+        if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa) {
             return noc == Conjugation.First || noc == Conjugation.Fifth;
         } else if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Ain) {
             return noc == Conjugation.First || noc == Conjugation.Third;
