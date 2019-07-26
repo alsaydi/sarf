@@ -7,6 +7,8 @@ import sarf.util.KindOfVerbConverter;
 
 import java.io.*;
 
+import static sarf.util.FileUtil.getResourceInputStream;
+
 /**
  * <p>Title: Sarf Program</p>
  *
@@ -113,14 +115,6 @@ public class KovRulesManager {
                 .filter(rule -> rule.check(c1, c2, c3, c4))
                 .findFirst()
                 .orElse(null);
-    }
-
-    private static InputStream getResourceInputStream(String relativePath) throws IOException {
-        var inputStream = ClassLoader.getSystemResource(relativePath).openStream();
-        if(inputStream == null){
-            throw new IOException("inputStream is null when trying to load " + relativePath);
-        }
-        return inputStream;
     }
 
     public static void main(String[] args) {

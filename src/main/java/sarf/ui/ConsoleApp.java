@@ -37,10 +37,14 @@ public class ConsoleApp {
 		if (root.length() == 3) {
 			processTrilateral(root);
 		} else if (root.length() == 4) {
-			// processQuadrilateral(root);
+			processQuadrilateral(root);
 		} else {
 			System.err.printf("%s ليس جذراً مقبولاً", root);
 		}
+	}
+
+	private void processQuadrilateral(String root) {
+
 	}
 
 	private void processTrilateral(String root) throws Exception {

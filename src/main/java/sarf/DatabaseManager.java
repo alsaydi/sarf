@@ -3,6 +3,7 @@ package sarf;
 import java.io.*;
 import java.util.*;
 
+import sarf.util.FileUtil;
 import sarf.verb.quadriliteral.unaugmented.*;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.trilateral.unaugmented.*;
@@ -15,6 +16,8 @@ import sarf.noun.trilateral.unaugmented.timeandplace.*;
 import sarf.noun.trilateral.unaugmented.exaggeration.XmExaggerationNounFormulaTree;
 import sarf.noun.trilateral.unaugmented.exaggeration.XmExaggerationNounFormulaTreeCreator;
 import sarf.gerund.trilateral.unaugmented.meem.*;
+
+import static sarf.util.FileUtil.getResourceInputStream;
 
 /**
  * <p>
@@ -44,8 +47,8 @@ public class DatabaseManager {
 	private final Map<String, UnaugmentedTrilateralRootTree> tripleUnaugmentedTreeMap = new HashMap<>();
 	private final Map<String, AugmentedTrilateralRootTree> tripleAugmentedTreeMap = new HashMap<>();
 
-	private final Map<String, UnaugmentedQuadriliteralRootTree> quadriliteralUnaugmentedTreeMap = new HashMap<>();
-	private final Map<String, AugmentedQuadriliteralRootTree> quadriliteralAugmentedTreeMap = new HashMap<>();
+	private final Map<String, UnaugmentedQuadriliteralRootTree> quadrilateralUnaugmentedTreeMap = new HashMap<>();
+	private final Map<String, AugmentedQuadriliteralRootTree> quadrilateralAugmentedTreeMap = new HashMap<>();
 
 	private final Map<String, AssimilateAdjectiveFormulaTree> assimilateAdjectiveMap = new HashMap<>();
 	private final Map<String, ElativeNounFormulaTree> elativeNounMap = new HashMap<>();
@@ -73,15 +76,20 @@ public class DatabaseManager {
 		UnaugmentedTrilateralRootTree rootsTree = tripleUnaugmentedTreeMap.get(c1 + "");
 		if (rootsTree != null)
 			return rootsTree;
-
-		rootsTree = UnaugmentedTrilateralRootTreeCreator.buildXmlVerbTree(getResourceInputStream("db/trilateral/unaugmented/" + c1 + ".xml"));
+		var resourceName = String.format("db/trilateral/unaugmented/%s.xml", c1);
+		var inputStream = getResourceInputStream(resourceName);
+		if(inputStream == null){
+			throw new FileNotFoundException(resourceName);
+		}
+		rootsTree = UnaugmentedTrilateralRootTreeCreator.buildXmlVerbTree(inputStream);
 		tripleUnaugmentedTreeMap.put(c1 + "", rootsTree);
+		inputStream.close();
 		return rootsTree;
 	}
 
 	/**
 	 * الحصول على قائمة الجذور الثلاثية المزيدة حسب حرفها الأول
-	 * 
+	 *
 	 * @param c1
 	 *            char
 	 * @return AugmentedTrilateralRootTree
@@ -95,6 +103,7 @@ public class DatabaseManager {
 		var inputStream = getResourceInputStream("db/trilateral/augmented/" + c1 + ".xml");
 		rootsTree = AugmentedTrilateralRootTreeCreator.buildXmlVerbTree(inputStream);
 		tripleAugmentedTreeMap.put(c1 + "", rootsTree);
+		inputStream.close();
 		return rootsTree;
 	}
 
@@ -103,16 +112,16 @@ public class DatabaseManager {
 	 * 
 	 * @param c1
 	 *            char
-	 * @return UnaugmentedQuadriliteralRootTree
+	 * @return UnaugmentedQuadrilateralRootTree
 	 */
-	UnaugmentedQuadriliteralRootTree getUnaugmentedQuadriliteralRootTree(char c1) throws Exception {
-		UnaugmentedQuadriliteralRootTree rootsTree = quadriliteralUnaugmentedTreeMap.get(c1 + "");
+	UnaugmentedQuadriliteralRootTree getUnaugmentedQuadrilateralRootTree(char c1) throws Exception {
+		UnaugmentedQuadriliteralRootTree rootsTree = quadrilateralUnaugmentedTreeMap.get(c1 + "");
 		if (rootsTree != null)
 			return rootsTree;
 
 		rootsTree = UnaugmentedQuadriliteralRootTreeCreator
 				.buildXmlVerbTree(getResourceInputStream("db/quadriliteral/unaugmented/" + c1 + ".xml"));
-		quadriliteralUnaugmentedTreeMap.put(c1 + "", rootsTree);
+		quadrilateralUnaugmentedTreeMap.put(c1 + "", rootsTree);
 		return rootsTree;
 	}
 
@@ -121,16 +130,19 @@ public class DatabaseManager {
 	 * 
 	 * @param c1
 	 *            char
-	 * @return AugmentedQuadriliteralRootTree
+	 * @return AugmentedQuadrilateralRootTree
 	 */
-	AugmentedQuadriliteralRootTree getAugmentedQuadriliteralRootTree(char c1) throws Exception {
-		AugmentedQuadriliteralRootTree rootsTree = quadriliteralAugmentedTreeMap.get(c1 + "");
+	AugmentedQuadriliteralRootTree getAugmentedQuadrilateralRootTree(char c1) throws Exception {
+		AugmentedQuadriliteralRootTree rootsTree = quadrilateralAugmentedTreeMap.get(c1 + "");
 		if (rootsTree != null)
 			return rootsTree;
 
+		var resourceName = String.format("db/quadriliteral/augmented/%s.xml", c1);
+		var inputStream = getResourceInputStream(resourceName);
 		rootsTree = AugmentedQuadriliteralRootTreeCreator
-				.buildXmlVerbTree(getResourceInputStream("db/quadriliteral/augmented/" + c1 + ".xml"));
-		quadriliteralAugmentedTreeMap.put(c1 + "", rootsTree);
+				.buildXmlVerbTree(inputStream);
+		quadrilateralAugmentedTreeMap.put(c1 + "", rootsTree);
+		inputStream.close();
 		return rootsTree;
 	}
 
@@ -149,13 +161,15 @@ public class DatabaseManager {
 		if (formulaTree != null)
 			return formulaTree;
 
-		var inputStream = getResourceInputStream("db/noun/" + folderName + "/" + c1 + ".xml");
+		var resourceName = String.format("db/noun/%s/%s.xml", folderName, c1);
+		var inputStream = getResourceInputStream(resourceName);
 		if (inputStream == null)
 			// there is no applied file for this char
-			throw new FileNotFoundException(inputStream + " was not found.");
+			throw new FileNotFoundException(resourceName + " was not found.");
 
 		formulaTree = XmlNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 		folderMap.put(c1 + "", formulaTree);
+		inputStream.close();
 		return formulaTree;
 	}
 
@@ -164,13 +178,15 @@ public class DatabaseManager {
 		if (formulaTree != null)
 			return formulaTree;
 
-		var inputStream = getResourceInputStream("db/gerund/meem/" + c1 + ".xml");
+		var resourceName = String.format("db/gerund/meem/%s.xml", c1);
+		var inputStream = getResourceInputStream(resourceName);
 		if (inputStream == null)
 			// there is no applied inputStream for this char
 			return null;
 
 		formulaTree = XmlMeemGerundNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 		meemGerundMap.put(c1 + "", formulaTree);
+		inputStream.close();
 		return formulaTree;
 	}
 
@@ -184,6 +200,7 @@ public class DatabaseManager {
 					return null;
 				formulaTree = AssimilateAdjectiveFormulaTreeCreator.buildNounFormulaTree(inputStream);
 				assimilateAdjectiveMap.put(c1 + "", formulaTree);
+				inputStream.close();
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
@@ -201,6 +218,7 @@ public class DatabaseManager {
 					return null;
 				formulaTree = ElativeNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 				elativeNounMap.put(c1 + "", formulaTree);
+				inputStream.close();
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
@@ -218,6 +236,7 @@ public class DatabaseManager {
 					return null;
 				formulaTree = XmlNonStandardInstrumentalNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 				instrumentalNounMap.put(c1 + "", formulaTree);
+				inputStream.close();
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
@@ -235,6 +254,7 @@ public class DatabaseManager {
 					return null;
 				formulaTree = XmExaggerationNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 				exaggerationNounMap.put(c1 + "", formulaTree);
+				inputStream.close();
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
@@ -246,25 +266,17 @@ public class DatabaseManager {
 		XmlTimeAndPlaceNounFormulaTree formulaTree = timeAndPlaceNounMap.get(c1 + "");
 		if (formulaTree == null) {
 			try {
-				var file = getResourceInputStream("db/noun/timeandplace/" + c1 + ".xml");
-				if (file == null)
+				var inputStream = getResourceInputStream("db/noun/timeandplace/" + c1 + ".xml");
+				if (inputStream == null)
 					// there is no applied file for this char
 					return null;
-				formulaTree = XmlTimeAndPlaceNounFormulaTreeCreator.buildNounFormulaTree(file);
+				formulaTree = XmlTimeAndPlaceNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 				timeAndPlaceNounMap.put(c1 + "", formulaTree);
+				inputStream.close();
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
 		}
 		return formulaTree;
-	}
-
-	private static InputStream getResourceInputStream(String relativePath) throws IOException {
-		System.err.println("Retrieving " + relativePath + " from resources");
-		var inputStream = ClassLoader.getSystemResource(relativePath).openStream();
-		if(inputStream == null){
-			throw new IOException("inputStream is null when trying to load " + relativePath);
-		}
-		return inputStream;
 	}
 }

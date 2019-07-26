@@ -65,7 +65,7 @@ public class SarfDictionary {
 
         AugmentedQuadriliteralRootTree augmentedRootsTree = null;
         try {
-            augmentedRootsTree = DatabaseManager.getInstance().getAugmentedQuadriliteralRootTree(c1);
+            augmentedRootsTree = DatabaseManager.getInstance().getAugmentedQuadrilateralRootTree(c1);
         }
         catch (Exception ex) {
             //الملف غير موجود
@@ -89,7 +89,7 @@ public class SarfDictionary {
         char c4 = rootText.charAt(3);
 
         UnaugmentedQuadriliteralRootTree rootsTree = null;
-        rootsTree = DatabaseManager.getInstance().getUnaugmentedQuadriliteralRootTree(c1);
+        rootsTree = DatabaseManager.getInstance().getUnaugmentedQuadrilateralRootTree(c1);
 
         java.util.List roots = rootsTree.getRoots();
 

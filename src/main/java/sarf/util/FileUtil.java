@@ -15,8 +15,8 @@ import java.nio.charset.Charset;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class FileUtil {
-    public FileUtil() {
+public final class FileUtil {
+    private FileUtil() {
     }
 
     static public String getContents(String relativePath) {
@@ -29,7 +29,7 @@ public class FileUtil {
             //use buffering, reading one line at a time
             //FileReader always assumes default encoding is OK!
             input = new BufferedReader(new InputStreamReader(ClassLoader.getSystemResource(relativePath).openStream(), Charset.availableCharsets().getOrDefault("UTF-8", Charset.defaultCharset())));
-            String line = null; //not declared within while loop
+            String line; //not declared within while loop
             /*
              * readLine is a bit quirky :
              * it returns the content of a line MINUS the newline.
@@ -84,5 +84,14 @@ public class FileUtil {
                 output.close();
             }
         }
+    }
+
+    public static InputStream getResourceInputStream(String relativePath) throws IOException {
+        System.err.println("Retrieving " + relativePath + " from resources");
+        var inputStream = ClassLoader.getSystemResource(relativePath).openStream();
+        if(inputStream == null){
+            throw new IOException("inputStream is null when trying to load " + relativePath);
+        }
+        return inputStream;
     }
 }
