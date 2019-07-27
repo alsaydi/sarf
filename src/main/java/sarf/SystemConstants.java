@@ -12,7 +12,7 @@ package sarf;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class SystemConstants {
+public final class SystemConstants {
     private SystemConstants() {
     }
 
@@ -23,4 +23,6 @@ public class SystemConstants {
 
     public static final String ACTIVE = "Active";
     public static final String PASSIVE = "Passive";
+
+    public static final int PRONOUN_RANGE_END = 13; /* exclusive end */
 }

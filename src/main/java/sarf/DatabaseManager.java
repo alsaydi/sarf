@@ -78,9 +78,6 @@ public class DatabaseManager {
 			return rootsTree;
 		var resourceName = String.format("db/trilateral/unaugmented/%s.xml", c1);
 		var inputStream = getResourceInputStream(resourceName);
-		if(inputStream == null){
-			throw new FileNotFoundException(resourceName);
-		}
 		rootsTree = UnaugmentedTrilateralRootTreeCreator.buildXmlVerbTree(inputStream);
 		tripleUnaugmentedTreeMap.put(c1 + "", rootsTree);
 		inputStream.close();
@@ -163,9 +160,6 @@ public class DatabaseManager {
 
 		var resourceName = String.format("db/noun/%s/%s.xml", folderName, c1);
 		var inputStream = getResourceInputStream(resourceName);
-		if (inputStream == null)
-			// there is no applied file for this char
-			throw new FileNotFoundException(resourceName + " was not found.");
 
 		formulaTree = XmlNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 		folderMap.put(c1 + "", formulaTree);
@@ -180,9 +174,6 @@ public class DatabaseManager {
 
 		var resourceName = String.format("db/gerund/meem/%s.xml", c1);
 		var inputStream = getResourceInputStream(resourceName);
-		if (inputStream == null)
-			// there is no applied inputStream for this char
-			return null;
 
 		formulaTree = XmlMeemGerundNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 		meemGerundMap.put(c1 + "", formulaTree);
@@ -195,9 +186,6 @@ public class DatabaseManager {
 		if (formulaTree == null) {
 			try {
 				var inputStream = getResourceInputStream("db/noun/assimilate/" + c1 + ".xml");
-				if (null == inputStream)
-					// there is no applied inputStream for this char
-					return null;
 				formulaTree = AssimilateAdjectiveFormulaTreeCreator.buildNounFormulaTree(inputStream);
 				assimilateAdjectiveMap.put(c1 + "", formulaTree);
 				inputStream.close();
@@ -213,9 +201,6 @@ public class DatabaseManager {
 		if (formulaTree == null) {
 			try {
 				var inputStream = getResourceInputStream("db/noun/elative/" + c1 + ".xml");
-				if (null == inputStream)
-					// there is no applied inputStream for this char
-					return null;
 				formulaTree = ElativeNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 				elativeNounMap.put(c1 + "", formulaTree);
 				inputStream.close();
@@ -231,9 +216,6 @@ public class DatabaseManager {
 		if (formulaTree == null) {
 			try {
 				var inputStream = getResourceInputStream("db/noun/instrumental/" + c1 + ".xml");
-				if (null == inputStream)
-					// there is no applied inputStream for this char
-					return null;
 				formulaTree = XmlNonStandardInstrumentalNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 				instrumentalNounMap.put(c1 + "", formulaTree);
 				inputStream.close();
@@ -249,9 +231,6 @@ public class DatabaseManager {
 		if (formulaTree == null) {
 			try {
 				var inputStream = getResourceInputStream("db/noun/exaggeration/" + c1 + ".xml");
-				if (null == inputStream )
-					// there is no applied file for this char
-					return null;
 				formulaTree = XmExaggerationNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 				exaggerationNounMap.put(c1 + "", formulaTree);
 				inputStream.close();
@@ -267,9 +246,6 @@ public class DatabaseManager {
 		if (formulaTree == null) {
 			try {
 				var inputStream = getResourceInputStream("db/noun/timeandplace/" + c1 + ".xml");
-				if (inputStream == null)
-					// there is no applied file for this char
-					return null;
 				formulaTree = XmlTimeAndPlaceNounFormulaTreeCreator.buildNounFormulaTree(inputStream);
 				timeAndPlaceNounMap.put(c1 + "", formulaTree);
 				inputStream.close();

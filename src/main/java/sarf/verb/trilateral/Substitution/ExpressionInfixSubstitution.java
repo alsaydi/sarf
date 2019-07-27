@@ -28,14 +28,14 @@ public class ExpressionInfixSubstitution extends Substitution {
      * @return String
      */
     public String apply(String word, TrilateralRoot root) {
-        String wordSegment = segment.replaceAll("C1",root.getC1()+"");
-        wordSegment = wordSegment.replaceAll("C2",root.getC2()+"");
-        wordSegment = wordSegment.replaceAll("C3",root.getC3()+"");
-        if (!word.contains(wordSegment)) return null;
+        if(word == null || word.equals(""))
+            return null;
 
-        String replacedResult = result.replaceAll("C1",root.getC1()+"");
-        replacedResult = replacedResult.replaceAll("C2",root.getC2()+"");
-        replacedResult = replacedResult.replaceAll("C3",root.getC3()+"");
+        var wordSegment = buildSubstitution(root, segment);
+        if(!word.contains(wordSegment))
+            return null;
+
+        String replacedResult = buildSubstitution(root, result);
 
         return word.replaceAll(wordSegment,replacedResult);
     }

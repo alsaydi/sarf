@@ -2,7 +2,10 @@
 package sarf.verb.trilateral.augmented.active.past;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
+import sarf.SystemConstants;
 import sarf.verb.trilateral.augmented.*;
 import sarf.AugmentationFormula;
 import sarf.PastConjugationDataContainer;
@@ -45,14 +48,9 @@ public class AugmentedActivePastConjugator {
     }
 
     public List<AugmentedPastVerb> createVerbList(AugmentedTrilateralRoot root, int formulaNo) {
-        List<AugmentedPastVerb> result = new LinkedList<>();
-        for (int i = 0; i < 13; i++) {
-            AugmentedPastVerb verb = createVerb(root, i, formulaNo);
-            result.add(verb);
-        }
-
-        return result;
-
+        return IntStream.range(0, SystemConstants.PRONOUN_RANGE_END)
+                .mapToObj(i -> createVerb(root, i, formulaNo))
+                .collect(Collectors.toList());
     }
 
     public Map createAllVerbList(AugmentedTrilateralRoot root) {

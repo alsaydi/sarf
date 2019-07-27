@@ -20,7 +20,6 @@ import sarf.*;
  * @version 1.0
  */
 public class ActivePastConjugator {
-    private static final int PRONOUN_RANGE_END = 13;
     private ActivePastConjugator() {
     }
 
@@ -49,7 +48,7 @@ public class ActivePastConjugator {
      * @return List
      */
     public List<ActivePastVerb> createVerbList(UnaugmentedTrilateralRoot root) {
-        return IntStream.range(0, PRONOUN_RANGE_END)
+        return IntStream.range(0, SystemConstants.PRONOUN_RANGE_END)
                 .mapToObj(i -> createVerb(i, root))
                 .collect(Collectors.toList());
     }

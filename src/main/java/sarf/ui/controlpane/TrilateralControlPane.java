@@ -157,8 +157,8 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     }
 
     public void enableAugmentedButton(int index, AugmentedTrilateralRoot root) {
-        ControlButton btn = (ControlButton) augmentedButtons.get(index);
-        btn.setEnabled(true);
+        var augmentedVerbButton = augmentedButtons.get(index);
+        augmentedVerbButton.setEnabled(true);
         currentAugmentedTrilateralRoot = root;
 
         int formulaNo = index + 1;
@@ -169,16 +169,16 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
         List<String> conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
         sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build(root, ControlPaneContainer.getInstance().getKov(), formulaNo, conjugations, SystemConstants.PAST_TENSE, true, null);
-        pastRootText = conjResult.getFinalResult().get(7).toString();
+        pastRootText = conjResult.getFinalResult().get(7);
 
         //past text formatting
-        String presentRootText = sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator.getInstance().getNominativeConjugator().createVerb(root, 7, formulaNo).toString();
+        String presentRootText = sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator.getInstance().getNominativeConjugator().createVerbList(root, formulaNo).get(7).toString();
         conjugations = createEmptyList();
         conjugations.set(7, presentRootText);
         conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build(root, ControlPaneContainer.getInstance().getKov(), formulaNo, conjugations, SystemConstants.PRESENT_TENSE, true, null);
-        presentRootText = conjResult.getFinalResult().get(7).toString();
+        presentRootText = conjResult.getFinalResult().get(7);
 
-        btn.setRootText(pastRootText + " "+ presentRootText);
+        augmentedVerbButton.setRootText(pastRootText + " "+ presentRootText);
 
     }
 

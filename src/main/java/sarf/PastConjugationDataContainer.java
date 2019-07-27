@@ -13,15 +13,13 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PastConjugationDataContainer {
-    private static final int PRONOUN_RANGE_END = 13;
-
+public final class PastConjugationDataContainer {
     //قائمة حركات عين الفعل حسب باب التصريف
     private final List<String> dpa2List = new ArrayList<>(6);
     //قائمة  حركات لام الفعل حسب ضمير الرفع
-    private final List<String> lastDpaList = new ArrayList<>(PRONOUN_RANGE_END);
+    private final List<String> lastDpaList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
     //قائمة ضمائر الرفع المتصلة
-    private final List<String> connectedPronounsList = new ArrayList<>(PRONOUN_RANGE_END);
+    private final List<String> connectedPronounsList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
 
     private static final PastConjugationDataContainer instance = new PastConjugationDataContainer();
 

@@ -30,4 +30,11 @@ public abstract class Substitution {
      * @return String
      */
     public abstract String apply(String word, TrilateralRoot root);
+
+    String buildSubstitution(TrilateralRoot root, String expression) {
+        var effectiveExpression = expression.replaceAll("C1", root.getC1() + "");
+        effectiveExpression = effectiveExpression.replaceAll("C2", root.getC2() + "");
+        effectiveExpression = effectiveExpression.replaceAll("C3", root.getC3() + "");
+        return effectiveExpression;
+    }
 }
