@@ -6,13 +6,17 @@ import java.awt.*;
 
 import sarf.verb.trilateral.augmented.*;
 import java.util.List;
+
+import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 import sarf.*;
 import sarf.verb.quadriliteral.*;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
+import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePastVerb;
+import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -376,13 +380,13 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
         List result;
         if (selectionInfo.isAugmented()) {
             result = sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator.getInstance().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-            sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
+            sarf.verb.trilateral.augmented.ConjugationResult conjResult = AugmentedTrilateralModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                     SystemConstants.PAST_TENSE, true, ActiveVerbSelectionUI.this);
             result = conjResult.getFinalResult();
         }
         else {
-            result = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerbList((UnaugmentedTrilateralRoot) selectionInfo.getRoot());
-            sarf.verb.trilateral.unaugmented.ConjugationResult<ActivePastVerb> conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance()
+            result = ActivePastConjugator.getInstance().createVerbList((UnaugmentedTrilateralRoot) selectionInfo.getRoot());
+            sarf.verb.trilateral.unaugmented.ConjugationResult<ActivePastVerb> conjResult = UnaugmentedTrilateralModifier.getInstance()
                     .build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PAST_TENSE, true);
             result = conjResult.getFinalResult();
         }
