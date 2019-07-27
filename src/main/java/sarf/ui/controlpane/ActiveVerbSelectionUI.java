@@ -7,6 +7,7 @@ import java.awt.*;
 import sarf.verb.trilateral.augmented.*;
 import java.util.List;
 
+import sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugatorFactory;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.verb.quadriliteral.augmented.*;
@@ -229,7 +230,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
             List result = null;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugator.getInstance().getNotEmphasizedConjugator().createVerbList((
+                    result = AugmentedImperativeConjugatorFactory.getInstance().getNotEmphasizedConjugator().createVerbList((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true, ActiveVerbSelectionUI.this);
@@ -298,7 +299,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
             List result = null;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugator.getInstance().getEmphasizedConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    result = AugmentedImperativeConjugatorFactory.getInstance().getEmphasizedConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true, ActiveVerbSelectionUI.this);
                     result = conjResult.getFinalResult();

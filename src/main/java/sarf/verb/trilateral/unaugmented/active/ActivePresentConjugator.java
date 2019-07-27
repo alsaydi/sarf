@@ -43,7 +43,6 @@ public class ActivePresentConjugator {
         return new ActivePresentVerb(root, cp, dpr2, lastDpr, connectedPronoun);
     }
 
-
     /**
      * إنشاء الفعل المضارع في حالة الرفع
      * @param pronounIndex int
