@@ -3,10 +3,12 @@ package sarf.ui;
 import java.time.LocalDateTime;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import sarf.AugmentationFormula;
 import sarf.KindOfVerb;
 import sarf.SarfDictionary;
 import sarf.SystemConstants;
@@ -31,7 +33,7 @@ public class ConsoleApp {
 	private void Run() throws Exception {
 		//@SuppressWarnings("resource")
 		//String root = new Scanner(System.in).nextLine();
-		String root = "مثل";
+		String root = "سلم";
 		System.out.println(root);
 
 		if (root.length() == 3) {
@@ -71,13 +73,11 @@ public class ConsoleApp {
 			printTrilateralTree(root, kov);
 		}
         
-//        if(augmentedRoot != null) {
-//        	Iterator itr = augmentedRoot.getAugmentationList();
-//        	while(itr.hasNext()) {
-//        		AugmentationFormula forumla = itr.next();
-//        		System.out.println(forumla.getFormulaNo());
-//        	}
-//        }
+        if(augmentedRoot != null) {
+			for (var formula : augmentedRoot.getAugmentationList()) {
+				System.out.println(formula.getFormulaNo());
+			}
+		}
 	}
 	
 	private String getTransitiveDescription(String type) {

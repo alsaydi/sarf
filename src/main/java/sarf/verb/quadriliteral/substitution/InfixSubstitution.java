@@ -26,6 +26,6 @@ public class InfixSubstitution extends Substitution {
      * @return String
      */
     public String apply(String word, QuadrilateralRoot root) {
-        return word.indexOf(segment) != -1? word.replaceAll(segment,result): null;
+        return word.contains(segment) ? word.replaceAll(segment,result): null;
     }
 }

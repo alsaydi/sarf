@@ -39,30 +39,24 @@ public class VerbNamesSelectionUI extends JPanel implements IControlPane {
 
         add(buttonsPanel);
 
-        activeVerbBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ActiveVerbSelectionUI verbSelectionUI = (ActiveVerbSelectionUI) ControlPaneContainer.getInstance().openControlPane(ActiveVerbSelectionUI.class.getName());
-                verbSelectionUI.setInfo(selectionInfo);
-            }
+        activeVerbBtn.addActionListener(e -> {
+            ActiveVerbSelectionUI verbSelectionUI = (ActiveVerbSelectionUI) ControlPaneContainer.getInstance().openControlPane(ActiveVerbSelectionUI.class.getName());
+            verbSelectionUI.setInfo(selectionInfo);
         });
 
-        passiveVerbBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                PassiveVerbSelectionUI verbSelectionUI = (PassiveVerbSelectionUI) ControlPaneContainer.getInstance().openControlPane(PassiveVerbSelectionUI.class.getName());
-                verbSelectionUI.setInfo(selectionInfo);
-            }
+        passiveVerbBtn.addActionListener(e -> {
+            PassiveVerbSelectionUI verbSelectionUI = (PassiveVerbSelectionUI) ControlPaneContainer.getInstance().openControlPane(PassiveVerbSelectionUI.class.getName());
+            verbSelectionUI.setInfo(selectionInfo);
         });
 
-        derivedNamesBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (selectionInfo.isTrilateral() && !selectionInfo.isAugmented()) {
-                    TrilateralUnaugmentedNounsUI nounsUI = (TrilateralUnaugmentedNounsUI) ControlPaneContainer.getInstance().openControlPane(TrilateralUnaugmentedNounsUI.class.getName());
-                    nounsUI.setInfo(selectionInfo);
-                }
-                else {
-                    NamesSelectionUI namesSelectionUI = (NamesSelectionUI) ControlPaneContainer.getInstance().openControlPane(NamesSelectionUI.class.getName());
-                    namesSelectionUI.setInfo(selectionInfo);
-                }
+        derivedNamesBtn.addActionListener(e -> {
+            if (selectionInfo.isTrilateral() && !selectionInfo.isAugmented()) {
+                TrilateralUnaugmentedNounsUI nounsUI = (TrilateralUnaugmentedNounsUI) ControlPaneContainer.getInstance().openControlPane(TrilateralUnaugmentedNounsUI.class.getName());
+                nounsUI.setInfo(selectionInfo);
+            }
+            else {
+                NamesSelectionUI namesSelectionUI = (NamesSelectionUI) ControlPaneContainer.getInstance().openControlPane(NamesSelectionUI.class.getName());
+                namesSelectionUI.setInfo(selectionInfo);
             }
         });
 
