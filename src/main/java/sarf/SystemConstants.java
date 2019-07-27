@@ -24,5 +24,5 @@ public final class SystemConstants {
     public static final String ACTIVE = "Active";
     public static final String PASSIVE = "Passive";
 
-    public static final int PRONOUN_RANGE_END = 13;
+    public static final int PRONOUN_RANGE_END = 13; /* exclusive end */
 }
