@@ -19,18 +19,17 @@ import sarf.AugmentationFormula;
  * @version 1.0
  */
 public class AbstractAugmentedImperativeConjugator {
+    private final List<String> lastDimList;
+    private final List<String> connectedPronounList;
 
-    private final List lastDimList;
-    private final List connectedPronounList;
-
-    public AbstractAugmentedImperativeConjugator(List lastDimList, List connectedPronounList) {
+    AbstractAugmentedImperativeConjugator(List<String> lastDimList, List<String> connectedPronounList) {
         this.lastDimList = lastDimList;
         this.connectedPronounList = connectedPronounList;
     }
 
     public AugmentedImperativeVerb createVerb(AugmentedTrilateralRoot root, int pronounIndex, int formulaNo) {
-        String lastDim = (String) lastDimList.get(pronounIndex);
-        String connectedPronoun = (String) connectedPronounList.get(pronounIndex);
+        String lastDim = lastDimList.get(pronounIndex);
+        String connectedPronoun = connectedPronounList.get(pronounIndex);
         String formulaClassName = getClass().getPackage().getName()+".formula."+"AugmentedImperativeVerb"+formulaNo;
         Object [] parameters = {root,  lastDim, connectedPronoun};
 
@@ -43,12 +42,12 @@ public class AbstractAugmentedImperativeConjugator {
         return null;
     }
 
-    public List createVerbList(AugmentedTrilateralRoot root, int formulaNo) {
-        List result = new LinkedList();
+    public List<AugmentedImperativeVerb> createVerbList(AugmentedTrilateralRoot root, int formulaNo) {
+        List<AugmentedImperativeVerb> result = new ArrayList<>();
 
         result.add(null);
         result.add(null);
-        //that indexing because the pronouns is existed only for that indecis
+        //that indexing because the pronouns is existed only for that indexes
         for (int i = 2; i < 7; i++) {
             AugmentedImperativeVerb verb = createVerb(root, i, formulaNo);
             result.add(verb);
@@ -63,13 +62,11 @@ public class AbstractAugmentedImperativeConjugator {
         return result;
     }
 
-    public Map createAllVerbList(AugmentedTrilateralRoot root) {
-        Map result = new HashMap();
-        Iterator iter = root.getAugmentationList().iterator();
-        while (iter.hasNext()) {
-            AugmentationFormula formula = (AugmentationFormula) iter.next();
-            List formulaVerbList = createVerbList(root, formula.getFormulaNo());
-            result.put(formula.getFormulaNo()+"", formulaVerbList);
+    private Map createAllVerbList(AugmentedTrilateralRoot root) {
+        var result = new HashMap<String, List<AugmentedImperativeVerb>>();
+        for (AugmentationFormula formula : root.getAugmentationList()) {
+            var formulaVerbList = createVerbList(root, formula.getFormulaNo());
+            result.put(formula.getFormulaNo() + "", formulaVerbList);
         }
         return result;
     }

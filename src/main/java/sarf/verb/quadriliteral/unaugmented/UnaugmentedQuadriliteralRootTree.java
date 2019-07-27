@@ -15,7 +15,7 @@ import java.util.*;
  * @version 1.0
  */
 public class UnaugmentedQuadriliteralRootTree {
-    private final List roots = new LinkedList();
+    private final List<UnaugmentedQuadrilateralRoot> roots = new ArrayList<>();
 
     public UnaugmentedQuadriliteralRootTree() {
     }
@@ -24,7 +24,7 @@ public class UnaugmentedQuadriliteralRootTree {
         roots.add(root);
     }
 
-    public List getRoots() {
+    public List<UnaugmentedQuadrilateralRoot> getRoots() {
         return roots;
     }
 }

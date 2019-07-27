@@ -8,18 +8,18 @@ public class AugmentedImperativeConjugator {
 
     private static final AugmentedImperativeConjugator instance = new AugmentedImperativeConjugator();
 
-    private final AbstractAugmentedImperativeConjugator notEmphsizedConjugator = new AbstractAugmentedImperativeConjugator(ImperativeConjugationDataContainer.getInstance().getLastDimList(), ImperativeConjugationDataContainer.getInstance().getConnectedPronounList());
-    private final AbstractAugmentedImperativeConjugator emphsizedConjugator = new AbstractAugmentedImperativeConjugator(ImperativeConjugationDataContainer.getInstance().getEmphasizedLastDimList(), ImperativeConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList());
+    private final AbstractAugmentedImperativeConjugator notEmphasizedConjugator = new AbstractAugmentedImperativeConjugator(ImperativeConjugationDataContainer.getInstance().getLastDimList(), ImperativeConjugationDataContainer.getInstance().getConnectedPronounList());
+    private final AbstractAugmentedImperativeConjugator emphasizedConjugator = new AbstractAugmentedImperativeConjugator(ImperativeConjugationDataContainer.getInstance().getEmphasizedLastDimList(), ImperativeConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList());
 
     public static AugmentedImperativeConjugator getInstance() {
         return instance;
     }
 
-    public AbstractAugmentedImperativeConjugator getEmphsizedConjugator() {
-        return emphsizedConjugator;
+    public AbstractAugmentedImperativeConjugator getEmphasizedConjugator() {
+        return emphasizedConjugator;
     }
 
-    public AbstractAugmentedImperativeConjugator getNotEmphsizedConjugator() {
-        return notEmphsizedConjugator;
+    public AbstractAugmentedImperativeConjugator getNotEmphasizedConjugator() {
+        return notEmphasizedConjugator;
     }
 }

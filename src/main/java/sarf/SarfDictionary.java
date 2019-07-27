@@ -1,9 +1,13 @@
 package sarf;
 
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
+import sarf.verb.quadriliteral.QuadrilateralRoot;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.unaugmented.*;
+import sarf.verb.trilateral.TrilateralRoot;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.unaugmented.*;
 
@@ -26,35 +30,29 @@ public class SarfDictionary {
         return instance;
     }
 
-    public AugmentedTrilateralRoot getAugmentedTrilateralRoot(String rootText) throws Exception {
-        char c1 = rootText.charAt(0);
-        char c2 = rootText.charAt(1);
-        char c3 = rootText.charAt(2);
-
-        AugmentedTrilateralRootTree augmentedRootsTree = DatabaseManager.getInstance().getAugmentedTrilateralRootTree(c1);
-        List<AugmentedTrilateralRoot> roots = augmentedRootsTree.getRoots();
-        for (AugmentedTrilateralRoot aRoot : roots) {
-            if (aRoot.getC1() == c1 && aRoot.getC2() == c2 && aRoot.getC3() == c3) {
-                return aRoot;
-            }
-        }
-        return null;
-    }
-
     public List<UnaugmentedTrilateralRoot> getUnaugmentedTrilateralRoots(String rootText) throws Exception {
         char c1 = rootText.charAt(0);
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);
 
-        UnaugmentedTrilateralRootTree unaugmentedRootsTree = DatabaseManager.getInstance().getUnaugmentedTrilateralRootTree(c1);
-        List<UnaugmentedTrilateralRoot> roots = unaugmentedRootsTree.getRoots();
-        java.util.List<UnaugmentedTrilateralRoot> result = new LinkedList<>();
-        for (UnaugmentedTrilateralRoot root : roots) {
-            if (root.getC1() == c1 && root.getC2() == c2 && root.getC3() == c3) {
-                result.add(root);
-            }
-        }
-        return result;
+        var unaugmentedRootsTree = DatabaseManager.getInstance().getUnaugmentedTrilateralRootTree(c1);
+        var roots = unaugmentedRootsTree.getRoots();
+        return roots.stream()
+                .filter(root -> match(root, c1, c2, c3))
+                .collect(Collectors.toList());
+    }
+
+    public AugmentedTrilateralRoot getAugmentedTrilateralRoot(String rootText) throws Exception {
+        char c1 = rootText.charAt(0);
+        char c2 = rootText.charAt(1);
+        char c3 = rootText.charAt(2);
+
+        var augmentedRootsTree = DatabaseManager.getInstance().getAugmentedTrilateralRootTree(c1);
+        var roots = augmentedRootsTree.getRoots();
+        return roots.stream()
+                .filter(root -> match(root, c1, c2, c3))
+                .findFirst()
+                .orElse(null);
     }
 
     public AugmentedQuadrilateralRoot getAugmentedQuadrilateralRoot(String rootText) {
@@ -63,23 +61,18 @@ public class SarfDictionary {
         char c3 = rootText.charAt(2);
         char c4 = rootText.charAt(3);
 
-        AugmentedQuadriliteralRootTree augmentedRootsTree = null;
+        AugmentedQuadriliteralRootTree augmentedRootsTree;
         try {
             augmentedRootsTree = DatabaseManager.getInstance().getAugmentedQuadrilateralRootTree(c1);
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             //الملف غير موجود
             return null;
         }
-        List roots = augmentedRootsTree.getRoots();
-        Iterator iter = roots.iterator();
-        while (iter.hasNext()) {
-            AugmentedQuadrilateralRoot aRoot = (AugmentedQuadrilateralRoot) iter.next();
-            if (aRoot.getC1() == c1 && aRoot.getC2() == c2 && aRoot.getC3() == c3 && aRoot.getC4() == c4) {
-                return aRoot;
-            }
-        }
-        return null;
+        var roots = augmentedRootsTree.getRoots();
+        return roots.stream()
+                .filter(root -> match(root, c1, c2, c3, c4))
+                .findFirst()
+                .orElse(null);
     }
 
     public UnaugmentedQuadrilateralRoot getUnaugmentedQuadrilateralRoot(String rootText) throws Exception {
@@ -88,21 +81,23 @@ public class SarfDictionary {
         char c3 = rootText.charAt(2);
         char c4 = rootText.charAt(3);
 
-        UnaugmentedQuadriliteralRootTree rootsTree = null;
-        rootsTree = DatabaseManager.getInstance().getUnaugmentedQuadrilateralRootTree(c1);
+        var rootsTree = DatabaseManager.getInstance().getUnaugmentedQuadrilateralRootTree(c1);
+        var roots = rootsTree.getRoots();
 
-        java.util.List roots = rootsTree.getRoots();
-
-        Iterator iter = roots.iterator();
-        while (iter.hasNext()) {
-            UnaugmentedQuadrilateralRoot aRoot = (UnaugmentedQuadrilateralRoot) iter.next();
-            if (aRoot.getC1() == c1 && aRoot.getC2() == c2 && aRoot.getC3() == c3 && aRoot.getC4() == c4) {
-                return aRoot;
-            }
-        }
-
-        return null;
+        return roots.stream()
+                .filter(root -> match(root, c1, c2, c3, c4))
+                .findFirst()
+                .orElse(null);
     }
 
+    private static boolean match(TrilateralRoot aRoot, char c1, char c2, char c3) {
+        return aRoot.getC1() == c1 && aRoot.getC2() == c2 && aRoot.getC3() == c3;
+    }
 
+    private static boolean match(QuadrilateralRoot root, char c1, char c2, char c3, char c4) {
+        return root.getC1() == c1
+                && root.getC2() == c2
+                && root.getC3() == c3
+                && root.getC4() == c4;
+    }
 }

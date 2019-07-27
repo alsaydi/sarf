@@ -229,7 +229,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
             List result = null;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugator.getInstance().getNotEmphsizedConjugator().createVerbList((
+                    result = sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugator.getInstance().getNotEmphasizedConjugator().createVerbList((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true, ActiveVerbSelectionUI.this);
@@ -298,7 +298,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
             List result = null;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugator.getInstance().getEmphsizedConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    result = sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugator.getInstance().getEmphasizedConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true, ActiveVerbSelectionUI.this);
                     result = conjResult.getFinalResult();

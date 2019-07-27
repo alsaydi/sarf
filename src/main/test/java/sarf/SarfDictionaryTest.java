@@ -20,13 +20,13 @@ class SarfDictionaryTest {
 	
 	@ParameterizedTest
 	@ValueSource(strings = {"نصر", "وعد", "قول", "سعي","وفي", "طوي"})
-	void rootText_getAugmentedTrilateralRoot_returnsRoot(String candiate) throws Exception {
-		AugmentedTrilateralRoot sut = SarfDictionary.getInstance().getAugmentedTrilateralRoot(candiate);
+	void rootText_getAugmentedTrilateralRoot_returnsRoot(String candidate) throws Exception {
+		AugmentedTrilateralRoot sut = SarfDictionary.getInstance().getAugmentedTrilateralRoot(candidate);
 		
 		assertNotNull(sut);
-		assertEquals(candiate.charAt(0), sut.getC1());
-		assertEquals(candiate.charAt(1), sut.getC2());
-		assertEquals(candiate.charAt(2), sut.getC3());
+		assertEquals(candidate.charAt(0), sut.getC1());
+		assertEquals(candidate.charAt(1), sut.getC2());
+		assertEquals(candidate.charAt(2), sut.getC3());
 		assertNotNull(sut.getAugmentationList());
 		assertTrue(sut.getAugmentationList().size()>0);
 	}
