@@ -93,6 +93,6 @@ public class TrilateralKovRule {
 
     @Override
     public String toString() {
-        return String.format("KoV - Index: %s -  %d", getDesc(), getKov());
+        return String.format("KoV - Index: %s -  %s", getDesc(), getKov());
     }
 }

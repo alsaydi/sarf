@@ -90,7 +90,7 @@ public class VerbNamesSelectionUI extends JPanel implements IControlPane {
         return this;
     }
 
-    public void setInfo(SelectionInfo selectionInfo) {
+    void setInfo(SelectionInfo selectionInfo) {
         this.selectionInfo = selectionInfo;
     }
 

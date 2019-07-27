@@ -65,7 +65,7 @@ public class NGeminator extends SubstitutionsApplier implements IUnaugmentedTril
         apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
 
-    /*protected List getAppliedPronounsIndecies(String tense) {
+    /*protected List getAppliedPronounsIndexes(String tense) {
         return (List) indeciesMap.get(tense);
     }*/
 }

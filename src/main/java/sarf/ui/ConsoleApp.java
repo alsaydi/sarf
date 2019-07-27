@@ -96,14 +96,14 @@ public class ConsoleApp {
 		String pastRootText = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerb(7, root).toString();
 		List<String> conjugations = createEmptyList();
 		conjugations.set(7, pastRootText);
-		sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, ControlPaneContainer.getInstance().getKov(), conjugations, SystemConstants.PAST_TENSE, true);
+		sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, kov, conjugations, SystemConstants.PAST_TENSE, true);
 		pastRootText = conjResult.getFinalResult().get(7).toString();
 
 		//present text formatting
 		String presentRootText = sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator.getInstance().createNominativeVerb(7, root).toString();
 		conjugations = createEmptyList();
 		conjugations.set(7, presentRootText);
-		conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, ControlPaneContainer.getInstance().getKov(), conjugations, SystemConstants.PRESENT_TENSE, true);
+		conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, kov, conjugations, SystemConstants.PRESENT_TENSE, true);
 		presentRootText = conjResult.getFinalResult().get(7).toString();
 		
 		System.out.printf("%s %s - %s\n",pastRootText, presentRootText, transivity);

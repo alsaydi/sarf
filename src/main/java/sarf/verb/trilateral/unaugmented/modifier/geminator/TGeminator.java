@@ -26,27 +26,27 @@ import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
  */
 public class TGeminator extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier{
     private final List<Substitution> substitutions = new ArrayList<>();
-    private final List<String> appliedPronounsIndecies = new ArrayList<>(6);
+    private final List<String> appliedPronounsIndexes = new ArrayList<>(6);
 
     public TGeminator() {
         substitutions.add(new InfixSubstitution("تْتُ", "تُّ"));
         substitutions.add(new InfixSubstitution("تْتَ", "تَّ"));
         substitutions.add(new InfixSubstitution("تْتِ", "تِّ"));
 
-        appliedPronounsIndecies.add("1");
-        appliedPronounsIndecies.add("3");
-        appliedPronounsIndecies.add("4");
-        appliedPronounsIndecies.add("5");
-        appliedPronounsIndecies.add("6");
-        appliedPronounsIndecies.add("7");
+        appliedPronounsIndexes.add("1");
+        appliedPronounsIndexes.add("3");
+        appliedPronounsIndexes.add("4");
+        appliedPronounsIndexes.add("5");
+        appliedPronounsIndexes.add("6");
+        appliedPronounsIndexes.add("7");
     }
 
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
-    protected List getAppliedPronounsIndecies() {
-        return appliedPronounsIndecies;
+    protected List<String> getAppliedPronounsIndexes() {
+        return appliedPronounsIndexes;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
@@ -57,7 +57,4 @@ public class TGeminator extends SubstitutionsApplier implements IUnaugmentedTril
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
-
-
-
 }

@@ -114,11 +114,10 @@ public class Vocalizer {
      */
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
         List vocalizers = (List) vocalizerMap.get(tense+active);
-        Iterator iter = vocalizers.iterator();
-        while (iter.hasNext()) {
-            IUnaugmentedTrilateralModifier vocalizer = (IUnaugmentedTrilateralModifier) iter.next();
+        for (Object o : vocalizers) {
+            IUnaugmentedTrilateralModifier vocalizer = (IUnaugmentedTrilateralModifier) o;
             if (vocalizer.isApplied(conjResult)) {
-                ((SubstitutionsApplier)vocalizer).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                ((SubstitutionsApplier) vocalizer).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }
