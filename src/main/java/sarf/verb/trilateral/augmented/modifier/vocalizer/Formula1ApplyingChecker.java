@@ -15,10 +15,10 @@ import java.util.*;
  * @version 1.0
  */
 public class Formula1ApplyingChecker extends IFormulaApplyingChecker{
-    private final List twoStateList = new LinkedList();
-    private final List notVocalizedList = new LinkedList();
+    private final List<String> twoStateList = new ArrayList<>();
+    private final List<String> notVocalizedList = new ArrayList<>();
 
-    public Formula1ApplyingChecker() {
+    Formula1ApplyingChecker() {
         twoStateList.add("جود");
         twoStateList.add("حوش");
         twoStateList.add("حول");

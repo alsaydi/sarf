@@ -14,10 +14,10 @@ import java.util.*;
  * @version 1.0
  */
 public class Formula9ApplyingChecker extends IFormulaApplyingChecker{
-    private final List twoStateList = new LinkedList();
-    private final List notVocalizedList = new LinkedList();
+    private final List<String> twoStateList = new ArrayList<>();
+    private final List<String> notVocalizedList = new ArrayList<>();
 
-    public Formula9ApplyingChecker() {
+    Formula9ApplyingChecker() {
         twoStateList.add("جوب");
         twoStateList.add("جوف");
         twoStateList.add("خول");

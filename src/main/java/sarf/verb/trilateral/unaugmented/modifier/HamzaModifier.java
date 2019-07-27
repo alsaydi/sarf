@@ -1,13 +1,11 @@
 package sarf.verb.trilateral.unaugmented.modifier;
 
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
-import java.util.Map;
-import java.util.HashMap;
+
+import java.util.*;
+
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import sarf.SystemConstants;
-import java.util.List;
-import java.util.LinkedList;
-import java.util.Iterator;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -22,15 +20,15 @@ import java.util.Iterator;
  * @version 1.0
  */
 public class HamzaModifier {
-    private final Map modifiersMap = new HashMap();
+    private final Map<String, List<SubstitutionsApplier>> modifiersMap = new HashMap<>();
 
-    public HamzaModifier() {
-        List activePastList = new LinkedList();
-        List passivePastList = new LinkedList();
-        List activePresentList = new LinkedList();
-        List passivePresentList = new LinkedList();
-        List imperativeList = new LinkedList();
-        List emphasizedImperativeList = new LinkedList();
+    HamzaModifier() {
+        List<SubstitutionsApplier> activePastList = new ArrayList<>();
+        List<SubstitutionsApplier> passivePastList = new ArrayList<>();
+        List<SubstitutionsApplier> activePresentList = new ArrayList<>();
+        List<SubstitutionsApplier> passivePresentList = new ArrayList<>();
+        List<SubstitutionsApplier> imperativeList = new ArrayList<>();
+        List<SubstitutionsApplier> emphasizedImperativeList = new ArrayList<>();
 
         //خمس أنواع  أساسية  للمهموز للمعلوم والمبني لمجهول في الماضي والمضارع والأمر
         modifiersMap.put(SystemConstants.PAST_TENSE + "true", activePastList);
@@ -91,12 +89,11 @@ public class HamzaModifier {
      * @param conjResult ConjugationResult
      */
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
-        List modifiers = (List) modifiersMap.get(tense+active);
-        Iterator iter = modifiers.iterator();
-        while (iter.hasNext()) {
-            IUnaugmentedTrilateralModifier modifier = (IUnaugmentedTrilateralModifier) iter.next();
+        var modifiers = modifiersMap.get(tense+active);
+        for (SubstitutionsApplier o : modifiers) {
+            IUnaugmentedTrilateralModifier modifier = (IUnaugmentedTrilateralModifier) o;
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier)modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                o.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

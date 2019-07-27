@@ -19,14 +19,14 @@ import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
  */
 public class Vocalizer {
     //المعلوم  و  المجهول تحتوي قائمة بالأنواع الخمسة لاعلال لماضي والمضارع والأمر حسب
-    private final Map vocalizerMap = new HashMap();
+    private final Map<String, List<SubstitutionsApplier>> vocalizerMap = new HashMap<>();
 
     public Vocalizer() {
-        List activePastList = new LinkedList();
-        List passivePastList = new LinkedList();
-        List activePresentList = new LinkedList();
-        List passivePresentList = new LinkedList();
-        List imperativeList = new LinkedList();
+        List<SubstitutionsApplier> activePastList = new ArrayList<>();
+        List<SubstitutionsApplier> passivePastList = new ArrayList<>();
+        List<SubstitutionsApplier> activePresentList = new ArrayList<>();
+        List<SubstitutionsApplier> passivePresentList = new ArrayList<>();
+        List<SubstitutionsApplier> imperativeList = new ArrayList<>();
 
         //خمس أنواع  أساسية  للاعلال للمعلوم والمبني لمجهول في الماضي والمضارع والأمر
         vocalizerMap.put(SystemConstants.PAST_TENSE + "true", activePastList);
@@ -132,14 +132,13 @@ public class Vocalizer {
      * @param conjResult ConjugationResult
      */
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
-        List vocalizers = (List) vocalizerMap.get(tense+active);
-        for (Object o : vocalizers) {
+        var vocalizers = vocalizerMap.get(tense+active);
+        for (SubstitutionsApplier o : vocalizers) {
             IAugmentedTrilateralModifier vocalizer = (IAugmentedTrilateralModifier) o;
             if (vocalizer.isApplied(conjResult)) {
-                ((SubstitutionsApplier) vocalizer).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                o.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }
     }
-
 }

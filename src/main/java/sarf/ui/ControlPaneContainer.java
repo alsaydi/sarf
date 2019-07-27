@@ -33,7 +33,6 @@ public class ControlPaneContainer extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private final Map<String, IControlPane> controlPaneMap = new HashMap<>();
-    private final JButton startBtn = new RenderedButton("أدخل جذراً ثلاثياً أو رباعياً");
     private final JButton backBtn = new RenderedButton("عودة");
     private final JTextField rootFld = new JTextField(5);
     private final JPanel container = new JPanel(new BorderLayout());
@@ -50,13 +49,8 @@ public class ControlPaneContainer extends JPanel {
     private KindOfVerb kov;
     private final JMenuBar menuBar = new JMenuBar();
     private final JMenuItem backMnuItm = new JMenuItem("عودة");
-    private final JMenuItem help1MnuItm = new JMenuItem("قواعد النحو والصرف");
-    private final JMenuItem help2MnuItm = new JMenuItem("دليل الاستعمال");
-    private final JMenuItem help3MnuItm = new JMenuItem("تعريف بالنظام");
     private final JMenuItem saveMnuItm = new JMenuItem("حفظ الجدول");
-    private final JMenuItem aboutMnuItm = new JMenuItem("حول البرنامج");
     private final JMenuItem showIntroMnuItm = new JCheckBoxMenuItem("إظهار الشاشة التقديمية");
-    private final JMenuItem exitMnuItm = new JMenuItem("خروج");
 
     private final JTextField verbTxtFld = new JTextField(8);
 
@@ -78,6 +72,7 @@ public class ControlPaneContainer extends JPanel {
         fileMainMenu.setFont(RenderedButton.FONT);
         //menu.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
+        JMenuItem help3MnuItm = new JMenuItem("تعريف بالنظام");
         helpMainMenu.add(help3MnuItm);
         help3MnuItm.addActionListener(e -> {
             try {
@@ -91,6 +86,7 @@ public class ControlPaneContainer extends JPanel {
         help3MnuItm.setFont(RenderedButton.FONT);
         help3MnuItm.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
+        JMenuItem help2MnuItm = new JMenuItem("دليل الاستعمال");
         helpMainMenu.add(help2MnuItm);
         help2MnuItm.addActionListener(e -> {
             try {
@@ -107,6 +103,7 @@ public class ControlPaneContainer extends JPanel {
         help2MnuItm.setFont(RenderedButton.FONT);
         help2MnuItm.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
+        JMenuItem help1MnuItm = new JMenuItem("قواعد النحو والصرف");
         helpMainMenu.add(help1MnuItm);
         help1MnuItm.addActionListener(e -> {
             try {
@@ -144,6 +141,7 @@ public class ControlPaneContainer extends JPanel {
         showIntroMnuItm.setFont(RenderedButton.FONT);
         showIntroMnuItm.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
+        JMenuItem aboutMnuItm = new JMenuItem("حول البرنامج");
         helpMainMenu.add(aboutMnuItm);
         aboutMnuItm.addActionListener(e -> {
             AboutDialog dialog = new AboutDialog();
@@ -159,6 +157,7 @@ public class ControlPaneContainer extends JPanel {
         backMnuItm.setEnabled(false);
         backMnuItm.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
+        JMenuItem exitMnuItm = new JMenuItem("خروج");
         fileMainMenu.add(exitMnuItm);
         exitMnuItm.addActionListener(e -> System.exit(0));
         exitMnuItm.setFont(RenderedButton.FONT);
@@ -198,6 +197,7 @@ public class ControlPaneContainer extends JPanel {
         Insets insets = new Insets(0, 0, 0, 10);
         rootFld.setMargin(insets);
 
+        JButton startBtn = new RenderedButton("أدخل جذراً ثلاثياً أو رباعياً");
         topPane.add(startBtn);
         topPane.add(rootFld);
         topPane.add(Box.createHorizontalStrut(5));

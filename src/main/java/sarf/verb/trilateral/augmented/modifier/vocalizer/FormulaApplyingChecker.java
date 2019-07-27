@@ -15,9 +15,9 @@ import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
  * @version 1.0
  */
 public class FormulaApplyingChecker {
-    final Formula1ApplyingChecker formula1ApplyingChecker = new Formula1ApplyingChecker();
-    final Formula5ApplyingChecker formula5ApplyingChecker = new Formula5ApplyingChecker();
-    final Formula9ApplyingChecker formula9ApplyingChecker = new Formula9ApplyingChecker();
+    private final Formula1ApplyingChecker formula1ApplyingChecker = new Formula1ApplyingChecker();
+    private final Formula5ApplyingChecker formula5ApplyingChecker = new Formula5ApplyingChecker();
+    private final Formula9ApplyingChecker formula9ApplyingChecker = new Formula9ApplyingChecker();
 
     private FormulaApplyingChecker() {
     }

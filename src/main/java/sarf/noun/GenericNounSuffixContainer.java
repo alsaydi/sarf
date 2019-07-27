@@ -17,16 +17,16 @@ import java.util.*;
 public class GenericNounSuffixContainer implements INounSuffixContainer{
     private static final GenericNounSuffixContainer instance = new GenericNounSuffixContainer();
     //حالة النكرة
-    private final ArrayList indefiniteSuffixList = new ArrayList(18);
+    private final List<String> indefiniteSuffixList = new ArrayList<>(18);
     //حالة المعرفة
-    private final ArrayList definiteSuffixList = new ArrayList(18);
+    private final List<String> definiteSuffixList = new ArrayList<>(18);
     //حالة الاضافة
-    private final ArrayList annexedSuffixList = new ArrayList(18);
+    private final List<String> annexedSuffixList = new ArrayList<>(18);
 
     //تكون لها قيمة عندما تكون الحالة هي معرفة
     private String prefix = "";
     //يمثل القائمة المختارة تبعاً للحالة
-    private ArrayList currentSuffixList = indefiniteSuffixList ;
+    private List<String> currentSuffixList = indefiniteSuffixList ;
 
     private GenericNounSuffixContainer() {
         indefiniteSuffixList.add("ٌ");

@@ -18,7 +18,6 @@ import sarf.verb.trilateral.augmented.modifier.hamza.ein.*;
  * @version 1.0
  */
 public class PastMahmouz extends AbstractEinMahmouz {
-
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public PastMahmouz() {
@@ -31,8 +30,7 @@ public class PastMahmouz extends AbstractEinMahmouz {
         substitutions.add(new InfixSubstitution("اءَ", "اءَ")); // EX: (لاءَمَ، تفاءَلَ، )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }
