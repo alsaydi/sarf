@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-public class InfixSubstitutionTest {
+class InfixSubstitutionTest {
 
 	@Test
 	void apply_doesSubstitution	() throws Exception {
@@ -13,7 +13,7 @@ public class InfixSubstitutionTest {
 	}
 	
 	@Test
-	void wordDoesNotContainSegemtn_apply_returnsNull() throws Exception {
+	void wordDoesNotContainSegment_apply_returnsNull() throws Exception {
 		InfixSubstitution sut = new InfixSubstitution("SEGMENT", "result");
 		assertNull(sut.apply("word does not contain segment", null));
 	}

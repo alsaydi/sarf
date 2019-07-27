@@ -73,7 +73,7 @@ class AugmentedPresentConjugatorTest {
         );
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "create verb lis test {index} {2}")
     @MethodSource("getCreateVerbListTestArguments")
     void createVerbListTest(AugmentedPresentConjugator sut, int formulaNo, Class expected) {
         var verbList = sut.createVerbList(new AugmentedTrilateralRoot(), formulaNo);
