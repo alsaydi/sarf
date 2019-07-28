@@ -2,7 +2,7 @@ package sarf.gerund.quadrilateral.augmented.nomen.pattern;
 
 import sarf.util.*;
 import sarf.verb.quadriliteral.augmented.*;
-import sarf.gerund.quadrilateral.augmented.nomen.QuadriliteralAugmentedNomenGerund;
+import sarf.gerund.quadrilateral.augmented.nomen.QuadrilateralAugmentedNomenGerund;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -16,12 +16,9 @@ import sarf.gerund.quadrilateral.augmented.nomen.QuadriliteralAugmentedNomenGeru
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class GerundPattern3 extends QuadriliteralAugmentedNomenGerund {
-    public GerundPattern3() {
-    }
-
+public class GerundPattern3 extends QuadrilateralAugmentedNomenGerund {
     public GerundPattern3(AugmentedQuadrilateralRoot root, String suffixNo) {
-        init(root, suffixNo);
+        super(root, suffixNo);
     }
 
     /**
@@ -46,5 +43,4 @@ public class GerundPattern3 extends QuadriliteralAugmentedNomenGerund {
     public String getPattern() {
         return "افْعِلاَّلة";
     }
-
 }
