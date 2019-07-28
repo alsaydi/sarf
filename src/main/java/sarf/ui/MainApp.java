@@ -57,18 +57,16 @@ public class MainApp {
      * @param args String[]
      */
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    //MetalLookAndFeel.setCurrentTheme(new javax.swing.plaf.metal.OceanTheme());
-                    UIManager.setLookAndFeel(MetalLookAndFeel.class.getName());
-                }
-                catch (Exception exception) {
-                    exception.printStackTrace();
-                }
-
-                new MainApp();
+        SwingUtilities.invokeLater(() -> {
+            try {
+                //MetalLookAndFeel.setCurrentTheme(new javax.swing.plaf.metal.OceanTheme());
+                UIManager.setLookAndFeel(MetalLookAndFeel.class.getName());
             }
+            catch (Exception exception) {
+                exception.printStackTrace();
+            }
+
+            new MainApp();
         });
     }
 }

@@ -49,11 +49,7 @@ class AboutDialog extends JDialog {
 
         imagePane.add(bottomPane, BorderLayout.SOUTH);
 
-        closeBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-            }
-        });
+        closeBtn.addActionListener(e -> setVisible(false));
     }
 
     private void jbInit() throws Exception {

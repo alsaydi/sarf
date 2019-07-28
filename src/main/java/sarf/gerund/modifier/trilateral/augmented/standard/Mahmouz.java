@@ -31,9 +31,8 @@ public class Mahmouz {
     }
 
     public void apply(ConjugationResult conjResult) {
-        var iter = modifiers.iterator();
-        while (iter.hasNext()) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) iter.next();
+        for (TrilateralNounSubstitutionApplier trilateralNounSubstitutionApplier : modifiers) {
+            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) trilateralNounSubstitutionApplier;
             if (modifier.isApplied(conjResult)) {
                 ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;

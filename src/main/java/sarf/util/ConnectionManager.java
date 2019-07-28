@@ -21,16 +21,7 @@ public class ConnectionManager {
             java.sql.Driver dr = (java.sql.Driver) cl.newInstance();
             java.sql.DriverManager.registerDriver(dr);
         }
-        catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        catch (IllegalAccessException ex) {
-            ex.printStackTrace();
-        }
-        catch (InstantiationException ex) {
-            ex.printStackTrace();
-        }
-        catch (ClassNotFoundException ex) {
+        catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             ex.printStackTrace();
         }
     }

@@ -40,20 +40,18 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
         unaugmentedPanel.add(Box.createHorizontalBox());
         unaugmentedPanel.add(Box.createHorizontalBox());
         unaugmentedPanel.add(unaugmentedBtn);
-        unaugmentedBtn.getButton().addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                SelectionInfo selectionInfo = new SelectionInfo(currentUnaugmentedRoot, false, false, ControlPaneContainer.getInstance().getKov());
-                selectionInfo.setFormulaText(unaugmentedBtn.getFormulaText());
-                selectionInfo.setVerbText(unaugmentedBtn.getVerbText());
-                //اتفق على أن يكون الرقم صفر دلالة على المجرد
-                selectionInfo.setAugmentationFormulaNo(0);
+        unaugmentedBtn.getButton().addActionListener(e -> {
+            SelectionInfo selectionInfo = new SelectionInfo(currentUnaugmentedRoot, false, false, ControlPaneContainer.getInstance().getKov());
+            selectionInfo.setFormulaText(unaugmentedBtn.getFormulaText());
+            selectionInfo.setVerbText(unaugmentedBtn.getVerbText());
+            //اتفق على أن يكون الرقم صفر دلالة على المجرد
+            selectionInfo.setAugmentationFormulaNo(0);
 
-                VerbNamesSelectionUI verbNamesSelectionUI = (VerbNamesSelectionUI) ControlPaneContainer.getInstance().openControlPane(VerbNamesSelectionUI.class.getName());
-                verbNamesSelectionUI.setInfo(selectionInfo);
+            VerbNamesSelectionUI verbNamesSelectionUI = (VerbNamesSelectionUI) ControlPaneContainer.getInstance().openControlPane(VerbNamesSelectionUI.class.getName());
+            verbNamesSelectionUI.setInfo(selectionInfo);
 
-                ControlPaneContainer.getInstance().setTransitiveType(currentUnaugmentedRoot.getTransitive());
-                ControlPaneContainer.getInstance().setVerbText(unaugmentedBtn.getVerbText());
-            }
+            ControlPaneContainer.getInstance().setTransitiveType(currentUnaugmentedRoot.getTransitive());
+            ControlPaneContainer.getInstance().setVerbText(unaugmentedBtn.getVerbText());
         });
 
         JPanel augmentedPnl1 = new JPanel(new GridLayout(1, 3));

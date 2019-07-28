@@ -125,12 +125,7 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
 
         try {
             FileUtil.saveContents(file, content);
-        }
-        catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-            return false;
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
             return false;
         }

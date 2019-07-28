@@ -80,9 +80,7 @@ public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateral
 
         List<String> result = new LinkedList<>();
 
-        var iter = formulaTree.getFormulaList().iterator();
-        while (iter.hasNext()) {
-            var formula = (XmlNonStandardInstrumentalNounFormula) iter.next();
+        for (XmlNonStandardInstrumentalNounFormula formula : formulaTree.getFormulaList()) {
             if (formula.getC2() == root.getC2() && formula.getC3() == root.getC3()) {
                 if (formula.getForm1() != null && formula.getForm1() != "") {
                     //add the formula pattern instead of the symbol (form1)

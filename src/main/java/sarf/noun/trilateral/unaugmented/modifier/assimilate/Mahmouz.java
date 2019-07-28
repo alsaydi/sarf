@@ -28,9 +28,8 @@ public class Mahmouz {
     }
 
     public void apply(ConjugationResult conjResult) {
-        Iterator iter = modifiers.iterator();
-        while (iter.hasNext()) {
-            IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) iter.next();
+        for (Object o : modifiers) {
+            IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) o;
             if (modifier.isApplied(conjResult)) {
                 ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;

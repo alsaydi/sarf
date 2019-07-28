@@ -60,20 +60,18 @@ public class VerbNamesSelectionUI extends JPanel implements IControlPane {
             }
         });
 
-        gerundBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (selectionInfo.isTrilateral() && !selectionInfo.isAugmented()) {
-                    TrilateralUnaugmentedGerundsUI gerundSelectionUI = (TrilateralUnaugmentedGerundsUI) ControlPaneContainer.getInstance().openControlPane(TrilateralUnaugmentedGerundsUI.class.getName());
-                    try {
-						gerundSelectionUI.setInfo(selectionInfo);
-					} catch (Exception e1) {
-						e1.printStackTrace();
-					}
-                }
-                else {
-                    GerundSelectionUI gerundSelectionUI = (GerundSelectionUI) ControlPaneContainer.getInstance().openControlPane(GerundSelectionUI.class.getName());
+        gerundBtn.addActionListener(e -> {
+            if (selectionInfo.isTrilateral() && !selectionInfo.isAugmented()) {
+                TrilateralUnaugmentedGerundsUI gerundSelectionUI = (TrilateralUnaugmentedGerundsUI) ControlPaneContainer.getInstance().openControlPane(TrilateralUnaugmentedGerundsUI.class.getName());
+                try {
                     gerundSelectionUI.setInfo(selectionInfo);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
                 }
+            }
+            else {
+                GerundSelectionUI gerundSelectionUI = (GerundSelectionUI) ControlPaneContainer.getInstance().openControlPane(GerundSelectionUI.class.getName());
+                gerundSelectionUI.setInfo(selectionInfo);
             }
         });
 

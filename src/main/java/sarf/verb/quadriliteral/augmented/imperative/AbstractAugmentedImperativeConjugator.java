@@ -42,7 +42,7 @@ public class AbstractAugmentedImperativeConjugator {
     }
 
     public List<AugmentedImperativeVerb> createVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
-        List<AugmentedImperativeVerb> result = new LinkedList<AugmentedImperativeVerb>();
+        List<AugmentedImperativeVerb> result = new LinkedList<>();
         result.add(null);
         result.add(null);
         //that indexing because the pronouns is existed only for that indecis
@@ -61,12 +61,10 @@ public class AbstractAugmentedImperativeConjugator {
     }
 
     public Map<String, List<AugmentedImperativeVerb>> createAllVerbList(AugmentedQuadrilateralRoot root) {
-        Map<String, List<AugmentedImperativeVerb>> result = new HashMap<String, List<AugmentedImperativeVerb>>();
-        Iterator<AugmentationFormula> iter = root.getAugmentationList().iterator();
-        while (iter.hasNext()) {
-            AugmentationFormula formula = iter.next();
+        Map<String, List<AugmentedImperativeVerb>> result = new HashMap<>();
+        for (AugmentationFormula formula : (Iterable<AugmentationFormula>) root.getAugmentationList()) {
             List<AugmentedImperativeVerb> formulaVerbList = createVerbList(root, formula.getFormulaNo());
-            result.put(formula.getFormulaNo()+"", formulaVerbList);
+            result.put(formula.getFormulaNo() + "", formulaVerbList);
         }
         return result;
     }

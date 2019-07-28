@@ -37,11 +37,10 @@ public class Substituter {
        }
 
     public void apply(ConjugationResult conjResult) {
-        Iterator iter = modifiers.iterator();
-        while (iter.hasNext()) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) iter.next();
+        for (Object o : modifiers) {
+            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
             if (modifier.isApplied(conjResult)) {
-                ((TrilateralNounSubstitutionApplier)modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                ((TrilateralNounSubstitutionApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

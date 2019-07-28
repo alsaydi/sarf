@@ -20,7 +20,7 @@ import sarf.verb.quadriliteral.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class AugmentedQuadrilateralRoot extends QuadrilateralRoot{
+public final class AugmentedQuadrilateralRoot extends QuadrilateralRoot{
 
     //قائمة صيغ المزيد الممكنة لهذا الجذر
     private final Map<String, AugmentationFormula> augmentations = new HashMap<>();

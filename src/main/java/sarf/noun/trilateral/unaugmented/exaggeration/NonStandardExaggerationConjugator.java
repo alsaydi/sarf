@@ -74,9 +74,8 @@ public class NonStandardExaggerationConjugator implements IUnaugmentedTrilateral
 
         List result = new LinkedList();
 
-        Iterator iter = formulaTree.getFormulaList().iterator();
-        while (iter.hasNext()) {
-            XmExaggerationNounFormula formula = (XmExaggerationNounFormula) iter.next();
+        for (Object o : formulaTree.getFormulaList()) {
+            XmExaggerationNounFormula formula = (XmExaggerationNounFormula) o;
             if (formula.getC2() == root.getC2() && formula.getC3() == root.getC3()) {
                 if (formula.getForm1() != null && formula.getForm1() != "")
                     //add the formula pattern insteaed of the symbol (form1)

@@ -1,8 +1,13 @@
 package sarf.gerund.quadrilateral.augmented;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import sarf.*;
 import sarf.verb.quadriliteral.augmented.*;
+
+import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -18,73 +23,48 @@ import sarf.verb.quadriliteral.augmented.*;
  */
 public class QuadriliteralAugmentedGerundConjugator {
     private static final QuadriliteralAugmentedGerundConjugator instance = new QuadriliteralAugmentedGerundConjugator();
-    private final Map gerundClassMap = new HashMap();
-
-    private final int[] indexArray = {1, 3, 6, 7, 9, 12, 13, 15, 18};
-
-    private QuadriliteralAugmentedGerundConjugator() {
-        for (int i = 1; i <= 3; i++) {
-            String gerundClassName = getClass().getPackage().getName() + ".pattern." + "GerundPattern" + i;
-            try {
-                Class gerundClass = Class.forName(gerundClassName);
-                gerundClassMap.put(i + "", gerundClass.newInstance());
-            }
-            catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
+    private final int[] indexArray = {1, 3, 6, 7, 9, 12, 13, 15, NOUN_POSSIBLE_STATES};
 
     public static QuadriliteralAugmentedGerundConjugator getInstance() {
         return instance;
     }
 
-    public List createGerundList(AugmentedQuadrilateralRoot root, int formulaNo) {
+    public List<QuadriliteralAugmentedGerund> createGerundList(AugmentedQuadrilateralRoot root, int formulaNo) {
         String gerundPatternClassName = getClass().getPackage().getName() + ".pattern." + "GerundPattern" + formulaNo;
-        List gerundDisplayList = createEmptyList();
+        List<QuadriliteralAugmentedGerund> gerundDisplayList = createEmptyList();
 
-        QuadriliteralAugmentedGerund gerundInstance = (QuadriliteralAugmentedGerund) gerundClassMap.get(formulaNo + "");
-
-        for (int i = 0; i < indexArray.length; i++) {
+        for (int value : indexArray) {
             //because index in java start from zero
-            int suffixNo = indexArray[i] - 1;
+            int suffixNo = value - 1;
             Object[] parameters = {root, suffixNo + ""};
             try {
-                QuadriliteralAugmentedGerund gerund = (QuadriliteralAugmentedGerund) Class.forName(gerundPatternClassName).getConstructors()[0].newInstance(parameters);
+                var gerund = (QuadriliteralAugmentedGerund) Class.forName(gerundPatternClassName).getConstructors()[0].newInstance(parameters);
                 gerundDisplayList.set(suffixNo, gerund);
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
         return gerundDisplayList;
     }
 
-    /**
-     * the key in the map are the gerund pattern, the value are 18 string can be diplayed
-     * on the NounConjugationUI
-     * @param root AugmentedTrilateralRoot
-     * @return Map
-     */
-    public Map createGerundMap(AugmentedQuadrilateralRoot root) {
-        Map result = new HashMap();
-        Iterator iter = root.getAugmentationList().iterator();
-        while (iter.hasNext()) {
-            AugmentationFormula augmentationFormula = (AugmentationFormula) iter.next();
-
-            QuadriliteralAugmentedGerund gerundInstance = (QuadriliteralAugmentedGerund) gerundClassMap.get(augmentationFormula.getFormulaNo() + "");
-            result.put(gerundInstance.getPattern(), createGerundList(root, augmentationFormula.getFormulaNo()));
-
-        }
-        return result;
+    public List<QuadriliteralAugmentedGerund> createEmptyList() {
+        return IntStream.rangeClosed(1, NOUN_POSSIBLE_STATES)
+                .<QuadriliteralAugmentedGerund>mapToObj(i -> new EmptyQuadrilateralAugmentedGerund())
+                .collect(Collectors.toCollection(() -> new ArrayList<>(NOUN_POSSIBLE_STATES)));
     }
 
-    public List createEmptyList() {
-        List result = new ArrayList(18);
-        for (int i = 1; i <= 18; i++) {
-            result.add("");
+    private static class EmptyQuadrilateralAugmentedGerund extends QuadriliteralAugmentedGerund{
+        EmptyQuadrilateralAugmentedGerund() {
         }
-        return result;
-    }
 
+        @Override
+        public String form() {
+            return "";
+        }
+
+        @Override
+        public String getPattern() {
+            return "";
+        }
+    }
 }

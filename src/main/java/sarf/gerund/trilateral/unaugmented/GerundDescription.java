@@ -52,9 +52,8 @@ public class GerundDescription {
         if (pattern.endsWith("ة"))
             feminine = true;
         else {
-            Iterator iter = femininPatterns.iterator();
-            while (iter.hasNext()) {
-                String item = (String) iter.next();
+            for (Object femininPattern : femininPatterns) {
+                String item = (String) femininPattern;
                 if (item.equals(pattern))
                     feminine = true;
             }

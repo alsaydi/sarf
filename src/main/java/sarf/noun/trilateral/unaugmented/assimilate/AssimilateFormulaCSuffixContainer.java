@@ -18,11 +18,11 @@ import sarf.noun.*;
 public class AssimilateFormulaCSuffixContainer implements INounSuffixContainer{
     private static final AssimilateFormulaCSuffixContainer instance = new AssimilateFormulaCSuffixContainer();
     //حالة النكرة
-    private final ArrayList<String>  indefiniteSuffixList = new ArrayList<String>(18);
+    private final ArrayList<String>  indefiniteSuffixList = new ArrayList<>(18);
     //حالة المعرفة
-    private final ArrayList<String>  definiteSuffixList = new ArrayList<String>(18);
+    private final ArrayList<String>  definiteSuffixList = new ArrayList<>(18);
     //حالة الاضافة
-    private final ArrayList<String>  annexedSuffixList = new ArrayList<String>(18);
+    private final ArrayList<String>  annexedSuffixList = new ArrayList<>(18);
 
     //تكون لها قيمة عندما تكون الحالة هي معرفة
     private String prefix = "";

@@ -52,18 +52,16 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
         //add(new NounStateSelectionUI());
         add(controlPanels);
 
-        controlPanels.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                int selectedIndex = controlPanels.getSelectedIndex();
-                if (selectedIndex != -1) {
-                    JPanel selectedPane = ((JPanel)controlPanels.getComponent(selectedIndex));
-                    if (selectedPane.getComponentCount()> 0) {
-                        JToggleButton btn = (JToggleButton) selectedPane.getComponent(0);
-                        if (btn.isSelected()) {
-                            btn.setSelected(false);
-                        }
-                        btn.doClick();
+        controlPanels.addChangeListener(e -> {
+            int selectedIndex = controlPanels.getSelectedIndex();
+            if (selectedIndex != -1) {
+                JPanel selectedPane = ((JPanel)controlPanels.getComponent(selectedIndex));
+                if (selectedPane.getComponentCount()> 0) {
+                    JToggleButton btn = (JToggleButton) selectedPane.getComponent(0);
+                    if (btn.isSelected()) {
+                        btn.setSelected(false);
                     }
+                    btn.doClick();
                 }
             }
         });
@@ -107,10 +105,9 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
 
         List formulas = conjugator.getAppliedFormulaList(root);
         APanel panel = new APanel(new GridLayout(1, formulas.size()));
-        Iterator iter = formulas.iterator();
-        while (iter.hasNext()) {
-            String formula = (String) iter.next();
-            JToggleButton button = createButton(formula, conjugator, modifier,nounSuffixContainer, title);
+        for (Object o : formulas) {
+            String formula = (String) o;
+            JToggleButton button = createButton(formula, conjugator, modifier, nounSuffixContainer, title);
             panel.add(button);
             bg.add(button);
         }
@@ -121,21 +118,17 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
 
     private JToggleButton createButton(final String formula, final IUnaugmentedTrilateralGerundConjugator conjugator, final IUnaugmentedTrilateralNounModifier modifier, final INounSuffixContainer nounSuffixContainer, final String title) {
         ToggleRenderedButton button = new ToggleRenderedButton(formula);
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                sarf.Action sarfAction = new sarf.Action() {
-                    public List execute() {
-                        List conjugatedNouns = conjugator.createGerundList(root, formula);
-                        if (modifier == null)
-                            return conjugatedNouns;
-                        ConjugationResult conjResult = modifier.build(root, selectionInfo.getKov(), conjugatedNouns, formula);
-                        return conjResult.getFinalResult();
-                    }
-                };
+        button.addActionListener(e -> {
+            sarf.Action sarfAction = () -> {
+                List conjugatedNouns = conjugator.createGerundList(root, formula);
+                if (modifier == null)
+                    return conjugatedNouns;
+                ConjugationResult conjResult = modifier.build(root, selectionInfo.getKov(), conjugatedNouns, formula);
+                return conjResult.getFinalResult();
+            };
 
-                NounConjugationUI ui = new NounConjugationUI(sarfAction, nounSuffixContainer, title);
-                ControlPaneContainer.getInstance().openResult(ui);
-            }
+            NounConjugationUI ui = new NounConjugationUI(sarfAction, nounSuffixContainer, title);
+            ControlPaneContainer.getInstance().openResult(ui);
         });
 
         button.setMaximumSize(new Dimension(30, 30));

@@ -17,11 +17,8 @@ import sarf.gerund.quadrilateral.augmented.QuadriliteralAugmentedGerund;
  * @version 1.0
  */
 public class GerundPattern3 extends QuadriliteralAugmentedGerund {
-    public GerundPattern3() {
-    }
-
     public GerundPattern3(AugmentedQuadrilateralRoot root, String suffixNo) {
-        init(root, suffixNo);
+        super(root, suffixNo);
     }
 
     /**

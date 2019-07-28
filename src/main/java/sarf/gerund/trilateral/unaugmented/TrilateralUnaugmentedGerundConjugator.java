@@ -167,9 +167,7 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
 
     public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
         List result = new LinkedList();
-        Iterator iter = root.getGerundsSymbols().iterator();
-        while (iter.hasNext()) {
-            String symbol = (String) iter.next();
+        for (String symbol : root.getGerundsSymbols()) {
             GerundDescription gerundDescription = gerundDescriptionList.getGerundDescriptionBySymbol(symbol);
             result.add(gerundDescription.getPattern());
         }

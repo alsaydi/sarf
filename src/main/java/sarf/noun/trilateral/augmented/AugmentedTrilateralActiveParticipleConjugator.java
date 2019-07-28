@@ -55,11 +55,9 @@ public class AugmentedTrilateralActiveParticipleConjugator {
 
     public Map createAllNounList(AugmentedTrilateralRoot root) {
         Map result = new HashMap();
-        Iterator iter = root.getAugmentationList().iterator();
-        while (iter.hasNext()) {
-            AugmentationFormula formula = (AugmentationFormula) iter.next();
+        for (AugmentationFormula formula : root.getAugmentationList()) {
             List formulaVerbList = createNounList(root, formula.getFormulaNo());
-            result.put(formula.getFormulaNo()+"", formulaVerbList);
+            result.put(formula.getFormulaNo() + "", formulaVerbList);
         }
         return result;
     }

@@ -49,9 +49,8 @@ public class ElativeNounConjugator implements IUnaugmentedTrilateralNounConjugat
             return null;
 
 
-        Iterator iter = formulaTree.getFormulaList().iterator();
-        while (iter.hasNext()) {
-            ElativeNounFormula formula = (ElativeNounFormula) iter.next();
+        for (Object o : formulaTree.getFormulaList()) {
+            ElativeNounFormula formula = (ElativeNounFormula) o;
             if (formula.getC2() == root.getC2() && formula.getC3() == root.getC3()) {
                 return formulas;
             }

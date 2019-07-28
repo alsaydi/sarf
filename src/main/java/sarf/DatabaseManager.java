@@ -1,9 +1,7 @@
 package sarf;
 
-import java.io.*;
 import java.util.*;
 
-import sarf.util.FileUtil;
 import sarf.verb.quadriliteral.unaugmented.*;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.trilateral.unaugmented.*;

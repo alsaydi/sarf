@@ -68,9 +68,8 @@ public class QuadriliteralAugmentedNomenGerundConjugator {
      */
     public Map createGerundMap(AugmentedQuadrilateralRoot root) {
         Map result = new HashMap();
-        Iterator iter = root.getAugmentationList().iterator();
-        while (iter.hasNext()) {
-            AugmentationFormula augmentationFormula = (AugmentationFormula) iter.next();
+        for (Object o : root.getAugmentationList()) {
+            AugmentationFormula augmentationFormula = (AugmentationFormula) o;
 
             QuadriliteralAugmentedNomenGerund gerundInstance = (QuadriliteralAugmentedNomenGerund) gerundClassMap.get(augmentationFormula.getFormulaNo() + "");
 

@@ -84,9 +84,8 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
         XmlMeemGerundNounFormulaTree formulaTree = DatabaseManager.getInstance().getMeemGerundFormulaTree(root.getC1());
         if (formulaTree != null) {
 
-            Iterator iter = formulaTree.getFormulaList().iterator();
-            while (iter.hasNext()) {
-                XmlMeemGerundNounFormula formula = (XmlMeemGerundNounFormula) iter.next();
+            for (Object o : formulaTree.getFormulaList()) {
+                XmlMeemGerundNounFormula formula = (XmlMeemGerundNounFormula) o;
                 if (formula.getC2() == root.getC2() && formula.getC3() == root.getC3()) {
                     result.add(symbolToFormulaNameMap.get(formula.getSymbol1()));
                     if (formula.getSymbol2() != null && formula.getSymbol2().length() != 0) {

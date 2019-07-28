@@ -17,11 +17,8 @@ import sarf.gerund.quadrilateral.augmented.QuadriliteralAugmentedGerund;
  * @version 1.0
  */
 public class GerundPattern1 extends QuadriliteralAugmentedGerund {
-    public GerundPattern1() {
-    }
-
     public GerundPattern1(AugmentedQuadrilateralRoot root, String suffixNo) {
-        init(root, suffixNo);
+        super(root, suffixNo);
     }
 
     /**
@@ -35,7 +32,6 @@ public class GerundPattern1 extends QuadriliteralAugmentedGerund {
         return "ت"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.DAMMA+root.getC4()+suffix;
     }
 
-
     /**
      * getPattern
      *
@@ -46,5 +42,4 @@ public class GerundPattern1 extends QuadriliteralAugmentedGerund {
     public String getPattern() {
         return "تَفَعْلُل";
     }
-
 }

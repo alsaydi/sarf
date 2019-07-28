@@ -36,9 +36,8 @@ public class Vocalizer {
         if (preSeparatedLafifVocalizer.isApplied(conjResult))
             preSeparatedLafifVocalizer.apply(conjResult.getFinalResult(), conjResult.getRoot());
 
-        Iterator iter = modifiers.iterator();
-        while (iter.hasNext()) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) iter.next();
+        for (Object o : modifiers) {
+            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
             if (modifier.isApplied(conjResult)) {
                 ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;

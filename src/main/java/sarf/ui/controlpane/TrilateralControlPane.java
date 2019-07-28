@@ -126,7 +126,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     }
 
     private static List<String> createEmptyList() {
-        List<String> result = new ArrayList<String>(13);
+        List<String> result = new ArrayList<>(13);
         for (int i = 1; i <= 13; i++) {
             result.add("");
         }

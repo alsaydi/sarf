@@ -64,7 +64,7 @@ public class StandardInstrumentalConjugator implements IUnaugmentedTrilateralNou
         //فقط للفعل المتعدي
         if (root.getTransitive().equals("م") || root.getTransitive().equals("ك"))
             return formulas;
-        return new LinkedList<String>();
+        return new LinkedList<>();
     }
 
 

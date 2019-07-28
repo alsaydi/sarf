@@ -20,10 +20,11 @@ public abstract class QuadriliteralAugmentedGerund {
     protected int suffixNo;
     protected String suffix;
 
-    public QuadriliteralAugmentedGerund() {}
-
     public QuadriliteralAugmentedGerund(AugmentedQuadrilateralRoot root, String suffixNo) {
         init(root, suffixNo);
+    }
+
+    QuadriliteralAugmentedGerund() {
     }
 
     protected void init(AugmentedQuadrilateralRoot root, String suffixNo) {
@@ -34,15 +35,13 @@ public abstract class QuadriliteralAugmentedGerund {
     }
 
     public abstract String form();
+
     public abstract String getPattern();
 
     public String toString() {
         String result = form();
-        if (result != null && result != "")
-            return GenericNounSuffixContainer.getInstance().getPrefix()+result;
+        if (result != null && !result.equals(""))
+            return GenericNounSuffixContainer.getInstance().getPrefix() + result;
         return "";
-
     }
-
-
 }

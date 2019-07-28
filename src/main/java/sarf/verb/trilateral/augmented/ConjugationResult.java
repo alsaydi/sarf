@@ -33,7 +33,7 @@ public class ConjugationResult {
         this.formulaNo = formulaNo;
         this.originalResult = originalResult;
         this.root = root;
-        this.finalResult = new ArrayList<String>(originalResult);
+        this.finalResult = new ArrayList<>(originalResult);
     }
 
     public List<String> getFinalResult() {

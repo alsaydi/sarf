@@ -56,11 +56,10 @@ public class AbstractAugmentedPresentConjugator {
 
     public Map createAllVerbList(AugmentedQuadrilateralRoot root) {
         Map result = new HashMap();
-        Iterator iter = root.getAugmentationList().iterator();
-        while (iter.hasNext()) {
-            AugmentationFormula formula = (AugmentationFormula) iter.next();
+        for (Object o : root.getAugmentationList()) {
+            AugmentationFormula formula = (AugmentationFormula) o;
             List formulaVerbList = createVerbList(root, formula.getFormulaNo());
-            result.put(formula.getFormulaNo()+"", formulaVerbList);
+            result.put(formula.getFormulaNo() + "", formulaVerbList);
         }
         return result;
     }

@@ -25,4 +25,6 @@ public final class SystemConstants {
     public static final String PASSIVE = "Passive";
 
     public static final int PRONOUN_RANGE_END = 13; /* exclusive end */
+    public static final int NOUN_POSSIBLE_STATES = 18; /* حالات الإسم من ناحية الإفراد و التنية و الجمع (3) و التذكير و التأنيث (2) و الرفع و النصب و الجر (3)
+     3 * 2 * 3 == 18 */
 }

@@ -3,7 +3,6 @@ package sarf.noun.trilateral.unaugmented.modifier.exaggeration;
 import java.util.*;
 import sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer.*;
 import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 
 /**
@@ -35,9 +34,8 @@ public class Vocalizer {
     }
 
     public void apply(ConjugationResult conjResult) {
-        Iterator iter = modifiers.iterator();
-        while (iter.hasNext()) {
-            IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) iter.next();
+        for (Object o : modifiers) {
+            IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) o;
             if (modifier.isApplied(conjResult)) {
                 ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;

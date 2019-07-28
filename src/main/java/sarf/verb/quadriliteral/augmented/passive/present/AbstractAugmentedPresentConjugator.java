@@ -51,7 +51,7 @@ public class AbstractAugmentedPresentConjugator {
         }
         else {
 
-            List<AugmentedPresentVerb> result = new LinkedList<AugmentedPresentVerb>();
+            List<AugmentedPresentVerb> result = new LinkedList<>();
             for (int i = 0; i < 13; i++) {
                 AugmentedPresentVerb verb = createVerb(root, i, formulaNo);
                 result.add(verb);
@@ -63,7 +63,7 @@ public class AbstractAugmentedPresentConjugator {
 
     //المبني لمجهول اللازم فقط مع هو او هي
     public List<AugmentedPresentVerb> createLazzemVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
-        List<AugmentedPresentVerb> result = new LinkedList<AugmentedPresentVerb>();
+        List<AugmentedPresentVerb> result = new LinkedList<>();
         for (int i = 0; i < 13; i++) {
             if (i == 7 || i == 8) {
                 AugmentedPresentVerb verb = createVerb(root, i, formulaNo);

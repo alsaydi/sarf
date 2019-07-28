@@ -52,18 +52,16 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         //add(new NounStateSelectionUI());
         add(controlPanels);
 
-        controlPanels.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                int selectedIndex = controlPanels.getSelectedIndex();
-                if (selectedIndex != -1) {
-                    JPanel selectedPane = ((JPanel)controlPanels.getComponent(selectedIndex));
-                    if (selectedPane.getComponentCount()> 0) {
-                        JToggleButton btn = (JToggleButton) selectedPane.getComponent(0);
-                        if (btn.isSelected()) {
-                            btn.setSelected(false);
-                        }
-                        btn.doClick();
+        controlPanels.addChangeListener(e -> {
+            int selectedIndex = controlPanels.getSelectedIndex();
+            if (selectedIndex != -1) {
+                JPanel selectedPane = ((JPanel)controlPanels.getComponent(selectedIndex));
+                if (selectedPane.getComponentCount()> 0) {
+                    JToggleButton btn = (JToggleButton) selectedPane.getComponent(0);
+                    if (btn.isSelected()) {
+                        btn.setSelected(false);
                     }
+                    btn.doClick();
                 }
             }
         });
@@ -195,9 +193,8 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
 
         List formulas = conjugator.getAppliedFormulaList(root);
         APanel panel = new APanel(new GridLayout(1, formulas.size()));
-        Iterator iter = formulas.iterator();
-        while (iter.hasNext()) {
-            String formula = (String) iter.next();
+        for (Object o : formulas) {
+            String formula = (String) o;
             JToggleButton button = createButton(formula, conjugator, modifier, nounSuffixContainer, title);
             panel.add(button);
             bg.add(button);
@@ -212,25 +209,21 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
 
         List formulas = conjugator.getAppliedFormulaList(root);
         APanel panel = new APanel(new GridLayout(1, formulas.size()));
-        Iterator iter = formulas.iterator();
-        while (iter.hasNext()) {
-            String formula = (String) iter.next();
+        for (Object o : formulas) {
+            String formula = (String) o;
             if (formula.equals("أَفْعَل")) {
                 JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaCSuffixContainer.getInstance(), title);
                 panel.add(button);
                 bg.add(button);
-            }
-            else if (formula.equals("فَعْلان / فَعْلانة")) {
+            } else if (formula.equals("فَعْلان / فَعْلانة")) {
                 JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaE1SuffixContainer.getInstance(), title);
                 panel.add(button);
                 bg.add(button);
-            }
-            else if (formula.equals("فَعْلان / فَعْلَى")) {
+            } else if (formula.equals("فَعْلان / فَعْلَى")) {
                 JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaE2SuffixContainer.getInstance(), title);
                 panel.add(button);
                 bg.add(button);
-            }
-            else {
+            } else {
                 JToggleButton button = createButton(formula, conjugator, modifier, title);
                 panel.add(button);
                 bg.add(button);
@@ -247,19 +240,15 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
 
     private JToggleButton createButton(final String formula, final IUnaugmentedTrilateralNounConjugator conjugator, final IUnaugmentedTrilateralNounModifier modifier, final INounSuffixContainer nounSuffixContainer, final String title) {
         ToggleRenderedButton button = new ToggleRenderedButton(formula);
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                sarf.Action sarfAction = new sarf.Action() {
-                    public List execute() {
-                        List conjugatedNouns = conjugator.createNounList(root, formula);
-                        ConjugationResult conjResult = modifier.build(root, selectionInfo.getKov(), conjugatedNouns, formula);
-                        return conjResult.getFinalResult();
-                    }
-                };
+        button.addActionListener(e -> {
+            sarf.Action sarfAction = () -> {
+                List conjugatedNouns = conjugator.createNounList(root, formula);
+                ConjugationResult conjResult = modifier.build(root, selectionInfo.getKov(), conjugatedNouns, formula);
+                return conjResult.getFinalResult();
+            };
 
-                NounConjugationUI ui = new NounConjugationUI(sarfAction, nounSuffixContainer, title);
-                ControlPaneContainer.getInstance().openResult(ui);
-            }
+            NounConjugationUI ui = new NounConjugationUI(sarfAction, nounSuffixContainer, title);
+            ControlPaneContainer.getInstance().openResult(ui);
         });
 
         button.setMaximumSize(new Dimension(30, 30));
@@ -271,9 +260,8 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         ButtonGroup bg = new ButtonGroup();
         List formulas = conjugator.getAppliedFormulaList(root);
         APanel panel = new APanel(new GridLayout(1, formulas.size()));
-        Iterator iter = formulas.iterator();
-        while (iter.hasNext()) {
-            String formula = (String) iter.next();
+        for (Object o : formulas) {
+            String formula = (String) o;
             JToggleButton button = createElativeButton(formula, conjugator, modifier, nounSuffixContainer, title);
             panel.add(button);
             bg.add(button);
@@ -286,19 +274,15 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
 
     private JToggleButton createElativeButton(final String formula, final IUnaugmentedTrilateralNounConjugator conjugator, final IUnaugmentedTrilateralNounModifier modifier, final INounSuffixContainer nounSuffixContainer, final String title) {
         ToggleRenderedButton button = new ToggleRenderedButton(formula);
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                sarf.Action sarfAction = new sarf.Action() {
-                    public List execute() {
-                        List conjugatedNouns = conjugator.createNounList(root, formula);
-                        ConjugationResult conjResult = modifier.build(root, selectionInfo.getKov(), conjugatedNouns, formula);
-                        return conjResult.getFinalResult();
-                    }
-                };
+        button.addActionListener(e -> {
+            sarf.Action sarfAction = () -> {
+                List conjugatedNouns = conjugator.createNounList(root, formula);
+                ConjugationResult conjResult = modifier.build(root, selectionInfo.getKov(), conjugatedNouns, formula);
+                return conjResult.getFinalResult();
+            };
 
-                ElativeNounConjugationUI ui = new ElativeNounConjugationUI(sarfAction, title);
-                ControlPaneContainer.getInstance().openResult(ui);
-            }
+            ElativeNounConjugationUI ui = new ElativeNounConjugationUI(sarfAction, title);
+            ControlPaneContainer.getInstance().openResult(ui);
         });
 
         button.setMaximumSize(new Dimension(30, 30));

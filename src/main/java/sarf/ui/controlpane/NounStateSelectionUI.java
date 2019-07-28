@@ -70,35 +70,29 @@ public class NounStateSelectionUI extends JPanel implements INounStateSelectionU
     }
 
     public void init(final Action action,final INounSuffixContainer nounSuffixContainer,final NounStateSelectionUIListener listener) {
-        definiteBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                nounSuffixContainer.selectDefiniteMode();
-                //generate the new conjugation with the new suffixes
-                java.util.List newResult = action.execute();
-                //display this new result via this listener
-                listener.newStateConjugationResultGenerated(newResult);
-            }
+        definiteBtn.addActionListener(e -> {
+            nounSuffixContainer.selectDefiniteMode();
+            //generate the new conjugation with the new suffixes
+            java.util.List newResult = action.execute();
+            //display this new result via this listener
+            listener.newStateConjugationResultGenerated(newResult);
         });
 
-        indefiniteBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                nounSuffixContainer.selectInDefiniteMode();
-                //generate the new conjugation with the new suffixes
-                java.util.List newResult = action.execute();
-                //display this new result via this listener
-                listener.newStateConjugationResultGenerated(newResult);
+        indefiniteBtn.addActionListener(e -> {
+            nounSuffixContainer.selectInDefiniteMode();
+            //generate the new conjugation with the new suffixes
+            java.util.List newResult = action.execute();
+            //display this new result via this listener
+            listener.newStateConjugationResultGenerated(newResult);
 
-            }
         });
 
-        annexedBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                nounSuffixContainer.selectAnnexedMode();
-                //generate the new conjugation with the new suffixes
-                java.util.List newResult = action.execute();
-                //display this new result via this listener
-                listener.newStateConjugationResultGenerated(newResult);
-            }
+        annexedBtn.addActionListener(e -> {
+            nounSuffixContainer.selectAnnexedMode();
+            //generate the new conjugation with the new suffixes
+            java.util.List newResult = action.execute();
+            //display this new result via this listener
+            listener.newStateConjugationResultGenerated(newResult);
         });
     }
 

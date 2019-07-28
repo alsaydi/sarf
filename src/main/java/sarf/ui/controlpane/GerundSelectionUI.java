@@ -64,90 +64,75 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
         sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugator.getInstance().setAugmentedTrilateralModifierListener(this);
         sarf.gerund.quadrilateral.unaugmented.QuadriliteralUnaugmentedGerundConjugator.getInstance().setListener(this);
 
-        standardBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                sarf.Action action = new sarf.Action() {
-                    public List execute() {
-                        List gerunds = null;
-                        if (selectionInfo.isTrilateral()) {
-                            gerunds = sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugator.getInstance().createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                            sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.gerund.modifier.trilateral.augmented.standard.TitlateralAugmentedStandardModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
-                                    selectionInfo.getAugmentationFormulaNo(), gerunds, GerundSelectionUI.this);
-                            return conjResult.getFinalResult();
-                        }
+        standardBtn.addActionListener(e -> {
+            Action action = () -> {
+                List gerunds = null;
+                if (selectionInfo.isTrilateral()) {
+                    gerunds = sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugator.getInstance().createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    ConjugationResult conjResult = sarf.gerund.modifier.trilateral.augmented.standard.TitlateralAugmentedStandardModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                            selectionInfo.getAugmentationFormulaNo(), gerunds, GerundSelectionUI.this);
+                    return conjResult.getFinalResult();
+                }
 
-                        if (selectionInfo.isAugmented()) {
-                            gerunds = sarf.gerund.quadrilateral.augmented.QuadriliteralAugmentedGerundConjugator.getInstance().createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                        }
-                        else {
-                            gerunds = sarf.gerund.quadrilateral.unaugmented.QuadriliteralUnaugmentedGerundConjugator.getInstance().createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
-                        }
-                        sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), gerunds);
-                        return conjResult.getFinalResult();
-                    }
-                };
-                NounConjugationUI ui = new NounConjugationUI(action, standardBtn.getText());
-                ControlPaneContainer.getInstance().openResult(ui);
-            }
+                if (selectionInfo.isAugmented()) {
+                    gerunds = sarf.gerund.quadrilateral.augmented.QuadriliteralAugmentedGerundConjugator.getInstance().createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                } else {
+                    gerunds = sarf.gerund.quadrilateral.unaugmented.QuadriliteralUnaugmentedGerundConjugator.getInstance().createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
+                }
+                sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), gerunds);
+                return conjResult.getFinalResult();
+            };
+            NounConjugationUI ui = new NounConjugationUI(action, standardBtn.getText());
+            ControlPaneContainer.getInstance().openResult(ui);
         });
 
-        nomenBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                sarf.Action action = new sarf.Action() {
-                    public List<String> execute() {
-                        List gerunds = null;
-                        if (selectionInfo.isTrilateral()) {
-                            gerunds = sarf.gerund.trilateral.augmented.nomen.TrilateralAugmentedNomenGerundConjugator.getInstance().createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                            sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.gerund.modifier.trilateral.augmented.standard.TitlateralAugmentedStandardModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
-                                    selectionInfo.getAugmentationFormulaNo(), gerunds, GerundSelectionUI.this);
-                            return conjResult.getFinalResult();
-                        }
+        nomenBtn.addActionListener(e -> {
+            Action action = () -> {
+                List gerunds = null;
+                if (selectionInfo.isTrilateral()) {
+                    gerunds = sarf.gerund.trilateral.augmented.nomen.TrilateralAugmentedNomenGerundConjugator.getInstance().createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    ConjugationResult conjResult = sarf.gerund.modifier.trilateral.augmented.standard.TitlateralAugmentedStandardModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                            selectionInfo.getAugmentationFormulaNo(), gerunds, GerundSelectionUI.this);
+                    return conjResult.getFinalResult();
+                }
 
-                        if (selectionInfo.isAugmented()) {
-                            gerunds = sarf.gerund.quadrilateral.augmented.nomen.QuadriliteralAugmentedNomenGerundConjugator.getInstance().createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                        }
-                        else {
-                            gerunds = sarf.gerund.quadrilateral.unaugmented.QuadriliteralUnaugmentedNomenGerundConjugator.getInstance().createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
-                        }
-                        sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), gerunds);
-                        return conjResult.getFinalResult();
-                    }
-                };
-                NounConjugationUI ui = new NounConjugationUI(action, nomenBtn.getText());
-                ControlPaneContainer.getInstance().openResult(ui);
-            }
+                if (selectionInfo.isAugmented()) {
+                    gerunds = sarf.gerund.quadrilateral.augmented.nomen.QuadriliteralAugmentedNomenGerundConjugator.getInstance().createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                } else {
+                    gerunds = sarf.gerund.quadrilateral.unaugmented.QuadriliteralUnaugmentedNomenGerundConjugator.getInstance().createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
+                }
+                sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), gerunds);
+                return conjResult.getFinalResult();
+            };
+            NounConjugationUI ui = new NounConjugationUI(action, nomenBtn.getText());
+            ControlPaneContainer.getInstance().openResult(ui);
         });
 
-        meemBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                Action action = new Action() {
-                    public List execute() {
-                        if (selectionInfo.isTrilateral()) {
-                            //here the Trilateral augmented
-                            List result = AugmentedTrilateralPassiveParticipleConjugator.getInstance().createMeemGerundNounList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                            sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.noun.trilateral.augmented.modifier.passiveparticiple.PassiveParticipleModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
-                                    selectionInfo.getAugmentationFormulaNo(), result, GerundSelectionUI.this);
+        meemBtn.addActionListener(e -> {
+            Action action = () -> {
+                if (selectionInfo.isTrilateral()) {
+                    //here the Trilateral augmented
+                    List result = AugmentedTrilateralPassiveParticipleConjugator.getInstance().createMeemGerundNounList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    ConjugationResult conjResult = sarf.noun.trilateral.augmented.modifier.passiveparticiple.PassiveParticipleModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                            selectionInfo.getAugmentationFormulaNo(), result, GerundSelectionUI.this);
 
-                            return conjResult.getFinalResult();
-                        }
+                    return conjResult.getFinalResult();
+                }
 
-                        List result = null;
-                        if (selectionInfo.isAugmented()) {
-                            result = AugmentedQuadriliteralPassiveParticipleConjugator.getInstance().createMeemGerundNounList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                        }
-                        else {
-                            result = UnaugmentedQuadriliteralPassiveParticipleConjugator.getInstance().createMeemGerundNounList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
-                        }
+                List result = null;
+                if (selectionInfo.isAugmented()) {
+                    result = AugmentedQuadriliteralPassiveParticipleConjugator.getInstance().createMeemGerundNounList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                } else {
+                    result = UnaugmentedQuadriliteralPassiveParticipleConjugator.getInstance().createMeemGerundNounList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
+                }
 
-                        sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result);
+                sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result);
 
-                        return conjResult.getFinalResult();
-                    }
-                };
+                return conjResult.getFinalResult();
+            };
 
-                NounConjugationUI ui = new NounConjugationUI(action, meemBtn.getText());
-                ControlPaneContainer.getInstance().openResult(ui);
-            }
+            NounConjugationUI ui = new NounConjugationUI(action, meemBtn.getText());
+            ControlPaneContainer.getInstance().openResult(ui);
         });
 
     }

@@ -63,44 +63,36 @@ public class ElativeNounStateSelectionUI extends JPanel implements INounStateSel
     }
 
     public void init(final Action action, INounSuffixContainer nounSuffixContainer, final NounStateSelectionUIListener listener) {
-        definiteBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ElativeSuffixContainer.getInstance().selectDefiniteMode();
-                //generate the new conjugation with the new suffixes
-                java.util.List newResult = action.execute();
-                //display this new result via this listener
-                listener.newStateConjugationResultGenerated(newResult);
-            }
+        definiteBtn.addActionListener(e -> {
+            ElativeSuffixContainer.getInstance().selectDefiniteMode();
+            //generate the new conjugation with the new suffixes
+            java.util.List newResult = action.execute();
+            //display this new result via this listener
+            listener.newStateConjugationResultGenerated(newResult);
         });
 
-        annexedIndefiniteBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ElativeSuffixContainer.getInstance().selectInDefiniteMode();
-                //generate the new conjugation with the new suffixes
-                java.util.List newResult = action.execute();
-                //display this new result via this listener
-                listener.newStateConjugationResultGenerated(newResult);
-            }
+        annexedIndefiniteBtn.addActionListener(e -> {
+            ElativeSuffixContainer.getInstance().selectInDefiniteMode();
+            //generate the new conjugation with the new suffixes
+            java.util.List newResult = action.execute();
+            //display this new result via this listener
+            listener.newStateConjugationResultGenerated(newResult);
         });
 
-        notAnnexedIndefiniteBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ElativeSuffixContainer.getInstance().selectNotAnnexedMode();
-                //generate the new conjugation with the new suffixes
-                java.util.List newResult = action.execute();
-                //display this new result via this listener
-                listener.newStateConjugationResultGenerated(newResult);
-            }
+        notAnnexedIndefiniteBtn.addActionListener(e -> {
+            ElativeSuffixContainer.getInstance().selectNotAnnexedMode();
+            //generate the new conjugation with the new suffixes
+            java.util.List newResult = action.execute();
+            //display this new result via this listener
+            listener.newStateConjugationResultGenerated(newResult);
         });
 
-        annexedDefiniteBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                ElativeSuffixContainer.getInstance().selectAnnexedMode();
-                //generate the new conjugation with the new suffixes
-                java.util.List newResult = action.execute();
-                //display this new result via this listener
-                listener.newStateConjugationResultGenerated(newResult);
-            }
+        annexedDefiniteBtn.addActionListener(e -> {
+            ElativeSuffixContainer.getInstance().selectAnnexedMode();
+            //generate the new conjugation with the new suffixes
+            java.util.List newResult = action.execute();
+            //display this new result via this listener
+            listener.newStateConjugationResultGenerated(newResult);
         });
     }
 

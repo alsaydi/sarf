@@ -41,7 +41,7 @@ public class ControlPaneContainer extends JPanel {
     private Preferences pref;
 
     //store the opened panels so you can go back and forward
-    private final List<IControlPane> panelCashSet = new LinkedList<IControlPane>();
+    private final List<IControlPane> panelCashSet = new LinkedList<>();
     //used a s a reference to the current panel for the back-forward
     private IControlPane currentControlPane;
     private final JTextField kovFld = new JTextField(14);
@@ -319,8 +319,8 @@ public class ControlPaneContainer extends JPanel {
         else {
             //تجريب بدائل الألف
             List<String> rootTextList = new LinkedList<>();
-            List<AugmentedTrilateralRoot> augmentedList = new LinkedList<AugmentedTrilateralRoot>();
-            List<List<UnaugmentedTrilateralRoot>> unaugmentedLists = new LinkedList<List<UnaugmentedTrilateralRoot>>();
+            List<AugmentedTrilateralRoot> augmentedList = new LinkedList<>();
+            List<List<UnaugmentedTrilateralRoot>> unaugmentedLists = new LinkedList<>();
 
             for (String alternativeRoot : alefAlternatives) {
                 AugmentedTrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedTrilateralRoot(alternativeRoot);
@@ -425,7 +425,7 @@ public class ControlPaneContainer extends JPanel {
         }
         else {
             //تجريب بدائل الألف
-            List<String> rootTextList = new LinkedList<String>();
+            List<String> rootTextList = new LinkedList<>();
             List<AugmentedQuadrilateralRoot> augmentedList = new LinkedList<>();
             List<UnaugmentedQuadrilateralRoot> unaugmentedList = new LinkedList<>();
 

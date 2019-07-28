@@ -30,7 +30,7 @@ public class AjwafListed1Vocalizer extends AbstractAjwafYaeiListedVocalizer impl
         return substitutions;
     }
 
-    private static final List<String> appliedProunounsIndecies = new ArrayList<String>(18);
+    private static final List<String> appliedProunounsIndecies = new ArrayList<>(18);
     static {
         for (int i=0; i<18; i++) {
             appliedProunounsIndecies.add(i+1 +"");

@@ -35,9 +35,8 @@ public abstract class SubstitutionsApplier {
             }
             String word = wordObj.toString().trim();
 
-            Iterator subIter = getSubstitutions().iterator();
-            while (subIter.hasNext()) {
-                Substitution substitution = (Substitution) subIter.next();
+            for (Object o : getSubstitutions()) {
+                Substitution substitution = (Substitution) o;
                 String result = substitution.apply(word, root);
                 if (result != null) {
                     //تبديل الكلمة الجديدة المستبدلة بالكلمة القديمة

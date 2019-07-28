@@ -31,7 +31,7 @@ public class ConjugationResult<T> {
         this.kov = kov;
         this.originalResult = originalResult;
         this.root = root;
-        this.finalResult = new ArrayList<T>(originalResult);
+        this.finalResult = new ArrayList<>(originalResult);
     }
 
     public List<T> getFinalResult() {

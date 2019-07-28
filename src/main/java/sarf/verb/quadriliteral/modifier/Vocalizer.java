@@ -64,11 +64,10 @@ public class Vocalizer {
      */
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
         List modifiers = (List) modifiersMap.get(tense+active);
-        Iterator iter = modifiers.iterator();
-        while (iter.hasNext()) {
-            IQuadrilateralModifier modifier = (IQuadrilateralModifier) iter.next();
+        for (Object o : modifiers) {
+            IQuadrilateralModifier modifier = (IQuadrilateralModifier) o;
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier)modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }
