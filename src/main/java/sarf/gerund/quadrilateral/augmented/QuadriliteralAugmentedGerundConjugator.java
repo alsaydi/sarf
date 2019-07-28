@@ -46,7 +46,7 @@ public class QuadriliteralAugmentedGerundConjugator {
         return gerundDisplayList;
     }
 
-    public List<QuadrilateralAugmentedGerund> createEmptyList() {
+    private static List<QuadrilateralAugmentedGerund> createEmptyList() {
         return IntStream.rangeClosed(1, NOUN_POSSIBLE_STATES)
                 .<QuadrilateralAugmentedGerund>mapToObj(i -> new EmptyQuadrilateralAugmentedGerund())
                 .collect(Collectors.toCollection(() -> new ArrayList<>(NOUN_POSSIBLE_STATES)));

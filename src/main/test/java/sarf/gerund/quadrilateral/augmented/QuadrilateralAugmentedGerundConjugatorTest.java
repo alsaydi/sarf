@@ -3,8 +3,9 @@ package sarf.gerund.quadrilateral.augmented;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import sarf.gerund.quadrilateral.augmented.pattern.*;
-import sarf.noun.quadriliteral.augmented.AugmentedQuadriliteralNoun;
+import sarf.gerund.quadrilateral.augmented.pattern.GerundPattern1;
+import sarf.gerund.quadrilateral.augmented.pattern.GerundPattern2;
+import sarf.gerund.quadrilateral.augmented.pattern.GerundPattern3;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
 
 import java.util.stream.Stream;

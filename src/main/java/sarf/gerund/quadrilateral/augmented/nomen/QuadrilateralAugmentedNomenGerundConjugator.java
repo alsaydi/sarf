@@ -16,13 +16,14 @@ import sarf.verb.quadriliteral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class QuadriliteralAugmentedNomenGerundConjugator {
-    private static final QuadriliteralAugmentedNomenGerundConjugator instance = new QuadriliteralAugmentedNomenGerundConjugator();
+public class QuadrilateralAugmentedNomenGerundConjugator {
+    /* Nomen vicis اسم المرَّة */
+    private static final QuadrilateralAugmentedNomenGerundConjugator instance = new QuadrilateralAugmentedNomenGerundConjugator();
     private final Map gerundClassMap = new HashMap();
 
     private final int[] indexArray = {2, 4, 6, 8, 10, 12, 14, 16, 18};
 
-    private QuadriliteralAugmentedNomenGerundConjugator() {
+    private QuadrilateralAugmentedNomenGerundConjugator() {
         for (int i = 1; i <= 3; i++) {
             String gerundClassName = getClass().getPackage().getName() + ".pattern." + "GerundPattern" + i;
             try {
@@ -35,7 +36,7 @@ public class QuadriliteralAugmentedNomenGerundConjugator {
         }
     }
 
-    public static QuadriliteralAugmentedNomenGerundConjugator getInstance() {
+    public static QuadrilateralAugmentedNomenGerundConjugator getInstance() {
         return instance;
     }
 
@@ -60,26 +61,7 @@ public class QuadriliteralAugmentedNomenGerundConjugator {
         return gerundDisplayList;
     }
 
-    /**
-     * the key in the map are the gerund pattern, the value are 18 string can be diplayed
-     * on the NounConjugationUI
-     * @param root AugmentedTrilateralRoot
-     * @return Map
-     */
-    public Map createGerundMap(AugmentedQuadrilateralRoot root) {
-        Map result = new HashMap();
-        for (Object o : root.getAugmentationList()) {
-            AugmentationFormula augmentationFormula = (AugmentationFormula) o;
-
-            QuadriliteralAugmentedNomenGerund gerundInstance = (QuadriliteralAugmentedNomenGerund) gerundClassMap.get(augmentationFormula.getFormulaNo() + "");
-
-            result.put(gerundInstance.getPattern(), createGerundList(root, augmentationFormula.getFormulaNo()));
-
-        }
-        return result;
-    }
-
-    public List createEmptyList() {
+    private static List createEmptyList() {
         List result = new ArrayList(18);
         for (int i = 1; i <= 18; i++) {
             result.add("");
