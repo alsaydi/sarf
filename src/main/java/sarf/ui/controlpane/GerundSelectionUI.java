@@ -17,7 +17,7 @@ import sarf.noun.quadriliteral.augmented.AugmentedQuadriliteralPassiveParticiple
 import sarf.noun.trilateral.augmented.AugmentedTrilateralPassiveParticipleConjugator;
 import sarf.noun.quadriliteral.unaugmented.UnaugmentedQuadriliteralPassiveParticipleConjugator;
 import sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugatorListener;
-import sarf.gerund.quadrilateral.unaugmented.QuadriliteralUnaugmentedGerundConjugatorListener;
+import sarf.gerund.quadrilateral.unaugmented.QuadrilateralUnaugmentedGerundConjugatorListener;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
 
 /**
@@ -32,7 +32,7 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListen
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class GerundSelectionUI extends JPanel implements IControlPane, TrilateralAugmentedGerundConjugatorListener, QuadriliteralUnaugmentedGerundConjugatorListener, AugmentedTrilateralModifierListener {
+public class GerundSelectionUI extends JPanel implements IControlPane, TrilateralAugmentedGerundConjugatorListener, QuadrilateralUnaugmentedGerundConjugatorListener, AugmentedTrilateralModifierListener {
     private SelectionInfo selectionInfo;
 
     private final ToggleRenderedButton standardBtn = new ToggleRenderedButton("المصدر الأصلي");

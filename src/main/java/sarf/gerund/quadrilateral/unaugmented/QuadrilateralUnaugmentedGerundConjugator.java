@@ -23,7 +23,7 @@ public class QuadrilateralUnaugmentedGerundConjugator {
     private final int[] form1IndexList = {2, 4, 6, 8, 10, 12, 14, 16, 18};
     private final int[] form2IndexList = {1, 3, 6, 7, 9, 12, 13, 15, 18};
 
-    private QuadriliteralUnaugmentedGerundConjugatorListener listener;
+    private QuadrilateralUnaugmentedGerundConjugatorListener listener;
 
     private QuadrilateralUnaugmentedGerundConjugator() {
     }
@@ -70,7 +70,7 @@ public class QuadrilateralUnaugmentedGerundConjugator {
         return result;
     }
 
-    public void setListener(QuadriliteralUnaugmentedGerundConjugatorListener listener) {
+    public void setListener(QuadrilateralUnaugmentedGerundConjugatorListener listener) {
         this.listener = listener;
     }
 

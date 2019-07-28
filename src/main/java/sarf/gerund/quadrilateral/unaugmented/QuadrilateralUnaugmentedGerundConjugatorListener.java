@@ -12,6 +12,6 @@ package sarf.gerund.quadrilateral.unaugmented;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public interface QuadriliteralUnaugmentedGerundConjugatorListener {
+public interface QuadrilateralUnaugmentedGerundConjugatorListener {
     int selectFormNo();
 }
