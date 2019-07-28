@@ -45,6 +45,11 @@ public class UnaugmentedQuadrilateralRoot extends QuadrilateralRoot{
         return other.getC1() == this.getC1() && other.getC2() == this.getC2()
                 && other.getC3() == this.getC4() && other.getC4() == this.getC4();
     }
+
+    @Override
+    public String toString(){
+        return super.toString() + this.getC4();
+    }
 }
 
 

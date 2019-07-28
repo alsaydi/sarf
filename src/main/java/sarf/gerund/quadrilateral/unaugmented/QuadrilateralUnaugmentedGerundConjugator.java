@@ -1,9 +1,15 @@
 package sarf.gerund.quadrilateral.unaugmented;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import sarf.noun.*;
 import sarf.util.*;
+import sarf.verb.quadriliteral.QuadrilateralRoot;
 import sarf.verb.quadriliteral.unaugmented.*;
+
+import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -32,46 +38,61 @@ public class QuadrilateralUnaugmentedGerundConjugator {
         return instance;
     }
 
-    public List<String> createGerundList(UnaugmentedQuadrilateralRoot root) {
+    public List<QuadrilateralGerund> createGerundList(UnaugmentedQuadrilateralRoot root) {
         var gerundDisplayList = createEmptyList();
 
         boolean applyForm2 = false;
-        if (root.getC1() == root.getC3() && root.getC2() == root.getC4()) {
+        if (isQuadrilateralMudaaf(root)) {
             applyForm2 = listener.selectFormNo() == 2;
         }
 
-        if (!applyForm2) {
-            String gerund = GenericNounSuffixContainer.getInstance().getPrefix() + root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3() + ArabCharUtil.FATHA + root.getC4();
-            for (int i = 0; i < form1IndexList.length; i++) {
+        if (applyForm2) {
+            for (int value : form2IndexList) {
                 //because index in java start from zero
-                int suffixNo = form1IndexList[i] - 1;
-                String suffix = GenericNounSuffixContainer.getInstance().get(suffixNo);
-                gerundDisplayList.set(suffixNo, gerund + suffix);
+                int suffixIndex = value - 1;
+                gerundDisplayList.set(suffixIndex, createQuadrilateralGerundOfSecondForm(root, suffixIndex));
             }
-        }
-        else {
-            String gerund = GenericNounSuffixContainer.getInstance().getPrefix()+root.getC1() + ArabCharUtil.KASRA + root.getC2() + ArabCharUtil.SKOON + root.getC3() + ArabCharUtil.FATHA +"ا"+ root.getC4();
-            for (int i = 0; i < form2IndexList.length; i++) {
+        } else {
+            for (int value : form1IndexList) {
                 //because index in java start from zero
-                int suffixNo = form2IndexList[i] - 1;
-                String suffix = GenericNounSuffixContainer.getInstance().get(suffixNo);
-                gerundDisplayList.set(suffixNo, gerund + suffix);
+                int suffixIndex = value - 1;
+                gerundDisplayList.set(suffixIndex, createQuadrilateralGerundOfFirstForm(root, suffixIndex));
             }
         }
 
         return gerundDisplayList;
     }
 
-    public List<String> createEmptyList() {
-        var result = new ArrayList<String>(18);
-        for (int i = 1; i <= 18; i++) {
-            result.add("");
-        }
-        return result;
+    private boolean isQuadrilateralMudaaf(UnaugmentedQuadrilateralRoot root) {
+        return root.getC1() == root.getC3() && root.getC2() == root.getC4();
+    }
+
+    private static List<QuadrilateralGerund> createEmptyList() {
+        return IntStream.rangeClosed(1, NOUN_POSSIBLE_STATES)
+                .mapToObj(i -> new QuadrilateralGerund(""))
+                .collect(Collectors.toCollection(() -> new ArrayList<>(18)));
+    }
+
+    private static QuadrilateralGerund createQuadrilateralGerundOfFirstForm(QuadrilateralRoot root, int suffixIndex){
+        var gerund = GenericNounSuffixContainer.getInstance().getPrefix()
+                + root.getC1() + ArabCharUtil.FATHA
+                + root.getC2() + ArabCharUtil.SKOON
+                + root.getC3() + ArabCharUtil.FATHA
+                + root.getC4() + GenericNounSuffixContainer.getInstance().get(suffixIndex);
+        return  new QuadrilateralGerund(gerund);
+    }
+
+
+    private static QuadrilateralGerund createQuadrilateralGerundOfSecondForm(QuadrilateralRoot root, int suffixIndex) {
+        var gerund = GenericNounSuffixContainer.getInstance().getPrefix()
+                + root.getC1() + ArabCharUtil.KASRA
+                + root.getC2() + ArabCharUtil.SKOON
+                + root.getC3() + ArabCharUtil.FATHA + "ا"
+                + root.getC4() + GenericNounSuffixContainer.getInstance().get(suffixIndex);
+        return new QuadrilateralGerund(gerund);
     }
 
     public void setListener(QuadrilateralUnaugmentedGerundConjugatorListener listener) {
         this.listener = listener;
     }
-
 }

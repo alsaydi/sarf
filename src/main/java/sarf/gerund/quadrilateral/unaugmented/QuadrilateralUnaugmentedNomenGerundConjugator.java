@@ -1,9 +1,15 @@
 package sarf.gerund.quadrilateral.unaugmented;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import sarf.SystemConstants;
 import sarf.noun.*;
 import sarf.util.*;
 import sarf.verb.quadriliteral.unaugmented.*;
+
+import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -29,7 +35,7 @@ public class QuadrilateralUnaugmentedNomenGerundConjugator {
         return instance;
     }
 
-    public List createGerundList(UnaugmentedQuadrilateralRoot root) {
+    public List<QuadrilateralGerund> createGerundList(UnaugmentedQuadrilateralRoot root) {
         var gerundDisplayList = createEmptyList();
 
         String gerund = GenericNounSuffixContainer.getInstance().getPrefix()+root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3()+ArabCharUtil.FATHA+root.getC4();
@@ -37,17 +43,15 @@ public class QuadrilateralUnaugmentedNomenGerundConjugator {
             //because index in java start from zero
             int suffixNo = indexList[i] - 1;
             String suffix = GenericNounSuffixContainer.getInstance().get(suffixNo);
-            gerundDisplayList.set(suffixNo, gerund + suffix);
+            gerundDisplayList.set(suffixNo, new QuadrilateralGerund(gerund + suffix));
         }
 
         return gerundDisplayList;
     }
 
-    private static List createEmptyList() {
-        List result = new ArrayList(18);
-        for (int i = 1; i <= 18; i++) {
-            result.add("");
-        }
-        return result;
+    private static List<QuadrilateralGerund> createEmptyList() {
+        return IntStream.rangeClosed(1, NOUN_POSSIBLE_STATES)
+                .mapToObj(i -> new QuadrilateralGerund(""))
+                .collect(Collectors.toCollection(() -> new ArrayList<>(NOUN_POSSIBLE_STATES)));
     }
 }
