@@ -17,20 +17,20 @@ import sarf.verb.quadriliteral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class QuadriliteralUnaugmentedNomenGerundConjugator {
-    private static final QuadriliteralUnaugmentedNomenGerundConjugator instance = new QuadriliteralUnaugmentedNomenGerundConjugator();
+public class QuadrilateralUnaugmentedNomenGerundConjugator {
+    private static final QuadrilateralUnaugmentedNomenGerundConjugator instance = new QuadrilateralUnaugmentedNomenGerundConjugator();
 
     private final int[] indexList = {2, 4, 6, 8, 10, 12, 14, 16, 18};
 
-    private QuadriliteralUnaugmentedNomenGerundConjugator() {
+    private QuadrilateralUnaugmentedNomenGerundConjugator() {
     }
 
-    public static QuadriliteralUnaugmentedNomenGerundConjugator getInstance() {
+    public static QuadrilateralUnaugmentedNomenGerundConjugator getInstance() {
         return instance;
     }
 
     public List createGerundList(UnaugmentedQuadrilateralRoot root) {
-        List gerundDisplayList = createEmptyList();
+        var gerundDisplayList = createEmptyList();
 
         String gerund = GenericNounSuffixContainer.getInstance().getPrefix()+root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3()+ArabCharUtil.FATHA+root.getC4();
         for (int i = 0; i < indexList.length; i++) {
@@ -43,12 +43,11 @@ public class QuadriliteralUnaugmentedNomenGerundConjugator {
         return gerundDisplayList;
     }
 
-    public List createEmptyList() {
+    private static List createEmptyList() {
         List result = new ArrayList(18);
         for (int i = 1; i <= 18; i++) {
             result.add("");
         }
         return result;
     }
-
 }

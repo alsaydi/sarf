@@ -20,11 +20,11 @@ import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class QuadriliteralAugmentedGerundConjugator {
-    private static final QuadriliteralAugmentedGerundConjugator instance = new QuadriliteralAugmentedGerundConjugator();
+public class QuadrilateralAugmentedGerundConjugator {
+    private static final QuadrilateralAugmentedGerundConjugator instance = new QuadrilateralAugmentedGerundConjugator();
     private final int[] indexArray = {1, 3, 6, 7, 9, 12, 13, 15, NOUN_POSSIBLE_STATES};
 
-    public static QuadriliteralAugmentedGerundConjugator getInstance() {
+    public static QuadrilateralAugmentedGerundConjugator getInstance() {
         return instance;
     }
 

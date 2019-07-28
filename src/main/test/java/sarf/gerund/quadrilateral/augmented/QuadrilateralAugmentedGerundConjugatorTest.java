@@ -27,7 +27,7 @@ class QuadrilateralAugmentedGerundConjugatorTest {
     @ParameterizedTest(name = "createGerundList test {1}")
     @MethodSource("createGerundListTestArguments")
     void createGerundListTest(int formulaNumber, Class expected) {
-        var sut = QuadriliteralAugmentedGerundConjugator.getInstance();
+        var sut = QuadrilateralAugmentedGerundConjugator.getInstance();
 
         var actual = sut.createGerundList(new AugmentedQuadrilateralRoot(), formulaNumber);
 
