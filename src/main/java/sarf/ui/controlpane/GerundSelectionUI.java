@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.*;
 
 import sarf.gerund.quadrilateral.augmented.nomen.QuadrilateralAugmentedNomenGerundConjugator;
+import sarf.gerund.quadrilateral.unaugmented.QuadrilateralUnaugmentedGerundConjugator;
 import sarf.ui.*;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.unaugmented.*;
@@ -62,7 +63,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
 
         sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugator.getInstance().setListener(this);
         sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugator.getInstance().setAugmentedTrilateralModifierListener(this);
-        sarf.gerund.quadrilateral.unaugmented.QuadriliteralUnaugmentedGerundConjugator.getInstance().setListener(this);
+        QuadrilateralUnaugmentedGerundConjugator.getInstance().setListener(this);
 
         standardBtn.addActionListener(e -> {
             Action action = () -> {
@@ -77,7 +78,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
                 if (selectionInfo.isAugmented()) {
                     gerunds = sarf.gerund.quadrilateral.augmented.QuadriliteralAugmentedGerundConjugator.getInstance().createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                 } else {
-                    gerunds = sarf.gerund.quadrilateral.unaugmented.QuadriliteralUnaugmentedGerundConjugator.getInstance().createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
+                    gerunds = QuadrilateralUnaugmentedGerundConjugator.getInstance().createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
                 }
                 sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), gerunds);
                 return conjResult.getFinalResult();

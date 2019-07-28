@@ -17,18 +17,18 @@ import sarf.verb.quadriliteral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class QuadriliteralUnaugmentedGerundConjugator {
-    private static final QuadriliteralUnaugmentedGerundConjugator instance = new QuadriliteralUnaugmentedGerundConjugator();
+public class QuadrilateralUnaugmentedGerundConjugator {
+    private static final QuadrilateralUnaugmentedGerundConjugator instance = new QuadrilateralUnaugmentedGerundConjugator();
 
     private final int[] form1IndexList = {2, 4, 6, 8, 10, 12, 14, 16, 18};
     private final int[] form2IndexList = {1, 3, 6, 7, 9, 12, 13, 15, 18};
 
     private QuadriliteralUnaugmentedGerundConjugatorListener listener;
 
-    private QuadriliteralUnaugmentedGerundConjugator() {
+    private QuadrilateralUnaugmentedGerundConjugator() {
     }
 
-    public static QuadriliteralUnaugmentedGerundConjugator getInstance() {
+    public static QuadrilateralUnaugmentedGerundConjugator getInstance() {
         return instance;
     }
 
