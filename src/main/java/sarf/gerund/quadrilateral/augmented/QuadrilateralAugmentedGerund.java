@@ -27,7 +27,7 @@ public abstract class QuadrilateralAugmentedGerund {
     QuadrilateralAugmentedGerund() {
     }
 
-    protected void init(AugmentedQuadrilateralRoot root, String suffixNo) {
+    private void init(AugmentedQuadrilateralRoot root, String suffixNo) {
         this.root = root;
         this.suffixNo = Integer.parseInt(suffixNo);
 
