@@ -2,7 +2,7 @@ package sarf.gerund.quadrilateral.augmented.pattern;
 
 import sarf.util.*;
 import sarf.verb.quadriliteral.augmented.*;
-import sarf.gerund.quadrilateral.augmented.QuadriliteralAugmentedGerund;
+import sarf.gerund.quadrilateral.augmented.QuadrilateralAugmentedGerund;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -16,7 +16,7 @@ import sarf.gerund.quadrilateral.augmented.QuadriliteralAugmentedGerund;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class GerundPattern1 extends QuadriliteralAugmentedGerund {
+public class GerundPattern1 extends QuadrilateralAugmentedGerund {
     public GerundPattern1(AugmentedQuadrilateralRoot root, String suffixNo) {
         super(root, suffixNo);
     }

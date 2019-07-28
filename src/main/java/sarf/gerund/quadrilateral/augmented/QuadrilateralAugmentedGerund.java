@@ -15,16 +15,16 @@ import sarf.verb.quadriliteral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class QuadriliteralAugmentedGerund {
+public abstract class QuadrilateralAugmentedGerund {
     protected AugmentedQuadrilateralRoot root;
     protected int suffixNo;
     protected String suffix;
 
-    public QuadriliteralAugmentedGerund(AugmentedQuadrilateralRoot root, String suffixNo) {
+    public QuadrilateralAugmentedGerund(AugmentedQuadrilateralRoot root, String suffixNo) {
         init(root, suffixNo);
     }
 
-    QuadriliteralAugmentedGerund() {
+    QuadrilateralAugmentedGerund() {
     }
 
     protected void init(AugmentedQuadrilateralRoot root, String suffixNo) {

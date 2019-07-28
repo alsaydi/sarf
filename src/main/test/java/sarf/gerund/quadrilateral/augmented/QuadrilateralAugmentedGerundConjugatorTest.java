@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
 
 
-class QuadriliteralAugmentedGerundConjugatorTest {
+class QuadrilateralAugmentedGerundConjugatorTest {
 
     private static Stream<Arguments> createGerundListTestArguments() {
         return Stream.of(

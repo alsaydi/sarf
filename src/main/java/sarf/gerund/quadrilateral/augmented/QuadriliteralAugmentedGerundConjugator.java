@@ -4,7 +4,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import sarf.*;
 import sarf.verb.quadriliteral.augmented.*;
 
 import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
@@ -29,16 +28,16 @@ public class QuadriliteralAugmentedGerundConjugator {
         return instance;
     }
 
-    public List<QuadriliteralAugmentedGerund> createGerundList(AugmentedQuadrilateralRoot root, int formulaNo) {
+    public List<QuadrilateralAugmentedGerund> createGerundList(AugmentedQuadrilateralRoot root, int formulaNo) {
         String gerundPatternClassName = getClass().getPackage().getName() + ".pattern." + "GerundPattern" + formulaNo;
-        List<QuadriliteralAugmentedGerund> gerundDisplayList = createEmptyList();
+        List<QuadrilateralAugmentedGerund> gerundDisplayList = createEmptyList();
 
         for (int value : indexArray) {
             //because index in java start from zero
             int suffixNo = value - 1;
             Object[] parameters = {root, suffixNo + ""};
             try {
-                var gerund = (QuadriliteralAugmentedGerund) Class.forName(gerundPatternClassName).getConstructors()[0].newInstance(parameters);
+                var gerund = (QuadrilateralAugmentedGerund) Class.forName(gerundPatternClassName).getConstructors()[0].newInstance(parameters);
                 gerundDisplayList.set(suffixNo, gerund);
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -47,13 +46,13 @@ public class QuadriliteralAugmentedGerundConjugator {
         return gerundDisplayList;
     }
 
-    public List<QuadriliteralAugmentedGerund> createEmptyList() {
+    public List<QuadrilateralAugmentedGerund> createEmptyList() {
         return IntStream.rangeClosed(1, NOUN_POSSIBLE_STATES)
-                .<QuadriliteralAugmentedGerund>mapToObj(i -> new EmptyQuadrilateralAugmentedGerund())
+                .<QuadrilateralAugmentedGerund>mapToObj(i -> new EmptyQuadrilateralAugmentedGerund())
                 .collect(Collectors.toCollection(() -> new ArrayList<>(NOUN_POSSIBLE_STATES)));
     }
 
-    private static class EmptyQuadrilateralAugmentedGerund extends QuadriliteralAugmentedGerund{
+    private static class EmptyQuadrilateralAugmentedGerund extends QuadrilateralAugmentedGerund {
         EmptyQuadrilateralAugmentedGerund() {
         }
 
