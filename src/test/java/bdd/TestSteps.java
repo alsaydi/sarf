@@ -1,10 +1,10 @@
-package sarf.bdd.steps;
+package bdd;
 
 import io.cucumber.java.en.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MyStepdefs {
+public class TestSteps {
     
     @Given("an initial state")
     public void anInitialState() {
@@ -30,4 +30,5 @@ public class MyStepdefs {
     public void assertionTakesPlace() {
         assertThat(true).isTrue();
     }
+
 }

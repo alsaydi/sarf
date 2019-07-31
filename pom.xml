@@ -11,17 +11,12 @@
         <junit.jupiter.version>5.5.0</junit.jupiter.version>
     </properties>
     <build>
-        <resources>
-            <resource>
-                <directory>src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-        </resources>
-        <testResources>
+       <testResources>
             <testResource>
                 <directory>${project.basedir}/src/main/resources</directory>
+            </testResource>
+            <testResource>
+                <directory>${project.basedir}/src/test/resources</directory>
             </testResource>
         </testResources>
         <plugins>

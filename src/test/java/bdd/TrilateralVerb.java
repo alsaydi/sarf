@@ -1,10 +1,11 @@
-package sarf.bdd.steps;
+package bdd;
 import cucumber.api.Scenario;
 import io.cucumber.java8.En;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TrilateralVerb implements En {
+public class
+TrilateralVerb implements En {
     public TrilateralVerb(){
         When("^conjugation is requested$", () -> {
 
