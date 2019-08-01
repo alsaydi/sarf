@@ -86,12 +86,8 @@ public final class FileUtil {
         }
     }
 
-    public static InputStream getResourceInputStream(String relativePath) throws IOException {
+    public static InputStream getResourceInputStream(String relativePath) {
         System.err.println("Retrieving " + relativePath + " from resources");
-        var inputStream = ClassLoader.getSystemResource(relativePath).openStream();
-        if(inputStream == null){
-            throw new IOException("inputStream is null when trying to load " + relativePath);
-        }
-        return inputStream;
+        return ClassLoader.getSystemClassLoader().getResourceAsStream(relativePath);
     }
 }
