@@ -4,6 +4,7 @@ package sarf.verb.trilateral.Substitution;
 import java.util.*;
 import java.util.stream.IntStream;
 
+import sarf.SystemConstants;
 import sarf.verb.trilateral.*;
 
 /**
@@ -20,9 +21,10 @@ import sarf.verb.trilateral.*;
  */
 public abstract class SubstitutionsApplier<T> {
 
-    private static final List<String> defaultAppliedPronounsIndexes = new ArrayList<>(13);
+    private static final List<String> defaultAppliedPronounsIndexes = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
     static {
-        IntStream.range(1, 14).forEach(i -> defaultAppliedPronounsIndexes.add("" + i));
+        IntStream.rangeClosed(1, SystemConstants.PRONOUN_RANGE_END)
+                .forEach(i -> defaultAppliedPronounsIndexes.add("" + i));
     }
 
     /**

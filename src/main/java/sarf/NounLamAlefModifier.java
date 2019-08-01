@@ -1,6 +1,8 @@
 package sarf;
 
 import java.util.*;
+import java.util.stream.IntStream;
+
 import sarf.verb.trilateral.Substitution.*;
 
 /**
@@ -15,13 +17,12 @@ import sarf.verb.trilateral.Substitution.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class NounLamAlefModifier extends SubstitutionsApplier{
+public final class NounLamAlefModifier extends SubstitutionsApplier {
 	//TODO: appliedPronounsIndexes needs not to be a list of strings.
-    protected static final List<String> appliedPronounsIndexes = new ArrayList<>(13);
+    static final List<String> appliedPronounsIndexes = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
     static {
-        for (int i=0; i<18; i++) {
-            appliedPronounsIndexes.add(i+1 +"");
-        }
+        IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
+                .mapToObj(i -> i + 1 + "").forEachOrdered(appliedPronounsIndexes::add);
     }
 
     private final List<Substitution> substitutions = new LinkedList<>();
@@ -60,9 +61,5 @@ public class NounLamAlefModifier extends SubstitutionsApplier{
 
     public List<Substitution> getSubstitutions() {
         return substitutions;
-    }
-
-    protected List<String> getAppliedPronounsIndecies() {
-        return appliedPronounsIndexes;
     }
 }
