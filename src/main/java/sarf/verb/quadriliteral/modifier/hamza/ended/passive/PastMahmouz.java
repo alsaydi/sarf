@@ -2,6 +2,7 @@ package sarf.verb.quadriliteral.modifier.hamza.ended.passive;
 
 import java.util.*;
 
+import sarf.verb.quadriliteral.modifier.hamza.ended.AbstractQuadrilateralEndedMahmouzModifier;
 import sarf.verb.quadriliteral.substitution.*;
 
 /**
@@ -16,16 +17,14 @@ import sarf.verb.quadriliteral.substitution.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PastMahmouz extends SubstitutionsApplier {
-
+public class PastMahmouz extends AbstractQuadrilateralEndedMahmouzModifier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public PastMahmouz() {
         substitutions.add(new InfixSubstitution("ِء","ِئ"));// EX: (غُرْقِئَ، تُدُرْبِئَ، احْبُنْطِئَ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

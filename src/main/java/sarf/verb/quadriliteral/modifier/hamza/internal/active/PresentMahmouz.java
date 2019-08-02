@@ -2,6 +2,7 @@ package sarf.verb.quadriliteral.modifier.hamza.internal.active;
 
 import java.util.*;
 
+import sarf.verb.quadriliteral.modifier.hamza.internal.AbstractQuadrilateralInternalMahmouzModifier;
 import sarf.verb.quadriliteral.substitution.*;
 
 /**
@@ -16,18 +17,15 @@ import sarf.verb.quadriliteral.substitution.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PresentMahmouz extends SubstitutionsApplier {
-
+public class PresentMahmouz extends AbstractQuadrilateralInternalMahmouzModifier {
     private final List<Substitution> substitutions = new ArrayList<>();
-
     public PresentMahmouz() {
         substitutions.add(new InfixSubstitution("َءْ", "َأْ")); // EX: (يُبَأْدِلُ، يَتَثَأْلَلُ، أنتن تَطْمَأْنِنَّ)
         substitutions.add(new InfixSubstitution("ْءَ", "ْأَ")); // EX: (يَتَطَمْأَنُ، يَتَمَرْأَى، )
         substitutions.add(new InfixSubstitution("ءِ", "ئِ")); // EX: (يُطَمْئِنُ، يَطْمَئِنُّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

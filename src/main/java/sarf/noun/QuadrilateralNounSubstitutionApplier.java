@@ -1,7 +1,9 @@
 package sarf.noun;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
+import sarf.SystemConstants;
 import sarf.verb.quadriliteral.substitution.*;
 
 /**
@@ -17,19 +19,14 @@ import sarf.verb.quadriliteral.substitution.*;
  * @version 1.0
  */
 public abstract class QuadrilateralNounSubstitutionApplier extends SubstitutionsApplier {
-
-    protected static final List appliedProunounsIndecies = new ArrayList(18);
+    private static final List<String> appliedPronounsIndexes = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
     static {
-        for (int i=0; i<18; i++) {
-            appliedProunounsIndecies.add(i+1 +"");
-        }
+        IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
+                .mapToObj(i -> i + 1 + "")
+                .forEachOrdered(appliedPronounsIndexes::add);
     }
 
-    public QuadrilateralNounSubstitutionApplier() {
+    protected List<String> getAppliedPronounsIndexes() {
+        return appliedPronounsIndexes;
     }
-
-    protected List getAppliedPronounsIndecies() {
-        return appliedProunounsIndecies;
-    }
-
 }

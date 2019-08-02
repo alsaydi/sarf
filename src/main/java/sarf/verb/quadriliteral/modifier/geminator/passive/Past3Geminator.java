@@ -18,17 +18,15 @@ import sarf.verb.quadriliteral.*;
  * @version 1.0
  */
 public class Past3Geminator extends SubstitutionsApplier implements IQuadrilateralModifier {
-
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Past3Geminator() {
         substitutions.add(new InfixSubstitution("نْنَ", "نَّ")); // EX: (نحن طُمْئِنَّا، هنَّ طُمْئِنَّ)
-        substitutions.add(new ExpressionInfixSubstitution("ْC4ِC4َ","ِC4َّ"));// EX: (ازيئن)
-        substitutions.add(new ExpressionInfixSubstitution("ْC4ِC4ُ","ِC4ُّ"));// EX: (ازيئنوا)
+        substitutions.add(new ExpressionInfixSubstitution("ْC4ِC4َ", "ِC4َّ"));// EX: (ازيئن)
+        substitutions.add(new ExpressionInfixSubstitution("ْC4ِC4ُ", "ِC4ُّ"));// EX: (ازيئنوا)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

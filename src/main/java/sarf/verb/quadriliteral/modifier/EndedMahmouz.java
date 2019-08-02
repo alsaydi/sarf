@@ -19,9 +19,9 @@ import sarf.SystemConstants;
  * @version 1.0
  */
 public class EndedMahmouz {
-    private final Map modifiersMap = new HashMap();
+    private final Map<String, SubstitutionsApplier> modifiersMap = new HashMap<>();
 
-    public EndedMahmouz() {
+    EndedMahmouz() {
         modifiersMap.put(SystemConstants.PAST_TENSE + "true", new sarf.verb.quadriliteral.modifier.hamza.ended.active.PastMahmouz());
         modifiersMap.put(SystemConstants.PRESENT_TENSE + "true", new sarf.verb.quadriliteral.modifier.hamza.ended.active.PresentMahmouz());
         modifiersMap.put(SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE + "true", new sarf.verb.quadriliteral.modifier.hamza.ended.active.ImperativeMahmouz());
@@ -31,12 +31,9 @@ public class EndedMahmouz {
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
-        if (conjResult.getRoot().getC4() != 'ء') {
-            return;
-        }
-
-        SubstitutionsApplier modifier = (SubstitutionsApplier) modifiersMap.get(tense + active);
-        modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
+        SubstitutionsApplier modifier = modifiersMap.get(tense + active);
+        if (modifier.isApplied(conjResult))
+            modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
-
 }
+

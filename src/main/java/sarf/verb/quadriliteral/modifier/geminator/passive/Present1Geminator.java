@@ -18,18 +18,16 @@ import sarf.verb.quadriliteral.*;
  * @version 1.0
  */
 public class Present1Geminator extends SubstitutionsApplier implements IQuadrilateralModifier {
-
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Present1Geminator() {
-        substitutions.add(new ExpressionInfixSubstitution("ْC4َC4ُ","َC4ُّ"));// EX: (هو يُقْشَعَرُّ)
-        substitutions.add(new ExpressionInfixSubstitution("ْC4َC4َ","َC4َّ"));// EX: (هما يُقْشَعَرَّانِ)
-        substitutions.add(new ExpressionInfixSubstitution("ْC4َC4ِ","َC4ِّ"));// EX: (أنتِ تُقْشَعَرِّينَ)
-        substitutions.add(new ExpressionSuffixSubstitution("ْC4َC4ْ","َC4َّ"));// EX: (لم يُقْشَعَرَّ)
+        substitutions.add(new ExpressionInfixSubstitution("ْC4َC4ُ", "َC4ُّ"));// EX: (هو يُقْشَعَرُّ)
+        substitutions.add(new ExpressionInfixSubstitution("ْC4َC4َ", "َC4َّ"));// EX: (هما يُقْشَعَرَّانِ)
+        substitutions.add(new ExpressionInfixSubstitution("ْC4َC4ِ", "َC4ِّ"));// EX: (أنتِ تُقْشَعَرِّينَ)
+        substitutions.add(new ExpressionSuffixSubstitution("ْC4َC4ْ", "َC4َّ"));// EX: (لم يُقْشَعَرَّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

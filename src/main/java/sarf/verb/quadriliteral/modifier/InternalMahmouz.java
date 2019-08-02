@@ -2,6 +2,8 @@ package sarf.verb.quadriliteral.modifier;
 
 import sarf.verb.quadriliteral.*;
 import sarf.verb.quadriliteral.substitution.*;
+
+import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import sarf.SystemConstants;
@@ -19,9 +21,9 @@ import sarf.SystemConstants;
  * @version 1.0
  */
 public class InternalMahmouz {
-    private final Map modifiersMap = new HashMap();
+    private final Map<String, SubstitutionsApplier> modifiersMap = new HashMap<>();
 
-    public InternalMahmouz() {
+    InternalMahmouz() {
         modifiersMap.put(SystemConstants.PAST_TENSE + "true", new sarf.verb.quadriliteral.modifier.hamza.internal.active.PastMahmouz());
         modifiersMap.put(SystemConstants.PRESENT_TENSE + "true", new sarf.verb.quadriliteral.modifier.hamza.internal.active.PresentMahmouz());
         modifiersMap.put(SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE + "true", new sarf.verb.quadriliteral.modifier.hamza.internal.active.ImperativeMahmouz());
@@ -31,10 +33,8 @@ public class InternalMahmouz {
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
-        if (conjResult.getRoot().getC2() == 'ء' || conjResult.getRoot().getC3() == 'ء') {
-            SubstitutionsApplier modifier = (SubstitutionsApplier) modifiersMap.get(tense + active);
+        var modifier = modifiersMap.get(tense + active);
+        if (modifier.isApplied(conjResult))
             modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
-        }
     }
-
 }

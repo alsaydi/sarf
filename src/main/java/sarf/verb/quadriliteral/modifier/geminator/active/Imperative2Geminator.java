@@ -18,7 +18,6 @@ import sarf.verb.quadriliteral.*;
  * @version 1.0
  */
 public class Imperative2Geminator extends SubstitutionsApplier implements IQuadrilateralModifier {
-
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Imperative2Geminator() {
@@ -29,8 +28,7 @@ public class Imperative2Geminator extends SubstitutionsApplier implements IQuadr
         substitutions.add(new ExpressionInfixSubstitution("C3ْC4ِC4ِ", "C3ِC4ِّ")); // EX: (اقْشَعِرِّي)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

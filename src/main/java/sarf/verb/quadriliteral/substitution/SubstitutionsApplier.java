@@ -16,19 +16,15 @@ import sarf.verb.quadriliteral.*;
  * @version 1.0
  */
 public abstract class SubstitutionsApplier {
-
-    public SubstitutionsApplier() {
-
-    }
-
+    public abstract boolean isApplied(ConjugationResult conjugationResult);
     /**
      * حلقة تمسح الكلمات وتجرب الاستبدلات على كل  كلمة
      * اذا نجح أحد الاستبدالات لا نبحث عن أخر
      * @param words List
      */
     public void apply(List words, QuadrilateralRoot root) {
-        for (int i=0; i< getAppliedPronounsIndecies().size(); i++) {
-            int index = Integer.parseInt(getAppliedPronounsIndecies().get(i).toString())-1;
+        for (int i = 0; i< getAppliedPronounsIndexes().size(); i++) {
+            int index = Integer.parseInt(getAppliedPronounsIndexes().get(i).toString())-1;
             Object wordObj = words.get(index);
             if (wordObj == null) {
                 continue;
@@ -54,16 +50,14 @@ public abstract class SubstitutionsApplier {
      */
     public abstract List getSubstitutions();
 
-    protected static final List defaultAppliedProunounsIndecies = new ArrayList(13);
+    private static final List<String> defaultAppliedPronounsIndexes = new ArrayList<>(13);
     static {
         for (int i=0; i<13; i++) {
-            defaultAppliedProunounsIndecies.add(i+1 +"");
+            defaultAppliedPronounsIndexes.add(i+1 +"");
         }
     }
 
-
-    protected List getAppliedPronounsIndecies() {
-        return defaultAppliedProunounsIndecies;
+    protected List getAppliedPronounsIndexes() {
+        return defaultAppliedPronounsIndexes;
     }
-
 }

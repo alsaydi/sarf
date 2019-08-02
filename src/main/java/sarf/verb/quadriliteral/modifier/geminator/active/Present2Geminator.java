@@ -18,7 +18,6 @@ import sarf.verb.quadriliteral.*;
  * @version 1.0
  */
 public class Present2Geminator extends SubstitutionsApplier implements IQuadrilateralModifier {
-
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Present2Geminator() {
@@ -30,8 +29,7 @@ public class Present2Geminator extends SubstitutionsApplier implements IQuadrila
 
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

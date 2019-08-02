@@ -32,8 +32,6 @@ public class QuadrilateralModifier {
     private final InternalMahmouz internalMahmouz = new InternalMahmouz();
     private final EndedMahmouz endedMahmouz = new EndedMahmouz();
 
-
-
     public static QuadrilateralModifier getInstance() {
         return instance;
     }
@@ -42,7 +40,7 @@ public class QuadrilateralModifier {
      * اخراج قائمة الأفعال بعد التعديلات
      * @param root UnaugmentedTrilateralRoot
      * @param conjugations List
-     * @param tense String (From SystemConstans class the values are stored)  ماضي أو مضارع او أمر
+     * @param tense String (From SystemConstants class the values are stored)  ماضي أو مضارع او أمر
      * @return ConjugationResult
      */
     public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations, String tense, boolean active, boolean applyGemination) {
