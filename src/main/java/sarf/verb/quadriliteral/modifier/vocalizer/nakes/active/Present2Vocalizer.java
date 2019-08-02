@@ -17,7 +17,7 @@ import sarf.verb.quadriliteral.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Present2Vocalizer extends SubstitutionsApplier implements IQuadrilateralModifier {
+public class Present2Vocalizer extends SubstitutionsApplier {
 
     private final List<Substitution> substitutions = new ArrayList<>();
 

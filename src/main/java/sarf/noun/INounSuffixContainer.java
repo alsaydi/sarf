@@ -13,10 +13,13 @@ package sarf.noun;
  * @version 1.0
  */
 public interface INounSuffixContainer {
+    void selectDefiniteMode();
 
-    void selectDefiniteMode() ;
     void selectInDefiniteMode();
-    void selectAnnexedMode() ;
-    String getPrefix() ;
-    String get(int index) ;
+
+    void selectAnnexedMode();
+
+    String getPrefix();
+
+    String get(int index);
 }

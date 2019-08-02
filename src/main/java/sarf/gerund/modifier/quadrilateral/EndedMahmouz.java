@@ -19,7 +19,7 @@ import sarf.verb.quadriliteral.substitution.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier implements IQuadrilateralModifier {
+public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier {
     private final List<InfixSubstitution> substitutions = new LinkedList<>();
 
     EndedMahmouz() {

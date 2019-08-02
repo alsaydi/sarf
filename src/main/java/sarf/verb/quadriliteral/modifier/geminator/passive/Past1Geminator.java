@@ -17,7 +17,7 @@ import sarf.verb.quadriliteral.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Past1Geminator extends SubstitutionsApplier implements IQuadrilateralModifier {
+public class Past1Geminator extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Past1Geminator() {
