@@ -1,6 +1,8 @@
 package sarf;
 
 import java.util.*;
+import java.util.stream.IntStream;
+
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.TrilateralRoot;
 
@@ -25,11 +27,11 @@ import sarf.verb.trilateral.TrilateralRoot;
  * @version 1.0
  */
 public class NounSunLamModifier extends SubstitutionsApplier {
-	private static final List<String> appliedPronounsIndexes = new ArrayList<>(13);
+	private static final List<String> appliedPronounsIndexes = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
 	static {
-		for (int i = 0; i < 18; i++) {
-			appliedPronounsIndexes.add(i + 1 + "");
-		}
+		IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
+				.mapToObj(i -> i + 1 + "")
+				.forEachOrdered(appliedPronounsIndexes::add);
 	}
 
 	private final List<Substitution> substitutions = new LinkedList<>();
@@ -78,11 +80,11 @@ public class NounSunLamModifier extends SubstitutionsApplier {
 		return substitutions;
 	}
 
-	protected List<String> getAppliedPronounsIndecies() {
+	List<String> getAppliedPronounsIndecies() {
 		return appliedPronounsIndexes;
 	}
 
-	class ListedInfixSubstitution extends Substitution {
+	static class ListedInfixSubstitution extends Substitution {
 		private final List<String> probableChars;
 
 		ListedInfixSubstitution(List<String> probableChars, String segment, String result) {
@@ -91,7 +93,6 @@ public class NounSunLamModifier extends SubstitutionsApplier {
 		}
 
 		/**
-		 *
 		 * @param word
 		 *            String
 		 * @return String

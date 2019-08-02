@@ -1,6 +1,8 @@
 package sarf;
 
 import java.util.*;
+import java.util.stream.IntStream;
+
 import sarf.util.*;
 
 /**
@@ -45,13 +47,9 @@ public class Validator {
     public boolean checkArabicLetters(String root) {
     	if(root == null)
     		return false;
-    	
-        for (int i = 0; i < root.length(); i++) {
-            if (arabicLetters.indexOf(root.charAt(i)) == -1) {
-                return false;
-            }
-        }
-        return true;
+
+        return IntStream.range(0, root.length())
+                .noneMatch(i -> arabicLetters.indexOf(root.charAt(i)) == -1);
     }
 
     /**
@@ -69,7 +67,7 @@ public class Validator {
      * @return boolean
      */
     public boolean checkAlefMamdoda(String root) {
-        return root != null && root.indexOf("آ") != -1;
+        return root != null && root.contains("آ");
     }
 
     /**
@@ -78,15 +76,15 @@ public class Validator {
      * @return boolean
      */
     public boolean checkTashkil(String root) {
-    	if(root == null)
-    		return false;
-    	
+        if (root == null)
+            return false;
+
         return
-                root.indexOf(ArabCharUtil.FATHA) != -1 ||
-                root.indexOf(ArabCharUtil.DAMMA) != -1 ||
-                root.indexOf(ArabCharUtil.KASRA) != -1 ||
-                root.indexOf(ArabCharUtil.SKOON) != -1 ||
-                root.indexOf(ArabCharUtil.SHADDA) != -1;
+                root.contains(ArabCharUtil.FATHA) ||
+                        root.contains(ArabCharUtil.DAMMA) ||
+                        root.contains(ArabCharUtil.KASRA) ||
+                        root.contains(ArabCharUtil.SKOON) ||
+                        root.contains(ArabCharUtil.SHADDA);
     }
 
 
@@ -116,7 +114,8 @@ public class Validator {
      */
     public List<String> getTrilateralAlefAlternatives(String root) {
         List<String> result = new LinkedList<>();
-        if (root.charAt(1) == 'ا' && (root.charAt(2) == 'ا' || root.charAt(2) == 'ى')) {
+        boolean endsInAlefOrYa = root.charAt(2) == 'ا' || root.charAt(2) == 'ى';
+        if (root.charAt(1) == 'ا' && (endsInAlefOrYa)) {
             result.add(root.charAt(0) + "و" + "و");
             result.add(root.charAt(0) + "و" + "ي");
             result.add(root.charAt(0) + "ي" + "و");
@@ -127,7 +126,7 @@ public class Validator {
                 result.add(root.charAt(0) + "و" + root.charAt(2));
                 result.add(root.charAt(0) + "ي" + root.charAt(2));
             }
-            if (root.charAt(2) == 'ا' || root.charAt(2) == 'ى') {
+            if (endsInAlefOrYa) {
                 result.add(root.charAt(0) + "" + root.charAt(1) + "و");
                 result.add(root.charAt(0) + "" + root.charAt(1) + "ي");
             }

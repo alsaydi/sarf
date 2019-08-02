@@ -16,7 +16,7 @@ import java.util.*;
  */
 public class SeparatedPronounsContainer {
     private static final SeparatedPronounsContainer instance = new SeparatedPronounsContainer();
-    private final List pronouns = new ArrayList(13);
+    private final List<String> pronouns = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
 
     private SeparatedPronounsContainer() {
         pronouns.add("أنا");
@@ -38,7 +38,7 @@ public class SeparatedPronounsContainer {
         return instance;
     }
 
-    public List getPronouns() {
+    public List<String> getPronouns() {
         return pronouns;
     }
 

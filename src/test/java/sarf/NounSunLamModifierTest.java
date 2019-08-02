@@ -33,7 +33,7 @@ class NounSunLamModifierTest {
 		List<String> sunLetters = new LinkedList<>();
 		sunLetters.add("ت");
 		
-		ListedInfixSubstitution sut = NounSunLamModifier.getInstance().new ListedInfixSubstitution(sunLetters, "سSLص","صصSLسس");
+		ListedInfixSubstitution sut = new ListedInfixSubstitution(sunLetters, "سSLص", "صصSLسس");
 		
 		String actual = sut.apply("ستصمر", null);
 		
@@ -45,7 +45,7 @@ class NounSunLamModifierTest {
 		List<String> sunLetters = new LinkedList<>();
 		sunLetters.add("ت");
 		
-		ListedInfixSubstitution sut = NounSunLamModifier.getInstance().new ListedInfixSubstitution(sunLetters, "سSLص","صصSLسس");
+		ListedInfixSubstitution sut = new ListedInfixSubstitution(sunLetters, "سSLص", "صصSLسس");
 		
 		String actual = sut.apply("سصمر", null);
 		
