@@ -26,17 +26,19 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListen
  * @version 1.0
  */
 public class PassiveVerbSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
+    private final ControlPaneContainer controlPaneContainer;
     private SelectionInfo selectionInfo;
 
-    final ToggleRenderedButton pastBtn = new ToggleRenderedButton("الماضي المجهول ");
-    final ToggleRenderedButton presentNominativeBtn = new ToggleRenderedButton("المضارع المرفوع المجهول ");
-    final ToggleRenderedButton presentAccusativeBtn = new ToggleRenderedButton("المضارع المنصوب المجهول ");
-    final ToggleRenderedButton presentJussiveBtn = new ToggleRenderedButton("المضارع المجزوم المجهول ");
-    final ToggleRenderedButton presentEmphasizedBtn = new ToggleRenderedButton("المضارع المؤكد المجهول ");
+    private final ToggleRenderedButton pastBtn = new ToggleRenderedButton("الماضي المجهول ");
+    private final ToggleRenderedButton presentNominativeBtn = new ToggleRenderedButton("المضارع المرفوع المجهول ");
+    private final ToggleRenderedButton presentAccusativeBtn = new ToggleRenderedButton("المضارع المنصوب المجهول ");
+    private final ToggleRenderedButton presentJussiveBtn = new ToggleRenderedButton("المضارع المجزوم المجهول ");
+    private final ToggleRenderedButton presentEmphasizedBtn = new ToggleRenderedButton("المضارع المؤكد المجهول ");
 
 
-    public PassiveVerbSelectionUI() {
+    public PassiveVerbSelectionUI(ControlPaneContainer controlPaneContainer) {
         super(new BorderLayout());
+        this.controlPaneContainer = controlPaneContainer;
 
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
@@ -95,8 +97,8 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
                 result = conjResult.getFinalResult();
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, pastBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, pastBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
 
         presentNominativeBtn.addActionListener(e -> {
@@ -132,8 +134,8 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
                 result = conjResult.getFinalResult();
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, presentNominativeBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, presentNominativeBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
 
         presentAccusativeBtn.addActionListener(e -> {
@@ -169,8 +171,8 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
                 result = conjResult.getFinalResult();
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, presentAccusativeBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, presentAccusativeBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
 
         presentJussiveBtn.addActionListener(e -> {
@@ -190,8 +192,8 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
                                 conjResult.getOriginalResult(), SystemConstants.PRESENT_TENSE, false, false, PassiveVerbSelectionUI.this);
                         List notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(result, notGeminatedResult, presentJussiveBtn.getText());
-                        ControlPaneContainer.getInstance().openResult(ui);
+                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(controlPaneContainer, result, notGeminatedResult, presentJussiveBtn.getText());
+                        controlPaneContainer.openResult(ui);
                         return;
                     }
                 }
@@ -209,8 +211,8 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
                                 SystemConstants.PRESENT_TENSE, false, false);
                         List notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(result, notGeminatedResult, presentJussiveBtn.getText());
-                        ControlPaneContainer.getInstance().openResult(ui);
+                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(controlPaneContainer, result, notGeminatedResult, presentJussiveBtn.getText());
+                        controlPaneContainer.openResult(ui);
                         return;
                     }
                 }
@@ -228,14 +230,14 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
                 sarf.verb.quadriliteral.ConjugationResult notGeminatedConjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), conjResult.getOriginalResult(),
                         SystemConstants.PRESENT_TENSE, false, false);
 
-                JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(conjResult.getFinalResult(), notGeminatedConjResult.getFinalResult(), presentJussiveBtn.getText());
-                ControlPaneContainer.getInstance().openResult(ui);
+                JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(controlPaneContainer, conjResult.getFinalResult(), notGeminatedConjResult.getFinalResult(), presentJussiveBtn.getText());
+                controlPaneContainer.openResult(ui);
                 return;
 
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, presentJussiveBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, presentJussiveBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
 
         presentEmphasizedBtn.addActionListener(e -> {
@@ -270,8 +272,8 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
                 result = conjResult.getFinalResult();
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, presentEmphasizedBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, presentEmphasizedBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
     }
 

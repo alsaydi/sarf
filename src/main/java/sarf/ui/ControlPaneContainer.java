@@ -7,9 +7,11 @@ import java.util.*;
 import java.util.List;
 import java.util.prefs.*;
 
+import javax.inject.Inject;
 import javax.swing.*;
 
 import sarf.*;
+import sarf.gerund.trilateral.unaugmented.meem.MeemGerundConjugator;
 import sarf.kov.*;
 import sarf.ui.controlpane.*;
 import sarf.verb.quadriliteral.augmented.*;
@@ -29,15 +31,18 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ControlPaneContainer extends JPanel {
-
+public class ControlPaneContainer extends JPanel implements IMainControlPanel {
 	private static final long serialVersionUID = 1L;
-	private final Map<String, IControlPane> controlPaneMap = new HashMap<>();
+	private final Map<Class, IControlPane> controlPaneMap = new HashMap<>();
     private final JButton backBtn = new RenderedButton("عودة");
     private final JTextField rootFld = new JTextField(5);
     private final JPanel container = new JPanel(new BorderLayout());
 
     private final JPanel resultPane = new JPanel(new BorderLayout());
+    private final SarfDictionary sarfDictionary;
+    private final Validator validator;
+    private final KovRulesManager kovRulesManager;
+    private final MeemGerundConjugator meemGerundConjugator;
     private Preferences pref;
 
     //store the opened panels so you can go back and forward
@@ -56,11 +61,16 @@ public class ControlPaneContainer extends JPanel {
 
     private String kovText;
 
-
-    private ControlPaneContainer() {
+    @Inject
+    public ControlPaneContainer(SarfDictionary sarfDictionary, Validator validator, KovRulesManager kovRulesManager
+            , MeemGerundConjugator meemGerundConjugator) {
         super(new BorderLayout());
+        this.meemGerundConjugator = meemGerundConjugator;
 
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        this.sarfDictionary = sarfDictionary;
+        this.validator = validator;
+        this.kovRulesManager = kovRulesManager;
 
         JMenu helpMainMenu = new JMenu("مساعدة");
         JMenu fileMainMenu = new JMenu("ملف");
@@ -255,33 +265,33 @@ public class ControlPaneContainer extends JPanel {
         reset();
         String root = rootFld.getText();
 
-        if (!Validator.getInstance().checkLength(root)) {
+        if (!validator.checkLength(root)) {
             container.removeAll();
             displayErrorMessage("عدد أحرف الجذر يجب أن يكون ثلاثة أو أربعة");
             return;
         }
-        if (Validator.getInstance().checkStartedWithAlef(root)) {
+        if (validator.checkStartedWithAlef(root)) {
             container.removeAll();
             displayErrorMessage("لا يمكن أن يبدأ الجذر بحرف الألف      ");
             return;
         }
-        if (Validator.getInstance().checkAlefMamdoda(root)) {
+        if (validator.checkAlefMamdoda(root)) {
             container.removeAll();
             displayErrorMessage("الحرف ( آ ) ليس من حروف المعجم    ");
             return;
         }
-        if (Validator.getInstance().checkTashkil(root)) {
+        if (validator.checkTashkil(root)) {
             container.removeAll();
             displayErrorMessage("علامات الشكل (الحركات) ليست من حروف المعجم    ");
             return;
         }
 
         //رد الهمزة إلى أصلها
-        root = Validator.getInstance().correctHamza(root);
+        root = validator.correctHamza(root);
         //لكي لا تظهر رسالة التصحيح التلقائي للهمزة
         rootFld.setText(root);
 
-        if (!Validator.getInstance().checkArabicLetters(root)) {
+        if (!validator.checkArabicLetters(root)) {
             container.removeAll();
             displayErrorMessage("خطأ في أحد أحرف الجذر");
             return;
@@ -301,11 +311,11 @@ public class ControlPaneContainer extends JPanel {
     }
 
     private void processTrilateral(String root) throws Exception {
-        List<String> alefAlternatives = Validator.getInstance().getTrilateralAlefAlternatives(root);
+        List<String> alefAlternatives = validator.getTrilateralAlefAlternatives(root);
         if (alefAlternatives.isEmpty()) {
             //لا يوجد احتمالات للألف
-            AugmentedTrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedTrilateralRoot(root);
-            List<UnaugmentedTrilateralRoot> unaugmentedList = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots(root);
+            AugmentedTrilateralRoot augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(root);
+            List<UnaugmentedTrilateralRoot> unaugmentedList = sarfDictionary.getUnaugmentedTrilateralRoots(root);
             if (augmentedRoot == null && unaugmentedList.isEmpty()) {
                 container.removeAll();
                 validate();
@@ -323,8 +333,8 @@ public class ControlPaneContainer extends JPanel {
             List<List<UnaugmentedTrilateralRoot>> unaugmentedLists = new LinkedList<>();
 
             for (String alternativeRoot : alefAlternatives) {
-                AugmentedTrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedTrilateralRoot(alternativeRoot);
-                List<UnaugmentedTrilateralRoot> unaugmentedList = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots(alternativeRoot);
+                AugmentedTrilateralRoot augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(alternativeRoot);
+                List<UnaugmentedTrilateralRoot> unaugmentedList = sarfDictionary.getUnaugmentedTrilateralRoots(alternativeRoot);
 
                 if (augmentedRoot != null || !unaugmentedList.isEmpty()) {
                     rootTextList.add(alternativeRoot);
@@ -358,7 +368,7 @@ public class ControlPaneContainer extends JPanel {
             //عرض معلومات الجذر المنتقى
             AugmentedTrilateralRoot augmentedRoot = augmentedList.get(index);
             List<UnaugmentedTrilateralRoot> unaugmentedList = unaugmentedLists.get(index);
-            String newRoot = rootTextList.get(index).toString();
+            String newRoot = rootTextList.get(index);
             //حتى لا يتم عرض رسالة نتبيهية
             //إلا في حالة جذر واحد
             if (rootTextList.size() > 1) {
@@ -375,7 +385,7 @@ public class ControlPaneContainer extends JPanel {
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);
 
-        TrilateralKovRule rule = KovRulesManager.getInstance().getTrilateralKovRule(c1, c2, c3);
+        TrilateralKovRule rule = kovRulesManager.getTrilateralKovRule(c1, c2, c3);
         kovText = rule.getDesc();
         kov = rule.getKov();
 
@@ -389,7 +399,7 @@ public class ControlPaneContainer extends JPanel {
             rootFld.setText(rootText);
         }
 
-        TrilateralControlPane trilateralControlPane = (TrilateralControlPane) openControlPane(TrilateralControlPane.class.getName());
+        TrilateralControlPane trilateralControlPane = (TrilateralControlPane) openControlPane(TrilateralControlPane.class);
         trilateralControlPane.disableAll();
 
         if (augmentedRoot != null) {
@@ -410,11 +420,11 @@ public class ControlPaneContainer extends JPanel {
             return;
         }
 
-        List<String> alefAlternatives = Validator.getInstance().getQuadrilateralAlefAlternatives(root);
+        List<String> alefAlternatives = validator.getQuadrilateralAlefAlternatives(root);
         if (alefAlternatives.isEmpty()) {
             //لا يوجد احتمالات للألف
-            AugmentedQuadrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedQuadrilateralRoot(root);
-            UnaugmentedQuadrilateralRoot unaugmentedRoot = SarfDictionary.getInstance().getUnaugmentedQuadrilateralRoot(root);
+            AugmentedQuadrilateralRoot augmentedRoot = sarfDictionary.getAugmentedQuadrilateralRoot(root);
+            UnaugmentedQuadrilateralRoot unaugmentedRoot = sarfDictionary.getUnaugmentedQuadrilateralRoot(root);
             if (augmentedRoot == null && unaugmentedRoot == null) {
                 displayErrorMessage("لم يرد هذا الجذر في قاعدة المعطيات      ");
             }
@@ -430,8 +440,8 @@ public class ControlPaneContainer extends JPanel {
             List<UnaugmentedQuadrilateralRoot> unaugmentedList = new LinkedList<>();
 
             for (String alternativeRoot : alefAlternatives) {
-                AugmentedQuadrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedQuadrilateralRoot(alternativeRoot);
-                UnaugmentedQuadrilateralRoot unaugmentedRoot = SarfDictionary.getInstance().getUnaugmentedQuadrilateralRoot(alternativeRoot);
+                AugmentedQuadrilateralRoot augmentedRoot = sarfDictionary.getAugmentedQuadrilateralRoot(alternativeRoot);
+                UnaugmentedQuadrilateralRoot unaugmentedRoot = sarfDictionary.getUnaugmentedQuadrilateralRoot(alternativeRoot);
                 if (augmentedRoot != null || unaugmentedRoot != null) {
                     rootTextList.add(alternativeRoot);
                     augmentedList.add(augmentedRoot);
@@ -475,7 +485,7 @@ public class ControlPaneContainer extends JPanel {
         char c3 = rootText.charAt(2);
         char c4 = rootText.charAt(3);
 
-        QuadrilateralKovRule rule = KovRulesManager.getInstance().getQuadrilateralKovRule(c1, c2, c3, c4);
+        QuadrilateralKovRule rule = kovRulesManager.getQuadrilateralKovRule(c1, c2, c3, c4);
         kovText = rule.getDesc();
         kov = rule.getKov();
 
@@ -489,7 +499,7 @@ public class ControlPaneContainer extends JPanel {
             rootFld.setText(rootText);
         }
 
-        QuadrilateralControlPane quadrilateralControlPane = (QuadrilateralControlPane) openControlPane(QuadrilateralControlPane.class.getName());
+        QuadrilateralControlPane quadrilateralControlPane = (QuadrilateralControlPane) openControlPane(QuadrilateralControlPane.class);
         quadrilateralControlPane.disableAll();
 
         if (unaugmentedRoot != null) {
@@ -519,13 +529,6 @@ public class ControlPaneContainer extends JPanel {
         JOptionPane.showMessageDialog(this, msg, "", JOptionPane.ERROR_MESSAGE);
     }
 
-
-    private static final ControlPaneContainer instance = new ControlPaneContainer();
-
-    public static ControlPaneContainer getInstance() {
-        return instance;
-    }
-
     public KindOfVerb getKov() {
         return kov;
     }
@@ -542,12 +545,14 @@ public class ControlPaneContainer extends JPanel {
         return verbTxtFld;
     }
 
-    private IControlPane getControlPane(String className) {
-        IControlPane controlPane = controlPaneMap.get(className);
+    private IControlPane getControlPane(Class controlPanelClass) {
+        IControlPane controlPane = controlPaneMap.get(controlPanelClass);
         if (controlPane == null) {
             try {
-                controlPane = (IControlPane) Class.forName(className).newInstance();
-                controlPaneMap.put(className, controlPane);
+//                var constructor = Class.forName(className).getConstructors()[0];
+//                controlPane = (IControlPane) constructor.newInstance(this);
+                controlPane = createControlPanel(controlPanelClass);
+                controlPaneMap.put(controlPanelClass, controlPane);
             }
             catch (Exception ex) {
                 ex.printStackTrace();
@@ -557,7 +562,38 @@ public class ControlPaneContainer extends JPanel {
         return controlPane;
     }
 
-    public IControlPane openControlPane(String className) {
+    private IControlPane createControlPanel(Class type){
+        if (TrilateralControlPane.class.equals(type)) {
+            return new TrilateralControlPane(this);
+        }
+        else if(QuadrilateralControlPane.class.equals(type)){
+            return new QuadrilateralControlPane(this);
+        }
+        else if(VerbNamesSelectionUI.class.equals(type)){
+            return new VerbNamesSelectionUI(this);
+        }
+        else if(GerundSelectionUI.class.equals(type)){
+            return  new GerundSelectionUI(this);
+        }
+        else if(TrilateralUnaugmentedGerundsUI.class.equals(type)){
+            return new TrilateralUnaugmentedGerundsUI(this, meemGerundConjugator);
+        }
+        else if(NamesSelectionUI.class.equals(type)){
+            return new NamesSelectionUI(this);
+        }
+        else if(TrilateralUnaugmentedNounsUI.class.equals(type)){
+            return new TrilateralUnaugmentedNounsUI(this);
+        }
+        else if(PassiveVerbSelectionUI.class.equals(type)){
+            return new PassiveVerbSelectionUI(this);
+        }
+        else if(ActiveVerbSelectionUI.class.equals(type)){
+            return new ActiveVerbSelectionUI(this);
+        }
+        return null;
+    }
+
+    public IControlPane openControlPane(Class panelClass) {
         resultPane.removeAll();
         resultPane.validate();
         resultPane.repaint();
@@ -567,7 +603,7 @@ public class ControlPaneContainer extends JPanel {
         repaint();
 
         container.removeAll();
-        IControlPane controlPane = getControlPane(className);
+        IControlPane controlPane = getControlPane(panelClass);
         container.add(controlPane.getComponent());
         validate();
         repaint();
@@ -598,7 +634,7 @@ public class ControlPaneContainer extends JPanel {
             //first remove it from the cash so the flow will not get effected
             panelCashSet.remove(index);
 
-            openControlPane(controlPane.getClass().getName());
+            openControlPane(controlPane.getClass());
             index--;
 
             if (index == 0) {
@@ -672,5 +708,4 @@ public class ControlPaneContainer extends JPanel {
     private void ShowMessageBox(Object message) {
     	JOptionPane.showMessageDialog(ControlPaneContainer.this, message, "البرنامج واجه خطأ", JOptionPane.ERROR_MESSAGE);
     }
-
 }

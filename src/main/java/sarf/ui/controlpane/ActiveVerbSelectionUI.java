@@ -1,6 +1,8 @@
 package sarf.ui.controlpane;
 
 import javax.swing.*;
+
+import com.google.inject.Inject;
 import sarf.ui.*;
 import java.awt.*;
 
@@ -32,6 +34,7 @@ import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
  * @version 1.0
  */
 public class ActiveVerbSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
+    private final ControlPaneContainer controlPaneContainer;
     private SelectionInfo selectionInfo;
 
     private final ToggleRenderedButton pastBtn = new ToggleRenderedButton("الماضي");
@@ -42,9 +45,10 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
     private final ToggleRenderedButton imperativeBtn = new ToggleRenderedButton("الأمر");
     private final ToggleRenderedButton imperativeEmphasizedBtn = new ToggleRenderedButton("الأمر المؤكد");
 
-
-    public ActiveVerbSelectionUI() {
+    @Inject
+    public ActiveVerbSelectionUI(ControlPaneContainer controlPaneContainer) {
         super(new BorderLayout());
+        this.controlPaneContainer = controlPaneContainer;
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         var buttonsPanel = buildButtonPanel();
         add(buttonsPanel);
@@ -57,8 +61,8 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
             else {
                 result = generateQuadrilateralActivePastResult();
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, "الماضي");
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, "الماضي");
+            controlPaneContainer.openResult(ui);
         });
 
         presentNominativeBtn.addActionListener(e -> {
@@ -90,8 +94,8 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                 result = conjResult.getFinalResult();
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, "المضارع المرفوع");
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, "المضارع المرفوع");
+            controlPaneContainer.openResult(ui);
         });
 
         presentAccusativeBtn.addActionListener(e -> {
@@ -124,8 +128,8 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                 result = conjResult.getFinalResult();
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, "المضارع المنصوب");
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, "المضارع المنصوب");
+            controlPaneContainer.openResult(ui);
         });
 
         presentJussiveBtn.addActionListener(e -> {
@@ -146,8 +150,8 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                                 conjResult.getOriginalResult(), SystemConstants.PRESENT_TENSE, true, false, ActiveVerbSelectionUI.this);
                         List notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(result, notGeminatedResult, presentJussiveBtn.getText());
-                        ControlPaneContainer.getInstance().openResult(ui);
+                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(this.controlPaneContainer, result, notGeminatedResult, presentJussiveBtn.getText());
+                        controlPaneContainer.openResult(ui);
                         return;
                     }
                 }
@@ -164,8 +168,8 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                                 SystemConstants.PRESENT_TENSE, true, false);
                         List notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(result, notGeminatedResult, presentJussiveBtn.getText());
-                        ControlPaneContainer.getInstance().openResult(ui);
+                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(this.controlPaneContainer, result, notGeminatedResult, presentJussiveBtn.getText());
+                        controlPaneContainer.openResult(ui);
                         return;
                     }
                 }
@@ -183,13 +187,13 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                 sarf.verb.quadriliteral.ConjugationResult notGeminatedConjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), conjResult.getOriginalResult(),
                         SystemConstants.PRESENT_TENSE, true, false);
 
-                JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(conjResult.getFinalResult(), notGeminatedConjResult.getFinalResult(), presentJussiveBtn.getText());
-                ControlPaneContainer.getInstance().openResult(ui);
+                JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(this.controlPaneContainer, conjResult.getFinalResult(), notGeminatedConjResult.getFinalResult(), presentJussiveBtn.getText());
+                controlPaneContainer.openResult(ui);
                 return;
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, "المضارع المجزوم");
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, "المضارع المجزوم");
+            controlPaneContainer.openResult(ui);
         });
 
         presentEmphasizedBtn.addActionListener(e -> {
@@ -222,8 +226,8 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                 result = conjResult.getFinalResult();
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, "المضارع المؤكد");
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, "المضارع المؤكد");
+            controlPaneContainer.openResult(ui);
         });
 
         imperativeBtn.addActionListener(e -> {
@@ -246,8 +250,8 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                                 conjResult.getOriginalResult(), SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true, false, ActiveVerbSelectionUI.this);
                         List notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(result, notGeminatedResult, imperativeBtn.getText());
-                        ControlPaneContainer.getInstance().openResult(ui);
+                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, result, notGeminatedResult, imperativeBtn.getText());
+                        controlPaneContainer.openResult(ui);
                         return;
                     }
                 }
@@ -266,8 +270,8 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                                 SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true, false);
                         List notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(result, notGeminatedResult, imperativeBtn.getText());
-                        ControlPaneContainer.getInstance().openResult(ui);
+                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, result, notGeminatedResult, imperativeBtn.getText());
+                        controlPaneContainer.openResult(ui);
                         return;
                     }
                 }
@@ -287,12 +291,12 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                 sarf.verb.quadriliteral.ConjugationResult notGeminatedConjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result,
                         SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true, false);
 
-                ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(conjResult.getFinalResult(), notGeminatedConjResult.getFinalResult(), imperativeBtn.getText());
-                ControlPaneContainer.getInstance().openResult(ui);
+                ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, conjResult.getFinalResult(), notGeminatedConjResult.getFinalResult(), imperativeBtn.getText());
+                controlPaneContainer.openResult(ui);
                 return;
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, "الأمر");
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, "الأمر");
+            controlPaneContainer.openResult(ui);
         });
 
         imperativeEmphasizedBtn.addActionListener(e -> {
@@ -313,8 +317,8 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                                 conjResult.getOriginalResult(), SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true, false, ActiveVerbSelectionUI.this);
                         List notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(result, notGeminatedResult, imperativeEmphasizedBtn.getText());
-                        ControlPaneContainer.getInstance().openResult(ui);
+                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, result, notGeminatedResult, imperativeEmphasizedBtn.getText());
+                        controlPaneContainer.openResult(ui);
                         return;
                     }
                 }
@@ -333,8 +337,8 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                                 SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true, false);
                         List notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(result, notGeminatedResult, imperativeEmphasizedBtn.getText());
-                        ControlPaneContainer.getInstance().openResult(ui);
+                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, result, notGeminatedResult, imperativeEmphasizedBtn.getText());
+                        controlPaneContainer.openResult(ui);
                         return;
                     }
                 }
@@ -353,13 +357,13 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                 sarf.verb.quadriliteral.ConjugationResult notGeminatedConjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result,
                         SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true, false);
 
-                ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(conjResult.getFinalResult(), notGeminatedConjResult.getFinalResult(), imperativeEmphasizedBtn.getText());
-                ControlPaneContainer.getInstance().openResult(ui);
+                ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, conjResult.getFinalResult(), notGeminatedConjResult.getFinalResult(), imperativeEmphasizedBtn.getText());
+                controlPaneContainer.openResult(ui);
                 return;
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, "الأمر المؤكد");
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, "الأمر المؤكد");
+            controlPaneContainer.openResult(ui);
         });
     }
 

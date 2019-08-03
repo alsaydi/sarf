@@ -1,7 +1,10 @@
 package sarf.ui;
 
+import sarf.SarfDictionary;
+
 import java.awt.*;
 
+import javax.inject.Inject;
 import javax.swing.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
@@ -21,16 +24,18 @@ import java.awt.im.InputContext;
  * @author not attributable
  * @version 1.0
  */
-public class MainFrame extends JFrame {
+class MainFrame extends JFrame {
    
 	private static final long serialVersionUID = 1L;
-	JPanel contentPane;
-    final BorderLayout borderLayout1 = new BorderLayout();
-    IntroPane introPane;
-    Preferences pref;
+	private JPanel contentPane;
+    private final BorderLayout borderLayout1 = new BorderLayout();
+    private IntroPane introPane;
+    private Preferences pref;
+    private final ControlPaneContainer controlPaneContainer;
 
-    public MainFrame() {
-
+    @Inject
+    MainFrame(SarfDictionary sarfDictionary, ControlPaneContainer controlPaneContainer) {
+        this.controlPaneContainer = controlPaneContainer;
         try {
             setDefaultCloseOperation(EXIT_ON_CLOSE);
             jbInit();
@@ -58,7 +63,7 @@ public class MainFrame extends JFrame {
         }
     }
 
-    public synchronized void introPaneClicked() {
+    synchronized void introPaneClicked() {
         if (introPane == null)
             return;
 
@@ -69,17 +74,17 @@ public class MainFrame extends JFrame {
 
     private void openDesktop() {
         contentPane.removeAll();
-        contentPane.add(ControlPaneContainer.getInstance());
+        contentPane.add(controlPaneContainer);
 
 
-        setJMenuBar(ControlPaneContainer.getInstance().getMenuBar());
+        setJMenuBar(controlPaneContainer.getMenuBar());
         validate();
         repaint();
 
-        ControlPaneContainer.getInstance().getRootFld().requestFocus();
-        ControlPaneContainer.getInstance().setPref(pref);
+        controlPaneContainer.getRootFld().requestFocus();
+        controlPaneContainer.setPref(pref);
 
-        InputContext inputContext = ControlPaneContainer.getInstance().getRootFld().getInputContext();
+        InputContext inputContext = controlPaneContainer.getRootFld().getInputContext();
         //starting with sy first
         Locale syLocale = new java.util.Locale("ar", "SY", "");
         if (inputContext.selectInputMethod(syLocale))
@@ -99,8 +104,6 @@ public class MainFrame extends JFrame {
 
     /**
      * Component initialization.
-     *
-     * @throws java.lang.Exception
      */
     private void jbInit() throws Exception {
         contentPane = (JPanel) getContentPane();

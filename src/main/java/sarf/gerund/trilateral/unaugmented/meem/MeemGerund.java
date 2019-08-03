@@ -29,7 +29,7 @@ public abstract class MeemGerund {
 
     protected void init(UnaugmentedTrilateralRoot root, String suffixNo) {
         this.root = root;
-        this.suffixNo = Integer.parseInt(suffixNo);
+        this.suffixNo = "".equals(suffixNo) ? 0 : Integer.parseInt(suffixNo);
 
         suffix = GenericNounSuffixContainer.getInstance().get(this.suffixNo);
     }
@@ -39,10 +39,8 @@ public abstract class MeemGerund {
 
     public String toString() {
         String result = form();
-        if (result != null && result != "")
+        if (result != null && !result.equals(""))
             return GenericNounSuffixContainer.getInstance().getPrefix()+result;
         return "";
-
     }
-
 }

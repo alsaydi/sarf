@@ -24,9 +24,10 @@ import java.io.FileNotFoundException;
  * @version 1.0
  */
 public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSaver  {
-    final List dataFieldsList = new ArrayList(13);
+    private final ControlPaneContainer controlPaneContainer;
+    private final List dataFieldsList = new ArrayList(13);
     public static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 30);
-    public static final Border BORDER = BorderFactory.createEtchedBorder();
+    private static final Border BORDER = BorderFactory.createEtchedBorder();
 
     private final String title;
 
@@ -35,8 +36,9 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
      * @param verbConjugationList List
      * @param notGeminatedVerbConjugationList List
      */
-    public JussiveVerbConjugationUI(List verbConjugationList, List notGeminatedVerbConjugationList, String title) {
+    public JussiveVerbConjugationUI(ControlPaneContainer controlPaneContainer, List verbConjugationList, List notGeminatedVerbConjugationList, String title) {
         super(new GridLayout(7,4));
+        this.controlPaneContainer = controlPaneContainer;
         this.title = title;
         setFont(FONT);
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
@@ -103,7 +105,7 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
     public boolean saveToHtml(File file) {
         String content = FileUtil.getContents("db/verbs.html");
 
-        String docTitle = "تصريف "+ " ( "+ title + " ) " +" للفعل "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
+        String docTitle = "تصريف "+ " ( "+ title + " ) " +" للفعل "+ " ( "+ controlPaneContainer.getVerbTxtFld().getText() +" )";
         //put the title
         content = content.replaceFirst("DocTitle", docTitle);
 
@@ -133,7 +135,7 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
     }
 
     public String getSavedFileNameTitle() {
-        return "تصريف "+ " "+ title + " " +" للفعل "+ "  "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText();
+        return "تصريف "+ " "+ title + " " +" للفعل "+ "  "+ controlPaneContainer.getVerbTxtFld().getText();
     }
 
 }

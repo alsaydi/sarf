@@ -24,11 +24,10 @@ import sarf.noun.trilateral.unaugmented.elative.*;
  * @version 1.0
  */
 public class ElativeNounStateSelectionUI extends JPanel implements INounStateSelectionUI{
-
-    final ToggleRenderedButton definiteBtn = new ToggleRenderedButton("المعرف بأل ");
-    final ToggleRenderedButton annexedDefiniteBtn = new ToggleRenderedButton("المضاف إلى معرفة  ");
-    final ToggleRenderedButton annexedIndefiniteBtn = new ToggleRenderedButton("المضاف إلى نكرة  ");
-    final ToggleRenderedButton notAnnexedIndefiniteBtn = new ToggleRenderedButton("غير المضاف ");
+    private final ToggleRenderedButton definiteBtn = new ToggleRenderedButton("المعرف بأل ");
+    private final ToggleRenderedButton annexedDefiniteBtn = new ToggleRenderedButton("المضاف إلى معرفة  ");
+    private final ToggleRenderedButton annexedIndefiniteBtn = new ToggleRenderedButton("المضاف إلى نكرة  ");
+    private final ToggleRenderedButton notAnnexedIndefiniteBtn = new ToggleRenderedButton("غير المضاف ");
 
 
     public ElativeNounStateSelectionUI() {

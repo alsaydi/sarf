@@ -30,28 +30,30 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
     private final List augmentedButons = new ArrayList(12);
 
     private final ControlButton unaugmentedBtn = new ControlButton("فَعْلَل يُفَعْلِل");
+    private final ControlPaneContainer controlPaneContainer;
     private AugmentedQuadrilateralRoot currentAugmentedRoot;
     private UnaugmentedQuadrilateralRoot currentUnaugmentedRoot;
 
-    public QuadrilateralControlPane() {
+    public QuadrilateralControlPane(ControlPaneContainer controlPaneContainer) {
         super(new BorderLayout());
+        this.controlPaneContainer = controlPaneContainer;
 
         JPanel unaugmentedPanel = new JPanel(new GridLayout(1, 3));
         unaugmentedPanel.add(Box.createHorizontalBox());
         unaugmentedPanel.add(Box.createHorizontalBox());
         unaugmentedPanel.add(unaugmentedBtn);
         unaugmentedBtn.getButton().addActionListener(e -> {
-            SelectionInfo selectionInfo = new SelectionInfo(currentUnaugmentedRoot, false, false, ControlPaneContainer.getInstance().getKov());
+            SelectionInfo selectionInfo = new SelectionInfo(currentUnaugmentedRoot, false, false, controlPaneContainer.getKov());
             selectionInfo.setFormulaText(unaugmentedBtn.getFormulaText());
             selectionInfo.setVerbText(unaugmentedBtn.getVerbText());
             //اتفق على أن يكون الرقم صفر دلالة على المجرد
             selectionInfo.setAugmentationFormulaNo(0);
 
-            VerbNamesSelectionUI verbNamesSelectionUI = (VerbNamesSelectionUI) ControlPaneContainer.getInstance().openControlPane(VerbNamesSelectionUI.class.getName());
+            VerbNamesSelectionUI verbNamesSelectionUI = (VerbNamesSelectionUI) controlPaneContainer.openControlPane(VerbNamesSelectionUI.class);
             verbNamesSelectionUI.setInfo(selectionInfo);
 
-            ControlPaneContainer.getInstance().setTransitiveType(currentUnaugmentedRoot.getTransitive());
-            ControlPaneContainer.getInstance().setVerbText(unaugmentedBtn.getVerbText());
+            controlPaneContainer.setTransitiveType(currentUnaugmentedRoot.getTransitive());
+            controlPaneContainer.setVerbText(unaugmentedBtn.getVerbText());
         });
 
         JPanel augmentedPnl1 = new JPanel(new GridLayout(1, 3));
@@ -119,14 +121,14 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
         String pastRootText = sarf.verb.quadriliteral.unaugmented.active.ActivePastConjugator.getInstance().createVerb(7, root).toString();
         List conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
-        sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, 0, ControlPaneContainer.getInstance().getKov(), conjugations, SystemConstants.PAST_TENSE, true);
+        sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, 0, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //past text formatting
         String presentRootText = sarf.verb.quadriliteral.unaugmented.active.ActivePresentConjugator.getInstance().createNominativeVerb(7, root).toString();
         conjugations = createEmptyList();
         conjugations.set(7, presentRootText);
-        conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, 0, ControlPaneContainer.getInstance().getKov(), conjugations, SystemConstants.PRESENT_TENSE, true);
+        conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, 0, controlPaneContainer.getKov(), conjugations, SystemConstants.PRESENT_TENSE, true);
         presentRootText = conjResult.getFinalResult().get(7).toString();
 
         unaugmentedBtn.setRootText(pastRootText + " "+ presentRootText);
@@ -145,14 +147,14 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
         String pastRootText = sarf.verb.quadriliteral.augmented.active.past.AugmentedActivePastConjugator.getInstance().createVerb(root, 7, formulaNo).toString();
         List conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
-        sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, formulaNo, ControlPaneContainer.getInstance().getKov(), conjugations, SystemConstants.PAST_TENSE, true);
+        sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, formulaNo, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //past text formatting
         String presentRootText = sarf.verb.quadriliteral.augmented.active.present.AugmentedActivePresentConjugator.getInstance().getNominativeConjugator().createVerb(root, 7, formulaNo).toString();
         conjugations = createEmptyList();
         conjugations.set(7, presentRootText);
-        conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, formulaNo, ControlPaneContainer.getInstance().getKov(), conjugations, SystemConstants.PRESENT_TENSE, true);
+        conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, formulaNo, controlPaneContainer.getKov(), conjugations, SystemConstants.PRESENT_TENSE, true);
         presentRootText = conjResult.getFinalResult().get(7).toString();
 
         btn.setRootText(pastRootText + " "+ presentRootText);
@@ -171,18 +173,18 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
 
     class AugmentedActionListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            SelectionInfo selectionInfo = new SelectionInfo(currentAugmentedRoot, false, true, ControlPaneContainer.getInstance().getKov());
+            SelectionInfo selectionInfo = new SelectionInfo(currentAugmentedRoot, false, true, controlPaneContainer.getKov());
             int formulaNo = Integer.parseInt(((JButton) e.getSource()).getName());
             selectionInfo.setAugmentationFormulaNo(formulaNo);
             ControlButton controlButton = (ControlButton) augmentedButons.get(formulaNo - 1);
             selectionInfo.setFormulaText(controlButton.getFormulaText());
             selectionInfo.setVerbText(controlButton.getVerbText());
 
-            VerbNamesSelectionUI verbNamesSelectionUI = (VerbNamesSelectionUI) ControlPaneContainer.getInstance().openControlPane(VerbNamesSelectionUI.class.getName());
+            VerbNamesSelectionUI verbNamesSelectionUI = (VerbNamesSelectionUI) controlPaneContainer.openControlPane(VerbNamesSelectionUI.class);
             verbNamesSelectionUI.setInfo(selectionInfo);
 
-            ControlPaneContainer.getInstance().setTransitiveType(currentAugmentedRoot.getAugmentationFormula(formulaNo).getTransitive() + "");
-            ControlPaneContainer.getInstance().setVerbText(controlButton.getVerbText());
+            controlPaneContainer.setTransitiveType(currentAugmentedRoot.getAugmentationFormula(formulaNo).getTransitive() + "");
+            controlPaneContainer.setVerbText(controlButton.getVerbText());
         }
     }
 

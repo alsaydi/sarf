@@ -30,6 +30,7 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListen
  * @version 1.0
  */
 public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
+    private final ControlPaneContainer controlPaneContainer;
     private SelectionInfo selectionInfo;
 
 
@@ -38,8 +39,9 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
     private final ToggleRenderedButton timeAndPlaceBtn = new ToggleRenderedButton("اسم الزمان والمكان  ");
 
 
-    public NamesSelectionUI() {
+    public NamesSelectionUI(ControlPaneContainer controlPaneContainer) {
         super(new BorderLayout());
+        this.controlPaneContainer = controlPaneContainer;
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         JPanel buttonsPanel = new APanel(new GridLayout(1, 7));
@@ -80,8 +82,8 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
                 return conjResult.getFinalResult();
             };
 
-            NounConjugationUI ui = new NounConjugationUI(action, activeParticipleBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            NounConjugationUI ui = new NounConjugationUI(this.controlPaneContainer, action, activeParticipleBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
 
         passiveParticipleBtn.addActionListener(e -> {
@@ -107,8 +109,8 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
                 return conjResult.getFinalResult();
             };
 
-            NounConjugationUI ui = new NounConjugationUI(action, passiveParticipleBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            NounConjugationUI ui = new NounConjugationUI(this.controlPaneContainer, action, passiveParticipleBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
 
 
@@ -135,8 +137,8 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
                 return conjResult.getFinalResult();
             };
 
-            NounConjugationUI ui = new NounConjugationUI(action, timeAndPlaceBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            NounConjugationUI ui = new NounConjugationUI(this.controlPaneContainer, action, timeAndPlaceBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
     }
 
@@ -177,6 +179,4 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
         cashedUserResponse = optionResult == JOptionPane.NO_OPTION;
         return cashedUserResponse;
     }
-
-
 }

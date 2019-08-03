@@ -7,8 +7,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import com.google.inject.Guice;
+import com.google.inject.Inject;
 import sarf.KindOfVerb;
 import sarf.SarfDictionary;
+import sarf.SarfModule;
 import sarf.SystemConstants;
 import sarf.kov.KovRulesManager;
 import sarf.kov.TrilateralKovRule;
@@ -18,9 +21,20 @@ import sarf.verb.trilateral.unaugmented.active.ActivePastVerb;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 
 public class ConsoleApp {
+	private final SarfDictionary sarfDictionary;
+	private final KovRulesManager kovRulesManager;
+
+	@Inject
+	public ConsoleApp(SarfDictionary sarfDictionary, KovRulesManager kovRulesManager){
+		this.sarfDictionary = sarfDictionary;
+		this.kovRulesManager = kovRulesManager;
+	}
+
 	public static void main(String[] args) {
 		try {
-			(new ConsoleApp()).Run();
+			var injector = Guice.createInjector(new SarfModule());
+			var mainApp = injector.getInstance(ConsoleApp.class);
+			mainApp.run();
 		} catch (Exception ex) {
 			System.err.println(ex.getMessage());
 			System.err.println(Arrays.toString(ex.getStackTrace()));
@@ -28,7 +42,7 @@ public class ConsoleApp {
 		}
 	}
 
-	private void Run() throws Exception {
+	private void run() throws Exception {
 		//@SuppressWarnings("resource")
 		//String root = new Scanner(System.in).nextLine();
 		String root = "سلم";
@@ -48,8 +62,8 @@ public class ConsoleApp {
 	}
 
 	private void processTrilateral(String root) throws Exception {
-		AugmentedTrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedTrilateralRoot(root);
-		List<UnaugmentedTrilateralRoot> unaugmentedList = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots(root);
+		AugmentedTrilateralRoot augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(root);
+		List<UnaugmentedTrilateralRoot> unaugmentedList = sarfDictionary.getUnaugmentedTrilateralRoots(root);
 		if (augmentedRoot == null && unaugmentedList.isEmpty()) {
 			displayErrorMessage(root + ": لم يرد هذا الجذر في قاعدة المعطيات");
 		} else {
@@ -62,7 +76,7 @@ public class ConsoleApp {
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);
 
-        TrilateralKovRule rule = KovRulesManager.getInstance().getTrilateralKovRule(c1, c2, c3);
+        TrilateralKovRule rule = kovRulesManager.getTrilateralKovRule(c1, c2, c3);
         String kovText = rule.getDesc();
         KindOfVerb kov = rule.getKov();
         

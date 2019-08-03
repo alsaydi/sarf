@@ -23,10 +23,9 @@ import sarf.ui.*;
  * @version 1.0
  */
 public class NounStateSelectionUI extends JPanel implements INounStateSelectionUI{
-
-    final ToggleRenderedButton definiteBtn = new ToggleRenderedButton("في حالة المعرفة  ");
-    final ToggleRenderedButton annexedBtn = new ToggleRenderedButton("في حالة الإضافة  ");
-    final ToggleRenderedButton indefiniteBtn = new ToggleRenderedButton("في حالة النكرة  ");
+    private final ToggleRenderedButton definiteBtn = new ToggleRenderedButton("في حالة المعرفة  ");
+    private final ToggleRenderedButton annexedBtn = new ToggleRenderedButton("في حالة الإضافة  ");
+    private final ToggleRenderedButton indefiniteBtn = new ToggleRenderedButton("في حالة النكرة  ");
 
     public NounStateSelectionUI() {
         super(new BorderLayout());

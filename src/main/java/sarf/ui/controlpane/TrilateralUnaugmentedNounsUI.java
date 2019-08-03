@@ -37,17 +37,19 @@ import javax.swing.event.*;
  * @version 1.0
  */
 public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane {
+    private final ControlPaneContainer controlPaneContainer;
     private SelectionInfo selectionInfo;
     private UnaugmentedTrilateralRoot root;
 
-    final APanel activeParticiplePane = new APanel(new GridLayout(1, 3));
-    final APanel passiveParticiplePane = new APanel(new GridLayout(1, 3));
+    private final APanel activeParticiplePane = new APanel(new GridLayout(1, 3));
+    private final APanel passiveParticiplePane = new APanel(new GridLayout(1, 3));
 
-    final CustomTabbedPane controlPanels = new CustomTabbedPane();
+    private final CustomTabbedPane controlPanels = new CustomTabbedPane();
 
 
-    public TrilateralUnaugmentedNounsUI() {
+    public TrilateralUnaugmentedNounsUI(ControlPaneContainer controlPaneContainer) {
         super(new BorderLayout());
+        this.controlPaneContainer = controlPaneContainer;
 
         //add(new NounStateSelectionUI());
         add(controlPanels);
@@ -55,8 +57,8 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         controlPanels.addChangeListener(e -> {
             int selectedIndex = controlPanels.getSelectedIndex();
             if (selectedIndex != -1) {
-                JPanel selectedPane = ((JPanel)controlPanels.getComponent(selectedIndex));
-                if (selectedPane.getComponentCount()> 0) {
+                JPanel selectedPane = ((JPanel) controlPanels.getComponent(selectedIndex));
+                if (selectedPane.getComponentCount() > 0) {
                     JToggleButton btn = (JToggleButton) selectedPane.getComponent(0);
                     if (btn.isSelected()) {
                         btn.setSelected(false);
@@ -71,7 +73,7 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         return this;
     }
 
-    public void setInfo(SelectionInfo selectionInfo) {
+    void setInfo(SelectionInfo selectionInfo) {
 
         this.selectionInfo = selectionInfo;
         root = (UnaugmentedTrilateralRoot) selectionInfo.getRoot();
@@ -100,13 +102,14 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         if (standardExaggerationsPnl != null || nonStandardExaggerationsPnl != null) {
             ButtonGroup bg = new ButtonGroup();
             JPanel result = new APanel();
+            assert standardExaggerationsPnl != null;
             int buttonsCount = standardExaggerationsPnl.getComponentCount();
             if (nonStandardExaggerationsPnl != null) {
                 buttonsCount += nonStandardExaggerationsPnl.getComponentCount();
             }
             result.setLayout(new GridLayout(1, buttonsCount));
 
-            bg.add((JToggleButton)standardExaggerationsPnl.getComponent(0));
+            bg.add((JToggleButton) standardExaggerationsPnl.getComponent(0));
             result.add(standardExaggerationsPnl.getComponent(0));
             if (nonStandardExaggerationsPnl != null) {
                 int count = nonStandardExaggerationsPnl.getComponentCount();
@@ -119,7 +122,6 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
             }
             controlPanels.add("مبالغة اسم الفاعل", result);
         }
-
 
 
         JPanel standardInstrumentalsPnl = null;
@@ -247,8 +249,8 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
                 return conjResult.getFinalResult();
             };
 
-            NounConjugationUI ui = new NounConjugationUI(sarfAction, nounSuffixContainer, title);
-            ControlPaneContainer.getInstance().openResult(ui);
+            NounConjugationUI ui = new NounConjugationUI(this.controlPaneContainer, sarfAction, nounSuffixContainer, title);
+            controlPaneContainer.openResult(ui);
         });
 
         button.setMaximumSize(new Dimension(30, 30));
@@ -281,8 +283,8 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
                 return conjResult.getFinalResult();
             };
 
-            ElativeNounConjugationUI ui = new ElativeNounConjugationUI(sarfAction, title);
-            ControlPaneContainer.getInstance().openResult(ui);
+            ElativeNounConjugationUI ui = new ElativeNounConjugationUI(this.controlPaneContainer, sarfAction, title);
+            controlPaneContainer.openResult(ui);
         });
 
         button.setMaximumSize(new Dimension(30, 30));
@@ -292,10 +294,10 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
 
 
     private boolean opened = false;
+
     public void controlPaneOpened() {
         opened = true;
     }
-
 
     public void controlPaneClosed() {
         opened = false;

@@ -17,15 +17,10 @@ import sarf.noun.trilateral.unaugmented.timeandplace.NonStandardTimeAndPlaceNoun
  * @version 1.0
  */
 public class NounFormula3 extends NonStandardTimeAndPlaceNounFormula{
-
+    public NounFormula3(){}
     public NounFormula3(UnaugmentedTrilateralRoot root, String suffixNo) {
         super(root, suffixNo);
     }
-
-    //to be used in refection getting the formula name
-    public NounFormula3() {
-    }
-
     public String form() {
         switch (suffixNo) {
         case 2:

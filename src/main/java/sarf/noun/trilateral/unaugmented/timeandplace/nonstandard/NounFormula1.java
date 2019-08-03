@@ -17,11 +17,8 @@ import sarf.noun.trilateral.unaugmented.timeandplace.NonStandardTimeAndPlaceNoun
  * @version 1.0
  */
 public class NounFormula1 extends NonStandardTimeAndPlaceNounFormula{
-
-    //to be used in refection getting the formula name
-    public NounFormula1() {
+    public NounFormula1(){
     }
-	
     public NounFormula1(UnaugmentedTrilateralRoot root, String suffixNo) {
         super(root, suffixNo);
     }
@@ -36,7 +33,6 @@ public class NounFormula1 extends NonStandardTimeAndPlaceNounFormula{
         case 15:
             return "م"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+root.getC3()+suffix;
         }
-
         return "";
     }
 
@@ -47,6 +43,4 @@ public class NounFormula1 extends NonStandardTimeAndPlaceNounFormula{
     public String getSymbol() {
         return "A";
     }
-
-
 }

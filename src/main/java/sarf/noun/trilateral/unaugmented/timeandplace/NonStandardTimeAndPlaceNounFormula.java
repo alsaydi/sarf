@@ -26,7 +26,10 @@ public abstract class NonStandardTimeAndPlaceNounFormula extends NounFormula {
 
     /**
      * Every non standard time and place has a symbol to be represented by
+     *
      * @return String
      */
-    public abstract String getSymbol();
+    public String getSymbol() {
+        return "";
+    }
 }

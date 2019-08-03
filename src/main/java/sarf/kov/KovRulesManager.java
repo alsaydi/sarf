@@ -25,21 +25,11 @@ public class KovRulesManager {
     private TrilateralKovRuleList trilateralRulesList;
     private QuadrilateralKovRuleList quadrilateralRulesList;
 
-    private static final KovRulesManager instance = new KovRulesManager();
-
-    public static KovRulesManager getInstance() {
-        return instance;
+    public KovRulesManager() throws Exception {
+        trilateralRulesList = buildTrilateral(getResourceInputStream("db/trilateralkov.xml"));
+        quadrilateralRulesList = buildQuadrilateral(getResourceInputStream("db/quadrilateralkov.xml"));
     }
 
-    private KovRulesManager() {
-        try {
-            trilateralRulesList = buildTrilateral(getResourceInputStream("db/trilateralkov.xml"));
-            quadrilateralRulesList = buildQuadrilateral(getResourceInputStream("db/quadrilateralkov.xml"));
-        }
-        catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
 
     private TrilateralKovRuleList buildTrilateral(InputStream inputStream) throws Exception{
         Digester digester = new Digester();
@@ -115,13 +105,5 @@ public class KovRulesManager {
                 .filter(rule -> rule.check(c1, c2, c3, c4))
                 .findFirst()
                 .orElse(null);
-    }
-
-    public static void main(String[] args) {
-        char c1 = 'ح';
-        char c2 = 'ي';
-        char c3 = 'ح';
-        char c4 = 'ي';
-        System.out.println(""+ KovRulesManager.getInstance().getQuadrilateralKov(c1,c2,c3,c4));
     }
 }
