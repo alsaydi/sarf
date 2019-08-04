@@ -19,21 +19,17 @@ import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
  */
 public class GerundPattern2 extends TrilateralAugmentedGerund {
     public GerundPattern2() {
-
     }
 
     private boolean form2Applied = false;
     private boolean form3Applied = false;
     public GerundPattern2(AugmentedTrilateralRoot root, String suffixNo) {
+        this(root, suffixNo, false, false);
+    }
+    public GerundPattern2(AugmentedTrilateralRoot root, String suffixNo, boolean applyForm2, boolean applForm3){
         init(root, suffixNo);
-        //سيتم اختيار أحد القانونين
-        if (root.getC3() == 'ء') {
-            form3Applied = TrilateralAugmentedGerundConjugator.getInstance().selectPatternFormNo(2) == 2;
-        }
-        //عرض في المؤنث للناقص
-        else if (root.getC3() == 'و' || root.getC3() == 'ي')
-            form2Applied = true;
-
+        this.form2Applied = applyForm2;
+        this.form3Applied = applForm3;
     }
 
     /**

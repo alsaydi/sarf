@@ -19,13 +19,7 @@ public class FormulaApplyingChecker {
     private final Formula5ApplyingChecker formula5ApplyingChecker = new Formula5ApplyingChecker();
     private final Formula9ApplyingChecker formula9ApplyingChecker = new Formula9ApplyingChecker();
 
-    private FormulaApplyingChecker() {
-    }
-
-    private static final FormulaApplyingChecker instance = new FormulaApplyingChecker();
-
-    public static FormulaApplyingChecker getInstance() {
-        return instance;
+    public FormulaApplyingChecker() {
     }
 
     public int check(AugmentedTrilateralRoot root, int formulaNo) {

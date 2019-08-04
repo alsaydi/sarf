@@ -1,4 +1,3 @@
-
 package sarf.verb.trilateral.Substitution;
 
 import java.util.*;

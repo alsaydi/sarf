@@ -38,8 +38,7 @@ import static sarf.util.FileUtil.getResourceInputStream;
  * @version 1.0
  */
 public class DatabaseManager {
-
-	private DatabaseManager() {
+	public DatabaseManager(){
 	}
 
 	private final Map<String, UnaugmentedTrilateralRootTree> tripleUnaugmentedTreeMap = new HashMap<>();
@@ -55,12 +54,6 @@ public class DatabaseManager {
 	private final Map<String, XmExaggerationNounFormulaTree> exaggerationNounMap = new HashMap<>();
 	private final Map<String, XmlMeemGerundNounFormulaTree> meemGerundMap = new HashMap<>();
 	private final Map<String, Map<String, XmlNounFormulaTree>> allNounsTreeMap = new HashMap<>();
-
-	private static final DatabaseManager instance = new DatabaseManager();
-
-	public static DatabaseManager getInstance() {
-		return instance;
-	}
 
 	/**
 	 * الحصول على قائمة الجذور الثلاثية المجردة حسب حرفها الأول

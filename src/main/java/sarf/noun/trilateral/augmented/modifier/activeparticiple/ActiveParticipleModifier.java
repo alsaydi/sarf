@@ -2,6 +2,7 @@ package sarf.noun.trilateral.augmented.modifier.activeparticiple;
 
 import java.util.List;
 
+import com.google.inject.Inject;
 import sarf.KindOfVerb;
 import sarf.verb.trilateral.augmented.*;
 import sarf.noun.trilateral.augmented.modifier.*;
@@ -30,14 +31,11 @@ public class ActiveParticipleModifier {
     private final Geminator geminator = new Geminator();
     private final Vocalizer vocalizer = new Vocalizer();
     private final Mahmouz mahmouz = new Mahmouz();
+    private final FormulaApplyingChecker formulaApplyingChecker;
 
-    private ActiveParticipleModifier() {
-    }
-
-    private static final ActiveParticipleModifier instance = new ActiveParticipleModifier();
-
-    public static ActiveParticipleModifier getInstance() {
-        return instance;
+    @Inject
+    public ActiveParticipleModifier(FormulaApplyingChecker formulaApplyingChecker) {
+        this.formulaApplyingChecker = formulaApplyingChecker;
     }
 
     public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List conjugations, AugmentedTrilateralModifierListener listener) {
@@ -46,11 +44,10 @@ public class ActiveParticipleModifier {
         geminator.apply(conjResult);
 
         boolean applyVocalization = true;
-        int result = FormulaApplyingChecker.getInstance().check(root, formulaNo);
+        int result = formulaApplyingChecker.check(root, formulaNo);
         if (result == IFormulaApplyingChecker.NOT_VOCALIZED) {
             applyVocalization = false;
-        }
-        else if (result == IFormulaApplyingChecker.TWO_STATE) {
+        } else if (result == IFormulaApplyingChecker.TWO_STATE) {
             if (listener == null)
                 applyVocalization = true;
             else
@@ -68,6 +65,5 @@ public class ActiveParticipleModifier {
         NounSunLamModifier.getInstance().apply(conjResult);
         return conjResult;
     }
-
 }
 

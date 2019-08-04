@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier;
 
 import java.util.*;
 
+import com.google.inject.Inject;
 import sarf.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.*;
@@ -22,21 +23,18 @@ import sarf.verb.trilateral.augmented.modifier.vocalizer.*;
  * @version 1.0
  */
 public class AugmentedTrilateralModifier {
+    private final FormulaApplyingChecker formulaApplyingChecker;
 
-    private AugmentedTrilateralModifier() {
+    @Inject
+    public AugmentedTrilateralModifier(FormulaApplyingChecker formulaApplyingChecker) {
+        this.formulaApplyingChecker = formulaApplyingChecker;
     }
-
-    private static final AugmentedTrilateralModifier instance = new AugmentedTrilateralModifier();
     //الابدال
     private final Substituter substituter = new Substituter();
     private final Geminator geminator = new Geminator();
     private final Vocalizer vocalizer = new Vocalizer();
     private final PreVocalizer preVocalizer = new PreVocalizer();
     private final HamzaModifier hamzaModifier = new HamzaModifier();
-
-    public static AugmentedTrilateralModifier getInstance() {
-        return instance;
-    }
 
     /**
      * اخراج قائمة الأفعال بعد التعديلات
@@ -55,7 +53,7 @@ public class AugmentedTrilateralModifier {
         }
 
         boolean applyVocalization = true;
-        int result = FormulaApplyingChecker.getInstance().check(root, formulaNo);
+        int result = formulaApplyingChecker.check(root, formulaNo);
         if (result == IFormulaApplyingChecker.NOT_VOCALIZED) {
             applyVocalization = false;
         }

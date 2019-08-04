@@ -23,12 +23,12 @@ public class GerundPattern3 extends TrilateralAugmentedGerund {
 
     private boolean form2Applied = false;
 
-    public GerundPattern3(AugmentedTrilateralRoot root, String suffixNo) {
+    public GerundPattern3(AugmentedTrilateralRoot root, String suffixNo, boolean applyForm2) {
+        this.form2Applied = applyForm2;
         init(root, suffixNo);
-        //سيتم اختيار أحد القانونين
-        if (root.getC1() != 'ي') {
-            form2Applied = TrilateralAugmentedGerundConjugator.getInstance().selectPatternFormNo(3) == 2;
-        }
+    }
+    public GerundPattern3(AugmentedTrilateralRoot root, String suffixNo) {
+        this(root, suffixNo, false);
     }
 
     /**

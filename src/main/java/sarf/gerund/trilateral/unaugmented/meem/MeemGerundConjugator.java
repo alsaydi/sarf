@@ -27,10 +27,12 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
     private final Map<String, String> symbolToFormulaNameMap = new HashMap<>();
     private final Map<String, String> formulaNameToSymbolMap = new HashMap<>();
     private final KovRulesManager kovRulesManager;
+    private final DatabaseManager databaseManager;
 
     @Inject
-    public MeemGerundConjugator(KovRulesManager kovRulesManager) {
+    public MeemGerundConjugator(KovRulesManager kovRulesManager, DatabaseManager databaseManager) {
         this.kovRulesManager = kovRulesManager;
+        this.databaseManager = databaseManager;
         symbolToFormulaNameMap.put("C","مَفْعَلَة");
         symbolToFormulaNameMap.put("D","مَفْعُلَة");
         symbolToFormulaNameMap.put("E","مَفْعِلَة");
@@ -85,7 +87,7 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
         StandardGerundPattern standardGerundPattern = new StandardGerundPattern(root, "0", kov);
         result.add(standardGerundPattern.getPattern());
 
-        XmlMeemGerundNounFormulaTree formulaTree = DatabaseManager.getInstance().getMeemGerundFormulaTree(root.getC1());
+        XmlMeemGerundNounFormulaTree formulaTree = databaseManager.getMeemGerundFormulaTree(root.getC1());
         if (formulaTree != null) {
 
             for (Object o : formulaTree.getFormulaList()) {

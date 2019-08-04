@@ -34,7 +34,7 @@ public abstract class NounFormula {
 
     public String toString() {
         String result = form();
-        if (result != null && result != "")
+        if (result != null && !result.equals(""))
             return getNounSuffixContainer().getPrefix()+result;
         return "";
     }

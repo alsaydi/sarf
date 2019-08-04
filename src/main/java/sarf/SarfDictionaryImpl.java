@@ -3,6 +3,7 @@ package sarf;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import com.google.inject.Inject;
 import sarf.verb.quadriliteral.QuadrilateralRoot;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.unaugmented.*;
@@ -11,6 +12,12 @@ import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.unaugmented.*;
 
 public class SarfDictionaryImpl implements SarfDictionary {
+    private final DatabaseManager databaseManager;
+
+    @Inject
+    SarfDictionaryImpl(DatabaseManager databaseManager){
+        this.databaseManager = databaseManager;
+    }
 
     @Override
     public List<UnaugmentedTrilateralRoot> getUnaugmentedTrilateralRoots(String rootText) throws Exception {
@@ -18,7 +25,7 @@ public class SarfDictionaryImpl implements SarfDictionary {
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);
 
-        var unaugmentedRootsTree = DatabaseManager.getInstance().getUnaugmentedTrilateralRootTree(c1);
+        var unaugmentedRootsTree = databaseManager.getUnaugmentedTrilateralRootTree(c1);
         var roots = unaugmentedRootsTree.getRoots();
         return roots.stream()
                 .filter(root -> match(root, c1, c2, c3))
@@ -31,7 +38,7 @@ public class SarfDictionaryImpl implements SarfDictionary {
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);
 
-        var augmentedRootsTree = DatabaseManager.getInstance().getAugmentedTrilateralRootTree(c1);
+        var augmentedRootsTree = databaseManager.getAugmentedTrilateralRootTree(c1);
         var roots = augmentedRootsTree.getRoots();
         return roots.stream()
                 .filter(root -> match(root, c1, c2, c3))
@@ -48,7 +55,7 @@ public class SarfDictionaryImpl implements SarfDictionary {
 
         AugmentedQuadriliteralRootTree augmentedRootsTree;
         try {
-            augmentedRootsTree = DatabaseManager.getInstance().getAugmentedQuadrilateralRootTree(c1);
+            augmentedRootsTree = databaseManager.getAugmentedQuadrilateralRootTree(c1);
         } catch (Exception ex) {
             //الملف غير موجود
             return null;
@@ -67,7 +74,7 @@ public class SarfDictionaryImpl implements SarfDictionary {
         char c3 = rootText.charAt(2);
         char c4 = rootText.charAt(3);
 
-        var rootsTree = DatabaseManager.getInstance().getUnaugmentedQuadrilateralRootTree(c1);
+        var rootsTree = databaseManager.getUnaugmentedQuadrilateralRootTree(c1);
         var roots = rootsTree.getRoots();
 
         return roots.stream()

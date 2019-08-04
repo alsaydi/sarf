@@ -1,6 +1,8 @@
 package sarf.gerund.modifier.trilateral.augmented.standard;
 
 import java.util.List;
+
+import com.google.inject.Inject;
 import sarf.*;
 import sarf.noun.trilateral.augmented.modifier.Substituter;
 import sarf.verb.trilateral.augmented.*;
@@ -27,14 +29,11 @@ public class TitlateralAugmentedStandardModifier {
     private final Vocalizer vocalizer = new Vocalizer();
     private final Mahmouz mahmouz = new Mahmouz();
     private final Substituter substituter = new Substituter();
+    private final FormulaApplyingChecker formulaApplyingChecker;
 
-    private TitlateralAugmentedStandardModifier() {
-    }
-
-    private static final TitlateralAugmentedStandardModifier instance = new TitlateralAugmentedStandardModifier();
-
-    public static TitlateralAugmentedStandardModifier getInstance() {
-        return instance;
+    @Inject
+    public TitlateralAugmentedStandardModifier(FormulaApplyingChecker formulaApplyingChecker) {
+        this.formulaApplyingChecker = formulaApplyingChecker;
     }
 
     public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List<String> conjugations, AugmentedTrilateralModifierListener listener) {
@@ -43,7 +42,7 @@ public class TitlateralAugmentedStandardModifier {
         geminator.apply(conjResult);
 
         boolean applyVocalization = true;
-        int result = FormulaApplyingChecker.getInstance().check(root, formulaNo);
+        int result = formulaApplyingChecker.check(root, formulaNo);
         if (result == IFormulaApplyingChecker.NOT_VOCALIZED) {
             applyVocalization = false;
         }

@@ -12,10 +12,11 @@ import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 class SarfDictionaryTest {
+	//TODO: We now can mock these dependencies.
+	private SarfDictionary sarfDictionary = new SarfDictionaryImpl(new DatabaseManager());
 
-	private SarfDictionary sarfDictionary = new SarfDictionaryImpl();
 	@Test
-	void getInstance_returnsInstance() throws Exception {
+	void getInstance_returnsInstance() {
 		assertNotNull(sarfDictionary);
 	}
 

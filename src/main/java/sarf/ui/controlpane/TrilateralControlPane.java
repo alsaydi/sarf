@@ -1,16 +1,16 @@
-
 package sarf.ui.controlpane;
 
 import javax.swing.*;
 import sarf.ui.*;
 import java.util.*;
 import java.awt.GridLayout;
-import sarf.verb.trilateral.unaugmented.*;
-import sarf.verb.trilateral.augmented.*;
 import java.awt.event.*;
 import java.awt.BorderLayout;
-import sarf.*;
 import java.awt.Color;
+import sarf.*;
+import sarf.verb.trilateral.unaugmented.*;
+import sarf.verb.trilateral.augmented.*;
+import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -31,13 +31,16 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
 
     private final List<UnaugmentedTrilateralRoot> unaugmentedTrilateralRoots = new ArrayList<>(6);
     private final ControlPaneContainer controlPaneContainer;
+    private final AugmentedTrilateralModifier augmentedTrilateralModifier;
     private AugmentedTrilateralRoot currentAugmentedTrilateralRoot;
 
     private final JPanel unaugmentedPanel = new APanel(new GridLayout(1,6));
 
-    public TrilateralControlPane(ControlPaneContainer controlPaneContainer) {
+    public TrilateralControlPane(ControlPaneContainer controlPaneContainer
+            , AugmentedTrilateralModifier augmentedTrilateralModifier) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
+        this.augmentedTrilateralModifier = augmentedTrilateralModifier;
 
         unaugmentedTrilateralRoots.add(new UnaugmentedTrilateralRoot());
         unaugmentedTrilateralRoots.add(new UnaugmentedTrilateralRoot());
@@ -170,14 +173,14 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
         String pastRootText = sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator.getInstance().createVerb(root, 7, formulaNo).toString();
         List<String> conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
-        sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build(root, controlPaneContainer.getKov(), formulaNo, conjugations, SystemConstants.PAST_TENSE, true, null);
+        sarf.verb.trilateral.augmented.ConjugationResult conjResult = augmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), formulaNo, conjugations, SystemConstants.PAST_TENSE, true, null);
         pastRootText = conjResult.getFinalResult().get(7);
 
         //past text formatting
         String presentRootText = sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator.getInstance().getNominativeConjugator().createVerbList(root, formulaNo).get(7).toString();
         conjugations = createEmptyList();
         conjugations.set(7, presentRootText);
-        conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build(root, controlPaneContainer.getKov(), formulaNo, conjugations, SystemConstants.PRESENT_TENSE, true, null);
+        conjResult = augmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), formulaNo, conjugations, SystemConstants.PRESENT_TENSE, true, null);
         presentRootText = conjResult.getFinalResult().get(7);
 
         augmentedVerbButton.setRootText(pastRootText + " "+ presentRootText);

@@ -17,13 +17,7 @@ import java.util.*;
  * @version 1.0
  */
 public class StandardInstrumentalConjugator implements IUnaugmentedTrilateralNounConjugator{
-    private StandardInstrumentalConjugator() {
-    }
-
-    private static final StandardInstrumentalConjugator instance = new StandardInstrumentalConjugator();
-
-    public static StandardInstrumentalConjugator getInstance() {
-        return instance;
+    public StandardInstrumentalConjugator() {
     }
 
     private static final List<String> formulas = new LinkedList<>();

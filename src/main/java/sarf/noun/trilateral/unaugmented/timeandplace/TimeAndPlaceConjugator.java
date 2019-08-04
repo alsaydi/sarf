@@ -1,5 +1,6 @@
 package sarf.noun.trilateral.unaugmented.timeandplace;
 
+import com.google.inject.Inject;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.timeandplace.nonstandard.NounFormula1;
 import sarf.noun.trilateral.unaugmented.timeandplace.nonstandard.NounFormula2;
@@ -25,8 +26,11 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
 
     //map <symbol,formulaName>
     private final Map<String, String> formulaSymbolsNamesMap = new HashMap<>();
+    private final DatabaseManager databaseManager;
 
-    private TimeAndPlaceConjugator() {
+    @Inject
+    public TimeAndPlaceConjugator(DatabaseManager databaseManager) {
+        this.databaseManager = databaseManager;
         addNonStandardNounFormulaToMap(NounFormula1.class, new NounFormula1());
         addNonStandardNounFormulaToMap(NounFormula2.class, new NounFormula2());
         addNonStandardNounFormulaToMap(NounFormula3.class, new NounFormula3());
@@ -35,12 +39,6 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
     private void addNonStandardNounFormulaToMap(Class formulaClass, NonStandardTimeAndPlaceNounFormula instance){
         formulaClassNamesMap.put(instance.getFormulaName(), formulaClass);
         formulaSymbolsNamesMap.put(instance.getSymbol(), instance.getFormulaName());
-    }
-
-    private static final TimeAndPlaceConjugator instance = new TimeAndPlaceConjugator();
-
-    public static TimeAndPlaceConjugator getInstance() {
-        return instance;
     }
 
     public NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaName) {
@@ -74,7 +72,7 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
      * @return List
      */
     public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
-        XmlTimeAndPlaceNounFormulaTree formulaTree =  DatabaseManager.getInstance().getTimeAndPlaceNounFormulaTree(root.getC1());
+        XmlTimeAndPlaceNounFormulaTree formulaTree =  databaseManager.getTimeAndPlaceNounFormulaTree(root.getC1());
         if (formulaTree == null)
             return null;
 

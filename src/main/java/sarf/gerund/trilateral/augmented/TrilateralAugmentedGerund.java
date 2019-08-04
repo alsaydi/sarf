@@ -38,7 +38,7 @@ public abstract class TrilateralAugmentedGerund {
 
     public String toString() {
         String result = form();
-        if (result != null && result != "")
+        if (result != null && !result.equals(""))
             return GenericNounSuffixContainer.getInstance().getPrefix()+result;
         return "";
     }

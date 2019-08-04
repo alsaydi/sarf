@@ -2,6 +2,14 @@ package sarf.noun;
 
 import java.util.*;
 
+import com.google.inject.Inject;
+import sarf.noun.trilateral.unaugmented.assimilate.AssimilateAdjectiveConjugator;
+import sarf.noun.trilateral.unaugmented.elative.ElativeNounConjugator;
+import sarf.noun.trilateral.unaugmented.exaggeration.NonStandardExaggerationConjugator;
+import sarf.noun.trilateral.unaugmented.exaggeration.StandardExaggerationConjugator;
+import sarf.noun.trilateral.unaugmented.instrumental.NonStandardInstrumentalConjugator;
+import sarf.noun.trilateral.unaugmented.instrumental.StandardInstrumentalConjugator;
+import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
 import sarf.verb.trilateral.unaugmented.*;
 
 /**
@@ -17,67 +25,56 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public class TrilateralUnaugmentedNouns {
+    private final NonStandardExaggerationConjugator nonStandardExaggerationConjugator;
+    private final NonStandardInstrumentalConjugator nonStandardInstrumentalConjugator;
+    private final ElativeNounConjugator elativeNounConjugator;
+    private final AssimilateAdjectiveConjugator assimilateAdjectiveConjugator;
+    private final TimeAndPlaceConjugator timeAndPlaceConjugator;
+    private final StandardInstrumentalConjugator standardInstrumentalConjugator;
+    private final StandardExaggerationConjugator standardExaggerationConjugator;
 
-   //مبالغة أسماء الفاعل
-    private final List standardExaggerations;
-    private final List nonStandardExaggerations;
-    //أسماء الزمان والمكان
-    private final List timeAndPlaces;
-
-    //أسماء الآلة
-    private final List standardInstrumentals;
-    private final List nonStandardInstrumentals;
-
-    //أسماء التفضيل
-    private final List elatives;
-    //الصفات المشبهة
-    private final List assimilates;
-
-    private UnaugmentedTrilateralRoot root;
-
-    public TrilateralUnaugmentedNouns(UnaugmentedTrilateralRoot root) {
-        standardExaggerations = sarf.noun.trilateral.unaugmented.exaggeration.StandardExaggerationConjugator.getInstance().getAppliedFormulaList(root);
-        nonStandardExaggerations = sarf.noun.trilateral.unaugmented.exaggeration.NonStandardExaggerationConjugator.getInstance().getAppliedFormulaList(root);
-
-        timeAndPlaces = sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator.getInstance().getAppliedFormulaList(root);
-
-        standardInstrumentals = sarf.noun.trilateral.unaugmented.instrumental.StandardInstrumentalConjugator.getInstance().getAppliedFormulaList(root);
-        nonStandardInstrumentals = sarf.noun.trilateral.unaugmented.instrumental.NonStandardInstrumentalConjugator.getInstance().getAppliedFormulaList(root);
-
-        elatives = sarf.noun.trilateral.unaugmented.elative.ElativeNounConjugator.getInstance().getAppliedFormulaList(root);
-        assimilates = sarf.noun.trilateral.unaugmented.assimilate.AssimilateAdjectiveConjugator.getInstance().getAppliedFormulaList(root);
+    @Inject
+    public TrilateralUnaugmentedNouns(StandardExaggerationConjugator standardExaggerationConjugator
+            , NonStandardExaggerationConjugator nonStandardExaggerationConjugator
+            , TimeAndPlaceConjugator timeAndPlaceConjugator
+            , StandardInstrumentalConjugator standardInstrumentalConjugator
+            , NonStandardInstrumentalConjugator nonStandardInstrumentalConjugator
+            , ElativeNounConjugator elativeNounConjugator
+            , AssimilateAdjectiveConjugator assimilateAdjectiveConjugator) {
+        this.nonStandardExaggerationConjugator = nonStandardExaggerationConjugator;
+        this.nonStandardInstrumentalConjugator = nonStandardInstrumentalConjugator;
+        this.elativeNounConjugator = elativeNounConjugator;
+        this.assimilateAdjectiveConjugator = assimilateAdjectiveConjugator;
+        this.timeAndPlaceConjugator = timeAndPlaceConjugator;
+        this.standardInstrumentalConjugator = standardInstrumentalConjugator;
+        this.standardExaggerationConjugator = standardExaggerationConjugator;
     }
 
-    public List getAssimilates() {
-        return assimilates;
+    public List<String> getAssimilates(UnaugmentedTrilateralRoot root) {
+        return assimilateAdjectiveConjugator.getAppliedFormulaList(root);
     }
 
-    public List getElatives() {
-        return elatives;
+    public List<String> getElatives(UnaugmentedTrilateralRoot root) {
+        return elativeNounConjugator.getAppliedFormulaList(root);
     }
 
-    public List getNonStandardExaggerations() {
-        return nonStandardExaggerations;
+    public List<String> getNonStandardExaggerations(UnaugmentedTrilateralRoot root) {
+        return nonStandardExaggerationConjugator.getAppliedFormulaList(root);
     }
 
-    public List getNonStandardInstrumentals() {
-        return nonStandardInstrumentals;
+    public List<String> getNonStandardInstrumentals(UnaugmentedTrilateralRoot root) {
+        return nonStandardInstrumentalConjugator.getAppliedFormulaList(root);
     }
 
-    public UnaugmentedTrilateralRoot getRoot() {
-        return root;
+    public List<String> getStandardExaggerations(UnaugmentedTrilateralRoot root) {
+        return standardExaggerationConjugator.getAppliedFormulaList(root);
     }
 
-    public List getStandardExaggerations() {
-        return standardExaggerations;
+    public List<String> getStandardInstrumentals(UnaugmentedTrilateralRoot root) {
+        return standardInstrumentalConjugator.getAppliedFormulaList(root);
     }
 
-    public List getStandardInstrumentals() {
-        return standardInstrumentals;
-    }
-
-    public List getTimeAndPlaces() {
-        return timeAndPlaces;
+    public List<String> getTimeAndPlaces(UnaugmentedTrilateralRoot root) {
+        return timeAndPlaceConjugator.getAppliedFormulaList(root);
     }
 }
-

@@ -1,8 +1,12 @@
 package sarf.noun.trilateral.unaugmented.elative;
 
+import com.google.inject.Inject;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import sarf.*;
 import sarf.noun.trilateral.unaugmented.elative.nonstandard.*;
 
@@ -18,44 +22,37 @@ import sarf.noun.trilateral.unaugmented.elative.nonstandard.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ElativeNounConjugator implements IUnaugmentedTrilateralNounConjugator{
+public class ElativeNounConjugator implements IUnaugmentedTrilateralNounConjugator {
+    private final DatabaseManager databaseManager;
 
-    private static final ElativeNounConjugator instance = new ElativeNounConjugator();
-
-    public static ElativeNounConjugator getInstance() {
-        return instance;
+    @Inject
+    public ElativeNounConjugator(DatabaseManager databaseManager) {
+        this.databaseManager = databaseManager;
     }
 
-    private ElativeNounConjugator() {
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
+        return IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
+                .mapToObj(i -> new GenericElativeNounFormula(root, i + ""))
+                .collect(Collectors.toList());
     }
 
-    public List createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
-        List result = new LinkedList();
-        for (int i = 0; i < 18; i++) {
-            NounFormula noun = new GenericElativeNounFormula(root, i+"");
-            result.add(noun);
-        }
-        return result;
+    private static final List<String> formulas = new ArrayList<>(1);
 
-    }
-
-    static final List formulas = new ArrayList(1);
     static {
         formulas.add("أَفْعَل");
     }
-    public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
-        ElativeNounFormulaTree formulaTree =  DatabaseManager.getInstance().getElativeNounFormulaTree(root.getC1());
-        if (formulaTree == null)
+
+    public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
+        ElativeNounFormulaTree formulaTree = databaseManager.getElativeNounFormulaTree(root.getC1());
+        if (formulaTree == null) {
             return null;
-
-
+        }
         for (Object o : formulaTree.getFormulaList()) {
             ElativeNounFormula formula = (ElativeNounFormula) o;
             if (formula.getC2() == root.getC2() && formula.getC3() == root.getC3()) {
                 return formulas;
             }
         }
-
-        return new LinkedList();
+        return Collections.emptyList();
     }
 }
