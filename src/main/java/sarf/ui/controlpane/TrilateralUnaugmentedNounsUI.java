@@ -1,8 +1,6 @@
 package sarf.ui.controlpane;
 
 import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
 import java.util.List;
 
 import javax.swing.*;
@@ -27,7 +25,6 @@ import sarf.noun.trilateral.unaugmented.modifier.exaggeration.*;
 import sarf.noun.trilateral.unaugmented.*;
 import sarf.noun.trilateral.unaugmented.assimilate.*;
 import sarf.noun.trilateral.unaugmented.elative.*;
-import javax.swing.event.*;
 
 /**
  * <p>Title: Sarf Program</p>

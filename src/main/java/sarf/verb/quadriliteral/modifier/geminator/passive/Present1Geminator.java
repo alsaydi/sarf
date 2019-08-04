@@ -2,7 +2,6 @@ package sarf.verb.quadriliteral.modifier.geminator.passive;
 
 import java.util.*;
 import sarf.verb.quadriliteral.substitution.*;
-import sarf.verb.quadriliteral.modifier.*;
 import sarf.verb.quadriliteral.*;
 
 /**

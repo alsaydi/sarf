@@ -9,7 +9,6 @@ import javax.swing.border.*;
 import java.io.File;
 import java.io.IOException;
 import sarf.util.FileUtil;
-import java.io.FileNotFoundException;
 
 /**
  * <p>Title: Sarf Program</p>

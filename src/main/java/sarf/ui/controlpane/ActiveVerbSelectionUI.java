@@ -67,7 +67,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
         });
 
         presentNominativeBtn.addActionListener(e -> {
-            List result = null;
+            List result;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
                     result = sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator.getInstance().getNominativeConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());

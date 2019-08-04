@@ -51,13 +51,13 @@ public class NounFormulaE2 extends NounFormula {
     }
 
     //فَعْلَى
-    public String form1() {
+    private String form1() {
         suffix = AssimilateFormulaE2SuffixContainer.getInstance().get(this.suffixNo-1).replaceAll(" ","");
         return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+suffix;
     }
 
     //فَعْلان
-    public String form2() {
+    private String form2() {
         suffix = AssimilateFormulaE1SuffixContainer.getInstance().get(this.suffixNo-1).replaceAll(" ","");
         return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.FATHA+"ان"+suffix;
     }

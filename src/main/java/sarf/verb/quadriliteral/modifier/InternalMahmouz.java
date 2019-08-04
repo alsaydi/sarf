@@ -3,7 +3,6 @@ package sarf.verb.quadriliteral.modifier;
 import sarf.verb.quadriliteral.*;
 import sarf.verb.quadriliteral.substitution.*;
 
-import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import sarf.SystemConstants;

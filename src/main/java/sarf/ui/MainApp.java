@@ -2,7 +2,6 @@ package sarf.ui;
 
 import com.google.inject.Guice;
 import com.google.inject.Inject;
-import com.google.inject.Injector;
 import sarf.SarfModule;
 
 import java.awt.Toolkit;
@@ -31,7 +30,7 @@ public class MainApp {
      * Construct and show the application.
      */
     @Inject
-    public MainApp(MainFrame mainFrame) {
+    private MainApp(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
     }
 

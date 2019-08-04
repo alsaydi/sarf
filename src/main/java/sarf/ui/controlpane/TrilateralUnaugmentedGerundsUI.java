@@ -1,12 +1,10 @@
 package sarf.ui.controlpane;
 
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
 import java.util.List;
 
 import javax.swing.*;
-import javax.swing.event.*;
 
 import sarf.gerund.modifier.trilateral.unaugmented.meem.*;
 import sarf.gerund.modifier.trilateral.unaugmented.nomen.*;

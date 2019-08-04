@@ -4,7 +4,6 @@ import java.util.*;
 
 import sarf.noun.*;
 import sarf.verb.quadriliteral.*;
-import sarf.verb.quadriliteral.modifier.*;
 import sarf.verb.quadriliteral.substitution.*;
 
 /**

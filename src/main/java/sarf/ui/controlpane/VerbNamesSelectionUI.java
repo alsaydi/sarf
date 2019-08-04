@@ -5,7 +5,6 @@ import javax.swing.*;
 import com.google.inject.Inject;
 import sarf.ui.*;
 import java.awt.*;
-import java.awt.event.*;
 
 /**
  * <p>Title: Sarf Program</p>

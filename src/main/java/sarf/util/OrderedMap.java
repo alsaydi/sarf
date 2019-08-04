@@ -15,11 +15,8 @@ import java.util.*;
  * @version 1.0
  */
 public class OrderedMap<TKey, TValue> extends HashMap<TKey, TValue> {
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	protected final List<TKey> orderedKeys = new LinkedList<>();
+	private final List<TKey> orderedKeys = new LinkedList<>();
 
     public OrderedMap() {
     }
@@ -40,9 +37,7 @@ public class OrderedMap<TKey, TValue> extends HashMap<TKey, TValue> {
         return super.remove(key);
     }
 
-
     public List<TKey> getOrderedKeys() {
         return orderedKeys;
     }
-
 }

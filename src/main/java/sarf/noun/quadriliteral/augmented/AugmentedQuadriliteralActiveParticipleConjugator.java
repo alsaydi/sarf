@@ -5,7 +5,7 @@ import java.util.HashMap;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
 import java.util.List;
 import java.util.LinkedList;
-import java.util.Iterator;
+
 import sarf.AugmentationFormula;
 import sarf.noun.GenericNounSuffixContainer;
 

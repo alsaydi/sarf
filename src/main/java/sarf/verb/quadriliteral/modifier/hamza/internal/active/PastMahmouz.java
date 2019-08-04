@@ -2,7 +2,6 @@ package sarf.verb.quadriliteral.modifier.hamza.internal.active;
 
 import java.util.*;
 
-import sarf.verb.quadriliteral.ConjugationResult;
 import sarf.verb.quadriliteral.modifier.hamza.internal.AbstractQuadrilateralInternalMahmouzModifier;
 import sarf.verb.quadriliteral.substitution.*;
 

@@ -1,7 +1,6 @@
 package sarf.ui.controlpane;
 
 import java.awt.*;
-import java.awt.event.*;
 
 import javax.swing.*;
 import javax.swing.border.*;

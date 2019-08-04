@@ -4,7 +4,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import sarf.SystemConstants;
 import sarf.noun.*;
 import sarf.util.*;
 import sarf.verb.quadriliteral.unaugmented.*;

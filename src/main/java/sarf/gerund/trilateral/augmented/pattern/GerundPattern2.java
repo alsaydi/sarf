@@ -1,7 +1,6 @@
 package sarf.gerund.trilateral.augmented.pattern;
 
 import sarf.gerund.trilateral.augmented.TrilateralAugmentedGerund;
-import sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugator;
 import sarf.util.ArabCharUtil;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 

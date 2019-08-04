@@ -5,7 +5,7 @@ import sarf.KindOfVerb;
 import sarf.util.*;
 import sarf.gerund.trilateral.unaugmented.meem.*;
 import sarf.verb.trilateral.unaugmented.*;
-import sarf.kov.*;
+
 import java.util.stream.Stream;
 
 import static sarf.KindOfVerb.*;
