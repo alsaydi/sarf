@@ -30,7 +30,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
     private final List augmentedButons = new ArrayList(12);
 
     private final ControlButton unaugmentedBtn = new ControlButton("فَعْلَل يُفَعْلِل");
-    private final ControlPaneContainer controlPaneContainer;
+    private final IMainControlPanel controlPaneContainer;
     private AugmentedQuadrilateralRoot currentAugmentedRoot;
     private UnaugmentedQuadrilateralRoot currentUnaugmentedRoot;
 

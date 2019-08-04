@@ -30,7 +30,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     private final List<ControlButton> augmentedButtons = new ArrayList<>(12);
 
     private final List<UnaugmentedTrilateralRoot> unaugmentedTrilateralRoots = new ArrayList<>(6);
-    private final ControlPaneContainer controlPaneContainer;
+    private final IMainControlPanel controlPaneContainer;
     private final AugmentedTrilateralModifier augmentedTrilateralModifier;
     private AugmentedTrilateralRoot currentAugmentedTrilateralRoot;
 

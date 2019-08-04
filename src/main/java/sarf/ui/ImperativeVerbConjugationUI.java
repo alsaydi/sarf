@@ -27,7 +27,7 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
     public static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 30);
     private static final Border BORDER = BorderFactory.createEtchedBorder();
 
-    private final ControlPaneContainer controlPaneContainer;
+    private final IMainControlPanel controlPaneContainer;
     private final String title;
 
     /**
@@ -35,7 +35,7 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
      * @param verbConjugationList List
      * @param notGeminatedVerbConjugationList List
      */
-    public ImperativeVerbConjugationUI(ControlPaneContainer controlPaneContainer, List verbConjugationList, List notGeminatedVerbConjugationList, String title) {
+    public ImperativeVerbConjugationUI(IMainControlPanel controlPaneContainer, List verbConjugationList, List notGeminatedVerbConjugationList, String title) {
         super(new GridLayout(7,4));
         this.controlPaneContainer = controlPaneContainer;
         this.title = title;
@@ -97,7 +97,7 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
     public boolean saveToHtml(File file) {
         String content = FileUtil.getContents("db/verbs.html");
 
-        String docTitle = "تصريف "+ " ( "+ title + " ) " +" للفعل "+ " ( "+ controlPaneContainer.getVerbTxtFld().getText() +" )";
+        String docTitle = "تصريف "+ " ( "+ title + " ) " +" للفعل "+ " ( "+ controlPaneContainer.getVerbText() +" )";
         //put the title
         content = content.replaceFirst("DocTitle", docTitle);
 
@@ -127,6 +127,6 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
     }
 
     public String getSavedFileNameTitle() {
-        return "تصريف "+ " "+ title + " " +" للفعل "+ "  "+ controlPaneContainer.getVerbTxtFld().getText();
+        return "تصريف "+ " "+ title + " " +" للفعل "+ "  "+ controlPaneContainer.getVerbText();
     }
 }

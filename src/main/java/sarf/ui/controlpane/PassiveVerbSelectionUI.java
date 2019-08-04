@@ -26,7 +26,7 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
  * @version 1.0
  */
 public class PassiveVerbSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
-    private final ControlPaneContainer controlPaneContainer;
+    private final IMainControlPanel controlPaneContainer;
     private final AugmentedTrilateralModifier augmentedTrilateralModifier;
     private SelectionInfo selectionInfo;
 

@@ -22,7 +22,7 @@ import java.awt.event.*;
 public class VerbNamesSelectionUI extends JPanel implements IControlPane {
 
 	private static final long serialVersionUID = 276620070251792482L;
-    private final ControlPaneContainer controlPaneContainer;
+    private final IMainControlPanel controlPaneContainer;
     private SelectionInfo selectionInfo;
 
 	@Inject

@@ -25,11 +25,11 @@ public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
     private final List dataFieldsList;
     public static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 30);
     static final Border BORDER = BorderFactory.createEtchedBorder();
-    private final ControlPaneContainer controlPaneContainer;
+    private final IMainControlPanel controlPaneContainer;
     private final String title;
 
 
-    public VerbConjugationUI(ControlPaneContainer controlPaneContainer, List verbConjugationList, String title) {
+    public VerbConjugationUI(IMainControlPanel controlPaneContainer, List verbConjugationList, String title) {
         super(new GridLayout(7, 4));
         this.controlPaneContainer = controlPaneContainer;
         this.title = title;
@@ -87,7 +87,7 @@ public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
     public boolean saveToHtml(File file) {
         String content = FileUtil.getContents("db/verbs.html");
 
-        String docTitle = "تصريف "+ " ( "+ title + " ) " +" للفعل "+ " ( "+ controlPaneContainer.getVerbTxtFld().getText() +" )";
+        String docTitle = "تصريف "+ " ( "+ title + " ) " +" للفعل "+ " ( "+ controlPaneContainer.getVerbText() +" )";
         //put the title
         content = content.replaceFirst("DocTitle", docTitle);
 
@@ -117,7 +117,7 @@ public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
     }
 
     public String getSavedFileNameTitle() {
-        return "تصريف "+ " "+ title + " " +" للفعل "+ "  "+ controlPaneContainer.getVerbTxtFld().getText();
+        return "تصريف "+ " "+ title + " " +" للفعل "+ "  "+ controlPaneContainer.getVerbText();
     }
 
 }

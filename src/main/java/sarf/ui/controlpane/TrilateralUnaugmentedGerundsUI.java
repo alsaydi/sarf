@@ -34,14 +34,14 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  */
 public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPane {
 	private static final long serialVersionUID = 1L;
-    private final ControlPaneContainer controlPaneContainer;
+    private final IMainControlPanel controlPaneContainer;
     private final MeemGerundConjugator meemGerundConjugator;
     private SelectionInfo selectionInfo;
     private UnaugmentedTrilateralRoot root;
     private final APanel qualityPane = new APanel(new GridLayout(1, 3));
     private final CustomTabbedPane controlPanels = new CustomTabbedPane();
 
-    public TrilateralUnaugmentedGerundsUI(ControlPaneContainer controlPaneContainer, MeemGerundConjugator meemGerundConjugator) {
+    public TrilateralUnaugmentedGerundsUI(IMainControlPanel controlPaneContainer, MeemGerundConjugator meemGerundConjugator) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
         this.meemGerundConjugator = meemGerundConjugator;

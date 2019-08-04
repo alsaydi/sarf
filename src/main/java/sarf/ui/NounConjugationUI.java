@@ -27,11 +27,11 @@ import sarf.util.FileUtil;
  */
 public class NounConjugationUI extends APanel implements NounStateSelectionUIListener ,IHtmlContentSaver {
     private final JPanel conjugationPane;
-    private final ControlPaneContainer controlPaneContainer;
+    private final IMainControlPanel controlPaneContainer;
     private List dataFieldsList;
     private final String title;
 
-    public NounConjugationUI(ControlPaneContainer controlPaneContainer, sarf.Action sarfAction, INounSuffixContainer nounSuffixContainer, String title) {
+    public NounConjugationUI(IMainControlPanel controlPaneContainer, sarf.Action sarfAction, INounSuffixContainer nounSuffixContainer, String title) {
         this.controlPaneContainer = controlPaneContainer;
         setFont(VerbConjugationUI.FONT);
         this.title = title;
@@ -97,7 +97,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
         return nounStateSelectionUI;
     }
     //TODO: delete this constructor
-    public NounConjugationUI(ControlPaneContainer controlPaneContainer, sarf.Action sarfAction, String title) {
+    public NounConjugationUI(IMainControlPanel controlPaneContainer, sarf.Action sarfAction, String title) {
         this(controlPaneContainer, sarfAction, GenericNounSuffixContainer.getInstance(), title);
     }
 
@@ -159,7 +159,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
     public boolean saveToHtml(File file) {
         String content = FileUtil.getContents("db/nouns.html");
 
-        String docTitle = "تصريف " + " ( " + title + " ) " + " للفعل " + " ( " + controlPaneContainer.getVerbTxtFld().getText() + " )";
+        String docTitle = "تصريف " + " ( " + title + " ) " + " للفعل " + " ( " + controlPaneContainer.getVerbText() + " )";
         //put the title
         content = content.replaceFirst("DocTitle", docTitle);
 
@@ -269,7 +269,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
     }
 
     public String getSavedFileNameTitle() {
-        return "تصريف " + " " + title + " " + " للفعل " + "  " + controlPaneContainer.getVerbTxtFld().getText();
+        return "تصريف " + " " + title + " " + " للفعل " + "  " + controlPaneContainer.getVerbText();
     }
 }
 

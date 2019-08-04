@@ -31,7 +31,7 @@ import sarf.noun.trilateral.augmented.modifier.passiveparticiple.PassiveParticip
  * @version 1.0
  */
 public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
-    private final ControlPaneContainer controlPaneContainer;
+    private final IMainControlPanel controlPaneContainer;
     private final ActiveParticipleModifier activeParticipleModifier;
     private SelectionInfo selectionInfo;
 

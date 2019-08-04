@@ -38,7 +38,7 @@ import sarf.noun.trilateral.augmented.modifier.passiveparticiple.PassiveParticip
  * @version 1.0
  */
 public class GerundSelectionUI extends JPanel implements IControlPane, TrilateralAugmentedGerundConjugatorListener, QuadrilateralUnaugmentedGerundConjugatorListener, AugmentedTrilateralModifierListener {
-    private final ControlPaneContainer controlPaneContainer;
+    private final IMainControlPanel controlPaneContainer;
     private final TrilateralAugmentedGerundConjugator trilateralAugmentedGerundConjugator;
     private final TitlateralAugmentedStandardModifier titlateralAugmentedStandardModifier;
     private final PassiveParticipleModifier passiveParticipleModifier;

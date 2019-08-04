@@ -600,6 +600,9 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
     JTextField getVerbTxtFld() {
         return verbTxtFld;
     }
+    public String getVerbText(){
+        return verbTxtFld.getText();
+    }
 
     private IControlPane getControlPane(Class controlPanelClass) {
         IControlPane controlPane = controlPaneMap.get(controlPanelClass);

@@ -17,7 +17,7 @@ import sarf.ui.controlpane.*;
  * @version 1.0
  */
 public class ElativeNounConjugationUI extends NounConjugationUI {
-    public ElativeNounConjugationUI(ControlPaneContainer controlPaneContainer, sarf.Action sarfAction, String title) {
+    public ElativeNounConjugationUI(IMainControlPanel controlPaneContainer, sarf.Action sarfAction, String title) {
         super(controlPaneContainer, sarfAction, null, title);
     }
 

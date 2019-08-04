@@ -42,7 +42,7 @@ import javax.swing.event.*;
  * @version 1.0
  */
 public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane {
-    private final ControlPaneContainer controlPaneContainer;
+    private final IMainControlPanel controlPaneContainer;
     private final NonStandardExaggerationConjugator nonStandardExaggerationConjugator;
     private final NonStandardInstrumentalConjugator nonStandardInstrumentalConjugator;
     private final ElativeNounConjugator elativeNounConjugator;

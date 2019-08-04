@@ -34,7 +34,7 @@ import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
  * @version 1.0
  */
 public class ActiveVerbSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
-    private final ControlPaneContainer controlPaneContainer;
+    private final IMainControlPanel controlPaneContainer;
     private final AugmentedTrilateralModifier augmentedTrilateralModifier;
     private SelectionInfo selectionInfo;
 
@@ -46,7 +46,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
     private final ToggleRenderedButton imperativeBtn = new ToggleRenderedButton("الأمر");
     private final ToggleRenderedButton imperativeEmphasizedBtn = new ToggleRenderedButton("الأمر المؤكد");
 
-    public ActiveVerbSelectionUI(ControlPaneContainer controlPaneContainer, AugmentedTrilateralModifier augmentedTrilateralModifier) {
+    public ActiveVerbSelectionUI(IMainControlPanel controlPaneContainer, AugmentedTrilateralModifier augmentedTrilateralModifier) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
         this.augmentedTrilateralModifier = augmentedTrilateralModifier;
