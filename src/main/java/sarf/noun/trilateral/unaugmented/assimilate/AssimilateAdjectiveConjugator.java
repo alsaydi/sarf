@@ -26,10 +26,12 @@ public class AssimilateAdjectiveConjugator implements IUnaugmentedTrilateralNoun
     private final Map<String, String> formulaNamesMap = new HashMap<>();
     private final Map<String, String> formulaIDsMap = new HashMap<>();
     private final DatabaseManager databaseManager;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
     @Inject
-    public AssimilateAdjectiveConjugator(DatabaseManager databaseManager) {
+    public AssimilateAdjectiveConjugator(DatabaseManager databaseManager, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.databaseManager = databaseManager;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
         loadFormulaName("A", new NounFormulaA());
         loadFormulaName("B", new NounFormulaB());
         loadFormulaName("C", new NounFormulaC());
@@ -46,14 +48,14 @@ public class AssimilateAdjectiveConjugator implements IUnaugmentedTrilateralNoun
 
 
     public NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaID) {
-        Object[] parameters = {root, suffixNo + ""};
+        Object[] parameters = {root, suffixNo + "", genericNounSuffixContainer};
         try {
             /*
                 لكي تكون هنا: جرب بالفعل صب المضعف.
              */
             var formulaClassName = getClass().getPackage().getName() + ".nonstandard.NounFormula" + formulaID;
             Class formulaClass = Class.forName(formulaClassName);
-            return (NounFormula) formulaClass.getConstructor(root.getClass(), formulaID.getClass())
+            return (NounFormula) formulaClass.getConstructor(root.getClass(), formulaID.getClass(), genericNounSuffixContainer.getClass())
                     .newInstance(parameters);
         } catch (Exception ex) {
             ex.printStackTrace();

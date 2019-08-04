@@ -4,6 +4,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import com.google.inject.Inject;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.quadriliteral.augmented.*;
 
 import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
@@ -22,13 +24,13 @@ import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
  */
 public class QuadrilateralAugmentedNomenGerundConjugator {
     /* Nomen vicis اسم المرَّة */
-    private static final QuadrilateralAugmentedNomenGerundConjugator instance = new QuadrilateralAugmentedNomenGerundConjugator();
     private final int[] indexArray = {2, 4, 6, 8, 10, 12, 14, 16, 18};
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    public static QuadrilateralAugmentedNomenGerundConjugator getInstance() {
-        return instance;
+    @Inject
+    public QuadrilateralAugmentedNomenGerundConjugator(GenericNounSuffixContainer genericNounSuffixContainer){
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
-
     public List<QuadrilateralAugmentedNomenGerund> createGerundList(AugmentedQuadrilateralRoot root, int formulaNo) {
         var gerundPatternClassName = getClass().getPackage().getName() + ".pattern." + "GerundPattern" + formulaNo;
         var gerundDisplayList = createEmptyList();
@@ -36,9 +38,11 @@ public class QuadrilateralAugmentedNomenGerundConjugator {
         for (int value : indexArray) {
             //because index in java start from zero
             int suffixNo = value - 1;
-            Object[] parameters = {root, suffixNo + ""};
+            Object[] parameters = {root, suffixNo + "", genericNounSuffixContainer};
             try {
-                QuadrilateralAugmentedNomenGerund gerund = (QuadrilateralAugmentedNomenGerund) Class.forName(gerundPatternClassName).getConstructors()[0].newInstance(parameters);
+                QuadrilateralAugmentedNomenGerund gerund = (QuadrilateralAugmentedNomenGerund) Class.forName(gerundPatternClassName)
+                        .getConstructor(root.getClass(), "".getClass(), GenericNounSuffixContainer.class)
+                        .newInstance(parameters);
                 gerundDisplayList.set(suffixNo, gerund);
             } catch (Exception ex) {
                 ex.printStackTrace();

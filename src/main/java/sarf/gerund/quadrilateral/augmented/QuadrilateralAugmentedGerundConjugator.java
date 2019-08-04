@@ -4,6 +4,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import com.google.inject.Inject;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.quadriliteral.augmented.*;
 
 import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
@@ -21,11 +23,12 @@ import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
  * @version 1.0
  */
 public class QuadrilateralAugmentedGerundConjugator {
-    private static final QuadrilateralAugmentedGerundConjugator instance = new QuadrilateralAugmentedGerundConjugator();
     private final int[] indexArray = {1, 3, 6, 7, 9, 12, 13, 15, NOUN_POSSIBLE_STATES};
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    public static QuadrilateralAugmentedGerundConjugator getInstance() {
-        return instance;
+    @Inject
+    public QuadrilateralAugmentedGerundConjugator(GenericNounSuffixContainer genericNounSuffixContainer){
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
     public List<QuadrilateralAugmentedGerund> createGerundList(AugmentedQuadrilateralRoot root, int formulaNo) {
@@ -35,9 +38,11 @@ public class QuadrilateralAugmentedGerundConjugator {
         for (int value : indexArray) {
             //because index in java start from zero
             int suffixNo = value - 1;
-            Object[] parameters = {root, suffixNo + ""};
+            Object[] parameters = {root, suffixNo + "", genericNounSuffixContainer};
             try {
-                var gerund = (QuadrilateralAugmentedGerund) Class.forName(gerundPatternClassName).getConstructors()[0].newInstance(parameters);
+                var gerund = (QuadrilateralAugmentedGerund) Class.forName(gerundPatternClassName)
+                        .getConstructor(root.getClass(), "".getClass(), GenericNounSuffixContainer.class)
+                        .newInstance(parameters);
                 gerundDisplayList.set(suffixNo, gerund);
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -46,14 +51,15 @@ public class QuadrilateralAugmentedGerundConjugator {
         return gerundDisplayList;
     }
 
-    private static List<QuadrilateralAugmentedGerund> createEmptyList() {
+    private List<QuadrilateralAugmentedGerund> createEmptyList() {
         return IntStream.rangeClosed(1, NOUN_POSSIBLE_STATES)
-                .<QuadrilateralAugmentedGerund>mapToObj(i -> new EmptyQuadrilateralAugmentedGerund())
+                .<QuadrilateralAugmentedGerund>mapToObj(i -> new EmptyQuadrilateralAugmentedGerund(new AugmentedQuadrilateralRoot(), "0", genericNounSuffixContainer))
                 .collect(Collectors.toCollection(() -> new ArrayList<>(NOUN_POSSIBLE_STATES)));
     }
 
     private static class EmptyQuadrilateralAugmentedGerund extends QuadrilateralAugmentedGerund {
-        EmptyQuadrilateralAugmentedGerund() {
+        EmptyQuadrilateralAugmentedGerund(AugmentedQuadrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+            super(root, suffixNo, genericNounSuffixContainer);
         }
 
         @Override

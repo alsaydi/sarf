@@ -1,8 +1,11 @@
 package sarf.noun.quadriliteral.augmented;
 
+import com.google.inject.Inject;
+import sarf.SystemConstants;
 import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,23 +21,23 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class AugmentedQuadriliteralPassiveParticipleConjugator {
-    private AugmentedQuadriliteralPassiveParticipleConjugator() {
+public class AugmentedQuadrilateralPassiveParticipleConjugator {
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
+
+    @Inject
+    public AugmentedQuadrilateralPassiveParticipleConjugator(GenericNounSuffixContainer genericNounSuffixContainer){
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
-    private static final AugmentedQuadriliteralPassiveParticipleConjugator instance = new AugmentedQuadriliteralPassiveParticipleConjugator();
-
-    public static AugmentedQuadriliteralPassiveParticipleConjugator getInstance() {
-        return instance;
-    }
-
-    public AugmentedQuadriliteralNoun createNoun(AugmentedQuadrilateralRoot root, int suffixIndex, int formulaNo) {
-        String suffix = GenericNounSuffixContainer.getInstance().get(suffixIndex);
+    private AugmentedQuadrilateralNoun createNoun(AugmentedQuadrilateralRoot root, int suffixIndex, int formulaNo) {
+        String suffix = genericNounSuffixContainer.get(suffixIndex);
         String formulaClassName = getClass().getPackage().getName()+".passiveparticiple."+"NounFormula"+formulaNo;
-        Object [] parameters = {root, suffix};
+        Object [] parameters = {root, suffix, genericNounSuffixContainer};
 
         try {
-            return (AugmentedQuadriliteralNoun) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
+            return (AugmentedQuadrilateralNoun) Class.forName(formulaClassName)
+                    .getConstructor(root.getClass(), suffix.getClass(), genericNounSuffixContainer.getClass())
+                    .newInstance(parameters);
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -42,27 +45,25 @@ public class AugmentedQuadriliteralPassiveParticipleConjugator {
         return null;
     }
 
-    public List createNounList(AugmentedQuadrilateralRoot root, int formulaNo) {
-        List result = new LinkedList();
-        for (int i = 0; i < 18; i++) {
-            AugmentedQuadriliteralNoun noun = createNoun(root, i, formulaNo);
+    public List<AugmentedQuadrilateralNoun> createNounList(AugmentedQuadrilateralRoot root, int formulaNo) {
+        List<AugmentedQuadrilateralNoun> result = new ArrayList<>();
+        for (int i = 0; i < SystemConstants.NOUN_POSSIBLE_STATES; i++) {
+            AugmentedQuadrilateralNoun noun = createNoun(root, i, formulaNo);
             result.add(noun);
         }
-
         return result;
     }
 
     //تستعمل في اسم الزمان والمكان والمصدر الميمي
     private List createNounList(AugmentedQuadrilateralRoot root, int formulaNo, List indecies) {
-        List result = new LinkedList();
-
-        for (int i=0; i<18; i++) {
+        List result = new ArrayList<>();
+        for (int i=0; i<SystemConstants.NOUN_POSSIBLE_STATES; i++) { //TODO: strong typing needed here
             result.add("");
         }
 
         for (int i = 0; i < indecies.size(); i++) {
             int index = Integer.parseInt(indecies.get(i).toString());
-            AugmentedQuadriliteralNoun noun = createNoun(root, index, formulaNo);
+            AugmentedQuadrilateralNoun noun = createNoun(root, index, formulaNo);
             result.set(index, noun);
         }
 
@@ -98,7 +99,4 @@ public class AugmentedQuadriliteralPassiveParticipleConjugator {
     public List createMeemGerundNounList(AugmentedQuadrilateralRoot root, int formulaNo) {
         return createNounList(root, formulaNo, meemGerundIndeciesList);
     }
-
-
-
 }

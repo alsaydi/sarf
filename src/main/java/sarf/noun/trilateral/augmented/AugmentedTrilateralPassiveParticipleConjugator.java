@@ -1,5 +1,6 @@
 package sarf.noun.trilateral.augmented;
 
+import com.google.inject.Inject;
 import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 
@@ -19,22 +20,23 @@ import java.util.List;
  * @version 1.0
  */
 public class AugmentedTrilateralPassiveParticipleConjugator {
-    private AugmentedTrilateralPassiveParticipleConjugator() {
-    }
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    private static final AugmentedTrilateralPassiveParticipleConjugator instance = new AugmentedTrilateralPassiveParticipleConjugator();
+    @Inject
+    public AugmentedTrilateralPassiveParticipleConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
 
-    public static AugmentedTrilateralPassiveParticipleConjugator getInstance() {
-        return instance;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
     public AugmentedTrilateralNoun createNoun(AugmentedTrilateralRoot root, int suffixIndex, int formulaNo) {
-        String suffix = GenericNounSuffixContainer.getInstance().get(suffixIndex);
+        String suffix = genericNounSuffixContainer.get(suffixIndex);
         String formulaClassName = getClass().getPackage().getName()+".passiveparticiple."+"NounFormula"+formulaNo;
-        Object [] parameters = {root, suffix};
+        Object [] parameters = {root, suffix, genericNounSuffixContainer};
 
         try {
-            return (AugmentedTrilateralNoun) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
+            return (AugmentedTrilateralNoun) Class.forName(formulaClassName)
+                    .getConstructor(root.getClass(), suffix.getClass(), genericNounSuffixContainer.getClass())
+                    .newInstance(parameters);
         }
         catch (Exception ex) {
             ex.printStackTrace();

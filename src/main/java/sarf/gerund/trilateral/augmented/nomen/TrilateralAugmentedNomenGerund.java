@@ -16,22 +16,17 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public abstract class TrilateralAugmentedNomenGerund {
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
     protected AugmentedTrilateralRoot root;
     protected int suffixNo;
     protected String suffix;
 
-
-    public TrilateralAugmentedNomenGerund() {}
-
-    public TrilateralAugmentedNomenGerund(AugmentedTrilateralRoot root, String suffixNo) {
-        init(root, suffixNo);
-    }
-
-    protected void init(AugmentedTrilateralRoot root, String suffixNo) {
+    public TrilateralAugmentedNomenGerund(AugmentedTrilateralRoot root, String suffixNo
+            , GenericNounSuffixContainer genericNounSuffixContainer) {
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
         this.root = root;
         this.suffixNo = Integer.parseInt(suffixNo);
-
-        suffix = GenericNounSuffixContainer.getInstance().get(this.suffixNo);
+        suffix = genericNounSuffixContainer.get(this.suffixNo);
     }
 
     public abstract String form();
@@ -39,8 +34,8 @@ public abstract class TrilateralAugmentedNomenGerund {
 
     public String toString() {
         String result = form();
-        if (result != null && result != "")
-            return GenericNounSuffixContainer.getInstance().getPrefix()+result;
+        if (result != null && !result.equals(""))
+            return genericNounSuffixContainer.getPrefix()+result;
         return "";
 
     }

@@ -19,8 +19,8 @@ public abstract class NonStandardExaggerationNounFormula extends NounFormula {
     public NonStandardExaggerationNounFormula() {
     }
 
-    public NonStandardExaggerationNounFormula(UnaugmentedTrilateralRoot root, String suffixNo) {
-        super(root, suffixNo);
+    public NonStandardExaggerationNounFormula(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo, genericNounSuffixContainer);
     }
 
     /**

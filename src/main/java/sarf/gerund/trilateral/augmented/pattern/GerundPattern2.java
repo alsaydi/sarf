@@ -1,6 +1,7 @@
 package sarf.gerund.trilateral.augmented.pattern;
 
 import sarf.gerund.trilateral.augmented.TrilateralAugmentedGerund;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.util.ArabCharUtil;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 
@@ -17,16 +18,14 @@ import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
  * @version 1.0
  */
 public class GerundPattern2 extends TrilateralAugmentedGerund {
-    public GerundPattern2() {
+    private boolean form2Applied;
+    private boolean form3Applied;
+    public GerundPattern2(AugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        this(root, suffixNo, genericNounSuffixContainer, false, false);
     }
 
-    private boolean form2Applied = false;
-    private boolean form3Applied = false;
-    public GerundPattern2(AugmentedTrilateralRoot root, String suffixNo) {
-        this(root, suffixNo, false, false);
-    }
-    public GerundPattern2(AugmentedTrilateralRoot root, String suffixNo, boolean applyForm2, boolean applForm3){
-        init(root, suffixNo);
+    public GerundPattern2(AugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer, boolean applyForm2, boolean applForm3){
+        super(root, suffixNo, genericNounSuffixContainer);
         this.form2Applied = applyForm2;
         this.form3Applied = applForm3;
     }

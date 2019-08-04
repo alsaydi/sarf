@@ -19,13 +19,12 @@ import sarf.noun.GenericNounSuffixContainer;
  */
 public class NounFormula3 extends NonStandardExaggerationNounFormula{
 
-    public NounFormula3(UnaugmentedTrilateralRoot root, String suffixNo) {
-        super(root, suffixNo);
+    public NounFormula3(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo,genericNounSuffixContainer);
 
-        if (this.suffixNo == 7 && GenericNounSuffixContainer.getInstance().isInDefiniteMode()) {
+        if (this.suffixNo == 7 && genericNounSuffixContainer.isInDefiniteMode()) {
             suffix = "ً";
         }
-
     }
 
     //to be used in refection getting the formula name
@@ -50,6 +49,4 @@ public class NounFormula3 extends NonStandardExaggerationNounFormula{
     public String getSymbol() {
         return "D";
     }
-
-
 }

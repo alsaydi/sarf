@@ -27,10 +27,12 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
     //map <symbol,formulaName>
     private final Map<String, String> formulaSymbolsNamesMap = new HashMap<>();
     private final DatabaseManager databaseManager;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
     @Inject
-    public TimeAndPlaceConjugator(DatabaseManager databaseManager) {
+    public TimeAndPlaceConjugator(DatabaseManager databaseManager, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.databaseManager = databaseManager;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
         addNonStandardNounFormulaToMap(NounFormula1.class, new NounFormula1());
         addNonStandardNounFormulaToMap(NounFormula2.class, new NounFormula2());
         addNonStandardNounFormulaToMap(NounFormula3.class, new NounFormula3());
@@ -42,12 +44,11 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
     }
 
     public NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaName) {
-        Object [] parameters = {root, suffixNo+""};
+        Object [] parameters = {root, suffixNo+"", genericNounSuffixContainer};
 
         try {
             Class formulaClass = formulaClassNamesMap.get(formulaName);
-            var constructor = Arrays.stream(formulaClass.getConstructors())
-                    .filter(c -> c.getParameterCount()>0).findFirst().orElseThrow();
+            var constructor = formulaClass.getConstructor(root.getClass(), "".getClass(), genericNounSuffixContainer.getClass());
             return (NounFormula) constructor.newInstance(parameters);
         }
         catch (Exception ex) {

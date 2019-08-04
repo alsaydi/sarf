@@ -1,6 +1,9 @@
 package sarf.gerund.trilateral.unaugmented;
 
 import java.util.*;
+
+import com.google.inject.Inject;
+import sarf.SystemConstants;
 import sarf.noun.*;
 import sarf.util.*;
 import sarf.verb.trilateral.unaugmented.*;
@@ -18,64 +21,58 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public class TrilateralUnaugmentedNomenGerundConjugator implements IUnaugmentedTrilateralGerundConjugator {
-    private static final TrilateralUnaugmentedNomenGerundConjugator instance = new TrilateralUnaugmentedNomenGerundConjugator();
-
     private final int[] indexList1 = {2, 4, 8, 10, 14, 16};
     private final int[] indexList2 = {6, 12, 18};
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    private TrilateralUnaugmentedNomenGerundConjugator() {
+    @Inject
+    public TrilateralUnaugmentedNomenGerundConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
-    public static TrilateralUnaugmentedNomenGerundConjugator getInstance() {
-        return instance;
-    }
-
-    public List createEmptyList() {
-        List result = new ArrayList(18);
-        for (int i = 1; i <= 18; i++) {
+    private List<String> createEmptyList() {
+        List<String> result = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
+        for (int i = 1; i <= SystemConstants.NOUN_POSSIBLE_STATES; i++) {
             result.add("");
         }
         return result;
     }
 
-    public List createGerundList(UnaugmentedTrilateralRoot root, String formulaName) {
-        List gerundDisplayList = createEmptyList();
+    public List<String> createGerundList(UnaugmentedTrilateralRoot root, String formulaName) {
+        List<String> gerundDisplayList = createEmptyList();
 
-        String gerund = GenericNounSuffixContainer.getInstance().getPrefix() + root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3();
-        for (int i = 0; i < indexList1.length; i++) {
+        String gerund = genericNounSuffixContainer.getPrefix() + root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3();
+        for (int value : indexList1) {
             //because index in java start from zero
-            int suffixNo = indexList1[i] - 1;
-            String suffix = GenericNounSuffixContainer.getInstance().get(suffixNo);
+            int suffixNo = value - 1;
+            String suffix = genericNounSuffixContainer.get(suffixNo);
             gerundDisplayList.set(suffixNo, gerund + suffix);
         }
 
         if (root.getC2() == 'و' || root.getC2() == 'ي') {
-            gerund = GenericNounSuffixContainer.getInstance().getPrefix() + root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3();
-            for (int i = 0; i < indexList2.length; i++) {
+            gerund = genericNounSuffixContainer.getPrefix() + root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3();
+            for (int value : indexList2) {
                 //because index in java start from zero
-                int suffixNo = indexList2[i] - 1;
-                String suffix = GenericNounSuffixContainer.getInstance().get(suffixNo);
+                int suffixNo = value - 1;
+                String suffix = genericNounSuffixContainer.get(suffixNo);
                 gerundDisplayList.set(suffixNo, gerund + suffix);
             }
 
         }
         else {
-            gerund = GenericNounSuffixContainer.getInstance().getPrefix() + root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.FATHA + root.getC3();
-            for (int i = 0; i < indexList2.length; i++) {
+            gerund = genericNounSuffixContainer.getPrefix() + root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.FATHA + root.getC3();
+            for (int value : indexList2) {
                 //because index in java start from zero
-                int suffixNo = indexList2[i] - 1;
-                String suffix = GenericNounSuffixContainer.getInstance().get(suffixNo);
+                int suffixNo = value - 1;
+                String suffix = genericNounSuffixContainer.get(suffixNo);
                 gerundDisplayList.set(suffixNo, gerund + suffix);
             }
-
         }
 
         return gerundDisplayList;
     }
 
-
-
-    static final List formulas = new ArrayList(1);
+    private static final List<String> formulas = new ArrayList<>(1);
     static {
         formulas.add("فَعْلَة");
     }
@@ -83,5 +80,4 @@ public class TrilateralUnaugmentedNomenGerundConjugator implements IUnaugmentedT
     public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
         return formulas;
     }
-
 }

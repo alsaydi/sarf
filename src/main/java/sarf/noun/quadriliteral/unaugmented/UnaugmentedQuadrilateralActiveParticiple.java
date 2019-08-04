@@ -4,13 +4,15 @@ import sarf.verb.quadriliteral.unaugmented.*;
 import sarf.util.*;
 import sarf.noun.GenericNounSuffixContainer;
 
-public class UnaugmentedQuadriliteralActiveParticiple {
+public class UnaugmentedQuadrilateralActiveParticiple {
     private final UnaugmentedQuadrilateralRoot root;
     private final String suffix;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    public UnaugmentedQuadriliteralActiveParticiple(UnaugmentedQuadrilateralRoot root, String suffix) {
+    public UnaugmentedQuadrilateralActiveParticiple(UnaugmentedQuadrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.root = root;
         this.suffix = suffix;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
     /**
@@ -20,7 +22,7 @@ public class UnaugmentedQuadriliteralActiveParticiple {
      * @todo Implement this sarf.noun.Quadriliteral.QuadriliteralNoun method
      */
     public String form() {
-        return GenericNounSuffixContainer.getInstance().getPrefix()+"م"+ArabCharUtil.DAMMA+root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.KASRA+root.getC4()+suffix;
+        return genericNounSuffixContainer.getPrefix()+"م"+ArabCharUtil.DAMMA+root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.KASRA+root.getC4()+suffix;
     }
 
     public String toString() {

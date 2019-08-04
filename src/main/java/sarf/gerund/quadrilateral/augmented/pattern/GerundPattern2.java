@@ -1,5 +1,6 @@
 package sarf.gerund.quadrilateral.augmented.pattern;
 
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.util.*;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.gerund.quadrilateral.augmented.QuadrilateralAugmentedGerund;
@@ -17,8 +18,8 @@ import sarf.gerund.quadrilateral.augmented.QuadrilateralAugmentedGerund;
  * @version 1.0
  */
 public class GerundPattern2 extends QuadrilateralAugmentedGerund {
-    public GerundPattern2(AugmentedQuadrilateralRoot root, String suffixNo) {
-        super(root, suffixNo);
+    public GerundPattern2(AugmentedQuadrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo, genericNounSuffixContainer);
     }
 
     /**

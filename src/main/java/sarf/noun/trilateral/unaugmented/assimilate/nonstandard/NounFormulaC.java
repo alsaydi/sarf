@@ -18,8 +18,7 @@ import sarf.noun.*;
  * @version 1.0
  */
 public class NounFormulaC extends NounFormula {
-
-    public NounFormulaC(UnaugmentedTrilateralRoot root, String suffixNo) {
+    public NounFormulaC(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.root = root;
         this.suffixNo = Integer.parseInt(suffixNo)+1;
         suffix = AssimilateFormulaCSuffixContainer.getInstance().get(this.suffixNo-1).replaceAll(" ","");

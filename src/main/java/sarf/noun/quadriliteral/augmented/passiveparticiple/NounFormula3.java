@@ -1,6 +1,7 @@
 package sarf.noun.quadriliteral.augmented.passiveparticiple;
 
-import sarf.noun.quadriliteral.augmented.AugmentedQuadriliteralNoun;
+import sarf.noun.GenericNounSuffixContainer;
+import sarf.noun.quadriliteral.augmented.AugmentedQuadrilateralNoun;
 import sarf.util.ArabCharUtil;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
 
@@ -16,9 +17,9 @@ import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class NounFormula3 extends AugmentedQuadriliteralNoun {
-    public NounFormula3(AugmentedQuadrilateralRoot root, String suffix) {
-        super(root, suffix);
+public class NounFormula3 extends AugmentedQuadrilateralNoun {
+    public NounFormula3(AugmentedQuadrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffix, genericNounSuffixContainer);
     }
 
     /**

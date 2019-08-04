@@ -91,14 +91,10 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
      * @param listener            NounStateSelectionUIListener
      * @return JPanel
      */
-    protected INounStateSelectionUI createNounStateSelectionUI(Action action, INounSuffixContainer nounSuffixContainer, NounStateSelectionUIListener listener) {
+    private INounStateSelectionUI createNounStateSelectionUI(Action action, INounSuffixContainer nounSuffixContainer, NounStateSelectionUIListener listener) {
         NounStateSelectionUI nounStateSelectionUI = new NounStateSelectionUI();
         nounStateSelectionUI.init(action, nounSuffixContainer, this);
         return nounStateSelectionUI;
-    }
-    //TODO: delete this constructor
-    public NounConjugationUI(IMainControlPanel controlPaneContainer, sarf.Action sarfAction, String title) {
-        this(controlPaneContainer, sarfAction, GenericNounSuffixContainer.getInstance(), title);
     }
 
     private void displayNounsList(List nouns) {

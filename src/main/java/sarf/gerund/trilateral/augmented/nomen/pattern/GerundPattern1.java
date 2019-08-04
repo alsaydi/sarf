@@ -1,6 +1,7 @@
 package sarf.gerund.trilateral.augmented.nomen.pattern;
 
 import sarf.gerund.trilateral.augmented.nomen.*;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.util.*;
 import sarf.verb.trilateral.augmented.*;
 
@@ -17,11 +18,8 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public class GerundPattern1 extends TrilateralAugmentedNomenGerund {
-    public GerundPattern1() {
-    }
-
-    public GerundPattern1(AugmentedTrilateralRoot root, String suffixNo) {
-        init(root, suffixNo);
+    public GerundPattern1(AugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo, genericNounSuffixContainer);
     }
 
     /**

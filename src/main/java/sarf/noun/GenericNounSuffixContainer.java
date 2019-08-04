@@ -14,8 +14,7 @@ import java.util.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class GenericNounSuffixContainer implements INounSuffixContainer{
-    private static final GenericNounSuffixContainer instance = new GenericNounSuffixContainer();
+public class GenericNounSuffixContainer implements INounSuffixContainer {
     //حالة النكرة
     private final List<String> indefiniteSuffixList = new ArrayList<>(18);
     //حالة المعرفة
@@ -26,9 +25,9 @@ public class GenericNounSuffixContainer implements INounSuffixContainer{
     //تكون لها قيمة عندما تكون الحالة هي معرفة
     private String prefix = "";
     //يمثل القائمة المختارة تبعاً للحالة
-    private List<String> currentSuffixList = indefiniteSuffixList ;
+    private List<String> currentSuffixList = indefiniteSuffixList;
 
-    private GenericNounSuffixContainer() {
+    public GenericNounSuffixContainer() {
         indefiniteSuffixList.add("ٌ");
         indefiniteSuffixList.add("َةٌ");
         indefiniteSuffixList.add("َانِ");
@@ -104,20 +103,15 @@ public class GenericNounSuffixContainer implements INounSuffixContainer{
         currentSuffixList = annexedSuffixList;
     }
 
-    public static GenericNounSuffixContainer getInstance() {
-        return instance;
-    }
-
     public String getPrefix() {
         return prefix;
     }
 
     public String get(int index) {
-        return (String) currentSuffixList.get(index);
+        return currentSuffixList.get(index);
     }
 
     public boolean isInDefiniteMode() {
         return currentSuffixList == indefiniteSuffixList;
     }
-
 }

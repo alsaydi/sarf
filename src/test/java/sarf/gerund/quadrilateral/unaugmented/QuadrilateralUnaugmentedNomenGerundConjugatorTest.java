@@ -1,8 +1,15 @@
 package sarf.gerund.quadrilateral.unaugmented;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.verification.VerificationMode;
 import sarf.SystemConstants;
 import sarf.gerund.quadrilateral.augmented.nomen.QuadrilateralAugmentedNomenGerundConjugator;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
 
 import java.text.Collator;
@@ -10,16 +17,28 @@ import java.util.Locale;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
 
 class QuadrilateralUnaugmentedNomenGerundConjugatorTest {
+    @Mock
+    private GenericNounSuffixContainer genericNounSuffixContainer;
+
+    @InjectMocks
+    private QuadrilateralUnaugmentedNomenGerundConjugator sut;
+
+    @BeforeEach
+    void setup(){
+        MockitoAnnotations.initMocks(this);
+        when(genericNounSuffixContainer.getPrefix()).thenReturn("");
+        when(genericNounSuffixContainer.get(anyInt())).thenReturn("");
+    }
 
     @Test
     void createGerundListTest() {
         Locale syLocale = new java.util.Locale("ar", "SY", "");
         var collator = Collator.getInstance(syLocale);
         collator.setStrength(Collator.NO_DECOMPOSITION);
-
-        var sut = QuadrilateralUnaugmentedNomenGerundConjugator.getInstance();
         var root = new UnaugmentedQuadrilateralRoot();
         root.setC1('س');
         root.setC2('م');
@@ -34,16 +53,8 @@ class QuadrilateralUnaugmentedNomenGerundConjugatorTest {
         //final int[] indexList = {2, 4, 6, 8, 10, 12, 14, 16, 18};
 
         assertThat(actual.stream().filter(g -> !g.toString().equals("")).count()).isEqualTo(9);
-        assertThat(collator.compare(actual.get(1).toString(),"سمعلة")).isEqualTo(0);
-        assertThat(collator.compare(actual.get(3).toString(),"سمعلتان")).isEqualTo(0);
-        assertThat(collator.compare(actual.get(5).toString(),"سمعلات")).isEqualTo(0);
-
-        assertThat(collator.compare(actual.get(7).toString(),"سمعلة")).isEqualTo(0);
-        assertThat(collator.compare(actual.get(9).toString(),"سمعلتين")).isEqualTo(0);
-        assertThat(collator.compare(actual.get(11).toString(),"سمعلات")).isEqualTo(0);
-
-        assertThat(collator.compare(actual.get(13).toString(),"سمعلة")).isEqualTo(0);
-        assertThat(collator.compare(actual.get(15).toString(),"سمعلتين")).isEqualTo(0);
-        assertThat(collator.compare(actual.get(17).toString(),"سمعلات")).isEqualTo(0);
+        assertThat(actual.stream().filter(g -> collator.compare(g.toString(), "سمعل") == 0).count()).isEqualTo(9);
+        verify(genericNounSuffixContainer, times(1)).getPrefix();
+        verify(genericNounSuffixContainer, times(9)).get(anyInt());
     }
 }

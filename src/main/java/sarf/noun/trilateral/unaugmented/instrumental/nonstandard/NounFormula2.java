@@ -1,5 +1,6 @@
 package sarf.noun.trilateral.unaugmented.instrumental.nonstandard;
 
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.noun.trilateral.unaugmented.instrumental.*;
 import sarf.util.*;
 import sarf.verb.trilateral.unaugmented.*;
@@ -18,8 +19,8 @@ import sarf.verb.trilateral.unaugmented.*;
  */
 public class NounFormula2 extends NonStandardInstrumentalNounFormula{
 
-    public NounFormula2(UnaugmentedTrilateralRoot root, String suffixNo) {
-        super(root, suffixNo);
+    public NounFormula2(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo, genericNounSuffixContainer);
     }
 
     //to be used in refection getting the formula name

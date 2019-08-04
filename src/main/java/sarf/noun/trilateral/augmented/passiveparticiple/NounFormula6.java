@@ -1,5 +1,6 @@
 package sarf.noun.trilateral.augmented.passiveparticiple;
 
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.trilateral.augmented.*;
 import sarf.util.ArabCharUtil;
 import sarf.noun.trilateral.augmented.*;
@@ -17,8 +18,8 @@ import sarf.noun.trilateral.augmented.*;
  * @version 1.0
  */
 public class NounFormula6 extends AugmentedTrilateralNoun {
-    public NounFormula6(AugmentedTrilateralRoot root, String suffix) {
-        super(root, suffix);
+    public NounFormula6(AugmentedTrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffix, genericNounSuffixContainer);
     }
 
     /**

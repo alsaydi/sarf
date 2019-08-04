@@ -1,6 +1,8 @@
 package sarf.gerund.trilateral.augmented.nomen;
 
+import com.google.inject.Inject;
 import sarf.gerund.trilateral.augmented.nomen.pattern.GerundPatternEmpty;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.trilateral.augmented.*;
 import java.util.*;
 
@@ -17,41 +19,28 @@ import java.util.*;
  * @version 1.0
  */
 public class TrilateralAugmentedNomenGerundConjugator {
-    private static final TrilateralAugmentedNomenGerundConjugator instance = new TrilateralAugmentedNomenGerundConjugator();
-    private final Map<String, TrilateralAugmentedNomenGerund> gerundClassMap = new HashMap<>();
-
     private final int[] indexArray = {2, 4, 6, 8, 10, 12, 14, 16, 18};
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    private TrilateralAugmentedNomenGerundConjugator() {
-        for (int i = 1; i <= 12; i++) {
-            String gerundClassName = getClass().getPackage().getName() + ".pattern." + "GerundPattern" + i;
-            try {
-                var gerundInstance = (TrilateralAugmentedNomenGerund) Class.forName(gerundClassName).getConstructor().newInstance();
-                gerundClassMap.put(i + "", gerundInstance);
-            }
-            catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
-
-    public static TrilateralAugmentedNomenGerundConjugator getInstance() {
-        return instance;
+    @Inject
+    public TrilateralAugmentedNomenGerundConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
     public List<TrilateralAugmentedNomenGerund> createGerundList(AugmentedTrilateralRoot root, int formulaNo) {
         var gerundPatternClassName = getClass().getPackage().getName() + ".pattern." + "GerundPattern" + formulaNo;
         var gerundDisplayList = createEmptyList();
 
-        for (int i = 0; i < indexArray.length; i++) {
+        for (int value : indexArray) {
             //because index in java start from zero
-            int suffixNo = indexArray[i] - 1;
-            Object[] parameters = {root, suffixNo + ""};
+            int suffixNo = value - 1;
+            Object[] parameters = {root, suffixNo + "", genericNounSuffixContainer};
             try {
-                TrilateralAugmentedNomenGerund gerund = (TrilateralAugmentedNomenGerund) Class.forName(gerundPatternClassName).getConstructor(root.getClass(), "".getClass()).newInstance(parameters);
+                TrilateralAugmentedNomenGerund gerund = (TrilateralAugmentedNomenGerund) Class.forName(gerundPatternClassName)
+                        .getConstructor(root.getClass(), "".getClass(), genericNounSuffixContainer.getClass())
+                        .newInstance(parameters);
                 gerundDisplayList.set(suffixNo, gerund);
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
@@ -61,7 +50,7 @@ public class TrilateralAugmentedNomenGerundConjugator {
     private List<TrilateralAugmentedNomenGerund> createEmptyList() {
         var result = new ArrayList<TrilateralAugmentedNomenGerund>(18);
         for (int i = 1; i <= 18; i++) {
-            result.add(new GerundPatternEmpty());
+            result.add(new GerundPatternEmpty(new AugmentedTrilateralRoot(), "0", genericNounSuffixContainer));
         }
         return result;
     }

@@ -6,6 +6,7 @@ import java.util.stream.IntStream;
 
 import com.google.inject.Inject;
 import sarf.SystemConstants;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.*;
@@ -25,12 +26,15 @@ import sarf.gerund.trilateral.augmented.pattern.*;
  */
 public class TrilateralAugmentedGerundConjugator {
     private final FormulaApplyingChecker formulaApplyingChecker;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
     private TrilateralAugmentedGerundConjugatorListener listener;
     private AugmentedTrilateralModifierListener augmentedTrilateralModifierListener;
 
     @Inject
-    public TrilateralAugmentedGerundConjugator(FormulaApplyingChecker formulaApplyingChecker) {
+    public TrilateralAugmentedGerundConjugator(FormulaApplyingChecker formulaApplyingChecker
+        , GenericNounSuffixContainer genericNounSuffixContainer) {
         this.formulaApplyingChecker = formulaApplyingChecker;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
     public List<TrilateralAugmentedGerund> createGerundList(AugmentedTrilateralRoot root, int formulaNo) {
@@ -75,10 +79,10 @@ public class TrilateralAugmentedGerundConjugator {
 
         for (int i = 0; i < SystemConstants.NOUN_POSSIBLE_STATES; i++) {
             //because index in java start from zero
-            Object[] parameters = {root, i + ""};            
+            Object[] parameters = {root, i + "", genericNounSuffixContainer};
             try {
                 TrilateralAugmentedGerund gerund = (TrilateralAugmentedGerund) Class.forName(gerundPatternClassName)
-                        .getConstructor(root.getClass(), "".getClass()).newInstance(parameters);
+                        .getConstructor(root.getClass(), "".getClass(), genericNounSuffixContainer.getClass()).newInstance(parameters);
                 gerundDisplayList.set(i, gerund);
             }
             catch (Exception ex) {
@@ -107,7 +111,7 @@ public class TrilateralAugmentedGerundConjugator {
         if (root.getC1() != 'ي'){
             applyForm2 = selectPatternFormNo(3) == 2;
         }
-        var gerund = new GerundPattern3(root, i +"", applyForm2);
+        var gerund = new GerundPattern3(root, i +"", genericNounSuffixContainer, applyForm2);
         gerundDisplayList.set(i, gerund);
     }
 
@@ -121,7 +125,7 @@ public class TrilateralAugmentedGerundConjugator {
         else if (root.getC3() == 'و' || root.getC3() == 'ي') {
             applyForm2 = true;
         }
-        var gerund = new GerundPattern2(root, i +"", applyForm2, applyForm3);
+        var gerund = new GerundPattern2(root, i +"", genericNounSuffixContainer, applyForm2, applyForm3);
         gerundDisplayList.set(i, gerund);
     }
 
@@ -133,7 +137,7 @@ public class TrilateralAugmentedGerundConjugator {
 
     public List<TrilateralAugmentedGerund> createEmptyList() {
         return IntStream.rangeClosed(1, SystemConstants.NOUN_POSSIBLE_STATES)
-                .mapToObj(i -> new EmptyGerundPattern())
+                .mapToObj(i -> new EmptyGerundPattern(new AugmentedTrilateralRoot(), "", genericNounSuffixContainer ))
                 .collect(Collectors.toList());
     }
 

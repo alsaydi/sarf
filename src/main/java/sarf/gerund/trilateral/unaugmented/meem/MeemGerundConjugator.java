@@ -28,11 +28,14 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
     private final Map<String, String> formulaNameToSymbolMap = new HashMap<>();
     private final KovRulesManager kovRulesManager;
     private final DatabaseManager databaseManager;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
     @Inject
-    public MeemGerundConjugator(KovRulesManager kovRulesManager, DatabaseManager databaseManager) {
+    public MeemGerundConjugator(KovRulesManager kovRulesManager, DatabaseManager databaseManager, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.kovRulesManager = kovRulesManager;
         this.databaseManager = databaseManager;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
+
         symbolToFormulaNameMap.put("C","مَفْعَلَة");
         symbolToFormulaNameMap.put("D","مَفْعُلَة");
         symbolToFormulaNameMap.put("E","مَفْعِلَة");
@@ -62,10 +65,10 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
         //لعدم حذف التاء المربوطة من قاعدة المعطيات وحذفها من توليد القانون لأنها موجودة في اللاحقة
         //وحذف الفتحة من قاعدة المعطيات لأنها موجودة في اللاحقة
         gerundText = gerundText.substring(0, gerundText.length()-2);
-        gerundText = GenericNounSuffixContainer.getInstance().getPrefix()+ gerundText;
-        gerundDisplayList.set(1, gerundText+GenericNounSuffixContainer.getInstance().get(1));
-        gerundDisplayList.add(7, gerundText+GenericNounSuffixContainer.getInstance().get(7));
-        gerundDisplayList.add(13, gerundText+GenericNounSuffixContainer.getInstance().get(13));
+        gerundText = genericNounSuffixContainer.getPrefix()+ gerundText;
+        gerundDisplayList.set(1, gerundText+genericNounSuffixContainer.get(1));
+        gerundDisplayList.add(7, gerundText+genericNounSuffixContainer.get(7));
+        gerundDisplayList.add(13, gerundText+genericNounSuffixContainer.get(13));
 
         return gerundDisplayList;
     }

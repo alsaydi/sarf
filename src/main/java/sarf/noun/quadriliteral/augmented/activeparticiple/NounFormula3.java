@@ -1,5 +1,6 @@
 package sarf.noun.quadriliteral.augmented.activeparticiple;
 
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.util.ArabCharUtil;
 import sarf.noun.quadriliteral.augmented.*;
@@ -16,9 +17,9 @@ import sarf.noun.quadriliteral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class NounFormula3 extends AugmentedQuadriliteralNoun {
-    public NounFormula3(AugmentedQuadrilateralRoot root, String suffix) {
-        super(root, suffix);
+public class NounFormula3 extends AugmentedQuadrilateralNoun {
+    public NounFormula3(AugmentedQuadrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffix, genericNounSuffixContainer);
     }
 
     /**

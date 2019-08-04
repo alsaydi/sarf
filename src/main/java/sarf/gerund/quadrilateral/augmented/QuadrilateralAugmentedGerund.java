@@ -16,22 +16,17 @@ import sarf.verb.quadriliteral.augmented.*;
  * @version 1.0
  */
 public abstract class QuadrilateralAugmentedGerund {
-    protected AugmentedQuadrilateralRoot root;
-    protected int suffixNo;
-    protected String suffix;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
+    protected final AugmentedQuadrilateralRoot root;
+    protected final int suffixNo;
+    protected final String suffix;
 
-    public QuadrilateralAugmentedGerund(AugmentedQuadrilateralRoot root, String suffixNo) {
-        init(root, suffixNo);
-    }
-
-    QuadrilateralAugmentedGerund() {
-    }
-
-    private void init(AugmentedQuadrilateralRoot root, String suffixNo) {
+    public QuadrilateralAugmentedGerund(AugmentedQuadrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
         this.root = root;
         this.suffixNo = Integer.parseInt(suffixNo);
 
-        suffix = GenericNounSuffixContainer.getInstance().get(this.suffixNo);
+        suffix = genericNounSuffixContainer.get(this.suffixNo);
     }
 
     public abstract String form();
@@ -41,7 +36,7 @@ public abstract class QuadrilateralAugmentedGerund {
     public String toString() {
         String result = form();
         if (result != null && !result.equals(""))
-            return GenericNounSuffixContainer.getInstance().getPrefix() + result;
+            return genericNounSuffixContainer.getPrefix() + result;
         return "";
     }
 }

@@ -55,6 +55,9 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
     private final StandardExaggerationConjugator standardExaggerationConjugator;
     private final StandardInstrumentalConjugator standardInstrumentalConjugator;
     private final TimeAndPlaceConjugator timeAndPlaceConjugator;
+    private final UnaugmentedTrilateralPassiveParticipleConjugator unaugmentedTrilateralPassiveParticipleConjugator;
+    private final UnaugmentedTrilateralActiveParticipleConjugator unaugmentedTrilateralActiveParticipleConjugator;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
 
     public TrilateralUnaugmentedNounsUI(ControlPaneContainer controlPaneContainer
@@ -65,7 +68,10 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
             , TrilateralUnaugmentedNouns trilateralUnaugmentedNouns
             , StandardExaggerationConjugator standardExaggerationConjugator
             , StandardInstrumentalConjugator standardInstrumentalConjugator
-            , TimeAndPlaceConjugator timeAndPlaceConjugator) {
+            , TimeAndPlaceConjugator timeAndPlaceConjugator
+            , UnaugmentedTrilateralPassiveParticipleConjugator unaugmentedTrilateralPassiveParticipleConjugator
+            , UnaugmentedTrilateralActiveParticipleConjugator unaugmentedTrilateralActiveParticipleConjugator
+            , GenericNounSuffixContainer genericNounSuffixContainer) {
 
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
@@ -77,6 +83,9 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         this.standardExaggerationConjugator = standardExaggerationConjugator;
         this.standardInstrumentalConjugator = standardInstrumentalConjugator;
         this.timeAndPlaceConjugator = timeAndPlaceConjugator;
+        this.unaugmentedTrilateralPassiveParticipleConjugator = unaugmentedTrilateralPassiveParticipleConjugator;
+        this.unaugmentedTrilateralActiveParticipleConjugator = unaugmentedTrilateralActiveParticipleConjugator;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
 
         //add(new NounStateSelectionUI());
         add(controlPanels);
@@ -109,13 +118,13 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
 
         controlPanels.add("اسم الفاعل ", activeParticiplePane);
         activeParticiplePane.removeAll();
-        JToggleButton activeParticipleBtn = createButton("فَاعِل", UnaugmentedTrilateralActiveParticipleConjugator.getInstance(), ActiveParticipleModifier.getInstance(), "اسم الفاعل");
+        JToggleButton activeParticipleBtn = createButton("فَاعِل", unaugmentedTrilateralActiveParticipleConjugator, ActiveParticipleModifier.getInstance(), "اسم الفاعل");
         activeParticiplePane.add(activeParticipleBtn);
         activeParticipleBtn.doClick();
 
         controlPanels.add("اسم المفعول ", passiveParticiplePane);
         passiveParticiplePane.removeAll();
-        passiveParticiplePane.add(createButton("مَفْعُول", UnaugmentedTrilateralPassiveParticipleConjugator.getInstance(), PassiveParticipleModifier.getInstance(), "اسم المفعول"));
+        passiveParticiplePane.add(createButton("مَفْعُول", unaugmentedTrilateralPassiveParticipleConjugator, PassiveParticipleModifier.getInstance(), "اسم المفعول"));
 
         JPanel standardExaggerationsPnl = null;
         if (trilateralUnaugmentedNouns.getStandardExaggerations(root) != null && !trilateralUnaugmentedNouns.getStandardExaggerations(root).isEmpty()) {
@@ -213,7 +222,7 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
     }
 
     private APanel createControlPanel(IUnaugmentedTrilateralNounConjugator conjugator, IUnaugmentedTrilateralNounModifier modifier, String title) {
-        return createControlPanel(conjugator, modifier, GenericNounSuffixContainer.getInstance(), title);
+        return createControlPanel(conjugator, modifier, genericNounSuffixContainer, title);
     }
 
     private APanel createControlPanel(IUnaugmentedTrilateralNounConjugator conjugator, IUnaugmentedTrilateralNounModifier modifier, INounSuffixContainer nounSuffixContainer, String title) {
@@ -263,7 +272,7 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
     }
 
     private JToggleButton createButton(final String formula, final IUnaugmentedTrilateralNounConjugator conjugator, final IUnaugmentedTrilateralNounModifier modifier, String title) {
-        return createButton(formula, conjugator, modifier, GenericNounSuffixContainer.getInstance(), title);
+        return createButton(formula, conjugator, modifier, genericNounSuffixContainer, title);
     }
 
     private JToggleButton createButton(final String formula, final IUnaugmentedTrilateralNounConjugator conjugator, final IUnaugmentedTrilateralNounModifier modifier, final INounSuffixContainer nounSuffixContainer, final String title) {

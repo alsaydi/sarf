@@ -1,5 +1,6 @@
 package sarf.noun.trilateral.unaugmented.exaggeration;
 
+import com.google.inject.Inject;
 import sarf.SystemConstants;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.*;
@@ -25,13 +26,17 @@ public class StandardExaggerationConjugator implements IUnaugmentedTrilateralNou
         formulas.add("فَعَّال");
     }
 
-    public StandardExaggerationConjugator() {
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
+
+    @Inject
+    public StandardExaggerationConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
     public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
         List<NounFormula> result = new ArrayList<>();
         for (int i = 0; i < SystemConstants.NOUN_POSSIBLE_STATES; i++) {
-            NounFormula noun = new NounFormula1(root, i + "");
+            NounFormula noun = new NounFormula1(root, i + "", genericNounSuffixContainer);
             result.add(noun);
         }
         return result;

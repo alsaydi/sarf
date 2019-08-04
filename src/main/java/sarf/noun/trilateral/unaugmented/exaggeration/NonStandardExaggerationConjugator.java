@@ -36,10 +36,12 @@ public class NonStandardExaggerationConjugator implements IUnaugmentedTrilateral
     //map <symbol,formulaName>
     private final Map<String, String> formulaSymbolsNamesMap = new HashMap<>();
     private final DatabaseManager databaseManager;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
     @Inject
-    public NonStandardExaggerationConjugator(DatabaseManager databaseManager) {
+    public NonStandardExaggerationConjugator(DatabaseManager databaseManager, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.databaseManager = databaseManager;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
         buildFormulaMap(new NounFormula1());
         buildFormulaMap(new NounFormula2());
         buildFormulaMap(new NounFormula3());
@@ -58,11 +60,11 @@ public class NonStandardExaggerationConjugator implements IUnaugmentedTrilateral
     }
 
     public NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaName) {
-        Object[] parameters = {root, suffixNo + ""};
+        Object[] parameters = {root, suffixNo + "", genericNounSuffixContainer};
 
         try {
             Class<NounFormula> formulaClass = formulaClassNamesMap.get(formulaName);
-            var constructor = formulaClass.getConstructor(UnaugmentedTrilateralRoot.class, String.class);
+            var constructor = formulaClass.getConstructor(UnaugmentedTrilateralRoot.class, String.class, genericNounSuffixContainer.getClass());
             return constructor.newInstance(parameters);
         } catch (Exception ex) {
             ex.printStackTrace();

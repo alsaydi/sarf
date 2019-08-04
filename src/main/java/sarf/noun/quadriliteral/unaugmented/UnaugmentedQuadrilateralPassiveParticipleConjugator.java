@@ -1,5 +1,6 @@
 package sarf.noun.quadriliteral.unaugmented;
 
+import com.google.inject.Inject;
 import sarf.verb.quadriliteral.unaugmented.*;
 import sarf.noun.*;
 import java.util.*;
@@ -16,19 +17,17 @@ import java.util.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class UnaugmentedQuadriliteralPassiveParticipleConjugator {
-    private UnaugmentedQuadriliteralPassiveParticipleConjugator() {
+public class UnaugmentedQuadrilateralPassiveParticipleConjugator {
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
+
+    @Inject
+    public UnaugmentedQuadrilateralPassiveParticipleConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
-
-    private static final UnaugmentedQuadriliteralPassiveParticipleConjugator instance = new UnaugmentedQuadriliteralPassiveParticipleConjugator();
-
-    public static UnaugmentedQuadriliteralPassiveParticipleConjugator getInstance() {
-        return instance;
-    }
-
-    public UnaugmentedQuadriliteralPassiveParticiple createNoun(UnaugmentedQuadrilateralRoot root, int suffixIndex) {
-        String suffix = GenericNounSuffixContainer.getInstance().get(suffixIndex);
-        return new UnaugmentedQuadriliteralPassiveParticiple(root, suffix);
+    
+    public UnaugmentedQuadrilateralPassiveParticiple createNoun(UnaugmentedQuadrilateralRoot root, int suffixIndex) {
+        String suffix = genericNounSuffixContainer.get(suffixIndex);
+        return new UnaugmentedQuadrilateralPassiveParticiple(root, suffix, genericNounSuffixContainer);
     }
 
     public List createNounList(UnaugmentedQuadrilateralRoot root) {
@@ -48,7 +47,7 @@ public class UnaugmentedQuadriliteralPassiveParticipleConjugator {
 
         for (int i = 0; i < indecies.size(); i++) {
             int index = Integer.parseInt(indecies.get(i).toString());
-            UnaugmentedQuadriliteralPassiveParticiple noun = createNoun(root, index);
+            UnaugmentedQuadrilateralPassiveParticiple noun = createNoun(root, index);
             result.set(index, noun);
         }
 
@@ -82,7 +81,4 @@ public class UnaugmentedQuadriliteralPassiveParticipleConjugator {
     public List createMeemGerundNounList(UnaugmentedQuadrilateralRoot root) {
         return createNounList(root, meemGerundIndeciesList);
     }
-
-
-
 }

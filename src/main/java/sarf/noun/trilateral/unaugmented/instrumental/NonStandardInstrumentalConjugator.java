@@ -38,10 +38,12 @@ public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateral
     //map <symbol,formulaName>
     private final Map<String, String> formulaSymbolsNamesMap = new HashMap<>();
     private final DatabaseManager databaseManager;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
     @Inject
-    public NonStandardInstrumentalConjugator(DatabaseManager databaseManager) {
+    public NonStandardInstrumentalConjugator(DatabaseManager databaseManager, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.databaseManager = databaseManager;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
         buildFormulaClassNamesMap(new NounFormula1());
         buildFormulaClassNamesMap(new NounFormula2());
         buildFormulaClassNamesMap(new NounFormula3());
@@ -65,11 +67,11 @@ public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateral
     }
 
     public NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaName) {
-        Object[] parameters = {root, suffixNo + ""};
+        Object[] parameters = {root, suffixNo + "", genericNounSuffixContainer};
 
         try {
             Class<NounFormula> formulaClass = formulaClassNamesMap.get(formulaName);
-            return formulaClass.getConstructor(root.getClass(), "".getClass()).newInstance(parameters);
+            return formulaClass.getConstructor(root.getClass(), "".getClass(), genericNounSuffixContainer.getClass()).newInstance(parameters);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
