@@ -2,6 +2,7 @@ package sarf.gerund.trilateral.unaugmented;
 
 import java.util.*;
 
+import com.google.inject.Inject;
 import sarf.SystemConstants;
 import sarf.noun.*;
 import sarf.util.*;
@@ -23,12 +24,13 @@ public class QualityGerundConjugator implements IUnaugmentedTrilateralGerundConj
     private final int[] indexList = {2, 8, 14};
     private final GenericNounSuffixContainer genericNounSuffixContainer;
 
+    @Inject
     public QualityGerundConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
         this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
     private List<String> createEmptyList() {
-        List<String> result = new ArrayList(SystemConstants.NOUN_POSSIBLE_STATES);
+        List<String> result = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
         for (int i = 1; i <= SystemConstants.NOUN_POSSIBLE_STATES; i++) {
             result.add("");
         }
