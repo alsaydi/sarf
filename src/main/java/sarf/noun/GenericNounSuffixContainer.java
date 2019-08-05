@@ -1,5 +1,7 @@
 package sarf.noun;
 
+import com.google.inject.Singleton;
+
 import java.util.*;
 
 /**
@@ -14,6 +16,7 @@ import java.util.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
+@Singleton
 public class GenericNounSuffixContainer implements INounSuffixContainer {
     //حالة النكرة
     private final List<String> indefiniteSuffixList = new ArrayList<>(18);
