@@ -32,13 +32,13 @@ public class AssimilateAdjectiveConjugator implements IUnaugmentedTrilateralNoun
     public AssimilateAdjectiveConjugator(DatabaseManager databaseManager, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.databaseManager = databaseManager;
         this.genericNounSuffixContainer = genericNounSuffixContainer;
-        loadFormulaName("A", new NounFormulaA());
-        loadFormulaName("B", new NounFormulaB());
-        loadFormulaName("C", new NounFormulaC());
-        loadFormulaName("D", new NounFormulaD());
+        loadFormulaName("A", new NounFormulaA(new UnaugmentedTrilateralRoot(), "0", genericNounSuffixContainer));
+        loadFormulaName("B", new NounFormulaB(new UnaugmentedTrilateralRoot(), "0", genericNounSuffixContainer));
+        loadFormulaName("C", new NounFormulaC(new UnaugmentedTrilateralRoot(), "0", genericNounSuffixContainer));
+        loadFormulaName("D", new NounFormulaD(new UnaugmentedTrilateralRoot(), "0", genericNounSuffixContainer));
         //تم تفريق هذه الصيغة إلى صيغتين
-        loadFormulaName("E1", new NounFormulaE1());
-        loadFormulaName("E2", new NounFormulaE2());
+        loadFormulaName("E1", new NounFormulaE1(new UnaugmentedTrilateralRoot(), "0", genericNounSuffixContainer));
+        loadFormulaName("E2", new NounFormulaE2(new UnaugmentedTrilateralRoot(), "0", genericNounSuffixContainer));
     }
 
     private void loadFormulaName(String formulaId, NounFormula instance) {
@@ -48,17 +48,22 @@ public class AssimilateAdjectiveConjugator implements IUnaugmentedTrilateralNoun
 
 
     public NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaID) {
-        Object[] parameters = {root, suffixNo + "", genericNounSuffixContainer};
-        try {
             /*
                 لكي تكون هنا: جرب بالفعل صب المضعف.
              */
-            var formulaClassName = getClass().getPackage().getName() + ".nonstandard.NounFormula" + formulaID;
-            Class formulaClass = Class.forName(formulaClassName);
-            return (NounFormula) formulaClass.getConstructor(root.getClass(), formulaID.getClass(), genericNounSuffixContainer.getClass())
-                    .newInstance(parameters);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        switch (formulaID) {
+            case "A":
+                return new NounFormulaA(root, suffixNo + "", genericNounSuffixContainer);
+            case "B":
+                return new NounFormulaB(root, suffixNo + "", genericNounSuffixContainer);
+            case "C":
+                return new NounFormulaC(root, suffixNo + "", genericNounSuffixContainer);
+            case "D":
+                return new NounFormulaD(root, suffixNo + "", genericNounSuffixContainer);
+            case "E1":
+                return new NounFormulaE1(root, suffixNo + "", AssimilateFormulaE1SuffixContainer.getInstance());
+            case "E2":
+                return new NounFormulaE2(root, suffixNo + "", genericNounSuffixContainer);
         }
         return null;
     }

@@ -18,13 +18,9 @@ import sarf.util.*;
  * @version 1.0
  */
 public class NounFormulaD extends NounFormula{
-
+    public NounFormulaD(){}
     public NounFormulaD(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         super(root, suffixNo, genericNounSuffixContainer);
-    }
-
-    //to be used in refection getting the formula name
-    public NounFormulaD() {
     }
 
     public String form() {

@@ -2,6 +2,7 @@ package sarf.gerund.trilateral.unaugmented.meem.pattern;
 
 import sarf.Conjugation;
 import sarf.KindOfVerb;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.util.*;
 import sarf.gerund.trilateral.unaugmented.meem.*;
 import sarf.verb.trilateral.unaugmented.*;
@@ -25,8 +26,8 @@ import static sarf.KindOfVerb.*;
 public class StandardGerundPattern extends MeemGerund {
     private boolean form1;
     public static StandardGerundPattern Empty = new StandardGerundPattern();
-    public StandardGerundPattern(UnaugmentedTrilateralRoot root, String suffixNo, KindOfVerb kov) {
-        init(root, suffixNo);
+    public StandardGerundPattern(UnaugmentedTrilateralRoot root, String suffixNo, KindOfVerb kov, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo, genericNounSuffixContainer);
         var noc = root.getConjugation();
         //try first state
         form1 = (isMithalWawi(kov) && (noc == Conjugation.Second || noc == Conjugation.Third ||noc == Conjugation.Sixth));
@@ -37,7 +38,6 @@ public class StandardGerundPattern extends MeemGerund {
     }
 
     private StandardGerundPattern() {
-        init(new UnaugmentedTrilateralRoot(), "");
     }
 
     private static boolean isMithalWawi(KindOfVerb kov) {

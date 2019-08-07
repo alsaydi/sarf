@@ -50,9 +50,9 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
         if (formulaName.equals("مَفْعِل") || formulaName.equals("مَفْعَل")) {
             List<StandardGerundPattern> standardGerunds = createEmptyList();
             var kov = kovRulesManager.getTrilateralKov(root.getC1(), root.getC2(), root.getC3());
-            standardGerunds.set(0, new StandardGerundPattern(root, "0", kov));
-            standardGerunds.set(6, new StandardGerundPattern(root, "6", kov));
-            standardGerunds.set(12, new StandardGerundPattern(root, "12", kov));
+            standardGerunds.set(0, new StandardGerundPattern(root, "0", kov, genericNounSuffixContainer));
+            standardGerunds.set(6, new StandardGerundPattern(root, "6", kov, genericNounSuffixContainer));
+            standardGerunds.set(12, new StandardGerundPattern(root, "12", kov, genericNounSuffixContainer));
             return standardGerunds;
         }
         //non standard
@@ -87,7 +87,7 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
         var kov = kovRulesManager.getTrilateralKov(root.getC1(), root.getC2(), root.getC3());
 
         //add the standard pattern first
-        StandardGerundPattern standardGerundPattern = new StandardGerundPattern(root, "0", kov);
+        StandardGerundPattern standardGerundPattern = new StandardGerundPattern(root, "0", kov, genericNounSuffixContainer);
         result.add(standardGerundPattern.getPattern());
 
         XmlMeemGerundNounFormulaTree formulaTree = databaseManager.getMeemGerundFormulaTree(root.getC1());

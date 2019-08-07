@@ -137,7 +137,7 @@ public class TrilateralAugmentedGerundConjugator {
 
     public List<TrilateralAugmentedGerund> createEmptyList() {
         return IntStream.rangeClosed(1, SystemConstants.NOUN_POSSIBLE_STATES)
-                .mapToObj(i -> new EmptyGerundPattern(new AugmentedTrilateralRoot(), "", genericNounSuffixContainer ))
+                .mapToObj(i -> new EmptyGerundPattern(new AugmentedTrilateralRoot(), "0", genericNounSuffixContainer ))
                 .collect(Collectors.toList());
     }
 

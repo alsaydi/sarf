@@ -20,22 +20,15 @@ public abstract class MeemGerund {
     protected UnaugmentedTrilateralRoot root;
     protected int suffixNo;
     protected String suffix;
-
-
-    public MeemGerund() {
+    protected MeemGerund() {
         genericNounSuffixContainer = null;
     }
 
     public MeemGerund(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
-        this.genericNounSuffixContainer = genericNounSuffixContainer;
-        init(root, suffixNo);
-    }
-
-    protected void init(UnaugmentedTrilateralRoot root, String suffixNo) {
         this.root = root;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
         this.suffixNo = "".equals(suffixNo) ? 0 : Integer.parseInt(suffixNo);
-
-        suffix = genericNounSuffixContainer.get(this.suffixNo);
+        suffix = genericNounSuffixContainer != null ? genericNounSuffixContainer.get(this.suffixNo) : "";
     }
 
     public abstract String form();

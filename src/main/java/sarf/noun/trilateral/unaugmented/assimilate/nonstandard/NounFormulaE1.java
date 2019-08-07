@@ -19,16 +19,12 @@ import sarf.noun.INounSuffixContainer;
  * @version 1.0
  */
 public class NounFormulaE1 extends NounFormula {
+    public NounFormulaE1(){}
 
-    public NounFormulaE1(UnaugmentedTrilateralRoot root, String suffixNo) {
+    public NounFormulaE1(UnaugmentedTrilateralRoot root, String suffixNo, INounSuffixContainer nounSuffixContainer) {
         this.root = root;
         this.suffixNo = Integer.parseInt(suffixNo)+1;
         suffix = AssimilateFormulaE1SuffixContainer.getInstance().get(this.suffixNo-1).replaceAll(" ","");
-
-    }
-
-    //to be used in refection getting the formula name
-    public NounFormulaE1() {
     }
 
     public String form() {
@@ -54,9 +50,4 @@ public class NounFormulaE1 extends NounFormula {
     public String getFormulaName() {
         return "فَعْلان / فَعْلانة" ;
     }
-
-    protected INounSuffixContainer getNounSuffixContainer() {
-        return AssimilateFormulaE1SuffixContainer.getInstance();
-    }
-
 }
