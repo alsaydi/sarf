@@ -33,8 +33,7 @@ public abstract class SubstitutionsApplier<T> {
      * @param root TrilateralRoot
      */
     public void apply(List words, TrilateralRoot root) {
-        for (String defaultAppliedPronounsIndex : defaultAppliedPronounsIndexes) {
-            int index = Integer.parseInt(defaultAppliedPronounsIndex) - 1;
+        for (var index=0; index < getAppliedPronounsIndexes().size(); index++) {
             var wordObj = words.get(index);
             if (wordObj == null) {
                 continue;
@@ -58,4 +57,8 @@ public abstract class SubstitutionsApplier<T> {
      * @return List
      */
     public abstract List<Substitution> getSubstitutions();
+
+    protected List getAppliedPronounsIndexes() {
+        return defaultAppliedPronounsIndexes;
+    }
 }
