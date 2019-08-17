@@ -22,36 +22,14 @@ public class GerundPattern1 extends TrilateralAugmentedNomenGerund {
         super(root, suffixNo, genericNounSuffixContainer);
     }
 
-    /**
-     * form
-     *
-     * @return String
-     * @todo Implement this
-     *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
-     */
     public String form() {
-//        if (root.getC2() == 'و' || root.getC2() == 'ي')
-//            return form2();
         return form1();
     }
 
     public String form1() {
-        return "إ"+ArabCharUtil.KASRA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+"ا"+root.getC3()+suffix;
+        return "إ" + ArabCharUtil.KASRA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.FATHA + "ا" + root.getC3() + suffix;
     }
-//
-//    public String form2() {
-//        return "إ"+ArabCharUtil.KASRA+root.getC1()+ArabCharUtil.FATHA+"ا"+root.getC3()+suffix;
-//    }
 
-
-
-    /**
-     * getPattern
-     *
-     * @return String
-     * @todo Implement this
-     *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
-     */
     public String getPattern() {
         return "إفْعَالة";
     }

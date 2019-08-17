@@ -27,7 +27,7 @@ public class GerundPattern2 extends TrilateralAugmentedNomenGerund {
      *
      * @return String
      * @todo Implement this
-     *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
+     * sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
      */
     public String form() {
 //        if (root.getC3() == 'و' || root.getC3() == 'ي')
@@ -39,15 +39,15 @@ public class GerundPattern2 extends TrilateralAugmentedNomenGerund {
     }
 
     public String form1() {
-        return "ت"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+"ي"+root.getC3()+suffix;
+        return "ت" + ArabCharUtil.FATHA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.KASRA + "ي" + root.getC3() + suffix;
     }
 
     public String form2() {
-        return "ت"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
+        return "ت" + ArabCharUtil.FATHA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.KASRA + root.getC3() + suffix;
     }
 
     public String form3() {
-        return "ت"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+"ئ"+suffix;
+        return "ت" + ArabCharUtil.FATHA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.KASRA + "ئ" + suffix;
     }
 
     /**
@@ -55,7 +55,7 @@ public class GerundPattern2 extends TrilateralAugmentedNomenGerund {
      *
      * @return String
      * @todo Implement this
-     *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
+     * sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
      */
     public String getPattern() {
         return "تَفْعِيلة";

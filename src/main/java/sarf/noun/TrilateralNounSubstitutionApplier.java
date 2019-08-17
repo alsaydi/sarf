@@ -1,7 +1,9 @@
 package sarf.noun;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
+import sarf.SystemConstants;
 import sarf.verb.trilateral.Substitution.*;
 
 /**
@@ -18,11 +20,11 @@ import sarf.verb.trilateral.Substitution.*;
  */
 public abstract class TrilateralNounSubstitutionApplier extends SubstitutionsApplier {
 
-    private static final List<String> appliedPronounsIndexes = new ArrayList<>(18);
+    private static final List<String> appliedPronounsIndexes = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
     static {
-        for (int i=0; i<18; i++) {
-            appliedPronounsIndexes.add(i+1 +"");
-        }
+        IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
+                .mapToObj(i -> i + 1 + "")
+                .forEachOrdered(appliedPronounsIndexes::add);
     }
 
     public TrilateralNounSubstitutionApplier() {

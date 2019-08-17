@@ -39,5 +39,4 @@ public abstract class TrilateralAugmentedNomenGerund {
         return "";
 
     }
-
 }

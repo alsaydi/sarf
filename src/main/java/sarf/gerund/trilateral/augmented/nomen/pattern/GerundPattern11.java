@@ -27,10 +27,10 @@ public class GerundPattern11 extends TrilateralAugmentedNomenGerund {
      *
      * @return String
      * @todo Implement this
-     *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
+     * sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
      */
     public String form() {
-        return "ا"+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+"و"+ArabCharUtil.SHADDA+ArabCharUtil.FATHA+"ا"+root.getC3()+suffix;
+        return "ا" + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.KASRA + "و" + ArabCharUtil.SHADDA + ArabCharUtil.FATHA + "ا" + root.getC3() + suffix;
     }
 
     /**
@@ -38,7 +38,7 @@ public class GerundPattern11 extends TrilateralAugmentedNomenGerund {
      *
      * @return String
      * @todo Implement this
-     *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
+     * sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
      */
     public String getPattern() {
         return "افْعِوَّالة";

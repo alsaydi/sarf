@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import sarf.AugmentationFormula;
 import sarf.SystemConstants;
 import sarf.noun.GenericNounSuffixContainer;
+import sarf.noun.trilateral.augmented.activeparticiple.*;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 
 import java.util.*;
@@ -28,19 +29,23 @@ public class AugmentedTrilateralActiveParticipleConjugator {
         this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
     
-    public AugmentedTrilateralNoun createNoun(AugmentedTrilateralRoot root, int suffixIndex, int formulaNo) {
+    private AugmentedTrilateralNoun createNoun(AugmentedTrilateralRoot root, int suffixIndex, int formulaNo) {
         String suffix = genericNounSuffixContainer.get(suffixIndex);
-        String formulaClassName = getClass().getPackage().getName()+".activeparticiple."+"NounFormula"+formulaNo;
-        Object [] parameters = {root, suffix, genericNounSuffixContainer};
-
-        try {
-            return (AugmentedTrilateralNoun) Class.forName(formulaClassName)
-                    .getConstructor(root.getClass(), suffix.getClass(), genericNounSuffixContainer.getClass()).newInstance(parameters);
+        switch (formulaNo){
+            case 1: return new NounFormula1(root, suffix, genericNounSuffixContainer);
+            case 2: return new NounFormula2(root, suffix, genericNounSuffixContainer);
+            case 3: return new NounFormula3(root, suffix, genericNounSuffixContainer);
+            case 4: return new NounFormula4(root, suffix, genericNounSuffixContainer);
+            case 5: return new NounFormula5(root, suffix, genericNounSuffixContainer);
+            case 6: return new NounFormula6(root, suffix, genericNounSuffixContainer);
+            case 7: return new NounFormula7(root, suffix, genericNounSuffixContainer);
+            case 8: return new NounFormula8(root, suffix, genericNounSuffixContainer);
+            case 9: return new NounFormula9(root, suffix, genericNounSuffixContainer);
+            case 10: return new NounFormula10(root, suffix, genericNounSuffixContainer);
+            case 11: return new NounFormula11(root, suffix, genericNounSuffixContainer);
+            case 12: return new NounFormula12(root, suffix, genericNounSuffixContainer);
         }
-        catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return null;
+        return  null;
     }
 
     public List<AugmentedTrilateralNoun> createNounList(AugmentedTrilateralRoot root, int formulaNo) {
