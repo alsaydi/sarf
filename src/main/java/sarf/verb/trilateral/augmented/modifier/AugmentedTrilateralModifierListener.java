@@ -13,7 +13,7 @@ package sarf.verb.trilateral.augmented.modifier;
  * @version 1.0
  */
 public interface AugmentedTrilateralModifierListener {
-    //if there are two states for the verb with vocaliztion and without, listners will be notified
+    //if there are two states for the verb with vocalization and without, listeners will be notified
     //about this situation to take a decision
     boolean doSelectVocalization();
 }

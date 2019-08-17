@@ -32,112 +32,100 @@ public class TrilateralAugmentedGerundConjugator {
 
     @Inject
     public TrilateralAugmentedGerundConjugator(FormulaApplyingChecker formulaApplyingChecker
-        , GenericNounSuffixContainer genericNounSuffixContainer) {
+            , GenericNounSuffixContainer genericNounSuffixContainer) {
         this.formulaApplyingChecker = formulaApplyingChecker;
         this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
     public List<TrilateralAugmentedGerund> createGerundList(AugmentedTrilateralRoot root, int formulaNo) {
-        String gerundPatternClassName = getClass().getPackage().getName() + ".pattern." + "GerundPattern" + formulaNo;
         var gerundDisplayList = createEmptyList();
+        var applyVocalization = false; /* إعلال المصدر أم لا */
 
         //فحص حالة لايعل من الصيغة واحد وتسعة
         if (formulaNo == 1 || formulaNo == 9) {
-            boolean applyVocalization = true;
-            int result = formulaApplyingChecker.check(root, formulaNo);
+            applyVocalization = true;
+            var result = formulaApplyingChecker.check(root, formulaNo);
             if (result == IFormulaApplyingChecker.NOT_VOCALIZED) {
                 applyVocalization = false;
-            }
-            else if (result == IFormulaApplyingChecker.TWO_STATE) {
-                if (listener == null) {
-                    applyVocalization = true;
-                }
-                else {
-                    //asking the listener to apply or not the vocalization
-                    applyVocalization = augmentedTrilateralModifierListener.doSelectVocalization();
-                }
-            }
-            //يؤثر على مواقع التصريف
-
-            if (!applyVocalization) {
-                for (int i = 0; i < SystemConstants.NOUN_POSSIBLE_STATES; i++) {
-                    if(i == 2){
-                        createGerundPattern2(root, gerundDisplayList, i);
-                        continue;
-                    }
-                    else if(i == 3){
-                        createGerundPattern3(root, gerundDisplayList, i);
-                        continue;
-                    }
-                    createGerundPatterX(root, gerundPatternClassName, gerundDisplayList, i);
-                }
-                return gerundDisplayList;
+            } else if (result == IFormulaApplyingChecker.TWO_STATE && listener != null) {
+                //asking the listener to apply or not the vocalization
+                applyVocalization = augmentedTrilateralModifierListener.doSelectVocalization();
             }
         }
 
         //normal state
-
         for (int i = 0; i < SystemConstants.NOUN_POSSIBLE_STATES; i++) {
-            //because index in java start from zero
-            Object[] parameters = {root, i + "", genericNounSuffixContainer};
-            try {
-                TrilateralAugmentedGerund gerund = (TrilateralAugmentedGerund) Class.forName(gerundPatternClassName)
-                        .getConstructor(root.getClass(), "".getClass(), genericNounSuffixContainer.getClass()).newInstance(parameters);
-                gerundDisplayList.set(i, gerund);
-            }
-            catch (Exception ex) {
-                ex.printStackTrace();
+            var gerund = createGerundPatterX(root, i, formulaNo, applyVocalization);
+            gerundDisplayList.set(i, gerund);
+
+            if(!applyVocalization && gerund instanceof IChangedGerundPattern){
+                ((IChangedGerundPattern) gerund).setForcedForm1Applying(true);
             }
         }
         return gerundDisplayList;
     }
 
-    private static void createGerundPatterX(AugmentedTrilateralRoot root, String gerundPatternClassName, List<TrilateralAugmentedGerund> gerundDisplayList, int i) {
+    private TrilateralAugmentedGerund createGerundPatterX(AugmentedTrilateralRoot root, int suffix, int formula, boolean applyVocalization) {
         //because index in java start from zero
-        Object[] parameters = {root, i + ""};
-        try {
-            TrilateralAugmentedGerund gerund = (TrilateralAugmentedGerund) Class.forName(gerundPatternClassName)
-                    .getConstructor(root.getClass(), "".getClass()).newInstance(parameters);
-            gerundDisplayList.set(i, gerund);
-            ((IChangedGerundPattern) gerund).setForcedForm1Applying(true);
+        switch (formula) {
+            case 1:
+                return new GerundPattern1(root, suffix + "", genericNounSuffixContainer);
+            case 2:
+                return !applyVocalization ? createGerundPattern2(root, suffix + "") : new GerundPattern2(root, suffix + "", genericNounSuffixContainer);
+            case 3:
+                return !applyVocalization ? createGerundPattern3(root, suffix + "") : new GerundPattern3(root, suffix + "", genericNounSuffixContainer);
+            case 4:
+                return new GerundPattern4(root, suffix + "", genericNounSuffixContainer);
+            case 5:
+                return new GerundPattern5(root, suffix + "", genericNounSuffixContainer);
+            case 6:
+                return new GerundPattern6(root, suffix + "", genericNounSuffixContainer);
+            case 7:
+                return new GerundPattern7(root, suffix + "", genericNounSuffixContainer);
+            case 8:
+                return new GerundPattern8(root, suffix + "", genericNounSuffixContainer);
+            case 9:
+                return new GerundPattern9(root, suffix + "", genericNounSuffixContainer);
+            case 10:
+                return new GerundPattern10(root, suffix + "", genericNounSuffixContainer);
+            case 11:
+                return new GerundPattern11(root, suffix + "", genericNounSuffixContainer);
+            case 12:
+                return new GerundPattern12(root, suffix + "", genericNounSuffixContainer);
         }
-        catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        return new EmptyGerundPattern(root, "0", genericNounSuffixContainer);
     }
 
-    private void createGerundPattern3(AugmentedTrilateralRoot root, List<TrilateralAugmentedGerund> gerundDisplayList, int i) {
-        var applyForm2 = false;
-        if (root.getC1() != 'ي'){
-            applyForm2 = selectPatternFormNo(3) == 2;
-        }
-        var gerund = new GerundPattern3(root, i +"", genericNounSuffixContainer, applyForm2);
-        gerundDisplayList.set(i, gerund);
-    }
-
-    private void createGerundPattern2(AugmentedTrilateralRoot root, List<TrilateralAugmentedGerund> gerundDisplayList, int i) {
+    private GerundPattern2 createGerundPattern2(AugmentedTrilateralRoot root, String suffix) {
         var applyForm2 = false;
         var applyForm3 = false;
         if (root.getC3() == 'ء') {
-           applyForm3 = selectPatternFormNo(2) == 2;
+            applyForm3 = selectPatternFormNo(2) == 2;
 
-        }
-        else if (root.getC3() == 'و' || root.getC3() == 'ي') {
+        } else if (root.getC3() == 'و' || root.getC3() == 'ي') {
             applyForm2 = true;
         }
-        var gerund = new GerundPattern2(root, i +"", genericNounSuffixContainer, applyForm2, applyForm3);
-        gerundDisplayList.set(i, gerund);
+        return new GerundPattern2(root, suffix, genericNounSuffixContainer, applyForm2, applyForm3);
+    }
+
+    private GerundPattern3 createGerundPattern3(AugmentedTrilateralRoot root, String suffix) {
+        var applyForm2 = false;
+        if (root.getC1() != 'ي') {
+            applyForm2 = selectPatternFormNo(3) == 2;
+        }
+        return new GerundPattern3(root, suffix, genericNounSuffixContainer, applyForm2);
     }
 
     //موجودة من أجل صيغة مفاعلة وفعال ليختار أحدهما
     private int selectPatternFormNo(int formulaNo) {
+        if (listener == null)
+            return 1;
         return listener.selectPatternFormNo(formulaNo);
     }
 
-
     public List<TrilateralAugmentedGerund> createEmptyList() {
         return IntStream.rangeClosed(1, SystemConstants.NOUN_POSSIBLE_STATES)
-                .mapToObj(i -> new EmptyGerundPattern(new AugmentedTrilateralRoot(), "0", genericNounSuffixContainer ))
+                .mapToObj(i -> new EmptyGerundPattern(new AugmentedTrilateralRoot(), "0", genericNounSuffixContainer))
                 .collect(Collectors.toList());
     }
 

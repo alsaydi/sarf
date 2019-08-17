@@ -39,6 +39,9 @@ public abstract class SubstitutionsApplier<T> {
                 continue;
             }
             var word = wordObj.toString().trim();
+            if(word.equals("")) {
+                continue;
+            }
 
             for (Substitution substitution : getSubstitutions()) {
                 String result = substitution.apply(word, root);
