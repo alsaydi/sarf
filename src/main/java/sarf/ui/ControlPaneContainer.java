@@ -19,6 +19,8 @@ import sarf.gerund.quadrilateral.unaugmented.QuadrilateralUnaugmentedNomenGerund
 import sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugator;
 import sarf.gerund.trilateral.augmented.nomen.TrilateralAugmentedNomenGerundConjugator;
 import sarf.gerund.trilateral.unaugmented.QualityGerundConjugator;
+import sarf.gerund.trilateral.unaugmented.StandardTrilateralUnaugmentedSuffixContainer;
+import sarf.gerund.trilateral.unaugmented.TrilateralUnaugmentedGerundConjugator;
 import sarf.gerund.trilateral.unaugmented.TrilateralUnaugmentedNomenGerundConjugator;
 import sarf.gerund.trilateral.unaugmented.meem.MeemGerundConjugator;
 import sarf.kov.*;
@@ -118,6 +120,8 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
     private final UnaugmentedTrilateralActiveParticipleConjugator unaugmentedTrilateralActiveParticipleConjugator;
     private final QuadrilateralAugmentedGerundConjugator quadrilateralAugmentedGerundConjugator;
     private final QuadrilateralAugmentedNomenGerundConjugator quadrilateralAugmentedNomenGerundConjugator;
+    private final TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator;
+    private final StandardTrilateralUnaugmentedSuffixContainer standardTrilateralUnaugmentedSuffixContainer;
 
 
     @Inject
@@ -154,7 +158,8 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
             , UnaugmentedTrilateralActiveParticipleConjugator unaugmentedTrilateralActiveParticipleConjugator
             , QuadrilateralAugmentedGerundConjugator quadrilateralAugmentedGerundConjugator
             , QuadrilateralAugmentedNomenGerundConjugator quadrilateralAugmentedNomenGerundConjugator
-            ) {
+            , TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator
+            , StandardTrilateralUnaugmentedSuffixContainer standardTrilateralUnaugmentedSuffixContainer) {
         
         super(new BorderLayout());
         this.meemGerundConjugator = meemGerundConjugator;
@@ -187,6 +192,8 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
         this.unaugmentedTrilateralActiveParticipleConjugator = unaugmentedTrilateralActiveParticipleConjugator;
         this.quadrilateralAugmentedGerundConjugator = quadrilateralAugmentedGerundConjugator;
         this.quadrilateralAugmentedNomenGerundConjugator = quadrilateralAugmentedNomenGerundConjugator;
+        this.trilateralUnaugmentedGerundConjugator = trilateralUnaugmentedGerundConjugator;
+        this.standardTrilateralUnaugmentedSuffixContainer = standardTrilateralUnaugmentedSuffixContainer;
 
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         this.sarfDictionary = sarfDictionary;
@@ -716,7 +723,9 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
                     , meemGerundConjugator
                     , trilateralUnaugmentedNomenGerundConjugator
                     , qualityGerundConjugator
-                    , genericNounSuffixContainer);
+                    , genericNounSuffixContainer
+                    , trilateralUnaugmentedGerundConjugator
+                    , standardTrilateralUnaugmentedSuffixContainer);
         }
         else if(NamesSelectionUI.class.equals(type)){
             return new NamesSelectionUI(this

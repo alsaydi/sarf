@@ -1,6 +1,9 @@
 package sarf.gerund.trilateral.unaugmented;
 
 import java.util.*;
+
+import com.google.inject.Singleton;
+import sarf.SystemConstants;
 import sarf.noun.*;
 
 /**
@@ -15,21 +18,21 @@ import sarf.noun.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class StandardTrilateralUnaugmentedSuffixContainer implements INounSuffixContainer{
-    private static final StandardTrilateralUnaugmentedSuffixContainer instance = new StandardTrilateralUnaugmentedSuffixContainer();
+@Singleton
+public class StandardTrilateralUnaugmentedSuffixContainer implements INounSuffixContainer {
     //حالة النكرة
-    private final ArrayList indefiniteSuffixList = new ArrayList(18);
+    private final List<String> indefiniteSuffixList = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
     //حالة المعرفة
-    private final ArrayList definiteSuffixList = new ArrayList(18);
+    private final List<String> definiteSuffixList = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
     //حالة الاضافة
-    private final ArrayList annexedSuffixList = new ArrayList(18);
+    private final List<String> annexedSuffixList = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
 
     //تكون لها قيمة عندما تكون الحالة هي معرفة
     private String prefix = "";
     //يمثل القائمة المختارة تبعاً للحالة
-    private ArrayList currentSuffixList = indefiniteSuffixList ;
+    private List<String> currentSuffixList = indefiniteSuffixList;
 
-    private StandardTrilateralUnaugmentedSuffixContainer() {
+    public StandardTrilateralUnaugmentedSuffixContainer() {
         indefiniteSuffixList.add("ٌ");
         indefiniteSuffixList.add("ٌ");
         indefiniteSuffixList.add("");
@@ -103,28 +106,23 @@ public class StandardTrilateralUnaugmentedSuffixContainer implements INounSuffix
         currentSuffixList = annexedSuffixList;
     }
 
-    public static StandardTrilateralUnaugmentedSuffixContainer getInstance() {
-        return instance;
-    }
-
     public String getPrefix() {
         return prefix;
     }
 
     public String get(int index) {
-        return (String) currentSuffixList.get(index);
+        return currentSuffixList.get(index);
     }
 
     public boolean isAnnexed() {
-         return currentSuffixList == annexedSuffixList;
-     }
+        return currentSuffixList == annexedSuffixList;
+    }
 
-     public boolean isDefinite() {
-         return currentSuffixList == definiteSuffixList;
-     }
+    public boolean isDefinite() {
+        return currentSuffixList == definiteSuffixList;
+    }
 
-     public boolean isIndefinite() {
-         return currentSuffixList == indefiniteSuffixList;
-     }
-
+    public boolean isIndefinite() {
+        return currentSuffixList == indefiniteSuffixList;
+    }
 }

@@ -37,6 +37,8 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
     private final TrilateralUnaugmentedNomenGerundConjugator trilateralUnaugmentedNomenGerundConjugator;
     private final QualityGerundConjugator qualityGerundConjugator;
     private final GenericNounSuffixContainer genericNounSuffixContainer;
+    private final TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator;
+    private final StandardTrilateralUnaugmentedSuffixContainer standardTrilateralUnaugmentedSuffixContainer;
     private SelectionInfo selectionInfo;
     private UnaugmentedTrilateralRoot root;
     private final APanel qualityPane = new APanel(new GridLayout(1, 3));
@@ -46,13 +48,17 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
             , MeemGerundConjugator meemGerundConjugator
             , TrilateralUnaugmentedNomenGerundConjugator trilateralUnaugmentedNomenGerundConjugator
             , QualityGerundConjugator qualityGerundConjugator
-            , GenericNounSuffixContainer genericNounSuffixContainer) {
+            , GenericNounSuffixContainer genericNounSuffixContainer
+            , TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator
+            , StandardTrilateralUnaugmentedSuffixContainer standardTrilateralUnaugmentedSuffixContainer) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
         this.meemGerundConjugator = meemGerundConjugator;
         this.trilateralUnaugmentedNomenGerundConjugator = trilateralUnaugmentedNomenGerundConjugator;
         this.qualityGerundConjugator = qualityGerundConjugator;
         this.genericNounSuffixContainer = genericNounSuffixContainer;
+        this.trilateralUnaugmentedGerundConjugator = trilateralUnaugmentedGerundConjugator;
+        this.standardTrilateralUnaugmentedSuffixContainer = standardTrilateralUnaugmentedSuffixContainer;
 
         //add(new NounStateSelectionUI());
         add(controlPanels);
@@ -76,7 +82,7 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
         return this;
     }
 
-    public void setInfo(SelectionInfo selectionInfo) throws Exception {
+    void setInfo(SelectionInfo selectionInfo) throws Exception {
 
         this.selectionInfo = selectionInfo;
         root = (UnaugmentedTrilateralRoot) selectionInfo.getRoot();
@@ -85,7 +91,7 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
 
         Collection standardGerundsSymbols = root.getGerundsSymbols();
         if (standardGerundsSymbols != null && !standardGerundsSymbols.isEmpty()) {
-            controlPanels.add("المصدر الأصلي ", createControlPanel(TrilateralUnaugmentedGerundConjugator.getInstance(), UnaugmentedTrilateralStandardGerundModifier.getInstance(), StandardTrilateralUnaugmentedSuffixContainer.getInstance(), "المصدر الأصلي"));
+            controlPanels.add("المصدر الأصلي ", createControlPanel(trilateralUnaugmentedGerundConjugator, UnaugmentedTrilateralStandardGerundModifier.getInstance(), standardTrilateralUnaugmentedSuffixContainer, "المصدر الأصلي"));
         }
 
         controlPanels.add("المصدر الميمي ", createControlPanel(this.meemGerundConjugator, TitlateralUnaugmentedMeemModifier.getInstance(), genericNounSuffixContainer, "المصدر الميمي"));
