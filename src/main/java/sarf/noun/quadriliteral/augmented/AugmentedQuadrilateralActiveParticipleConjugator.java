@@ -1,9 +1,14 @@
 package sarf.noun.quadriliteral.augmented;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import com.google.inject.Inject;
 import sarf.SystemConstants;
+import sarf.noun.quadriliteral.augmented.activeparticiple.NounFormula1;
+import sarf.noun.quadriliteral.augmented.activeparticiple.NounFormula2;
+import sarf.noun.quadriliteral.augmented.activeparticiple.NounFormula3;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
 
 import sarf.noun.GenericNounSuffixContainer;
@@ -30,25 +35,20 @@ public class AugmentedQuadrilateralActiveParticipleConjugator {
 
     private AugmentedQuadrilateralNoun createNoun(AugmentedQuadrilateralRoot root, int suffixIndex, int formulaNo) {
         String suffix = genericNounSuffixContainer.get(suffixIndex);
-        String formulaClassName = getClass().getPackage().getName()+".activeparticiple."+"NounFormula"+formulaNo;
-        Object [] parameters = {root, suffix, genericNounSuffixContainer};
-
-        try {
-            return (AugmentedQuadrilateralNoun) Class.forName(formulaClassName)
-                    .getConstructor(root.getClass(), suffix.getClass(), genericNounSuffixContainer.getClass()).newInstance(parameters);
-        }
-        catch (Exception ex) {
-            ex.printStackTrace();
+        switch (formulaNo) {
+            case 1:
+                return new NounFormula1(root, suffix, genericNounSuffixContainer);
+            case 2:
+                return new NounFormula2(root, suffix, genericNounSuffixContainer);
+            case 3:
+                return new NounFormula3(root, suffix, genericNounSuffixContainer);
         }
         return null;
     }
 
     public List<AugmentedQuadrilateralNoun> createNounList(AugmentedQuadrilateralRoot root, int formulaNo) {
-        List<AugmentedQuadrilateralNoun> result = new ArrayList<>();
-        for (int i = 0; i < SystemConstants.NOUN_POSSIBLE_STATES; i++) {
-            AugmentedQuadrilateralNoun noun = createNoun(root, i, formulaNo);
-            result.add(noun);
-        }
-        return result;
+        return IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
+                .mapToObj(i -> createNoun(root, i, formulaNo))
+                .collect(Collectors.toList());
     }
 }

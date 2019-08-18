@@ -3,11 +3,16 @@ package sarf.noun.quadriliteral.augmented;
 import com.google.inject.Inject;
 import sarf.SystemConstants;
 import sarf.noun.GenericNounSuffixContainer;
+import sarf.noun.quadriliteral.augmented.passiveparticiple.NounFormula1;
+import sarf.noun.quadriliteral.augmented.passiveparticiple.NounFormula2;
+import sarf.noun.quadriliteral.augmented.passiveparticiple.NounFormula3;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -25,24 +30,8 @@ public class AugmentedQuadrilateralPassiveParticipleConjugator {
     private final GenericNounSuffixContainer genericNounSuffixContainer;
 
     @Inject
-    public AugmentedQuadrilateralPassiveParticipleConjugator(GenericNounSuffixContainer genericNounSuffixContainer){
+    public AugmentedQuadrilateralPassiveParticipleConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
         this.genericNounSuffixContainer = genericNounSuffixContainer;
-    }
-
-    private AugmentedQuadrilateralNoun createNoun(AugmentedQuadrilateralRoot root, int suffixIndex, int formulaNo) {
-        String suffix = genericNounSuffixContainer.get(suffixIndex);
-        String formulaClassName = getClass().getPackage().getName()+".passiveparticiple."+"NounFormula"+formulaNo;
-        Object [] parameters = {root, suffix, genericNounSuffixContainer};
-
-        try {
-            return (AugmentedQuadrilateralNoun) Class.forName(formulaClassName)
-                    .getConstructor(root.getClass(), suffix.getClass(), genericNounSuffixContainer.getClass())
-                    .newInstance(parameters);
-        }
-        catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return null;
     }
 
     public List<AugmentedQuadrilateralNoun> createNounList(AugmentedQuadrilateralRoot root, int formulaNo) {
@@ -54,49 +43,69 @@ public class AugmentedQuadrilateralPassiveParticipleConjugator {
         return result;
     }
 
-    //تستعمل في اسم الزمان والمكان والمصدر الميمي
-    private List createNounList(AugmentedQuadrilateralRoot root, int formulaNo, List indecies) {
-        List result = new ArrayList<>();
-        for (int i=0; i<SystemConstants.NOUN_POSSIBLE_STATES; i++) { //TODO: strong typing needed here
-            result.add("");
-        }
+    public List<AugmentedQuadrilateralNoun> createTimeAndPlaceNounList(AugmentedQuadrilateralRoot root, int formulaNo) {
+        return createNounList(root, formulaNo, timeAndPlaceIndexesList);
+    }
 
-        for (int i = 0; i < indecies.size(); i++) {
-            int index = Integer.parseInt(indecies.get(i).toString());
+    public List<AugmentedQuadrilateralNoun> createMeemGerundNounList(AugmentedQuadrilateralRoot root, int formulaNo) {
+        return createNounList(root, formulaNo, meemGerundIndexesList);
+    }
+
+    private AugmentedQuadrilateralNoun createNoun(AugmentedQuadrilateralRoot root, int suffixIndex, int formulaNo) {
+        String suffix = genericNounSuffixContainer.get(suffixIndex);
+        switch (formulaNo) {
+            case 1:
+                return new NounFormula1(root, suffix, genericNounSuffixContainer);
+            case 2:
+                return new NounFormula2(root, suffix, genericNounSuffixContainer);
+            case 3:
+                return new NounFormula3(root, suffix, genericNounSuffixContainer);
+        }
+        return null;
+    }
+
+    //تستعمل في اسم الزمان والمكان والمصدر الميمي
+    private List<AugmentedQuadrilateralNoun> createNounList(AugmentedQuadrilateralRoot root, int formulaNo, List<Integer> indexes) {
+        List<AugmentedQuadrilateralNoun> result = IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES).mapToObj(i -> new EmptyAugmentedQuadrilateralNoun(root, "0", genericNounSuffixContainer)).collect(Collectors.toList());
+        indexes.forEach(index -> {
             AugmentedQuadrilateralNoun noun = createNoun(root, index, formulaNo);
             result.set(index, noun);
-        }
-
+        });
         return result;
-
     }
 
-    static final List timeAndPlaceIndeciesList = new LinkedList();
+    private static final List<Integer> timeAndPlaceIndexesList = new ArrayList<>();
     static {
         //حذف المؤنث والجمع
-        timeAndPlaceIndeciesList.add("0");
-        timeAndPlaceIndeciesList.add("2");
-        timeAndPlaceIndeciesList.add("6");
-        timeAndPlaceIndeciesList.add("8");
-        timeAndPlaceIndeciesList.add("12");
-        timeAndPlaceIndeciesList.add("14");
-
+        timeAndPlaceIndexesList.add(0);
+        timeAndPlaceIndexesList.add(2);
+        timeAndPlaceIndexesList.add(6);
+        timeAndPlaceIndexesList.add(8);
+        timeAndPlaceIndexesList.add(12);
+        timeAndPlaceIndexesList.add(14);
     }
 
-    public List createTimeAndPlaceNounList(AugmentedQuadrilateralRoot root, int formulaNo) {
-        return createNounList(root, formulaNo, timeAndPlaceIndeciesList);
-    }
-
-
-    static final List meemGerundIndeciesList = new LinkedList();
+    private static final List<Integer> meemGerundIndexesList = new ArrayList<>();
     static {
         //المذكر المفرد
-        meemGerundIndeciesList.add("0");
-        meemGerundIndeciesList.add("6");
-        meemGerundIndeciesList.add("12");
+        meemGerundIndexesList.add(0);
+        meemGerundIndexesList.add(6);
+        meemGerundIndexesList.add(12);
     }
 
-    public List createMeemGerundNounList(AugmentedQuadrilateralRoot root, int formulaNo) {
-        return createNounList(root, formulaNo, meemGerundIndeciesList);
+    static final class EmptyAugmentedQuadrilateralNoun extends AugmentedQuadrilateralNoun{
+        EmptyAugmentedQuadrilateralNoun(AugmentedQuadrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
+            super(root, suffix, genericNounSuffixContainer);
+        }
+
+        @Override
+        public String form() {
+            return "";
+        }
+
+        @Override
+        public String toString(){
+            return form();
+        }
     }
 }
