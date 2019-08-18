@@ -21,7 +21,7 @@ public class Validator {
     private final String arabicLetters = "حخدذرزسشصطظعغفضقكلمنهويءبتثجىا";
     private final String hamzaString = "أؤئإ";
 
-    public Validator() {
+    Validator() {
     }
 
     /**

@@ -2,11 +2,12 @@ package sarf.noun.trilateral.unaugmented.modifier.elative;
 
 import java.util.List;
 
+import com.google.inject.Inject;
 import sarf.KindOfVerb;
 import sarf.NounLamAlefModifier;
+import sarf.NounSunLamModifier;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.NounSunLamModifier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -29,14 +30,13 @@ public class ElativeModifier implements IUnaugmentedTrilateralNounModifier{
 
     private final AlkhairModifier alkhairModifier = new AlkhairModifier();
     private final AlSharModifier alSharModifier = new AlSharModifier();
+    private final NounLamAlefModifier nounLamAlefModifier;
+    private final NounSunLamModifier nounSunLamModifier;
 
-    private ElativeModifier() {
-    }
-
-    private static final ElativeModifier instance = new ElativeModifier();
-
-    public static ElativeModifier getInstance() {
-        return instance;
+    @Inject
+    public ElativeModifier(NounLamAlefModifier nounLamAlefModifier, NounSunLamModifier nounSunLamModifier) {
+        this.nounLamAlefModifier = nounLamAlefModifier;
+        this.nounSunLamModifier = nounSunLamModifier;
     }
 
     public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
@@ -52,10 +52,9 @@ public class ElativeModifier implements IUnaugmentedTrilateralNounModifier{
                 geminator.apply(conjResult.getFinalResult(), root);
             vocalizer.apply(conjResult);
             mahmouz.apply(conjResult);
-            NounLamAlefModifier.getInstance().apply(conjResult);
-            NounSunLamModifier.getInstance().apply(conjResult);
+            nounLamAlefModifier.apply(conjResult);
+            nounSunLamModifier.apply(conjResult);
         }
         return conjResult;
     }
-
 }

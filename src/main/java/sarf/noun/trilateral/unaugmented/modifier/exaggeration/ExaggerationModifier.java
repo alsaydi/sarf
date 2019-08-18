@@ -2,6 +2,7 @@ package sarf.noun.trilateral.unaugmented.modifier.exaggeration;
 
 import java.util.List;
 
+import com.google.inject.Inject;
 import sarf.KindOfVerb;
 import sarf.NounLamAlefModifier;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
@@ -25,22 +26,21 @@ import sarf.NounSunLamModifier;
 public class ExaggerationModifier implements IUnaugmentedTrilateralNounModifier{
     private final Vocalizer vocalizer = new Vocalizer();
     private final Mahmouz mahmouz = new Mahmouz();
+    private final NounLamAlefModifier nounLamAlefModifier;
+    private final NounSunLamModifier nounSunLamModifier;
 
-    private ExaggerationModifier() {
-    }
-
-    private static final ExaggerationModifier instance = new ExaggerationModifier();
-
-    public static ExaggerationModifier getInstance() {
-        return instance;
+    @Inject
+    public ExaggerationModifier(NounLamAlefModifier nounLamAlefModifier, NounSunLamModifier nounSunLamModifier) {
+        this.nounLamAlefModifier = nounLamAlefModifier;
+        this.nounSunLamModifier = nounSunLamModifier;
     }
 
     public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
         ConjugationResult conjResult = new ConjugationResult(kov, root, conjugations, formula);
         vocalizer.apply(conjResult);
         mahmouz.apply(conjResult);
-        NounLamAlefModifier.getInstance().apply(conjResult);
-        NounSunLamModifier.getInstance().apply(conjResult);
+        nounLamAlefModifier.apply(conjResult);
+        nounSunLamModifier.apply(conjResult);
         return conjResult;
     }
 

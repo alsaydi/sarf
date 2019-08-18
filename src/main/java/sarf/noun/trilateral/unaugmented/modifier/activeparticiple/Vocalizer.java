@@ -1,11 +1,13 @@
 
 package sarf.noun.trilateral.unaugmented.modifier.activeparticiple;
 
-import java.util.*;
-
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer.*;
-import sarf.verb.trilateral.Substitution.*;
+import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +22,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class Vocalizer {
-    private final List modifiers = new LinkedList();
+    private final List<IUnaugmentedTrilateralNounModificationApplier> modifiers = new ArrayList<>();
 
     public Vocalizer() {
         modifiers.add(new WawiLafifNakesVocalizer());
@@ -35,8 +37,7 @@ public class Vocalizer {
     }
 
     public void apply(ConjugationResult conjResult) {
-        for (Object o : modifiers) {
-            IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) o;
+        for (IUnaugmentedTrilateralNounModificationApplier modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
                 ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;

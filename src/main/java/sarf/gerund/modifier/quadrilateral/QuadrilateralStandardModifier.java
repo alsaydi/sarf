@@ -2,24 +2,21 @@ package sarf.gerund.modifier.quadrilateral;
 
 import java.util.*;
 
+import com.google.inject.Inject;
 import sarf.verb.quadriliteral.*;
 import sarf.*;
 
 public class QuadrilateralStandardModifier {
-
-    private QuadrilateralStandardModifier() {
-    }
-
-    private static final QuadrilateralStandardModifier instance = new QuadrilateralStandardModifier();
-
+    private final NounLamAlefModifier nounLamAlefModifier;
+    private final NounSunLamModifier nounSunLamModifier;
     private final Vocalizer vocalizer = new Vocalizer();
     private final InternalMahmouz internalMahmouz = new InternalMahmouz();
     private final EndedMahmouz endedMahmouz = new EndedMahmouz();
 
-
-
-    public static QuadrilateralStandardModifier getInstance() {
-        return instance;
+    @Inject
+    public QuadrilateralStandardModifier(NounLamAlefModifier nounLamAlefModifier, NounSunLamModifier nounSunLamModifier) {
+        this.nounLamAlefModifier = nounLamAlefModifier;
+        this.nounSunLamModifier = nounSunLamModifier;
     }
 
     public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List<String> conjugations) {
@@ -30,8 +27,8 @@ public class QuadrilateralStandardModifier {
             internalMahmouz.apply(conjResult.getFinalResult(), conjResult.getRoot());
         if (endedMahmouz.isApplied(conjResult))
             endedMahmouz.apply(conjResult.getFinalResult(), conjResult.getRoot());
-        NounLamAlefModifier.getInstance().apply(conjResult);
-        NounSunLamModifier.getInstance().apply(conjResult);
+        nounLamAlefModifier.apply(conjResult);
+        nounSunLamModifier.apply(conjResult);
         return conjResult;
     }
 }

@@ -1,14 +1,17 @@
 package sarf.gerund.modifier.trilateral.augmented.standard;
 
-import java.util.List;
-
 import com.google.inject.Inject;
-import sarf.*;
+import sarf.KindOfVerb;
+import sarf.NounLamAlefModifier;
+import sarf.NounSunLamModifier;
 import sarf.noun.trilateral.augmented.modifier.Substituter;
-import sarf.verb.trilateral.augmented.*;
-import sarf.verb.trilateral.augmented.modifier.vocalizer.IFormulaApplyingChecker;
-import sarf.verb.trilateral.augmented.modifier.vocalizer.FormulaApplyingChecker;
+import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
+import sarf.verb.trilateral.augmented.modifier.vocalizer.FormulaApplyingChecker;
+import sarf.verb.trilateral.augmented.modifier.vocalizer.IFormulaApplyingChecker;
+
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -30,10 +33,15 @@ public class TitlateralAugmentedStandardModifier {
     private final Mahmouz mahmouz = new Mahmouz();
     private final Substituter substituter = new Substituter();
     private final FormulaApplyingChecker formulaApplyingChecker;
+    private final NounLamAlefModifier nounLamAlefModifier;
+    private final NounSunLamModifier nounSunLamModifier;
 
     @Inject
-    public TitlateralAugmentedStandardModifier(FormulaApplyingChecker formulaApplyingChecker) {
+    public TitlateralAugmentedStandardModifier(FormulaApplyingChecker formulaApplyingChecker
+            , NounLamAlefModifier nounLamAlefModifier, NounSunLamModifier nounSunLamModifier) {
         this.formulaApplyingChecker = formulaApplyingChecker;
+        this.nounLamAlefModifier = nounLamAlefModifier;
+        this.nounSunLamModifier = nounSunLamModifier;
     }
 
     public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List<String> conjugations, AugmentedTrilateralModifierListener listener) {
@@ -45,8 +53,7 @@ public class TitlateralAugmentedStandardModifier {
         int result = formulaApplyingChecker.check(root, formulaNo);
         if (result == IFormulaApplyingChecker.NOT_VOCALIZED) {
             applyVocalization = false;
-        }
-        else if (result == IFormulaApplyingChecker.TWO_STATE) {
+        } else if (result == IFormulaApplyingChecker.TWO_STATE) {
             if (listener == null)
                 applyVocalization = true;
             else
@@ -59,9 +66,8 @@ public class TitlateralAugmentedStandardModifier {
         }
 
         mahmouz.apply(conjResult);
-        NounLamAlefModifier.getInstance().apply(conjResult);
-        NounSunLamModifier.getInstance().apply(conjResult);
+        nounLamAlefModifier.apply(conjResult);
+        nounSunLamModifier.apply(conjResult);
         return conjResult;
     }
-
 }

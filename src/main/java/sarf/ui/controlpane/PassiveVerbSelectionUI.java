@@ -27,7 +27,6 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
  */
 public class PassiveVerbSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
     private final IMainControlPanel controlPaneContainer;
-    private final AugmentedTrilateralModifier augmentedTrilateralModifier;
     private SelectionInfo selectionInfo;
 
     private final ToggleRenderedButton pastBtn = new ToggleRenderedButton("الماضي المجهول ");
@@ -41,7 +40,6 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
             , AugmentedTrilateralModifier augmentedTrilateralModifier) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
-        this.augmentedTrilateralModifier = augmentedTrilateralModifier;
 
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 

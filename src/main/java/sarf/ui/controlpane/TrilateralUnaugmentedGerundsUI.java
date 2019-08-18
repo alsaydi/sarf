@@ -39,10 +39,14 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
     private final GenericNounSuffixContainer genericNounSuffixContainer;
     private final TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator;
     private final StandardTrilateralUnaugmentedSuffixContainer standardTrilateralUnaugmentedSuffixContainer;
+    private final UnaugmentedTrilateralStandardGerundModifier unaugmentedTrilateralStandardGerundModifier;
     private SelectionInfo selectionInfo;
     private UnaugmentedTrilateralRoot root;
     private final APanel qualityPane = new APanel(new GridLayout(1, 3));
     private final CustomTabbedPane controlPanels = new CustomTabbedPane();
+    private final TrilateralUnaugmentedMeemModifier trilateralUnaugmentedMeemModifier;
+    private final TrilateralUnaugmentedNomenModifier trilateralUnaugmentedNomenModifier;
+    private final TrilateralUnaugmentedQualityModifier trilateralUnaugmentedQualityModifier;
 
     public TrilateralUnaugmentedGerundsUI(IMainControlPanel controlPaneContainer
             , MeemGerundConjugator meemGerundConjugator
@@ -50,7 +54,9 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
             , QualityGerundConjugator qualityGerundConjugator
             , GenericNounSuffixContainer genericNounSuffixContainer
             , TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator
-            , StandardTrilateralUnaugmentedSuffixContainer standardTrilateralUnaugmentedSuffixContainer) {
+            , StandardTrilateralUnaugmentedSuffixContainer standardTrilateralUnaugmentedSuffixContainer
+            , UnaugmentedTrilateralStandardGerundModifier unaugmentedTrilateralStandardGerundModifier
+            , TrilateralUnaugmentedMeemModifier trilateralUnaugmentedMeemModifier, TrilateralUnaugmentedNomenModifier trilateralUnaugmentedNomenModifier, TrilateralUnaugmentedQualityModifier trilateralUnaugmentedQualityModifier) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
         this.meemGerundConjugator = meemGerundConjugator;
@@ -59,6 +65,10 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
         this.genericNounSuffixContainer = genericNounSuffixContainer;
         this.trilateralUnaugmentedGerundConjugator = trilateralUnaugmentedGerundConjugator;
         this.standardTrilateralUnaugmentedSuffixContainer = standardTrilateralUnaugmentedSuffixContainer;
+        this.unaugmentedTrilateralStandardGerundModifier = unaugmentedTrilateralStandardGerundModifier;
+        this.trilateralUnaugmentedMeemModifier = trilateralUnaugmentedMeemModifier;
+        this.trilateralUnaugmentedNomenModifier = trilateralUnaugmentedNomenModifier;
+        this.trilateralUnaugmentedQualityModifier = trilateralUnaugmentedQualityModifier;
 
         //add(new NounStateSelectionUI());
         add(controlPanels);
@@ -91,16 +101,16 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
 
         Collection standardGerundsSymbols = root.getGerundsSymbols();
         if (standardGerundsSymbols != null && !standardGerundsSymbols.isEmpty()) {
-            controlPanels.add("المصدر الأصلي ", createControlPanel(trilateralUnaugmentedGerundConjugator, UnaugmentedTrilateralStandardGerundModifier.getInstance(), standardTrilateralUnaugmentedSuffixContainer, "المصدر الأصلي"));
+            controlPanels.add("المصدر الأصلي ", createControlPanel(trilateralUnaugmentedGerundConjugator, unaugmentedTrilateralStandardGerundModifier, standardTrilateralUnaugmentedSuffixContainer, "المصدر الأصلي"));
         }
 
-        controlPanels.add("المصدر الميمي ", createControlPanel(this.meemGerundConjugator, TitlateralUnaugmentedMeemModifier.getInstance(), genericNounSuffixContainer, "المصدر الميمي"));
+        controlPanels.add("المصدر الميمي ", createControlPanel(this.meemGerundConjugator, trilateralUnaugmentedMeemModifier, genericNounSuffixContainer, "المصدر الميمي"));
 
-        controlPanels.add("مصدر المرة ", createControlPanel(trilateralUnaugmentedNomenGerundConjugator, TitlateralUnaugmentedNomenModifier.getInstance(), genericNounSuffixContainer, "مصدر المرة"));
+        controlPanels.add("مصدر المرة ", createControlPanel(trilateralUnaugmentedNomenGerundConjugator, trilateralUnaugmentedNomenModifier, genericNounSuffixContainer, "مصدر المرة"));
 
         controlPanels.add("مصدر الهيئة ", qualityPane);
         qualityPane.removeAll();
-        AbstractButton btn = createButton("فِعْلَة", qualityGerundConjugator, TitlateralUnaugmentedQualityModifier.getInstance(), genericNounSuffixContainer, "مصدر الهيئة");
+        AbstractButton btn = createButton("فِعْلَة", qualityGerundConjugator, trilateralUnaugmentedQualityModifier, genericNounSuffixContainer, "مصدر الهيئة");
         qualityPane.add(btn);
 
 

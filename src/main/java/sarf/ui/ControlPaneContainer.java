@@ -11,7 +11,12 @@ import javax.inject.Inject;
 import javax.swing.*;
 
 import sarf.*;
+import sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier;
 import sarf.gerund.modifier.trilateral.augmented.standard.TitlateralAugmentedStandardModifier;
+import sarf.gerund.modifier.trilateral.unaugmented.meem.TrilateralUnaugmentedMeemModifier;
+import sarf.gerund.modifier.trilateral.unaugmented.nomen.TrilateralUnaugmentedNomenModifier;
+import sarf.gerund.modifier.trilateral.unaugmented.quality.TrilateralUnaugmentedQualityModifier;
+import sarf.gerund.modifier.trilateral.unaugmented.standard.UnaugmentedTrilateralStandardGerundModifier;
 import sarf.gerund.quadrilateral.augmented.QuadrilateralAugmentedGerundConjugator;
 import sarf.gerund.quadrilateral.augmented.nomen.QuadrilateralAugmentedNomenGerundConjugator;
 import sarf.gerund.quadrilateral.unaugmented.QuadrilateralUnaugmentedGerundConjugator;
@@ -42,6 +47,11 @@ import sarf.noun.trilateral.unaugmented.exaggeration.NonStandardExaggerationConj
 import sarf.noun.trilateral.unaugmented.exaggeration.StandardExaggerationConjugator;
 import sarf.noun.trilateral.unaugmented.instrumental.NonStandardInstrumentalConjugator;
 import sarf.noun.trilateral.unaugmented.instrumental.StandardInstrumentalConjugator;
+import sarf.noun.trilateral.unaugmented.modifier.assimilate.AssimilateModifier;
+import sarf.noun.trilateral.unaugmented.modifier.elative.ElativeModifier;
+import sarf.noun.trilateral.unaugmented.modifier.exaggeration.ExaggerationModifier;
+import sarf.noun.trilateral.unaugmented.modifier.instrumental.InstrumentalModifier;
+import sarf.noun.trilateral.unaugmented.modifier.timeandplace.TimeAndPlaceModifier;
 import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
 import sarf.ui.controlpane.*;
 import sarf.verb.quadriliteral.augmented.*;
@@ -122,6 +132,20 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
     private final QuadrilateralAugmentedNomenGerundConjugator quadrilateralAugmentedNomenGerundConjugator;
     private final TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator;
     private final StandardTrilateralUnaugmentedSuffixContainer standardTrilateralUnaugmentedSuffixContainer;
+    private final sarf.noun.trilateral.unaugmented.modifier.activeparticiple.ActiveParticipleModifier trilateralUnaugmentedActiveParticipleModifier;
+    private final sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.PassiveParticipleModifier trilateralUnaugmentedPassiveParticipleModifier;
+    private final QuadrilateralStandardModifier quadrilateralStandardModifier;
+    private final sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier quadrilateralPassiveParticipleModifier;
+    private final UnaugmentedTrilateralStandardGerundModifier unaugmentedTrilateralStandardGerundModifier;
+    private final TrilateralUnaugmentedMeemModifier trilateralUnaugmentedMeemModifier;
+    private final TrilateralUnaugmentedNomenModifier trilateralUnaugmentedNomenModifier;
+    private final TrilateralUnaugmentedQualityModifier trilateralUnaugmentedQualityModifier;
+    private final sarf.noun.quadriliteral.modifier.activeparticiple.ActiveParticipleModifier quadrilateralActiveParticipleModifier;
+    private final ExaggerationModifier exaggerationModifier;
+    private final InstrumentalModifier instrumentalModifier;
+    private final TimeAndPlaceModifier timeAndPlaceModifier;
+    private final ElativeModifier elativeModifier;
+    private final AssimilateModifier assimilateModifier;
 
 
     @Inject
@@ -159,7 +183,21 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
             , QuadrilateralAugmentedGerundConjugator quadrilateralAugmentedGerundConjugator
             , QuadrilateralAugmentedNomenGerundConjugator quadrilateralAugmentedNomenGerundConjugator
             , TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator
-            , StandardTrilateralUnaugmentedSuffixContainer standardTrilateralUnaugmentedSuffixContainer) {
+            , StandardTrilateralUnaugmentedSuffixContainer standardTrilateralUnaugmentedSuffixContainer
+            , sarf.noun.trilateral.unaugmented.modifier.activeparticiple.ActiveParticipleModifier trilateralUnaugmentedActiveParticipleModifier
+            , sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.PassiveParticipleModifier trilateralUnaugmentedPassiveParticipleModifier
+            , QuadrilateralStandardModifier quadrilateralStandardModifier
+            , sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier quadrilateralPassiveParticipleModifier
+            , UnaugmentedTrilateralStandardGerundModifier unaugmentedTrilateralStandardGerundModifier
+            , TrilateralUnaugmentedMeemModifier trilateralUnaugmentedMeemModifier
+            , TrilateralUnaugmentedNomenModifier trilateralUnaugmentedNomenModifier
+            , TrilateralUnaugmentedQualityModifier trilateralUnaugmentedQualityModifier
+            , sarf.noun.quadriliteral.modifier.activeparticiple.ActiveParticipleModifier quadrilateralActiveParticipleModifier
+            , ExaggerationModifier exaggerationModifier
+            , InstrumentalModifier instrumentalModifier
+            , TimeAndPlaceModifier timeAndPlaceModifier
+            , ElativeModifier elativeModifier
+            , AssimilateModifier assimilateModifier) {
         
         super(new BorderLayout());
         this.meemGerundConjugator = meemGerundConjugator;
@@ -194,6 +232,20 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
         this.quadrilateralAugmentedNomenGerundConjugator = quadrilateralAugmentedNomenGerundConjugator;
         this.trilateralUnaugmentedGerundConjugator = trilateralUnaugmentedGerundConjugator;
         this.standardTrilateralUnaugmentedSuffixContainer = standardTrilateralUnaugmentedSuffixContainer;
+        this.trilateralUnaugmentedActiveParticipleModifier = trilateralUnaugmentedActiveParticipleModifier;
+        this.trilateralUnaugmentedPassiveParticipleModifier = trilateralUnaugmentedPassiveParticipleModifier;
+        this.quadrilateralStandardModifier = quadrilateralStandardModifier;
+        this.quadrilateralPassiveParticipleModifier = quadrilateralPassiveParticipleModifier;
+        this.unaugmentedTrilateralStandardGerundModifier = unaugmentedTrilateralStandardGerundModifier;
+        this.trilateralUnaugmentedMeemModifier = trilateralUnaugmentedMeemModifier;
+        this.trilateralUnaugmentedNomenModifier = trilateralUnaugmentedNomenModifier;
+        this.trilateralUnaugmentedQualityModifier = trilateralUnaugmentedQualityModifier;
+        this.quadrilateralActiveParticipleModifier = quadrilateralActiveParticipleModifier;
+        this.exaggerationModifier = exaggerationModifier;
+        this.instrumentalModifier = instrumentalModifier;
+        this.timeAndPlaceModifier = timeAndPlaceModifier;
+        this.elativeModifier = elativeModifier;
+        this.assimilateModifier = assimilateModifier;
 
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         this.sarfDictionary = sarfDictionary;
@@ -716,7 +768,9 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
                     , augmentedQuadrilateralPassiveParticipleConjugator
                     , unaugmentedQuadrilateralPassiveParticipleConjugator
                     , quadrilateralAugmentedGerundConjugator
-                    , quadrilateralAugmentedNomenGerundConjugator);
+                    , quadrilateralAugmentedNomenGerundConjugator
+                    , quadrilateralStandardModifier
+                    , quadrilateralPassiveParticipleModifier);
         }
         else if(TrilateralUnaugmentedGerundsUI.class.equals(type)){
             return new TrilateralUnaugmentedGerundsUI(this
@@ -725,7 +779,11 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
                     , qualityGerundConjugator
                     , genericNounSuffixContainer
                     , trilateralUnaugmentedGerundConjugator
-                    , standardTrilateralUnaugmentedSuffixContainer);
+                    , standardTrilateralUnaugmentedSuffixContainer
+                    , unaugmentedTrilateralStandardGerundModifier
+                    , trilateralUnaugmentedMeemModifier
+                    , trilateralUnaugmentedNomenModifier
+                    , trilateralUnaugmentedQualityModifier);
         }
         else if(NamesSelectionUI.class.equals(type)){
             return new NamesSelectionUI(this
@@ -737,17 +795,28 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
                     , unaugmentedQuadrilateralActiveParticipleConjugator
                     , augmentedTrilateralPassiveParticipleConjugator
                     , augmentedQuadrilateralPassiveParticipleConjugator
-                    , unaugmentedQuadrilateralPassiveParticipleConjugator);
+                    , unaugmentedQuadrilateralPassiveParticipleConjugator, quadrilateralActiveParticipleModifier, quadrilateralPassiveParticipleModifier);
         }
         else if(TrilateralUnaugmentedNounsUI.class.equals(type)){
             return new TrilateralUnaugmentedNounsUI(this
-                    , nonStandardExaggerationConjugator, nonStandardInstrumentalConjugator
-                    , elativeNounConjugator, assimilateAdjectiveConjugator
-                    , trilateralUnaugmentedNouns, standardExaggerationConjugator
-                    , standardInstrumentalConjugator, timeAndPlaceConjugator
+                    , nonStandardExaggerationConjugator
+                    , nonStandardInstrumentalConjugator
+                    , elativeNounConjugator
+                    , assimilateAdjectiveConjugator
+                    , trilateralUnaugmentedNouns
+                    , standardExaggerationConjugator
+                    , standardInstrumentalConjugator
+                    , timeAndPlaceConjugator
                     , unaugmentedTrilateralPassiveParticipleConjugator
                     , unaugmentedTrilateralActiveParticipleConjugator
-                    , genericNounSuffixContainer);
+                    , genericNounSuffixContainer
+                    , trilateralUnaugmentedActiveParticipleModifier
+                    , trilateralUnaugmentedPassiveParticipleModifier
+                    , exaggerationModifier
+                    , instrumentalModifier
+                    , timeAndPlaceModifier
+                    , elativeModifier
+                    , assimilateModifier);
         }
         else if(PassiveVerbSelectionUI.class.equals(type)){
             return new PassiveVerbSelectionUI(this, augmentedTrilateralModifier);

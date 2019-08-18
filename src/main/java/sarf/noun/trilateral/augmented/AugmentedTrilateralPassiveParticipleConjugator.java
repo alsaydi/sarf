@@ -1,11 +1,16 @@
 package sarf.noun.trilateral.augmented;
 
 import com.google.inject.Inject;
+import sarf.SystemConstants;
 import sarf.noun.GenericNounSuffixContainer;
+import sarf.noun.trilateral.augmented.passiveparticiple.*;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -24,82 +29,101 @@ public class AugmentedTrilateralPassiveParticipleConjugator {
 
     @Inject
     public AugmentedTrilateralPassiveParticipleConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
-
         this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
-    public AugmentedTrilateralNoun createNoun(AugmentedTrilateralRoot root, int suffixIndex, int formulaNo) {
-        String suffix = genericNounSuffixContainer.get(suffixIndex);
-        String formulaClassName = getClass().getPackage().getName()+".passiveparticiple."+"NounFormula"+formulaNo;
-        Object [] parameters = {root, suffix, genericNounSuffixContainer};
-
-        try {
-            return (AugmentedTrilateralNoun) Class.forName(formulaClassName)
-                    .getConstructor(root.getClass(), suffix.getClass(), genericNounSuffixContainer.getClass())
-                    .newInstance(parameters);
-        }
-        catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return null;
+    public List<AugmentedTrilateralNoun> createNounList(AugmentedTrilateralRoot root, int formulaNo) {
+        return IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
+                .mapToObj(i -> createNoun(root, i, formulaNo))
+                .collect(Collectors.toList());
     }
 
-    public List createNounList(AugmentedTrilateralRoot root, int formulaNo) {
-        List result = new LinkedList();
-        for (int i = 0; i < 18; i++) {
-            AugmentedTrilateralNoun noun = createNoun(root, i, formulaNo);
-            result.add(noun);
-        }
+    public List<AugmentedTrilateralNoun> createTimeAndPlaceNounList(AugmentedTrilateralRoot root, int formulaNo) {
+        return createNounList(root, formulaNo, timeAndPlaceIndexesList);
+    }
 
-        return result;
-
+    public List<AugmentedTrilateralNoun> createMeemGerundNounList(AugmentedTrilateralRoot root, int formulaNo) {
+        return createNounList(root, formulaNo, meemGerundIndexesList);
     }
 
     //تستعمل في اسم الزمان والمكان والمصدر الميمي
-    private List createNounList(AugmentedTrilateralRoot root, int formulaNo, List indecies) {
-        List result = new LinkedList();
+    private List<AugmentedTrilateralNoun> createNounList(AugmentedTrilateralRoot root, int formulaNo, List<Integer> indexes) {
+        List<AugmentedTrilateralNoun> result = IntStream.range(0, 18)
+                .mapToObj(i -> new EmptyAugmentedTrilateralNoun(root, "0", genericNounSuffixContainer))
+                .collect(Collectors.toList());
 
-        for (int i=0; i<18; i++) {
-            result.add("");
-        }
-
-        for (int i = 0; i < indecies.size(); i++) {
-            int index = Integer.parseInt(indecies.get(i).toString());
+        indexes.forEach(index -> {
             AugmentedTrilateralNoun noun = createNoun(root, index, formulaNo);
             result.set(index, noun);
-        }
-
-
+        });
         return result;
-
     }
 
-    static final List timeAndPlaceIndeciesList = new LinkedList();
+    private AugmentedTrilateralNoun createNoun(AugmentedTrilateralRoot root, int suffixIndex, int formulaNo) {
+        String suffix = genericNounSuffixContainer.get(suffixIndex);
+        switch (formulaNo) {
+            case 1:
+                return new NounFormula1(root, suffix, genericNounSuffixContainer);
+            case 2:
+                return new NounFormula2(root, suffix, genericNounSuffixContainer);
+            case 3:
+                return new NounFormula3(root, suffix, genericNounSuffixContainer);
+            case 4:
+                return new NounFormula4(root, suffix, genericNounSuffixContainer);
+            case 5:
+                return new NounFormula5(root, suffix, genericNounSuffixContainer);
+            case 6:
+                return new NounFormula6(root, suffix, genericNounSuffixContainer);
+            case 7:
+                return new NounFormula7(root, suffix, genericNounSuffixContainer);
+            case 8:
+                return new NounFormula8(root, suffix, genericNounSuffixContainer);
+            case 9:
+                return new NounFormula9(root, suffix, genericNounSuffixContainer);
+            case 10:
+                return new NounFormula10(root, suffix, genericNounSuffixContainer);
+            case 11:
+                return new NounFormula11(root, suffix, genericNounSuffixContainer);
+            case 12:
+                return new NounFormula12(root, suffix, genericNounSuffixContainer);
+        }
+        return new EmptyAugmentedTrilateralNoun(root, suffix, genericNounSuffixContainer);
+    }
+
+    private static final List<Integer> timeAndPlaceIndexesList = new ArrayList<>();
+
     static {
         //حذف المؤنث والجمع
-        timeAndPlaceIndeciesList.add("0");
-        timeAndPlaceIndeciesList.add("2");
-        timeAndPlaceIndeciesList.add("6");
-        timeAndPlaceIndeciesList.add("8");
-        timeAndPlaceIndeciesList.add("12");
-        timeAndPlaceIndeciesList.add("14");
-
+        timeAndPlaceIndexesList.add(0);
+        timeAndPlaceIndexesList.add(2);
+        timeAndPlaceIndexesList.add(6);
+        timeAndPlaceIndexesList.add(8);
+        timeAndPlaceIndexesList.add(12);
+        timeAndPlaceIndexesList.add(14);
     }
 
-    public List createTimeAndPlaceNounList(AugmentedTrilateralRoot root, int formulaNo) {
-        return createNounList(root, formulaNo, timeAndPlaceIndeciesList);
-    }
+    private static final List<Integer> meemGerundIndexesList = new ArrayList<>();
 
-    static final List meemGerundIndeciesList = new LinkedList();
     static {
         //المذكر المفرد
-        meemGerundIndeciesList.add("0");
-        meemGerundIndeciesList.add("6");
-        meemGerundIndeciesList.add("12");
+        meemGerundIndexesList.add(0);
+        meemGerundIndexesList.add(6);
+        meemGerundIndexesList.add(12);
     }
 
-    public List createMeemGerundNounList(AugmentedTrilateralRoot root, int formulaNo) {
-        return createNounList(root, formulaNo, meemGerundIndeciesList);
-    }
+    final static class EmptyAugmentedTrilateralNoun extends AugmentedTrilateralNoun {
+        EmptyAugmentedTrilateralNoun(AugmentedTrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
+            super(root, suffix, genericNounSuffixContainer);
+        }
 
+        @Override
+        public String form() {
+            return "";
+        }
+
+        @Override
+        public String toString(){
+            return form();
+        }
+    }
 }

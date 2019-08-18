@@ -1,32 +1,32 @@
 package sarf.noun.quadriliteral.modifier.activeparticiple;
 
-import java.util.*;
+import com.google.inject.Inject;
+import sarf.KindOfVerb;
+import sarf.NounLamAlefModifier;
+import sarf.NounSunLamModifier;
+import sarf.verb.quadriliteral.ConjugationResult;
+import sarf.verb.quadriliteral.QuadrilateralRoot;
 
-import sarf.verb.quadriliteral.*;
-import sarf.*;
+import java.util.List;
 
 public class ActiveParticipleModifier {
-
-    private ActiveParticipleModifier() {
-    }
-
-    private static final ActiveParticipleModifier instance = new ActiveParticipleModifier();
-
     private final Geminator geminator = new Geminator();
     private final Vocalizer vocalizer = new Vocalizer();
     private final InternalMahmouz internalMahmouz = new InternalMahmouz();
     private final EndedMahmouz endedMahmouz = new EndedMahmouz();
+    private final NounLamAlefModifier nounLamAlefModifier;
+    private final NounSunLamModifier nounSunLamModifier;
 
-
-
-    public static ActiveParticipleModifier getInstance() {
-        return instance;
+    @Inject
+    public ActiveParticipleModifier(NounLamAlefModifier nounLamAlefModifier, NounSunLamModifier nounSunLamModifier) {
+        this.nounLamAlefModifier = nounLamAlefModifier;
+        this.nounSunLamModifier = nounSunLamModifier;
     }
 
     /**
-     * @param root UnaugmentedTrilateralRoot
+     * @param root         UnaugmentedTrilateralRoot
      * @param conjugations List
-     * @param tense String (From SystemConstans class the values are stored)  ماضي أو مضارع او أمر
+     * @param tense        String (From SystemConstans class the values are stored)  ماضي أو مضارع او أمر
      * @return ConjugationResult
      */
     public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations) {
@@ -39,8 +39,8 @@ public class ActiveParticipleModifier {
             internalMahmouz.apply(conjResult.getFinalResult(), conjResult.getRoot());
         if (endedMahmouz.isApplied(conjResult))
             endedMahmouz.apply(conjResult.getFinalResult(), conjResult.getRoot());
-        NounLamAlefModifier.getInstance().apply(conjResult);
-        NounSunLamModifier.getInstance().apply(conjResult);
+        nounLamAlefModifier.apply(conjResult);
+        nounSunLamModifier.apply(conjResult);
         return conjResult;
     }
 }

@@ -4,10 +4,10 @@ import java.util.List;
 
 import com.google.inject.Inject;
 import sarf.KindOfVerb;
+import sarf.NounSunLamModifier;
 import sarf.verb.trilateral.augmented.*;
 import sarf.noun.trilateral.augmented.modifier.*;
 import sarf.NounLamAlefModifier;
-import sarf.NounSunLamModifier;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.IFormulaApplyingChecker;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.FormulaApplyingChecker;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
@@ -32,10 +32,16 @@ public class ActiveParticipleModifier {
     private final Vocalizer vocalizer = new Vocalizer();
     private final Mahmouz mahmouz = new Mahmouz();
     private final FormulaApplyingChecker formulaApplyingChecker;
+    private final NounLamAlefModifier nounLamAlefModifier;
+    private final NounSunLamModifier nounSunLamModifier;
 
     @Inject
-    public ActiveParticipleModifier(FormulaApplyingChecker formulaApplyingChecker) {
+    public ActiveParticipleModifier(FormulaApplyingChecker formulaApplyingChecker
+            , NounLamAlefModifier nounLamAlefModifier
+            , NounSunLamModifier nounSunLamModifier) {
         this.formulaApplyingChecker = formulaApplyingChecker;
+        this.nounLamAlefModifier = nounLamAlefModifier;
+        this.nounSunLamModifier = nounSunLamModifier;
     }
 
     public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List conjugations, AugmentedTrilateralModifierListener listener) {
@@ -61,8 +67,8 @@ public class ActiveParticipleModifier {
 
 
         mahmouz.apply(conjResult);
-        NounLamAlefModifier.getInstance().apply(conjResult);
-        NounSunLamModifier.getInstance().apply(conjResult);
+        nounLamAlefModifier.apply(conjResult);
+        nounSunLamModifier.apply(conjResult);
         return conjResult;
     }
 }
