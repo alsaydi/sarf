@@ -3,6 +3,7 @@ package sarf.noun.quadriliteral.modifier.activeparticiple;
 import java.util.*;
 
 import sarf.noun.*;
+import sarf.noun.quadriliteral.augmented.AugmentedQuadrilateralNoun;
 import sarf.verb.quadriliteral.*;
 import sarf.verb.quadriliteral.substitution.*;
 
@@ -18,18 +19,19 @@ import sarf.verb.quadriliteral.substitution.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Geminator extends QuadrilateralNounSubstitutionApplier {
+public final class Geminator extends QuadrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Geminator() {
         substitutions.add(new ExpressionInfixSubstitution("ْC4ِC4","ِC4ّ"));// EX: (هو مُقْشَعِرٌّ)
     }
 
-
-    public List getSubstitutions() {
+    @Override
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         return conjugationResult.getFormulaNo() == 3;
     }

@@ -1,12 +1,14 @@
 package sarf.noun.trilateral.augmented.modifier.activeparticiple.geminator;
 
-import java.util.*;
-
 import sarf.KindOfVerb;
-import sarf.noun.*;
-import sarf.verb.trilateral.Substitution.*;
+import sarf.noun.TrilateralNounSubstitutionApplier;
+import sarf.verb.trilateral.Substitution.ExpressionInfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
-import sarf.verb.trilateral.augmented.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -48,9 +50,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
                 case 9:
                     return true;
             }
-
-
-            return formulaNo == 3 || formulaNo == 7;
+            return false;
         } else if (kov == KindOfVerb.Mahmouz_Faa_Mudaaf) {
             switch (formulaNo) {
                 case 3:
@@ -59,9 +59,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
                 case 9:
                     return true;
             }
-
-
-            return formulaNo == 3 || formulaNo == 7;
+            return false;
         } else if (kov == KindOfVerb.Mithal_Wawi_Mudaaf) {
             return formulaNo == 3 || formulaNo == 7;
         }

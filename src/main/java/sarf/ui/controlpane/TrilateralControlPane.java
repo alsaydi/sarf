@@ -174,14 +174,14 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
         List<String> conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
         sarf.verb.trilateral.augmented.ConjugationResult conjResult = augmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), formulaNo, conjugations, SystemConstants.PAST_TENSE, true, null);
-        pastRootText = conjResult.getFinalResult().get(7);
+        pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //past text formatting
         String presentRootText = sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator.getInstance().getNominativeConjugator().createVerbList(root, formulaNo).get(7).toString();
         conjugations = createEmptyList();
         conjugations.set(7, presentRootText);
         conjResult = augmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), formulaNo, conjugations, SystemConstants.PRESENT_TENSE, true, null);
-        presentRootText = conjResult.getFinalResult().get(7);
+        presentRootText = conjResult.getFinalResult().get(7).toString();
 
         augmentedVerbButton.setRootText(pastRootText + " "+ presentRootText);
 

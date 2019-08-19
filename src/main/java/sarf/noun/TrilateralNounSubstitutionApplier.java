@@ -19,7 +19,6 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public abstract class TrilateralNounSubstitutionApplier extends SubstitutionsApplier {
-
     private static final List<String> appliedPronounsIndexes = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
     static {
         IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
@@ -31,7 +30,7 @@ public abstract class TrilateralNounSubstitutionApplier extends SubstitutionsApp
     }
 
     @Override
-    protected List getAppliedPronounsIndexes() {
+    protected List<String> getAppliedPronounsIndexes() {
         return appliedPronounsIndexes;
     }
 }

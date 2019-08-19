@@ -1,6 +1,8 @@
 package sarf.noun.trilateral.augmented.modifier.activeparticiple;
 
 import java.util.*;
+
+import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.augmented.modifier.activeparticiple.vocalizer.*;
 import sarf.verb.trilateral.augmented.*;
@@ -19,8 +21,7 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @version 1.0
  */
 public class Vocalizer {
-    private final List modifiers = new LinkedList();
-
+    private final List<TrilateralNounSubstitutionApplier> modifiers = new ArrayList<>();
     private final PreSeparatedLafifVocalizer preSeparatedLafifVocalizer = new PreSeparatedLafifVocalizer();
 
     public Vocalizer() {

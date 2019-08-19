@@ -9,7 +9,7 @@ public class UnaugmentedQuadrilateralActiveParticiple {
     private final String suffix;
     private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    public UnaugmentedQuadrilateralActiveParticiple(UnaugmentedQuadrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
+    UnaugmentedQuadrilateralActiveParticiple(UnaugmentedQuadrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.root = root;
         this.suffix = suffix;
         this.genericNounSuffixContainer = genericNounSuffixContainer;

@@ -1,12 +1,14 @@
 package sarf.noun.trilateral.augmented.modifier.activeparticiple.vocalizer;
 
-import java.util.*;
-
 import sarf.KindOfVerb;
-import sarf.noun.*;
-import sarf.verb.trilateral.Substitution.*;
+import sarf.noun.TrilateralNounSubstitutionApplier;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
-import sarf.verb.trilateral.augmented.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -39,11 +41,7 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
                 case 9:
                     return true;
             }
-
-
             return formulaNo == 1;
-
-
         } else if (kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Laam) {
             switch (formulaNo) {
                 case 1:
@@ -51,8 +49,6 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
                 case 9:
                     return true;
             }
-
-
             return formulaNo == 4;
         } else if (kov == KindOfVerb.Ajwaf_Wawi) {
             switch (formulaNo) {
@@ -63,9 +59,7 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
                     return true;
             }
         }
-
         return false;
-
     }
 
     public List<Substitution> getSubstitutions() {

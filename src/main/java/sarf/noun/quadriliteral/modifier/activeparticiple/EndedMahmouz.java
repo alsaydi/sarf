@@ -1,10 +1,12 @@
 package sarf.noun.quadriliteral.modifier.activeparticiple;
 
-import java.util.*;
+import sarf.noun.QuadrilateralNounSubstitutionApplier;
+import sarf.verb.quadriliteral.ConjugationResult;
+import sarf.verb.quadriliteral.substitution.InfixSubstitution;
+import sarf.verb.quadriliteral.substitution.Substitution;
 
-import sarf.noun.*;
-import sarf.verb.quadriliteral.*;
-import sarf.verb.quadriliteral.substitution.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,14 +21,13 @@ import sarf.verb.quadriliteral.substitution.*;
  * @version 1.0
  */
 public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier {
-private final List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
-    public EndedMahmouz() {
-        substitutions.add(new InfixSubstitution("ِء","ِئ"));// EX: (مُغَرْقِئٌ، مُحْبَنْطِئٌ)
+    EndedMahmouz() {
+        substitutions.add(new InfixSubstitution("ِء", "ِئ"));// EX: (مُغَرْقِئٌ، مُحْبَنْطِئٌ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

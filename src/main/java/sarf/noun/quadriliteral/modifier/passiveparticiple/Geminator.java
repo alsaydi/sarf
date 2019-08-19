@@ -25,8 +25,7 @@ public class Geminator extends QuadrilateralNounSubstitutionApplier {
         substitutions.add(new ExpressionInfixSubstitution("ْC4َC4","َC4ّ"));// EX: (هو مُقْشَعَرٌّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

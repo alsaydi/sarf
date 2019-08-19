@@ -39,8 +39,6 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
                 case 9:
                     return true;
             }
-
-
             return formulaNo == 4;
         } else if (kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam) {
             switch (formulaNo) {
@@ -48,8 +46,6 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
                 case 9:
                     return true;
             }
-
-
             switch (formulaNo) {
                 case 4:
                 case 5:
@@ -64,7 +60,6 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
                     return true;
             }
         }
-
         return false;
 
     }

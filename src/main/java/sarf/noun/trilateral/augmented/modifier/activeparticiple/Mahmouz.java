@@ -1,10 +1,16 @@
 package sarf.noun.trilateral.augmented.modifier.activeparticiple;
 
-import java.util.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza.*;
-import sarf.verb.trilateral.augmented.*;
+import sarf.noun.TrilateralNounSubstitutionApplier;
+import sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza.EinMahmouz;
+import sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza.FaaMahmouz;
+import sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza.LamMahmouz;
+import sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza.RaaEinMahmouz;
+import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,7 +25,7 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @version 1.0
  */
 public class Mahmouz {
-    private final List modifiers = new LinkedList();
+    private final List<TrilateralNounSubstitutionApplier> modifiers = new ArrayList<>();
 
     public Mahmouz() {
         modifiers.add(new RaaEinMahmouz());
@@ -29,10 +35,10 @@ public class Mahmouz {
     }
 
     public void apply(ConjugationResult conjResult) {
-        for (Object o : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
+        for (TrilateralNounSubstitutionApplier substitutionApplier : modifiers) {
+            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) substitutionApplier;
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                substitutionApplier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

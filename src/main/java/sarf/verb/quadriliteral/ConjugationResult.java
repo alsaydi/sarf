@@ -16,16 +16,16 @@ import java.util.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ConjugationResult {
+public final class ConjugationResult<T> {
     private final int formulaNo;
     private final QuadrilateralRoot root;
     private final KindOfVerb kov;
 
-    private final List<String> originalResult;
+    private final List<T> originalResult;
     //القائمة بعد  الادغام والاعلال والهمزة
-    private final List<String> finalResult;
+    private final List<T> finalResult;
 
-    public ConjugationResult(int formulaNo, KindOfVerb kov, QuadrilateralRoot root, List<String> originalResult) {
+    public ConjugationResult(int formulaNo, KindOfVerb kov, QuadrilateralRoot root, List<T> originalResult) {
         this.formulaNo = formulaNo;
         this.kov = kov;
         this.originalResult = originalResult;
@@ -33,11 +33,11 @@ public class ConjugationResult {
         this.finalResult = new ArrayList<>(originalResult);
     }
 
-    public List<String> getFinalResult() {
+    public List<T> getFinalResult() {
         return finalResult;
     }
 
-    public List<String> getOriginalResult() {
+    public List<T> getOriginalResult() {
         return originalResult;
     }
 

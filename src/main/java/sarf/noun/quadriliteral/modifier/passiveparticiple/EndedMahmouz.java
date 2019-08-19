@@ -1,10 +1,13 @@
 package sarf.noun.quadriliteral.modifier.passiveparticiple;
 
-import java.util.*;
+import sarf.noun.QuadrilateralNounSubstitutionApplier;
+import sarf.verb.quadriliteral.ConjugationResult;
+import sarf.verb.quadriliteral.substitution.InfixSubstitution;
+import sarf.verb.quadriliteral.substitution.Substitution;
+import sarf.verb.quadriliteral.substitution.SuffixSubstitution;
 
-import sarf.noun.*;
-import sarf.verb.quadriliteral.*;
-import sarf.verb.quadriliteral.substitution.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,22 +24,20 @@ import sarf.verb.quadriliteral.substitution.*;
 public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
-    public EndedMahmouz() {
-
-        substitutions.add(new InfixSubstitution("َءٌ","َأٌ"));// EX: (مُغَرْقَأٌ)
-        substitutions.add(new InfixSubstitution("َءًا","َأً"));// EX: (مُغَرْقَأً)
-        substitutions.add(new InfixSubstitution("َءٍ","َأٍ"));// EX: (مُغَرْقَأٍ)
-        substitutions.add(new InfixSubstitution("َءَا","َآ"));// EX: (مُغَرقآن)
-        substitutions.add(new SuffixSubstitution("َءَ","َأَ"));// EX: (المُغَرقَأَ)
-        substitutions.add(new SuffixSubstitution("َءُ","َأُ"));// EX: (المُغَرقَأُ)
-        substitutions.add(new SuffixSubstitution("َءِ","َأِ"));// EX: (المُغَرقَأِ)
-        substitutions.add(new InfixSubstitution("َءَ","َأَ"));// EX: (مُغَرْقَأة)
-        substitutions.add(new InfixSubstitution("ءُ","ؤُ"));// EX: (مُغَرْقَؤُونَ)
-        substitutions.add(new InfixSubstitution("ءِ","ئِ"));// EX: (مُغَرْقَئِينَ)
+    EndedMahmouz() {
+        substitutions.add(new InfixSubstitution("َءٌ", "َأٌ"));// EX: (مُغَرْقَأٌ)
+        substitutions.add(new InfixSubstitution("َءًا", "َأً"));// EX: (مُغَرْقَأً)
+        substitutions.add(new InfixSubstitution("َءٍ", "َأٍ"));// EX: (مُغَرْقَأٍ)
+        substitutions.add(new InfixSubstitution("َءَا", "َآ"));// EX: (مُغَرقآن)
+        substitutions.add(new SuffixSubstitution("َءَ", "َأَ"));// EX: (المُغَرقَأَ)
+        substitutions.add(new SuffixSubstitution("َءُ", "َأُ"));// EX: (المُغَرقَأُ)
+        substitutions.add(new SuffixSubstitution("َءِ", "َأِ"));// EX: (المُغَرقَأِ)
+        substitutions.add(new InfixSubstitution("َءَ", "َأَ"));// EX: (مُغَرْقَأة)
+        substitutions.add(new InfixSubstitution("ءُ", "ؤُ"));// EX: (مُغَرْقَؤُونَ)
+        substitutions.add(new InfixSubstitution("ءِ", "ئِ"));// EX: (مُغَرْقَئِينَ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

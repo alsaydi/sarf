@@ -1,10 +1,12 @@
 package sarf.noun.quadriliteral.modifier.passiveparticiple;
 
-import java.util.*;
+import sarf.noun.QuadrilateralNounSubstitutionApplier;
+import sarf.verb.quadriliteral.ConjugationResult;
+import sarf.verb.quadriliteral.substitution.InfixSubstitution;
+import sarf.verb.quadriliteral.substitution.Substitution;
 
-import sarf.noun.*;
-import sarf.verb.quadriliteral.*;
-import sarf.verb.quadriliteral.substitution.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,19 +23,15 @@ import sarf.verb.quadriliteral.substitution.*;
 public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
-    public InternalMahmouz() {
-
-
-        substitutions.add(new InfixSubstitution("ْءَا","ْآ"));// EX: (متمرآة)
-        substitutions.add(new InfixSubstitution("ْءً","ْأً"));// EX: (متمرأًى)
+    InternalMahmouz() {
+        substitutions.add(new InfixSubstitution("ْءَا", "ْآ"));// EX: (متمرآة)
+        substitutions.add(new InfixSubstitution("ْءً", "ْأً"));// EX: (متمرأًى)
         substitutions.add(new InfixSubstitution("َءْ", "َأْ")); // EX: (مُبَأْدَلٌ، مُتَثَأْلَلٌ،)
         substitutions.add(new InfixSubstitution("ْءَ", "ْأَ")); // EX: (مُطَمْأَنٌ، مُتَطَمْأَنٌ، مُطْمَئِنٌّ)
         substitutions.add(new InfixSubstitution("َءَ", "َأَ")); // EX: (مُطْمَأَنٌّ)
-
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

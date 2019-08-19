@@ -1,11 +1,14 @@
 package sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza;
 
-import java.util.*;
+import sarf.noun.TrilateralNounSubstitutionApplier;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
+import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 
-import sarf.noun.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.*;
-import sarf.verb.trilateral.augmented.modifier.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -23,13 +26,12 @@ public class RaaEinMahmouz extends TrilateralNounSubstitutionApplier implements 
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public RaaEinMahmouz() {
-        substitutions.add(new InfixSubstitution("ْءٍ","ٍ"));// EX: (مُرٍ، )
-        substitutions.add(new InfixSubstitution("ْءِ","ِ"));// EX: (مُرِيَة، )
-        substitutions.add(new InfixSubstitution("ْءُ","ُ"));// EX: (مُرُونَ، )
+        substitutions.add(new InfixSubstitution("ْءٍ", "ٍ"));// EX: (مُرٍ، )
+        substitutions.add(new InfixSubstitution("ْءِ", "ِ"));// EX: (مُرِيَة، )
+        substitutions.add(new InfixSubstitution("ْءُ", "ُ"));// EX: (مُرُونَ، )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

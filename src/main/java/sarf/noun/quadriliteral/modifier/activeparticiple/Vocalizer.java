@@ -1,10 +1,13 @@
 package sarf.noun.quadriliteral.modifier.activeparticiple;
 
-import java.util.*;
+import sarf.noun.QuadrilateralNounSubstitutionApplier;
+import sarf.verb.quadriliteral.ConjugationResult;
+import sarf.verb.quadriliteral.substitution.InfixSubstitution;
+import sarf.verb.quadriliteral.substitution.Substitution;
+import sarf.verb.quadriliteral.substitution.SuffixSubstitution;
 
-import sarf.noun.*;
-import sarf.verb.quadriliteral.*;
-import sarf.verb.quadriliteral.substitution.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,18 +24,17 @@ import sarf.verb.quadriliteral.substitution.*;
 public class Vocalizer extends QuadrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
-    public Vocalizer() {
-        substitutions.add(new SuffixSubstitution("ِيُ","ِي"));// EX: (هذا المقلسِي، )
-        substitutions.add(new SuffixSubstitution("ِيَ","ِيَ"));// EX: (رأيتُ المقلسِيَ ، )
-        substitutions.add(new SuffixSubstitution("ِيِ","ِي"));// EX: (مررتُ على المقلسِي ، )
-        substitutions.add(new InfixSubstitution("ِيٌ","ٍ"));// EX: (هذا مقلسٍ)
-        substitutions.add(new InfixSubstitution("ِيٍ","ٍ"));// EX: (مررتُ على مقلسٍ)
-        substitutions.add(new InfixSubstitution("ِيُ","ُ"));// EX: (مقلسُونَ ، )
-        substitutions.add(new InfixSubstitution("ِيِ","ِ"));// EX: (مقلسِينَ ، )
+    Vocalizer() {
+        substitutions.add(new SuffixSubstitution("ِيُ", "ِي"));// EX: (هذا المقلسِي، )
+        substitutions.add(new SuffixSubstitution("ِيَ", "ِيَ"));// EX: (رأيتُ المقلسِيَ ، )
+        substitutions.add(new SuffixSubstitution("ِيِ", "ِي"));// EX: (مررتُ على المقلسِي ، )
+        substitutions.add(new InfixSubstitution("ِيٌ", "ٍ"));// EX: (هذا مقلسٍ)
+        substitutions.add(new InfixSubstitution("ِيٍ", "ٍ"));// EX: (مررتُ على مقلسٍ)
+        substitutions.add(new InfixSubstitution("ِيُ", "ُ"));// EX: (مقلسُونَ ، )
+        substitutions.add(new InfixSubstitution("ِيِ", "ِ"));// EX: (مقلسِينَ ، )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

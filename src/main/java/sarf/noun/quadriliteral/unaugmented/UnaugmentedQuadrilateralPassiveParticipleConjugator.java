@@ -1,9 +1,14 @@
 package sarf.noun.quadriliteral.unaugmented;
 
 import com.google.inject.Inject;
-import sarf.verb.quadriliteral.unaugmented.*;
-import sarf.noun.*;
-import java.util.*;
+import sarf.SystemConstants;
+import sarf.noun.GenericNounSuffixContainer;
+import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -24,61 +29,57 @@ public class UnaugmentedQuadrilateralPassiveParticipleConjugator {
     public UnaugmentedQuadrilateralPassiveParticipleConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
         this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
-    
-    public UnaugmentedQuadrilateralPassiveParticiple createNoun(UnaugmentedQuadrilateralRoot root, int suffixIndex) {
+
+    public List<UnaugmentedQuadrilateralPassiveParticiple> createNounList(UnaugmentedQuadrilateralRoot root) {
+        return IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
+                .mapToObj(i -> createNoun(root, i))
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public List createMeemGerundNounList(UnaugmentedQuadrilateralRoot root) {
+        return createNounList(root, meemGerundIndexesList);
+    }
+
+    public List createTimeAndPlaceNounList(UnaugmentedQuadrilateralRoot root) {
+        return createNounList(root, timeAndPlaceIndexList);
+    }
+
+    private static final List<Integer> timeAndPlaceIndexList = new ArrayList<>();
+
+    static {
+        //حذف المؤنث والجمع
+        timeAndPlaceIndexList.add(0);
+        timeAndPlaceIndexList.add(2);
+        timeAndPlaceIndexList.add(6);
+        timeAndPlaceIndexList.add(8);
+        timeAndPlaceIndexList.add(12);
+        timeAndPlaceIndexList.add(14);
+    }
+
+    private static final List<Integer> meemGerundIndexesList = new ArrayList<>();
+
+    static {
+        //المذكر المفرد
+        meemGerundIndexesList.add(0);
+        meemGerundIndexesList.add(6);
+        meemGerundIndexesList.add(12);
+    }
+
+    private UnaugmentedQuadrilateralPassiveParticiple createNoun(UnaugmentedQuadrilateralRoot root, int suffixIndex) {
         String suffix = genericNounSuffixContainer.get(suffixIndex);
         return new UnaugmentedQuadrilateralPassiveParticiple(root, suffix, genericNounSuffixContainer);
     }
 
-    public List createNounList(UnaugmentedQuadrilateralRoot root) {
-        List result = new ArrayList(18);
-        for (int i=0; i<18; i++)
-            result.add(createNoun(root, i));
-        return result;
-    }
-
     //تستعمل في اسم الزمان والمكان والمصدر الميمي
-    private List createNounList(UnaugmentedQuadrilateralRoot root, List indecies) {
-        List result = new LinkedList();
+    private List<UnaugmentedQuadrilateralPassiveParticiple> createNounList(UnaugmentedQuadrilateralRoot root, List<Integer> indexes) {
+        List<UnaugmentedQuadrilateralPassiveParticiple> result = IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
+                .mapToObj(i -> new UnaugmentedQuadrilateralPassiveParticiple())
+                .collect(Collectors.toList());
 
-        for (int i=0; i<18; i++) {
-            result.add("");
-        }
-
-        for (int i = 0; i < indecies.size(); i++) {
-            int index = Integer.parseInt(indecies.get(i).toString());
-            UnaugmentedQuadrilateralPassiveParticiple noun = createNoun(root, index);
+        indexes.forEach(index -> {
+            var noun = createNoun(root, index);
             result.set(index, noun);
-        }
-
+        });
         return result;
-
-    }
-
-    static final List timeAndPlaceIndeciesList = new LinkedList();
-    static {
-        //حذف المؤنث والجمع
-        timeAndPlaceIndeciesList.add("0");
-        timeAndPlaceIndeciesList.add("2");
-        timeAndPlaceIndeciesList.add("6");
-        timeAndPlaceIndeciesList.add("8");
-        timeAndPlaceIndeciesList.add("12");
-        timeAndPlaceIndeciesList.add("14");
-    }
-
-    public List createTimeAndPlaceNounList(UnaugmentedQuadrilateralRoot root) {
-        return createNounList(root, timeAndPlaceIndeciesList);
-    }
-
-    static final List meemGerundIndeciesList = new LinkedList();
-    static {
-        //المذكر المفرد
-        meemGerundIndeciesList.add("0");
-        meemGerundIndeciesList.add("6");
-        meemGerundIndeciesList.add("12");
-    }
-
-    public List createMeemGerundNounList(UnaugmentedQuadrilateralRoot root) {
-        return createNounList(root, meemGerundIndeciesList);
     }
 }

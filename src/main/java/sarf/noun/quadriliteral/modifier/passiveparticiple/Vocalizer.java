@@ -1,10 +1,13 @@
 package sarf.noun.quadriliteral.modifier.passiveparticiple;
 
-import java.util.*;
+import sarf.noun.QuadrilateralNounSubstitutionApplier;
+import sarf.verb.quadriliteral.ConjugationResult;
+import sarf.verb.quadriliteral.substitution.InfixSubstitution;
+import sarf.verb.quadriliteral.substitution.Substitution;
+import sarf.verb.quadriliteral.substitution.SuffixSubstitution;
 
-import sarf.noun.*;
-import sarf.verb.quadriliteral.*;
-import sarf.verb.quadriliteral.substitution.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,23 +22,22 @@ import sarf.verb.quadriliteral.substitution.*;
  * @version 1.0
  */
 public class Vocalizer extends QuadrilateralNounSubstitutionApplier {
-private final List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public Vocalizer() {
-        substitutions.add(new InfixSubstitution("َيَة","َاة"));// EX: (مُقَلْسَاةٌ،)
-        substitutions.add(new InfixSubstitution("َيَت","َات"));// EX: (مُقَلْسَاتان، مُقَلْسَاتَيْنِ)
-        substitutions.add(new InfixSubstitution("َيُو","َوْ"));// EX: (مُقَلْسَوْنَ)
-        substitutions.add(new InfixSubstitution("َيِي","َيْ"));// EX: (مُقَلْسَيْنَ)
-        substitutions.add(new SuffixSubstitution("َيُ","َى"));// EX: (هذا المُقَلسَى،)
-        substitutions.add(new SuffixSubstitution("َيَ","َى"));// EX: (رأيتُ المُقَلسَى ،  )
-        substitutions.add(new SuffixSubstitution("َيِ","َى"));// EX: (مررتُ على المُقَلسَى ، )
-        substitutions.add(new InfixSubstitution("َيٌ","ًى"));// EX: (هذا مُقَلْسًى)
-        substitutions.add(new InfixSubstitution("َيًا","ًى"));// EX: (رأيتُ مُقَلْسًى)
-        substitutions.add(new InfixSubstitution("َيٍ","ًى"));// EX: (مررتُ على مُقَلْسًى)
+        substitutions.add(new InfixSubstitution("َيَة", "َاة"));// EX: (مُقَلْسَاةٌ،)
+        substitutions.add(new InfixSubstitution("َيَت", "َات"));// EX: (مُقَلْسَاتان، مُقَلْسَاتَيْنِ)
+        substitutions.add(new InfixSubstitution("َيُو", "َوْ"));// EX: (مُقَلْسَوْنَ)
+        substitutions.add(new InfixSubstitution("َيِي", "َيْ"));// EX: (مُقَلْسَيْنَ)
+        substitutions.add(new SuffixSubstitution("َيُ", "َى"));// EX: (هذا المُقَلسَى،)
+        substitutions.add(new SuffixSubstitution("َيَ", "َى"));// EX: (رأيتُ المُقَلسَى ،  )
+        substitutions.add(new SuffixSubstitution("َيِ", "َى"));// EX: (مررتُ على المُقَلسَى ، )
+        substitutions.add(new InfixSubstitution("َيٌ", "ًى"));// EX: (هذا مُقَلْسًى)
+        substitutions.add(new InfixSubstitution("َيًا", "ًى"));// EX: (رأيتُ مُقَلْسًى)
+        substitutions.add(new InfixSubstitution("َيٍ", "ًى"));// EX: (مررتُ على مُقَلْسًى)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

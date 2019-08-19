@@ -61,7 +61,7 @@ public abstract class SubstitutionsApplier<T> {
      */
     public abstract List<Substitution> getSubstitutions();
 
-    protected List getAppliedPronounsIndexes() {
+    protected List<String> getAppliedPronounsIndexes() {
         return defaultAppliedPronounsIndexes;
     }
 }
