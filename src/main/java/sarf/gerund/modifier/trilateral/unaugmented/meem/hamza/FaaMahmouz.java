@@ -1,9 +1,11 @@
 package sarf.gerund.modifier.trilateral.unaugmented.meem.hamza;
 
-import java.util.*;
+import sarf.noun.trilateral.unaugmented.modifier.AbstractFaaMahmouz;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
 
-import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.Substitution.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -18,17 +20,16 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class FaaMahmouz extends AbstractFaaMahmouz {
-private final List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public FaaMahmouz() {
-        substitutions.add(new InfixSubstitution("َءَا","َآ"));// EX: (مَآب،  )
-        substitutions.add(new InfixSubstitution("َءَ","َأَ"));// EX: (مَأَبّ )
-        substitutions.add(new InfixSubstitution("َءْ","َأْ"));// EX: (مَأْكَل، مَأْوَى )
-        substitutions.add(new InfixSubstitution("ءِ","ئِ"));// EX: (مَئِين، )
+        substitutions.add(new InfixSubstitution("َءَا", "َآ"));// EX: (مَآب،  )
+        substitutions.add(new InfixSubstitution("َءَ", "َأَ"));// EX: (مَأَبّ )
+        substitutions.add(new InfixSubstitution("َءْ", "َأْ"));// EX: (مَأْكَل، مَأْوَى )
+        substitutions.add(new InfixSubstitution("ءِ", "ئِ"));// EX: (مَئِين، )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

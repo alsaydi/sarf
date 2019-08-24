@@ -19,9 +19,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class Vocalizer {
-    private final List modifiers = new LinkedList();
-
-
+    private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
     public Vocalizer() {
         modifiers.add(new Ajwaf1Vocalizer());
         modifiers.add(new AjwafListed1Vocalizer());
@@ -39,4 +37,3 @@ public class Vocalizer {
         }
     }
 }
-

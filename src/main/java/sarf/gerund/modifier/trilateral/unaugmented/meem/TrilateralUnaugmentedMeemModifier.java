@@ -44,5 +44,4 @@ public class TrilateralUnaugmentedMeemModifier implements IUnaugmentedTrilateral
         nounSunLamModifier.apply(conjResult);
         return conjResult;
     }
-
 }

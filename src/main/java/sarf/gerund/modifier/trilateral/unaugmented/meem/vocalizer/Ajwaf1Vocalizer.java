@@ -1,13 +1,15 @@
 package sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer;
 
-import java.util.*;
-
 import sarf.Conjugation;
 import sarf.KindOfVerb;
-import sarf.noun.*;
+import sarf.noun.TrilateralNounSubstitutionApplier;
+import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
 
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -25,8 +27,8 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Ajwaf1Vocalizer() {
-        substitutions.add(new InfixSubstitution("ْيِ","ِي"));// EX: ( مَبِيع، )
-        substitutions.add(new InfixSubstitution("ْيَ","َا"));// EX: (محار)
+        substitutions.add(new InfixSubstitution("ْيِ", "ِي"));// EX: ( مَبِيع، )
+        substitutions.add(new InfixSubstitution("ْيَ", "َا"));// EX: (محار)
     }
 
     public List<Substitution> getSubstitutions() {

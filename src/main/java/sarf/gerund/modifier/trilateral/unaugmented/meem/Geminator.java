@@ -1,9 +1,11 @@
 package sarf.gerund.modifier.trilateral.unaugmented.meem;
 
-import java.util.*;
+import sarf.noun.trilateral.unaugmented.modifier.AbstractGeminator;
+import sarf.verb.trilateral.Substitution.ExpressionInfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
 
-import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.Substitution.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -18,15 +20,14 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class Geminator extends AbstractGeminator {
-private final List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public Geminator() {
         substitutions.add(new ExpressionInfixSubstitution("ْC3َC3", "َC3ّ")); // EX: (مَرَدّ، )
         substitutions.add(new ExpressionInfixSubstitution("ْC3ِC3", "َC3ّ")); // EX: (مَوَدّ، )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

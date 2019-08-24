@@ -1,13 +1,15 @@
 package sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer;
 
-import java.util.*;
-
 import sarf.Conjugation;
 import sarf.KindOfVerb;
-import sarf.noun.*;
+import sarf.noun.TrilateralNounSubstitutionApplier;
+import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
 
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -44,9 +46,7 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
                 case Fifth:
                     return true;
             }
-
-
-            return noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Faa || kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam || kov == KindOfVerb.Ajwaf_Yaee) {
             return noc == Conjugation.Forth;
         }
