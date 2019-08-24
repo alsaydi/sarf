@@ -28,10 +28,12 @@ public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier {
         substitutions.add(new InfixSubstitution("ُء","ُؤ"));// EX: (تجأجُؤ، تدربؤ)
     }
 
+    @Override
     public List<InfixSubstitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         return conjugationResult.getRoot().getC4() == 'ء';
     }

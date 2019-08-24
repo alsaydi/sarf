@@ -31,7 +31,7 @@ class EndedMahmouzTest {
     void isApplied() {
         var root = new AugmentedQuadrilateralRoot();
         root.setC4('ء');
-        var result = new  ConjugationResult(1, KindOfVerb.Naqis_Wawi, root, Collections.emptyList());
+        var result = new  ConjugationResult<>(1, KindOfVerb.Naqis_Wawi, root, Collections.emptyList());
 
         var sut = new EndedMahmouz();
 

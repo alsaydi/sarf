@@ -1,11 +1,13 @@
 package sarf.gerund.modifier.trilateral.unaugmented.quality.geminator;
 
-import java.util.*;
+import sarf.noun.TrilateralNounSubstitutionApplier;
+import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
+import sarf.verb.trilateral.Substitution.ExpressionInfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
 
-import sarf.noun.*;
-
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,14 +22,13 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class Geminator3 extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
-private final List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public Geminator3() {
-        substitutions.add(new ExpressionInfixSubstitution("ِC3ْC3َ","ِC3َّ"));// EX: (مِدَّة، حِيَّة)
+        substitutions.add(new ExpressionInfixSubstitution("ِC3ْC3َ", "ِC3َّ"));// EX: (مِدَّة، حِيَّة)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

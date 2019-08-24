@@ -9,14 +9,17 @@ import sarf.*;
 public class QuadrilateralStandardModifier {
     private final NounLamAlefModifier nounLamAlefModifier;
     private final NounSunLamModifier nounSunLamModifier;
-    private final Vocalizer vocalizer = new Vocalizer();
-    private final InternalMahmouz internalMahmouz = new InternalMahmouz();
-    private final EndedMahmouz endedMahmouz = new EndedMahmouz();
+    private final Vocalizer vocalizer;
+    private final InternalMahmouz internalMahmouz;
+    private final EndedMahmouz endedMahmouz;
 
     @Inject
-    public QuadrilateralStandardModifier(NounLamAlefModifier nounLamAlefModifier, NounSunLamModifier nounSunLamModifier) {
+    public QuadrilateralStandardModifier(NounLamAlefModifier nounLamAlefModifier, NounSunLamModifier nounSunLamModifier, Vocalizer vocalizer, InternalMahmouz internalMahmouz, EndedMahmouz endedMahmouz) {
         this.nounLamAlefModifier = nounLamAlefModifier;
         this.nounSunLamModifier = nounSunLamModifier;
+        this.vocalizer = vocalizer;
+        this.internalMahmouz = internalMahmouz;
+        this.endedMahmouz = endedMahmouz;
     }
 
     public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List<String> conjugations) {

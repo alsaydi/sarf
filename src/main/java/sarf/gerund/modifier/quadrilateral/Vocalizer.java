@@ -37,10 +37,12 @@ public class Vocalizer extends QuadrilateralNounSubstitutionApplier {
         substitutions.add(new InfixSubstitution("ُيَ", "ِيَ"));// EX: (تقلسيان)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         return conjugationResult.getRoot().getC4() == 'ي';
     }

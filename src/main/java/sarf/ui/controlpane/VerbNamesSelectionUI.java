@@ -19,15 +19,12 @@ import java.awt.*;
  * @version 1.0
  */
 public class VerbNamesSelectionUI extends JPanel implements IControlPane {
-
 	private static final long serialVersionUID = 276620070251792482L;
-    private final IMainControlPanel controlPaneContainer;
     private SelectionInfo selectionInfo;
 
 	@Inject
     public VerbNamesSelectionUI(ControlPaneContainer controlPaneContainer) {
         super(new BorderLayout());
-        this.controlPaneContainer = controlPaneContainer;
 
         JPanel buttonsPanel = new APanel(new GridLayout(1, 4));
 

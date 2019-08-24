@@ -42,5 +42,4 @@ public class TrilateralUnaugmentedQualityModifier implements IUnaugmentedTrilate
         nounSunLamModifier.apply(conjResult);
         return conjResult;
     }
-
 }

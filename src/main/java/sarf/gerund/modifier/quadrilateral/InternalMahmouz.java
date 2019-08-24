@@ -29,10 +29,12 @@ public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier {
         substitutions.add(new InfixSubstitution("ِءْ","ِئْ"));// EX: (اطمِئْنان، اكوِئْداد، ازيِئْنان)
     }
 
+    @Override
     public List<InfixSubstitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         return conjugationResult.getRoot().getC2() == 'ء' || conjugationResult.getRoot().getC3() == 'ء';
     }
