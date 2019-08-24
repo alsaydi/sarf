@@ -12,7 +12,7 @@ import javax.swing.*;
 
 import sarf.*;
 import sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier;
-import sarf.gerund.modifier.trilateral.augmented.standard.TitlateralAugmentedStandardModifier;
+import sarf.gerund.modifier.trilateral.augmented.standard.TrilateralAugmentedStandardModifier;
 import sarf.gerund.modifier.trilateral.unaugmented.meem.TrilateralUnaugmentedMeemModifier;
 import sarf.gerund.modifier.trilateral.unaugmented.nomen.TrilateralUnaugmentedNomenModifier;
 import sarf.gerund.modifier.trilateral.unaugmented.quality.TrilateralUnaugmentedQualityModifier;
@@ -110,7 +110,7 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
     private final StandardExaggerationConjugator standardExaggerationConjugator;
     private final StandardInstrumentalConjugator standardInstrumentalConjugator;
     private final TimeAndPlaceConjugator timeAndPlaceConjugator;
-    private final TitlateralAugmentedStandardModifier titlateralAugmentedStandardModifier;
+    private final TrilateralAugmentedStandardModifier trilateralAugmentedStandardModifier;
     private final PassiveParticipleModifier passiveParticipleModifier;
     private final ActiveParticipleModifier activeParticipleModifier;
     private final AugmentedTrilateralModifier augmentedTrilateralModifier;
@@ -162,7 +162,7 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
             , StandardExaggerationConjugator standardExaggerationConjugator
             , StandardInstrumentalConjugator standardInstrumentalConjugator
             , TimeAndPlaceConjugator timeAndPlaceConjugator
-            , TitlateralAugmentedStandardModifier titlateralAugmentedStandardModifier
+            , TrilateralAugmentedStandardModifier trilateralAugmentedStandardModifier
             , PassiveParticipleModifier passiveParticipleModifier
             , ActiveParticipleModifier activeParticipleModifier
             , AugmentedTrilateralModifier augmentedTrilateralModifier
@@ -210,7 +210,7 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
         this.standardExaggerationConjugator = standardExaggerationConjugator;
         this.standardInstrumentalConjugator = standardInstrumentalConjugator;
         this.timeAndPlaceConjugator = timeAndPlaceConjugator;
-        this.titlateralAugmentedStandardModifier = titlateralAugmentedStandardModifier;
+        this.trilateralAugmentedStandardModifier = trilateralAugmentedStandardModifier;
         this.passiveParticipleModifier = passiveParticipleModifier;
         this.activeParticipleModifier = activeParticipleModifier;
         this.augmentedTrilateralModifier = augmentedTrilateralModifier;
@@ -758,7 +758,7 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
         else if(GerundSelectionUI.class.equals(type)){
             return  new GerundSelectionUI(this
                     , trilateralAugmentedGerundConjugator
-                    , titlateralAugmentedStandardModifier
+                    , trilateralAugmentedStandardModifier
                     , passiveParticipleModifier
                     , quadrilateralUnaugmentedGerundConjugator
                     , trilateralAugmentedNomenGerundConjugator

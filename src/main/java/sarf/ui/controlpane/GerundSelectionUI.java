@@ -2,7 +2,7 @@ package sarf.ui.controlpane;
 
 import sarf.Action;
 import sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier;
-import sarf.gerund.modifier.trilateral.augmented.standard.TitlateralAugmentedStandardModifier;
+import sarf.gerund.modifier.trilateral.augmented.standard.TrilateralAugmentedStandardModifier;
 import sarf.gerund.quadrilateral.augmented.QuadrilateralAugmentedGerundConjugator;
 import sarf.gerund.quadrilateral.augmented.nomen.QuadrilateralAugmentedNomenGerundConjugator;
 import sarf.gerund.quadrilateral.unaugmented.QuadrilateralUnaugmentedGerundConjugator;
@@ -50,7 +50,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
 
     public GerundSelectionUI(ControlPaneContainer controlPaneContainer
             , TrilateralAugmentedGerundConjugator trilateralAugmentedGerundConjugator
-            , TitlateralAugmentedStandardModifier titlateralAugmentedStandardModifier
+            , TrilateralAugmentedStandardModifier trilateralAugmentedStandardModifier
             , PassiveParticipleModifier passiveParticipleModifier
             , QuadrilateralUnaugmentedGerundConjugator quadrilateralUnaugmentedGerundConjugator
             , TrilateralAugmentedNomenGerundConjugator trilateralAugmentedNomenGerundConjugator
@@ -95,7 +95,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
                 List gerunds = null;
                 if (selectionInfo.isTrilateral()) {
                     gerunds = trilateralAugmentedGerundConjugator.createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    ConjugationResult conjResult = titlateralAugmentedStandardModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                    ConjugationResult conjResult = trilateralAugmentedStandardModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                             selectionInfo.getAugmentationFormulaNo(), gerunds, GerundSelectionUI.this);
                     return conjResult.getFinalResult();
                 }
@@ -117,7 +117,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
                 List gerunds;
                 if (selectionInfo.isTrilateral()) {
                     gerunds = trilateralAugmentedNomenGerundConjugator.createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    ConjugationResult conjResult = titlateralAugmentedStandardModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                    ConjugationResult conjResult = trilateralAugmentedStandardModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                             selectionInfo.getAugmentationFormulaNo(), gerunds, GerundSelectionUI.this);
                     return conjResult.getFinalResult();
                 }

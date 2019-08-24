@@ -44,9 +44,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
                 case 9:
                     return true;
             }
-
-
-            return formulaNo == 3 || formulaNo == 7;
+            return false;
         } else if (kov == KindOfVerb.Mahmouz_Faa_Mudaaf) {
             switch (formulaNo) {
                 case 3:
@@ -55,9 +53,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
                 case 9:
                     return true;
             }
-
-
-            return formulaNo == 3 || formulaNo == 7;
+            return false;
         } else if (kov == KindOfVerb.Mithal_Wawi_Mudaaf) {
             return formulaNo == 3 || formulaNo == 7;
         }

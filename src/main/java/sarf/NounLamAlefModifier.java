@@ -21,7 +21,7 @@ import java.util.stream.IntStream;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public final class NounLamAlefModifier extends SubstitutionsApplier {
+public class NounLamAlefModifier extends SubstitutionsApplier {
     //TODO: appliedPronounsIndexes needs not to be a list of strings.
     static final List<String> appliedPronounsIndexes = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
 

@@ -27,25 +27,29 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class TitlateralAugmentedStandardModifier {
-    private final Geminator geminator = new Geminator();
-    private final Vocalizer vocalizer = new Vocalizer();
-    private final Mahmouz mahmouz = new Mahmouz();
-    private final Substituter substituter = new Substituter();
+public class TrilateralAugmentedStandardModifier {
+    private final Geminator geminator;
+    private final Vocalizer vocalizer;
+    private final Mahmouz mahmouz;
+    private final Substituter substituter;
     private final FormulaApplyingChecker formulaApplyingChecker;
     private final NounLamAlefModifier nounLamAlefModifier;
     private final NounSunLamModifier nounSunLamModifier;
 
     @Inject
-    public TitlateralAugmentedStandardModifier(FormulaApplyingChecker formulaApplyingChecker
+    public TrilateralAugmentedStandardModifier(Geminator geminator, Vocalizer vocalizer, Mahmouz mahmouz, Substituter substituter, FormulaApplyingChecker formulaApplyingChecker
             , NounLamAlefModifier nounLamAlefModifier, NounSunLamModifier nounSunLamModifier) {
+        this.geminator = geminator;
+        this.vocalizer = vocalizer;
+        this.mahmouz = mahmouz;
+        this.substituter = substituter;
         this.formulaApplyingChecker = formulaApplyingChecker;
         this.nounLamAlefModifier = nounLamAlefModifier;
         this.nounSunLamModifier = nounSunLamModifier;
     }
 
     public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List<String> conjugations, AugmentedTrilateralModifierListener listener) {
-        ConjugationResult conjResult = new ConjugationResult(kov, formulaNo, root, conjugations);
+        ConjugationResult conjResult = new ConjugationResult<>(kov, formulaNo, root, conjugations);
         substituter.apply(conjResult);
         geminator.apply(conjResult);
 
@@ -53,12 +57,9 @@ public class TitlateralAugmentedStandardModifier {
         int result = formulaApplyingChecker.check(root, formulaNo);
         if (result == IFormulaApplyingChecker.NOT_VOCALIZED) {
             applyVocalization = false;
-        } else if (result == IFormulaApplyingChecker.TWO_STATE) {
-            if (listener == null)
-                applyVocalization = true;
-            else
-                //asking the listener to apply or not the vocalization
-                applyVocalization = listener.doSelectVocalization();
+        } else if (result == IFormulaApplyingChecker.TWO_STATE && listener != null) {
+            //asking the listener to apply or not the vocalization
+            applyVocalization = listener.doSelectVocalization();
         }
 
         if (applyVocalization) {
