@@ -231,7 +231,7 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
             controlPanels.add("اسم التفضيل ", createElativeControlPanel(elativeNounConjugator, elativeModifier, ElativeSuffixContainer.getInstance(), "اسم التفضيل "));
         }
 
-        if (trilateralUnaugmentedNouns.getAssimilates(root) != null && !trilateralUnaugmentedNouns.getAssimilates(root).isEmpty()) {
+        if (!trilateralUnaugmentedNouns.getAssimilates(root).isEmpty()) {
             controlPanels.add("الصفة المشبهة ", createAssimilateControlPanel(assimilateAdjectiveConjugator, assimilateModifier, "الصفة المشبهة"));
         }
 

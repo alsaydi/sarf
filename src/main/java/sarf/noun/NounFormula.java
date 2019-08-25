@@ -18,13 +18,13 @@ public abstract class NounFormula {
     protected UnaugmentedTrilateralRoot root;
     protected int suffixNo;
     protected String suffix;
-    private GenericNounSuffixContainer genericNounSuffixContainer;
+    private INounSuffixContainer genericNounSuffixContainer;
 
     //to be used in refection getting the formula name
     public NounFormula() {
     }
 
-    public NounFormula(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+    public NounFormula(UnaugmentedTrilateralRoot root, String suffixNo, INounSuffixContainer genericNounSuffixContainer) {
         this.genericNounSuffixContainer = genericNounSuffixContainer;
         this.root = root;
         this.suffixNo = Integer.parseInt(suffixNo)+1;

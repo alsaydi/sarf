@@ -1,6 +1,7 @@
 package sarf.noun.trilateral.unaugmented.assimilate;
 
 import com.google.inject.Inject;
+import org.jetbrains.annotations.NotNull;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.assimilate.nonstandard.*;
 import sarf.verb.trilateral.unaugmented.*;
@@ -46,7 +47,6 @@ public class AssimilateAdjectiveConjugator implements IUnaugmentedTrilateralNoun
         formulaIDsMap.put(instance.getFormulaName(), formulaId);
     }
 
-
     public NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaID) {
             /*
                 لكي تكون هنا: جرب بالفعل صب المضعف.
@@ -82,13 +82,14 @@ public class AssimilateAdjectiveConjugator implements IUnaugmentedTrilateralNoun
             result.add(formulaNamesMap.get(adj));
     }
 
+    @NotNull
     public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
+        var result = new ArrayList<String>();
+
         AssimilateAdjectiveFormulaTree formulaTree = databaseManager.getAssimilateAdjectiveFormulaTree(root.getC1());
         if (formulaTree == null) {
-            return null;
+            return result;
         }
-
-        var result = new ArrayList<String>();
 
         for (AssimilateAdjectiveFormula formula : formulaTree.getFormulaList()) {
             if (formula.getConjugation().equals(root.getConjugation()) && formula.getC2() == root.getC2() && formula.getC3() == root.getC3()) {

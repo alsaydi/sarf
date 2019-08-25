@@ -3,6 +3,7 @@ package sarf.noun;
 import java.util.*;
 
 import com.google.inject.Inject;
+import org.jetbrains.annotations.NotNull;
 import sarf.noun.trilateral.unaugmented.assimilate.AssimilateAdjectiveConjugator;
 import sarf.noun.trilateral.unaugmented.elative.ElativeNounConjugator;
 import sarf.noun.trilateral.unaugmented.exaggeration.NonStandardExaggerationConjugator;
@@ -50,6 +51,7 @@ public class TrilateralUnaugmentedNouns {
         this.standardExaggerationConjugator = standardExaggerationConjugator;
     }
 
+    @NotNull
     public List<String> getAssimilates(UnaugmentedTrilateralRoot root) {
         return assimilateAdjectiveConjugator.getAppliedFormulaList(root);
     }
