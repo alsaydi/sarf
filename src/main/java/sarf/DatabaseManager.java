@@ -127,7 +127,7 @@ public class DatabaseManager {
 
 		var resourceName = String.format("db/quadriliteral/augmented/%s.xml", c1);
 		var inputStream = getResourceInputStream(resourceName);
-		rootsTree = AugmentedQuadriliteralRootTreeCreator
+		rootsTree = AugmentedQuadrilateralRootTreeCreator
 				.buildXmlVerbTree(inputStream);
 		quadrilateralAugmentedTreeMap.put(c1 + "", rootsTree);
 		inputStream.close();

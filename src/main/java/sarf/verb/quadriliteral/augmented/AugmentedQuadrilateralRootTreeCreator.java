@@ -19,8 +19,8 @@ import java.io.InputStream;
  * @author not attributable
  * @version 1.0
  */
-public class AugmentedQuadriliteralRootTreeCreator {
-    public AugmentedQuadriliteralRootTreeCreator() {
+public class AugmentedQuadrilateralRootTreeCreator {
+    public AugmentedQuadrilateralRootTreeCreator() {
     }
 
     public static AugmentedQuadriliteralRootTree buildXmlVerbTree(InputStream inputStream) throws SAXException, IOException {
