@@ -7,32 +7,32 @@ public class AugmentedActivePresentConjugator {
 
     private static final AugmentedActivePresentConjugator instance = new AugmentedActivePresentConjugator();
 
-    private final AbstractAugmentedPresentConjugator nominativeConjugator = new AbstractAugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getNominativeLastDprList(),
+    private final QuadriAugmentedPresentConjugator nominativeConjugator = new QuadriAugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getNominativeLastDprList(),
             PresentConjugationDataContainer.getInstance().getNominativeConnectedPronounList());
-    private final AbstractAugmentedPresentConjugator accusativeConjugator = new AbstractAugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getAccusativeLastDprList(),
+    private final QuadriAugmentedPresentConjugator accusativeConjugator = new QuadriAugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getAccusativeLastDprList(),
             PresentConjugationDataContainer.getInstance().getAccusativeConnectedPronounList());
-    private final AbstractAugmentedPresentConjugator jussiveConjugator = new AbstractAugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getJussiveLastDprList(),
+    private final QuadriAugmentedPresentConjugator jussiveConjugator = new QuadriAugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getJussiveLastDprList(),
             PresentConjugationDataContainer.getInstance().getJussiveConnectedPronounList());
-    private final AbstractAugmentedPresentConjugator emphasizedConjugator = new AbstractAugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getEmphasizedLastDprList(),
+    private final QuadriAugmentedPresentConjugator emphasizedConjugator = new QuadriAugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getEmphasizedLastDprList(),
             PresentConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList());
 
     public static AugmentedActivePresentConjugator getInstance() {
         return instance;
     }
 
-    public AbstractAugmentedPresentConjugator getAccusativeConjugator() {
+    public QuadriAugmentedPresentConjugator getAccusativeConjugator() {
         return accusativeConjugator;
     }
 
-    public AbstractAugmentedPresentConjugator getEmphasizedConjugator() {
+    public QuadriAugmentedPresentConjugator getEmphasizedConjugator() {
         return emphasizedConjugator;
     }
 
-    public AbstractAugmentedPresentConjugator getJussiveConjugator() {
+    public QuadriAugmentedPresentConjugator getJussiveConjugator() {
         return jussiveConjugator;
     }
 
-    public AbstractAugmentedPresentConjugator getNominativeConjugator() {
+    public QuadriAugmentedPresentConjugator getNominativeConjugator() {
         return nominativeConjugator;
     }
 }

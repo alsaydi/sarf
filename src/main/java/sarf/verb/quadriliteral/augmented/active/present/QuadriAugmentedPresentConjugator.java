@@ -18,12 +18,12 @@ import sarf.verb.quadriliteral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class AbstractAugmentedPresentConjugator {
+public class QuadriAugmentedPresentConjugator {
 
     private final List lastDprList;
     private final List connectedPronounList;
 
-    public AbstractAugmentedPresentConjugator(List lastDprList, List connectedPronounList) {
+    public QuadriAugmentedPresentConjugator(List lastDprList, List connectedPronounList) {
         this.lastDprList = lastDprList;
         this.connectedPronounList = connectedPronounList;
     }
