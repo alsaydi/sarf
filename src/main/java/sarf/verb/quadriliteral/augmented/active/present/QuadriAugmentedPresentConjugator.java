@@ -4,6 +4,7 @@ package sarf.verb.quadriliteral.augmented.active.present;
 import java.util.*;
 import sarf.AugmentationFormula;
 import sarf.PresentConjugationDataContainer;
+import sarf.SystemConstants;
 import sarf.verb.quadriliteral.augmented.*;
 
 /**
@@ -19,7 +20,6 @@ import sarf.verb.quadriliteral.augmented.*;
  * @version 1.0
  */
 public class QuadriAugmentedPresentConjugator {
-
     private final List lastDprList;
     private final List connectedPronounList;
 
@@ -44,24 +44,12 @@ public class QuadriAugmentedPresentConjugator {
         return null;
     }
 
-    public List createVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
-        List result = new LinkedList();
-        for (int i = 0; i < 13; i++) {
+    public List<AugmentedPresentVerb> createVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
+        List<AugmentedPresentVerb> result = new ArrayList<>();
+        for (int i = 0; i < SystemConstants.PRONOUN_RANGE_END; i++) {
             AugmentedPresentVerb verb = createVerb(root, i, formulaNo);
             result.add(verb);
         }
-
         return result;
     }
-
-    public Map createAllVerbList(AugmentedQuadrilateralRoot root) {
-        Map result = new HashMap();
-        for (Object o : root.getAugmentationList()) {
-            AugmentationFormula formula = (AugmentationFormula) o;
-            List formulaVerbList = createVerbList(root, formula.getFormulaNo());
-            result.put(formula.getFormulaNo() + "", formulaVerbList);
-        }
-        return result;
-    }
-
 }
