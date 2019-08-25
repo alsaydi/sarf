@@ -15,6 +15,8 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 class QuadriActivePastConjugatorTest {
 
@@ -31,6 +33,11 @@ class QuadriActivePastConjugatorTest {
 
     @Test
     void createVerb() {
+        var verb = sut.createVerb(0, new UnaugmentedQuadrilateralRoot());
+
+        assertThat(verb).isNotNull();
+        verify(pastConjugationDataContainer, times(1)).getLastDpa(0);
+        verify(pastConjugationDataContainer, times(1)).getConnectedPronoun(0);
     }
 
     @Test
@@ -38,5 +45,8 @@ class QuadriActivePastConjugatorTest {
         var actual = sut.createVerbList(new UnaugmentedQuadrilateralRoot());
 
         assertThat(actual).isNotNull();
+        assertThat(actual.size()).isEqualTo(13);
+        verify(pastConjugationDataContainer, times(1)).getLastDpa(0);
+        verify(pastConjugationDataContainer, times(1)).getConnectedPronoun(0);
     }
 }

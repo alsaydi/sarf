@@ -31,7 +31,7 @@ public class Imperative2Geminator extends SubstitutionsApplier {
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC4() == 'ن';
+    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
+        return quadriConjugationResult.getRoot().getC4() == 'ن';
     }
 }

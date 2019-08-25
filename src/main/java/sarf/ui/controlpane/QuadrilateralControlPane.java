@@ -6,6 +6,8 @@ import java.util.*;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 
@@ -129,7 +131,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
         String pastRootText = quadriActivePastConjugator.createVerb(7, root).toString();
         List conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
-        sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, 0, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
+        QuadriConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, 0, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //past text formatting
@@ -155,7 +157,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
         String pastRootText = quadrilateralAugmentedActivePastConjugator.createVerb(root, 7, formulaNo).toString();
         List conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
-        sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, formulaNo, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
+        QuadriConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, formulaNo, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //past text formatting

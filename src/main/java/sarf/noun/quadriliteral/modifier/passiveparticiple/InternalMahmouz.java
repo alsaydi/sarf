@@ -1,7 +1,7 @@
 package sarf.noun.quadriliteral.modifier.passiveparticiple;
 
 import sarf.noun.QuadrilateralNounSubstitutionApplier;
-import sarf.verb.quadriliteral.ConjugationResult;
+import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.quadriliteral.substitution.InfixSubstitution;
 import sarf.verb.quadriliteral.substitution.Substitution;
 
@@ -35,7 +35,7 @@ public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier {
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC2() == 'ء' || conjugationResult.getRoot().getC3() == 'ء';
+    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
+        return quadriConjugationResult.getRoot().getC2() == 'ء' || quadriConjugationResult.getRoot().getC3() == 'ء';
     }
 }

@@ -1,7 +1,7 @@
 package sarf.gerund.modifier.quadrilateral;
 
 import sarf.noun.QuadrilateralNounSubstitutionApplier;
-import sarf.verb.quadriliteral.ConjugationResult;
+import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.quadriliteral.substitution.InfixSubstitution;
 import sarf.verb.quadriliteral.substitution.Substitution;
 import sarf.verb.quadriliteral.substitution.SuffixSubstitution;
@@ -43,7 +43,7 @@ public class Vocalizer extends QuadrilateralNounSubstitutionApplier {
     }
 
     @Override
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC4() == 'ي';
+    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
+        return quadriConjugationResult.getRoot().getC4() == 'ي';
     }
 }

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import sarf.KindOfVerb;
 import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
 
-class ConjugationResultTest {
+class QuadriConjugationResultTest {
 	
 	@Test
 	void propertiesAreSet() throws Exception {
@@ -15,7 +15,7 @@ class ConjugationResultTest {
 		List<String> originalResult = new ArrayList<>();
 		originalResult.add("Test");
 		
-		ConjugationResult sut = new ConjugationResult(1, KindOfVerb.Mudaaf, root, originalResult);
+		QuadriConjugationResult sut = new QuadriConjugationResult(1, KindOfVerb.Mudaaf, root, originalResult);
 		
 		assertEquals(1, sut.getFormulaNo());
 		assertEquals(KindOfVerb.Mudaaf, sut.getKov());

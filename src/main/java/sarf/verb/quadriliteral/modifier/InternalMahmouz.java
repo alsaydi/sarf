@@ -31,7 +31,7 @@ public class InternalMahmouz {
         modifiersMap.put(SystemConstants.PRESENT_TENSE + "false", new sarf.verb.quadriliteral.modifier.hamza.internal.passive.PresentMahmouz());
     }
 
-    public void apply(String tense, boolean active, ConjugationResult conjResult) {
+    public void apply(String tense, boolean active, QuadriConjugationResult conjResult) {
         var modifier = modifiersMap.get(tense + active);
         if (modifier.isApplied(conjResult))
             modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());

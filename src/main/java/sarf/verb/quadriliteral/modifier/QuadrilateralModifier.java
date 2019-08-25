@@ -41,10 +41,10 @@ public class QuadrilateralModifier {
      * @param root UnaugmentedTrilateralRoot
      * @param conjugations List
      * @param tense String (From SystemConstants class the values are stored)  ماضي أو مضارع او أمر
-     * @return ConjugationResult
+     * @return QuadriConjugationResult
      */
-    public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations, String tense, boolean active, boolean applyGemination) {
-        ConjugationResult conjResult = new ConjugationResult(formulaNo, kov, root, conjugations);
+    public QuadriConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations, String tense, boolean active, boolean applyGemination) {
+        QuadriConjugationResult conjResult = new QuadriConjugationResult(formulaNo, kov, root, conjugations);
         if (applyGemination)
             geminator.apply(tense, active, conjResult);
         vocalizer.apply(tense, active, conjResult);
@@ -54,7 +54,7 @@ public class QuadrilateralModifier {
         return conjResult;
     }
 
-    public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations, String tense, boolean active) {
+    public QuadriConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations, String tense, boolean active) {
         return build(root, formulaNo, kov, conjugations, tense, active, true);
     }
 }

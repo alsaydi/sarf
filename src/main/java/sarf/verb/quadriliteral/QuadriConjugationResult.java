@@ -16,7 +16,7 @@ import java.util.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public final class ConjugationResult<T> {
+public final class QuadriConjugationResult<T> {
     private final int formulaNo;
     private final QuadrilateralRoot root;
     private final KindOfVerb kov;
@@ -25,7 +25,7 @@ public final class ConjugationResult<T> {
     //القائمة بعد  الادغام والاعلال والهمزة
     private final List<T> finalResult;
 
-    public ConjugationResult(int formulaNo, KindOfVerb kov, QuadrilateralRoot root, List<T> originalResult) {
+    public QuadriConjugationResult(int formulaNo, KindOfVerb kov, QuadrilateralRoot root, List<T> originalResult) {
         this.formulaNo = formulaNo;
         this.kov = kov;
         this.originalResult = originalResult;

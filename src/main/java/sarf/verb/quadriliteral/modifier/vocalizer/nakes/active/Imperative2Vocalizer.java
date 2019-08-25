@@ -32,8 +32,8 @@ public class Imperative2Vocalizer extends SubstitutionsApplier {
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC4() == 'ي' && conjugationResult.getFormulaNo() == 1;
+    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
+        return quadriConjugationResult.getRoot().getC4() == 'ي' && quadriConjugationResult.getFormulaNo() == 1;
 
     }
 }

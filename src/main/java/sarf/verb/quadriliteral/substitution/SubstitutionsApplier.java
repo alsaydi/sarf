@@ -1,6 +1,6 @@
 package sarf.verb.quadriliteral.substitution;
 
-import sarf.verb.quadriliteral.ConjugationResult;
+import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.quadriliteral.QuadrilateralRoot;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.List;
  * @version 1.0
  */
 public abstract class SubstitutionsApplier<T> {
-    public abstract boolean isApplied(ConjugationResult<T> conjugationResult);
+    public abstract boolean isApplied(QuadriConjugationResult<T> quadriConjugationResult);
 
     /**
      * حلقة تمسح الكلمات وتجرب الاستبدلات على كل  كلمة

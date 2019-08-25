@@ -94,7 +94,7 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
                     result = unaugmentedQuadrilateralActiveParticipleConjugator.createNounList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
                 }
 
-                sarf.verb.quadriliteral.ConjugationResult conjResult = quadrilateralActiveParticipleModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result);
+                QuadriConjugationResult conjResult = quadrilateralActiveParticipleModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result);
 
                 return conjResult.getFinalResult();
             };
@@ -121,7 +121,7 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
                     result = unaugmentedQuadrilateralPassiveParticipleConjugator.createNounList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
                 }
 
-                sarf.verb.quadriliteral.ConjugationResult conjResult = quadrilateralPassiveParticipleModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result);
+                QuadriConjugationResult conjResult = quadrilateralPassiveParticipleModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result);
 
                 return conjResult.getFinalResult();
             };
@@ -149,7 +149,7 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
                     result = unaugmentedQuadrilateralPassiveParticipleConjugator.createTimeAndPlaceNounList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
                 }
 
-                sarf.verb.quadriliteral.ConjugationResult conjResult = quadrilateralPassiveParticipleModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result);
+                QuadriConjugationResult conjResult = quadrilateralPassiveParticipleModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result);
 
                 return conjResult.getFinalResult();
             };

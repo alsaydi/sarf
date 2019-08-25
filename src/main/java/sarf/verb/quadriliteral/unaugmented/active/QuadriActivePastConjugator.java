@@ -1,5 +1,6 @@
 package sarf.verb.quadriliteral.unaugmented.active;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
 
@@ -45,8 +46,8 @@ public class QuadriActivePastConjugator {
      * @return List
      */
     public List<ActivePastVerb> createVerbList(UnaugmentedQuadrilateralRoot root) {
-        List result = new LinkedList();
-        for (int i=0; i<13; i++) {
+        List<ActivePastVerb> result = new ArrayList<>();
+        for (int i=0; i<SystemConstants.PRONOUN_RANGE_END; i++) {
             result.add(createVerb(i, root));
         }
         return result;

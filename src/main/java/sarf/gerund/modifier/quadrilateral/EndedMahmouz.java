@@ -34,7 +34,7 @@ public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier {
     }
 
     @Override
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC4() == 'ء';
+    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
+        return quadriConjugationResult.getRoot().getC4() == 'ء';
     }
 }

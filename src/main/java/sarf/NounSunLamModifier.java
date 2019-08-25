@@ -1,5 +1,6 @@
 package sarf;
 
+import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.trilateral.Substitution.Substitution;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 import sarf.verb.trilateral.TrilateralRoot;
@@ -70,7 +71,7 @@ public class NounSunLamModifier extends SubstitutionsApplier {
         apply(conjResult.getFinalResult(), null);
     }
 
-    public void apply(sarf.verb.quadriliteral.ConjugationResult conjResult) {
+    public void apply(QuadriConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
     }
 

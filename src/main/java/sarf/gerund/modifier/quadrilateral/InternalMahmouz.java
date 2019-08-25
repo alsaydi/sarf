@@ -35,7 +35,7 @@ public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier {
     }
 
     @Override
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC2() == 'ء' || conjugationResult.getRoot().getC3() == 'ء';
+    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
+        return quadriConjugationResult.getRoot().getC2() == 'ء' || quadriConjugationResult.getRoot().getC3() == 'ء';
     }
 }

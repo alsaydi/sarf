@@ -1,5 +1,6 @@
 package sarf;
 
+import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.trilateral.Substitution.InfixSubstitution;
 import sarf.verb.trilateral.Substitution.Substitution;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
@@ -51,7 +52,7 @@ public class NounLamAlefModifier extends SubstitutionsApplier {
         apply(conjResult.getFinalResult(), null);
     }
 
-    public void apply(sarf.verb.quadriliteral.ConjugationResult conjResult) {
+    public void apply(QuadriConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
         //قد يوجد لام ألف أخرى تتطابق مع قانون أخر
         apply(conjResult.getFinalResult(), null);

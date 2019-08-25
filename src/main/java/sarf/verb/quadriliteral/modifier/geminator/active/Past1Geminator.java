@@ -28,7 +28,7 @@ public class Past1Geminator extends SubstitutionsApplier {
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getFormulaNo() == 3;
+    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
+        return quadriConjugationResult.getFormulaNo() == 3;
     }
 }

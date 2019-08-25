@@ -29,7 +29,7 @@ public class Past2Geminator extends SubstitutionsApplier {
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC4() == 'ت';
+    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
+        return quadriConjugationResult.getRoot().getC4() == 'ت';
     }
 }

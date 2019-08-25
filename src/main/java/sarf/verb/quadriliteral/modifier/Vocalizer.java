@@ -1,6 +1,6 @@
 package sarf.verb.quadriliteral.modifier;
 
-import sarf.verb.quadriliteral.ConjugationResult;
+import sarf.verb.quadriliteral.QuadriConjugationResult;
 import java.util.*;
 import sarf.*;
 import sarf.verb.quadriliteral.substitution.SubstitutionsApplier;
@@ -60,9 +60,9 @@ public class Vocalizer {
      * قد لا يطبق أي نوع من الاعلال
      * @param tense String
      * @param active boolean
-     * @param conjResult ConjugationResult
+     * @param conjResult QuadriConjugationResult
      */
-    public void apply(String tense, boolean active, ConjugationResult conjResult) {
+    public void apply(String tense, boolean active, QuadriConjugationResult conjResult) {
         var modifiers = modifiersMap.get(tense+active);
         for (var substitutionsApplier : modifiers) {
             if (substitutionsApplier.isApplied(conjResult)) {

@@ -3,7 +3,6 @@ package sarf.noun.quadriliteral.modifier.activeparticiple;
 import java.util.*;
 
 import sarf.noun.*;
-import sarf.noun.quadriliteral.augmented.AugmentedQuadrilateralNoun;
 import sarf.verb.quadriliteral.*;
 import sarf.verb.quadriliteral.substitution.*;
 
@@ -32,7 +31,7 @@ public final class Geminator extends QuadrilateralNounSubstitutionApplier {
     }
 
     @Override
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getFormulaNo() == 3;
+    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
+        return quadriConjugationResult.getFormulaNo() == 3;
     }
 }
