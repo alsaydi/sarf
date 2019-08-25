@@ -13,7 +13,7 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public final class PastConjugationDataContainer {
+public class PastConjugationDataContainer {
     //قائمة حركات عين الفعل حسب باب التصريف
     private final List<String> dpa2List = new ArrayList<>(6);
     //قائمة  حركات لام الفعل حسب ضمير الرفع
@@ -21,13 +21,7 @@ public final class PastConjugationDataContainer {
     //قائمة ضمائر الرفع المتصلة
     private final List<String> connectedPronounsList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
 
-    private static final PastConjugationDataContainer instance = new PastConjugationDataContainer();
-
-    public static PastConjugationDataContainer getInstance() {
-        return instance;
-    }
-
-    private PastConjugationDataContainer() {
+    public PastConjugationDataContainer() {
         //تهيئة القيم
         dpa2List.add(ArabCharUtil.FATHA);
         dpa2List.add(ArabCharUtil.FATHA);
@@ -92,5 +86,9 @@ public final class PastConjugationDataContainer {
      */
     public String getConnectedPronoun(int pronounIndex) {
         return connectedPronounsList.get(pronounIndex);
+    }
+
+    public static PastConjugationDataContainer getInstance(){
+        throw new IllegalStateException();
     }
 }

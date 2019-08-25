@@ -11,6 +11,8 @@ import sarf.verb.quadriliteral.unaugmented.*;
 
 import java.awt.BorderLayout;
 import sarf.SystemConstants;
+import sarf.verb.quadriliteral.augmented.active.past.AugmentedActivePastConjugator;
+
 import java.awt.Color;
 
 /**
@@ -31,12 +33,14 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
 
     private final ControlButton unaugmentedBtn = new ControlButton("فَعْلَل يُفَعْلِل");
     private final IMainControlPanel controlPaneContainer;
+    private final AugmentedActivePastConjugator augmentedActivePastConjugator;
     private AugmentedQuadrilateralRoot currentAugmentedRoot;
     private UnaugmentedQuadrilateralRoot currentUnaugmentedRoot;
 
-    public QuadrilateralControlPane(ControlPaneContainer controlPaneContainer) {
+    public QuadrilateralControlPane(ControlPaneContainer controlPaneContainer, AugmentedActivePastConjugator augmentedActivePastConjugator) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
+        this.augmentedActivePastConjugator = augmentedActivePastConjugator;
 
         JPanel unaugmentedPanel = new JPanel(new GridLayout(1, 3));
         unaugmentedPanel.add(Box.createHorizontalBox());
@@ -144,7 +148,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
 
         //مع الضمير هو
         //past text formatting
-        String pastRootText = sarf.verb.quadriliteral.augmented.active.past.AugmentedActivePastConjugator.getInstance().createVerb(root, 7, formulaNo).toString();
+        String pastRootText = augmentedActivePastConjugator.createVerb(root, 7, formulaNo).toString();
         List conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
         sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, formulaNo, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);

@@ -5,6 +5,8 @@ import sarf.ui.*;
 import java.awt.*;
 import sarf.verb.trilateral.augmented.*;
 import java.util.List;
+
+import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.unaugmented.*;
@@ -27,6 +29,7 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
  */
 public class PassiveVerbSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
     private final IMainControlPanel controlPaneContainer;
+    private final AugmentedActivePastConjugator augmentedPassivePastConjugator;
     private SelectionInfo selectionInfo;
 
     private final ToggleRenderedButton pastBtn = new ToggleRenderedButton("الماضي المجهول ");
@@ -37,9 +40,10 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
 
 
     public PassiveVerbSelectionUI(ControlPaneContainer controlPaneContainer
-            , AugmentedTrilateralModifier augmentedTrilateralModifier) {
+            , AugmentedTrilateralModifier augmentedTrilateralModifier, AugmentedActivePastConjugator augmentedPassivePastConjugator) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
+        this.augmentedPassivePastConjugator = augmentedPassivePastConjugator;
 
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
@@ -70,7 +74,7 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
             List result = null;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.trilateral.augmented.passive.past.AugmentedPassivePastConjugator.getInstance().createVerbList((AugmentedTrilateralRoot) selectionInfo.
+                    result = this.augmentedPassivePastConjugator.createVerbList((AugmentedTrilateralRoot) selectionInfo.
                             getRoot(), selectionInfo.getAugmentationFormulaNo());
                     sarf.verb.trilateral.augmented.ConjugationResult conjResult = augmentedTrilateralModifier.build((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,

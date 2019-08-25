@@ -11,7 +11,7 @@ import sarf.*;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
-
+import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
 /**
  * <p>Title: Sarf Program</p>
  *
@@ -35,12 +35,14 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     private AugmentedTrilateralRoot currentAugmentedTrilateralRoot;
 
     private final JPanel unaugmentedPanel = new APanel(new GridLayout(1,6));
+    private final AugmentedActivePastConjugator augmentedActivePastConjugator;
 
     public TrilateralControlPane(ControlPaneContainer controlPaneContainer
-            , AugmentedTrilateralModifier augmentedTrilateralModifier) {
+            , AugmentedTrilateralModifier augmentedTrilateralModifier, AugmentedActivePastConjugator augmentedActivePastConjugator) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
         this.augmentedTrilateralModifier = augmentedTrilateralModifier;
+        this.augmentedActivePastConjugator = augmentedActivePastConjugator;
 
         unaugmentedTrilateralRoots.add(new UnaugmentedTrilateralRoot());
         unaugmentedTrilateralRoots.add(new UnaugmentedTrilateralRoot());
@@ -170,7 +172,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
 
         //مع الضمير هو
         //past text formatting
-        String pastRootText = sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator.getInstance().createVerb(root, 7, formulaNo).toString();
+        String pastRootText = augmentedActivePastConjugator.createVerb(root, 7, formulaNo).toString();
         List<String> conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
         sarf.verb.trilateral.augmented.ConjugationResult conjResult = augmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), formulaNo, conjugations, SystemConstants.PAST_TENSE, true, null);

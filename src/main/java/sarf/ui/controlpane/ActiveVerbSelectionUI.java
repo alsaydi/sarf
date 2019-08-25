@@ -1,24 +1,24 @@
 package sarf.ui.controlpane;
 
-import javax.swing.*;
-
+import sarf.SystemConstants;
 import sarf.ui.*;
-import java.awt.*;
-
-import sarf.verb.trilateral.augmented.*;
-import java.util.List;
-
+import sarf.verb.quadriliteral.QuadrilateralRoot;
+import sarf.verb.quadriliteral.augmented.AugmentedPastVerb;
+import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
+import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
+import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
+import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
 import sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugatorFactory;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
-import sarf.verb.trilateral.unaugmented.*;
-import sarf.verb.quadriliteral.augmented.*;
-import sarf.verb.quadriliteral.unaugmented.*;
-import sarf.*;
-import sarf.verb.quadriliteral.*;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
+import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePastVerb;
 import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
@@ -45,11 +45,19 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
     private final ToggleRenderedButton presentEmphasizedBtn = new ToggleRenderedButton("المضارع المؤكد");
     private final ToggleRenderedButton imperativeBtn = new ToggleRenderedButton("الأمر");
     private final ToggleRenderedButton imperativeEmphasizedBtn = new ToggleRenderedButton("الأمر المؤكد");
+    private final AugmentedActivePastConjugator augmentedActivePastConjugator;
+    private final sarf.verb.quadriliteral.augmented.active.past.AugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator;
 
-    public ActiveVerbSelectionUI(IMainControlPanel controlPaneContainer, AugmentedTrilateralModifier augmentedTrilateralModifier) {
+    public ActiveVerbSelectionUI(IMainControlPanel controlPaneContainer
+            , AugmentedTrilateralModifier augmentedTrilateralModifier
+            , AugmentedActivePastConjugator augmentedActivePastConjugator
+            , sarf.verb.quadriliteral.augmented.active.past.AugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
         this.augmentedTrilateralModifier = augmentedTrilateralModifier;
+        this.augmentedActivePastConjugator = augmentedActivePastConjugator;
+        this.quadrilateralAugmentedActivePastConjugator = quadrilateralAugmentedActivePastConjugator;
+
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         var buttonsPanel = buildButtonPanel();
         add(buttonsPanel);
@@ -369,9 +377,9 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
     }
 
     private List<String> generateQuadrilateralActivePastResult() {
-        List<String> result = null;
+        List<AugmentedPastVerb> result;
         if (selectionInfo.isAugmented()) {
-            result = sarf.verb.quadriliteral.augmented.active.past.AugmentedActivePastConjugator.getInstance().createVerbList((AugmentedQuadrilateralRoot)
+            result = quadrilateralAugmentedActivePastConjugator.createVerbList((AugmentedQuadrilateralRoot)
                     selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
         }
         else {
@@ -379,13 +387,13 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
         }
         sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result, SystemConstants.PAST_TENSE, true);
         result = conjResult.getFinalResult();
-        return result;
+        return result.stream().map(AugmentedPastVerb::toString).collect(Collectors.toList());
     }
 
     private List generateTrilateralActivePastResult() {
         List result;
         if (selectionInfo.isAugmented()) {
-            result = sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator.getInstance().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+            result = augmentedActivePastConjugator.createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
             sarf.verb.trilateral.augmented.ConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                     SystemConstants.PAST_TENSE, true, ActiveVerbSelectionUI.this);
             result = conjResult.getFinalResult();
