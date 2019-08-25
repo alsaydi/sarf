@@ -12,8 +12,11 @@ import sarf.verb.quadriliteral.unaugmented.*;
 import java.awt.BorderLayout;
 import sarf.SystemConstants;
 import sarf.verb.quadriliteral.augmented.active.past.QuadrilateralAugmentedActivePastConjugator;
+import sarf.verb.quadriliteral.unaugmented.active.QuadriActivePastConjugator;
 
 import java.awt.Color;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -29,18 +32,21 @@ import java.awt.Color;
  */
 public class QuadrilateralControlPane extends JPanel implements IControlPane {
 
-    private final List augmentedButons = new ArrayList(12);
+    private final List<ControlButton> augmentedButtons = new ArrayList<>(12);
 
     private final ControlButton unaugmentedBtn = new ControlButton("فَعْلَل يُفَعْلِل");
     private final IMainControlPanel controlPaneContainer;
     private final QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator;
+    private final QuadriActivePastConjugator quadriActivePastConjugator;
+
     private AugmentedQuadrilateralRoot currentAugmentedRoot;
     private UnaugmentedQuadrilateralRoot currentUnaugmentedRoot;
 
-    public QuadrilateralControlPane(ControlPaneContainer controlPaneContainer, QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator) {
+    public QuadrilateralControlPane(ControlPaneContainer controlPaneContainer, QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator, QuadriActivePastConjugator quadriActivePastConjugator) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
         this.quadrilateralAugmentedActivePastConjugator = quadrilateralAugmentedActivePastConjugator;
+        this.quadriActivePastConjugator = quadriActivePastConjugator;
 
         JPanel unaugmentedPanel = new JPanel(new GridLayout(1, 3));
         unaugmentedPanel.add(Box.createHorizontalBox());
@@ -96,7 +102,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
     private final ActionListener augmentedActionListener = new AugmentedActionListener();
     private void addAugmentedButton(String text, JPanel containerPnl) {
         ControlButton btn = new ControlButton(text);
-        augmentedButons.add(btn);
+        augmentedButtons.add(btn);
         containerPnl.add(btn);
         btn.getButton().setName(++formulaNoCounter + "");
         btn.getButton().addActionListener(augmentedActionListener);
@@ -106,12 +112,10 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
         return this;
     }
 
-    public List createEmptyList() {
-        List result = new ArrayList(13);
-        for (int i = 1; i <= 13; i++) {
-            result.add("");
-        }
-        return result;
+    public List<String> createEmptyList() {
+        return IntStream.rangeClosed(1, SystemConstants.PRONOUN_RANGE_END)
+                .mapToObj(i -> "")
+                .collect(Collectors.toCollection(() -> new ArrayList<>(SystemConstants.PRONOUN_RANGE_END)));
     }
 
 
@@ -122,7 +126,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
 
         //مع الضمير هو
         //past text formatting
-        String pastRootText = sarf.verb.quadriliteral.unaugmented.active.ActivePastConjugator.getInstance().createVerb(7, root).toString();
+        String pastRootText = quadriActivePastConjugator.createVerb(7, root).toString();
         List conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
         sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, 0, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
@@ -139,7 +143,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
     }
 
     public void enableAugmentedButton(int index, AugmentedQuadrilateralRoot root) {
-        ControlButton btn = (ControlButton) augmentedButons.get(index);
+        ControlButton btn = (ControlButton) augmentedButtons.get(index);
         btn.setEnabled(true);
         btn.setRootText("");
         currentAugmentedRoot = root;
@@ -166,7 +170,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
 
 
     public void disableAll() {
-        for (Object augmentedButon : augmentedButons) {
+        for (Object augmentedButon : augmentedButtons) {
             ControlButton btn = (ControlButton) augmentedButon;
             btn.setEnabled(false);
 
@@ -180,7 +184,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
             SelectionInfo selectionInfo = new SelectionInfo(currentAugmentedRoot, false, true, controlPaneContainer.getKov());
             int formulaNo = Integer.parseInt(((JButton) e.getSource()).getName());
             selectionInfo.setAugmentationFormulaNo(formulaNo);
-            ControlButton controlButton = (ControlButton) augmentedButons.get(formulaNo - 1);
+            ControlButton controlButton = (ControlButton) augmentedButtons.get(formulaNo - 1);
             selectionInfo.setFormulaText(controlButton.getFormulaText());
             selectionInfo.setVerbText(controlButton.getVerbText());
 

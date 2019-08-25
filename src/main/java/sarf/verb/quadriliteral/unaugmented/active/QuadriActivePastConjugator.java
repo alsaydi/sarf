@@ -2,6 +2,8 @@ package sarf.verb.quadriliteral.unaugmented.active;
 
 import java.util.List;
 import java.util.LinkedList;
+
+import com.google.inject.Inject;
 import sarf.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 
@@ -17,14 +19,12 @@ import sarf.verb.quadriliteral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ActivePastConjugator {
-    private ActivePastConjugator() {
-    }
+public class QuadriActivePastConjugator {
+    private final PastConjugationDataContainer pastConjugationDataContainer;
 
-    private static final ActivePastConjugator instance = new ActivePastConjugator();
-
-    public static ActivePastConjugator getInstance() {
-        return instance;
+    @Inject
+    public QuadriActivePastConjugator(PastConjugationDataContainer pastConjugationDataContainer) {
+        this.pastConjugationDataContainer = pastConjugationDataContainer;
     }
 
     /**
@@ -34,8 +34,8 @@ public class ActivePastConjugator {
      * @return PastConjugation
      */
     public ActivePastVerb createVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
-        String lastDpa = PastConjugationDataContainer.getInstance().getLastDpa(pronounIndex);
-        String connectedPronoun = PastConjugationDataContainer.getInstance().getConnectedPronoun(pronounIndex);
+        String lastDpa = pastConjugationDataContainer.getLastDpa(pronounIndex);
+        String connectedPronoun = pastConjugationDataContainer.getConnectedPronoun(pronounIndex);
         return new ActivePastVerb(root, lastDpa, connectedPronoun);
     }
 
@@ -44,13 +44,11 @@ public class ActivePastConjugator {
      * @param root UnaugmentedQuadrilateralRoot
      * @return List
      */
-    public List createVerbList(UnaugmentedQuadrilateralRoot root) {
+    public List<ActivePastVerb> createVerbList(UnaugmentedQuadrilateralRoot root) {
         List result = new LinkedList();
         for (int i=0; i<13; i++) {
             result.add(createVerb(i, root));
         }
-
         return result;
     }
-
 }

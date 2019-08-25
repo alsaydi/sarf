@@ -2,6 +2,7 @@ package sarf.verb.quadriliteral.unaugmented.passive;
 
 import java.util.*;
 
+import com.google.inject.Inject;
 import sarf.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 
@@ -17,14 +18,12 @@ import sarf.verb.quadriliteral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PassivePastConjugator {
-    private PassivePastConjugator() {
-    }
+public class QuadriUnaugmentedPassivePastConjugator {
+    private final PastConjugationDataContainer pastConjugationDataContainer;
 
-    private static final PassivePastConjugator instance = new PassivePastConjugator();
-
-    public static PassivePastConjugator getInstance() {
-        return instance;
+    @Inject
+    public QuadriUnaugmentedPassivePastConjugator(PastConjugationDataContainer pastConjugationDataContainer) {
+        this.pastConjugationDataContainer = pastConjugationDataContainer;
     }
 
     /**
@@ -33,14 +32,14 @@ public class PassivePastConjugator {
      * @param root TripleVerb
      * @return PassivePastVerb
      */
-    public PassivePastVerb createVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
+    private PassivePastVerb createVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         //	اظهار مع هو وهي فقط للمجهول اللازم
         if (root.getTransitive().equals("ل") && pronounIndex != 7 && pronounIndex != 8) {
             return null;
         }
 
-        String lastDpa = PastConjugationDataContainer.getInstance().getLastDpa(pronounIndex);
-        String connectedPronoun = PastConjugationDataContainer.getInstance().getConnectedPronoun(pronounIndex);
+        String lastDpa = pastConjugationDataContainer.getLastDpa(pronounIndex);
+        String connectedPronoun = pastConjugationDataContainer.getConnectedPronoun(pronounIndex);
         return new PassivePastVerb(root, lastDpa, connectedPronoun);
     }
 
@@ -49,13 +48,11 @@ public class PassivePastConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createVerbList(UnaugmentedQuadrilateralRoot root) {
-        List result = new LinkedList();
+    public List<PassivePastVerb> createVerbList(UnaugmentedQuadrilateralRoot root) {
+        List<PassivePastVerb> result = new ArrayList<>();
         for (int i = 0; i < 13; i++) {
             result.add(createVerb(i, root));
         }
-
         return result;
     }
-
 }

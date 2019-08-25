@@ -1,7 +1,10 @@
 package sarf.verb.trilateral.unaugmented.passive;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
+
+import com.google.inject.Inject;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.*;
 
@@ -18,13 +21,12 @@ import sarf.*;
  * @version 1.0
  */
 public class PassivePastConjugator {
-    private PassivePastConjugator() {
-    }
 
-    private static final PassivePastConjugator instance = new PassivePastConjugator();
+    private final PastConjugationDataContainer pastConjugationDataContainer;
 
-    public static PassivePastConjugator getInstance() {
-        return instance;
+    @Inject
+    public PassivePastConjugator(PastConjugationDataContainer pastConjugationDataContainer) {
+        this.pastConjugationDataContainer = pastConjugationDataContainer;
     }
 
     /**
@@ -33,12 +35,12 @@ public class PassivePastConjugator {
      * @param root TripleVerb
      * @return PassivePastVerb
      */
-    public PassivePastVerb createVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
+    private PassivePastVerb createVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
         //	اظهار مع هو وهي فقط للمجهول اللازم
         if (root.getTransitive().equals("ل") && pronounIndex!= 7 && pronounIndex!= 8)
             return null;
-        String lastDpa = PastConjugationDataContainer.getInstance().getLastDpa(pronounIndex);
-        String connectedPronoun = PastConjugationDataContainer.getInstance().getConnectedPronoun(pronounIndex);
+        String lastDpa = pastConjugationDataContainer.getLastDpa(pronounIndex);
+        String connectedPronoun = pastConjugationDataContainer.getConnectedPronoun(pronounIndex);
         return new PassivePastVerb(root, lastDpa, connectedPronoun);
     }
 
@@ -47,13 +49,11 @@ public class PassivePastConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createVerbList(UnaugmentedTrilateralRoot root) {
-        List result = new LinkedList();
-        for (int i=0; i<13; i++) {
+    public List<PassivePastVerb> createVerbList(UnaugmentedTrilateralRoot root) {
+        var result = new ArrayList<PassivePastVerb>();
+        for (int i=0; i<SystemConstants.PRONOUN_RANGE_END; i++) {
             result.add(createVerb(i, root));
         }
-
         return result;
     }
-
 }

@@ -1,6 +1,8 @@
 package sarf;
 
 import java.util.*;
+
+import com.google.inject.Singleton;
 import sarf.util.ArabCharUtil;
 import sarf.verb.trilateral.unaugmented.*;
 
@@ -13,6 +15,8 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
+
+@Singleton
 public class PastConjugationDataContainer {
     //قائمة حركات عين الفعل حسب باب التصريف
     private final List<String> dpa2List = new ArrayList<>(6);
@@ -86,9 +90,5 @@ public class PastConjugationDataContainer {
      */
     public String getConnectedPronoun(int pronounIndex) {
         return connectedPronounsList.get(pronounIndex);
-    }
-
-    public static PastConjugationDataContainer getInstance(){
-        throw new IllegalStateException();
     }
 }

@@ -19,15 +19,18 @@ import sarf.verb.trilateral.unaugmented.*;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.active.ActivePastVerb;
 import sarf.verb.trilateral.unaugmented.modifier.*;
+import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
 
 public class ConsoleApp {
 	private final SarfDictionary sarfDictionary;
 	private final KovRulesManager kovRulesManager;
+	private final ActivePastConjugator triActivePastConjugator;
 
 	@Inject
-	public ConsoleApp(SarfDictionary sarfDictionary, KovRulesManager kovRulesManager){
+	public ConsoleApp(SarfDictionary sarfDictionary, KovRulesManager kovRulesManager, sarf.verb.trilateral.unaugmented.active.ActivePastConjugator triActivePastConjugator){
 		this.sarfDictionary = sarfDictionary;
 		this.kovRulesManager = kovRulesManager;
+		this.triActivePastConjugator = triActivePastConjugator;
 	}
 
 	public static void main(String[] args) {
@@ -105,7 +108,7 @@ public class ConsoleApp {
 		//past text formatting
 		
 		
-		String pastRootText = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerb(7, root).toString();
+		String pastRootText = triActivePastConjugator.createVerb(7, root).toString();
 		List<String> conjugations = createEmptyList();
 		conjugations.set(7, pastRootText);
 		sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, kov, conjugations, SystemConstants.PAST_TENSE, true);
@@ -124,7 +127,7 @@ public class ConsoleApp {
 	}
 
 	private void printActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-		List<ActivePastVerb> result = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerbList(root);
+		List<ActivePastVerb> result = triActivePastConjugator.createVerbList(root);
         ConjugationResult conjResult = UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.PAST_TENSE, true);
         List finalResult = conjResult.getFinalResult();
         for (Object verb : finalResult) {

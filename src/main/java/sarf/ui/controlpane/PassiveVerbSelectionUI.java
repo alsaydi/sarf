@@ -4,12 +4,13 @@ import javax.swing.*;
 import sarf.ui.*;
 import java.awt.*;
 
-import sarf.verb.quadriliteral.augmented.active.past.QuadrilateralAugmentedActivePastConjugator;
 import sarf.verb.quadriliteral.augmented.passive.past.QuadriAugmentedPassivePastConjugator;
+import sarf.verb.quadriliteral.unaugmented.passive.QuadriUnaugmentedPassivePastConjugator;
 import sarf.verb.trilateral.augmented.*;
 import java.util.List;
 
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
+import sarf.verb.trilateral.augmented.passive.past.AugmentedPassivePastConjugator;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.unaugmented.*;
@@ -17,6 +18,7 @@ import sarf.SystemConstants;
 import sarf.verb.quadriliteral.QuadrilateralRoot;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
+import sarf.verb.trilateral.unaugmented.passive.PassivePastConjugator;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -32,8 +34,10 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
  */
 public class PassiveVerbSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
     private final IMainControlPanel controlPaneContainer;
-    private final AugmentedActivePastConjugator augmentedPassivePastConjugator;
+    private final AugmentedPassivePastConjugator augmentedPassivePastConjugator;
     private final QuadriAugmentedPassivePastConjugator quadriAugmentedPassivePastConjugator;
+    private final PassivePastConjugator passivePastConjugator;
+    private final QuadriUnaugmentedPassivePastConjugator quadriUnaugmentedPassivePastConjugator;
     private SelectionInfo selectionInfo;
 
     private final ToggleRenderedButton pastBtn = new ToggleRenderedButton("الماضي المجهول ");
@@ -45,12 +49,16 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
 
     public PassiveVerbSelectionUI(ControlPaneContainer controlPaneContainer
             , AugmentedTrilateralModifier augmentedTrilateralModifier
-            , AugmentedActivePastConjugator augmentedPassivePastConjugator
-            , QuadriAugmentedPassivePastConjugator quadriAugmentedPassivePastConjugator) {
+            , AugmentedPassivePastConjugator augmentedPassivePastConjugator
+            , QuadriAugmentedPassivePastConjugator quadriAugmentedPassivePastConjugator
+            , PassivePastConjugator passivePastConjugator
+            , QuadriUnaugmentedPassivePastConjugator quadriUnaugmentedPassivePastConjugator) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
         this.augmentedPassivePastConjugator = augmentedPassivePastConjugator;
         this.quadriAugmentedPassivePastConjugator = quadriAugmentedPassivePastConjugator;
+        this.passivePastConjugator = passivePastConjugator;
+        this.quadriUnaugmentedPassivePastConjugator = quadriUnaugmentedPassivePastConjugator;
 
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
@@ -89,7 +97,7 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
                     result = conjResult.getFinalResult();
                 }
                 else {
-                    result = sarf.verb.trilateral.unaugmented.passive.PassivePastConjugator.getInstance().createVerbList((UnaugmentedTrilateralRoot) selectionInfo.getRoot());
+                    result = this.passivePastConjugator.createVerbList((UnaugmentedTrilateralRoot) selectionInfo.getRoot());
                     sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build((
                             UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PAST_TENSE, false);
                     result = conjResult.getFinalResult();
@@ -101,7 +109,7 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
                             selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                 }
                 else {
-                    result = sarf.verb.quadriliteral.unaugmented.passive.PassivePastConjugator.getInstance().createVerbList((UnaugmentedQuadrilateralRoot) selectionInfo.
+                    result = this.quadriUnaugmentedPassivePastConjugator.createVerbList((UnaugmentedQuadrilateralRoot) selectionInfo.
                             getRoot());
                 }
                 sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build((QuadrilateralRoot)

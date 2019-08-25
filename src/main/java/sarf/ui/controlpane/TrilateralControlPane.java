@@ -12,6 +12,7 @@ import sarf.verb.trilateral.unaugmented.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
+import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
 /**
  * <p>Title: Sarf Program</p>
  *
@@ -36,13 +37,17 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
 
     private final JPanel unaugmentedPanel = new APanel(new GridLayout(1,6));
     private final AugmentedActivePastConjugator augmentedActivePastConjugator;
+    private final ActivePastConjugator unaugmentedTriActivePastConjugator;
 
     public TrilateralControlPane(ControlPaneContainer controlPaneContainer
-            , AugmentedTrilateralModifier augmentedTrilateralModifier, AugmentedActivePastConjugator augmentedActivePastConjugator) {
+            , AugmentedTrilateralModifier augmentedTrilateralModifier
+            , AugmentedActivePastConjugator augmentedActivePastConjugator
+            , sarf.verb.trilateral.unaugmented.active.ActivePastConjugator unaugmentedTriActivePastConjugator) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
         this.augmentedTrilateralModifier = augmentedTrilateralModifier;
         this.augmentedActivePastConjugator = augmentedActivePastConjugator;
+        this.unaugmentedTriActivePastConjugator = unaugmentedTriActivePastConjugator;
 
         unaugmentedTrilateralRoots.add(new UnaugmentedTrilateralRoot());
         unaugmentedTrilateralRoots.add(new UnaugmentedTrilateralRoot());
@@ -141,13 +146,13 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     }
 
     public void enableUnaugmentedButton(int index, UnaugmentedTrilateralRoot root) {
-        ControlButton unaugmentedButon = unaugmentedButtons.get(index);
-        unaugmentedButon.setEnabled(true);
+        ControlButton unaugmentedButton = unaugmentedButtons.get(index);
+        unaugmentedButton.setEnabled(true);
         unaugmentedTrilateralRoots.set(index, root);
 
         //مع الضمير هو
         //past text formatting
-        String pastRootText = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerb(7, root).toString();
+        String pastRootText = unaugmentedTriActivePastConjugator.createVerb(7, root).toString();
         List<String> conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
         sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
@@ -160,7 +165,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
         conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, controlPaneContainer.getKov(), conjugations, SystemConstants.PRESENT_TENSE, true);
         presentRootText = conjResult.getFinalResult().get(7).toString();
 
-        unaugmentedButon.setRootText(pastRootText + " "+ presentRootText);
+        unaugmentedButton.setRootText(pastRootText + " "+ presentRootText);
     }
 
     public void enableAugmentedButton(int index, AugmentedTrilateralRoot root) {
