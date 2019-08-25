@@ -25,11 +25,11 @@ import sarf.verb.quadriliteral.augmented.active.past.formula.AugmentedPastVerb3;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class AugmentedActivePastConjugator {
+public class QuadrilateralAugmentedActivePastConjugator {
     private final PastConjugationDataContainer pastConjugationDataContainer;
 
     @Inject
-    public AugmentedActivePastConjugator(PastConjugationDataContainer pastConjugationDataContainer) {
+    public QuadrilateralAugmentedActivePastConjugator(PastConjugationDataContainer pastConjugationDataContainer) {
         this.pastConjugationDataContainer = pastConjugationDataContainer;
     }
 

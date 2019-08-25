@@ -1,7 +1,6 @@
 package sarf.verb.quadriliteral.augmented.active.past;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -18,12 +17,11 @@ import sarf.verb.quadriliteral.augmented.active.past.formula.AugmentedPastVerb3;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
-class AugmentedActivePastConjugatorTest {
+class QuadrilateralAugmentedActivePastConjugatorTest {
 
     @InjectMocks
-    private AugmentedActivePastConjugator sut;
+    private QuadrilateralAugmentedActivePastConjugator sut;
     @Mock
     private PastConjugationDataContainer pastConjugationDataContainer;
 

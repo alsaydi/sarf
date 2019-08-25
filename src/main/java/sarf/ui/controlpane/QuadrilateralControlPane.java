@@ -11,7 +11,7 @@ import sarf.verb.quadriliteral.unaugmented.*;
 
 import java.awt.BorderLayout;
 import sarf.SystemConstants;
-import sarf.verb.quadriliteral.augmented.active.past.AugmentedActivePastConjugator;
+import sarf.verb.quadriliteral.augmented.active.past.QuadrilateralAugmentedActivePastConjugator;
 
 import java.awt.Color;
 
@@ -33,14 +33,14 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
 
     private final ControlButton unaugmentedBtn = new ControlButton("فَعْلَل يُفَعْلِل");
     private final IMainControlPanel controlPaneContainer;
-    private final AugmentedActivePastConjugator augmentedActivePastConjugator;
+    private final QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator;
     private AugmentedQuadrilateralRoot currentAugmentedRoot;
     private UnaugmentedQuadrilateralRoot currentUnaugmentedRoot;
 
-    public QuadrilateralControlPane(ControlPaneContainer controlPaneContainer, AugmentedActivePastConjugator augmentedActivePastConjugator) {
+    public QuadrilateralControlPane(ControlPaneContainer controlPaneContainer, QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
-        this.augmentedActivePastConjugator = augmentedActivePastConjugator;
+        this.quadrilateralAugmentedActivePastConjugator = quadrilateralAugmentedActivePastConjugator;
 
         JPanel unaugmentedPanel = new JPanel(new GridLayout(1, 3));
         unaugmentedPanel.add(Box.createHorizontalBox());
@@ -148,7 +148,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
 
         //مع الضمير هو
         //past text formatting
-        String pastRootText = augmentedActivePastConjugator.createVerb(root, 7, formulaNo).toString();
+        String pastRootText = quadrilateralAugmentedActivePastConjugator.createVerb(root, 7, formulaNo).toString();
         List conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
         sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build(root, formulaNo, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);

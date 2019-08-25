@@ -55,6 +55,7 @@ import sarf.noun.trilateral.unaugmented.modifier.timeandplace.TimeAndPlaceModifi
 import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
 import sarf.ui.controlpane.*;
 import sarf.verb.quadriliteral.augmented.*;
+import sarf.verb.quadriliteral.augmented.active.past.QuadrilateralAugmentedActivePastConjugator;
 import sarf.verb.quadriliteral.unaugmented.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
@@ -149,7 +150,7 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
     private final AssimilateModifier assimilateModifier;
     private final AugmentedActivePastConjugator augmentedActivePastConjugator;
     private final AugmentedActivePastConjugator augmentedPassivePastConjugator;
-    private final sarf.verb.quadriliteral.augmented.active.past.AugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator;
+    private final QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator;
 
     @Inject
     public ControlPaneContainer(SarfDictionary sarfDictionary
@@ -203,7 +204,7 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
             , AssimilateModifier assimilateModifier
             , AugmentedActivePastConjugator augmentedActivePastConjugator
             , AugmentedActivePastConjugator augmentedPassivePastConjugator
-            , sarf.verb.quadriliteral.augmented.active.past.AugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator) {
+            , QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator) {
         
         super(new BorderLayout());
         this.meemGerundConjugator = meemGerundConjugator;

@@ -5,6 +5,7 @@ import sarf.ui.*;
 import sarf.verb.quadriliteral.QuadrilateralRoot;
 import sarf.verb.quadriliteral.augmented.AugmentedPastVerb;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
+import sarf.verb.quadriliteral.augmented.active.past.QuadrilateralAugmentedActivePastConjugator;
 import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
@@ -46,12 +47,12 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
     private final ToggleRenderedButton imperativeBtn = new ToggleRenderedButton("الأمر");
     private final ToggleRenderedButton imperativeEmphasizedBtn = new ToggleRenderedButton("الأمر المؤكد");
     private final AugmentedActivePastConjugator augmentedActivePastConjugator;
-    private final sarf.verb.quadriliteral.augmented.active.past.AugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator;
+    private final QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator;
 
     public ActiveVerbSelectionUI(IMainControlPanel controlPaneContainer
             , AugmentedTrilateralModifier augmentedTrilateralModifier
             , AugmentedActivePastConjugator augmentedActivePastConjugator
-            , sarf.verb.quadriliteral.augmented.active.past.AugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator) {
+            , QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
         this.augmentedTrilateralModifier = augmentedTrilateralModifier;
