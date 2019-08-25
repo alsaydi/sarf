@@ -19,7 +19,7 @@ class NounSunLamModifierTest {
 
 	@Test
 	void assertAppliedPronounsIndexes() throws Exception {
-		assertEquals(18, sut.getAppliedPronounsIndecies().size());
+		assertEquals(18, sut.getAppliedPronounsIndexes().size());
 	}
 	
 	@Test

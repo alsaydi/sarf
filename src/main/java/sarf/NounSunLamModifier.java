@@ -1,5 +1,6 @@
 package sarf;
 
+import com.google.inject.Singleton;
 import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.trilateral.Substitution.Substitution;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
@@ -31,6 +32,8 @@ import java.util.stream.IntStream;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
+
+@Singleton
 public class NounSunLamModifier extends SubstitutionsApplier {
     private static final List<String> appliedPronounsIndexes = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
 
@@ -80,7 +83,8 @@ public class NounSunLamModifier extends SubstitutionsApplier {
         return substitutions;
     }
 
-    List<String> getAppliedPronounsIndecies() {
+    @Override
+    protected List<String> getAppliedPronounsIndexes() {
         return appliedPronounsIndexes;
     }
 
