@@ -2,6 +2,8 @@
 package sarf.verb.quadriliteral.augmented.passive.past;
 
 import java.util.*;
+
+import com.google.inject.Inject;
 import sarf.AugmentationFormula;
 import sarf.PastConjugationDataContainer;
 import sarf.verb.quadriliteral.augmented.*;
@@ -18,19 +20,17 @@ import sarf.verb.quadriliteral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class AugmentedPassivePastConjugator {
-    private AugmentedPassivePastConjugator() {
+public class QuadriAugmentedPassivePastConjugator {
+    private final PastConjugationDataContainer pastConjugationDataContainer;
+
+    @Inject
+    public QuadriAugmentedPassivePastConjugator(PastConjugationDataContainer pastConjugationDataContainer) {
+        this.pastConjugationDataContainer = pastConjugationDataContainer;
     }
 
-    private static final AugmentedPassivePastConjugator instance = new AugmentedPassivePastConjugator();
-
-    public static AugmentedPassivePastConjugator getInstance() {
-        return instance;
-    }
-
-    public AugmentedPastVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
-        String lastDpa = PastConjugationDataContainer.getInstance().getLastDpa(pronounIndex);
-        String connectedPronoun = PastConjugationDataContainer.getInstance().getConnectedPronoun(pronounIndex);
+    private AugmentedPastVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
+        String lastDpa = pastConjugationDataContainer.getLastDpa(pronounIndex);
+        String connectedPronoun = pastConjugationDataContainer.getConnectedPronoun(pronounIndex);
         String formulaClassName = getClass().getPackage().getName()+".formula."+"AugmentedPastVerb"+formulaNo;
         Object [] parameters = {root, lastDpa, connectedPronoun};
 
@@ -43,14 +43,14 @@ public class AugmentedPassivePastConjugator {
         return null;
     }
 
-    public List createVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
+    public List<AugmentedPastVerb> createVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
         AugmentationFormula augmentationFormula = root.getAugmentationFormula(formulaNo);
         if (augmentationFormula.getTransitive() == 'ل') {
             return createLazzemVerbList(root, formulaNo);
         }
         else {
 
-            List result = new LinkedList();
+            List<AugmentedPastVerb> result = new ArrayList<>();
             for (int i = 0; i < 13; i++) {
                 AugmentedPastVerb verb = createVerb(root, i, formulaNo);
                 result.add(verb);
@@ -61,8 +61,8 @@ public class AugmentedPassivePastConjugator {
     }
 
     //المبني لمجهول اللازم فقط مع هو او هي
-    public List createLazzemVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
-        List result = new LinkedList();
+    private List<AugmentedPastVerb> createLazzemVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
+        var result = new ArrayList<AugmentedPastVerb>();
         for (int i = 0; i < 13; i++) {
             if (i == 7 || i == 8) {
                 AugmentedPastVerb verb = createVerb(root, i, formulaNo);
@@ -74,6 +74,4 @@ public class AugmentedPassivePastConjugator {
         }
         return result;
     }
-
-
 }

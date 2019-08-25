@@ -56,6 +56,7 @@ import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
 import sarf.ui.controlpane.*;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.augmented.active.past.QuadrilateralAugmentedActivePastConjugator;
+import sarf.verb.quadriliteral.augmented.passive.past.QuadriAugmentedPassivePastConjugator;
 import sarf.verb.quadriliteral.unaugmented.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
@@ -151,6 +152,7 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
     private final AugmentedActivePastConjugator augmentedActivePastConjugator;
     private final AugmentedActivePastConjugator augmentedPassivePastConjugator;
     private final QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator;
+    private final QuadriAugmentedPassivePastConjugator quadriAugmentedPassivePastConjugator;
 
     @Inject
     public ControlPaneContainer(SarfDictionary sarfDictionary
@@ -204,7 +206,8 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
             , AssimilateModifier assimilateModifier
             , AugmentedActivePastConjugator augmentedActivePastConjugator
             , AugmentedActivePastConjugator augmentedPassivePastConjugator
-            , QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator) {
+            , QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator
+            , QuadriAugmentedPassivePastConjugator quadriAugmentedPassivePastConjugator) {
         
         super(new BorderLayout());
         this.meemGerundConjugator = meemGerundConjugator;
@@ -256,6 +259,7 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
         this.augmentedActivePastConjugator = augmentedActivePastConjugator;
         this.augmentedPassivePastConjugator = augmentedPassivePastConjugator;
         this.quadrilateralAugmentedActivePastConjugator = quadrilateralAugmentedActivePastConjugator;
+        this.quadriAugmentedPassivePastConjugator = quadriAugmentedPassivePastConjugator;
 
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         this.sarfDictionary = sarfDictionary;
@@ -829,7 +833,10 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
                     , assimilateModifier);
         }
         else if(PassiveVerbSelectionUI.class.equals(type)){
-            return new PassiveVerbSelectionUI(this, augmentedTrilateralModifier, augmentedPassivePastConjugator);
+            return new PassiveVerbSelectionUI(this
+                    , augmentedTrilateralModifier
+                    , augmentedPassivePastConjugator
+                    , quadriAugmentedPassivePastConjugator);
         }
         else if(ActiveVerbSelectionUI.class.equals(type)){
             return new ActiveVerbSelectionUI(this

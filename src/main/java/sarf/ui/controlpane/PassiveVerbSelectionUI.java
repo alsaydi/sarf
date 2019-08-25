@@ -3,6 +3,9 @@ package sarf.ui.controlpane;
 import javax.swing.*;
 import sarf.ui.*;
 import java.awt.*;
+
+import sarf.verb.quadriliteral.augmented.active.past.QuadrilateralAugmentedActivePastConjugator;
+import sarf.verb.quadriliteral.augmented.passive.past.QuadriAugmentedPassivePastConjugator;
 import sarf.verb.trilateral.augmented.*;
 import java.util.List;
 
@@ -30,6 +33,7 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 public class PassiveVerbSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
     private final IMainControlPanel controlPaneContainer;
     private final AugmentedActivePastConjugator augmentedPassivePastConjugator;
+    private final QuadriAugmentedPassivePastConjugator quadriAugmentedPassivePastConjugator;
     private SelectionInfo selectionInfo;
 
     private final ToggleRenderedButton pastBtn = new ToggleRenderedButton("الماضي المجهول ");
@@ -40,10 +44,13 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
 
 
     public PassiveVerbSelectionUI(ControlPaneContainer controlPaneContainer
-            , AugmentedTrilateralModifier augmentedTrilateralModifier, AugmentedActivePastConjugator augmentedPassivePastConjugator) {
+            , AugmentedTrilateralModifier augmentedTrilateralModifier
+            , AugmentedActivePastConjugator augmentedPassivePastConjugator
+            , QuadriAugmentedPassivePastConjugator quadriAugmentedPassivePastConjugator) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
         this.augmentedPassivePastConjugator = augmentedPassivePastConjugator;
+        this.quadriAugmentedPassivePastConjugator = quadriAugmentedPassivePastConjugator;
 
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
@@ -90,7 +97,7 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
             }
             else {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.quadriliteral.augmented.passive.past.AugmentedPassivePastConjugator.getInstance().createVerbList((AugmentedQuadrilateralRoot)
+                    result = this.quadriAugmentedPassivePastConjugator.createVerbList((AugmentedQuadrilateralRoot)
                             selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                 }
                 else {
