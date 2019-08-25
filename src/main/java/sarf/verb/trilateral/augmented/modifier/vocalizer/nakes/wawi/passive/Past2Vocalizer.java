@@ -5,7 +5,7 @@ import java.util.*;
 import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -32,9 +32,9 @@ public class Past2Vocalizer extends SubstitutionsApplier implements IAugmentedTr
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         return (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Ain && formulaNo == 8) || ((kov == KindOfVerb.Naqis_Wawi || kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa) && (formulaNo == 2 || formulaNo == 8));
     }

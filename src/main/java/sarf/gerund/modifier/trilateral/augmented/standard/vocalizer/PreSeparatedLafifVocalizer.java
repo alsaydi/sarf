@@ -29,9 +29,9 @@ public class PreSeparatedLafifVocalizer extends TrilateralNounSubstitutionApplie
         substitutions.add(new InfixSubstitution("إِيْ", "إِي")); // EX: (إيداء)
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         return kov == KindOfVerb.Lafeef_Mafrooq  && (formulaNo == 1 || formulaNo == 9);
     }

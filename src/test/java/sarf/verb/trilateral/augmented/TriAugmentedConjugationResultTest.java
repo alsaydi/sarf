@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import sarf.KindOfVerb;
 
-public class ConjugationResultTest {
+public class TriAugmentedConjugationResultTest {
 
 	@Test
 	void newlyConstructedConjugationResult_propertiesSet() throws Exception {
@@ -14,7 +14,7 @@ public class ConjugationResultTest {
 		List<String> originalResult = new ArrayList<String>();
 		originalResult.add("كلمة");
 		
-		ConjugationResult sut = new ConjugationResult(KindOfVerb.Salim, 2, root, originalResult);
+		TriAugmentedConjugationResult sut = new TriAugmentedConjugationResult(KindOfVerb.Salim, 2, root, originalResult);
 		
 		assertEquals(originalResult.size(), sut.getFinalResult().size());
 		assertEquals(KindOfVerb.Salim, sut.getKov());

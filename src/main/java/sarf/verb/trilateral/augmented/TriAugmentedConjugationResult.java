@@ -16,7 +16,7 @@ import java.util.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ConjugationResult<T> {
+public class TriAugmentedConjugationResult<T> {
     private final KindOfVerb kov;
     private final int formulaNo;
     private final AugmentedTrilateralRoot root;
@@ -28,7 +28,7 @@ public class ConjugationResult<T> {
 
     //TODO: I believe originalResult is of List<String> type.
     
-    public ConjugationResult(KindOfVerb kov, int formulaNo, AugmentedTrilateralRoot root, List<T> originalResult) {
+    public TriAugmentedConjugationResult(KindOfVerb kov, int formulaNo, AugmentedTrilateralRoot root, List<T> originalResult) {
         this.kov = kov;
         this.formulaNo = formulaNo;
         this.originalResult = originalResult;

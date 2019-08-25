@@ -4,6 +4,7 @@ import java.util.*;
 
 import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.trilateral.Substitution.*;
+import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -38,7 +39,7 @@ public class VerbLamAlefModifier extends SubstitutionsApplier{
         apply(conjResult.getFinalResult(), null);
     }
 
-    public void apply(sarf.verb.trilateral.augmented.ConjugationResult conjResult) {
+    public void apply(TriAugmentedConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
     }
 

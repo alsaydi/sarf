@@ -27,9 +27,9 @@ public class Mithal2Vocalizer extends TrilateralNounSubstitutionApplier implemen
         substitutions.add(new InfixSubstitution("ُيْ","ُو"));// EX: (مُوقِظٌ، )
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         return formulaNo == 1 && (kov == KindOfVerb.Mithal_Yaee_Mahmouz_Ain || kov == KindOfVerb.Mithal_Yaee);
     }

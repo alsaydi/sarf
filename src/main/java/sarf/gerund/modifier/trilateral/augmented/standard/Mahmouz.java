@@ -30,7 +30,7 @@ public class Mahmouz {
         modifiers.add(new LamMahmouz());
     }
 
-    public void apply(ConjugationResult conjResult) {
+    public void apply(TriAugmentedConjugationResult conjResult) {
         for (TrilateralNounSubstitutionApplier trilateralNounSubstitutionApplier : modifiers) {
             IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) trilateralNounSubstitutionApplier;
             if (modifier.isApplied(conjResult)) {

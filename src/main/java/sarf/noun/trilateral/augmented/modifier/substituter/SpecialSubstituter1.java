@@ -4,7 +4,7 @@ import java.util.*;
 
 import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 import sarf.noun.TrilateralNounSubstitutionApplier;
 
@@ -31,9 +31,9 @@ public class SpecialSubstituter1 extends TrilateralNounSubstitutionApplier imple
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
-        return conjugationResult.getRoot().getC1() == 'و' && formulaNo == 5 && (kov == KindOfVerb.Mithal_Wawi_Mahmouz_Ain || kov == KindOfVerb.Mithal_Wawi_Mahmouz_Laam || kov == KindOfVerb.Mithal_Wawi || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain || kov == KindOfVerb.Lafeef_Mafrooq );
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
+        return triAugmentedConjugationResult.getRoot().getC1() == 'و' && formulaNo == 5 && (kov == KindOfVerb.Mithal_Wawi_Mahmouz_Ain || kov == KindOfVerb.Mithal_Wawi_Mahmouz_Laam || kov == KindOfVerb.Mithal_Wawi || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain || kov == KindOfVerb.Lafeef_Mafrooq );
     }
 }

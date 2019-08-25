@@ -27,11 +27,11 @@ public class Geminator2 extends TrilateralNounSubstitutionApplier implements IAu
         substitutions.add(new InfixSubstitution("نْن","نّ"));// EX: (انِّماسٌ)
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
-        return conjugationResult.getRoot().getC1() == 'ن' && kov == KindOfVerb.Salim && formulaNo == 4;
+        return triAugmentedConjugationResult.getRoot().getC1() == 'ن' && kov == KindOfVerb.Salim && formulaNo == 4;
     }
 
     public List<Substitution> getSubstitutions() {

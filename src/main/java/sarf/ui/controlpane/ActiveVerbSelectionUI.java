@@ -9,6 +9,7 @@ import sarf.verb.quadriliteral.augmented.active.past.QuadrilateralAugmentedActiv
 import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
 import sarf.verb.quadriliteral.unaugmented.active.QuadriActivePastConjugator;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
+import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
 import sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugatorFactory;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
@@ -87,7 +88,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
                     result = sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator.getInstance().getNominativeConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    sarf.verb.trilateral.augmented.ConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
+                    TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.PRESENT_TENSE, true, ActiveVerbSelectionUI.this);
                     result = conjResult.getFinalResult();
                 }
@@ -121,7 +122,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                 if (selectionInfo.isAugmented()) {
                     result = sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator.getInstance().getAccusativeConjugator().createVerbList((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    sarf.verb.trilateral.augmented.ConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
+                    TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.PRESENT_TENSE, true, ActiveVerbSelectionUI.this);
                     result = conjResult.getFinalResult();
                 }
@@ -154,7 +155,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
                     result = sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator.getInstance().getJussiveConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    sarf.verb.trilateral.augmented.ConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
+                    TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.PRESENT_TENSE, true, ActiveVerbSelectionUI.this);
                     result = conjResult.getFinalResult();
 
@@ -162,7 +163,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                     //it will displayed in a different component
                     AugmentedTrilateralRoot root = (AugmentedTrilateralRoot) selectionInfo.getRoot();
                     if (root.getC2() == root.getC3()) {
-                        sarf.verb.trilateral.augmented.ConjugationResult notGeminatedConjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                        TriAugmentedConjugationResult notGeminatedConjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                                 selectionInfo.getAugmentationFormulaNo(),
                                 conjResult.getOriginalResult(), SystemConstants.PRESENT_TENSE, true, false, ActiveVerbSelectionUI.this);
                         List notGeminatedResult = notGeminatedConjResult.getFinalResult();
@@ -219,7 +220,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                 if (selectionInfo.isAugmented()) {
                     result = sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator.getInstance().getEmphasizedConjugator().createVerbList((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    sarf.verb.trilateral.augmented.ConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
+                    TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.PRESENT_TENSE, true, ActiveVerbSelectionUI.this);
                     result = conjResult.getFinalResult();
                 }
@@ -253,7 +254,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                 if (selectionInfo.isAugmented()) {
                     result = AugmentedImperativeConjugatorFactory.getInstance().getNotEmphasizedConjugator().createVerbList((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    sarf.verb.trilateral.augmented.ConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
+                    TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true, ActiveVerbSelectionUI.this);
                     result = conjResult.getFinalResult();
 
@@ -262,7 +263,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                     AugmentedTrilateralRoot root = (AugmentedTrilateralRoot) selectionInfo.getRoot();
                     if (root.getC2() == root.getC3()) {
 
-                        sarf.verb.trilateral.augmented.ConjugationResult notGeminatedConjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                        TriAugmentedConjugationResult notGeminatedConjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                                 selectionInfo.getAugmentationFormulaNo(),
                                 conjResult.getOriginalResult(), SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true, false, ActiveVerbSelectionUI.this);
                         List notGeminatedResult = notGeminatedConjResult.getFinalResult();
@@ -321,7 +322,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
                     result = AugmentedImperativeConjugatorFactory.getInstance().getEmphasizedConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    sarf.verb.trilateral.augmented.ConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
+                    TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true, ActiveVerbSelectionUI.this);
                     result = conjResult.getFinalResult();
 
@@ -329,7 +330,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                     //it will displayed in a different component
                     AugmentedTrilateralRoot root = (AugmentedTrilateralRoot) selectionInfo.getRoot();
                     if (root.getC2() == root.getC3()) {
-                        sarf.verb.trilateral.augmented.ConjugationResult notGeminatedConjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                        TriAugmentedConjugationResult notGeminatedConjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                                 selectionInfo.getAugmentationFormulaNo(),
                                 conjResult.getOriginalResult(), SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true, false, ActiveVerbSelectionUI.this);
                         List notGeminatedResult = notGeminatedConjResult.getFinalResult();
@@ -401,7 +402,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
         List result;
         if (selectionInfo.isAugmented()) {
             result = augmentedActivePastConjugator.createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-            sarf.verb.trilateral.augmented.ConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
+            TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                     SystemConstants.PAST_TENSE, true, ActiveVerbSelectionUI.this);
             result = conjResult.getFinalResult();
         }

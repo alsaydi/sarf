@@ -83,7 +83,7 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
                 if (selectionInfo.isTrilateral()) {
                     //here the Trilateral augmented
                     List result = augmentedTrilateralActiveParticipleConjugator.createNounList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    sarf.verb.trilateral.augmented.ConjugationResult conjResult = this.activeParticipleModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result, NamesSelectionUI.this);
+                    TriAugmentedConjugationResult conjResult = this.activeParticipleModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result, NamesSelectionUI.this);
                     return conjResult.getFinalResult();
                 }
 
@@ -108,7 +108,7 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
                 if (selectionInfo.isTrilateral()) {
                     //here the Trilateral augmented
                     List result = augmentedTrilateralPassiveParticipleConjugator.createNounList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    sarf.verb.trilateral.augmented.ConjugationResult conjResult = passiveParticipleModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                    TriAugmentedConjugationResult conjResult = passiveParticipleModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                             selectionInfo.getAugmentationFormulaNo(), result, NamesSelectionUI.this);
 
                     return conjResult.getFinalResult();
@@ -136,7 +136,7 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
                 if (selectionInfo.isTrilateral()) {
                     //here the Trilateral augmented
                     List result = augmentedTrilateralPassiveParticipleConjugator.createTimeAndPlaceNounList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    sarf.verb.trilateral.augmented.ConjugationResult conjResult = passiveParticipleModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                    TriAugmentedConjugationResult conjResult = passiveParticipleModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                             selectionInfo.getAugmentationFormulaNo(), result, NamesSelectionUI.this);
 
                     return conjResult.getFinalResult();

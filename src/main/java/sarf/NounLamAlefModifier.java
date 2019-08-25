@@ -4,6 +4,7 @@ import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.trilateral.Substitution.InfixSubstitution;
 import sarf.verb.trilateral.Substitution.Substitution;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -46,7 +47,7 @@ public class NounLamAlefModifier extends SubstitutionsApplier {
         apply(conjResult.getFinalResult(), null);
     }
 
-    public void apply(sarf.verb.trilateral.augmented.ConjugationResult conjResult) {
+    public void apply(TriAugmentedConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
         //قد يوجد لام ألف أخرى تتطابق مع قانون أخر
         apply(conjResult.getFinalResult(), null);

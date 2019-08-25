@@ -28,9 +28,9 @@ public class MithalAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier imp
         substitutions.add(new InfixSubstitution("تِوْ","تِي"));// EX: (استيراد)
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         return (formulaNo == 1 || formulaNo == 9) && (kov == KindOfVerb.Mithal_Wawi_Mahmouz_Ain || kov == KindOfVerb.Mithal_Wawi_Mahmouz_Laam || kov == KindOfVerb.Mithal_Wawi);
     }

@@ -44,7 +44,7 @@ public class Substituter {
         modifiers.add(new SpecialSubstituter2());
     }
 
-    public void apply(ConjugationResult conjResult) {
+    public void apply(TriAugmentedConjugationResult conjResult) {
         for (TrilateralNounSubstitutionApplier applier : modifiers) {
             IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) applier;
             if (modifier.isApplied(conjResult)) {

@@ -5,7 +5,7 @@ import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.verb.trilateral.Substitution.InfixSubstitution;
 import sarf.verb.trilateral.Substitution.Substitution;
 import sarf.verb.trilateral.Substitution.SuffixSubstitution;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 
 import java.util.ArrayList;
@@ -36,12 +36,12 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
         substitutions.add(new InfixSubstitution("ِيِ", "ِ")); // EX: (مُهْدِينَ، )
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC3() != 'ي')
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        if (triAugmentedConjugationResult.getRoot().getC3() != 'ي')
             return false;
 
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Mafrooq) {
             switch (formulaNo) {

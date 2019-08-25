@@ -30,9 +30,9 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
         substitutions.add(new ExpressionInfixSubstitution("اC3ُC3", "اC3ّ"));// EX: (تصامٌّ)
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         if (kov == KindOfVerb.Mudaaf) {
             switch (formulaNo) {

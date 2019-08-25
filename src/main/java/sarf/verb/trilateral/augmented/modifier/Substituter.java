@@ -2,7 +2,6 @@ package sarf.verb.trilateral.augmented.modifier;
 
 import java.util.*;
 import sarf.verb.trilateral.augmented.*;
-import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.Substitution.*;
 
 /**
@@ -50,7 +49,7 @@ public class Substituter {
 
     }
 
-    public void apply(String tense, boolean active, ConjugationResult conjResult) {
+    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
         List<SubstitutionsApplier> modifiers = null;
         modifiers = active ? activeList : passiveList;
 

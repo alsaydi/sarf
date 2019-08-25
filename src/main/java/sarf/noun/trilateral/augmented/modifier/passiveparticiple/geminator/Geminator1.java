@@ -28,9 +28,9 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
         substitutions.add(new ExpressionInfixSubstitution("C3َC3","C3ّ"));// EX: (مُحاجٌّ، مُنْقَضٌّ، مُشْتَدٌّ، مُتَصامٌّ)
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         if (kov == KindOfVerb.Salim || kov == KindOfVerb.Ajwaf_Wawi || kov == KindOfVerb.Ajwaf_Yaee) {
             return formulaNo == 6 || formulaNo == 12;

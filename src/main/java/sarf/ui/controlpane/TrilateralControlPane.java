@@ -180,7 +180,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
         String pastRootText = augmentedActivePastConjugator.createVerb(root, 7, formulaNo).toString();
         List<String> conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
-        sarf.verb.trilateral.augmented.ConjugationResult conjResult = augmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), formulaNo, conjugations, SystemConstants.PAST_TENSE, true, null);
+        TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), formulaNo, conjugations, SystemConstants.PAST_TENSE, true, null);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //past text formatting

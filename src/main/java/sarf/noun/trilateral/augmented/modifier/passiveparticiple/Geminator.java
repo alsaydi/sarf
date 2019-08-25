@@ -28,7 +28,7 @@ public class Geminator {
         modifiers.add(new Geminator3());
     }
 
-    public void apply(ConjugationResult conjResult) {
+    public void apply(TriAugmentedConjugationResult conjResult) {
         for (Object o : modifiers) {
             IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
             if (modifier.isApplied(conjResult)) {

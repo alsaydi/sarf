@@ -39,12 +39,12 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
         substitutions.add(new InfixSubstitution("ِيو","ِي"));// EX: (تسمية)
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC3() != 'و')
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        if (triAugmentedConjugationResult.getRoot().getC3() != 'و')
             return false;
 
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         if (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa) {
             switch (formulaNo) {

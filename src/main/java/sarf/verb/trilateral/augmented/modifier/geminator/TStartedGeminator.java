@@ -32,13 +32,13 @@ public class TStartedGeminator extends SubstitutionsApplier implements IAugmente
     }
 
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
-        return conjugationResult.getRoot().getC1() == 'ت' && (kov == KindOfVerb.Salim || kov == KindOfVerb.Mahmouz_Ain) && (formulaNo == 5);
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
+        return triAugmentedConjugationResult.getRoot().getC1() == 'ت' && (kov == KindOfVerb.Salim || kov == KindOfVerb.Mahmouz_Ain) && (formulaNo == 5);
     }
 
-    public void apply(String tense, boolean active, ConjugationResult conjResult) {
+    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
 }

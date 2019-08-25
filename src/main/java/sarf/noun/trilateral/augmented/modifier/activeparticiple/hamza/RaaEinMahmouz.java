@@ -4,7 +4,7 @@ import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.verb.trilateral.Substitution.InfixSubstitution;
 import sarf.verb.trilateral.Substitution.Substitution;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 
 import java.util.ArrayList;
@@ -35,8 +35,8 @@ public class RaaEinMahmouz extends TrilateralNounSubstitutionApplier implements 
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        AugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC1() == 'ر' && root.getC2() == 'ء' && root.getC3() == 'ي' && conjugationResult.getFormulaNo() == 1;
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        AugmentedTrilateralRoot root = triAugmentedConjugationResult.getRoot();
+        return root.getC1() == 'ر' && root.getC2() == 'ء' && root.getC3() == 'ي' && triAugmentedConjugationResult.getFormulaNo() == 1;
     }
 }

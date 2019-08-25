@@ -33,9 +33,9 @@ public class GenericGeminator implements IAugmentedTrilateralModifier {
         geminators.put(SystemConstants.PRESENT_TENSE + "false", new PassivePresentGeminator());
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         switch (formulaNo) {
             case 6:
@@ -57,7 +57,7 @@ public class GenericGeminator implements IAugmentedTrilateralModifier {
         return false;
     }
 
-    public void apply(String tense, boolean active, ConjugationResult conjResult) {
+    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
         SubstitutionsApplier geminator = geminators.get(tense + active);
         geminator.apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
