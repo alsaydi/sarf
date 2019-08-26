@@ -38,7 +38,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: io.cucumber:cucumber-java8:4.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: net.jodah:typetools:0.5.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.cucumber:cucumber-junit:4.7.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.assertj:assertj-core:3.9.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-digester3:3.2" level="project" />
     <orderEntry type="library" name="Maven: cglib:cglib:2.2.2" level="project" />
     <orderEntry type="library" name="Maven: asm:asm:3.3.1" level="project" />
