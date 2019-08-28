@@ -87,7 +87,7 @@ public final class FileUtil {
     }
 
     public static InputStream getResourceInputStream(String relativePath) {
-        System.err.println("Retrieving " + relativePath + " from resources");
+        //System.err.println("Retrieving " + relativePath + " from resources");
         return ClassLoader.getSystemClassLoader().getResourceAsStream(relativePath);
     }
 }
