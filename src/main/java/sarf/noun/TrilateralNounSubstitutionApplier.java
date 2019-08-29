@@ -29,7 +29,7 @@ public abstract class TrilateralNounSubstitutionApplier extends SubstitutionsApp
     }
 
     @Override
-    protected List getAppliedPronounsIndexes() {
+    protected List<String> getAppliedPronounsIndexes() {
         return appliedPronounsIndexes;
     }
 }

@@ -38,7 +38,7 @@ public class AjwafListed1Vocalizer extends AbstractAjwafYaeiListedVocalizer impl
     }
 
     @Override
-    protected List getAppliedPronounsIndexes() {
+    protected List<String> getAppliedPronounsIndexes() {
         return appliedProunounsIndecies;
     }
 
