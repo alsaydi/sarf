@@ -80,7 +80,8 @@ public class NounSunLamModifier extends SubstitutionsApplier {
 		return substitutions;
 	}
 
-	List<String> getAppliedPronounsIndecies() {
+	@Override
+	protected List<String> getAppliedPronounsIndexes() {
 		return appliedPronounsIndexes;
 	}
 

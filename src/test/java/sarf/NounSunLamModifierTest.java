@@ -14,8 +14,8 @@ class NounSunLamModifierTest {
 	}
 
 	@Test
-	void assertAppliedProunounsIndecies() throws Exception {
-		assertEquals(18, NounSunLamModifier.getInstance().getAppliedPronounsIndecies().size());
+	void assertAppliedPronounIndexes() throws Exception {
+		assertEquals(18, NounSunLamModifier.getInstance().getAppliedPronounsIndexes().size());
 	}
 	
 	@Test

@@ -30,16 +30,16 @@ public class AjwafListed1Vocalizer extends AbstractAjwafYaeiListedVocalizer impl
         return substitutions;
     }
 
-    private static final List<String> appliedProunounsIndecies = new ArrayList<>(18);
+    private static final List<String> appliedPronounIndexes = new ArrayList<>(18);
     static {
         for (int i=0; i<18; i++) {
-            appliedProunounsIndecies.add(i+1 +"");
+            appliedPronounIndexes.add(i+1 +"");
         }
     }
 
     @Override
     protected List<String> getAppliedPronounsIndexes() {
-        return appliedProunounsIndecies;
+        return appliedPronounIndexes;
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
