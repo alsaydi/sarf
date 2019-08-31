@@ -60,7 +60,7 @@ public class WawiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
             }
 
 
-            return noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Lafeef_Maqroon) {
             return noc == Conjugation.Forth;
         }
