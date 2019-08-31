@@ -5,6 +5,9 @@ import sarf.SarfDictionary;
 import sarf.SystemConstants;
 import sarf.kov.KovRulesManager;
 import sarf.kov.TrilateralKovRule;
+import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralActiveParticiple;
+import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralActiveParticipleConjugator;
+import sarf.noun.trilateral.unaugmented.modifier.activeparticiple.ActiveParticipleModifier;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
@@ -37,37 +40,49 @@ public class ConsoleApp {
                 , "بوء", "سكت", "سكن", "غزو", "فوت", "قيم"
                 , "لوح", "لكم", "لهو", "مين", "مءي", "مدد"
                 , "ملل", "منن", "نسل", "نصر", "هيل", "يمن"
-                , "وءي","ءون","ءبت","ءتن","ءتي","ءسر"
-                ,"ءلل","ءنن","ءوي","بيع","تمم",
-                "جيء","حمل","رمي","شوي","ضرب","طنن"
-                ,"ليت","لين","لبس","لوي","ملل",
-                "ملح","نءم","وءد","وءي",
-                "وتن","ودي","وعد","وقت","وقي"
-                ,"ولغ","وهن","يدي","يسس","يسر"
-	            , "ءذي","ءسف","ءود","ءيس","بيت"
-                ,"بيه","جءي","جون","حور"
-                ,"حيي","خوف","خول","خشي"
-                ,"دوء","دود","رضو","زيم"
-                ,"سءم","سوو","شيء","شوك"
-                ,"صوت","طيط","طيع","ظمء"
-                ,"عوف","عيم","عضض","عوج","عين",
-                "غير","غيد","فرح","قوي","كيد",
-                "ميل","ملل","نول",
-                "نوم","نوه","نيه","هيء","هيب"
-                ,"هيع","هيع","هوء","وءب",
-                "وبء","وبه","وتغ","وجع",
-                "وجل","وجي","ودد","وذر"
-                ,"وسع","وطء","وقع","ولغ"
-                ,"وهل","يءس","يدي","يرر","يقظ"
+                , "وءي", "ءون", "ءبت", "ءتن", "ءتي", "ءسر"
+                , "ءلل", "ءنن", "ءوي", "بيع", "تمم",
+                "جيء", "حمل", "رمي", "شوي", "ضرب", "طنن"
+                , "ليت", "لين", "لبس", "لوي", "ملل",
+                "ملح", "نءم", "وءد", "وءي",
+                "وتن", "ودي", "وعد", "وقت", "وقي"
+                , "ولغ", "وهن", "يدي", "يسس", "يسر"
+                , "ءذي", "ءسف", "ءود", "ءيس", "بيت"
+                , "بيه", "جءي", "جون", "حور"
+                , "حيي", "خوف", "خول", "خشي"
+                , "دوء", "دود", "رضو", "زيم"
+                , "سءم", "سوو", "شيء", "شوك"
+                , "صوت", "طيط", "طيع", "ظمء"
+                , "عوف", "عيم", "عضض", "عوج", "عين",
+                "غير", "غيد", "فرح", "قوي", "كيد",
+                "ميل", "ملل", "نول",
+                "نوم", "نوه", "نيه", "هيء", "هيب"
+                , "هيع", "هيع", "هوء", "وءب",
+                "وبء", "وبه", "وتغ", "وجع",
+                "وجل", "وجي", "ودد", "وذر"
+                , "وسع", "وطء", "وقع", "ولغ"
+                , "وهل", "يءس", "يدي", "يرر", "يقظ"
+                , "ءبه","ءبي","ءثء","بحح","بخت","بدء"
+                ,"ثءر","جءو","خلء","ذءت","رءي","رهن"
+                ,"زهو","سءل","سحل","سعي","شءن",
+                "لءم","لجء","منع","نءي","وبء",
+                "وبه","وجء","وجع","ودع","وسع",
+                "وضع","وطء","ولغ","وهب","وهل","ينع"
+                ,"ءثل","ءصل","ءمن","ءمو",
+                "ءنث","بطء","بلد","بلغ","ثبت"
+                ,"ثخن","جرء","حبب","ذبل","سرو","ضءل"
+                ,"طول","كرم","لدن","وبء","وجل","ودع","وزن",
+                "وشك","وضء","وطء","يتم","يمن"
+                ,"حسب","ورث","ولي","وهن","يءس","يبس"
         };
-
+        // roots = new String[]{"طيط"};
         var rootsFound = 0;
         for (var root : roots) {
             //System.out.println(root);
             if (root.length() == 3) {
-                if(processTrilateral(root)) {
-					rootsFound++;
-				}
+                if (processTrilateral(root)) {
+                    rootsFound++;
+                }
             } else if (root.length() == 4) {
                 processQuadrilateral(root);
             } else {
@@ -102,17 +117,9 @@ public class ConsoleApp {
         String kovText = rule.getDesc();
         KindOfVerb kov = rule.getKov();
 
-        //System.out.println("نوع الفعل: " + kovText);
         for (UnaugmentedTrilateralRoot root : unaugmentedRoots) {
             printTrilateralTree(root, kov);
-            //System.out.println();
         }
-
-//        if(augmentedRoot != null) {
-//			for (var formula : augmentedRoot.getAugmentationList()) {
-//				System.out.println(formula.getFormulaNo());
-//			}
-//		}
     }
 
     private String getTransitiveDescription(String type) {
@@ -123,18 +130,12 @@ public class ConsoleApp {
     }
 
     private void printTrilateralTree(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        String transivity = getTransitiveDescription(root.getTransitive());
-        //مع الضمير هو
-        //past text formatting
-       // System.out.printf("باب تصريف الفعل : %s\n", root.getConjugation());
-
         String pastRootText = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerb(7, root).toString();
         List<String> conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
         sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, kov, conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
-        //present text formatting
         String presentRootText = sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator.getInstance().createNominativeVerb(7, root).toString();
         conjugations = createEmptyList();
         conjugations.set(7, presentRootText);
@@ -145,7 +146,10 @@ public class ConsoleApp {
 
         // printActivePastConjugations(root, kov);
         // printActivePresentConjugations(root, kov);
-        printImperativeConjugations(root, kov);
+        // printImperativeConjugations(root, kov);
+        // printPassivePastConjugations(root, kov);
+        // printPassivePresentConjugations(root, kov);
+        printActiveParticiple(root, kov);
     }
 
     private void printActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
@@ -162,20 +166,45 @@ public class ConsoleApp {
         List result = sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator.getInstance().createNominativeVerbList(root);
         ConjugationResult conjResult = UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.PRESENT_TENSE, true);
         List finalResult = conjResult.getFinalResult();
-        System.out.printf("| %c%c%c | %d |", root.getC1(), root.getC2(), root.getC3(), root.getConjugation().getValue());
-        for (Object verb : finalResult) {
-            System.out.printf(" %s |", verb  == null ? "" : verb);
-        }
-        System.out.println("");
+        printFinalResultPipeSeparated(root, finalResult);
     }
 
     private void printImperativeConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         List result = sarf.verb.trilateral.unaugmented.UnaugmentedImperativeConjugator.getInstance().createEmphasizedVerbList(root);
         ConjugationResult conjResult = UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true);
         List finalResult = conjResult.getFinalResult();
+        printFinalResultPipeSeparated(root, finalResult);
+    }
+
+    private void printPassivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var result = sarf.verb.trilateral.unaugmented.passive.PassivePastConjugator.getInstance().createVerbList(root);
+        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.PAST_TENSE, false);
+        result = conjResult.getFinalResult();
+        printFinalResultPipeSeparated(root, result);
+    }
+
+    private void printPassivePresentConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov){
+        var result = sarf.verb.trilateral.unaugmented.passive.PassivePresentConjugator.getInstance().createEmphasizedVerbList(root);
+        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier
+                .UnaugmentedTrilateralModifier.getInstance()
+                .build(root, kov, result, SystemConstants.PRESENT_TENSE, false);
+        result = conjResult.getFinalResult();
+        printFinalResultPipeSeparated(root, result);
+    }
+
+    private void printActiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov){
+        var formulas = new String[]{"فاعل"};
+        for(var formula : formulas) {
+            var nouns = UnaugmentedTrilateralActiveParticipleConjugator.getInstance().createNounList(root, formula.toString());
+            var finalResult = ActiveParticipleModifier.getInstance().build(root, kov, nouns, formula).getFinalResult();
+            printFinalResultPipeSeparated(root, finalResult);
+        }
+    }
+
+    private static void printFinalResultPipeSeparated(UnaugmentedTrilateralRoot root, List finalResult) {
         System.out.printf("| %c%c%c | %d |", root.getC1(), root.getC2(), root.getC3(), root.getConjugation().getValue());
         for (Object verb : finalResult) {
-            System.out.printf(" %s |", verb  == null ? "" : verb);
+            System.out.printf(" %s |", verb == null ? "" : verb);
         }
         System.out.println("");
     }
