@@ -15,7 +15,6 @@ import sarf.SarfModule;
 import sarf.SystemConstants;
 import sarf.kov.KovRulesManager;
 import sarf.kov.TrilateralKovRule;
-import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralActiveParticiple;
 import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralActiveParticipleConjugator;
 import sarf.noun.trilateral.unaugmented.modifier.activeparticiple.ActiveParticipleModifier;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
@@ -24,21 +23,27 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.active.ActivePastVerb;
 import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
-import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
+import sarf.verb.trilateral.unaugmented.passive.PassivePastConjugator;
 
 public class ConsoleApp {
 	private final SarfDictionary sarfDictionary;
 	private final KovRulesManager kovRulesManager;
 	private final ActivePastConjugator triActivePastConjugator;
+    private final PassivePastConjugator triPassivePastConjugator;
+    private final UnaugmentedTrilateralActiveParticipleConjugator unaugmentedTrilateralActiveParticipleConjugator;
+    private final ActiveParticipleModifier activeParticipleModifier;
 
-	@Inject
+    @Inject
 	public ConsoleApp(SarfDictionary sarfDictionary
             , KovRulesManager kovRulesManager
-            , sarf.verb.trilateral.unaugmented.active.ActivePastConjugator triActivePastConjugator){
+            , ActivePastConjugator triActivePastConjugator, PassivePastConjugator triPassivePastConjugator, UnaugmentedTrilateralActiveParticipleConjugator unaugmentedTrilateralActiveParticipleConjugator, ActiveParticipleModifier activeParticipleModifier){
 		this.sarfDictionary = sarfDictionary;
 		this.kovRulesManager = kovRulesManager;
 		this.triActivePastConjugator = triActivePastConjugator;
-	}
+        this.triPassivePastConjugator = triPassivePastConjugator;
+        this.unaugmentedTrilateralActiveParticipleConjugator = unaugmentedTrilateralActiveParticipleConjugator;
+        this.activeParticipleModifier = activeParticipleModifier;
+    }
 
 	public static void main(String[] args) {
 		try {
@@ -98,7 +103,7 @@ public class ConsoleApp {
                 "وشك","وضء","وطء","يتم","يمن"
                 ,"حسب","ورث","ولي","وهن","يءس","يبس"
         };
-        // roots = new String[]{"طيط"};
+        roots = new String[]{"ملل"};
         var rootsFound = 0;
         for (var root : roots) {
             //System.out.println(root);
@@ -148,7 +153,7 @@ public class ConsoleApp {
     }
 
     private void printTrilateralTree(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        String pastRootText = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerb(7, root).toString();
+        String pastRootText = triActivePastConjugator.createVerb(7, root).toString();
         List<String> conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
         sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, kov, conjugations, SystemConstants.PAST_TENSE, true);
@@ -195,7 +200,7 @@ public class ConsoleApp {
     }
 
     private void printPassivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        var result = sarf.verb.trilateral.unaugmented.passive.PassivePastConjugator.getInstance().createVerbList(root);
+        var result = triPassivePastConjugator.createVerbList(root);
         sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.PAST_TENSE, false);
         result = conjResult.getFinalResult();
         printFinalResultPipeSeparated(root, result);
@@ -213,8 +218,8 @@ public class ConsoleApp {
     private void printActiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov){
         var formulas = new String[]{"فاعل"};
         for(var formula : formulas) {
-            var nouns = UnaugmentedTrilateralActiveParticipleConjugator.getInstance().createNounList(root, formula.toString());
-            var finalResult = ActiveParticipleModifier.getInstance().build(root, kov, nouns, formula).getFinalResult();
+            var nouns = unaugmentedTrilateralActiveParticipleConjugator.createNounList(root, formula.toString());
+            var finalResult = activeParticipleModifier.build(root, kov, nouns, formula).getFinalResult();
             printFinalResultPipeSeparated(root, finalResult);
         }
     }
