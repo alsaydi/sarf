@@ -226,7 +226,7 @@ public class DatabaseManager {
 				exaggerationNounMap.put(c1 + "", formulaTree);
 				inputStream.close();
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				// ex.printStackTrace();
 			}
 		}
 		return formulaTree;

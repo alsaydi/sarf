@@ -8,10 +8,16 @@ import sarf.SarfModule;
 import sarf.SystemConstants;
 import sarf.kov.KovRulesManager;
 import sarf.kov.TrilateralKovRule;
+import sarf.noun.TrilateralUnaugmentedNouns;
 import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralActiveParticipleConjugator;
 import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralPassiveParticipleConjugator;
+import sarf.noun.trilateral.unaugmented.exaggeration.NonStandardExaggerationConjugator;
+import sarf.noun.trilateral.unaugmented.exaggeration.StandardExaggerationConjugator;
 import sarf.noun.trilateral.unaugmented.modifier.activeparticiple.ActiveParticipleModifier;
+import sarf.noun.trilateral.unaugmented.modifier.exaggeration.ExaggerationModifier;
 import sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.PassiveParticipleModifier;
+import sarf.noun.trilateral.unaugmented.modifier.timeandplace.TimeAndPlaceModifier;
+import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
@@ -25,6 +31,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ConsoleApp {
     private final SarfDictionary sarfDictionary;
@@ -35,6 +42,12 @@ public class ConsoleApp {
     private final ActiveParticipleModifier activeParticipleModifier;
     private final UnaugmentedTrilateralPassiveParticipleConjugator unaugmentedTrilateralPassiveParticipleConjugator;
     private final PassiveParticipleModifier trilateralUnaugmentedPassiveParticipleModifier;
+    private final TrilateralUnaugmentedNouns trilateralUnaugmentedNouns;
+    private final StandardExaggerationConjugator standardExaggerationConjugator;
+    private final ExaggerationModifier exaggerationModifier;
+    private final NonStandardExaggerationConjugator nonStandardExaggerationConjugator;
+    private final TimeAndPlaceConjugator timeAndPlaceConjugator;
+    private final TimeAndPlaceModifier timeAndPlaceModifier;
 
     @Inject
     public ConsoleApp(SarfDictionary sarfDictionary
@@ -44,7 +57,7 @@ public class ConsoleApp {
             , UnaugmentedTrilateralActiveParticipleConjugator unaugmentedTrilateralActiveParticipleConjugator
             , ActiveParticipleModifier activeParticipleModifier
             , UnaugmentedTrilateralPassiveParticipleConjugator unaugmentedTrilateralPassiveParticipleConjugator
-            , PassiveParticipleModifier trilateralUnaugmentedPassiveParticipleModifier) {
+            , PassiveParticipleModifier trilateralUnaugmentedPassiveParticipleModifier, TrilateralUnaugmentedNouns trilateralUnaugmentedNouns, StandardExaggerationConjugator standardExaggerationConjugator, ExaggerationModifier exaggerationModifier, NonStandardExaggerationConjugator nonStandardExaggerationConjugator, TimeAndPlaceConjugator timeAndPlaceConjugator, TimeAndPlaceModifier timeAndPlaceModifier) {
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
         this.triActivePastConjugator = triActivePastConjugator;
@@ -53,6 +66,12 @@ public class ConsoleApp {
         this.activeParticipleModifier = activeParticipleModifier;
         this.unaugmentedTrilateralPassiveParticipleConjugator = unaugmentedTrilateralPassiveParticipleConjugator;
         this.trilateralUnaugmentedPassiveParticipleModifier = trilateralUnaugmentedPassiveParticipleModifier;
+        this.trilateralUnaugmentedNouns = trilateralUnaugmentedNouns;
+        this.standardExaggerationConjugator = standardExaggerationConjugator;
+        this.exaggerationModifier = exaggerationModifier;
+        this.nonStandardExaggerationConjugator = nonStandardExaggerationConjugator;
+        this.timeAndPlaceConjugator = timeAndPlaceConjugator;
+        this.timeAndPlaceModifier = timeAndPlaceModifier;
     }
 
     public static void main(String[] args) {
@@ -115,8 +134,32 @@ public class ConsoleApp {
                 , "حسب", "ورث", "ولي", "وهن", "يءس", "يبس"
         };
         // roots = new String[]{"ملل"};
+        roots = new String[]{
+                "ءبب", "ءنن", "ءبت", "ءبن", "ءبي", "ءتت", "ءتن"
+                , "ءثء", "ءخذ", "ءذي", "ءسو", "ءكل", "ءلل", "ءمم", "ءمن", "ءمر"
+                , "ءمل", "ءمو", "ءنن", "ءود", "ءوي", "بوء", "بيت", "بيع", "بحح"
+                , "بدء", "تمم", "ثءر", "جءو", "جءي", "جيء", "جرء", "حور", "رءي", "رضو"
+                , "رمي", "روي", "سءل", "سءم", "سعي", "سكت", "سكن", "سوو", "شوي"
+                , "صدق", "ضءل", "ضحك", "طلق", "ظمء", "عضض", "علم", "عوج", "غزو"
+                , "فرق", "قءم", "لءم", "لوح", "لين", "لجء", "لوي",
+                "لكم", "لهء", "مءي", "مدد", "ملل", "منن",
+                "نءل", "نءم", "نءم", "نءي", "نسل", "نصر", "هول"
+                , "هوء", "وءد", "وءي", "وبء", "وتن", "ودد"
+                , "ورث", "وقي", "يءس", "يدي", "يسس", "يسر", "يمن"
+        };
+        //أسماء الزمان و المكان
+        var timeAndPlaceRoots = new String[]{
+                "ءيب", "ءبن"
+                , "ءتت", "ءتي", "ءخذ", "ءزر", "ءسو"
+                , "ءكل", "ءمم", "ءمر", "ءمل", "بوء", "بدء", "حسب"
+                , "حيص", "حمل", "خيط", "رءي", "رجح", "ريق", "رمي", "سير"
+                , "سحل", "سكن", "شوي", "ضرب", "عضض", "غزو", "غطي", "قوم"
+                , "قرء", "كسو", "لوح", "لبس", "لكم", "لوي", "مءي", "مدد"
+                , "ملل", "منن", "نسخ", "نسل", "نصر", "هول", "وءد", "وءي",
+                "وسع", "وضء", "وطء", "وقي"
+        };
         var rootsFound = 0;
-        for (var root : roots) {
+        for (var root : Stream.concat(Arrays.stream(roots), Arrays.stream(timeAndPlaceRoots)).distinct().collect(Collectors.toList())) {
             //System.out.println(root);
             if (root.length() == 3) {
                 if (processTrilateral(root)) {
@@ -165,7 +208,7 @@ public class ConsoleApp {
         throw new IllegalArgumentException("نوع رمز اللزوم و التعدي غير معروف");
     }
 
-    class TrilateralOperation {
+    private class TrilateralOperation {
         private void printTrilateralTree(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
             String pastRootText = triActivePastConjugator.createVerb(7, root).toString();
             List<String> conjugations = createEmptyList();
@@ -187,7 +230,10 @@ public class ConsoleApp {
             // printPassivePastConjugations(root, kov);
             // printPassivePresentConjugations(root, kov);
             // printActiveParticiple(root, kov);
-            printPastParticiple(root, kov);
+            // printPastParticiple(root, kov);
+            // printActiveParticipleExaggerated(root, kov);
+            // printActiveParticipleExaggeratedNonStandard(root, kov);
+            printTimeAndPlace(root, kov);
         }
 
         private void printActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
@@ -247,13 +293,56 @@ public class ConsoleApp {
                 printFinalResultPipeSeparated(root, finalResult);
             }
         }
+
+        private void printActiveParticipleExaggerated(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+            var standardFormulas = trilateralUnaugmentedNouns.getStandardExaggerations(root);
+            for (String formula : standardFormulas) {
+                var nouns = standardExaggerationConjugator.createNounList(root, formula);
+                var finalResult = exaggerationModifier.build(root, kov, nouns, formula).getFinalResult();
+                printFinalResultPipeSeparated(root, finalResult);
+            }
+        }
+
+        private void printActiveParticipleExaggeratedNonStandard(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+            var nonStandardFormulas = trilateralUnaugmentedNouns.getNonStandardExaggerations(root);
+            if (nonStandardFormulas == null) {
+                return; //some roots don't have exaggerated entries in the database.
+            }
+            for (String formula : nonStandardFormulas) {
+                var nouns = nonStandardExaggerationConjugator.createNounList(root, formula);
+                var finalResult = exaggerationModifier.build(root, kov, nouns, formula).getFinalResult();
+                printFinalResultPipeSeparated(root, finalResult, formula);
+
+            }
+        }
+
+        private void printTimeAndPlace(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+            var formulas = trilateralUnaugmentedNouns.getTimeAndPlaces(root);
+            if (formulas == null) {
+                return;
+            }
+            for (var formula : formulas) {
+                var nouns = timeAndPlaceConjugator.createNounList(root, formula);
+                var finalResult = timeAndPlaceModifier.build(root, kov, nouns, formula).getFinalResult();
+                printFinalResultPipeSeparated(root, finalResult, formula);
+            }
+        }
     }
 
     private static void printFinalResultPipeSeparated(UnaugmentedTrilateralRoot root, List finalResult) {
         System.out.printf("| %c%c%c | %d |", root.getC1(), root.getC2(), root.getC3(), root.getConjugation().getValue());
-        for (Object verb : finalResult) {
-            System.out.printf(" %s |", verb == null ? "" : verb);
+        for (Object word : finalResult) {
+            System.out.printf(" %s |", word == null ? "" : word);
         }
+        System.out.println("");
+    }
+
+    private static void printFinalResultPipeSeparated(UnaugmentedTrilateralRoot root, List finalResult, String formula) {
+        System.out.printf("| %c%c%c | %d |", root.getC1(), root.getC2(), root.getC3(), root.getConjugation().getValue());
+        for (Object word : finalResult) {
+            System.out.printf(" %s |", word == null ? "" : word);
+        }
+        System.out.printf("%s |", formula);
         System.out.println("");
     }
 
