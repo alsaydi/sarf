@@ -1,5 +1,6 @@
 package sarf.ui;
 
+import java.nio.file;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import sarf.KindOfVerb;
@@ -25,6 +26,9 @@ import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePastVerb;
 import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
 import sarf.verb.trilateral.unaugmented.passive.PassivePastConjugator;
+import sarf.noun.trilateral.unaugmented.instrumental.NonStandardInstrumentalConjugator;
+import sarf.noun.trilateral.unaugmented.instrumental.StandardInstrumentalConjugator;
+import sarf.noun.trilateral.unaugmented.modifier.instrumental.InstrumentalModifier;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -48,6 +52,9 @@ public class ConsoleApp {
     private final NonStandardExaggerationConjugator nonStandardExaggerationConjugator;
     private final TimeAndPlaceConjugator timeAndPlaceConjugator;
     private final TimeAndPlaceModifier timeAndPlaceModifier;
+    private final StandardInstrumentalConjugator standardInstrumentalConjugator;
+    private final NonStandardInstrumentalConjugator nonStandardInstrumentalConjugator ;
+    private final InstrumentalModifier instrumentalModifier;
 
     @Inject
     public ConsoleApp(SarfDictionary sarfDictionary
@@ -57,7 +64,17 @@ public class ConsoleApp {
             , UnaugmentedTrilateralActiveParticipleConjugator unaugmentedTrilateralActiveParticipleConjugator
             , ActiveParticipleModifier activeParticipleModifier
             , UnaugmentedTrilateralPassiveParticipleConjugator unaugmentedTrilateralPassiveParticipleConjugator
-            , PassiveParticipleModifier trilateralUnaugmentedPassiveParticipleModifier, TrilateralUnaugmentedNouns trilateralUnaugmentedNouns, StandardExaggerationConjugator standardExaggerationConjugator, ExaggerationModifier exaggerationModifier, NonStandardExaggerationConjugator nonStandardExaggerationConjugator, TimeAndPlaceConjugator timeAndPlaceConjugator, TimeAndPlaceModifier timeAndPlaceModifier) {
+            , PassiveParticipleModifier trilateralUnaugmentedPassiveParticipleModifier
+            , TrilateralUnaugmentedNouns trilateralUnaugmentedNouns
+            , StandardExaggerationConjugator standardExaggerationConjugator
+            , ExaggerationModifier exaggerationModifier
+            , NonStandardExaggerationConjugator nonStandardExaggerationConjugator
+            , TimeAndPlaceConjugator timeAndPlaceConjugator
+            , TimeAndPlaceModifier timeAndPlaceModifier
+            , StandardInstrumentalConjugator standardInstrumentalConjugator
+            , NonStandardInstrumentalConjugator nonStandardInstrumentalConjugator
+            , InstrumentalModifier instrumentalModifier
+            ) {
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
         this.triActivePastConjugator = triActivePastConjugator;
@@ -72,6 +89,9 @@ public class ConsoleApp {
         this.nonStandardExaggerationConjugator = nonStandardExaggerationConjugator;
         this.timeAndPlaceConjugator = timeAndPlaceConjugator;
         this.timeAndPlaceModifier = timeAndPlaceModifier;
+        this.standardInstrumentalConjugator = standardInstrumentalConjugator;
+        this.nonStandardInstrumentalConjugator = nonStandardInstrumentalConjugator;
+        this.instrumentalModifier = instrumentalModifier;
     }
 
     public static void main(String[] args) {
@@ -233,7 +253,8 @@ public class ConsoleApp {
             // printPastParticiple(root, kov);
             // printActiveParticipleExaggerated(root, kov);
             // printActiveParticipleExaggeratedNonStandard(root, kov);
-            printTimeAndPlace(root, kov);
+            // printTimeAndPlace(root, kov);
+            printInstrumentNouns(root, kov);
         }
 
         private void printActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
@@ -327,6 +348,18 @@ public class ConsoleApp {
                 printFinalResultPipeSeparated(root, finalResult, formula);
             }
         }
+
+        private void printInstrumentNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov){
+            var formulas = trilateralUnaugmentedNouns.getStandardInstrumentals(root);
+            if (formulas == null) {
+                return;
+            }
+            for (var formula : formulas) {
+                var nouns = standardInstrumentalConjugator.createNounList(root, formula);
+                var finalResult = instrumentalModifier.build(root, kov, nouns, formula).getFinalResult();
+                printFinalResultPipeSeparated(root, finalResult, formula);
+            }
+        }
     }
 
     private static void printFinalResultPipeSeparated(UnaugmentedTrilateralRoot root, List finalResult) {
@@ -344,6 +377,19 @@ public class ConsoleApp {
         }
         System.out.printf("%s |", formula);
         System.out.println("");
+
+        Charset charset = Charset.forName("UTF-8");
+        var filename = "C:/temp/instruments.txt";
+        try (BufferedWriter writer = Files.newBufferedWriter(filename, charset)) {
+            writer.printf("| %c%c%c | %d |", root.getC1(), root.getC2(), root.getC3(), root.getConjugation().getValue());
+            for (Object word : finalResult) {
+                writer.printf(" %s |", word == null ? "" : word);
+            }
+            writer.printf("%s |", formula);
+            writer.println("");
+        } catch (IOException x) {
+            System.err.format("IOException: %s%n", x);
+        }
     }
 
     private static void displayErrorMessage(String message) {
