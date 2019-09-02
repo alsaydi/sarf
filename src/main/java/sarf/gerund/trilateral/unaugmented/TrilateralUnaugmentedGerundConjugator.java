@@ -4,9 +4,11 @@ import com.google.inject.Inject;
 import org.apache.commons.digester3.Digester;
 import sarf.Gerund;
 import sarf.SystemConstants;
+import sarf.util.FileUtil;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 import java.io.File;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -144,22 +146,13 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
             return;
         }
         try {
-            gerundDescriptionList = build(new File(getFullPath()));
+            gerundDescriptionList = build(FileUtil.getResourceInputStream("db/gerund/GerundDescription.xml"));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
-    private static String getFullPath() {
-        try {
-            return ClassLoader.getSystemResource("db/gerund/GerundDescription.xml").toURI().getPath();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    private static GerundDescriptionList build(File xmlFile) throws Exception {
+    private static GerundDescriptionList build(InputStream inputStream) throws Exception {
         Digester digester = new Digester();
         digester.setValidating(false);
 
@@ -170,6 +163,6 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
         digester.addSetProperties("gerunds/gerund", "pattern", "pattern");
 
         digester.addSetNext("gerunds/gerund", "addGerundDescription");
-        return (GerundDescriptionList) digester.parse(xmlFile);
+        return (GerundDescriptionList) digester.parse(inputStream);
     }
 }

@@ -6,6 +6,8 @@ import sarf.KindOfVerb;
 import sarf.SarfDictionary;
 import sarf.SarfModule;
 import sarf.SystemConstants;
+import sarf.gerund.modifier.trilateral.unaugmented.standard.UnaugmentedTrilateralStandardGerundModifier;
+import sarf.gerund.trilateral.unaugmented.TrilateralUnaugmentedGerundConjugator;
 import sarf.kov.KovRulesManager;
 import sarf.kov.TrilateralKovRule;
 import sarf.noun.TrilateralUnaugmentedNouns;
@@ -13,6 +15,7 @@ import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralActiveParticipleCon
 import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralPassiveParticipleConjugator;
 import sarf.noun.trilateral.unaugmented.assimilate.AssimilateAdjectiveConjugator;
 import sarf.noun.trilateral.unaugmented.elative.ElativeNounConjugator;
+import sarf.noun.trilateral.unaugmented.elative.ElativeSuffixContainer;
 import sarf.noun.trilateral.unaugmented.exaggeration.NonStandardExaggerationConjugator;
 import sarf.noun.trilateral.unaugmented.exaggeration.StandardExaggerationConjugator;
 import sarf.noun.trilateral.unaugmented.instrumental.NonStandardInstrumentalConjugator;
@@ -62,6 +65,8 @@ public class ConsoleApp {
     private final AssimilateModifier assimilateModifier;
     private final ElativeNounConjugator elativeConjugator;
     private final ElativeModifier elativeModifier;
+    private final TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator;
+    private final UnaugmentedTrilateralStandardGerundModifier unaugmentedTrilateralStandardGerundModifier;
 
     @Inject
     public ConsoleApp(SarfDictionary sarfDictionary
@@ -81,7 +86,7 @@ public class ConsoleApp {
             , StandardInstrumentalConjugator standardInstrumentalConjugator
             , NonStandardInstrumentalConjugator nonStandardInstrumentalConjugator
             , InstrumentalModifier instrumentalModifier,
-                      AssimilateAdjectiveConjugator assimilateConjugator, AssimilateModifier assimilateModifier, ElativeNounConjugator elativeConjugator, ElativeModifier elativeModifier) {
+                      AssimilateAdjectiveConjugator assimilateConjugator, AssimilateModifier assimilateModifier, ElativeNounConjugator elativeConjugator, ElativeModifier elativeModifier, TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator, UnaugmentedTrilateralStandardGerundModifier unaugmentedTrilateralStandardGerundModifier) {
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
         this.triActivePastConjugator = triActivePastConjugator;
@@ -103,6 +108,8 @@ public class ConsoleApp {
         this.assimilateModifier = assimilateModifier;
         this.elativeConjugator = elativeConjugator;
         this.elativeModifier = elativeModifier;
+        this.trilateralUnaugmentedGerundConjugator = trilateralUnaugmentedGerundConjugator;
+        this.unaugmentedTrilateralStandardGerundModifier = unaugmentedTrilateralStandardGerundModifier;
     }
 
     public static void main(String[] args) {
@@ -176,10 +183,10 @@ public class ConsoleApp {
                 "لكم", "لهء", "مءي", "مدد", "ملل", "منن",
                 "نءل", "نءم", "نءم", "نءي", "نسل", "نصر", "هول"
                 , "هوء", "وءد", "وءي", "وبء", "وتن", "ودد"
-                , "ورث", "وقي", "يءس", "يدي", "يسس", "يسر", "يمن"
-        };
+                , "ورث", "وقي", "يءس", "يدي", "يسس", "يسر", "يمن",
+
         //أسماء الزمان و المكان
-        var timeAndPlaceRoots = new String[]{
+
                 "ءيب", "ءبن"
                 , "ءتت", "ءتي", "ءخذ", "ءزر", "ءسو"
                 , "ءكل", "ءمم", "ءمر", "ءمل", "بوء", "بدء", "حسب"
@@ -187,9 +194,8 @@ public class ConsoleApp {
                 , "سحل", "سكن", "شوي", "ضرب", "عضض", "غزو", "غطي", "قوم"
                 , "قرء", "كسو", "لوح", "لبس", "لكم", "لوي", "مءي", "مدد"
                 , "ملل", "منن", "نسخ", "نسل", "نصر", "هول", "وءد", "وءي",
-                "وسع", "وضء", "وطء", "وقي"
-        };
-        var assimilateRoots = new String[]{
+                "وسع", "وضء", "وطء", "وقي",
+                // الصفة المشبهة
                 "تعب", "تلد",
                 "جوع", "جدب",
                 "جرب", "جرد", "جهم"
@@ -201,11 +207,11 @@ public class ConsoleApp {
 
         var elatives = new String[]{
                 "جود", "سوء", "شرر", "علو", "قسو", "ءجل", "خير", "طيب", "هدي", "بقي", "خفي", "رجو", "يبس", "غني", "بخل",
-                "بطء", "بهو", "جرء", "ذكي", "لءم", "وضء", "علو", "قسو", "جلل"
+                "بطء", "بهو", "جرء", "ذكو", "لءم", "وضء", "علو", "قسو", "جلل"
         };
 
         var rootsFound = 0;
-        for (var root : Stream.concat(Arrays.stream(elatives), Arrays.stream(elatives)).distinct().collect(Collectors.toList())) {
+        for (var root : Stream.concat(Arrays.stream(roots), Arrays.stream(elatives)).distinct().collect(Collectors.toList())) {
             //System.out.println(root);
             if (root.length() == 3) {
                 if (processTrilateral(root)) {
@@ -282,7 +288,8 @@ public class ConsoleApp {
             // printTimeAndPlace(root, kov);
             // printInstrumentNouns(root, kov);
             // printAssimilateNouns(root, kov);
-            printElatives(root, kov);
+            // printElatives(root, kov);
+            printStandardGerund(root, kov);
         }
 
         private void printActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
@@ -400,11 +407,30 @@ public class ConsoleApp {
 
         private void printElatives(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
             var formulas = trilateralUnaugmentedNouns.getElatives(root);
+            if (formulas == null){
+                return;
+            }
             for (var formula : formulas) {
+                ElativeSuffixContainer.getInstance().selectAnnexedMode();
                 var nouns = elativeConjugator.createNounList(root, formula);
                 var finalResult = elativeModifier.build(root, kov, nouns, formula).getFinalResult();
                 printFinalResultPipeSeparated(root, finalResult, formula);
             }
+        }
+
+        private void printStandardGerund(UnaugmentedTrilateralRoot root, KindOfVerb kov){
+            var formulas = trilateralUnaugmentedGerundConjugator.getAppliedFormulaList(root);
+            for(var formula: formulas){
+                var rawNouns = trilateralUnaugmentedGerundConjugator.createGerundList(root, formula.toString());
+                var conjugationResult = unaugmentedTrilateralStandardGerundModifier.build(root, kov, rawNouns, formula.toString()).getFinalResult();
+                printFinalResultPipeSeparated(root, conjugationResult, formula.toString());
+
+            }
+        }
+    }
+    private class AugmentedTrilateralOperation {
+        private void printAugmentedVerbs(UnaugmentedTrilateralRoot root, KindOfVerb kov){
+
         }
     }
 
