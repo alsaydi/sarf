@@ -1,6 +1,5 @@
 package sarf.ui;
 
-import java.nio.file;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import sarf.KindOfVerb;
@@ -12,10 +11,17 @@ import sarf.kov.TrilateralKovRule;
 import sarf.noun.TrilateralUnaugmentedNouns;
 import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralActiveParticipleConjugator;
 import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralPassiveParticipleConjugator;
+import sarf.noun.trilateral.unaugmented.assimilate.AssimilateAdjectiveConjugator;
+import sarf.noun.trilateral.unaugmented.elative.ElativeNounConjugator;
 import sarf.noun.trilateral.unaugmented.exaggeration.NonStandardExaggerationConjugator;
 import sarf.noun.trilateral.unaugmented.exaggeration.StandardExaggerationConjugator;
+import sarf.noun.trilateral.unaugmented.instrumental.NonStandardInstrumentalConjugator;
+import sarf.noun.trilateral.unaugmented.instrumental.StandardInstrumentalConjugator;
 import sarf.noun.trilateral.unaugmented.modifier.activeparticiple.ActiveParticipleModifier;
+import sarf.noun.trilateral.unaugmented.modifier.assimilate.AssimilateModifier;
+import sarf.noun.trilateral.unaugmented.modifier.elative.ElativeModifier;
 import sarf.noun.trilateral.unaugmented.modifier.exaggeration.ExaggerationModifier;
+import sarf.noun.trilateral.unaugmented.modifier.instrumental.InstrumentalModifier;
 import sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.PassiveParticipleModifier;
 import sarf.noun.trilateral.unaugmented.modifier.timeandplace.TimeAndPlaceModifier;
 import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
@@ -26,9 +32,6 @@ import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePastVerb;
 import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
 import sarf.verb.trilateral.unaugmented.passive.PassivePastConjugator;
-import sarf.noun.trilateral.unaugmented.instrumental.NonStandardInstrumentalConjugator;
-import sarf.noun.trilateral.unaugmented.instrumental.StandardInstrumentalConjugator;
-import sarf.noun.trilateral.unaugmented.modifier.instrumental.InstrumentalModifier;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -53,8 +56,12 @@ public class ConsoleApp {
     private final TimeAndPlaceConjugator timeAndPlaceConjugator;
     private final TimeAndPlaceModifier timeAndPlaceModifier;
     private final StandardInstrumentalConjugator standardInstrumentalConjugator;
-    private final NonStandardInstrumentalConjugator nonStandardInstrumentalConjugator ;
+    private final NonStandardInstrumentalConjugator nonStandardInstrumentalConjugator;
     private final InstrumentalModifier instrumentalModifier;
+    private final AssimilateAdjectiveConjugator assimilateConjugator;
+    private final AssimilateModifier assimilateModifier;
+    private final ElativeNounConjugator elativeConjugator;
+    private final ElativeModifier elativeModifier;
 
     @Inject
     public ConsoleApp(SarfDictionary sarfDictionary
@@ -73,8 +80,8 @@ public class ConsoleApp {
             , TimeAndPlaceModifier timeAndPlaceModifier
             , StandardInstrumentalConjugator standardInstrumentalConjugator
             , NonStandardInstrumentalConjugator nonStandardInstrumentalConjugator
-            , InstrumentalModifier instrumentalModifier
-            ) {
+            , InstrumentalModifier instrumentalModifier,
+                      AssimilateAdjectiveConjugator assimilateConjugator, AssimilateModifier assimilateModifier, ElativeNounConjugator elativeConjugator, ElativeModifier elativeModifier) {
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
         this.triActivePastConjugator = triActivePastConjugator;
@@ -92,6 +99,10 @@ public class ConsoleApp {
         this.standardInstrumentalConjugator = standardInstrumentalConjugator;
         this.nonStandardInstrumentalConjugator = nonStandardInstrumentalConjugator;
         this.instrumentalModifier = instrumentalModifier;
+        this.assimilateConjugator = assimilateConjugator;
+        this.assimilateModifier = assimilateModifier;
+        this.elativeConjugator = elativeConjugator;
+        this.elativeModifier = elativeModifier;
     }
 
     public static void main(String[] args) {
@@ -178,8 +189,23 @@ public class ConsoleApp {
                 , "ملل", "منن", "نسخ", "نسل", "نصر", "هول", "وءد", "وءي",
                 "وسع", "وضء", "وطء", "وقي"
         };
+        var assimilateRoots = new String[]{
+                "تعب", "تلد",
+                "جوع", "جدب",
+                "جرب", "جرد", "جهم"
+                , "حزن", "خشن", "رطب",
+                "رغد", "سمج", "طول", "عفف", "غضب", "قلل"
+                , "كسل", "كلل", "نزه", "نعس", "هيم", "وله", "يبس"
+                , "مرن"
+        };
+
+        var elatives = new String[]{
+                "جود", "سوء", "شرر", "علو", "قسو", "ءجل", "خير", "طيب", "هدي", "بقي", "خفي", "رجو", "يبس", "غني", "بخل",
+                "بطء", "بهو", "جرء", "ذكي", "لءم", "وضء", "علو", "قسو", "جلل"
+        };
+
         var rootsFound = 0;
-        for (var root : Stream.concat(Arrays.stream(roots), Arrays.stream(timeAndPlaceRoots)).distinct().collect(Collectors.toList())) {
+        for (var root : Stream.concat(Arrays.stream(elatives), Arrays.stream(elatives)).distinct().collect(Collectors.toList())) {
             //System.out.println(root);
             if (root.length() == 3) {
                 if (processTrilateral(root)) {
@@ -254,7 +280,9 @@ public class ConsoleApp {
             // printActiveParticipleExaggerated(root, kov);
             // printActiveParticipleExaggeratedNonStandard(root, kov);
             // printTimeAndPlace(root, kov);
-            printInstrumentNouns(root, kov);
+            // printInstrumentNouns(root, kov);
+            // printAssimilateNouns(root, kov);
+            printElatives(root, kov);
         }
 
         private void printActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
@@ -349,7 +377,7 @@ public class ConsoleApp {
             }
         }
 
-        private void printInstrumentNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov){
+        private void printInstrumentNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
             var formulas = trilateralUnaugmentedNouns.getStandardInstrumentals(root);
             if (formulas == null) {
                 return;
@@ -357,6 +385,24 @@ public class ConsoleApp {
             for (var formula : formulas) {
                 var nouns = standardInstrumentalConjugator.createNounList(root, formula);
                 var finalResult = instrumentalModifier.build(root, kov, nouns, formula).getFinalResult();
+                printFinalResultPipeSeparated(root, finalResult, formula);
+            }
+        }
+
+        private void printAssimilateNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+            var formulas = trilateralUnaugmentedNouns.getAssimilates(root);
+            for (var formula : formulas) {
+                var nouns = assimilateConjugator.createNounList(root, formula);
+                var finalResult = assimilateModifier.build(root, kov, nouns, formula).getFinalResult();
+                printFinalResultPipeSeparated(root, finalResult, formula);
+            }
+        }
+
+        private void printElatives(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+            var formulas = trilateralUnaugmentedNouns.getElatives(root);
+            for (var formula : formulas) {
+                var nouns = elativeConjugator.createNounList(root, formula);
+                var finalResult = elativeModifier.build(root, kov, nouns, formula).getFinalResult();
                 printFinalResultPipeSeparated(root, finalResult, formula);
             }
         }
@@ -377,19 +423,6 @@ public class ConsoleApp {
         }
         System.out.printf("%s |", formula);
         System.out.println("");
-
-        Charset charset = Charset.forName("UTF-8");
-        var filename = "C:/temp/instruments.txt";
-        try (BufferedWriter writer = Files.newBufferedWriter(filename, charset)) {
-            writer.printf("| %c%c%c | %d |", root.getC1(), root.getC2(), root.getC3(), root.getConjugation().getValue());
-            for (Object word : finalResult) {
-                writer.printf(" %s |", word == null ? "" : word);
-            }
-            writer.printf("%s |", formula);
-            writer.println("");
-        } catch (IOException x) {
-            System.err.format("IOException: %s%n", x);
-        }
     }
 
     private static void displayErrorMessage(String message) {
