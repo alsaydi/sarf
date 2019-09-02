@@ -22,6 +22,7 @@ public class GenericElativeNounFormula extends NounFormula {
     private NounFormula appliedNounFormula;
 
     public GenericElativeNounFormula(UnaugmentedTrilateralRoot root, String suffixNo) {
+        super(root, suffixNo, ElativeSuffixContainer.getInstance());
         if ((Integer.parseInt(suffixNo) + 1) % 2 == 0 && (ElativeSuffixContainer.getInstance().isDefinite() || ElativeSuffixContainer.getInstance().isAnnexed())) {
             appliedNounFormula = new NounFormula2(root, suffixNo);
         }
