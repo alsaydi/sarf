@@ -13,6 +13,7 @@ import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
+import sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator;
 /**
  * <p>Title: Sarf Program</p>
  *
@@ -38,16 +39,18 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     private final JPanel unaugmentedPanel = new APanel(new GridLayout(1,6));
     private final AugmentedActivePastConjugator augmentedActivePastConjugator;
     private final ActivePastConjugator unaugmentedTriActivePastConjugator;
+    private final AugmentedActivePresentConjugator augmentedActivePresentConjugator;
 
     public TrilateralControlPane(ControlPaneContainer controlPaneContainer
             , AugmentedTrilateralModifier augmentedTrilateralModifier
             , AugmentedActivePastConjugator augmentedActivePastConjugator
-            , sarf.verb.trilateral.unaugmented.active.ActivePastConjugator unaugmentedTriActivePastConjugator) {
+            , ActivePastConjugator unaugmentedTriActivePastConjugator, AugmentedActivePresentConjugator augmentedActivePresentConjugator) {
         super(new BorderLayout());
         this.controlPaneContainer = controlPaneContainer;
         this.augmentedTrilateralModifier = augmentedTrilateralModifier;
         this.augmentedActivePastConjugator = augmentedActivePastConjugator;
         this.unaugmentedTriActivePastConjugator = unaugmentedTriActivePastConjugator;
+        this.augmentedActivePresentConjugator = augmentedActivePresentConjugator;
 
         unaugmentedTrilateralRoots.add(new UnaugmentedTrilateralRoot());
         unaugmentedTrilateralRoots.add(new UnaugmentedTrilateralRoot());
@@ -184,7 +187,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //past text formatting
-        String presentRootText = sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator.getInstance().getNominativeConjugator().createVerbList(root, formulaNo).get(7).toString();
+        String presentRootText = augmentedActivePresentConjugator.getNominativeConjugator().createVerbList(root, formulaNo).get(7).toString();
         conjugations = createEmptyList();
         conjugations.set(7, presentRootText);
         conjResult = augmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), formulaNo, conjugations, SystemConstants.PRESENT_TENSE, true, null);

@@ -13,10 +13,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class AugmentedPresentConjugatorTest {
     private static Stream<Arguments> getCreateVerbListTestArguments() {
-        var nominativeConjugator = AugmentedActivePresentConjugator.getInstance().getNominativeConjugator();
-        var accusativeConjugator = AugmentedActivePresentConjugator.getInstance().getAccusativeConjugator();
-        var emphasizedConjugator = AugmentedActivePresentConjugator.getInstance().getEmphasizedConjugator();
-        var jussiveConjugator = AugmentedActivePresentConjugator.getInstance().getJussiveConjugator();
+        var nominativeConjugator = new AugmentedActivePresentConjugator().getNominativeConjugator();
+        var accusativeConjugator = new AugmentedActivePresentConjugator().getAccusativeConjugator();
+        var emphasizedConjugator = new AugmentedActivePresentConjugator().getEmphasizedConjugator();
+        var jussiveConjugator = new AugmentedActivePresentConjugator().getJussiveConjugator();
 
         return Stream.of(
                 Arguments.of(nominativeConjugator, 1 , AugmentedPresentVerb1.class),
