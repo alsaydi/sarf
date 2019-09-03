@@ -7,6 +7,7 @@ import sarf.SystemConstants;
 import sarf.kov.KovRulesManager;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
+import sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator;
 import sarf.verb.trilateral.augmented.active.present.AugmentedPresentConjugator;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 
@@ -16,7 +17,7 @@ public class TrilateralAugmentedHelper {
     private final SarfDictionary sarfDictionary;
     private final AugmentedActivePastConjugator augmentedActivePastConjugator;
     private final AugmentedTrilateralModifier augmentedTrilateralModifier;
-    private final AugmentedPresentConjugator augmentedPresentConjugator;
+    private final AugmentedActivePresentConjugator augmentedActivePresentConjugator;
     private final KovRulesManager kovRulesManager;
 
     @Inject
@@ -24,24 +25,33 @@ public class TrilateralAugmentedHelper {
             , KovRulesManager kovRulesManager
             , AugmentedActivePastConjugator augmentedActivePastConjugator
             , AugmentedTrilateralModifier augmentedTrilateralModifier
-            , AugmentedPresentConjugator augmentedPresentConjugator
+            , AugmentedActivePresentConjugator augmentedActivePresentConjugator
     ) {
 
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
         this.augmentedActivePastConjugator = augmentedActivePastConjugator;
         this.augmentedTrilateralModifier = augmentedTrilateralModifier;
-        this.augmentedPresentConjugator = augmentedPresentConjugator;
+        this.augmentedActivePresentConjugator = augmentedActivePresentConjugator;
     }
 
     public void printPastActiveAugmentedVerbs(String rootLetters) {
         try {
             var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
+            if(augmentedRoot == null){
+                return;
+            }
             var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
-            for (var formula : augmentedRoot.getAugmentationList()) {
+            var augmentationFormulas = augmentedRoot.getAugmentationList();
+            if(augmentationFormulas == null){
+                return;
+            }
+            for (var formula : augmentationFormulas) {
                 var verbs = augmentedActivePastConjugator.createVerbList(augmentedRoot, formula.getFormulaNo());
                 var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, formula.getFormulaNo(), verbs, SystemConstants.PAST_TENSE
                         , true, () -> false);
+
+                printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(),formula);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -53,7 +63,7 @@ public class TrilateralAugmentedHelper {
             var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
             var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
             for (var formula : augmentedRoot.getAugmentationList()) {
-                var verbs = augmentedPresentConjugator.createVerbList(augmentedRoot, formula.getFormulaNo());
+                var verbs = augmentedActivePresentConjugator.getNominativeConjugator().createVerbList(augmentedRoot, formula.getFormulaNo());
                 var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, formula.getFormulaNo(), verbs, SystemConstants.PRESENT_TENSE
                         , true, () -> false);
                 printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(), formula);

@@ -5,6 +5,7 @@ import com.google.inject.Inject;
 import sarf.*;
 import sarf.kov.KovRulesManager;
 import sarf.kov.TrilateralKovRule;
+import sarf.ui.testhelpers.TrilateralAugmentedHelper;
 import sarf.ui.testhelpers.TrilateralUnaugmentedHelper;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
@@ -20,15 +21,17 @@ public class ConsoleApp {
     private final SarfDictionary sarfDictionary;
     private final KovRulesManager kovRulesManager;
     private final TrilateralUnaugmentedHelper trilateralUnaugmentedHelper;
+    private final TrilateralAugmentedHelper augmentedTrilateralHelper;
 
     @Inject
     public ConsoleApp(SarfDictionary sarfDictionary
             , KovRulesManager kovRulesManager
-            , TrilateralUnaugmentedHelper trilateralUnaugmentedHelper) {
+            , TrilateralUnaugmentedHelper trilateralUnaugmentedHelper
+            , TrilateralAugmentedHelper augmentedTrilateralHelper) {
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
         this.trilateralUnaugmentedHelper = trilateralUnaugmentedHelper;
-        //this.augmentedTrilateralHelper = augmentedTrilateralHelper;
+        this.augmentedTrilateralHelper = augmentedTrilateralHelper;
     }
 
     public static void main(String[] args) {
@@ -89,10 +92,7 @@ public class ConsoleApp {
                 , "طول", "كرم", "لدن", "وبء", "وجل", "ودع", "وزن",
                 "وشك", "وضء", "وطء", "يتم", "يمن"
                 , "حسب", "ورث", "ولي", "وهن", "يءس", "يبس"
-        };
-        // roots = new String[]{"ملل"};
-        roots = new String[]{
-                "ءبب", "ءنن", "ءبت", "ءبن", "ءبي", "ءتت", "ءتن"
+                , "ءبب", "ءنن", "ءبت", "ءبن", "ءبي", "ءتت", "ءتن"
                 , "ءثء", "ءخذ", "ءذي", "ءسو", "ءكل", "ءلل", "ءمم", "ءمن", "ءمر"
                 , "ءمل", "ءمو", "ءنن", "ءود", "ءوي", "بوء", "بيت", "بيع", "بحح"
                 , "بدء", "تمم", "ثءر", "جءو", "جءي", "جيء", "جرء", "حور", "رءي", "رضو"
@@ -129,8 +129,17 @@ public class ConsoleApp {
                 "بطء", "بهو", "جرء", "ذكو", "لءم", "وضء", "علو", "قسو", "جلل"
         };
 
+        var augmentedRoots = new String[]{
+            "ءتي", "ءدي" , "ءجر", "نءد","ءتل", "بيض","ءكل","جءل","ءبن","ءذن","حزو","جءي"
+                , "غوي"
+                , "دهم"
+                , "بلج"
+                , "قبل"
+                , "ءيس"
+        };
+
         var rootsFound = 0;
-        for (var root : Stream.concat(Arrays.stream(roots), Arrays.stream(elatives)).distinct().collect(Collectors.toList())) {
+        for (var root : Stream.concat(Arrays.stream(augmentedRoots), Arrays.stream(augmentedRoots)).distinct().collect(Collectors.toList())) {
             //System.out.println(root);
             if (root.length() == 3) {
                 if (processTrilateral(root)) {
@@ -166,11 +175,11 @@ public class ConsoleApp {
         String kovText = rule.getDesc();
         KindOfVerb kov = rule.getKov();
 
-        for (UnaugmentedTrilateralRoot root : unaugmentedRoots) {
-            trilateralUnaugmentedHelper.printTrilateralTree(root, kov);
-        }
+//        for (UnaugmentedTrilateralRoot root : unaugmentedRoots) {
+//            trilateralUnaugmentedHelper.printTrilateralTree(root, kov);
+//        }
 
-        //augmentedTrilateralHelper.printPastActiveAugmentedVerbs(rootText);
+        augmentedTrilateralHelper.printPastActiveAugmentedVerbs(rootText);
 
     }
 
