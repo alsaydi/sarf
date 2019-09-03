@@ -6,8 +6,12 @@ import sarf.KindOfVerb;
 import sarf.SarfDictionary;
 import sarf.SarfModule;
 import sarf.SystemConstants;
+import sarf.gerund.modifier.trilateral.unaugmented.meem.TrilateralUnaugmentedMeemModifier;
+import sarf.gerund.modifier.trilateral.unaugmented.nomen.TrilateralUnaugmentedNomenModifier;
 import sarf.gerund.modifier.trilateral.unaugmented.standard.UnaugmentedTrilateralStandardGerundModifier;
 import sarf.gerund.trilateral.unaugmented.TrilateralUnaugmentedGerundConjugator;
+import sarf.gerund.trilateral.unaugmented.TrilateralUnaugmentedNomenGerundConjugator;
+import sarf.gerund.trilateral.unaugmented.meem.MeemGerundConjugator;
 import sarf.kov.KovRulesManager;
 import sarf.kov.TrilateralKovRule;
 import sarf.noun.TrilateralUnaugmentedNouns;
@@ -67,6 +71,10 @@ public class ConsoleApp {
     private final ElativeModifier elativeModifier;
     private final TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator;
     private final UnaugmentedTrilateralStandardGerundModifier unaugmentedTrilateralStandardGerundModifier;
+    private final MeemGerundConjugator meemGerundConjugator;
+    private final TrilateralUnaugmentedMeemModifier trilateralUnaugmentedMeemModifier;
+    private final TrilateralUnaugmentedNomenGerundConjugator trilateralUnaugmentedNomenGerundConjugator;
+    private final TrilateralUnaugmentedNomenModifier trilateralUnaugmentedNomenModifier;
 
     @Inject
     public ConsoleApp(SarfDictionary sarfDictionary
@@ -86,7 +94,7 @@ public class ConsoleApp {
             , StandardInstrumentalConjugator standardInstrumentalConjugator
             , NonStandardInstrumentalConjugator nonStandardInstrumentalConjugator
             , InstrumentalModifier instrumentalModifier,
-                      AssimilateAdjectiveConjugator assimilateConjugator, AssimilateModifier assimilateModifier, ElativeNounConjugator elativeConjugator, ElativeModifier elativeModifier, TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator, UnaugmentedTrilateralStandardGerundModifier unaugmentedTrilateralStandardGerundModifier) {
+                      AssimilateAdjectiveConjugator assimilateConjugator, AssimilateModifier assimilateModifier, ElativeNounConjugator elativeConjugator, ElativeModifier elativeModifier, TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator, UnaugmentedTrilateralStandardGerundModifier unaugmentedTrilateralStandardGerundModifier, MeemGerundConjugator meemGerundConjugator, TrilateralUnaugmentedMeemModifier trilateralUnaugmentedMeemModifier, TrilateralUnaugmentedNomenGerundConjugator trilateralUnaugmentedNomenGerundConjugator, TrilateralUnaugmentedNomenModifier trilateralUnaugmentedNomenModifier) {
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
         this.triActivePastConjugator = triActivePastConjugator;
@@ -110,6 +118,10 @@ public class ConsoleApp {
         this.elativeModifier = elativeModifier;
         this.trilateralUnaugmentedGerundConjugator = trilateralUnaugmentedGerundConjugator;
         this.unaugmentedTrilateralStandardGerundModifier = unaugmentedTrilateralStandardGerundModifier;
+        this.meemGerundConjugator = meemGerundConjugator;
+        this.trilateralUnaugmentedMeemModifier = trilateralUnaugmentedMeemModifier;
+        this.trilateralUnaugmentedNomenGerundConjugator = trilateralUnaugmentedNomenGerundConjugator;
+        this.trilateralUnaugmentedNomenModifier = trilateralUnaugmentedNomenModifier;
     }
 
     public static void main(String[] args) {
@@ -289,7 +301,11 @@ public class ConsoleApp {
             // printInstrumentNouns(root, kov);
             // printAssimilateNouns(root, kov);
             // printElatives(root, kov);
-            printStandardGerund(root, kov);
+            // printStandardGerund(root, kov);
+            try {
+                printNomenGerund(root, kov);
+            } catch (Exception ignored) {
+            }
         }
 
         private void printActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
@@ -424,6 +440,26 @@ public class ConsoleApp {
                 var rawNouns = trilateralUnaugmentedGerundConjugator.createGerundList(root, formula.toString());
                 var conjugationResult = unaugmentedTrilateralStandardGerundModifier.build(root, kov, rawNouns, formula.toString()).getFinalResult();
                 printFinalResultPipeSeparated(root, conjugationResult, formula.toString());
+
+            }
+        }
+
+        private void printMeemGerund(UnaugmentedTrilateralRoot root, KindOfVerb kov) throws Exception {
+            var formulas = meemGerundConjugator.getAppliedFormulaList(root);
+            for(var formula: formulas){
+                var rawNouns = meemGerundConjugator.createGerundList(root, formula);
+                var conjugationResult =  trilateralUnaugmentedMeemModifier.build(root, kov, rawNouns, formula).getFinalResult();
+                printFinalResultPipeSeparated(root, conjugationResult, formula);
+
+            }
+        }
+
+        private void printNomenGerund(UnaugmentedTrilateralRoot root, KindOfVerb kov) throws Exception {
+            var formulas = trilateralUnaugmentedNomenGerundConjugator.getAppliedFormulaList(root);
+            for(var formula: formulas){
+                var rawNouns = trilateralUnaugmentedNomenGerundConjugator.createGerundList(root, formula);
+                var conjugationResult =  trilateralUnaugmentedNomenModifier.build(root, kov, rawNouns, formula).getFinalResult();
+                printFinalResultPipeSeparated(root, conjugationResult, formula);
 
             }
         }

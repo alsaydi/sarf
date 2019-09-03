@@ -77,7 +77,7 @@ public class TrilateralUnaugmentedNomenGerundConjugator implements IUnaugmentedT
         formulas.add("فَعْلَة");
     }
 
-    public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
+    public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
         return formulas;
     }
 }

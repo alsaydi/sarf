@@ -1,6 +1,7 @@
 package sarf.gerund.trilateral.unaugmented;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,12 +20,13 @@ public class GerundDescription {
     private String pattern;
     private boolean feminine = false;
 
-    private static final List femininPatterns = new LinkedList();
+    private static final List<String> femininePatterns = new ArrayList<>();
+
     static {
-        femininPatterns.add("فَعْلَى");
-        femininPatterns.add("فُعْلَى");
-        femininPatterns.add("فِعْلَى");
-        femininPatterns.add("فِعِّيْلَى");
+        femininePatterns.add("فَعْلَى");
+        femininePatterns.add("فُعْلَى");
+        femininePatterns.add("فِعْلَى");
+        femininePatterns.add("فِعِّيْلَى");
     }
 
     public GerundDescription() {
@@ -52,12 +54,12 @@ public class GerundDescription {
         if (pattern.endsWith("ة"))
             feminine = true;
         else {
-            for (Object femininPattern : femininPatterns) {
-                String item = (String) femininPattern;
-                if (item.equals(pattern))
+            for (var femininePattern : femininePatterns) {
+                if (femininePattern.equals(pattern)) {
                     feminine = true;
+                    break;
+                }
             }
         }
     }
-
 }

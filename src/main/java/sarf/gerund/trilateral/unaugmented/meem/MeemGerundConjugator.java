@@ -55,6 +55,8 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
             standardGerunds.set(12, new StandardGerundPattern(root, "12", kov, genericNounSuffixContainer));
             return standardGerunds;
         }
+        //FIXME: this function relies on this.getAppliedFormulaList being called. Otherwise, appliedXmlMeemGerundNounFormula will be null.
+
         //non standard
         List<String> gerundDisplayList = createEmptyList()
                 .stream()
@@ -67,8 +69,8 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
         gerundText = gerundText.substring(0, gerundText.length()-2);
         gerundText = genericNounSuffixContainer.getPrefix()+ gerundText;
         gerundDisplayList.set(1, gerundText+genericNounSuffixContainer.get(1));
-        gerundDisplayList.add(7, gerundText+genericNounSuffixContainer.get(7));
-        gerundDisplayList.add(13, gerundText+genericNounSuffixContainer.get(13));
+        gerundDisplayList.set(7, gerundText+genericNounSuffixContainer.get(7));
+        gerundDisplayList.set(13, gerundText+genericNounSuffixContainer.get(13));
 
         return gerundDisplayList;
     }
