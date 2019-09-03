@@ -12,7 +12,7 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 
 import java.util.List;
 
-public class AugmentedTrilateralHelper {
+public class TrilateralAugmentedHelper {
     private final SarfDictionary sarfDictionary;
     private final AugmentedActivePastConjugator augmentedActivePastConjugator;
     private final AugmentedTrilateralModifier augmentedTrilateralModifier;
@@ -20,7 +20,7 @@ public class AugmentedTrilateralHelper {
     private final KovRulesManager kovRulesManager;
 
     @Inject
-    public AugmentedTrilateralHelper(SarfDictionary sarfDictionary
+    public TrilateralAugmentedHelper(SarfDictionary sarfDictionary
             , KovRulesManager kovRulesManager
             , AugmentedActivePastConjugator augmentedActivePastConjugator
             , AugmentedTrilateralModifier augmentedTrilateralModifier
