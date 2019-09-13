@@ -1,8 +1,10 @@
 package sarf.verb.quadriliteral.unaugmented.active;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
 import sarf.PresentConjugationDataContainer;
+import sarf.SystemConstants;
 import sarf.verb.quadriliteral.unaugmented.*;
 
 /**
@@ -36,7 +38,7 @@ public class ActivePresentConjugator {
      * @return ActivePresentVerb
      */
     private ActivePresentVerb createVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root, List lastDprList, List connectedPronounList) {
-        String cp = PresentConjugationDataContainer.getInstance().getCp(pronounIndex);
+        String cp = PresentConjugationDataContainer.getCp(pronounIndex);
         String lastDpr = (String) lastDprList.get(pronounIndex);
         String connectedPronoun = (String) connectedPronounList.get(pronounIndex);
         return new ActivePresentVerb(root, cp, lastDpr, connectedPronoun);
@@ -46,44 +48,43 @@ public class ActivePresentConjugator {
     /**
      * إنشاء الفعل المضارع في حالة الرفع
      * @param pronounIndex int
-     * @param root QuadriliteralVerb
+     * @param root QuadrilateralVerb
      * @return PresentConjugation
      */
     public ActivePresentVerb createNominativeVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
-        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getNominativeLastDprList() , PresentConjugationDataContainer.getInstance().getNominativeConnectedPronounList());
+        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getNominativeLastDprList() , PresentConjugationDataContainer.getNominativeConnectedPronounList());
     }
 
 
     /**
      * إنشاء الفعل المضارع في حالة النصب
      * @param pronounIndex int
-     * @param root QuadriliteralVerb
+     * @param root QuadrilateralVerb
      * @return PresentConjugation
      */
-    public ActivePresentVerb createAccusativeVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
-        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getAccusativeLastDprList() , PresentConjugationDataContainer.getInstance().getAccusativeConnectedPronounList());
+    private ActivePresentVerb createAccusativeVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
+        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getAccusativeLastDprList() , PresentConjugationDataContainer.getAccusativeConnectedPronounList());
     }
-
 
     /**
      * إنشاء الفعل المضارع في حالة الجزم
      * @param pronounIndex int
-     * @param root QuadriliteralVerb
+     * @param root QuadrilateralVerb
      * @return PresentConjugation
      */
-    public ActivePresentVerb createJussiveVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
-        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getJussiveLastDprList() , PresentConjugationDataContainer.getInstance().getJussiveConnectedPronounList());
+    private ActivePresentVerb createJussiveVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
+        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getJussiveLastDprList() , PresentConjugationDataContainer.getJussiveConnectedPronounList());
     }
 
 
     /**
      * إنشاء الفعل المضارع في حالة التأكيد
      * @param pronounIndex int
-     * @param root QuadriliteralVerb
+     * @param root QuadrilateralVerb
      * @return PresentConjugation
      */
-    public ActivePresentVerb createEmphasizedVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
-        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getEmphasizedLastDprList() , PresentConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList());
+    private ActivePresentVerb createEmphasizedVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
+        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getEmphasizedLastDprList() , PresentConjugationDataContainer.getEmphasizedConnectedPronounList());
     }
 
     /**
@@ -92,9 +93,9 @@ public class ActivePresentConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createNominativeVerbList(UnaugmentedQuadrilateralRoot root) {
-        List result = new LinkedList();
-        for (int i = 0; i < 13; i++) {
+    public List<ActivePresentVerb> createNominativeVerbList(UnaugmentedQuadrilateralRoot root) {
+        var result = new ArrayList<ActivePresentVerb>();
+        for (int i = 0; i < SystemConstants.PRONOUN_RANGE_END; i++) {
             result.add(createNominativeVerb(i, root));
         }
 
@@ -107,12 +108,11 @@ public class ActivePresentConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createAccusativeVerbList(UnaugmentedQuadrilateralRoot root) {
-        List result = new LinkedList();
-        for (int i = 0; i < 13; i++) {
+    public List<ActivePresentVerb> createAccusativeVerbList(UnaugmentedQuadrilateralRoot root) {
+        var result = new ArrayList<ActivePresentVerb>();
+        for (int i = 0; i < SystemConstants.PRONOUN_RANGE_END; i++) {
             result.add(createAccusativeVerb(i, root));
         }
-
         return result;
     }
 
@@ -122,15 +122,13 @@ public class ActivePresentConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createJussiveVerbList(UnaugmentedQuadrilateralRoot root) {
-        List result = new LinkedList();
-        for (int i = 0; i < 13; i++) {
+    public List<ActivePresentVerb> createJussiveVerbList(UnaugmentedQuadrilateralRoot root) {
+        var result = new ArrayList<ActivePresentVerb>();
+        for (int i = 0; i < SystemConstants.PRONOUN_RANGE_END; i++) {
             result.add(createJussiveVerb(i, root));
         }
-
         return result;
     }
-
 
     /**
      * إنشاء قائمة تحتوي الأفعال حسب الضمائر
@@ -138,13 +136,11 @@ public class ActivePresentConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createEmphasizedVerbList(UnaugmentedQuadrilateralRoot root) {
-        List result = new LinkedList();
-        for (int i = 0; i < 13; i++) {
+    public List<ActivePresentVerb> createEmphasizedVerbList(UnaugmentedQuadrilateralRoot root) {
+        var result = new ArrayList<ActivePresentVerb>();
+        for (int i = 0; i < SystemConstants.PRONOUN_RANGE_END; i++) {
             result.add(createEmphasizedVerb(i, root));
         }
-
         return result;
     }
-
 }

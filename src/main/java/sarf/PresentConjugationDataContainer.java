@@ -1,9 +1,10 @@
 package sarf;
 
-import java.util.*;
+import sarf.util.ArabCharUtil;
+import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
-import sarf.util.*;
-import sarf.verb.trilateral.unaugmented.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * يحتوي على  المعلومات  الصرفية المطلوبة لتصريف الأفعال  في المضارع
@@ -11,74 +12,69 @@ import sarf.verb.trilateral.unaugmented.*;
  * <p>Description: برنامج التصريف</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
+ *
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PresentConjugationDataContainer {
+public final class PresentConjugationDataContainer {
     //أحرف المضارعة حسب الضمير
-    private final List<String> cpList = new ArrayList<>(13);
+    private static final List<String> cpList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
     //قائمة حركات عين الفعل حسب باب التصريف
-    private final List<String> dpr2List = new ArrayList<>(6);
+    private static final List<String> dpr2List = new ArrayList<>(6);
 
     //قائمة  حركات لام الفعل حسب ضمير الرفع
     //مرفوع
-    private final List<String> nominativeLastDprList = new ArrayList<>(13);
+    private static final List<String> nominativeLastDprList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
     //منصوب
-    private final List<String> accusativeLastDprList = new ArrayList<>(13);
+    private static final List<String> accusativeLastDprList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
     //مجزوم
-    private final List<String> jussiveLastDprList = new ArrayList<>(13);
+    private static final List<String> jussiveLastDprList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
     //مؤكد
-    private final List<String> emphasizedLastDprList = new ArrayList<>(13);
+    private static final List<String> emphasizedLastDprList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
 
     //قائمة ضمائر الرفع المتصلة
     //مرفوع
-    private final List<String> nominativeConnectedPronounList = new ArrayList<>(13);
+    private static final List<String> nominativeConnectedPronounList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
     //منصوب
-    private final List<String> accusativeConnectedPronounList = new ArrayList<>(13);
+    private static final List<String> accusativeConnectedPronounList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
     //مجزوم
-    private final List<String> jussiveConnectedPronounList = new ArrayList<>(13);
+    private static final List<String> jussiveConnectedPronounList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
     //مؤكد
-    private final List<String> emphasizedConnectedPronounList = new ArrayList<>(13);
+    private static final List<String> emphasizedConnectedPronounList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
 
-    private static final PresentConjugationDataContainer instance = new PresentConjugationDataContainer();
-
-    public static PresentConjugationDataContainer getInstance() {
-        return instance;
-    }
-
-    public List<String> getNominativeLastDprList() {
+    public static List<String> getNominativeLastDprList() {
         return nominativeLastDprList;
     }
 
-    public List<String> getNominativeConnectedPronounList() {
+    public static List<String> getNominativeConnectedPronounList() {
         return nominativeConnectedPronounList;
     }
 
-    public List<String> getEmphasizedLastDprList() {
+    public static List<String> getEmphasizedLastDprList() {
         return emphasizedLastDprList;
     }
 
-    public List<String> getEmphasizedConnectedPronounList() {
+    public static List<String> getEmphasizedConnectedPronounList() {
         return emphasizedConnectedPronounList;
     }
 
-    public List<String> getJussiveLastDprList() {
+    public static List<String> getJussiveLastDprList() {
         return jussiveLastDprList;
     }
 
-    public List<String> getJussiveConnectedPronounList() {
+    public static List<String> getJussiveConnectedPronounList() {
         return jussiveConnectedPronounList;
     }
 
-    public List<String> getAccusativeLastDprList() {
+    public static List<String> getAccusativeLastDprList() {
         return accusativeLastDprList;
     }
 
-    public List<String> getAccusativeConnectedPronounList() {
+    public static List<String> getAccusativeConnectedPronounList() {
         return accusativeConnectedPronounList;
     }
 
-    private PresentConjugationDataContainer() {
+    static {
         //تهيئة القيم
         dpr2List.add(ArabCharUtil.DAMMA);
         dpr2List.add(ArabCharUtil.KASRA);
@@ -216,20 +212,22 @@ public class PresentConjugationDataContainer {
 
     /**
      * الحصول  على حركة عين الفعل حسب باب تصريف الفعل
+     *
      * @param root TripleVerb
      * @return String
      */
-    public String getDpr2(UnaugmentedTrilateralRoot root) {
+    public static String getDpr2(UnaugmentedTrilateralRoot root) {
         //بسبب أن ترقيم الباب التصريفي يبدأ من الواحد على حين أن القائمة تبدأ من الصفر جرى طرح العدد واحد
-        return (String) dpr2List.get(root.getConjugation().getValue() - 1);
+        return dpr2List.get(root.getConjugation().getValue() - 1);
     }
 
     /**
      * الحصول  على حرف المضارع حسب الضمير
+     *
      * @param pronounIndex int
      * @return String
      */
-    public String getCp(int pronounIndex) {
+    public static String getCp(int pronounIndex) {
         return cpList.get(pronounIndex);
     }
 }

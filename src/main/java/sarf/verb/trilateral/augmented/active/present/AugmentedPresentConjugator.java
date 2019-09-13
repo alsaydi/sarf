@@ -31,7 +31,7 @@ public final class AugmentedPresentConjugator {
     }
 
     private AugmentedPresentVerb createVerb(AugmentedTrilateralRoot root, int pronounIndex, int formulaNo) {
-        String cp = PresentConjugationDataContainer.getInstance().getCp(pronounIndex);
+        String cp = PresentConjugationDataContainer.getCp(pronounIndex);
         String lastDpr = lastDprList.get(pronounIndex);
         String connectedPronoun = connectedPronounList.get(pronounIndex);
         String formulaClassName = getClass().getPackage().getName()+".formula."+"AugmentedPresentVerb"+formulaNo;

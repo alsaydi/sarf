@@ -139,6 +139,12 @@ public class ConsoleApp {
                 , "نءي", "دخر", "ملح", "شءم","يقظ"
                 , "ءسو", "ءسي", "ءضض"
                 , "حوي" , "حيي"
+                , "كتب"
+                , "ورد"
+                , "سعي"
+                , "ركض"
+                , "يبس"
+                , "حدي"
         };
 
         var rootsFound = 0;
@@ -183,7 +189,8 @@ public class ConsoleApp {
 //        }
 
         //augmentedTrilateralHelper.printPastActiveAugmentedVerbs(rootText);
-        augmentedTrilateralHelper.printPresentActiveAugmentedVerbs(rootText);
+        //augmentedTrilateralHelper.printPresentActiveAugmentedVerbs(rootText);
+        augmentedTrilateralHelper.printImperativeAugmentedVerbs(rootText);
     }
 
     private static void displayErrorMessage(String message) {

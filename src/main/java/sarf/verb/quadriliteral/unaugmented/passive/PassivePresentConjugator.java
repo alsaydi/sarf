@@ -1,9 +1,11 @@
 package sarf.verb.quadriliteral.unaugmented.passive;
 
-import java.util.*;
+import sarf.PresentConjugationDataContainer;
+import sarf.SystemConstants;
+import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
 
-import sarf.*;
-import sarf.verb.quadriliteral.unaugmented.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf</p>
@@ -29,9 +31,10 @@ public class PassivePresentConjugator {
 
     /**
      * إنشاء الفعل المضارع بغض النظر عن حالته الإعرابية
-     * @param pronounIndex int
-     * @param root UnaugmentedQuadrilateralRoot
-     * @param lastDprList List
+     *
+     * @param pronounIndex         int
+     * @param root                 UnaugmentedQuadrilateralRoot
+     * @param lastDprList          List
      * @param connectedPronounList List
      * @return PassivePresentVerb
      */
@@ -41,7 +44,7 @@ public class PassivePresentConjugator {
             return null;
         }
 
-        String cp = PresentConjugationDataContainer.getInstance().getCp(pronounIndex);
+        String cp = PresentConjugationDataContainer.getCp(pronounIndex);
         String lastDpr = (String) lastDprList.get(pronounIndex);
         String connectedPronoun = (String) connectedPronounList.get(pronounIndex);
         return new PassivePresentVerb(root, cp, lastDpr, connectedPronoun);
@@ -50,106 +53,108 @@ public class PassivePresentConjugator {
 
     /**
      * إنشاء الفعل المضارع في حالة الرفع
+     *
      * @param pronounIndex int
-     * @param root QuadriliteralVerb
+     * @param root         QuadrilateralVerb
      * @return PresentConjugation
      */
     public PassivePresentVerb createNominativeVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
-        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getNominativeLastDprList(), PresentConjugationDataContainer.getInstance().getNominativeConnectedPronounList());
+        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getNominativeLastDprList(), PresentConjugationDataContainer.getNominativeConnectedPronounList());
     }
 
 
     /**
      * إنشاء الفعل المضارع في حالة النصب
+     *
      * @param pronounIndex int
-     * @param root QuadriliteralVerb
+     * @param root         QuadrilateralVerb
      * @return PresentConjugation
      */
     public PassivePresentVerb createAccusativeVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
-        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getAccusativeLastDprList(), PresentConjugationDataContainer.getInstance().getAccusativeConnectedPronounList());
+        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getAccusativeLastDprList(), PresentConjugationDataContainer.getAccusativeConnectedPronounList());
     }
 
 
     /**
      * إنشاء الفعل المضارع في حالة الجزم
+     *
      * @param pronounIndex int
-     * @param root QuadriliteralVerb
+     * @param root         QuadrilateralVerb
      * @return PresentConjugation
      */
     public PassivePresentVerb createJussiveVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
-        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getJussiveLastDprList(), PresentConjugationDataContainer.getInstance().getJussiveConnectedPronounList());
+        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getJussiveLastDprList(), PresentConjugationDataContainer.getJussiveConnectedPronounList());
     }
 
 
     /**
      * إنشاء الفعل المضارع في حالة التأكيد
+     *
      * @param pronounIndex int
-     * @param root QuadriliteralVerb
+     * @param root         QuadrilateralVerb
      * @return PresentConjugation
      */
     public PassivePresentVerb createEmphasizedVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
-        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getInstance().getEmphasizedLastDprList(), PresentConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList());
+        return createVerb(pronounIndex, root, PresentConjugationDataContainer.getEmphasizedLastDprList(), PresentConjugationDataContainer.getEmphasizedConnectedPronounList());
     }
 
     /**
      * إنشاء قائمة تحتوي الأفعال حسب الضمائر
      * في حالة الرفع
+     *
      * @param root TripleVerb
      * @return List
      */
-    public List createNominativeVerbList(UnaugmentedQuadrilateralRoot root) {
-        List result = new LinkedList();
-        for (int i = 0; i < 13; i++) {
+    public List<PassivePresentVerb> createNominativeVerbList(UnaugmentedQuadrilateralRoot root) {
+        var result = new ArrayList<PassivePresentVerb>();
+        for (int i = 0; i < SystemConstants.PRONOUN_RANGE_END; i++) {
             result.add(createNominativeVerb(i, root));
         }
-
         return result;
     }
 
     /**
      * إنشاء قائمة تحتوي الأفعال حسب الضمائر
      * في حالة النصب
+     *
      * @param root TripleVerb
      * @return List
      */
-    public List createAccusativeVerbList(UnaugmentedQuadrilateralRoot root) {
-        List result = new LinkedList();
-        for (int i = 0; i < 13; i++) {
+    public List<PassivePresentVerb> createAccusativeVerbList(UnaugmentedQuadrilateralRoot root) {
+        var result = new ArrayList<PassivePresentVerb>();
+        for (int i = 0; i < SystemConstants.PRONOUN_RANGE_END; i++) {
             result.add(createAccusativeVerb(i, root));
         }
-
         return result;
     }
 
     /**
      * إنشاء قائمة تحتوي الأفعال حسب الضمائر
      * في حالة الجزم
+     *
      * @param root TripleVerb
      * @return List
      */
-    public List createJussiveVerbList(UnaugmentedQuadrilateralRoot root) {
-        List result = new LinkedList();
-        for (int i = 0; i < 13; i++) {
+    public List<PassivePresentVerb> createJussiveVerbList(UnaugmentedQuadrilateralRoot root) {
+        var result = new ArrayList<PassivePresentVerb>();
+        for (int i = 0; i < SystemConstants.PRONOUN_RANGE_END; i++) {
             result.add(createJussiveVerb(i, root));
         }
-
         return result;
     }
-
 
     /**
      * إنشاء قائمة تحتوي الأفعال حسب الضمائر
      * في حالة التأكيد
+     *
      * @param root TripleVerb
      * @return List
      */
-    public List createEmphasizedVerbList(UnaugmentedQuadrilateralRoot root) {
-        List result = new LinkedList();
-        for (int i = 0; i < 13; i++) {
+    public List<PassivePresentVerb> createEmphasizedVerbList(UnaugmentedQuadrilateralRoot root) {
+        var result = new ArrayList<PassivePresentVerb>();
+        for (int i = 0; i < SystemConstants.PRONOUN_RANGE_END; i++) {
             result.add(createEmphasizedVerb(i, root));
         }
-
         return result;
     }
-
 }

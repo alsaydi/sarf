@@ -8,7 +8,8 @@ import sarf.kov.KovRulesManager;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
 import sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator;
-import sarf.verb.trilateral.augmented.active.present.AugmentedPresentConjugator;
+import sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugator;
+import sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugatorFactory;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class TrilateralAugmentedHelper {
             , AugmentedActivePastConjugator augmentedActivePastConjugator
             , AugmentedTrilateralModifier augmentedTrilateralModifier
             , AugmentedActivePresentConjugator augmentedActivePresentConjugator
-    ) {
+            ) {
 
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
@@ -67,8 +68,27 @@ public class TrilateralAugmentedHelper {
                 return;
             }
             for (var formula : augmentedRoot.getAugmentationList()) {
-                var verbs = augmentedActivePresentConjugator.getNominativeConjugator().createVerbList(augmentedRoot, formula.getFormulaNo());
+                var verbs = augmentedActivePresentConjugator.getEmphasizedConjugator().createVerbList(augmentedRoot, formula.getFormulaNo());
                 var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, formula.getFormulaNo(), verbs, SystemConstants.PRESENT_TENSE
+                        , true, () -> true);
+                printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(), formula);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void printImperativeAugmentedVerbs(String rootLetters) {
+        try {
+            var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
+            var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+            if(augmentedRoot == null || augmentedRoot.getAugmentationList() == null || augmentedRoot.getAugmentationList().isEmpty()){
+                //System.err.println("No root or formulas for " + rootLetters);
+                return;
+            }
+            for (var formula : augmentedRoot.getAugmentationList()) {
+                var verbs = AugmentedImperativeConjugatorFactory.getInstance().getEmphasizedConjugator().createVerbList(augmentedRoot, formula.getFormulaNo());
+                var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, formula.getFormulaNo(), verbs, SystemConstants.EMPHASIZED_IMPERATIVE_TENSE
                         , true, () -> true);
                 printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(), formula);
             }

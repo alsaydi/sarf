@@ -11,15 +11,9 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 class PresentConjugationDataContainerTest {
 
-    PresentConjugationDataContainer sut = PresentConjugationDataContainer.getInstance();
-    @Test
-    void getInstance_returnsInstance() throws Exception{
-         assertNotNull(PresentConjugationDataContainer.getInstance());
-    }
-
     @Test
     void getNominativeLastDprList_returnsNominativeLastDrpList() throws Exception{
-        List<String> actual = sut.getNominativeLastDprList();
+        List<String> actual = PresentConjugationDataContainer.getNominativeLastDprList();
 
         assertNotNull(actual);
         assertEquals(13, actual.size());
@@ -27,7 +21,7 @@ class PresentConjugationDataContainerTest {
 
     @Test
     void getNominativeConnectedPronounList_returnsList() throws Exception{
-        List<String> actual = sut.getNominativeConnectedPronounList();
+        List<String> actual = PresentConjugationDataContainer.getNominativeConnectedPronounList();
 
         assertNotNull(actual);
         assertEquals(13, actual.size());
@@ -35,7 +29,7 @@ class PresentConjugationDataContainerTest {
 
     @Test
     void getEmphasizedLastDprList_returnsList() throws Exception{
-        List<String> actual = sut.getEmphasizedLastDprList();
+        List<String> actual = PresentConjugationDataContainer.getEmphasizedLastDprList();
 
         assertNotNull(actual);
         assertEquals(13, actual.size());
@@ -43,7 +37,7 @@ class PresentConjugationDataContainerTest {
 
     @Test
     void getEmphasizedConnectedPronounList_returnsList() throws Exception{
-        List<String> actual = sut.getEmphasizedConnectedPronounList();
+        List<String> actual = PresentConjugationDataContainer.getEmphasizedConnectedPronounList();
 
         assertNotNull(actual);
         assertEquals(13, actual.size());
@@ -51,7 +45,7 @@ class PresentConjugationDataContainerTest {
 
     @Test
     void getJussiveLastDprList_returnsList() throws Exception{
-        List<String> actual = sut.getJussiveLastDprList();
+        List<String> actual = PresentConjugationDataContainer.getJussiveLastDprList();
 
         assertNotNull(actual);
         assertEquals(13, actual.size());
@@ -59,7 +53,7 @@ class PresentConjugationDataContainerTest {
 
     @Test
     void getJussiveConnectedPronounList_returnsList() throws Exception{
-        List<String> actual = sut.getJussiveConnectedPronounList();
+        List<String> actual = PresentConjugationDataContainer.getJussiveConnectedPronounList();
 
         assertNotNull(actual);
         assertEquals(13, actual.size());
@@ -67,7 +61,7 @@ class PresentConjugationDataContainerTest {
 
     @Test
     void getAccusativeLastDprList_returnsList() throws Exception{
-        List<String> actual = sut.getAccusativeLastDprList();
+        List<String> actual = PresentConjugationDataContainer.getAccusativeLastDprList();
 
         assertNotNull(actual);
         assertEquals(13, actual.size());
@@ -75,7 +69,7 @@ class PresentConjugationDataContainerTest {
 
     @Test
     void getAccusativeConnectedPronounList_returnsList() throws Exception{
-        List<String> actual = sut.getAccusativeConnectedPronounList();
+        List<String> actual = PresentConjugationDataContainer.getAccusativeConnectedPronounList();
 
         assertNotNull(actual);
         assertEquals(13, actual.size());
@@ -93,26 +87,26 @@ class PresentConjugationDataContainerTest {
 
     @Test
     void pronounIndex_getCp_returnsPresentLetter() throws Exception{
-        assertEquals("أ", sut.getCp(0));
-        assertEquals("ن", sut.getCp(1));
-        assertEquals("ت", sut.getCp(2));
-        assertEquals("ت", sut.getCp(3));
-        assertEquals("ت", sut.getCp(4));
-        assertEquals("ت", sut.getCp(5));
-        assertEquals("ت", sut.getCp(6));
-        assertEquals("ي", sut.getCp(7));
-        assertEquals("ت", sut.getCp(8));
-        assertEquals("ي", sut.getCp(9));
-        assertEquals("ت", sut.getCp(10));
-        assertEquals("ي", sut.getCp(11));
-        assertEquals("ي", sut.getCp(12));
+        assertEquals("أ", PresentConjugationDataContainer.getCp(0));
+        assertEquals("ن", PresentConjugationDataContainer.getCp(1));
+        assertEquals("ت", PresentConjugationDataContainer.getCp(2));
+        assertEquals("ت", PresentConjugationDataContainer.getCp(3));
+        assertEquals("ت", PresentConjugationDataContainer.getCp(4));
+        assertEquals("ت", PresentConjugationDataContainer.getCp(5));
+        assertEquals("ت", PresentConjugationDataContainer.getCp(6));
+        assertEquals("ي", PresentConjugationDataContainer.getCp(7));
+        assertEquals("ت", PresentConjugationDataContainer.getCp(8));
+        assertEquals("ي", PresentConjugationDataContainer.getCp(9));
+        assertEquals("ت", PresentConjugationDataContainer.getCp(10));
+        assertEquals("ي", PresentConjugationDataContainer.getCp(11));
+        assertEquals("ي", PresentConjugationDataContainer.getCp(12));
     }
 
     void تأكد_من_حركة_عين_الفعل(Conjugation باب_الصرف, String المتوقع){
         UnaugmentedTrilateralRoot root = new UnaugmentedTrilateralRoot();
         root.setConjugation(باب_الصرف);
 
-        String actual = sut.getDpr2(root);
+        String actual = PresentConjugationDataContainer.getDpr2(root);
 
         assertEquals(المتوقع, actual);
     }

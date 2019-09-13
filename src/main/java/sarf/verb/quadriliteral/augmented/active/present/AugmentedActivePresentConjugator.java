@@ -7,14 +7,14 @@ public class AugmentedActivePresentConjugator {
 
     private static final AugmentedActivePresentConjugator instance = new AugmentedActivePresentConjugator();
 
-    private final QuadriAugmentedPresentConjugator nominativeConjugator = new QuadriAugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getNominativeLastDprList(),
-            PresentConjugationDataContainer.getInstance().getNominativeConnectedPronounList());
-    private final QuadriAugmentedPresentConjugator accusativeConjugator = new QuadriAugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getAccusativeLastDprList(),
-            PresentConjugationDataContainer.getInstance().getAccusativeConnectedPronounList());
-    private final QuadriAugmentedPresentConjugator jussiveConjugator = new QuadriAugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getJussiveLastDprList(),
-            PresentConjugationDataContainer.getInstance().getJussiveConnectedPronounList());
-    private final QuadriAugmentedPresentConjugator emphasizedConjugator = new QuadriAugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getEmphasizedLastDprList(),
-            PresentConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList());
+    private final QuadriAugmentedPresentConjugator nominativeConjugator = new QuadriAugmentedPresentConjugator(PresentConjugationDataContainer.getNominativeLastDprList(),
+            PresentConjugationDataContainer.getNominativeConnectedPronounList());
+    private final QuadriAugmentedPresentConjugator accusativeConjugator = new QuadriAugmentedPresentConjugator(PresentConjugationDataContainer.getAccusativeLastDprList(),
+            PresentConjugationDataContainer.getAccusativeConnectedPronounList());
+    private final QuadriAugmentedPresentConjugator jussiveConjugator = new QuadriAugmentedPresentConjugator(PresentConjugationDataContainer.getJussiveLastDprList(),
+            PresentConjugationDataContainer.getJussiveConnectedPronounList());
+    private final QuadriAugmentedPresentConjugator emphasizedConjugator = new QuadriAugmentedPresentConjugator(PresentConjugationDataContainer.getEmphasizedLastDprList(),
+            PresentConjugationDataContainer.getEmphasizedConnectedPronounList());
 
     public static AugmentedActivePresentConjugator getInstance() {
         return instance;
