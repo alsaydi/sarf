@@ -4,6 +4,7 @@ import sarf.util.ArabCharUtil;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -43,35 +44,35 @@ public final class PresentConjugationDataContainer {
     private static final List<String> emphasizedConnectedPronounList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
 
     public static List<String> getNominativeLastDprList() {
-        return nominativeLastDprList;
+        return Collections.unmodifiableList(nominativeLastDprList);
     }
 
     public static List<String> getNominativeConnectedPronounList() {
-        return nominativeConnectedPronounList;
+        return Collections.unmodifiableList(nominativeConnectedPronounList);
     }
 
     public static List<String> getEmphasizedLastDprList() {
-        return emphasizedLastDprList;
+        return Collections.unmodifiableList(emphasizedLastDprList);
     }
 
     public static List<String> getEmphasizedConnectedPronounList() {
-        return emphasizedConnectedPronounList;
+        return Collections.unmodifiableList(emphasizedConnectedPronounList);
     }
 
     public static List<String> getJussiveLastDprList() {
-        return jussiveLastDprList;
+        return Collections.unmodifiableList(jussiveLastDprList);
     }
 
     public static List<String> getJussiveConnectedPronounList() {
-        return jussiveConnectedPronounList;
+        return Collections.unmodifiableList(jussiveConnectedPronounList);
     }
 
     public static List<String> getAccusativeLastDprList() {
-        return accusativeLastDprList;
+        return Collections.unmodifiableList(accusativeLastDprList);
     }
 
     public static List<String> getAccusativeConnectedPronounList() {
-        return accusativeConnectedPronounList;
+        return Collections.unmodifiableList(accusativeConnectedPronounList);
     }
 
     static {
