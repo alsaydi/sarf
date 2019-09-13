@@ -14,8 +14,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 class AugmentedImperativeConjugatorTest {
 
     private static Stream<Arguments> getCreateVerbListArguments() {
-        var notEmphasizedConjugator = AugmentedImperativeConjugatorFactory.getInstance().getNotEmphasizedConjugator();
-        var emphasizedConjugator = AugmentedImperativeConjugatorFactory.getInstance().getEmphasizedConjugator();
+        var notEmphasizedConjugator = new AugmentedImperativeConjugatorFactory().getNotEmphasizedConjugator();
+        var emphasizedConjugator = new AugmentedImperativeConjugatorFactory().getEmphasizedConjugator();
         return Stream.of(
                 Arguments.of(notEmphasizedConjugator, 1, AugmentedImperativeVerb1.class),
                 Arguments.of(notEmphasizedConjugator, 2, AugmentedImperativeVerb2.class),

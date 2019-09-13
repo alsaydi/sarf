@@ -42,6 +42,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
     private final ActivePastConjugator activePastConjugator;
     private final AugmentedTrilateralModifier augmentedTrilateralModifier;
     private final AugmentedActivePresentConjugator augmentedActivePresentConjugator;
+    private final AugmentedImperativeConjugatorFactory augmentedImperativeConjugatorFactory;
     private SelectionInfo selectionInfo;
 
     private final ToggleRenderedButton pastBtn = new ToggleRenderedButton("الماضي");
@@ -58,7 +59,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
     public ActiveVerbSelectionUI(IMainControlPanel controlPaneContainer
             , ActivePastConjugator activePastConjugator
             , AugmentedTrilateralModifier augmentedTrilateralModifier
-            , AugmentedActivePresentConjugator augmentedActivePresentConjugator, AugmentedActivePastConjugator augmentedActivePastConjugator
+            , AugmentedActivePresentConjugator augmentedActivePresentConjugator, AugmentedImperativeConjugatorFactory augmentedImperativeConjugatorFactory, AugmentedActivePastConjugator augmentedActivePastConjugator
             , QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator
             , QuadriActivePastConjugator quadriActivePastConjugator) {
         super(new BorderLayout());
@@ -66,6 +67,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
         this.activePastConjugator = activePastConjugator;
         this.augmentedTrilateralModifier = augmentedTrilateralModifier;
         this.augmentedActivePresentConjugator = augmentedActivePresentConjugator;
+        this.augmentedImperativeConjugatorFactory = augmentedImperativeConjugatorFactory;
         this.augmentedActivePastConjugator = augmentedActivePastConjugator;
         this.quadrilateralAugmentedActivePastConjugator = quadrilateralAugmentedActivePastConjugator;
         this.quadriActivePastConjugator = quadriActivePastConjugator;
@@ -255,7 +257,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
             List result = null;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
-                    result = AugmentedImperativeConjugatorFactory.getInstance().getNotEmphasizedConjugator().createVerbList((
+                    result = this.augmentedImperativeConjugatorFactory.getNotEmphasizedConjugator().createVerbList((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true, ActiveVerbSelectionUI.this);
@@ -324,7 +326,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
             List result = null;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
-                    result = AugmentedImperativeConjugatorFactory.getInstance().getEmphasizedConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    result = augmentedImperativeConjugatorFactory.getEmphasizedConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true, ActiveVerbSelectionUI.this);
                     result = conjResult.getFinalResult();

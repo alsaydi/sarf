@@ -8,7 +8,6 @@ import sarf.kov.KovRulesManager;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
 import sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator;
-import sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugator;
 import sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugatorFactory;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 
@@ -20,6 +19,7 @@ public class TrilateralAugmentedHelper {
     private final AugmentedTrilateralModifier augmentedTrilateralModifier;
     private final AugmentedActivePresentConjugator augmentedActivePresentConjugator;
     private final KovRulesManager kovRulesManager;
+    private final AugmentedImperativeConjugatorFactory augmentedImperativeConjugatorFactory;
 
     @Inject
     public TrilateralAugmentedHelper(SarfDictionary sarfDictionary
@@ -27,13 +27,14 @@ public class TrilateralAugmentedHelper {
             , AugmentedActivePastConjugator augmentedActivePastConjugator
             , AugmentedTrilateralModifier augmentedTrilateralModifier
             , AugmentedActivePresentConjugator augmentedActivePresentConjugator
-            ) {
+            , AugmentedImperativeConjugatorFactory augmentedImperativeConjugatorFactory) {
 
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
         this.augmentedActivePastConjugator = augmentedActivePastConjugator;
         this.augmentedTrilateralModifier = augmentedTrilateralModifier;
         this.augmentedActivePresentConjugator = augmentedActivePresentConjugator;
+        this.augmentedImperativeConjugatorFactory = augmentedImperativeConjugatorFactory;
     }
 
     public void printPastActiveAugmentedVerbs(String rootLetters) {
@@ -87,7 +88,7 @@ public class TrilateralAugmentedHelper {
                 return;
             }
             for (var formula : augmentedRoot.getAugmentationList()) {
-                var verbs = AugmentedImperativeConjugatorFactory.getInstance().getEmphasizedConjugator().createVerbList(augmentedRoot, formula.getFormulaNo());
+                var verbs = augmentedImperativeConjugatorFactory.getEmphasizedConjugator().createVerbList(augmentedRoot, formula.getFormulaNo());
                 var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, formula.getFormulaNo(), verbs, SystemConstants.EMPHASIZED_IMPERATIVE_TENSE
                         , true, () -> true);
                 printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(), formula);
