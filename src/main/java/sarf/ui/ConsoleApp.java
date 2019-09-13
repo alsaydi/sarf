@@ -135,7 +135,10 @@ public class ConsoleApp {
                 , "دهم"
                 , "بلج"
                 , "قبل"
-                , "ءيس"
+                , "ءيس", "صبر", "نتء", "ختو"
+                , "نءي", "دخر", "ملح", "شءم","يقظ"
+                , "ءسو", "ءسي", "ءضض"
+                , "حوي" , "حيي"
         };
 
         var rootsFound = 0;
@@ -179,8 +182,8 @@ public class ConsoleApp {
 //            trilateralUnaugmentedHelper.printTrilateralTree(root, kov);
 //        }
 
-        augmentedTrilateralHelper.printPastActiveAugmentedVerbs(rootText);
-
+        //augmentedTrilateralHelper.printPastActiveAugmentedVerbs(rootText);
+        augmentedTrilateralHelper.printPresentActiveAugmentedVerbs(rootText);
     }
 
     private static void displayErrorMessage(String message) {

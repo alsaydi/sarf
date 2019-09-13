@@ -49,7 +49,7 @@ public class TrilateralAugmentedHelper {
             for (var formula : augmentationFormulas) {
                 var verbs = augmentedActivePastConjugator.createVerbList(augmentedRoot, formula.getFormulaNo());
                 var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, formula.getFormulaNo(), verbs, SystemConstants.PAST_TENSE
-                        , true, () -> false);
+                        , true, () -> true);
 
                 printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(),formula);
             }
@@ -62,10 +62,14 @@ public class TrilateralAugmentedHelper {
         try {
             var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
             var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+            if(augmentedRoot == null || augmentedRoot.getAugmentationList() == null || augmentedRoot.getAugmentationList().isEmpty()){
+                //System.err.println("No root or formulas for " + rootLetters);
+                return;
+            }
             for (var formula : augmentedRoot.getAugmentationList()) {
                 var verbs = augmentedActivePresentConjugator.getNominativeConjugator().createVerbList(augmentedRoot, formula.getFormulaNo());
                 var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, formula.getFormulaNo(), verbs, SystemConstants.PRESENT_TENSE
-                        , true, () -> false);
+                        , true, () -> true);
                 printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(), formula);
             }
         } catch (Exception e) {
