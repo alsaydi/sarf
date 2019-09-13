@@ -27,13 +27,13 @@ public class UnaugmentedImperativeConjugator {
     /**
      * إنشاء صيغة الفعل الأمر غير المؤكد
      * @param pronounIndex int
-     * @param root QuadriliteralVerb
+     * @param root QuadrilateralVerb
      * @return PresentConjugation
      */
     public ImperativeVerb createVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
-        String lastDim = ImperativeConjugationDataContainer.getInstance().getLastDim(pronounIndex);
-        String connectedPronoun = ImperativeConjugationDataContainer.getInstance().getConnectedPronoun(pronounIndex);
-        if (lastDim == "" && connectedPronoun == "") return null;
+        String lastDim = ImperativeConjugationDataContainer.getLastDim(pronounIndex);
+        String connectedPronoun = ImperativeConjugationDataContainer.getConnectedPronoun(pronounIndex);
+        if (lastDim.equals("") && connectedPronoun.equals("")) return null;
 
         return new ImperativeVerb(root, lastDim, connectedPronoun);
     }
@@ -41,18 +41,16 @@ public class UnaugmentedImperativeConjugator {
     /**
      * إنشاء صيغة الفعل الأمر  المؤكد
      * @param pronounIndex int
-     * @param root QuadriliteralVerb
+     * @param root QuadrilateralVerb
      * @return PresentConjugation
      */
-    public ImperativeVerb createEmphasizedVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
-        String lastDim = ImperativeConjugationDataContainer.getInstance().getEmphasizedLastDim(pronounIndex);
-        String connectedPronoun = ImperativeConjugationDataContainer.getInstance().getEmphasizedConnectedPronoun(pronounIndex);
-        if (lastDim == "" && connectedPronoun == "") return null;
+    private ImperativeVerb createEmphasizedVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
+        String lastDim = ImperativeConjugationDataContainer.getEmphasizedLastDim(pronounIndex);
+        String connectedPronoun = ImperativeConjugationDataContainer.getEmphasizedConnectedPronoun(pronounIndex);
+        if (lastDim.equals("") && connectedPronoun.equals("")) return null;
 
         return new ImperativeVerb(root, lastDim, connectedPronoun);
     }
-
-
 
     /**
      * إنشاء قائمة تحتوي على صيغ تصريف الفعل حسب الضمائر
@@ -60,13 +58,12 @@ public class UnaugmentedImperativeConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createVerbList(UnaugmentedQuadrilateralRoot root) {
-        List result = new LinkedList();
-        for (int i = 0; i < 13; i++) {
+    public List<ImperativeVerb> createVerbList(UnaugmentedQuadrilateralRoot root) {
+        var result = new ArrayList<ImperativeVerb>();
+        for (int i = 0; i < SystemConstants.PRONOUN_RANGE_END; i++) {
             ImperativeVerb conj = createVerb(i, root);
             result.add(conj);
         }
-
         return result;
     }
 
@@ -76,15 +73,12 @@ public class UnaugmentedImperativeConjugator {
     * @param root TripleVerb
     * @return List
     */
-   public List createEmphasizedVerbList(UnaugmentedQuadrilateralRoot root) {
-       List result = new LinkedList();
-       for (int i = 0; i < 13; i++) {
+   public List<ImperativeVerb> createEmphasizedVerbList(UnaugmentedQuadrilateralRoot root) {
+       var result = new ArrayList<ImperativeVerb>();
+       for (int i = 0; i < SystemConstants.PRONOUN_RANGE_END; i++) {
            ImperativeVerb conj = createEmphasizedVerb(i, root);
            result.add(conj);
        }
-
        return result;
    }
-
-
 }

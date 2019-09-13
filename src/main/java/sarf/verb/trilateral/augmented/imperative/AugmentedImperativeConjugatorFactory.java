@@ -10,8 +10,8 @@ import sarf.ImperativeConjugationDataContainer;
 public final class AugmentedImperativeConjugatorFactory {
     public AugmentedImperativeConjugatorFactory() {}
 
-    private final AugmentedImperativeConjugator notEmphasizedConjugator = new AugmentedImperativeConjugator(ImperativeConjugationDataContainer.getInstance().getLastDimList(), ImperativeConjugationDataContainer.getInstance().getConnectedPronounList());
-    private final AugmentedImperativeConjugator emphasizedConjugator = new AugmentedImperativeConjugator(ImperativeConjugationDataContainer.getInstance().getEmphasizedLastDimList(), ImperativeConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList());
+    private final AugmentedImperativeConjugator notEmphasizedConjugator = new AugmentedImperativeConjugator(ImperativeConjugationDataContainer.getLastDimList(), ImperativeConjugationDataContainer.getConnectedPronounList());
+    private final AugmentedImperativeConjugator emphasizedConjugator = new AugmentedImperativeConjugator(ImperativeConjugationDataContainer.getEmphasizedLastDimList(), ImperativeConjugationDataContainer.getEmphasizedConnectedPronounList());
 
     public AugmentedImperativeConjugator getEmphasizedConjugator() {
         return emphasizedConjugator;

@@ -6,23 +6,18 @@ import org.junit.jupiter.api.Test;
 public class ImperativeConjugationDataContainerTest {
 
 	@Test
-	void getInstanceReturnsInstance() throws Exception {
-		assertNotNull(ImperativeConjugationDataContainer.getInstance());
-	}
-	
-	@Test
 	void getEmphasizedConnectedPronounList_returnsList() throws Exception {
-		assertNotNull(ImperativeConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList());
-		assertEquals(13, ImperativeConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList().size());
-		assertTrue(ImperativeConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList().contains("نَّ"));
-		assertTrue(ImperativeConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList().contains("انِّ"));
-		assertTrue(ImperativeConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList().contains("نَانِّ"));
-		assertTrue(ImperativeConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList().contains(""));
+		assertNotNull(ImperativeConjugationDataContainer.getEmphasizedConnectedPronounList());
+		assertEquals(13, ImperativeConjugationDataContainer.getEmphasizedConnectedPronounList().size());
+		assertTrue(ImperativeConjugationDataContainer.getEmphasizedConnectedPronounList().contains("نَّ"));
+		assertTrue(ImperativeConjugationDataContainer.getEmphasizedConnectedPronounList().contains("انِّ"));
+		assertTrue(ImperativeConjugationDataContainer.getEmphasizedConnectedPronounList().contains("نَانِّ"));
+		assertTrue(ImperativeConjugationDataContainer.getEmphasizedConnectedPronounList().contains(""));
 	}
 	
 	@Test
 	void getLastDimList_returnsCorrectList() throws Exception {
-		assertNotNull(ImperativeConjugationDataContainer.getInstance().getLastDimList());
-		assertEquals(13, ImperativeConjugationDataContainer.getInstance().getLastDimList().size());
+		assertNotNull(ImperativeConjugationDataContainer.getLastDimList());
+		assertEquals(13, ImperativeConjugationDataContainer.getLastDimList().size());
 	}
 }

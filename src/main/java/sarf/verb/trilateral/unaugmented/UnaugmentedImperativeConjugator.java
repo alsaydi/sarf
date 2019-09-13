@@ -37,8 +37,8 @@ public class UnaugmentedImperativeConjugator {
      */
     public ImperativeVerb createVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
         String dpr2 = PresentConjugationDataContainer.getDpr2(root);
-        String lastDim = ImperativeConjugationDataContainer.getInstance().getLastDim(pronounIndex);
-        String connectedPronoun = ImperativeConjugationDataContainer.getInstance().getConnectedPronoun(pronounIndex);
+        String lastDim = ImperativeConjugationDataContainer.getLastDim(pronounIndex);
+        String connectedPronoun = ImperativeConjugationDataContainer.getConnectedPronoun(pronounIndex);
         if (lastDim.equals("") && connectedPronoun.equals("")) return null;
 
         return new ImperativeVerb(root, dpr2, lastDim, connectedPronoun);
@@ -53,8 +53,8 @@ public class UnaugmentedImperativeConjugator {
      */
     private ImperativeVerb createEmphasizedVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
         String dpr2 = PresentConjugationDataContainer.getDpr2(root);
-        String lastDim = ImperativeConjugationDataContainer.getInstance().getEmphasizedLastDim(pronounIndex);
-        String connectedPronoun = ImperativeConjugationDataContainer.getInstance().getEmphasizedConnectedPronoun(pronounIndex);
+        String lastDim = ImperativeConjugationDataContainer.getEmphasizedLastDim(pronounIndex);
+        String connectedPronoun = ImperativeConjugationDataContainer.getEmphasizedConnectedPronoun(pronounIndex);
         if (lastDim.equals("") && connectedPronoun.equals("")) return null;
 
         return new ImperativeVerb(root, dpr2, lastDim, connectedPronoun);

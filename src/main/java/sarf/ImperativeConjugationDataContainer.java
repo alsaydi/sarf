@@ -12,43 +12,37 @@ import sarf.util.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ImperativeConjugationDataContainer {
+public final class ImperativeConjugationDataContainer {
 
     //قائمة حركات عين الفعل حسب باب التصريف
     //الأمر غير المؤكد
-    private final List<String> lastDimList = new ArrayList<>(13);
+    private static final List<String> lastDimList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
     //الأمر المؤكد
-    private final List<String> emphasizedLastDimList = new ArrayList<>(13);
+    private static final List<String> emphasizedLastDimList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
 
     //قائمة ضمائر الرفع المتصلة
     //الأمر غير المؤكد
-    private final List<String> connectedPronounList = new ArrayList<>(13);
+    private static final List<String> connectedPronounList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
     //الأمر المؤكد
-    private final List<String> emphasizedConnectedPronounList = new ArrayList<>(13);
+    private static final List<String> emphasizedConnectedPronounList = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
 
-    private static final ImperativeConjugationDataContainer instance = new ImperativeConjugationDataContainer();
-
-    public static ImperativeConjugationDataContainer getInstance() {
-        return instance;
+    public static List<String> getEmphasizedConnectedPronounList() {
+        return Collections.unmodifiableList(emphasizedConnectedPronounList);
     }
 
-    public List<String> getEmphasizedConnectedPronounList() {
-        return emphasizedConnectedPronounList;
+    public static List<String> getEmphasizedLastDimList() {
+        return Collections.unmodifiableList(emphasizedLastDimList);
     }
 
-    public List<String> getEmphasizedLastDimList() {
-        return emphasizedLastDimList;
+    public static List<String> getConnectedPronounList() {
+        return Collections.unmodifiableList(connectedPronounList);
     }
 
-    public List<String> getConnectedPronounList() {
-        return connectedPronounList;
+    public static List<String> getLastDimList() {
+        return Collections.unmodifiableList(lastDimList);
     }
 
-    public List<String> getLastDimList() {
-        return lastDimList;
-    }
-
-    private ImperativeConjugationDataContainer() {
+    static {
         lastDimList.add("");
         lastDimList.add("");
         lastDimList.add(ArabCharUtil.SKOON);
@@ -112,7 +106,7 @@ public class ImperativeConjugationDataContainer {
      * @param pronounIndex int
      * @return String
      */
-    public String getLastDim(int pronounIndex) {
+    public static String getLastDim(int pronounIndex) {
         return (String) lastDimList.get(pronounIndex);
     }
 
@@ -122,8 +116,8 @@ public class ImperativeConjugationDataContainer {
      * @param pronounIndex int
      * @return String
      */
-    public String getEmphasizedLastDim(int pronounIndex) {
-        return (String) emphasizedLastDimList.get(pronounIndex);
+    public static String getEmphasizedLastDim(int pronounIndex) {
+        return emphasizedLastDimList.get(pronounIndex);
     }
 
     /**
@@ -132,8 +126,8 @@ public class ImperativeConjugationDataContainer {
      * @param pronounIndex int
      * @return String
      */
-    public String getConnectedPronoun(int pronounIndex) {
-        return (String) connectedPronounList.get(pronounIndex);
+    public static String getConnectedPronoun(int pronounIndex) {
+        return connectedPronounList.get(pronounIndex);
     }
 
     /**
@@ -142,7 +136,7 @@ public class ImperativeConjugationDataContainer {
      * @param pronounIndex int
      * @return String
      */
-    public String getEmphasizedConnectedPronoun(int pronounIndex) {
-        return (String) emphasizedConnectedPronounList.get(pronounIndex);
+    public static String getEmphasizedConnectedPronoun(int pronounIndex) {
+        return emphasizedConnectedPronounList.get(pronounIndex);
     }
 }
