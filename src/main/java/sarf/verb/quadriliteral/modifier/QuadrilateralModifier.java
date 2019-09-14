@@ -31,6 +31,7 @@ public class QuadrilateralModifier {
     private final Vocalizer vocalizer = new Vocalizer();
     private final InternalMahmouz internalMahmouz = new InternalMahmouz();
     private final EndedMahmouz endedMahmouz = new EndedMahmouz();
+    private final VerbLamAlefModifier verbLamAlefModifier = new VerbLamAlefModifier();
 
     public static QuadrilateralModifier getInstance() {
         return instance;
@@ -50,7 +51,7 @@ public class QuadrilateralModifier {
         vocalizer.apply(tense, active, conjResult);
         internalMahmouz.apply(tense, active, conjResult);
         endedMahmouz.apply(tense, active, conjResult);
-        VerbLamAlefModifier.getInstance().apply(conjResult);
+        verbLamAlefModifier.apply(conjResult);
         return conjResult;
     }
 

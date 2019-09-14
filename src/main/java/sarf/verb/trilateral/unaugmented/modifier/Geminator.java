@@ -46,5 +46,4 @@ public class Geminator {
         if (nGeminator.isApplied(conjResult))
             nGeminator.apply(tense, active, conjResult);
     }
-
 }

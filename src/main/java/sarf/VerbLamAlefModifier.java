@@ -18,21 +18,14 @@ import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class VerbLamAlefModifier extends SubstitutionsApplier{
+public final class VerbLamAlefModifier extends SubstitutionsApplier{
     private final List<Substitution> substitutions = new LinkedList<>();
 
-    private VerbLamAlefModifier() {
-
+    public VerbLamAlefModifier() {
         substitutions.add(new InfixSubstitution("لَا","لا"));// EX: (قالا)
         substitutions.add(new InfixSubstitution("لَّا","لاَّ"));// EX: (انْشَلاَّ)
         substitutions.add(new InfixSubstitution("لَأ","لأ"));// EX: (مَلأَ، مَلأْتُ)
         substitutions.add(new InfixSubstitution("لًا","لاً"));// EX: (حملاً)
-    }
-
-    private static final VerbLamAlefModifier instance = new VerbLamAlefModifier();
-
-    public static VerbLamAlefModifier getInstance() {
-        return instance;
     }
 
     public void apply(sarf.verb.trilateral.unaugmented.ConjugationResult conjResult) {

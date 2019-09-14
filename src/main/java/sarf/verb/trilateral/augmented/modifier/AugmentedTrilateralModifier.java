@@ -24,10 +24,12 @@ import sarf.verb.trilateral.augmented.modifier.vocalizer.*;
  */
 public class AugmentedTrilateralModifier {
     private final FormulaApplyingChecker formulaApplyingChecker;
+    private final VerbLamAlefModifier verbLamAlefModifier;
 
     @Inject
-    public AugmentedTrilateralModifier(FormulaApplyingChecker formulaApplyingChecker) {
+    public AugmentedTrilateralModifier(FormulaApplyingChecker formulaApplyingChecker, VerbLamAlefModifier verbLamAlefModifier) {
         this.formulaApplyingChecker = formulaApplyingChecker;
+        this.verbLamAlefModifier = verbLamAlefModifier;
     }
     //الابدال
     private final Substituter substituter = new Substituter();
@@ -71,7 +73,7 @@ public class AugmentedTrilateralModifier {
         }
 
         hamzaModifier.apply(tense, active, conjResult);
-        VerbLamAlefModifier.getInstance().apply(conjResult);
+        verbLamAlefModifier.apply(conjResult);
         return conjResult;
     }
 
