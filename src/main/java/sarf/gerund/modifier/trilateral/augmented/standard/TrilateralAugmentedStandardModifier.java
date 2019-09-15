@@ -48,7 +48,7 @@ public class TrilateralAugmentedStandardModifier {
         this.nounSunLamModifier = nounSunLamModifier;
     }
 
-    public TriAugmentedConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List<String> conjugations, AugmentedTrilateralModifierListener listener) {
+    public TriAugmentedConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List conjugations, AugmentedTrilateralModifierListener listener) {
         TriAugmentedConjugationResult conjResult = new TriAugmentedConjugationResult<>(kov, formulaNo, root, conjugations);
         substituter.apply(conjResult);
         geminator.apply(conjResult);

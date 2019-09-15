@@ -5,6 +5,8 @@ import com.google.inject.Inject;
 import sarf.*;
 import sarf.kov.KovRulesManager;
 import sarf.kov.TrilateralKovRule;
+import sarf.ui.testhelpers.QuadrilateralAugmentedHelper;
+import sarf.ui.testhelpers.QuadrilateralUnaugmentedHelper;
 import sarf.ui.testhelpers.TrilateralAugmentedHelper;
 import sarf.ui.testhelpers.TrilateralUnaugmentedHelper;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
@@ -22,16 +24,20 @@ public class ConsoleApp {
     private final KovRulesManager kovRulesManager;
     private final TrilateralUnaugmentedHelper trilateralUnaugmentedHelper;
     private final TrilateralAugmentedHelper augmentedTrilateralHelper;
+    private final QuadrilateralUnaugmentedHelper quadrilateralUnaugmentedHelper;
+    private final QuadrilateralAugmentedHelper quadrilateralAugmentedHelper;
 
     @Inject
     public ConsoleApp(SarfDictionary sarfDictionary
             , KovRulesManager kovRulesManager
             , TrilateralUnaugmentedHelper trilateralUnaugmentedHelper
-            , TrilateralAugmentedHelper augmentedTrilateralHelper) {
+            , TrilateralAugmentedHelper augmentedTrilateralHelper, QuadrilateralUnaugmentedHelper quadrilateralUnaugmentedHelper, QuadrilateralAugmentedHelper quadrilateralAugmentedHelper) {
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
         this.trilateralUnaugmentedHelper = trilateralUnaugmentedHelper;
         this.augmentedTrilateralHelper = augmentedTrilateralHelper;
+        this.quadrilateralUnaugmentedHelper = quadrilateralUnaugmentedHelper;
+        this.quadrilateralAugmentedHelper = quadrilateralAugmentedHelper;
     }
 
     public static void main(String[] args) {
@@ -47,6 +53,8 @@ public class ConsoleApp {
     }
 
     private void processQuadrilateral(String root) {
+        quadrilateralUnaugmentedHelper.printPastActive(root);
+        //quadrilateralAugmentedHelper.printPastActive(root);
     }
 
     private void run() throws Exception {
@@ -145,10 +153,23 @@ public class ConsoleApp {
                 , "ركض"
                 , "يبس"
                 , "حدي"
+                , "نسي"
+                , "هيء"
+        };
+
+        var qroots = new String[]{
+                "دحرج"
+                ,"بءدل"
+                ,"بلور"
+                ,"تلفن"
+                ,"تنتن"
+                ,"جءجء","حوقل","حيحي"
+                ,"دحرج","رهيء","زلزل","سبرت","سيطر","شريف"
+                ,"ضوضي","طمءن","غرقء","قلسي","وءوء","وسوس","يءيء","يرنء","يهيه"
         };
 
         var rootsFound = 0;
-        for (var root : Stream.concat(Arrays.stream(augmentedRoots), Arrays.stream(augmentedRoots)).distinct().collect(Collectors.toList())) {
+        for (var root : Stream.concat(Arrays.stream(qroots), Arrays.stream(qroots)).distinct().collect(Collectors.toList())) {
             //System.out.println(root);
             if (root.length() == 3) {
                 if (processTrilateral(root)) {
@@ -190,7 +211,15 @@ public class ConsoleApp {
 
         //augmentedTrilateralHelper.printPastActiveAugmentedVerbs(rootText);
         //augmentedTrilateralHelper.printPresentActiveAugmentedVerbs(rootText);
-        augmentedTrilateralHelper.printImperativeAugmentedVerbs(rootText);
+        //augmentedTrilateralHelper.printImperativeAugmentedVerbs(rootText);
+        //augmentedTrilateralHelper.printPassivePast(rootText);
+        //augmentedTrilateralHelper.printPassivePresent(rootText);
+        //augmentedTrilateralHelper.printActiveParticiple(rootText);
+        //augmentedTrilateralHelper.printPassiveParticiple(rootText);
+        //augmentedTrilateralHelper.printTimeAndPlace(rootText);
+        //augmentedTrilateralHelper.printGerund(rootText);
+        //augmentedTrilateralHelper.printNomenGerund(rootText);
+        augmentedTrilateralHelper.printMeemGerund(rootText);
     }
 
     private static void displayErrorMessage(String message) {

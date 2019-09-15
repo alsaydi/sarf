@@ -1,6 +1,7 @@
 package sarf.verb.quadriliteral.augmented;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import sarf.*;
 import sarf.verb.quadriliteral.*;
@@ -32,8 +33,8 @@ public final class AugmentedQuadrilateralRoot extends QuadrilateralRoot{
         augmentations.put(formula.getFormulaNo()+"",formula);
     }
 
-    public Collection getAugmentationList() {
-        return augmentations.values();
+    public List<AugmentationFormula> getAugmentationList() {
+        return new ArrayList<>(augmentations.values());
     }
 
     public AugmentationFormula getAugmentationFormula(int formulaNo) {
