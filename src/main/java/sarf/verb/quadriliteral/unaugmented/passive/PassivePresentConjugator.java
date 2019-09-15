@@ -58,7 +58,7 @@ public class PassivePresentConjugator {
      * @param root         QuadrilateralVerb
      * @return PresentConjugation
      */
-    public PassivePresentVerb createNominativeVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
+    private PassivePresentVerb createNominativeVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getNominativeLastDprList(), PresentConjugationDataContainer.getNominativeConnectedPronounList());
     }
 
@@ -70,7 +70,7 @@ public class PassivePresentConjugator {
      * @param root         QuadrilateralVerb
      * @return PresentConjugation
      */
-    public PassivePresentVerb createAccusativeVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
+    private PassivePresentVerb createAccusativeVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getAccusativeLastDprList(), PresentConjugationDataContainer.getAccusativeConnectedPronounList());
     }
 
@@ -82,7 +82,7 @@ public class PassivePresentConjugator {
      * @param root         QuadrilateralVerb
      * @return PresentConjugation
      */
-    public PassivePresentVerb createJussiveVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
+    private PassivePresentVerb createJussiveVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getJussiveLastDprList(), PresentConjugationDataContainer.getJussiveConnectedPronounList());
     }
 
@@ -94,7 +94,7 @@ public class PassivePresentConjugator {
      * @param root         QuadrilateralVerb
      * @return PresentConjugation
      */
-    public PassivePresentVerb createEmphasizedVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
+    private PassivePresentVerb createEmphasizedVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getEmphasizedLastDprList(), PresentConjugationDataContainer.getEmphasizedConnectedPronounList());
     }
 

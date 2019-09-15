@@ -53,8 +53,13 @@ public class ConsoleApp {
     }
 
     private void processQuadrilateral(String root) {
-        quadrilateralUnaugmentedHelper.printPastActive(root);
         //quadrilateralAugmentedHelper.printPastActive(root);
+        //quadrilateralUnaugmentedHelper.printPastActive(root);
+        //quadrilateralUnaugmentedHelper.printPresentActive(root);
+        //quadrilateralUnaugmentedHelper.printImperative(root);
+        //quadrilateralUnaugmentedHelper.printPassivePast(root);
+        quadrilateralUnaugmentedHelper.printPassivePresent(root);
+
     }
 
     private void run() throws Exception {
