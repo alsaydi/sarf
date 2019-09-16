@@ -58,7 +58,11 @@ public class ConsoleApp {
         //quadrilateralUnaugmentedHelper.printPresentActive(root);
         //quadrilateralUnaugmentedHelper.printImperative(root);
         //quadrilateralUnaugmentedHelper.printPassivePast(root);
-        quadrilateralUnaugmentedHelper.printPassivePresent(root);
+        //quadrilateralUnaugmentedHelper.printPassivePresent(root);
+        //quadrilateralUnaugmentedHelper.printActiveParticiple(root);
+        //quadrilateralUnaugmentedHelper.printPassiveParticiple(root);
+        //quadrilateralUnaugmentedHelper.printTimeAndPlace(root);
+        quadrilateralUnaugmentedHelper.printGerund(root);
 
     }
 
