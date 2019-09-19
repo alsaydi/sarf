@@ -70,7 +70,12 @@ public class ConsoleApp {
         //quadrilateralAugmentedHelper.printImperative(root);
         //quadrilateralAugmentedHelper.printPassivePast(root);
         //quadrilateralAugmentedHelper.printPassivePresent(root);
-        quadrilateralAugmentedHelper.printActiveParticiple(root);
+        //quadrilateralAugmentedHelper.printActiveParticiple(root);
+        //quadrilateralAugmentedHelper.printPassiveParticiple(root);
+        //quadrilateralAugmentedHelper.printTimeAndPlace(root);
+        //quadrilateralAugmentedHelper.printGerund(root);
+        //quadrilateralAugmentedHelper.printMeemGerund(root);
+        quadrilateralAugmentedHelper.printNomenGerund(root);
     }
 
     private void run() throws Exception {
