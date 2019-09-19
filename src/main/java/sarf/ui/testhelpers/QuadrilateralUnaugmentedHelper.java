@@ -5,6 +5,7 @@ import sarf.SarfDictionary;
 import sarf.SystemConstants;
 import sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier;
 import sarf.gerund.quadrilateral.unaugmented.QuadrilateralUnaugmentedGerundConjugator;
+import sarf.gerund.quadrilateral.unaugmented.QuadrilateralUnaugmentedNomenGerundConjugator;
 import sarf.kov.KovRulesManager;
 import sarf.noun.quadriliteral.modifier.activeparticiple.ActiveParticipleModifier;
 import sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier;
@@ -33,6 +34,7 @@ public class QuadrilateralUnaugmentedHelper {
     private final PassiveParticipleModifier passiveParticipleModifier;
     private final QuadrilateralUnaugmentedGerundConjugator gerundConjugator;
     private final QuadrilateralStandardModifier standardModifier;
+    private final QuadrilateralUnaugmentedNomenGerundConjugator nomenGerundConjugator;
 
     @Inject
     public QuadrilateralUnaugmentedHelper(SarfDictionary sarfDictionary
@@ -44,7 +46,8 @@ public class QuadrilateralUnaugmentedHelper {
             , UnaugmentedQuadrilateralPassiveParticipleConjugator passiveParticipleConjugator
             , PassiveParticipleModifier passiveParticipleModifier
             , QuadrilateralUnaugmentedGerundConjugator gerundConjugator
-            , QuadrilateralStandardModifier standardModifier){
+            , QuadrilateralStandardModifier standardModifier
+            , QuadrilateralUnaugmentedNomenGerundConjugator nomenGerundConjugator){
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
         this.quadriActivePastConjugator = quadriActivePastConjugator;
@@ -55,6 +58,7 @@ public class QuadrilateralUnaugmentedHelper {
         this.passiveParticipleModifier = passiveParticipleModifier;
         this.gerundConjugator = gerundConjugator;
         this.standardModifier = standardModifier;
+        this.nomenGerundConjugator = nomenGerundConjugator;
     }
 
     public void printPastActive(String rootLetters){
@@ -189,6 +193,36 @@ public class QuadrilateralUnaugmentedHelper {
             nouns = gerundConjugator.createGerundList(root);
 
             var conjugationResult =  standardModifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
+            printFinalResultPipeSeparated(root, conjugationResult);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void printNomenGerund(String rootLetters){
+        try {
+            var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
+            var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
+            gerundConjugator.setListener(() -> 1);
+            List nouns; //TODO: fix the typing in the modifier build function so we don't have to do this trick.
+            nouns = nomenGerundConjugator.createGerundList(root);
+
+            var conjugationResult =  standardModifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
+            printFinalResultPipeSeparated(root, conjugationResult);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void printMeemGerund(String rootLetters){
+        try {
+            var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
+            var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
+            gerundConjugator.setListener(() -> 1);
+            List nouns; //TODO: fix the typing in the modifier build function so we don't have to do this trick.
+            nouns = passiveParticipleConjugator.createMeemGerundNounList(root);
+
+            var conjugationResult =  passiveParticipleModifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult);
         }catch (Exception e){
             e.printStackTrace();

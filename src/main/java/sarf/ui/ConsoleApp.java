@@ -62,8 +62,15 @@ public class ConsoleApp {
         //quadrilateralUnaugmentedHelper.printActiveParticiple(root);
         //quadrilateralUnaugmentedHelper.printPassiveParticiple(root);
         //quadrilateralUnaugmentedHelper.printTimeAndPlace(root);
-        quadrilateralUnaugmentedHelper.printGerund(root);
-
+        //quadrilateralUnaugmentedHelper.printGerund(root);
+        //quadrilateralUnaugmentedHelper.printNomenGerund(root);
+        //quadrilateralUnaugmentedHelper.printMeemGerund(root);
+        //quadrilateralAugmentedHelper.printPastActive(root);
+        //quadrilateralAugmentedHelper.printPresent(root);
+        //quadrilateralAugmentedHelper.printImperative(root);
+        //quadrilateralAugmentedHelper.printPassivePast(root);
+        //quadrilateralAugmentedHelper.printPassivePresent(root);
+        quadrilateralAugmentedHelper.printActiveParticiple(root);
     }
 
     private void run() throws Exception {
@@ -175,6 +182,9 @@ public class ConsoleApp {
                 ,"جءجء","حوقل","حيحي"
                 ,"دحرج","رهيء","زلزل","سبرت","سيطر","شريف"
                 ,"ضوضي","طمءن","غرقء","قلسي","وءوء","وسوس","يءيء","يرنء","يهيه"
+                ,"شرءب", "مرءي"
+                ,"شيطن", "وشوش"
+                ,"بخدن", "حبطء", "حوصل", "سلقي" , "فرقع" , "قشعر" , "كوءد", "كوهد", "مضحن"
         };
 
         var rootsFound = 0;
