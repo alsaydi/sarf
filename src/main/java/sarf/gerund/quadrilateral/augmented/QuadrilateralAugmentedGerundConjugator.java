@@ -5,6 +5,9 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import com.google.inject.Inject;
+import sarf.gerund.quadrilateral.augmented.pattern.GerundPattern1;
+import sarf.gerund.quadrilateral.augmented.pattern.GerundPattern2;
+import sarf.gerund.quadrilateral.augmented.pattern.GerundPattern3;
 import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.quadriliteral.augmented.*;
 
@@ -38,17 +41,22 @@ public class QuadrilateralAugmentedGerundConjugator {
         for (int value : indexArray) {
             //because index in java start from zero
             int suffixNo = value - 1;
-            Object[] parameters = {root, suffixNo + "", genericNounSuffixContainer};
-            try {
-                var gerund = (QuadrilateralAugmentedGerund) Class.forName(gerundPatternClassName)
-                        .getConstructor(root.getClass(), "".getClass(), GenericNounSuffixContainer.class)
-                        .newInstance(parameters);
-                gerundDisplayList.set(suffixNo, gerund);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+            var gerund = createGerund(root, suffixNo + "", genericNounSuffixContainer, formulaNo);
+            gerundDisplayList.set(suffixNo, gerund);
         }
         return gerundDisplayList;
+    }
+
+    private QuadrilateralAugmentedGerund createGerund(AugmentedQuadrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer, int formulaNo) {
+        switch (formulaNo){
+            case 1:
+                return new GerundPattern1(root, suffix, genericNounSuffixContainer);
+            case 2:
+                return new GerundPattern2(root, suffix, genericNounSuffixContainer);
+            case 3:
+                return new GerundPattern3(root, suffix, genericNounSuffixContainer);
+        }
+        return null;
     }
 
     private List<QuadrilateralAugmentedGerund> createEmptyList() {

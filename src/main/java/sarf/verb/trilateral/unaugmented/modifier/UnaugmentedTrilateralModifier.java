@@ -28,13 +28,7 @@ public class UnaugmentedTrilateralModifier {
     private final HamzaModifier hamzaModifier = new HamzaModifier();
     private final PostHamzaModifier postHamzaModifier = new PostHamzaModifier();
     private final VerbLamAlefModifier verbLamAlefModifier = new VerbLamAlefModifier();
-    private UnaugmentedTrilateralModifier() {
-    }
-
-    private static final UnaugmentedTrilateralModifier instance = new UnaugmentedTrilateralModifier();
-
-    public static UnaugmentedTrilateralModifier getInstance() {
-        return instance;
+    public UnaugmentedTrilateralModifier() {
     }
 
     /**

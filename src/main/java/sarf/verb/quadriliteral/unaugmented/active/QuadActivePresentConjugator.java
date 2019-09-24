@@ -19,14 +19,8 @@ import sarf.verb.quadriliteral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ActivePresentConjugator {
-    private ActivePresentConjugator() {
-    }
-
-    private static final ActivePresentConjugator instance = new ActivePresentConjugator();
-
-    public static ActivePresentConjugator getInstance() {
-        return instance;
+public class QuadActivePresentConjugator {
+    public QuadActivePresentConjugator() {
     }
 
     /**

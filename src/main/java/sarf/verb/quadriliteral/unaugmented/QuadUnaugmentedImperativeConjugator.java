@@ -13,15 +13,8 @@ import sarf.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class UnaugmentedImperativeConjugator {
-
-    private static final UnaugmentedImperativeConjugator instance = new UnaugmentedImperativeConjugator();
-
-    public static UnaugmentedImperativeConjugator getInstance() {
-        return instance;
-    }
-
-    private UnaugmentedImperativeConjugator() {
+public class QuadUnaugmentedImperativeConjugator {
+    public QuadUnaugmentedImperativeConjugator() {
     }
 
     /**

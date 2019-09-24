@@ -22,20 +22,14 @@ import sarf.*;
  */
 public class QuadrilateralModifier {
 
-    private QuadrilateralModifier() {
+    public QuadrilateralModifier() {
     }
-
-    private static final QuadrilateralModifier instance = new QuadrilateralModifier();
 
     private final Geminator geminator = new Geminator();
     private final Vocalizer vocalizer = new Vocalizer();
     private final InternalMahmouz internalMahmouz = new InternalMahmouz();
     private final EndedMahmouz endedMahmouz = new EndedMahmouz();
     private final VerbLamAlefModifier verbLamAlefModifier = new VerbLamAlefModifier();
-
-    public static QuadrilateralModifier getInstance() {
-        return instance;
-    }
 
     /**
      * اخراج قائمة الأفعال بعد التعديلات

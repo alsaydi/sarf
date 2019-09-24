@@ -36,7 +36,7 @@ public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
         dataFieldsList = verbConjugationList;
         setFont(FONT);
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        List pronounsList = SeparatedPronounsContainer.getInstance().getPronouns();
+        List pronounsList = SeparatedPronounsContainer.getPronouns();
         JLabel lbl = null;
         for (int i = 0; i < 6; i++) {
             //إضافة نص يمثل الضمير

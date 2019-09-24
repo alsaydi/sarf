@@ -29,11 +29,14 @@ import sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.PassivePartic
 import sarf.noun.trilateral.unaugmented.modifier.timeandplace.TimeAndPlaceModifier;
 import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
+import sarf.verb.trilateral.unaugmented.UnaugmentedImperativeConjugator;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePastVerb;
+import sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator;
 import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
 import sarf.verb.trilateral.unaugmented.passive.PassivePastConjugator;
+import sarf.verb.trilateral.unaugmented.passive.PassivePresentConjugator;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -66,6 +69,10 @@ public class TrilateralUnaugmentedHelper {
     private final TrilateralUnaugmentedNomenModifier trilateralUnaugmentedNomenModifier;
     private final QualityGerundConjugator qualityGerundConjugator;
     private final TrilateralUnaugmentedQualityModifier qualityGerundModifier;
+    private final UnaugmentedTrilateralModifier unaugmentedTrilateralModifier;
+    private final ActivePresentConjugator triUnaugmentedActivePresentConjugator;
+    private final UnaugmentedImperativeConjugator unaugmentedImperativeConjugator;
+    private final PassivePresentConjugator passivePresentConjugator;
 
     @Inject
     public TrilateralUnaugmentedHelper(ActivePastConjugator triActivePastConjugator
@@ -93,7 +100,11 @@ public class TrilateralUnaugmentedHelper {
             , TrilateralUnaugmentedNomenGerundConjugator trilateralUnaugmentedNomenGerundConjugator
             , TrilateralUnaugmentedNomenModifier trilateralUnaugmentedNomenModifier
             , QualityGerundConjugator qualityGerundConjugator
-            , TrilateralUnaugmentedQualityModifier qualityGerundModifier) {
+            , TrilateralUnaugmentedQualityModifier qualityGerundModifier
+            , UnaugmentedTrilateralModifier unaugmentedTrilateralModifier
+            , ActivePresentConjugator triUnaugmentedActivePresentConjugator
+            , UnaugmentedImperativeConjugator unaugmentedImperativeConjugator
+            , PassivePresentConjugator passivePresentConjugator) {
         this.triActivePastConjugator = triActivePastConjugator;
         this.triPassivePastConjugator = triPassivePastConjugator;
         this.unaugmentedTrilateralActiveParticipleConjugator = unaugmentedTrilateralActiveParticipleConjugator;
@@ -121,19 +132,23 @@ public class TrilateralUnaugmentedHelper {
         this.qualityGerundConjugator = qualityGerundConjugator;
 
         this.qualityGerundModifier = qualityGerundModifier;
+        this.unaugmentedTrilateralModifier = unaugmentedTrilateralModifier;
+        this.triUnaugmentedActivePresentConjugator = triUnaugmentedActivePresentConjugator;
+        this.unaugmentedImperativeConjugator = unaugmentedImperativeConjugator;
+        this.passivePresentConjugator = passivePresentConjugator;
     }
 
     public void printTrilateralTree(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         String pastRootText = triActivePastConjugator.createVerb(7, root).toString();
         List<String> conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
-        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, kov, conjugations, SystemConstants.PAST_TENSE, true);
+        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
-        String presentRootText = sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator.getInstance().createNominativeVerb(7, root).toString();
+        String presentRootText = triUnaugmentedActivePresentConjugator.createNominativeVerb(7, root).toString();
         conjugations = createEmptyList();
         conjugations.set(7, presentRootText);
-        conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, kov, conjugations, SystemConstants.PRESENT_TENSE, true);
+        conjResult = unaugmentedTrilateralModifier.build(root, kov, conjugations, SystemConstants.PRESENT_TENSE, true);
         presentRootText = conjResult.getFinalResult().get(7).toString();
 
         // System.out.printf("%s %s %s\n", pastRootText, presentRootText, transivity);
@@ -160,7 +175,7 @@ public class TrilateralUnaugmentedHelper {
 
     private void printActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         List<ActivePastVerb> result = triActivePastConjugator.createVerbList(root);
-        ConjugationResult conjResult = UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.PAST_TENSE, true);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PAST_TENSE, true);
         List finalResult = conjResult.getFinalResult();
         for (Object verb : finalResult) {
             System.out.printf("|%s", verb == null ? "" : verb);
@@ -169,31 +184,29 @@ public class TrilateralUnaugmentedHelper {
     }
 
     private void printActivePresentConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        List result = sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator.getInstance().createNominativeVerbList(root);
-        ConjugationResult conjResult = UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.PRESENT_TENSE, true);
+        List result = triUnaugmentedActivePresentConjugator.createNominativeVerbList(root);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, true);
         List finalResult = conjResult.getFinalResult();
         printFinalResultPipeSeparated(root, finalResult);
     }
 
     private void printImperativeConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        List result = sarf.verb.trilateral.unaugmented.UnaugmentedImperativeConjugator.getInstance().createEmphasizedVerbList(root);
-        ConjugationResult conjResult = UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true);
+        List result = unaugmentedImperativeConjugator.createEmphasizedVerbList(root);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true);
         List finalResult = conjResult.getFinalResult();
         printFinalResultPipeSeparated(root, finalResult);
     }
 
     private void printPassivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         var result = triPassivePastConjugator.createVerbList(root);
-        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.PAST_TENSE, false);
+        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PAST_TENSE, false);
         result = conjResult.getFinalResult();
         printFinalResultPipeSeparated(root, result);
     }
 
     private void printPassivePresentConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        var result = sarf.verb.trilateral.unaugmented.passive.PassivePresentConjugator.getInstance().createEmphasizedVerbList(root);
-        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier
-                .UnaugmentedTrilateralModifier.getInstance()
-                .build(root, kov, result, SystemConstants.PRESENT_TENSE, false);
+        var result = passivePresentConjugator.createEmphasizedVerbList(root);
+        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, false);
         result = conjResult.getFinalResult();
         printFinalResultPipeSeparated(root, result);
     }

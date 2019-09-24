@@ -12,13 +12,13 @@ import sarf.noun.trilateral.augmented.AugmentedTrilateralActiveParticipleConjuga
 import sarf.noun.trilateral.augmented.AugmentedTrilateralPassiveParticipleConjugator;
 import sarf.noun.trilateral.augmented.modifier.activeparticiple.ActiveParticipleModifier;
 import sarf.noun.trilateral.augmented.modifier.passiveparticiple.PassiveParticipleModifier;
+import sarf.verb.quadriliteral.augmented.active.present.AugmentedQuadActivePresentConjugator;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
 import sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator;
 import sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugatorFactory;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 import sarf.verb.trilateral.augmented.passive.past.AugmentedPassivePastConjugator;
-import sarf.verb.trilateral.augmented.passive.present.AugmentedPassivePresentConjugator;
 
 import java.util.List;
 
@@ -52,7 +52,8 @@ public class TrilateralAugmentedHelper {
             , PassiveParticipleModifier passiveParticipleModifier
             , TrilateralAugmentedGerundConjugator gerundConjugator
             , TrilateralAugmentedStandardModifier trilateralAugmentedStandardModifier
-            , TrilateralAugmentedNomenGerundConjugator nomenGerundConjugator) {
+            , TrilateralAugmentedNomenGerundConjugator nomenGerundConjugator
+            , AugmentedQuadActivePresentConjugator augmentedPassivePresentConjugator) {
 
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
@@ -144,25 +145,6 @@ public class TrilateralAugmentedHelper {
             for (var formula : augmentedRoot.getAugmentationList()) {
                 var verbs = augmentedPassivePastConjugator.createVerbList(augmentedRoot, formula.getFormulaNo());
                 var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, formula.getFormulaNo(), verbs, SystemConstants.PAST_TENSE
-                        , false, () -> true);
-                printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(), formula);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void printPassivePresent(String rootLetters) {
-        try {
-            var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
-            var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
-            if (augmentedRoot == null || augmentedRoot.getAugmentationList() == null || augmentedRoot.getAugmentationList().isEmpty()) {
-                //System.err.println("No root or formulas for " + rootLetters);
-                return;
-            }
-            for (var formula : augmentedRoot.getAugmentationList()) {
-                var verbs = AugmentedPassivePresentConjugator.getInstance().getEmphasizedConjugator().createVerbList(augmentedRoot, formula.getFormulaNo());
-                var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, formula.getFormulaNo(), verbs, SystemConstants.PRESENT_TENSE
                         , false, () -> true);
                 printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(), formula);
             }

@@ -4,9 +4,7 @@ package sarf.verb.trilateral.augmented.passive.present;
 import sarf.PresentConjugationDataContainer;
 
 public class AugmentedPassivePresentConjugator {
-    private AugmentedPassivePresentConjugator() {}
-
-    private static final AugmentedPassivePresentConjugator instance = new AugmentedPassivePresentConjugator();
+    public AugmentedPassivePresentConjugator() {}
 
     private final AbstractAugmentedPresentConjugator nominativeConjugator = new AbstractAugmentedPresentConjugator(PresentConjugationDataContainer.getNominativeLastDprList(),
             PresentConjugationDataContainer.getNominativeConnectedPronounList());
@@ -16,10 +14,6 @@ public class AugmentedPassivePresentConjugator {
             PresentConjugationDataContainer.getJussiveConnectedPronounList());
     private final AbstractAugmentedPresentConjugator emphasizedConjugator = new AbstractAugmentedPresentConjugator(PresentConjugationDataContainer.getEmphasizedLastDprList(),
             PresentConjugationDataContainer.getEmphasizedConnectedPronounList());
-
-    public static AugmentedPassivePresentConjugator getInstance() {
-        return instance;
-    }
 
     public AbstractAugmentedPresentConjugator getAccusativeConjugator() {
         return accusativeConjugator;

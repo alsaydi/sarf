@@ -41,7 +41,7 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
         this.title = title;
         setFont(FONT);
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        List pronounsList = SeparatedPronounsContainer.getInstance().getPronouns();
+        List pronounsList = SeparatedPronounsContainer.getPronouns();
         JLabel lbl = null;
         JLabel lbl1 = null;
         JLabel lbl2 = null;

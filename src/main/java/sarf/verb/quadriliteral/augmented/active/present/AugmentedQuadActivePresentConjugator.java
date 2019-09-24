@@ -2,10 +2,8 @@ package sarf.verb.quadriliteral.augmented.active.present;
 
 import sarf.PresentConjugationDataContainer;
 
-public class AugmentedActivePresentConjugator {
-    private AugmentedActivePresentConjugator() {}
-
-    private static final AugmentedActivePresentConjugator instance = new AugmentedActivePresentConjugator();
+public class AugmentedQuadActivePresentConjugator {
+    public AugmentedQuadActivePresentConjugator() {}
 
     private final QuadriAugmentedPresentConjugator nominativeConjugator = new QuadriAugmentedPresentConjugator(PresentConjugationDataContainer.getNominativeLastDprList(),
             PresentConjugationDataContainer.getNominativeConnectedPronounList());
@@ -15,10 +13,6 @@ public class AugmentedActivePresentConjugator {
             PresentConjugationDataContainer.getJussiveConnectedPronounList());
     private final QuadriAugmentedPresentConjugator emphasizedConjugator = new QuadriAugmentedPresentConjugator(PresentConjugationDataContainer.getEmphasizedLastDprList(),
             PresentConjugationDataContainer.getEmphasizedConnectedPronounList());
-
-    public static AugmentedActivePresentConjugator getInstance() {
-        return instance;
-    }
 
     public QuadriAugmentedPresentConjugator getAccusativeConjugator() {
         return accusativeConjugator;

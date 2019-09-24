@@ -14,11 +14,12 @@ import sarf.noun.quadriliteral.modifier.activeparticiple.ActiveParticipleModifie
 import sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier;
 import sarf.verb.quadriliteral.QuadrilateralRoot;
 import sarf.verb.quadriliteral.augmented.active.past.QuadrilateralAugmentedActivePastConjugator;
-import sarf.verb.quadriliteral.augmented.active.present.AugmentedActivePresentConjugator;
-import sarf.verb.quadriliteral.augmented.imperative.AugmentedImperativeConjugator;
+import sarf.verb.quadriliteral.augmented.active.present.AugmentedQuadActivePresentConjugator;
+import sarf.verb.quadriliteral.augmented.imperative.AugmentedQuadImperativeConjugator;
 import sarf.verb.quadriliteral.augmented.passive.past.QuadriAugmentedPassivePastConjugator;
-import sarf.verb.quadriliteral.augmented.passive.present.AugmentedPassivePresentConjugator;
+import sarf.verb.quadriliteral.augmented.passive.present.AugmentedQuadPassivePresentConjugator;
 import sarf.verb.quadriliteral.modifier.QuadrilateralModifier;
+import sarf.verb.trilateral.augmented.passive.present.AugmentedPassivePresentConjugator;
 
 import java.util.List;
 
@@ -35,6 +36,10 @@ public class QuadrilateralAugmentedHelper {
     private final QuadrilateralAugmentedGerundConjugator gerundConjugator;
     private final QuadrilateralStandardModifier standardModifier;
     private final QuadrilateralAugmentedNomenGerundConjugator nomenGerundConjugator;
+    private final QuadrilateralModifier quadrilateralModifier;
+    private final AugmentedQuadImperativeConjugator augmentedQuadImperativeConjugator;
+    private final AugmentedQuadActivePresentConjugator augmentedQuadActivePresentConjugator;
+    private final AugmentedQuadPassivePresentConjugator augmentedQuadPassivePresentConjugator;
 
     @Inject
     public QuadrilateralAugmentedHelper(SarfDictionary sarfDictionary, KovRulesManager kovRulesManager
@@ -46,7 +51,11 @@ public class QuadrilateralAugmentedHelper {
             , PassiveParticipleModifier passiveParticipleModifier
             , QuadrilateralAugmentedGerundConjugator gerundConjugator
             , QuadrilateralStandardModifier standardModifier
-            , QuadrilateralAugmentedNomenGerundConjugator nomenGerundConjugator) {
+            , QuadrilateralAugmentedNomenGerundConjugator nomenGerundConjugator
+            , QuadrilateralModifier quadrilateralModifier
+            , AugmentedQuadImperativeConjugator augmentedQuadImperativeConjugator
+            , AugmentedQuadActivePresentConjugator augmentedQuadActivePresentConjugator
+            , AugmentedQuadPassivePresentConjugator augmentedQuadPassivePresentConjugator) {
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
         this.quadriActivePastConjugator = quadriActivePastConjugator;
@@ -58,6 +67,10 @@ public class QuadrilateralAugmentedHelper {
         this.gerundConjugator = gerundConjugator;
         this.standardModifier = standardModifier;
         this.nomenGerundConjugator = nomenGerundConjugator;
+        this.quadrilateralModifier = quadrilateralModifier;
+        this.augmentedQuadImperativeConjugator = augmentedQuadImperativeConjugator;
+        this.augmentedQuadActivePresentConjugator = augmentedQuadActivePresentConjugator;
+        this.augmentedQuadPassivePresentConjugator = augmentedQuadPassivePresentConjugator;
     }
 
     public void printPastActive(String rootLetters) {
@@ -73,7 +86,7 @@ public class QuadrilateralAugmentedHelper {
             }
             for (var formula : formulas) {
                 var verbs = quadriActivePastConjugator.createVerbList(root, formula.getFormulaNo());
-                var conjugationResult = QuadrilateralModifier.getInstance().build(root, formula.getFormulaNo(), kovRule.getKov(), verbs, SystemConstants.PAST_TENSE, true, true)
+                var conjugationResult = quadrilateralModifier.build(root, formula.getFormulaNo(), kovRule.getKov(), verbs, SystemConstants.PAST_TENSE, true, true)
                         .getFinalResult();
                 printFinalResultPipeSeparated(root, conjugationResult, formula);
             }
@@ -94,8 +107,8 @@ public class QuadrilateralAugmentedHelper {
                 return;
             }
             for (var formula : formulas) {
-                var verbs = AugmentedActivePresentConjugator.getInstance().getEmphasizedConjugator().createVerbList(root, formula.getFormulaNo());
-                var conjugationResult = QuadrilateralModifier.getInstance().build(root, formula.getFormulaNo(), kovRule.getKov(), verbs, SystemConstants.PRESENT_TENSE, true, true)
+                var verbs = augmentedQuadActivePresentConjugator.getEmphasizedConjugator().createVerbList(root, formula.getFormulaNo());
+                var conjugationResult = quadrilateralModifier.build(root, formula.getFormulaNo(), kovRule.getKov(), verbs, SystemConstants.PRESENT_TENSE, true, true)
                         .getFinalResult();
                 printFinalResultPipeSeparated(root, conjugationResult, formula);
             }
@@ -116,8 +129,8 @@ public class QuadrilateralAugmentedHelper {
                 return;
             }
             for (var formula : formulas) {
-                var verbs = AugmentedImperativeConjugator.getInstance().getEmphsizedConjugator().createVerbList(root, formula.getFormulaNo());
-                var conjugationResult = QuadrilateralModifier.getInstance().build(root, formula.getFormulaNo(), kovRule.getKov(), verbs, SystemConstants.PRESENT_TENSE, true, true)
+                var verbs = augmentedQuadImperativeConjugator.getEmphasizedConjugator().createVerbList(root, formula.getFormulaNo());
+                var conjugationResult = quadrilateralModifier.build(root, formula.getFormulaNo(), kovRule.getKov(), verbs, SystemConstants.PRESENT_TENSE, true, true)
                         .getFinalResult();
                 printFinalResultPipeSeparated(root, conjugationResult, formula);
             }
@@ -139,7 +152,7 @@ public class QuadrilateralAugmentedHelper {
             }
             for (var formula : formulas) {
                 var verbs = passivePastConjugator.createVerbList(root, formula.getFormulaNo());
-                var conjugationResult = QuadrilateralModifier.getInstance().build(root, formula.getFormulaNo(), kovRule.getKov()
+                var conjugationResult = quadrilateralModifier.build(root, formula.getFormulaNo(), kovRule.getKov()
                         , verbs
                         , SystemConstants.PAST_TENSE
                         , false
@@ -163,8 +176,8 @@ public class QuadrilateralAugmentedHelper {
                 return;
             }
             for (var formula : formulas) {
-                var verbs = AugmentedPassivePresentConjugator.getInstance().getEmphasizedConjugator().createVerbList(root, formula.getFormulaNo());
-                var conjugationResult = QuadrilateralModifier.getInstance().build(root, formula.getFormulaNo(), kovRule.getKov()
+                var verbs = augmentedQuadPassivePresentConjugator.getEmphasizedConjugator().createVerbList(root, formula.getFormulaNo());
+                var conjugationResult = quadrilateralModifier.build(root, formula.getFormulaNo(), kovRule.getKov()
                         , verbs
                         , SystemConstants.PRESENT_TENSE
                         , false

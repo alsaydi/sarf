@@ -22,13 +22,7 @@ import java.util.stream.IntStream;
  * @version 1.0
  */
 public class PassivePresentConjugator {
-    private PassivePresentConjugator() {
-    }
-
-    private static final PassivePresentConjugator instance = new PassivePresentConjugator();
-
-    public static PassivePresentConjugator getInstance() {
-        return instance;
+    public PassivePresentConjugator() {
     }
 
     /**

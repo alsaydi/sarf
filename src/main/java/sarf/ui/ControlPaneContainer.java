@@ -56,9 +56,15 @@ import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
 import sarf.ui.controlpane.*;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.augmented.active.past.QuadrilateralAugmentedActivePastConjugator;
+import sarf.verb.quadriliteral.augmented.active.present.AugmentedQuadActivePresentConjugator;
+import sarf.verb.quadriliteral.augmented.imperative.AugmentedQuadImperativeConjugator;
 import sarf.verb.quadriliteral.augmented.passive.past.QuadriAugmentedPassivePastConjugator;
+import sarf.verb.quadriliteral.augmented.passive.present.AugmentedQuadPassivePresentConjugator;
+import sarf.verb.quadriliteral.modifier.QuadrilateralModifier;
 import sarf.verb.quadriliteral.unaugmented.*;
+import sarf.verb.quadriliteral.unaugmented.active.QuadActivePresentConjugator;
 import sarf.verb.quadriliteral.unaugmented.active.QuadriActivePastConjugator;
+import sarf.verb.quadriliteral.unaugmented.passive.QuadPassivePresentConjugator;
 import sarf.verb.quadriliteral.unaugmented.passive.QuadriUnaugmentedPassivePastConjugator;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
@@ -66,9 +72,14 @@ import sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConju
 import sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugatorFactory;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 import sarf.verb.trilateral.augmented.passive.past.AugmentedPassivePastConjugator;
+import sarf.verb.trilateral.augmented.passive.present.AugmentedPassivePresentConjugator;
 import sarf.verb.trilateral.unaugmented.*;
+import sarf.verb.trilateral.unaugmented.UnaugmentedImperativeConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
+import sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator;
+import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
 import sarf.verb.trilateral.unaugmented.passive.PassivePastConjugator;
+import sarf.verb.trilateral.unaugmented.passive.PassivePresentConjugator;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -167,6 +178,18 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
     private final ActivePastConjugator activePastConjugator;
     private final AugmentedActivePresentConjugator augmentedActivePresentConjugator;
     private final AugmentedImperativeConjugatorFactory augmentedImperativeConjugatorFactory;
+    private final QuadActivePresentConjugator quadActivePresentConjugator;
+    private final QuadrilateralModifier quadrilateralModifier;
+    private final UnaugmentedTrilateralModifier unaugmentedTrilateralModifier;
+    private final ActivePresentConjugator activePresentConjugator;
+    private final UnaugmentedImperativeConjugator unaugmentedImperativeConjugator;
+    private final QuadUnaugmentedImperativeConjugator quadUnaugmentedImperativeConjugator;
+    private final QuadPassivePresentConjugator quadPassivePresentConjugator;
+    private final PassivePresentConjugator passivePresentConjugator;
+    private final AugmentedQuadImperativeConjugator augmentedQuadImperativeConjugator;
+    private final AugmentedQuadActivePresentConjugator augmentedQuadActivePresentConjugator;
+    private final AugmentedPassivePresentConjugator augmentedPassivePresentConjugator;
+    private final AugmentedQuadPassivePresentConjugator augmentedQuadPassivePresentConjugator;
 
     @Inject
     public ControlPaneContainer(SarfDictionary sarfDictionary
@@ -228,7 +251,17 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
             , QuadriUnaugmentedPassivePastConjugator quadriUnaugmentedPassivePastConjugator
             , ActivePastConjugator activePastConjugator
             , AugmentedActivePresentConjugator augmentedActivePresentConjugator
-            , AugmentedImperativeConjugatorFactory augmentedImperativeConjugatorFactory) {
+            , AugmentedImperativeConjugatorFactory augmentedImperativeConjugatorFactory
+            , QuadActivePresentConjugator quadActivePresentConjugator
+            , QuadrilateralModifier quadrilateralModifier
+            , UnaugmentedTrilateralModifier unaugmentedTrilateralModifier
+            , ActivePresentConjugator activePresentConjugator
+            , UnaugmentedImperativeConjugator unaugmentedImperativeConjugator
+            , QuadUnaugmentedImperativeConjugator quadUnaugmentedImperativeConjugator
+            , QuadPassivePresentConjugator quadPassivePresentConjugator
+            , PassivePresentConjugator passivePresentConjugator
+            , AugmentedQuadImperativeConjugator augmentedQuadImperativeConjugator
+            , AugmentedQuadActivePresentConjugator augmentedQuadActivePresentConjugator, AugmentedPassivePresentConjugator augmentedPassivePresentConjugator, AugmentedQuadPassivePresentConjugator augmentedQuadPassivePresentConjugator) {
         
         super(new BorderLayout());
         this.meemGerundConjugator = meemGerundConjugator;
@@ -288,6 +321,18 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
         this.activePastConjugator = activePastConjugator;
         this.augmentedActivePresentConjugator = augmentedActivePresentConjugator;
         this.augmentedImperativeConjugatorFactory = augmentedImperativeConjugatorFactory;
+        this.quadActivePresentConjugator = quadActivePresentConjugator;
+        this.quadrilateralModifier = quadrilateralModifier;
+        this.unaugmentedTrilateralModifier = unaugmentedTrilateralModifier;
+        this.activePresentConjugator = activePresentConjugator;
+        this.unaugmentedImperativeConjugator = unaugmentedImperativeConjugator;
+        this.quadUnaugmentedImperativeConjugator = quadUnaugmentedImperativeConjugator;
+        this.quadPassivePresentConjugator = quadPassivePresentConjugator;
+        this.passivePresentConjugator = passivePresentConjugator;
+        this.augmentedQuadImperativeConjugator = augmentedQuadImperativeConjugator;
+        this.augmentedQuadActivePresentConjugator = augmentedQuadActivePresentConjugator;
+        this.augmentedPassivePresentConjugator = augmentedPassivePresentConjugator;
+        this.augmentedQuadPassivePresentConjugator = augmentedQuadPassivePresentConjugator;
 
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         this.sarfDictionary = sarfDictionary;
@@ -789,10 +834,21 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
 
     private IControlPane createControlPanel(Class type){
         if (TrilateralControlPane.class.equals(type)) {
-            return new TrilateralControlPane(this, augmentedTrilateralModifier, augmentedActivePastConjugator, unaugmentedTriActivePastConjugator, augmentedActivePresentConjugator);
+            return new TrilateralControlPane(this
+                    , augmentedTrilateralModifier
+                    , augmentedActivePastConjugator
+                    , unaugmentedTriActivePastConjugator
+                    , augmentedActivePresentConjugator
+                    , unaugmentedTrilateralModifier
+                    , activePresentConjugator);
         }
         else if(QuadrilateralControlPane.class.equals(type)){
-            return new QuadrilateralControlPane(this, quadrilateralAugmentedActivePastConjugator, quadriActivePastConjugator);
+            return new QuadrilateralControlPane(this
+                    , quadrilateralAugmentedActivePastConjugator
+                    , quadriActivePastConjugator
+                    , quadActivePresentConjugator
+                    , quadrilateralModifier
+                    , augmentedQuadActivePresentConjugator);
         }
         else if(VerbNamesSelectionUI.class.equals(type)){
             return new VerbNamesSelectionUI(this);
@@ -866,15 +922,30 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
                     , augmentedPassivePastConjugator
                     , quadriAugmentedPassivePastConjugator
                     , passivePastConjugator
-                    , quadriUnaugmentedPassivePastConjugator);
+                    , quadriUnaugmentedPassivePastConjugator
+                    , quadrilateralModifier, unaugmentedTrilateralModifier
+                    , quadPassivePresentConjugator
+                    , passivePresentConjugator
+                    , augmentedPassivePresentConjugator
+                    , augmentedQuadPassivePresentConjugator);
         }
         else if(ActiveVerbSelectionUI.class.equals(type)){
             return new ActiveVerbSelectionUI(this
                     , activePastConjugator
                     , augmentedTrilateralModifier
-                    , augmentedActivePresentConjugator, augmentedImperativeConjugatorFactory, augmentedActivePastConjugator
+                    , augmentedActivePresentConjugator
+                    , augmentedImperativeConjugatorFactory
+                    , quadActivePresentConjugator
+                    , quadrilateralModifier
+                    , quadUnaugmentedImperativeConjugator
+                    , augmentedQuadImperativeConjugator
+                    , augmentedQuadActivePresentConjugator
+                    , augmentedActivePastConjugator
                     , quadrilateralAugmentedActivePastConjugator
-                    , quadriActivePastConjugator);
+                    , quadriActivePastConjugator
+                    , unaugmentedTrilateralModifier
+                    , activePresentConjugator
+                    , unaugmentedImperativeConjugator);
         }
         return null;
     }

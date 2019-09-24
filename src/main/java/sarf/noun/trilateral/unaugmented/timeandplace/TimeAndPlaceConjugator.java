@@ -47,7 +47,8 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
         Object [] parameters = {root, suffixNo+"", genericNounSuffixContainer};
 
         try {
-            Class formulaClass = formulaClassNamesMap.get(formulaName);
+            var formulaClass = formulaClassNamesMap.get(formulaName);
+
             var constructor = formulaClass.getConstructor(root.getClass(), "".getClass(), genericNounSuffixContainer.getClass());
             return (NounFormula) constructor.newInstance(parameters);
         }
@@ -59,7 +60,7 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
 
     public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
         List<NounFormula> result = new ArrayList<>();
-        for (int i = 0; i < 18; i++) {
+        for (int i = 0; i < SystemConstants.NOUN_POSSIBLE_STATES; i++) {
             NounFormula noun = createNoun(root, i, formulaName);
             result.add(noun);
         }
@@ -83,12 +84,12 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
             XmlTimeAndPlaceNounFormula formula = (XmlTimeAndPlaceNounFormula) o;
             if (formula.getNoc().equals(root.getConjugation()) && formula.getC2() == root.getC2() && formula.getC3() == root.getC3()) {
                 if (formula.getForm1() != null && !formula.getForm1().equals(""))
-                    //add the formula pattern insteaed of the symbol (form1)
+                    //add the formula pattern instead of the symbol (form1)
                     result.add(formulaSymbolsNamesMap.get(formula.getForm1()));
 
-                //may the verb has two forms of instumentals
+                //may the verb has two forms of instrumentals
                 if (formula.getForm2() != null && !formula.getForm2().equals(""))
-                    //add the formula pattern insteaed of the symbol (form2)
+                    //add the formula pattern instead of the symbol (form2)
                     result.add(formulaSymbolsNamesMap.get(formula.getForm2()));
             }
         }

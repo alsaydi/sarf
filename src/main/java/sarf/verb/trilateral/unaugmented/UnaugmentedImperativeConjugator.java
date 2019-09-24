@@ -18,14 +18,7 @@ import java.util.List;
  * @version 1.0
  */
 public class UnaugmentedImperativeConjugator {
-
-    private static final UnaugmentedImperativeConjugator instance = new UnaugmentedImperativeConjugator();
-
-    public static UnaugmentedImperativeConjugator getInstance() {
-        return instance;
-    }
-
-    private UnaugmentedImperativeConjugator() {
+    public UnaugmentedImperativeConjugator() {
     }
 
     /**

@@ -21,13 +21,7 @@ import java.util.List;
  * @version 1.0
  */
 public class ActivePresentConjugator {
-    private ActivePresentConjugator() {
-    }
-
-    private static final ActivePresentConjugator instance = new ActivePresentConjugator();
-
-    public static ActivePresentConjugator getInstance() {
-        return instance;
+    public ActivePresentConjugator() {
     }
 
     /**
