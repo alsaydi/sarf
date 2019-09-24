@@ -1,5 +1,7 @@
 package sarf.noun.trilateral.unaugmented;
 
+import com.google.inject.Inject;
+import sarf.SystemConstants;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.noun.*;
 import java.util.*;
@@ -17,29 +19,27 @@ import java.util.*;
  * @version 1.0
  */
 public class UnaugmentedTrilateralActiveParticipleConjugator implements IUnaugmentedTrilateralNounConjugator{
-    private UnaugmentedTrilateralActiveParticipleConjugator() {
-    }
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    private static final UnaugmentedTrilateralActiveParticipleConjugator instance = new UnaugmentedTrilateralActiveParticipleConjugator();
-
-    public static UnaugmentedTrilateralActiveParticipleConjugator getInstance() {
-        return instance;
+    @Inject
+    public UnaugmentedTrilateralActiveParticipleConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
     public UnaugmentedTrilateralActiveParticiple createNoun(UnaugmentedTrilateralRoot root, int suffixIndex) {
-        String suffix = GenericNounSuffixContainer.getInstance().get(suffixIndex);
-        return new UnaugmentedTrilateralActiveParticiple(root, suffix);
+        String suffix = genericNounSuffixContainer.get(suffixIndex);
+        return new UnaugmentedTrilateralActiveParticiple(root, suffix, genericNounSuffixContainer);
     }
 
     public List createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
-        List result = new ArrayList(18);
-        for (int i=0; i<18; i++)
+        List<UnaugmentedTrilateralActiveParticiple> result = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
+        for (int i=0; i<SystemConstants.NOUN_POSSIBLE_STATES; i++) {
             result.add(createNoun(root, i));
+        }
         return result;
     }
 
     public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
         return null;
     }
-
 }

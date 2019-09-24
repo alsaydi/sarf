@@ -18,7 +18,7 @@ import sarf.gerund.modifier.trilateral.unaugmented.meem.hamza.*;
  * @version 1.0
  */
 public class Mahmouz {
-    private final List modifiers = new LinkedList();
+    private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
 
     public Mahmouz() {
         modifiers.add(new EinMahmouz());

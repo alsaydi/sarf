@@ -27,9 +27,9 @@ public class MithalAjwaf3Vocalizer extends TrilateralNounSubstitutionApplier imp
         substitutions.add(new InfixSubstitution("ِوَا","ِيَا"));// EX: (انقياد، اقتياد)
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         return (formulaNo == 4 || formulaNo == 5) && (kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Faa || kov == KindOfVerb.Ajwaf_Wawi_Mahmouz_Laam || kov == KindOfVerb.Ajwaf_Wawi);
     }

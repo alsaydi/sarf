@@ -28,9 +28,9 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
         substitutions.add(new InfixSubstitution("َيِ","َا"));// EX: (مُنْهالٌ، مُكْتالٌ)
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         if (kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Faa) {
             switch (formulaNo) {
@@ -39,8 +39,6 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
                 case 9:
                     return true;
             }
-
-
             return formulaNo == 4;
         } else if (kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam) {
             switch (formulaNo) {
@@ -48,8 +46,6 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
                 case 9:
                     return true;
             }
-
-
             switch (formulaNo) {
                 case 4:
                 case 5:
@@ -64,7 +60,6 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
                     return true;
             }
         }
-
         return false;
 
     }

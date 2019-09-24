@@ -1,11 +1,16 @@
 package sarf.gerund.quadrilateral.augmented;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import sarf.gerund.quadrilateral.augmented.pattern.GerundPattern1;
 import sarf.gerund.quadrilateral.augmented.pattern.GerundPattern2;
 import sarf.gerund.quadrilateral.augmented.pattern.GerundPattern3;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
 
 import java.util.stream.Stream;
@@ -15,6 +20,16 @@ import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
 
 
 class QuadrilateralAugmentedGerundConjugatorTest {
+    @Mock
+    private GenericNounSuffixContainer genericNounSuffixContainer;
+
+    @InjectMocks
+    private QuadrilateralAugmentedGerundConjugator sut;
+
+    @BeforeEach
+    void setup(){
+        MockitoAnnotations.initMocks(this);
+    }
 
     private static Stream<Arguments> createGerundListTestArguments() {
         return Stream.of(
@@ -27,8 +42,6 @@ class QuadrilateralAugmentedGerundConjugatorTest {
     @ParameterizedTest(name = "createGerundList test {1}")
     @MethodSource("createGerundListTestArguments")
     void createGerundListTest(int formulaNumber, Class expected) {
-        var sut = QuadrilateralAugmentedGerundConjugator.getInstance();
-
         var actual = sut.createGerundList(new AugmentedQuadrilateralRoot(), formulaNumber);
 
         assertThat(actual).isNotNull();

@@ -1,9 +1,11 @@
 package sarf.gerund.modifier.trilateral.unaugmented.nomen.hamza;
 
-import java.util.*;
+import sarf.noun.trilateral.unaugmented.modifier.AbstractFaaMahmouz;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
 
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -18,14 +20,13 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class FaaMahmouz extends AbstractFaaMahmouz {
-private final List<Substitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public FaaMahmouz() {
-        substitutions.add(new InfixSubstitution("ءَ","أَ"));// EX: (أَكْلة، أَوْية )
+        substitutions.add(new InfixSubstitution("ءَ", "أَ"));// EX: (أَكْلة، أَوْية )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

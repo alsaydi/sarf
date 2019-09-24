@@ -1,9 +1,10 @@
 package sarf.ui.controlpane;
 
 import javax.swing.*;
+
+import com.google.inject.Inject;
 import sarf.ui.*;
 import java.awt.*;
-import java.awt.event.*;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -18,11 +19,11 @@ import java.awt.event.*;
  * @version 1.0
  */
 public class VerbNamesSelectionUI extends JPanel implements IControlPane {
-
 	private static final long serialVersionUID = 276620070251792482L;
-	private SelectionInfo selectionInfo;
+    private SelectionInfo selectionInfo;
 
-    public VerbNamesSelectionUI() {
+	@Inject
+    public VerbNamesSelectionUI(ControlPaneContainer controlPaneContainer) {
         super(new BorderLayout());
 
         JPanel buttonsPanel = new APanel(new GridLayout(1, 4));
@@ -40,29 +41,29 @@ public class VerbNamesSelectionUI extends JPanel implements IControlPane {
         add(buttonsPanel);
 
         activeVerbBtn.addActionListener(e -> {
-            ActiveVerbSelectionUI verbSelectionUI = (ActiveVerbSelectionUI) ControlPaneContainer.getInstance().openControlPane(ActiveVerbSelectionUI.class.getName());
+            ActiveVerbSelectionUI verbSelectionUI = (ActiveVerbSelectionUI) controlPaneContainer.openControlPane(ActiveVerbSelectionUI.class);
             verbSelectionUI.setInfo(selectionInfo);
         });
 
         passiveVerbBtn.addActionListener(e -> {
-            PassiveVerbSelectionUI verbSelectionUI = (PassiveVerbSelectionUI) ControlPaneContainer.getInstance().openControlPane(PassiveVerbSelectionUI.class.getName());
+            PassiveVerbSelectionUI verbSelectionUI = (PassiveVerbSelectionUI) controlPaneContainer.openControlPane(PassiveVerbSelectionUI.class);
             verbSelectionUI.setInfo(selectionInfo);
         });
 
         derivedNamesBtn.addActionListener(e -> {
             if (selectionInfo.isTrilateral() && !selectionInfo.isAugmented()) {
-                TrilateralUnaugmentedNounsUI nounsUI = (TrilateralUnaugmentedNounsUI) ControlPaneContainer.getInstance().openControlPane(TrilateralUnaugmentedNounsUI.class.getName());
+                TrilateralUnaugmentedNounsUI nounsUI = (TrilateralUnaugmentedNounsUI) controlPaneContainer.openControlPane(TrilateralUnaugmentedNounsUI.class);
                 nounsUI.setInfo(selectionInfo);
             }
             else {
-                NamesSelectionUI namesSelectionUI = (NamesSelectionUI) ControlPaneContainer.getInstance().openControlPane(NamesSelectionUI.class.getName());
+                NamesSelectionUI namesSelectionUI = (NamesSelectionUI) controlPaneContainer.openControlPane(NamesSelectionUI.class);
                 namesSelectionUI.setInfo(selectionInfo);
             }
         });
 
         gerundBtn.addActionListener(e -> {
             if (selectionInfo.isTrilateral() && !selectionInfo.isAugmented()) {
-                TrilateralUnaugmentedGerundsUI gerundSelectionUI = (TrilateralUnaugmentedGerundsUI) ControlPaneContainer.getInstance().openControlPane(TrilateralUnaugmentedGerundsUI.class.getName());
+                TrilateralUnaugmentedGerundsUI gerundSelectionUI = (TrilateralUnaugmentedGerundsUI) controlPaneContainer.openControlPane(TrilateralUnaugmentedGerundsUI.class);
                 try {
                     gerundSelectionUI.setInfo(selectionInfo);
                 } catch (Exception e1) {
@@ -70,7 +71,7 @@ public class VerbNamesSelectionUI extends JPanel implements IControlPane {
                 }
             }
             else {
-                GerundSelectionUI gerundSelectionUI = (GerundSelectionUI) ControlPaneContainer.getInstance().openControlPane(GerundSelectionUI.class.getName());
+                GerundSelectionUI gerundSelectionUI = (GerundSelectionUI) controlPaneContainer.openControlPane(GerundSelectionUI.class);
                 gerundSelectionUI.setInfo(selectionInfo);
             }
         });

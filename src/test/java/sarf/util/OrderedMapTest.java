@@ -16,13 +16,13 @@ public class OrderedMapTest {
 		assertEquals("مفتاح", keys.get(0));
 	}
 	
-	@Test 
-	public void KeyAndValuesOfDiffernetTypes() {
+	@Test
+	void KeyAndValuesOfDifferentTypes() {
 		OrderedMap<Integer, String> sut = new OrderedMap<>();
 		sut.put(1,"هنا لو كان");
 		List<Integer> keys = sut.getOrderedKeys();
 		assertEquals(1, keys.size());
-		assertEquals(new Integer(1), keys.get(0));
+		assertEquals(Integer.valueOf(1), keys.get(0));
 	}
 	
 	@Test

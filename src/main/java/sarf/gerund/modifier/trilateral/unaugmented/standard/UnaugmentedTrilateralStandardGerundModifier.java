@@ -1,14 +1,19 @@
 package sarf.gerund.modifier.trilateral.unaugmented.standard;
 
-import java.util.*;
-
+import com.google.inject.Inject;
 import sarf.KindOfVerb;
-import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.unaugmented.*;
 import sarf.NounLamAlefModifier;
 import sarf.NounSunLamModifier;
+import sarf.noun.trilateral.unaugmented.modifier.AbstractLamMahmouz;
+import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModifier;
+import sarf.verb.trilateral.Substitution.ExpressionInfixSubstitution;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -22,19 +27,18 @@ import sarf.NounSunLamModifier;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class UnaugmentedTrilateralStandardGerundModifier extends AbstractLamMahmouz implements IUnaugmentedTrilateralNounModifier{
+public class UnaugmentedTrilateralStandardGerundModifier extends AbstractLamMahmouz implements IUnaugmentedTrilateralNounModifier {
     private final List<Substitution> substitutions = new ArrayList<>();
     private final String appliedCharactersString = "بتثجحخسشصضطظعغفقكلمنهي";
+    private final NounLamAlefModifier nounLamAlefModifier;
+    private final NounSunLamModifier nounSunLamModifier;
 
-    private UnaugmentedTrilateralStandardGerundModifier() {
-        substitutions.add(new ExpressionInfixSubstitution("C2ْءًا","C2ْئًا"));// EX: (خِطْئًا)
-        substitutions.add(new InfixSubstitution("يءًا","يئًا"));// EX: (مَجِيئًا)
-    }
-
-    private static final UnaugmentedTrilateralStandardGerundModifier instance = new UnaugmentedTrilateralStandardGerundModifier();
-
-    public static UnaugmentedTrilateralStandardGerundModifier getInstance() {
-        return instance;
+    @Inject
+    public UnaugmentedTrilateralStandardGerundModifier(NounLamAlefModifier nounLamAlefModifier, NounSunLamModifier nounSunLamModifier) {
+        this.nounLamAlefModifier = nounLamAlefModifier;
+        this.nounSunLamModifier = nounSunLamModifier;
+        substitutions.add(new ExpressionInfixSubstitution("C2ْءًا", "C2ْئًا"));// EX: (خِطْئًا)
+        substitutions.add(new InfixSubstitution("يءًا", "يئًا"));// EX: (مَجِيئًا)
     }
 
     public List<Substitution> getSubstitutions() {
@@ -45,8 +49,8 @@ public class UnaugmentedTrilateralStandardGerundModifier extends AbstractLamMahm
         ConjugationResult conjResult = new ConjugationResult(kov, root, conjugations, formula);
         if (isApplied(conjResult))
             apply(conjResult.getFinalResult(), root);
-        NounLamAlefModifier.getInstance().apply(conjResult);
-        NounSunLamModifier.getInstance().apply(conjResult);
+        nounLamAlefModifier.apply(conjResult);
+        nounSunLamModifier.apply(conjResult);
 
         return conjResult;
     }
@@ -57,5 +61,4 @@ public class UnaugmentedTrilateralStandardGerundModifier extends AbstractLamMahm
         char c2 = conjugationResult.getRoot().getC2();
         return super.isApplied(conjugationResult) && appliedCharactersString.indexOf(c2) != -1;
     }
-
 }

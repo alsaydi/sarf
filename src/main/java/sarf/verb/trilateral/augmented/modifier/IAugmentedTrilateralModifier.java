@@ -18,5 +18,5 @@ import sarf.verb.trilateral.augmented.*;
  * @version 1.0
  */
 public interface IAugmentedTrilateralModifier {
-    boolean isApplied(ConjugationResult conjugationResult);
+    boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult);
 }

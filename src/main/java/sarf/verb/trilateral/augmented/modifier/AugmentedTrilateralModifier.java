@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier;
 
 import java.util.*;
 
+import com.google.inject.Inject;
 import sarf.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.*;
@@ -22,21 +23,20 @@ import sarf.verb.trilateral.augmented.modifier.vocalizer.*;
  * @version 1.0
  */
 public class AugmentedTrilateralModifier {
+    private final FormulaApplyingChecker formulaApplyingChecker;
+    private final VerbLamAlefModifier verbLamAlefModifier;
 
-    private AugmentedTrilateralModifier() {
+    @Inject
+    public AugmentedTrilateralModifier(FormulaApplyingChecker formulaApplyingChecker, VerbLamAlefModifier verbLamAlefModifier) {
+        this.formulaApplyingChecker = formulaApplyingChecker;
+        this.verbLamAlefModifier = verbLamAlefModifier;
     }
-
-    private static final AugmentedTrilateralModifier instance = new AugmentedTrilateralModifier();
     //الابدال
     private final Substituter substituter = new Substituter();
     private final Geminator geminator = new Geminator();
     private final Vocalizer vocalizer = new Vocalizer();
     private final PreVocalizer preVocalizer = new PreVocalizer();
     private final HamzaModifier hamzaModifier = new HamzaModifier();
-
-    public static AugmentedTrilateralModifier getInstance() {
-        return instance;
-    }
 
     /**
      * اخراج قائمة الأفعال بعد التعديلات
@@ -45,17 +45,17 @@ public class AugmentedTrilateralModifier {
      * @param kov int
      * @param conjugations List
      * @param tense String (From SystemConstans class the values are stored)  ماضي أو مضارع او أمر
-     * @return ConjugationResult
+     * @return TriAugmentedConjugationResult
      */
-    public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List conjugations, String tense, boolean active, boolean applyGemination, AugmentedTrilateralModifierListener listener) {
-        ConjugationResult conjResult = new ConjugationResult(kov, formulaNo, root, conjugations);
+    public TriAugmentedConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List conjugations, String tense, boolean active, boolean applyGemination, AugmentedTrilateralModifierListener listener) {
+        TriAugmentedConjugationResult conjResult = new TriAugmentedConjugationResult(kov, formulaNo, root, conjugations);
         substituter.apply(tense, active, conjResult);
         if (applyGemination) {
             geminator.apply(tense, active, conjResult);
         }
 
         boolean applyVocalization = true;
-        int result = FormulaApplyingChecker.getInstance().check(root, formulaNo);
+        int result = formulaApplyingChecker.check(root, formulaNo);
         if (result == IFormulaApplyingChecker.NOT_VOCALIZED) {
             applyVocalization = false;
         }
@@ -73,11 +73,11 @@ public class AugmentedTrilateralModifier {
         }
 
         hamzaModifier.apply(tense, active, conjResult);
-        VerbLamAlefModifier.getInstance().apply(conjResult);
+        verbLamAlefModifier.apply(conjResult);
         return conjResult;
     }
 
-    public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List conjugations, String tense, boolean active, AugmentedTrilateralModifierListener listener) {
+    public TriAugmentedConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List conjugations, String tense, boolean active, AugmentedTrilateralModifierListener listener) {
         return build(root, kov, formulaNo, conjugations, tense, active, true, listener);
     }
 

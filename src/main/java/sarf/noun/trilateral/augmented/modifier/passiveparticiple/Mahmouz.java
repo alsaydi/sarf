@@ -19,7 +19,7 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @version 1.0
  */
 public class Mahmouz {
-    private final List modifiers = new LinkedList();
+    private final List<IAugmentedTrilateralModifier> modifiers = new ArrayList<>();
 
     public Mahmouz() {
         modifiers.add(new RaaEinMahmouz());
@@ -28,9 +28,8 @@ public class Mahmouz {
         modifiers.add(new LamMahmouz());
     }
 
-    public void apply(ConjugationResult conjResult) {
-        for (Object o : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
+    public void apply(TriAugmentedConjugationResult conjResult) {
+        for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
                 ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;

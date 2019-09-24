@@ -1,5 +1,7 @@
 package sarf.noun.trilateral.unaugmented.exaggeration;
 
+import com.google.inject.Inject;
+import sarf.SystemConstants;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
@@ -17,34 +19,30 @@ import sarf.noun.trilateral.unaugmented.exaggeration.standard.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class StandardExaggerationConjugator implements IUnaugmentedTrilateralNounConjugator{
-    private StandardExaggerationConjugator() {
-    }
+public class StandardExaggerationConjugator implements IUnaugmentedTrilateralNounConjugator {
+    private static final List<String> formulas = new ArrayList<>(1);
 
-    private static final StandardExaggerationConjugator instance = new StandardExaggerationConjugator();
-
-    public static StandardExaggerationConjugator getInstance() {
-        return instance;
-    }
-
-    public List createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
-        List result = new LinkedList();
-        for (int i = 0; i < 18; i++) {
-            NounFormula noun = new NounFormula1(root, i+"");
-            result.add(noun);
-        }
-
-        return result;
-    }
-
-    static final List formulas = new ArrayList(1);
     static {
         formulas.add("فَعَّال");
     }
 
-    public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
-        return formulas;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
+
+    @Inject
+    public StandardExaggerationConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
+        List<NounFormula> result = new ArrayList<>();
+        for (int i = 0; i < SystemConstants.NOUN_POSSIBLE_STATES; i++) {
+            NounFormula noun = new NounFormula1(root, i + "", genericNounSuffixContainer);
+            result.add(noun);
+        }
+        return result;
+    }
 
+    public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
+        return formulas;
+    }
 }

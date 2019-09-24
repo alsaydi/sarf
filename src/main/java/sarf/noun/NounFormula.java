@@ -18,14 +18,17 @@ public abstract class NounFormula {
     protected UnaugmentedTrilateralRoot root;
     protected int suffixNo;
     protected String suffix;
+    private INounSuffixContainer genericNounSuffixContainer;
 
     //to be used in refection getting the formula name
-    public NounFormula() {}
+    public NounFormula() {
+    }
 
-    public NounFormula(UnaugmentedTrilateralRoot root, String suffixNo) {
+    public NounFormula(UnaugmentedTrilateralRoot root, String suffixNo, INounSuffixContainer genericNounSuffixContainer) {
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
         this.root = root;
         this.suffixNo = Integer.parseInt(suffixNo)+1;
-        suffix = GenericNounSuffixContainer.getInstance().get(this.suffixNo-1);
+        suffix = genericNounSuffixContainer.get(this.suffixNo-1);
     }
 
     public abstract String form();
@@ -34,13 +37,8 @@ public abstract class NounFormula {
 
     public String toString() {
         String result = form();
-        if (result != null && result != "")
-            return getNounSuffixContainer().getPrefix()+result;
+        if (result != null && !result.equals("") && genericNounSuffixContainer != null)
+            return genericNounSuffixContainer.getPrefix()+result;
         return "";
-    }
-
-    //it is needed to add the prefix
-    protected INounSuffixContainer getNounSuffixContainer() {
-        return GenericNounSuffixContainer.getInstance();
     }
 }

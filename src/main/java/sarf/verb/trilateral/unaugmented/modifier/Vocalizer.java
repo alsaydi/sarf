@@ -1,11 +1,15 @@
 
 package sarf.verb.trilateral.unaugmented.modifier;
 
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
-import java.util.*;
-import sarf.*;
+import sarf.SystemConstants;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.mithal.ActivePresentVocalizer;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,14 +25,14 @@ import sarf.verb.trilateral.unaugmented.modifier.vocalizer.mithal.ActivePresentV
  */
 public class Vocalizer {
     //المعلوم  و  المجهول تحتوي قائمة بالأنواع الخمسة لاعلال لماضي والمضارع والأمر حسب
-    private final Map vocalizerMap = new HashMap();
+    private final Map<String, List<IUnaugmentedTrilateralModifier>> vocalizerMap = new HashMap<>();
 
     public Vocalizer() {
-        List activePastList = new LinkedList();
-        List passivePastList = new LinkedList();
-        List activePresentList = new LinkedList();
-        List passivePresentList = new LinkedList();
-        List imperativeList = new LinkedList();
+        List<IUnaugmentedTrilateralModifier> activePastList = new ArrayList<>();
+        List<IUnaugmentedTrilateralModifier> passivePastList = new ArrayList<>();
+        List<IUnaugmentedTrilateralModifier> activePresentList = new ArrayList<>();
+        List<IUnaugmentedTrilateralModifier> passivePresentList = new ArrayList<>();
+        List<IUnaugmentedTrilateralModifier> imperativeList = new ArrayList<>();
 
         //خمس أنواع  أساسية  للاعلال للمعلوم والمبني لمجهول في الماضي والمضارع والأمر
         vocalizerMap.put(SystemConstants.PAST_TENSE + "true", activePastList);
@@ -108,19 +112,18 @@ public class Vocalizer {
     /**
      * تطبيق الاعلال حسب الصيغة ماضي أو مضارع أو أمر للمعلوم أو لمجهول
      * قد لا يطبق أي نوع من الاعلال
-     * @param tense String
-     * @param active boolean
+     *
+     * @param tense      String
+     * @param active     boolean
      * @param conjResult ConjugationResult
      */
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
-        List vocalizers = (List) vocalizerMap.get(tense+active);
-        for (Object o : vocalizers) {
-            IUnaugmentedTrilateralModifier vocalizer = (IUnaugmentedTrilateralModifier) o;
+        var vocalizers = vocalizerMap.get(tense + active);
+        for (IUnaugmentedTrilateralModifier vocalizer : vocalizers) {
             if (vocalizer.isApplied(conjResult)) {
                 ((SubstitutionsApplier) vocalizer).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }
     }
-
 }

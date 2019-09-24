@@ -24,16 +24,16 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public YaeiNakesLafifVocalizer() {
-        substitutions.add(new SuffixSubstitution("َيُ","َى"));// EX: (هذا المِسرى )
-        substitutions.add(new SuffixSubstitution("َيَ","َى"));// EX: (رأيت المِسرى)
-        substitutions.add(new SuffixSubstitution("َيِ","َى"));// EX: (كالمِسرى )
-        substitutions.add(new InfixSubstitution("َيٌ","ًى"));// EX: (هذا مِسرًى )
-        substitutions.add(new InfixSubstitution("َيًا","ًى"));// EX: (رأيت مِسرًى)
-        substitutions.add(new InfixSubstitution("َيٍ","ًى"));// EX: (كَمِسرًى )
-        substitutions.add(new InfixSubstitution("ايًا","اءً"));// EX: (مِسراءً)
-        substitutions.add(new InfixSubstitution("َيَة","َاة"));// EX: (مِسراة )
-        substitutions.add(new InfixSubstitution("َيَت","َات"));// EX: (مِسراتان )
-        substitutions.add(new InfixSubstitution("اي","اء"));// EX: (مِسراء )
+        substitutions.add(new SuffixSubstitution("َيُ", "َى"));// EX: (هذا المِسرى )
+        substitutions.add(new SuffixSubstitution("َيَ", "َى"));// EX: (رأيت المِسرى)
+        substitutions.add(new SuffixSubstitution("َيِ", "َى"));// EX: (كالمِسرى )
+        substitutions.add(new InfixSubstitution("َيٌ", "ًى"));// EX: (هذا مِسرًى )
+        substitutions.add(new InfixSubstitution("َيًا", "ًى"));// EX: (رأيت مِسرًى)
+        substitutions.add(new InfixSubstitution("َيٍ", "ًى"));// EX: (كَمِسرًى )
+        substitutions.add(new InfixSubstitution("ايًا", "اءً"));// EX: (مِسراءً)
+        substitutions.add(new InfixSubstitution("َيَة", "َاة"));// EX: (مِسراة )
+        substitutions.add(new InfixSubstitution("َيَت", "َات"));// EX: (مِسراتان )
+        substitutions.add(new InfixSubstitution("اي", "اء"));// EX: (مِسراء )
     }
 
     public List<Substitution> getSubstitutions() {
@@ -59,12 +59,7 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
                 case Fifth:
                     return true;
             }
-
-            if (noc == Conjugation.Second) {
-                return true;
-            }
-
-            return noc == Conjugation.Third || noc == Conjugation.Forth;
+            return noc == Conjugation.Second;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee) {
             switch (noc) {
                 case Second:
@@ -72,9 +67,7 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
                 case Forth:
                     return true;
             }
-
-
-            return noc == Conjugation.Third || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             return noc == Conjugation.Third || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {

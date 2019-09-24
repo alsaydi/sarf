@@ -2,7 +2,6 @@ package sarf.verb.quadriliteral.modifier.geminator.active;
 
 import java.util.*;
 import sarf.verb.quadriliteral.substitution.*;
-import sarf.verb.quadriliteral.modifier.*;
 import sarf.verb.quadriliteral.*;
 
 /**
@@ -32,7 +31,7 @@ public class Imperative2Geminator extends SubstitutionsApplier {
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC4() == 'ن';
+    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
+        return quadriConjugationResult.getRoot().getC4() == 'ن';
     }
 }

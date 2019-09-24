@@ -4,8 +4,8 @@ import java.util.*;
 
 import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
+import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.*;
-import sarf.verb.trilateral.augmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -35,9 +35,9 @@ public class Present3Vocalizer extends SubstitutionsApplier implements IAugmente
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         return (kov == KindOfVerb.Naqis_Wawi_Mahmouz_Faa || kov == KindOfVerb.Naqis_Wawi) && formulaNo == 2;
     }

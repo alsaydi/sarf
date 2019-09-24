@@ -27,14 +27,8 @@ public class UnaugmentedTrilateralModifier {
     private final Vocalizer vocalizer = new Vocalizer();
     private final HamzaModifier hamzaModifier = new HamzaModifier();
     private final PostHamzaModifier postHamzaModifier = new PostHamzaModifier();
-
-    private UnaugmentedTrilateralModifier() {
-    }
-
-    private static final UnaugmentedTrilateralModifier instance = new UnaugmentedTrilateralModifier();
-
-    public static UnaugmentedTrilateralModifier getInstance() {
-        return instance;
+    private final VerbLamAlefModifier verbLamAlefModifier = new VerbLamAlefModifier();
+    public UnaugmentedTrilateralModifier() {
     }
 
     /**
@@ -43,7 +37,7 @@ public class UnaugmentedTrilateralModifier {
      * @param root UnaugmentedTrilateralRoot
      * @param kov int
      * @param conjugations List
-     * @param tense String (From SystemConstans class the values are stored)  ماضي أو مضارع او أمر
+     * @param tense String (From SystemConstants class the values are stored)  ماضي أو مضارع او أمر
      * @return ConjugationResult
      */
     public<T> ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List<T> conjugations, String tense, boolean active) {
@@ -58,8 +52,7 @@ public class UnaugmentedTrilateralModifier {
         hamzaModifier.apply(tense, active, conjResult);
         //خصيصاُ للفعل أثأ
         postHamzaModifier.apply(tense, active, conjResult);
-        VerbLamAlefModifier.getInstance().apply(conjResult);
+        verbLamAlefModifier.apply(conjResult);
         return conjResult;
     }
-
 }

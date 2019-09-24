@@ -1,8 +1,10 @@
 package sarf.noun.trilateral.unaugmented.elative;
 
-import java.util.*;
-import sarf.noun.*;
-import sarf.util.*;
+import sarf.SystemConstants;
+import sarf.noun.INounSuffixContainer;
+import sarf.util.ArabCharUtil;
+
+import java.util.ArrayList;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -16,23 +18,23 @@ import sarf.util.*;
  * @author Haytham Mohta\u00E6sseb Billah
  * @version 1.0
  */
-public class ElativeSuffixContainer implements INounSuffixContainer{
+public class ElativeSuffixContainer implements INounSuffixContainer {
     private static final ElativeSuffixContainer instance = new ElativeSuffixContainer();
     //حالة المعرفة
-    private final ArrayList definiteSuffixList = new ArrayList(18);
+    private final ArrayList<String> definiteSuffixList = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
     //جدول تصريف اسم التفضيل المضاف إلى معرفة
-    private final ArrayList annexedDefiniteSuffixList = new ArrayList(18);
+    private final ArrayList<String> annexedDefiniteSuffixList = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
 
     // جدول تصريف اسم التفضيل المضاف إلى نكرة
-    private final ArrayList annexedIndefiniteSuffixList = new ArrayList(18);
+    private final ArrayList<String> annexedIndefiniteSuffixList = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
     //جدول تصريف اسم التفضيل غير المضاف
     //notAnnexedSuffixList is same as annexedIndefiniteSuffixList
-    private final ArrayList notAnnexedSuffixList = new ArrayList(18);
+    private final ArrayList<String> notAnnexedSuffixList = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
 
     //تكون لها قيمة عندما تكون الحالة هي معرفة
     private String prefix = "";
     //يمثل القائمة المختارة تبعاً للحالة
-    private ArrayList currentSuffixList = annexedIndefiniteSuffixList ;
+    private ArrayList currentSuffixList = annexedIndefiniteSuffixList;
 
     private ElativeSuffixContainer() {
         annexedIndefiniteSuffixList.add(ArabCharUtil.DAMMA);
@@ -173,5 +175,4 @@ public class ElativeSuffixContainer implements INounSuffixContainer{
     public boolean isNotAnnexed() {
         return currentSuffixList == notAnnexedSuffixList;
     }
-
 }

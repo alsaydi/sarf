@@ -20,11 +20,11 @@ import sarf.noun.trilateral.unaugmented.elative.*;
  */
 public class AlkhairModifier {
 
-    public AlkhairModifier() {
+    AlkhairModifier() {
     }
 
     public void apply(ConjugationResult conjResult) {
-        List conjugations = conjResult.getFinalResult();
+        var conjugations = conjResult.getFinalResult();
         //جدول تصريف اسم التفضيل المعرّف بـ (أل)
         if (ElativeSuffixContainer.getInstance().isDefinite()) {
             for (int i=0;i<6; i++) {

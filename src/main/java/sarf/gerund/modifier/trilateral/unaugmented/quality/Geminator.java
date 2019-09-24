@@ -1,10 +1,14 @@
 package sarf.gerund.modifier.trilateral.unaugmented.quality;
 
-import java.util.*;
+import sarf.gerund.modifier.trilateral.unaugmented.quality.geminator.Geminator1;
+import sarf.gerund.modifier.trilateral.unaugmented.quality.geminator.Geminator2;
+import sarf.gerund.modifier.trilateral.unaugmented.quality.geminator.Geminator3;
+import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
+import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 
-import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.gerund.modifier.trilateral.unaugmented.quality.geminator.*;
-import sarf.verb.trilateral.Substitution.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,8 +23,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @version 1.0
  */
 public class Geminator {
-    private final List modifiers = new LinkedList();
-
+    private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
 
     public Geminator() {
         modifiers.add(new Geminator1());
@@ -29,13 +32,12 @@ public class Geminator {
     }
 
     public void apply(ConjugationResult conjResult) {
-        for (Object o : modifiers) {
-            IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) o;
+        for (var geminator : modifiers) {
+            var modifier = (IUnaugmentedTrilateralNounModificationApplier) geminator;
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                geminator.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }
     }
 }
-

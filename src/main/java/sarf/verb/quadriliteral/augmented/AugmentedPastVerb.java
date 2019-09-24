@@ -42,5 +42,4 @@ public abstract class AugmentedPastVerb {
     public String toString() {
         return form();
     }
-
 }

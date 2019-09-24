@@ -1,5 +1,6 @@
 package sarf.util;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 
 /**
@@ -18,10 +19,10 @@ public class ConnectionManager {
     private ConnectionManager() {
         try {
             Class cl = Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-            java.sql.Driver dr = (java.sql.Driver) cl.newInstance();
+            java.sql.Driver dr = (java.sql.Driver) (cl.getConstructors()[0].newInstance());
             java.sql.DriverManager.registerDriver(dr);
         }
-        catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+        catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException | InvocationTargetException ex) {
             ex.printStackTrace();
         }
     }

@@ -44,9 +44,7 @@ public class AjwafVocalizer extends TrilateralNounSubstitutionApplier implements
                 case Fifth:
                     return true;
             }
-
-
-            return noc == Conjugation.Second || noc == Conjugation.Forth;
+            return noc == Conjugation.Second;
         } else if (kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Faa || kov == KindOfVerb.Ajwaf_Yaee_Mahmouz_Laam || kov == KindOfVerb.Ajwaf_Yaee) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         }

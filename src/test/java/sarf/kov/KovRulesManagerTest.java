@@ -69,15 +69,15 @@ class KovRulesManagerTest {
     }
 
     @Test
-    void getInstance() {
-        var sut = KovRulesManager.getInstance();
+    void getInstance() throws Exception {
+        var sut = new KovRulesManager();
         assertNotNull(sut);
     }
 
     @ParameterizedTest
     @MethodSource("getTrilateralVerbs")
-    void getTrilateralKov(String verb, int kindOfVerb) {
-        var sut = KovRulesManager.getInstance();
+    void getTrilateralKov(String verb, int kindOfVerb) throws Exception {
+        var sut = new KovRulesManager();;
         var c1 = verb.charAt(0);
         var c2 = verb.charAt(1);
         var c3 = verb.charAt(2);
@@ -87,8 +87,8 @@ class KovRulesManagerTest {
 
     @ParameterizedTest
     @MethodSource("getTrilateralVerbs")
-    void getTrilateralKovRule(String verb, int kindOfVerb) {
-        var sut = KovRulesManager.getInstance();
+    void getTrilateralKovRule(String verb, int kindOfVerb) throws Exception {
+        var sut = new KovRulesManager();
         var actual = sut.getTrilateralKovRule(verb.charAt(0), verb.charAt(1), verb.charAt(2));
 
         assertNotNull(actual);
@@ -97,8 +97,8 @@ class KovRulesManagerTest {
 
     @ParameterizedTest
     @MethodSource("getQuadrilateralVerbs")
-    void getQuadrilateralKovRule(String verb, int kindOfVerb) {
-        var sut = KovRulesManager.getInstance();
+    void getQuadrilateralKovRule(String verb, int kindOfVerb) throws Exception {
+        var sut = new KovRulesManager();
         var actual = sut.getQuadrilateralKovRule(verb.charAt(0), verb.charAt(1), verb.charAt(2), verb.charAt(3));
 
         assertNotNull(actual);

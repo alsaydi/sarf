@@ -1,11 +1,13 @@
 package sarf.noun.quadriliteral.modifier.activeparticiple;
 
-import java.util.*;
+import sarf.noun.QuadrilateralNounSubstitutionApplier;
+import sarf.verb.quadriliteral.QuadriConjugationResult;
+import sarf.verb.quadriliteral.substitution.InfixSubstitution;
+import sarf.verb.quadriliteral.substitution.Substitution;
+import sarf.verb.quadriliteral.substitution.SuffixSubstitution;
 
-import sarf.noun.*;
-import sarf.verb.quadriliteral.*;
-import sarf.verb.quadriliteral.modifier.*;
-import sarf.verb.quadriliteral.substitution.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -22,22 +24,21 @@ import sarf.verb.quadriliteral.substitution.*;
 public class Vocalizer extends QuadrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
-    public Vocalizer() {
-        substitutions.add(new SuffixSubstitution("ِيُ","ِي"));// EX: (هذا المقلسِي، )
-        substitutions.add(new SuffixSubstitution("ِيَ","ِيَ"));// EX: (رأيتُ المقلسِيَ ، )
-        substitutions.add(new SuffixSubstitution("ِيِ","ِي"));// EX: (مررتُ على المقلسِي ، )
-        substitutions.add(new InfixSubstitution("ِيٌ","ٍ"));// EX: (هذا مقلسٍ)
-        substitutions.add(new InfixSubstitution("ِيٍ","ٍ"));// EX: (مررتُ على مقلسٍ)
-        substitutions.add(new InfixSubstitution("ِيُ","ُ"));// EX: (مقلسُونَ ، )
-        substitutions.add(new InfixSubstitution("ِيِ","ِ"));// EX: (مقلسِينَ ، )
+    Vocalizer() {
+        substitutions.add(new SuffixSubstitution("ِيُ", "ِي"));// EX: (هذا المقلسِي، )
+        substitutions.add(new SuffixSubstitution("ِيَ", "ِيَ"));// EX: (رأيتُ المقلسِيَ ، )
+        substitutions.add(new SuffixSubstitution("ِيِ", "ِي"));// EX: (مررتُ على المقلسِي ، )
+        substitutions.add(new InfixSubstitution("ِيٌ", "ٍ"));// EX: (هذا مقلسٍ)
+        substitutions.add(new InfixSubstitution("ِيٍ", "ٍ"));// EX: (مررتُ على مقلسٍ)
+        substitutions.add(new InfixSubstitution("ِيُ", "ُ"));// EX: (مقلسُونَ ، )
+        substitutions.add(new InfixSubstitution("ِيِ", "ِ"));// EX: (مقلسِينَ ، )
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC4() == 'ي';
+    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
+        return quadriConjugationResult.getRoot().getC4() == 'ي';
     }
 }

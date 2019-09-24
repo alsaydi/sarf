@@ -16,22 +16,19 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public abstract class MeemGerund {
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
     protected UnaugmentedTrilateralRoot root;
     protected int suffixNo;
     protected String suffix;
-
-
-    public MeemGerund() {}
-
-    public MeemGerund(UnaugmentedTrilateralRoot root, String suffixNo) {
-        init(root, suffixNo);
+    protected MeemGerund() {
+        genericNounSuffixContainer = null;
     }
 
-    protected void init(UnaugmentedTrilateralRoot root, String suffixNo) {
+    public MeemGerund(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.root = root;
-        this.suffixNo = Integer.parseInt(suffixNo);
-
-        suffix = GenericNounSuffixContainer.getInstance().get(this.suffixNo);
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
+        this.suffixNo = "".equals(suffixNo) ? 0 : Integer.parseInt(suffixNo);
+        suffix = genericNounSuffixContainer != null ? genericNounSuffixContainer.get(this.suffixNo) : "";
     }
 
     public abstract String form();
@@ -39,10 +36,8 @@ public abstract class MeemGerund {
 
     public String toString() {
         String result = form();
-        if (result != null && result != "")
-            return GenericNounSuffixContainer.getInstance().getPrefix()+result;
+        if (result != null && !result.equals(""))
+            return genericNounSuffixContainer.getPrefix()+result;
         return "";
-
     }
-
 }

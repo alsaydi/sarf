@@ -1,24 +1,21 @@
 package sarf.verb.trilateral.augmented.active.present;
 
+import com.google.inject.Inject;
 import sarf.PresentConjugationDataContainer;
 
 public class AugmentedActivePresentConjugator {
-    private AugmentedActivePresentConjugator() {}
 
-    private static final AugmentedActivePresentConjugator instance = new AugmentedActivePresentConjugator();
+    @Inject
+    public AugmentedActivePresentConjugator() {}
 
-    private final AugmentedPresentConjugator nominativeConjugator = new AugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getNominativeLastDprList(),
-            PresentConjugationDataContainer.getInstance().getNominativeConnectedPronounList());
-    private final AugmentedPresentConjugator accusativeConjugator = new AugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getAccusativeLastDprList(),
-            PresentConjugationDataContainer.getInstance().getAccusativeConnectedPronounList());
-    private final AugmentedPresentConjugator jussiveConjugator = new AugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getJussiveLastDprList(),
-            PresentConjugationDataContainer.getInstance().getJussiveConnectedPronounList());
-    private final AugmentedPresentConjugator emphasizedConjugator = new AugmentedPresentConjugator(PresentConjugationDataContainer.getInstance().getEmphasizedLastDprList(),
-            PresentConjugationDataContainer.getInstance().getEmphasizedConnectedPronounList());
-
-    public static AugmentedActivePresentConjugator getInstance() {
-        return instance;
-    }
+    private final AugmentedPresentConjugator nominativeConjugator = new AugmentedPresentConjugator(PresentConjugationDataContainer.getNominativeLastDprList(),
+            PresentConjugationDataContainer.getNominativeConnectedPronounList());
+    private final AugmentedPresentConjugator accusativeConjugator = new AugmentedPresentConjugator(PresentConjugationDataContainer.getAccusativeLastDprList(),
+            PresentConjugationDataContainer.getAccusativeConnectedPronounList());
+    private final AugmentedPresentConjugator jussiveConjugator = new AugmentedPresentConjugator(PresentConjugationDataContainer.getJussiveLastDprList(),
+            PresentConjugationDataContainer.getJussiveConnectedPronounList());
+    private final AugmentedPresentConjugator emphasizedConjugator = new AugmentedPresentConjugator(PresentConjugationDataContainer.getEmphasizedLastDprList(),
+            PresentConjugationDataContainer.getEmphasizedConnectedPronounList());
 
     public AugmentedPresentConjugator getAccusativeConjugator() {
         return accusativeConjugator;

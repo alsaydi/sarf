@@ -2,32 +2,33 @@ package sarf;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.*;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.NounSunLamModifier.ListedInfixSubstitution;
 
 class NounSunLamModifierTest {
-	
-	@Test
-	void getInstance_returnsInstance() throws Exception {
-		assertNotNull(NounSunLamModifier.getInstance());
+
+	private NounSunLamModifier sut;
+
+	@BeforeEach
+	void setup(){
+		sut = new NounSunLamModifier();
 	}
 
 	@Test
-	void assertAppliedPronounIndexes() throws Exception {
-		assertEquals(18, NounSunLamModifier.getInstance().getAppliedPronounsIndexes().size());
+	void assertAppliedPronounsIndexes() throws Exception {
+		assertEquals(18, sut.getAppliedPronounsIndexes().size());
 	}
 	
 	@Test
 	void getSubstitutions_returnsListedInfixSubstitution() throws Exception {
-		NounSunLamModifier sut = NounSunLamModifier.getInstance();
 		List<Substitution> actual = sut.getSubstitutions();
 		
 		assertEquals(3, actual.size());
 	}
-	
-	
-	
+
 	@Test
 	void listedInfixSubstitution_apply_replacesSegmentsAroundSpecifiedLettersWithDesignatedPatterns() throws Exception {
 		List<String> sunLetters = new LinkedList<>();

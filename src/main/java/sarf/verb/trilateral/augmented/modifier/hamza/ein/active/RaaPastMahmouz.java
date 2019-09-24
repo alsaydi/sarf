@@ -3,7 +3,7 @@ package sarf.verb.trilateral.augmented.modifier.hamza.ein.active;
 import java.util.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 import sarf.verb.trilateral.*;
 
 /**
@@ -29,8 +29,8 @@ public class RaaPastMahmouz extends SubstitutionsApplier implements IAugmentedTr
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        TrilateralRoot root = conjugationResult.getRoot();
-        return conjugationResult.getFormulaNo() == 1 && root.getC1() == 'ر' && root.getC2() == 'ء' && root.getC3() == 'ي';
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        TrilateralRoot root = triAugmentedConjugationResult.getRoot();
+        return triAugmentedConjugationResult.getFormulaNo() == 1 && root.getC1() == 'ر' && root.getC2() == 'ء' && root.getC3() == 'ي';
     }
 }

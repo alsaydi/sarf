@@ -19,9 +19,9 @@ import sarf.noun.*;
  */
 public class NounFormula8 extends NonStandardExaggerationNounFormula {
 
-    public NounFormula8(UnaugmentedTrilateralRoot root, String suffixNo) {
-        super(root, suffixNo);
-        if (this.suffixNo == 7 && GenericNounSuffixContainer.getInstance().isInDefiniteMode()) {
+    public NounFormula8(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo, genericNounSuffixContainer);
+        if (this.suffixNo == 7 && genericNounSuffixContainer.isInDefiniteMode()) {
             suffix = "ً";
         }
     }

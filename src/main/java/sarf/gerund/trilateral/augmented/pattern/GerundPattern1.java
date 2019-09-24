@@ -1,6 +1,7 @@
 package sarf.gerund.trilateral.augmented.pattern;
 
 import sarf.gerund.trilateral.augmented.*;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.util.*;
 import sarf.verb.trilateral.augmented.*;
 
@@ -16,14 +17,11 @@ import sarf.verb.trilateral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class GerundPattern1 extends TrilateralAugmentedGerund implements IChangedGerundPattern{
-    boolean forcedForm1Applying = false;
+public class GerundPattern1 extends TrilateralAugmentedGerund implements IChangedGerundPattern {
+    private boolean forcedForm1Applying = false;
 
-    public GerundPattern1() {
-    }
-
-    public GerundPattern1(AugmentedTrilateralRoot root, String suffixNo) {
-        init(root, suffixNo);
+    public GerundPattern1(AugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo, genericNounSuffixContainer);
     }
 
     /**
@@ -31,7 +29,7 @@ public class GerundPattern1 extends TrilateralAugmentedGerund implements IChange
      *
      * @return String
      * @todo Implement this
-     *   sarf.gerund.trilateral.augmented.TrilateralAugmentedGerund method
+     * sarf.gerund.trilateral.augmented.TrilateralAugmentedGerund method
      */
     public String form() {
         if (forcedForm1Applying)
@@ -45,38 +43,36 @@ public class GerundPattern1 extends TrilateralAugmentedGerund implements IChange
 
     public String form1() {
         switch (suffixNo) {
-        case 1:
-        case 3:
-        case 6:
-        case 7:
-        case 9:
-        case 12:
-        case 13:
-        case 15:
-        case 18:
-            return generateForm();
+            case 1:
+            case 3:
+            case 6:
+            case 7:
+            case 9:
+            case 12:
+            case 13:
+            case 15:
+            case 18:
+                return generateForm();
         }
         return "";
     }
 
     public String form2() {
-        if (suffixNo%2 == 0)
+        if (suffixNo % 2 == 0)
             return generateForm();
         return "";
     }
 
-    public String generateForm() {
+    private String generateForm() {
         return "إ" + ArabCharUtil.KASRA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.FATHA + "ا" + root.getC3() + suffix;
     }
-
-
 
     /**
      * getPattern
      *
      * @return String
      * @todo Implement this
-     *   sarf.gerund.trilateral.augmented.TrilateralAugmentedGerund method
+     * sarf.gerund.trilateral.augmented.TrilateralAugmentedGerund method
      */
     public String getPattern() {
         return "إفْعَال";
@@ -85,5 +81,4 @@ public class GerundPattern1 extends TrilateralAugmentedGerund implements IChange
     public void setForcedForm1Applying(boolean forcedForm1Applying) {
         this.forcedForm1Applying = forcedForm1Applying;
     }
-
 }

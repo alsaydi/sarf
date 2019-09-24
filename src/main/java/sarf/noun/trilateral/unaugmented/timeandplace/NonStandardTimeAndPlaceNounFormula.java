@@ -1,5 +1,6 @@
 package sarf.noun.trilateral.unaugmented.timeandplace;
 
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.noun.NounFormula;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
@@ -16,17 +17,19 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
  * @version 1.0
  */
 public abstract class NonStandardTimeAndPlaceNounFormula extends NounFormula {
-
     public NonStandardTimeAndPlaceNounFormula() {
     }
 
-    public NonStandardTimeAndPlaceNounFormula(UnaugmentedTrilateralRoot root, String suffixNo) {
-        super(root, suffixNo);
+    public NonStandardTimeAndPlaceNounFormula(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo, genericNounSuffixContainer);
     }
 
     /**
      * Every non standard time and place has a symbol to be represented by
+     *
      * @return String
      */
-    public abstract String getSymbol();
+    public String getSymbol() {
+        return "";
+    }
 }

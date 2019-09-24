@@ -21,9 +21,9 @@ public abstract class AbstractGenericSubstituter extends SubstitutionsApplier im
     public AbstractGenericSubstituter() {
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
         if (formulaNo != 5) return false;
 
         boolean kovCond = false;

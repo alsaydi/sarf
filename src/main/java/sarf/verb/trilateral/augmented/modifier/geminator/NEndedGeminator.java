@@ -26,10 +26,10 @@ public class NEndedGeminator extends SubstitutionsApplier implements IAugmentedT
         substitutions.add(new InfixSubstitution("نْن","نّ"));// EX: (نحن سَكَّنَّا، هنَّ سَكَّنَّ)
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
-        if (conjugationResult.getRoot().getC3() != 'ن') return false;
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
+        if (triAugmentedConjugationResult.getRoot().getC3() != 'ن') return false;
         switch (formulaNo) {
             case 1:
             case 2:
@@ -48,7 +48,7 @@ public class NEndedGeminator extends SubstitutionsApplier implements IAugmentedT
         return false;
     }
 
-    public void apply(String tense, boolean active, ConjugationResult conjResult) {
+    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
 

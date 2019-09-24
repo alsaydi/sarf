@@ -1,14 +1,19 @@
 
 package sarf.verb.trilateral.augmented.active.past;
 
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
-import sarf.SystemConstants;
-import sarf.verb.trilateral.augmented.*;
+import com.google.inject.Inject;
 import sarf.AugmentationFormula;
 import sarf.PastConjugationDataContainer;
+import sarf.SystemConstants;
+import sarf.verb.trilateral.augmented.AugmentedPastVerb;
+import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
+import sarf.verb.trilateral.augmented.active.past.formula.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * <p>Title: Sarf</p>
@@ -23,26 +28,41 @@ import sarf.PastConjugationDataContainer;
  * @version 1.0
  */
 public class AugmentedActivePastConjugator {
-    private AugmentedActivePastConjugator() {
-    }
+    private final PastConjugationDataContainer pastConjugationDataContainer;
 
-    private static final AugmentedActivePastConjugator instance = new AugmentedActivePastConjugator();
-
-    public static AugmentedActivePastConjugator getInstance() {
-        return instance;
+    @Inject
+    public AugmentedActivePastConjugator(PastConjugationDataContainer pastConjugationDataContainer) {
+        this.pastConjugationDataContainer = pastConjugationDataContainer;
     }
 
     public AugmentedPastVerb createVerb(AugmentedTrilateralRoot root, int pronounIndex, int formulaNo) {
-        String lastDpa = PastConjugationDataContainer.getInstance().getLastDpa(pronounIndex);
-        String connectedPronoun = PastConjugationDataContainer.getInstance().getConnectedPronoun(pronounIndex);
-        String formulaClassName = getClass().getPackage().getName()+".formula."+"AugmentedPastVerb"+formulaNo;
-        Object [] parameters = {root, lastDpa, connectedPronoun};
-
-        try {
-            return (AugmentedPastVerb) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
-        }
-        catch (Exception ex) {
-            ex.printStackTrace();
+        String lastDpa = pastConjugationDataContainer.getLastDpa(pronounIndex);
+        String connectedPronoun = pastConjugationDataContainer.getConnectedPronoun(pronounIndex);
+        switch (formulaNo) {
+            case 1:
+                return new AugmentedPastVerb1(root, lastDpa, connectedPronoun);
+            case 2:
+                return new AugmentedPastVerb2(root, lastDpa, connectedPronoun);
+            case 3:
+                return new AugmentedPastVerb3(root, lastDpa, connectedPronoun);
+            case 4:
+                return new AugmentedPastVerb4(root, lastDpa, connectedPronoun);
+            case 5:
+                return new AugmentedPastVerb5(root, lastDpa, connectedPronoun);
+            case 6:
+                return new AugmentedPastVerb6(root, lastDpa, connectedPronoun);
+            case 7:
+                return new AugmentedPastVerb7(root, lastDpa, connectedPronoun);
+            case 8:
+                return new AugmentedPastVerb8(root, lastDpa, connectedPronoun);
+            case 9:
+                return new AugmentedPastVerb9(root, lastDpa, connectedPronoun);
+            case 10:
+                return new AugmentedPastVerb10(root, lastDpa, connectedPronoun);
+            case 11:
+                return new AugmentedPastVerb11(root, lastDpa, connectedPronoun);
+            case 12:
+                return new AugmentedPastVerb12(root, lastDpa, connectedPronoun);
         }
         return null;
     }

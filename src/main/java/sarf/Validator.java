@@ -21,13 +21,7 @@ public class Validator {
     private final String arabicLetters = "حخدذرزسشصطظعغفضقكلمنهويءبتثجىا";
     private final String hamzaString = "أؤئإ";
 
-    private Validator() {
-    }
-
-    private static final Validator instance = new Validator();
-
-    public static Validator getInstance() {
-        return instance;
+    Validator() {
     }
 
     /**

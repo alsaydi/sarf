@@ -1,5 +1,6 @@
 package sarf.noun.trilateral.unaugmented.assimilate.nonstandard;
 
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.noun.NounFormula;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.util.*;
@@ -19,15 +20,11 @@ import sarf.noun.INounSuffixContainer;
  * @version 1.0
  */
 public class NounFormulaE2 extends NounFormula {
+    public NounFormulaE2(){}
 
-    public NounFormulaE2(UnaugmentedTrilateralRoot root, String suffixNo) {
-        super(root, suffixNo);
+    public NounFormulaE2(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo, genericNounSuffixContainer);
     }
-
-    //to be used in refection getting the formula name
-    public NounFormulaE2() {
-    }
-
     public String form() {
         switch (suffixNo) {
         case 1:
@@ -51,13 +48,13 @@ public class NounFormulaE2 extends NounFormula {
     }
 
     //فَعْلَى
-    public String form1() {
+    private String form1() {
         suffix = AssimilateFormulaE2SuffixContainer.getInstance().get(this.suffixNo-1).replaceAll(" ","");
         return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+suffix;
     }
 
     //فَعْلان
-    public String form2() {
+    private String form2() {
         suffix = AssimilateFormulaE1SuffixContainer.getInstance().get(this.suffixNo-1).replaceAll(" ","");
         return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.FATHA+"ان"+suffix;
     }
@@ -66,18 +63,4 @@ public class NounFormulaE2 extends NounFormula {
     public String getFormulaName() {
         return "فَعْلان / فَعْلَى" ;
     }
-
-    protected INounSuffixContainer getNounSuffixContainer() {
-        switch (suffixNo) {
-        case 1:
-        case 3:
-        case 7:
-        case 9:
-        case 13:
-        case 15:
-            return AssimilateFormulaE1SuffixContainer.getInstance();
-        }
-        return AssimilateFormulaE2SuffixContainer.getInstance();
-    }
-
 }

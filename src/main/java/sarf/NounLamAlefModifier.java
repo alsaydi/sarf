@@ -1,9 +1,16 @@
 package sarf;
 
-import java.util.*;
-import java.util.stream.IntStream;
+import com.google.inject.Singleton;
+import sarf.verb.quadriliteral.QuadriConjugationResult;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 
-import sarf.verb.trilateral.Substitution.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -17,9 +24,11 @@ import sarf.verb.trilateral.Substitution.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public final class NounLamAlefModifier extends SubstitutionsApplier {
-	//TODO: appliedPronounsIndexes needs not to be a list of strings.
+@Singleton
+public class NounLamAlefModifier extends SubstitutionsApplier {
+    //TODO: appliedPronounsIndexes needs not to be a list of strings.
     static final List<String> appliedPronounsIndexes = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
+
     static {
         IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
                 .mapToObj(i -> i + 1 + "").forEachOrdered(appliedPronounsIndexes::add);
@@ -27,17 +36,11 @@ public final class NounLamAlefModifier extends SubstitutionsApplier {
 
     private final List<Substitution> substitutions = new LinkedList<>();
 
-    private NounLamAlefModifier() {
-        substitutions.add(new InfixSubstitution("لَا","لا"));// EX: (قالا)
-        substitutions.add(new InfixSubstitution("لَّا","لاَّ"));// EX: (انْشَلاَّ)
-        substitutions.add(new InfixSubstitution("لَأ","لأ"));// EX: (مَلأَ، مَلأْتُ)
-        substitutions.add(new InfixSubstitution("لًا","لاً"));// EX: (حملاً)
-    }
-
-    private static final NounLamAlefModifier instance = new NounLamAlefModifier();
-
-    public static NounLamAlefModifier getInstance() {
-        return instance;
+    public NounLamAlefModifier() {
+        substitutions.add(new InfixSubstitution("لَا", "لا"));// EX: (قالا)
+        substitutions.add(new InfixSubstitution("لَّا", "لاَّ"));// EX: (انْشَلاَّ)
+        substitutions.add(new InfixSubstitution("لَأ", "لأ"));// EX: (مَلأَ، مَلأْتُ)
+        substitutions.add(new InfixSubstitution("لًا", "لاً"));// EX: (حملاً)
     }
 
     public void apply(sarf.verb.trilateral.unaugmented.ConjugationResult conjResult) {
@@ -46,14 +49,13 @@ public final class NounLamAlefModifier extends SubstitutionsApplier {
         apply(conjResult.getFinalResult(), null);
     }
 
-    public void apply(sarf.verb.trilateral.augmented.ConjugationResult conjResult) {
+    public void apply(TriAugmentedConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
         //قد يوجد لام ألف أخرى تتطابق مع قانون أخر
         apply(conjResult.getFinalResult(), null);
     }
 
-
-    public void apply(sarf.verb.quadriliteral.ConjugationResult conjResult) {
+    public void apply(QuadriConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
         //قد يوجد لام ألف أخرى تتطابق مع قانون أخر
         apply(conjResult.getFinalResult(), null);

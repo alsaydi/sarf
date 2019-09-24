@@ -45,6 +45,7 @@ public class TGeminator extends SubstitutionsApplier implements IUnaugmentedTril
         return substitutions;
     }
 
+    @Override
     protected List<String> getAppliedPronounsIndexes() {
         return appliedPronounsIndexes;
     }

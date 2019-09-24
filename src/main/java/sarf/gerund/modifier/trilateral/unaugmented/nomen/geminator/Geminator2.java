@@ -26,7 +26,6 @@ private final List<Substitution> substitutions = new ArrayList<>();
         substitutions.add(new InfixSubstitution("َوْيَ","َيَّ"));// EX: (شيَّة، ليَّة)
     }
 
-
     public List getSubstitutions() {
         return substitutions;
     }

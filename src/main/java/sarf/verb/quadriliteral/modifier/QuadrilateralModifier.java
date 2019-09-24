@@ -22,39 +22,34 @@ import sarf.*;
  */
 public class QuadrilateralModifier {
 
-    private QuadrilateralModifier() {
+    public QuadrilateralModifier() {
     }
-
-    private static final QuadrilateralModifier instance = new QuadrilateralModifier();
 
     private final Geminator geminator = new Geminator();
     private final Vocalizer vocalizer = new Vocalizer();
     private final InternalMahmouz internalMahmouz = new InternalMahmouz();
     private final EndedMahmouz endedMahmouz = new EndedMahmouz();
-
-    public static QuadrilateralModifier getInstance() {
-        return instance;
-    }
+    private final VerbLamAlefModifier verbLamAlefModifier = new VerbLamAlefModifier();
 
     /**
      * اخراج قائمة الأفعال بعد التعديلات
      * @param root UnaugmentedTrilateralRoot
      * @param conjugations List
      * @param tense String (From SystemConstants class the values are stored)  ماضي أو مضارع او أمر
-     * @return ConjugationResult
+     * @return QuadriConjugationResult
      */
-    public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations, String tense, boolean active, boolean applyGemination) {
-        ConjugationResult conjResult = new ConjugationResult(formulaNo, kov, root, conjugations);
+    public QuadriConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations, String tense, boolean active, boolean applyGemination) {
+        QuadriConjugationResult conjResult = new QuadriConjugationResult(formulaNo, kov, root, conjugations);
         if (applyGemination)
             geminator.apply(tense, active, conjResult);
         vocalizer.apply(tense, active, conjResult);
         internalMahmouz.apply(tense, active, conjResult);
         endedMahmouz.apply(tense, active, conjResult);
-        VerbLamAlefModifier.getInstance().apply(conjResult);
+        verbLamAlefModifier.apply(conjResult);
         return conjResult;
     }
 
-    public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations, String tense, boolean active) {
+    public QuadriConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations, String tense, boolean active) {
         return build(root, formulaNo, kov, conjugations, tense, active, true);
     }
 }

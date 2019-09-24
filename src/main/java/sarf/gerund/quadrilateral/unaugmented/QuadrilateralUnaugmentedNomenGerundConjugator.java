@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import sarf.SystemConstants;
+import com.google.inject.Inject;
 import sarf.noun.*;
 import sarf.util.*;
 import sarf.verb.quadriliteral.unaugmented.*;
@@ -24,25 +24,22 @@ import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
  * @version 1.0
  */
 public class QuadrilateralUnaugmentedNomenGerundConjugator {
-    private static final QuadrilateralUnaugmentedNomenGerundConjugator instance = new QuadrilateralUnaugmentedNomenGerundConjugator();
-
     private final int[] indexList = {2, 4, 6, 8, 10, 12, 14, 16, 18};
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    private QuadrilateralUnaugmentedNomenGerundConjugator() {
-    }
-
-    public static QuadrilateralUnaugmentedNomenGerundConjugator getInstance() {
-        return instance;
+    @Inject
+    public QuadrilateralUnaugmentedNomenGerundConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
     public List<QuadrilateralGerund> createGerundList(UnaugmentedQuadrilateralRoot root) {
         var gerundDisplayList = createEmptyList();
 
-        String gerund = GenericNounSuffixContainer.getInstance().getPrefix()+root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3()+ArabCharUtil.FATHA+root.getC4();
-        for (int i = 0; i < indexList.length; i++) {
+        String gerund = genericNounSuffixContainer.getPrefix()+root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3()+ArabCharUtil.FATHA+root.getC4();
+        for (int value : indexList) {
             //because index in java start from zero
-            int suffixNo = indexList[i] - 1;
-            String suffix = GenericNounSuffixContainer.getInstance().get(suffixNo);
+            int suffixNo = value - 1;
+            String suffix = genericNounSuffixContainer.get(suffixNo);
             gerundDisplayList.set(suffixNo, new QuadrilateralGerund(gerund + suffix));
         }
 

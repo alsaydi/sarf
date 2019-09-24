@@ -1,5 +1,6 @@
 package sarf.gerund.trilateral.augmented.nomen.pattern;
 
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.trilateral.augmented.*;
 import sarf.util.*;
 import sarf.gerund.trilateral.augmented.nomen.*;
@@ -17,12 +18,8 @@ import sarf.gerund.trilateral.augmented.nomen.*;
  * @version 1.0
  */
 public class GerundPattern2 extends TrilateralAugmentedNomenGerund {
-    public GerundPattern2() {
-
-    }
-
-    public GerundPattern2(AugmentedTrilateralRoot root, String suffixNo) {
-        init(root, suffixNo);
+    public GerundPattern2(AugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo, genericNounSuffixContainer);
     }
 
     /**
@@ -30,7 +27,7 @@ public class GerundPattern2 extends TrilateralAugmentedNomenGerund {
      *
      * @return String
      * @todo Implement this
-     *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
+     * sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
      */
     public String form() {
 //        if (root.getC3() == 'و' || root.getC3() == 'ي')
@@ -42,15 +39,15 @@ public class GerundPattern2 extends TrilateralAugmentedNomenGerund {
     }
 
     public String form1() {
-        return "ت"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+"ي"+root.getC3()+suffix;
+        return "ت" + ArabCharUtil.FATHA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.KASRA + "ي" + root.getC3() + suffix;
     }
 
     public String form2() {
-        return "ت"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
+        return "ت" + ArabCharUtil.FATHA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.KASRA + root.getC3() + suffix;
     }
 
     public String form3() {
-        return "ت"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+"ئ"+suffix;
+        return "ت" + ArabCharUtil.FATHA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.KASRA + "ئ" + suffix;
     }
 
     /**
@@ -58,7 +55,7 @@ public class GerundPattern2 extends TrilateralAugmentedNomenGerund {
      *
      * @return String
      * @todo Implement this
-     *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
+     * sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
      */
     public String getPattern() {
         return "تَفْعِيلة";

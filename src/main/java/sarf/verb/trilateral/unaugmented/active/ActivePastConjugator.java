@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import com.google.inject.Inject;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.*;
 
@@ -20,13 +21,11 @@ import sarf.*;
  * @version 1.0
  */
 public class ActivePastConjugator {
-    private ActivePastConjugator() {
-    }
+    private final PastConjugationDataContainer pastConjugationDataContainer;
 
-    private static final ActivePastConjugator instance = new ActivePastConjugator();
-
-    public static ActivePastConjugator getInstance() {
-        return instance;
+    @Inject
+    public ActivePastConjugator(PastConjugationDataContainer pastConjugationDataContainer) {
+        this.pastConjugationDataContainer = pastConjugationDataContainer;
     }
 
     /**
@@ -36,9 +35,9 @@ public class ActivePastConjugator {
      * @return PastConjugation
      */
     public ActivePastVerb createVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
-        String dpa2 = PastConjugationDataContainer.getInstance().getDpa2(root);
-        String lastDpa = PastConjugationDataContainer.getInstance().getLastDpa(pronounIndex);
-        String connectedPronoun = PastConjugationDataContainer.getInstance().getConnectedPronoun(pronounIndex);
+        String dpa2 = pastConjugationDataContainer.getDpa2(root);
+        String lastDpa = pastConjugationDataContainer.getLastDpa(pronounIndex);
+        String connectedPronoun = pastConjugationDataContainer.getConnectedPronoun(pronounIndex);
         return new ActivePastVerb(root, dpa2, lastDpa, connectedPronoun);
     }
 

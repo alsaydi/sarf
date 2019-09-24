@@ -5,6 +5,16 @@ import java.util.*;
 import sarf.noun.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.*;
+import sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter1;
+import sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter2;
+import sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter3;
+import sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter4;
+import sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter5;
+import sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter6;
+import sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter7;
+import sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter8;
+import sarf.noun.trilateral.augmented.modifier.substituter.SpecialSubstituter1;
+import sarf.noun.trilateral.augmented.modifier.substituter.SpecialSubstituter2;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,31 +29,28 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @version 1.0
  */
 public class Substituter {
-
-    private final List modifiers = new LinkedList();
-
+    private final List<TrilateralNounSubstitutionApplier> modifiers = new LinkedList<>();
 
     public Substituter() {
-        modifiers.add(new sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter1());
-        modifiers.add(new sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter2());
-        modifiers.add(new sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter3());
-        modifiers.add(new sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter4());
-        modifiers.add(new sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter5());
-        modifiers.add(new sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter6());
-        modifiers.add(new sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter7());
-        modifiers.add(new sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter8());
-        modifiers.add(new sarf.noun.trilateral.augmented.modifier.substituter.SpecialSubstituter1());
-        modifiers.add(new sarf.noun.trilateral.augmented.modifier.substituter.SpecialSubstituter2());
-       }
+        modifiers.add(new GenericSubstituter1());
+        modifiers.add(new GenericSubstituter2());
+        modifiers.add(new GenericSubstituter3());
+        modifiers.add(new GenericSubstituter4());
+        modifiers.add(new GenericSubstituter5());
+        modifiers.add(new GenericSubstituter6());
+        modifiers.add(new GenericSubstituter7());
+        modifiers.add(new GenericSubstituter8());
+        modifiers.add(new SpecialSubstituter1());
+        modifiers.add(new SpecialSubstituter2());
+    }
 
-    public void apply(ConjugationResult conjResult) {
-        for (Object o : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
+    public void apply(TriAugmentedConjugationResult conjResult) {
+        for (TrilateralNounSubstitutionApplier applier : modifiers) {
+            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) applier;
             if (modifier.isApplied(conjResult)) {
-                ((TrilateralNounSubstitutionApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                applier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }
     }
-
 }

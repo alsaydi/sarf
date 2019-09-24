@@ -1,6 +1,7 @@
 package sarf.gerund.trilateral.augmented.pattern;
 
 import sarf.gerund.trilateral.augmented.*;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.trilateral.augmented.*;
 import sarf.util.*;
 
@@ -17,18 +18,14 @@ import sarf.util.*;
  * @version 1.0
  */
 public class GerundPattern3 extends TrilateralAugmentedGerund {
-    public GerundPattern3() {
-        super();
+    private boolean form2Applied;
+
+    public GerundPattern3(AugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer, boolean applyForm2) {
+        super(root, suffixNo, genericNounSuffixContainer);
+        this.form2Applied = applyForm2;
     }
-
-    private boolean form2Applied = false;
-
-    public GerundPattern3(AugmentedTrilateralRoot root, String suffixNo) {
-        init(root, suffixNo);
-        //سيتم اختيار أحد القانونين
-        if (root.getC1() != 'ي') {
-            form2Applied = TrilateralAugmentedGerundConjugator.getInstance().selectPatternFormNo(3) == 2;
-        }
+    public GerundPattern3(AugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        this(root, suffixNo, genericNounSuffixContainer, false);
     }
 
     /**

@@ -1,6 +1,22 @@
 package sarf.noun.trilateral.unaugmented.instrumental;
 
+import com.google.inject.Inject;
 import sarf.noun.*;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula1;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula2;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula3;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula4;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula5;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula6;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula7;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula8;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula9;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula10;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula11;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula12;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula13;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula14;
+import sarf.noun.trilateral.unaugmented.instrumental.nonstandard.NounFormula15;
 import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
 import sarf.*;
@@ -18,41 +34,45 @@ import sarf.*;
  * @version 1.0
  */
 public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateralNounConjugator {
-    private final Map<String, Class<?>> formulaClassNamesMap = new HashMap<>();
+    private final Map<String, Class> formulaClassNamesMap = new HashMap<>();
     //map <symbol,formulaName>
     private final Map<String, String> formulaSymbolsNamesMap = new HashMap<>();
+    private final DatabaseManager databaseManager;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    private NonStandardInstrumentalConjugator() {
-        for (int i = 1; i <= 15; i++) {
-            String formulaClassName = getClass().getPackage().getName() + ".nonstandard.NounFormula" + i;
-            try {
-                @SuppressWarnings("unchecked")
-				Class<NonStandardInstrumentalNounFormula> formulaClass = (Class<NonStandardInstrumentalNounFormula>) Class.forName(formulaClassName);
-                NonStandardInstrumentalNounFormula instrumentalNounFormula = (NonStandardInstrumentalNounFormula) formulaClass.getConstructor().newInstance();
-                formulaClassNamesMap.put(instrumentalNounFormula.getFormulaName(), formulaClass);
-                formulaSymbolsNamesMap.put(instrumentalNounFormula.getSymbol(), instrumentalNounFormula.getFormulaName());
-            }
-            catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
+    @Inject
+    public NonStandardInstrumentalConjugator(DatabaseManager databaseManager, GenericNounSuffixContainer genericNounSuffixContainer) {
+        this.databaseManager = databaseManager;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
+        buildFormulaClassNamesMap(new NounFormula1());
+        buildFormulaClassNamesMap(new NounFormula2());
+        buildFormulaClassNamesMap(new NounFormula3());
+        buildFormulaClassNamesMap(new NounFormula4());
+        buildFormulaClassNamesMap(new NounFormula5());
+        buildFormulaClassNamesMap(new NounFormula6());
+        buildFormulaClassNamesMap(new NounFormula7());
+        buildFormulaClassNamesMap(new NounFormula8());
+        buildFormulaClassNamesMap(new NounFormula9());
+        buildFormulaClassNamesMap(new NounFormula10());
+        buildFormulaClassNamesMap(new NounFormula11());
+        buildFormulaClassNamesMap(new NounFormula12());
+        buildFormulaClassNamesMap(new NounFormula13());
+        buildFormulaClassNamesMap(new NounFormula14());
+        buildFormulaClassNamesMap(new NounFormula15());
     }
 
-    private static final NonStandardInstrumentalConjugator instance = new NonStandardInstrumentalConjugator();
-
-    public static NonStandardInstrumentalConjugator getInstance() {
-        return instance;
+    private void buildFormulaClassNamesMap(NonStandardInstrumentalNounFormula instance){
+        formulaClassNamesMap.put(instance.getFormulaName(), instance.getClass());
+        formulaSymbolsNamesMap.put(instance.getSymbol(), instance.getFormulaName());
     }
-
 
     public NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaName) {
-        Object[] parameters = {root, suffixNo + ""};
+        Object[] parameters = {root, suffixNo + "", genericNounSuffixContainer};
 
         try {
-            Class<?> formulaClass = (Class<?>) formulaClassNamesMap.get(formulaName);
-            return (NounFormula) formulaClass.getConstructor(root.getClass(), "".getClass()).newInstance(parameters);
-        }
-        catch (Exception ex) {
+            Class<NounFormula> formulaClass = formulaClassNamesMap.get(formulaName);
+            return formulaClass.getConstructor(root.getClass(), "".getClass(), genericNounSuffixContainer.getClass()).newInstance(parameters);
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return null;
@@ -73,7 +93,7 @@ public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateral
             return null;
         }
 
-        XmlNonStandardInstrumentalNounFormulaTree formulaTree = DatabaseManager.getInstance().getInstrumentalNounFormulaTree(root.getC1());
+        XmlNonStandardInstrumentalNounFormulaTree formulaTree = databaseManager.getInstrumentalNounFormulaTree(root.getC1());
         if (formulaTree == null) {
             return null;
         }
@@ -82,13 +102,13 @@ public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateral
 
         for (XmlNonStandardInstrumentalNounFormula formula : formulaTree.getFormulaList()) {
             if (formula.getC2() == root.getC2() && formula.getC3() == root.getC3()) {
-                if (formula.getForm1() != null && formula.getForm1() != "") {
+                if (formula.getForm1() != null && !formula.getForm1().equals("")) {
                     //add the formula pattern instead of the symbol (form1)
                     result.add(formulaSymbolsNamesMap.get(formula.getForm1()));
                 }
 
                 //may the verb has two forms of instrumentals
-                if (formula.getForm2() != null && formula.getForm2() != "") {
+                if (formula.getForm2() != null && !formula.getForm2().equals("")) {
                     //add the formula pattern instead of the symbol (form2)
                     result.add(formulaSymbolsNamesMap.get(formula.getForm2()));
                 }

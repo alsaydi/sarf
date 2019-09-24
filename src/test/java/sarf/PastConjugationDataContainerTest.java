@@ -7,7 +7,7 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 class PastConjugationDataContainerTest {
 
-	PastConjugationDataContainer sut = PastConjugationDataContainer.getInstance();
+	private PastConjugationDataContainer sut = new PastConjugationDataContainer();//.getInstance();
 	
 	@Test
 	void getDpa2_dependsOnConjugationOfRoot() throws Exception {

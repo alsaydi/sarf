@@ -27,11 +27,11 @@ public class Geminator3 extends TrilateralNounSubstitutionApplier implements IAu
         substitutions.add(new InfixSubstitution("تْت","تّ"));// EX: (مُتَّبِعٌ، مُتَّئِمٌ)
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
-        return conjugationResult.getRoot().getC1() == 'ت' && (kov == KindOfVerb.Salim || kov == KindOfVerb.Mahmouz_Ain) && formulaNo == 5;
+        return triAugmentedConjugationResult.getRoot().getC1() == 'ت' && (kov == KindOfVerb.Salim || kov == KindOfVerb.Mahmouz_Ain) && formulaNo == 5;
     }
 
     public List<Substitution> getSubstitutions() {

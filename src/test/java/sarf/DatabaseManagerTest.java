@@ -3,10 +3,10 @@ package sarf;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-public class DatabaseManagerTest {
+class DatabaseManagerTest {
 
 	@Test
-	public void getInstance_ReturnsInstance() {
-		assertNotNull(DatabaseManager.getInstance());
+	void getInstance_ReturnsInstance() throws Exception {
+		assertNotNull(new DatabaseManager().getUnaugmentedTrilateralRootTree('ب'));
 	}
 }

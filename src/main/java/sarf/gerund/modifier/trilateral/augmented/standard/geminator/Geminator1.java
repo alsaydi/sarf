@@ -30,9 +30,9 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
         substitutions.add(new ExpressionInfixSubstitution("اC3ُC3", "اC3ّ"));// EX: (تصامٌّ)
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         if (kov == KindOfVerb.Mudaaf) {
             switch (formulaNo) {
@@ -44,9 +44,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
                 case 9:
                     return true;
             }
-
-
-            return formulaNo == 3 || formulaNo == 7;
+            return false;
         } else if (kov == KindOfVerb.Mahmouz_Faa_Mudaaf) {
             switch (formulaNo) {
                 case 3:
@@ -55,9 +53,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
                 case 9:
                     return true;
             }
-
-
-            return formulaNo == 3 || formulaNo == 7;
+            return false;
         } else if (kov == KindOfVerb.Mithal_Wawi_Mudaaf) {
             return formulaNo == 3 || formulaNo == 7;
         }

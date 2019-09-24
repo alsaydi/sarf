@@ -20,7 +20,7 @@ import sarf.noun.trilateral.unaugmented.elative.*;
  */
 public class AlSharModifier {
 
-    public AlSharModifier() {
+    AlSharModifier() {
     }
 
     public void apply(ConjugationResult conjResult) {

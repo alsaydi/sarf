@@ -1,5 +1,6 @@
 package sarf.noun.trilateral.unaugmented.timeandplace.nonstandard;
 
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.util.*;
 import sarf.noun.trilateral.unaugmented.timeandplace.NonStandardTimeAndPlaceNounFormula;
@@ -17,15 +18,10 @@ import sarf.noun.trilateral.unaugmented.timeandplace.NonStandardTimeAndPlaceNoun
  * @version 1.0
  */
 public class NounFormula3 extends NonStandardTimeAndPlaceNounFormula{
-
-    public NounFormula3(UnaugmentedTrilateralRoot root, String suffixNo) {
-        super(root, suffixNo);
+    public NounFormula3(){}
+    public NounFormula3(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo, genericNounSuffixContainer);
     }
-
-    //to be used in refection getting the formula name
-    public NounFormula3() {
-    }
-
     public String form() {
         switch (suffixNo) {
         case 2:

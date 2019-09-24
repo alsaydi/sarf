@@ -1,29 +1,50 @@
 package sarf.ui;
 
-import sarf.KindOfVerb;
-import sarf.SarfDictionary;
-import sarf.SystemConstants;
+import com.google.inject.Guice;
+import com.google.inject.Inject;
+import sarf.*;
 import sarf.kov.KovRulesManager;
 import sarf.kov.TrilateralKovRule;
-import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralActiveParticiple;
-import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralActiveParticipleConjugator;
-import sarf.noun.trilateral.unaugmented.modifier.activeparticiple.ActiveParticipleModifier;
+import sarf.ui.testhelpers.QuadrilateralAugmentedHelper;
+import sarf.ui.testhelpers.QuadrilateralUnaugmentedHelper;
+import sarf.ui.testhelpers.TrilateralAugmentedHelper;
+import sarf.ui.testhelpers.TrilateralUnaugmentedHelper;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
-import sarf.verb.trilateral.unaugmented.active.ActivePastVerb;
-import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ConsoleApp {
+    //private final TrilateralAugmentedHelper augmentedTrilateralHelper;
+    private final SarfDictionary sarfDictionary;
+    private final KovRulesManager kovRulesManager;
+    private final TrilateralUnaugmentedHelper trilateralUnaugmentedHelper;
+    private final TrilateralAugmentedHelper augmentedTrilateralHelper;
+    private final QuadrilateralUnaugmentedHelper quadrilateralUnaugmentedHelper;
+    private final QuadrilateralAugmentedHelper quadrilateralAugmentedHelper;
+
+    @Inject
+    public ConsoleApp(SarfDictionary sarfDictionary
+            , KovRulesManager kovRulesManager
+            , TrilateralUnaugmentedHelper trilateralUnaugmentedHelper
+            , TrilateralAugmentedHelper augmentedTrilateralHelper, QuadrilateralUnaugmentedHelper quadrilateralUnaugmentedHelper, QuadrilateralAugmentedHelper quadrilateralAugmentedHelper) {
+        this.sarfDictionary = sarfDictionary;
+        this.kovRulesManager = kovRulesManager;
+        this.trilateralUnaugmentedHelper = trilateralUnaugmentedHelper;
+        this.augmentedTrilateralHelper = augmentedTrilateralHelper;
+        this.quadrilateralUnaugmentedHelper = quadrilateralUnaugmentedHelper;
+        this.quadrilateralAugmentedHelper = quadrilateralAugmentedHelper;
+    }
+
     public static void main(String[] args) {
         try {
-            (new ConsoleApp()).Run();
+            var injector = Guice.createInjector(new SarfModule());
+            var mainApp = injector.getInstance(ConsoleApp.class);
+            mainApp.run();
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
             System.err.println(Arrays.toString(ex.getStackTrace()));
@@ -31,7 +52,33 @@ public class ConsoleApp {
         }
     }
 
-    private void Run() throws Exception {
+    private void processQuadrilateral(String root) {
+        //quadrilateralAugmentedHelper.printPastActive(root);
+        //quadrilateralUnaugmentedHelper.printPastActive(root);
+        //quadrilateralUnaugmentedHelper.printPresentActive(root);
+        //quadrilateralUnaugmentedHelper.printImperative(root);
+        //quadrilateralUnaugmentedHelper.printPassivePast(root);
+        //quadrilateralUnaugmentedHelper.printPassivePresent(root);
+        //quadrilateralUnaugmentedHelper.printActiveParticiple(root);
+        //quadrilateralUnaugmentedHelper.printPassiveParticiple(root);
+        //quadrilateralUnaugmentedHelper.printTimeAndPlace(root);
+        //quadrilateralUnaugmentedHelper.printGerund(root);
+        //quadrilateralUnaugmentedHelper.printNomenGerund(root);
+        //quadrilateralUnaugmentedHelper.printMeemGerund(root);
+        //quadrilateralAugmentedHelper.printPastActive(root);
+        //quadrilateralAugmentedHelper.printPresent(root);
+        //quadrilateralAugmentedHelper.printImperative(root);
+        //quadrilateralAugmentedHelper.printPassivePast(root);
+        //quadrilateralAugmentedHelper.printPassivePresent(root);
+        //quadrilateralAugmentedHelper.printActiveParticiple(root);
+        //quadrilateralAugmentedHelper.printPassiveParticiple(root);
+        //quadrilateralAugmentedHelper.printTimeAndPlace(root);
+        //quadrilateralAugmentedHelper.printGerund(root);
+        //quadrilateralAugmentedHelper.printMeemGerund(root);
+        quadrilateralAugmentedHelper.printNomenGerund(root);
+    }
+
+    private void run() throws Exception {
         //@SuppressWarnings("resource")
         //String root = new Scanner(System.in).nextLine();
         String[] roots = new String[]{
@@ -62,22 +109,91 @@ public class ConsoleApp {
                 "وجل", "وجي", "ودد", "وذر"
                 , "وسع", "وطء", "وقع", "ولغ"
                 , "وهل", "يءس", "يدي", "يرر", "يقظ"
-                , "ءبه","ءبي","ءثء","بحح","بخت","بدء"
-                ,"ثءر","جءو","خلء","ذءت","رءي","رهن"
-                ,"زهو","سءل","سحل","سعي","شءن",
-                "لءم","لجء","منع","نءي","وبء",
-                "وبه","وجء","وجع","ودع","وسع",
-                "وضع","وطء","ولغ","وهب","وهل","ينع"
-                ,"ءثل","ءصل","ءمن","ءمو",
-                "ءنث","بطء","بلد","بلغ","ثبت"
-                ,"ثخن","جرء","حبب","ذبل","سرو","ضءل"
-                ,"طول","كرم","لدن","وبء","وجل","ودع","وزن",
-                "وشك","وضء","وطء","يتم","يمن"
-                ,"حسب","ورث","ولي","وهن","يءس","يبس"
+                , "ءبه", "ءبي", "ءثء", "بحح", "بخت", "بدء"
+                , "ثءر", "جءو", "خلء", "ذءت", "رءي", "رهن"
+                , "زهو", "سءل", "سحل", "سعي", "شءن",
+                "لءم", "لجء", "منع", "نءي", "وبء",
+                "وبه", "وجء", "وجع", "ودع", "وسع",
+                "وضع", "وطء", "ولغ", "وهب", "وهل", "ينع"
+                , "ءثل", "ءصل", "ءمن", "ءمو",
+                "ءنث", "بطء", "بلد", "بلغ", "ثبت"
+                , "ثخن", "جرء", "حبب", "ذبل", "سرو", "ضءل"
+                , "طول", "كرم", "لدن", "وبء", "وجل", "ودع", "وزن",
+                "وشك", "وضء", "وطء", "يتم", "يمن"
+                , "حسب", "ورث", "ولي", "وهن", "يءس", "يبس"
+                , "ءبب", "ءنن", "ءبت", "ءبن", "ءبي", "ءتت", "ءتن"
+                , "ءثء", "ءخذ", "ءذي", "ءسو", "ءكل", "ءلل", "ءمم", "ءمن", "ءمر"
+                , "ءمل", "ءمو", "ءنن", "ءود", "ءوي", "بوء", "بيت", "بيع", "بحح"
+                , "بدء", "تمم", "ثءر", "جءو", "جءي", "جيء", "جرء", "حور", "رءي", "رضو"
+                , "رمي", "روي", "سءل", "سءم", "سعي", "سكت", "سكن", "سوو", "شوي"
+                , "صدق", "ضءل", "ضحك", "طلق", "ظمء", "عضض", "علم", "عوج", "غزو"
+                , "فرق", "قءم", "لءم", "لوح", "لين", "لجء", "لوي",
+                "لكم", "لهء", "مءي", "مدد", "ملل", "منن",
+                "نءل", "نءم", "نءم", "نءي", "نسل", "نصر", "هول"
+                , "هوء", "وءد", "وءي", "وبء", "وتن", "ودد"
+                , "ورث", "وقي", "يءس", "يدي", "يسس", "يسر", "يمن",
+
+        //أسماء الزمان و المكان
+
+                "ءيب", "ءبن"
+                , "ءتت", "ءتي", "ءخذ", "ءزر", "ءسو"
+                , "ءكل", "ءمم", "ءمر", "ءمل", "بوء", "بدء", "حسب"
+                , "حيص", "حمل", "خيط", "رءي", "رجح", "ريق", "رمي", "سير"
+                , "سحل", "سكن", "شوي", "ضرب", "عضض", "غزو", "غطي", "قوم"
+                , "قرء", "كسو", "لوح", "لبس", "لكم", "لوي", "مءي", "مدد"
+                , "ملل", "منن", "نسخ", "نسل", "نصر", "هول", "وءد", "وءي",
+                "وسع", "وضء", "وطء", "وقي",
+                // الصفة المشبهة
+                "تعب", "تلد",
+                "جوع", "جدب",
+                "جرب", "جرد", "جهم"
+                , "حزن", "خشن", "رطب",
+                "رغد", "سمج", "طول", "عفف", "غضب", "قلل"
+                , "كسل", "كلل", "نزه", "نعس", "هيم", "وله", "يبس"
+                , "مرن"
         };
-        // roots = new String[]{"طيط"};
+
+        var elatives = new String[]{
+                "جود", "سوء", "شرر", "علو", "قسو", "ءجل", "خير", "طيب", "هدي", "بقي", "خفي", "رجو", "يبس", "غني", "بخل",
+                "بطء", "بهو", "جرء", "ذكو", "لءم", "وضء", "علو", "قسو", "جلل"
+        };
+
+        var augmentedRoots = new String[]{
+            "ءتي", "ءدي" , "ءجر", "نءد","ءتل", "بيض","ءكل","جءل","ءبن","ءذن","حزو","جءي"
+                , "غوي"
+                , "دهم"
+                , "بلج"
+                , "قبل"
+                , "ءيس", "صبر", "نتء", "ختو"
+                , "نءي", "دخر", "ملح", "شءم","يقظ"
+                , "ءسو", "ءسي", "ءضض"
+                , "حوي" , "حيي"
+                , "كتب"
+                , "ورد"
+                , "سعي"
+                , "ركض"
+                , "يبس"
+                , "حدي"
+                , "نسي"
+                , "هيء"
+        };
+
+        var qroots = new String[]{
+                "دحرج"
+                ,"بءدل"
+                ,"بلور"
+                ,"تلفن"
+                ,"تنتن"
+                ,"جءجء","حوقل","حيحي"
+                ,"دحرج","رهيء","زلزل","سبرت","سيطر","شريف"
+                ,"ضوضي","طمءن","غرقء","قلسي","وءوء","وسوس","يءيء","يرنء","يهيه"
+                ,"شرءب", "مرءي"
+                ,"شيطن", "وشوش"
+                ,"بخدن", "حبطء", "حوصل", "سلقي" , "فرقع" , "قشعر" , "كوءد", "كوهد", "مضحن"
+        };
+
         var rootsFound = 0;
-        for (var root : roots) {
+        for (var root : Stream.concat(Arrays.stream(qroots), Arrays.stream(qroots)).distinct().collect(Collectors.toList())) {
             //System.out.println(root);
             if (root.length() == 3) {
                 if (processTrilateral(root)) {
@@ -93,13 +209,9 @@ public class ConsoleApp {
         System.out.println("Roots " + roots.length + " and processed " + rootsFound);
     }
 
-    private void processQuadrilateral(String root) {
-
-    }
-
     private boolean processTrilateral(String root) throws Exception {
-        AugmentedTrilateralRoot augmentedRoot = SarfDictionary.getInstance().getAugmentedTrilateralRoot(root);
-        List<UnaugmentedTrilateralRoot> unaugmentedList = SarfDictionary.getInstance().getUnaugmentedTrilateralRoots(root);
+        AugmentedTrilateralRoot augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(root);
+        List<UnaugmentedTrilateralRoot> unaugmentedList = sarfDictionary.getUnaugmentedTrilateralRoots(root);
         if (augmentedRoot == null && unaugmentedList.isEmpty()) {
             displayErrorMessage(root + ": لم يرد هذا الجذر في قاعدة المعطيات");
             return false;
@@ -113,109 +225,28 @@ public class ConsoleApp {
         char c2 = rootText.charAt(1);
         char c3 = rootText.charAt(2);
 
-        TrilateralKovRule rule = KovRulesManager.getInstance().getTrilateralKovRule(c1, c2, c3);
+        TrilateralKovRule rule = kovRulesManager.getTrilateralKovRule(c1, c2, c3);
         String kovText = rule.getDesc();
         KindOfVerb kov = rule.getKov();
 
-        for (UnaugmentedTrilateralRoot root : unaugmentedRoots) {
-            printTrilateralTree(root, kov);
-        }
-    }
+//        for (UnaugmentedTrilateralRoot root : unaugmentedRoots) {
+//            trilateralUnaugmentedHelper.printTrilateralTree(root, kov);
+//        }
 
-    private String getTransitiveDescription(String type) {
-        if (type.equals("م")) return "متعد";
-        if (type.equals("ل")) return "لازم";
-        if (type.equals("ك")) return "كلاهما";
-        throw new IllegalArgumentException("نوع رمز اللزوم و التعدي غير معروف");
-    }
-
-    private void printTrilateralTree(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        String pastRootText = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerb(7, root).toString();
-        List<String> conjugations = createEmptyList();
-        conjugations.set(7, pastRootText);
-        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, kov, conjugations, SystemConstants.PAST_TENSE, true);
-        pastRootText = conjResult.getFinalResult().get(7).toString();
-
-        String presentRootText = sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator.getInstance().createNominativeVerb(7, root).toString();
-        conjugations = createEmptyList();
-        conjugations.set(7, presentRootText);
-        conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, kov, conjugations, SystemConstants.PRESENT_TENSE, true);
-        presentRootText = conjResult.getFinalResult().get(7).toString();
-
-        // System.out.printf("%s %s %s\n", pastRootText, presentRootText, transivity);
-
-        // printActivePastConjugations(root, kov);
-        // printActivePresentConjugations(root, kov);
-        // printImperativeConjugations(root, kov);
-        // printPassivePastConjugations(root, kov);
-        // printPassivePresentConjugations(root, kov);
-        printActiveParticiple(root, kov);
-    }
-
-    private void printActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        List<ActivePastVerb> result = sarf.verb.trilateral.unaugmented.active.ActivePastConjugator.getInstance().createVerbList(root);
-        ConjugationResult conjResult = UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.PAST_TENSE, true);
-        List finalResult = conjResult.getFinalResult();
-        for (Object verb : finalResult) {
-            System.out.printf("|%s", verb == null ? "" : verb);
-        }
-        System.out.println();
-    }
-
-    private void printActivePresentConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        List result = sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator.getInstance().createNominativeVerbList(root);
-        ConjugationResult conjResult = UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.PRESENT_TENSE, true);
-        List finalResult = conjResult.getFinalResult();
-        printFinalResultPipeSeparated(root, finalResult);
-    }
-
-    private void printImperativeConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        List result = sarf.verb.trilateral.unaugmented.UnaugmentedImperativeConjugator.getInstance().createEmphasizedVerbList(root);
-        ConjugationResult conjResult = UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true);
-        List finalResult = conjResult.getFinalResult();
-        printFinalResultPipeSeparated(root, finalResult);
-    }
-
-    private void printPassivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        var result = sarf.verb.trilateral.unaugmented.passive.PassivePastConjugator.getInstance().createVerbList(root);
-        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build(root, kov, result, SystemConstants.PAST_TENSE, false);
-        result = conjResult.getFinalResult();
-        printFinalResultPipeSeparated(root, result);
-    }
-
-    private void printPassivePresentConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov){
-        var result = sarf.verb.trilateral.unaugmented.passive.PassivePresentConjugator.getInstance().createEmphasizedVerbList(root);
-        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier
-                .UnaugmentedTrilateralModifier.getInstance()
-                .build(root, kov, result, SystemConstants.PRESENT_TENSE, false);
-        result = conjResult.getFinalResult();
-        printFinalResultPipeSeparated(root, result);
-    }
-
-    private void printActiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov){
-        var formulas = new String[]{"فاعل"};
-        for(var formula : formulas) {
-            var nouns = UnaugmentedTrilateralActiveParticipleConjugator.getInstance().createNounList(root, formula.toString());
-            var finalResult = ActiveParticipleModifier.getInstance().build(root, kov, nouns, formula).getFinalResult();
-            printFinalResultPipeSeparated(root, finalResult);
-        }
-    }
-
-    private static void printFinalResultPipeSeparated(UnaugmentedTrilateralRoot root, List finalResult) {
-        System.out.printf("| %c%c%c | %d |", root.getC1(), root.getC2(), root.getC3(), root.getConjugation().getValue());
-        for (Object verb : finalResult) {
-            System.out.printf(" %s |", verb == null ? "" : verb);
-        }
-        System.out.println("");
+        //augmentedTrilateralHelper.printPastActiveAugmentedVerbs(rootText);
+        //augmentedTrilateralHelper.printPresentActiveAugmentedVerbs(rootText);
+        //augmentedTrilateralHelper.printImperativeAugmentedVerbs(rootText);
+        //augmentedTrilateralHelper.printPassivePast(rootText);
+        //augmentedTrilateralHelper.printPassivePresent(rootText);
+        //augmentedTrilateralHelper.printActiveParticiple(rootText);
+        //augmentedTrilateralHelper.printPassiveParticiple(rootText);
+        //augmentedTrilateralHelper.printTimeAndPlace(rootText);
+        //augmentedTrilateralHelper.printGerund(rootText);
+        //augmentedTrilateralHelper.printNomenGerund(rootText);
+        augmentedTrilateralHelper.printMeemGerund(rootText);
     }
 
     private static void displayErrorMessage(String message) {
         System.err.printf("%s - %s\n", LocalDateTime.now().toString(), message);
-    }
-
-    private static List<String> createEmptyList() {
-        return IntStream.range(0, 13)
-                .mapToObj(a -> "")
-                .collect(Collectors.toList());
     }
 }

@@ -18,15 +18,19 @@ import sarf.verb.quadriliteral.augmented.*;
 public abstract class QuadrilateralAugmentedNomenGerund {
     protected AugmentedQuadrilateralRoot root;
     protected int suffixNo;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
     protected String suffix;
 
-    QuadrilateralAugmentedNomenGerund() {}
+    QuadrilateralAugmentedNomenGerund() {
+        genericNounSuffixContainer = null;
+    }
 
-    public QuadrilateralAugmentedNomenGerund(AugmentedQuadrilateralRoot root, String suffixNo) {
+    public QuadrilateralAugmentedNomenGerund(AugmentedQuadrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.root = root;
         this.suffixNo = Integer.parseInt(suffixNo);
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
 
-        suffix = GenericNounSuffixContainer.getInstance().get(this.suffixNo);
+        suffix = genericNounSuffixContainer.get(this.suffixNo);
     }
 
     public abstract String form();
@@ -35,7 +39,7 @@ public abstract class QuadrilateralAugmentedNomenGerund {
     public String toString() {
         String result = form();
         if (result != null && !result.equals(""))
-            return GenericNounSuffixContainer.getInstance().getPrefix()+result;
+            return genericNounSuffixContainer.getPrefix()+result;
         return "";
     }
 }

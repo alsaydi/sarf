@@ -2,10 +2,11 @@ package sarf.gerund.trilateral.unaugmented.meem.pattern;
 
 import sarf.Conjugation;
 import sarf.KindOfVerb;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.util.*;
 import sarf.gerund.trilateral.unaugmented.meem.*;
 import sarf.verb.trilateral.unaugmented.*;
-import sarf.kov.*;
+
 import java.util.stream.Stream;
 
 import static sarf.KindOfVerb.*;
@@ -23,12 +24,10 @@ import static sarf.KindOfVerb.*;
  * @version 1.0
  */
 public class StandardGerundPattern extends MeemGerund {
-
     private boolean form1;
-
-    public StandardGerundPattern(UnaugmentedTrilateralRoot root, String suffixNo) {
-        init(root, suffixNo);
-        KindOfVerb kov = KovRulesManager.getInstance().getTrilateralKov(root.getC1(), root.getC2(), root.getC3());
+    public static StandardGerundPattern Empty = new StandardGerundPattern();
+    public StandardGerundPattern(UnaugmentedTrilateralRoot root, String suffixNo, KindOfVerb kov, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo, genericNounSuffixContainer);
         var noc = root.getConjugation();
         //try first state
         form1 = (isMithalWawi(kov) && (noc == Conjugation.Second || noc == Conjugation.Third ||noc == Conjugation.Sixth));
@@ -36,6 +35,9 @@ public class StandardGerundPattern extends MeemGerund {
         if (!form1)
             form1 = (isAjwafYaee(kov) && noc == Conjugation.Second);
         //else we have to show form2
+    }
+
+    private StandardGerundPattern() {
     }
 
     private static boolean isMithalWawi(KindOfVerb kov) {
@@ -63,6 +65,9 @@ public class StandardGerundPattern extends MeemGerund {
      *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
      */
     public String form() {
+        if(this == Empty)
+            return "";
+
         if (form1)
             return form1();
         return form2();
@@ -75,8 +80,6 @@ public class StandardGerundPattern extends MeemGerund {
     public String form2() {
         return "م"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+root.getC3()+suffix;
     }
-
-
 
     /**
      * getPattern

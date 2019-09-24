@@ -19,8 +19,8 @@ public abstract class NonStandardInstrumentalNounFormula extends NounFormula {
     public NonStandardInstrumentalNounFormula() {
     }
 
-    public NonStandardInstrumentalNounFormula(UnaugmentedTrilateralRoot root, String suffixNo) {
-        super(root, suffixNo);
+    public NonStandardInstrumentalNounFormula(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo, genericNounSuffixContainer);
     }
 
     /**

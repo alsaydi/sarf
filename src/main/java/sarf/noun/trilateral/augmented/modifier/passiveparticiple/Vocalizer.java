@@ -19,7 +19,7 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @version 1.0
  */
 public class Vocalizer {
-    private final List modifiers = new LinkedList();
+    private final List<IAugmentedTrilateralModifier> modifiers = new ArrayList<>();
 
     private final PreSeparatedLafifVocalizer preSeparatedLafifVocalizer = new PreSeparatedLafifVocalizer();
 
@@ -32,12 +32,11 @@ public class Vocalizer {
         modifiers.add(new YaeiNakesLafifVocalizer());
     }
 
-    public void apply(ConjugationResult conjResult) {
+    public void apply(TriAugmentedConjugationResult conjResult) {
         if (preSeparatedLafifVocalizer.isApplied(conjResult))
             preSeparatedLafifVocalizer.apply(conjResult.getFinalResult(), conjResult.getRoot());
 
-        for (Object o : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
+        for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
                 ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;

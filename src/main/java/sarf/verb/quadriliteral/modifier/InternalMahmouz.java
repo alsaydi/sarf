@@ -3,7 +3,6 @@ package sarf.verb.quadriliteral.modifier;
 import sarf.verb.quadriliteral.*;
 import sarf.verb.quadriliteral.substitution.*;
 
-import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import sarf.SystemConstants;
@@ -32,7 +31,7 @@ public class InternalMahmouz {
         modifiersMap.put(SystemConstants.PRESENT_TENSE + "false", new sarf.verb.quadriliteral.modifier.hamza.internal.passive.PresentMahmouz());
     }
 
-    public void apply(String tense, boolean active, ConjugationResult conjResult) {
+    public void apply(String tense, boolean active, QuadriConjugationResult conjResult) {
         var modifier = modifiersMap.get(tense + active);
         if (modifier.isApplied(conjResult))
             modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());

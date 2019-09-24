@@ -1,7 +1,11 @@
 package sarf.gerund.trilateral.unaugmented.meem;
 
+import com.google.inject.Inject;
 import sarf.*;
 import java.util.*;
+import java.util.stream.Collectors;
+
+import sarf.kov.KovRulesManager;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.gerund.trilateral.unaugmented.meem.pattern.*;
 import sarf.noun.*;
@@ -20,12 +24,18 @@ import sarf.gerund.trilateral.unaugmented.IUnaugmentedTrilateralGerundConjugator
  * @version 1.0
  */
 public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjugator {
-    private static final MeemGerundConjugator instance = new MeemGerundConjugator();
+    private final Map<String, String> symbolToFormulaNameMap = new HashMap<>();
+    private final Map<String, String> formulaNameToSymbolMap = new HashMap<>();
+    private final KovRulesManager kovRulesManager;
+    private final DatabaseManager databaseManager;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    private final Map symbolToFormulaNameMap = new HashMap();
-    private final Map formulaNameToSymbolMap = new HashMap();
+    @Inject
+    public MeemGerundConjugator(KovRulesManager kovRulesManager, DatabaseManager databaseManager, GenericNounSuffixContainer genericNounSuffixContainer) {
+        this.kovRulesManager = kovRulesManager;
+        this.databaseManager = databaseManager;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
 
-    private MeemGerundConjugator() {
         symbolToFormulaNameMap.put("C","مَفْعَلَة");
         symbolToFormulaNameMap.put("D","مَفْعُلَة");
         symbolToFormulaNameMap.put("E","مَفْعِلَة");
@@ -35,53 +45,54 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
         formulaNameToSymbolMap.put("مَفْعِلَة", "E");
     }
 
-
-    public static MeemGerundConjugator getInstance() {
-        return instance;
-    }
-
     public List createGerundList(UnaugmentedTrilateralRoot root, String formulaName) {
         //check if it is standard
         if (formulaName.equals("مَفْعِل") || formulaName.equals("مَفْعَل")) {
-            List standardGerunds = createEmptyList();
-            standardGerunds.set(0, new StandardGerundPattern(root, "0"));
-            standardGerunds.set(6, new StandardGerundPattern(root, "6"));
-            standardGerunds.set(12, new StandardGerundPattern(root, "12"));
+            List<StandardGerundPattern> standardGerunds = createEmptyList();
+            var kov = kovRulesManager.getTrilateralKov(root.getC1(), root.getC2(), root.getC3());
+            standardGerunds.set(0, new StandardGerundPattern(root, "0", kov, genericNounSuffixContainer));
+            standardGerunds.set(6, new StandardGerundPattern(root, "6", kov, genericNounSuffixContainer));
+            standardGerunds.set(12, new StandardGerundPattern(root, "12", kov, genericNounSuffixContainer));
             return standardGerunds;
         }
+        //FIXME: this function relies on this.getAppliedFormulaList being called. Otherwise, appliedXmlMeemGerundNounFormula will be null.
+
         //non standard
-        List gerundDisplayList = createEmptyList();
-        String formulaSymbol = (String) formulaNameToSymbolMap.get(formulaName);
+        List<String> gerundDisplayList = createEmptyList()
+                .stream()
+                .map(i -> "").collect(Collectors.toList());
+        String formulaSymbol = formulaNameToSymbolMap.get(formulaName);
         String gerundText = appliedXmlMeemGerundNounFormula.getSymbol1().equals(formulaSymbol)? appliedXmlMeemGerundNounFormula.getGerund1(): appliedXmlMeemGerundNounFormula.getGerund2();
 
         //لعدم حذف التاء المربوطة من قاعدة المعطيات وحذفها من توليد القانون لأنها موجودة في اللاحقة
         //وحذف الفتحة من قاعدة المعطيات لأنها موجودة في اللاحقة
         gerundText = gerundText.substring(0, gerundText.length()-2);
-        gerundText = GenericNounSuffixContainer.getInstance().getPrefix()+ gerundText;
-        gerundDisplayList.set(1, gerundText+GenericNounSuffixContainer.getInstance().get(1));
-        gerundDisplayList.add(7, gerundText+GenericNounSuffixContainer.getInstance().get(7));
-        gerundDisplayList.add(13, gerundText+GenericNounSuffixContainer.getInstance().get(13));
+        gerundText = genericNounSuffixContainer.getPrefix()+ gerundText;
+        gerundDisplayList.set(1, gerundText+genericNounSuffixContainer.get(1));
+        gerundDisplayList.set(7, gerundText+genericNounSuffixContainer.get(7));
+        gerundDisplayList.set(13, gerundText+genericNounSuffixContainer.get(13));
 
         return gerundDisplayList;
     }
 
-    public List createEmptyList() {
-        List result = new ArrayList(18);
+    public List<StandardGerundPattern> createEmptyList() {
+        List<StandardGerundPattern> result = new ArrayList<>(18);
         for (int i = 1; i <= 18; i++) {
-            result.add("");
+            result.add(StandardGerundPattern.Empty);
         }
         return result;
     }
 
     private XmlMeemGerundNounFormula appliedXmlMeemGerundNounFormula;
-    public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) throws Exception {
-        LinkedList result = new LinkedList();
+    public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) throws Exception {
+        var result = new ArrayList<String>();
+        var kov = kovRulesManager.getTrilateralKov(root.getC1(), root.getC2(), root.getC3());
 
         //add the standard pattern first
-        StandardGerundPattern standardGerundPattern = new StandardGerundPattern(root, "0");
+        StandardGerundPattern standardGerundPattern = new StandardGerundPattern(root, "0", kov, genericNounSuffixContainer);
         result.add(standardGerundPattern.getPattern());
 
-        XmlMeemGerundNounFormulaTree formulaTree = DatabaseManager.getInstance().getMeemGerundFormulaTree(root.getC1());
+        XmlMeemGerundNounFormulaTree formulaTree = databaseManager.getMeemGerundFormulaTree(root.getC1());
         if (formulaTree != null) {
 
             for (Object o : formulaTree.getFormulaList()) {
@@ -98,5 +109,4 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
         }
         return result;
     }
-
 }

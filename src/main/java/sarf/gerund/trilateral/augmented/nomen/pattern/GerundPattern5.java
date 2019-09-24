@@ -1,5 +1,6 @@
 package sarf.gerund.trilateral.augmented.nomen.pattern;
 
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.trilateral.augmented.*;
 import sarf.util.*;
 import sarf.gerund.trilateral.augmented.nomen.*;
@@ -17,12 +18,8 @@ import sarf.gerund.trilateral.augmented.nomen.*;
  * @version 1.0
  */
 public class GerundPattern5 extends TrilateralAugmentedNomenGerund {
-    public GerundPattern5() {
-        super();
-    }
-
-    public GerundPattern5(AugmentedTrilateralRoot root, String suffixNo) {
-        super(root, suffixNo);
+    public GerundPattern5(AugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        super(root, suffixNo, genericNounSuffixContainer);
     }
 
     /**
@@ -30,10 +27,10 @@ public class GerundPattern5 extends TrilateralAugmentedNomenGerund {
      *
      * @return String
      * @todo Implement this
-     *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
+     * sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
      */
     public String form() {
-        return "ا"+root.getC1()+ArabCharUtil.SKOON+"ت"+ArabCharUtil.KASRA+root.getC2()+ArabCharUtil.FATHA+"ا"+root.getC3()+suffix;
+        return "ا" + root.getC1() + ArabCharUtil.SKOON + "ت" + ArabCharUtil.KASRA + root.getC2() + ArabCharUtil.FATHA + "ا" + root.getC3() + suffix;
     }
 
     /**
@@ -41,10 +38,9 @@ public class GerundPattern5 extends TrilateralAugmentedNomenGerund {
      *
      * @return String
      * @todo Implement this
-     *   sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
+     * sarf.gerund.trilateral.augmented.TrilateralAugmentedNomenGerund method
      */
     public String getPattern() {
         return "افْتِعَالة";
     }
-
 }

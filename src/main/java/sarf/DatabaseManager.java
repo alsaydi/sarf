@@ -38,8 +38,7 @@ import static sarf.util.FileUtil.getResourceInputStream;
  * @version 1.0
  */
 public class DatabaseManager {
-
-	private DatabaseManager() {
+	public DatabaseManager(){
 	}
 
 	private final Map<String, UnaugmentedTrilateralRootTree> tripleUnaugmentedTreeMap = new HashMap<>();
@@ -55,12 +54,6 @@ public class DatabaseManager {
 	private final Map<String, XmExaggerationNounFormulaTree> exaggerationNounMap = new HashMap<>();
 	private final Map<String, XmlMeemGerundNounFormulaTree> meemGerundMap = new HashMap<>();
 	private final Map<String, Map<String, XmlNounFormulaTree>> allNounsTreeMap = new HashMap<>();
-
-	private static final DatabaseManager instance = new DatabaseManager();
-
-	public static DatabaseManager getInstance() {
-		return instance;
-	}
 
 	/**
 	 * الحصول على قائمة الجذور الثلاثية المجردة حسب حرفها الأول
@@ -134,7 +127,7 @@ public class DatabaseManager {
 
 		var resourceName = String.format("db/quadriliteral/augmented/%s.xml", c1);
 		var inputStream = getResourceInputStream(resourceName);
-		rootsTree = AugmentedQuadriliteralRootTreeCreator
+		rootsTree = AugmentedQuadrilateralRootTreeCreator
 				.buildXmlVerbTree(inputStream);
 		quadrilateralAugmentedTreeMap.put(c1 + "", rootsTree);
 		inputStream.close();
@@ -233,7 +226,7 @@ public class DatabaseManager {
 				exaggerationNounMap.put(c1 + "", formulaTree);
 				inputStream.close();
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				// ex.printStackTrace();
 			}
 		}
 		return formulaTree;

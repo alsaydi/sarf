@@ -1,6 +1,6 @@
 package sarf.verb.trilateral.augmented.modifier;
 
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 import java.util.*;
 import sarf.*;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
@@ -129,9 +129,9 @@ public class Vocalizer {
      * قد لا يطبق أي نوع من الاعلال
      * @param tense String
      * @param active boolean
-     * @param conjResult ConjugationResult
+     * @param conjResult TriAugmentedConjugationResult
      */
-    public void apply(String tense, boolean active, ConjugationResult conjResult) {
+    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
         var vocalizers = vocalizerMap.get(tense+active);
         for (SubstitutionsApplier o : vocalizers) {
             IAugmentedTrilateralModifier vocalizer = (IAugmentedTrilateralModifier) o;

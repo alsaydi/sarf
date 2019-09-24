@@ -12,7 +12,6 @@ import sarf.Action;
 import java.io.File;
 import java.io.IOException;
 import sarf.util.FileUtil;
-import java.io.FileNotFoundException;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -26,14 +25,14 @@ import java.io.FileNotFoundException;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class NounConjugationUI extends APanel implements NounStateSelectionUIListener ,IHtmlContentSaver  {
-
+public class NounConjugationUI extends APanel implements NounStateSelectionUIListener ,IHtmlContentSaver {
     private final JPanel conjugationPane;
-    private final JPanel headerPane;
-    List dataFieldsList;
+    private final IMainControlPanel controlPaneContainer;
+    private List dataFieldsList;
     private final String title;
 
-    public NounConjugationUI(sarf.Action sarfAction, INounSuffixContainer nounSuffixContainer, String title) {
+    public NounConjugationUI(IMainControlPanel controlPaneContainer, sarf.Action sarfAction, INounSuffixContainer nounSuffixContainer, String title) {
+        this.controlPaneContainer = controlPaneContainer;
         setFont(VerbConjugationUI.FONT);
         this.title = title;
 
@@ -41,7 +40,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
         centerPane.setLayout(new BoxLayout(centerPane, BoxLayout.X_AXIS));
 
         JPanel rightPane = new JPanel(new GridLayout(3, 1));
-        headerPane = new APanel(new GridLayout(1, 4));
+        JPanel headerPane = new APanel(new GridLayout(1, 4));
 
         conjugationPane = new JPanel(new GridLayout(3, 1));
 
@@ -76,7 +75,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
         conjPaneCollapser.add(completeHeadPnl);
         conjPaneCollapser.add(centerPane);
 
-        INounStateSelectionUI nounStateSelectionUI = createNounStateSelectionUI(sarfAction, nounSuffixContainer,this);
+        INounStateSelectionUI nounStateSelectionUI = createNounStateSelectionUI(sarfAction, nounSuffixContainer, this);
         nounStateSelectionUI.selectOne();
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -86,19 +85,16 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
 
     /**
      * be overriden in the child subclasses
-     * @param action Action
+     *
+     * @param action              Action
      * @param nounSuffixContainer INounSuffixContainer
-     * @param listener NounStateSelectionUIListener
+     * @param listener            NounStateSelectionUIListener
      * @return JPanel
      */
     protected INounStateSelectionUI createNounStateSelectionUI(Action action, INounSuffixContainer nounSuffixContainer, NounStateSelectionUIListener listener) {
         NounStateSelectionUI nounStateSelectionUI = new NounStateSelectionUI();
-        nounStateSelectionUI.init(action, nounSuffixContainer,this);
+        nounStateSelectionUI.init(action, nounSuffixContainer, listener);
         return nounStateSelectionUI;
-    }
-
-    public NounConjugationUI(sarf.Action sarfAction, String title) {
-        this(sarfAction, GenericNounSuffixContainer.getInstance(), title);
     }
 
     private void displayNounsList(List nouns) {
@@ -138,19 +134,16 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
         return lbl;
     }
 
-    static final Color backgroundcolor2 = new Color(250,231,226);
+    private static final Color backgroundColor2 = new Color(250, 231, 226);
 
-    private JLabel decorateNounLabel(JLabel lbl) {
+    private void decorateNounLabel(JLabel lbl) {
         decorateLabel(lbl);
         lbl.setOpaque(true);
-        lbl.setBackground(backgroundcolor2);
-
-        return lbl;
+        lbl.setBackground(backgroundColor2);
     }
 
     private JLabel decoratePronounLabel(JLabel lbl) {
         decorateLabel(lbl);
-
         return lbl;
     }
 
@@ -162,13 +155,13 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
     public boolean saveToHtml(File file) {
         String content = FileUtil.getContents("db/nouns.html");
 
-        String docTitle = "تصريف "+ " ( "+ title + " ) " +" للفعل "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
+        String docTitle = "تصريف " + " ( " + title + " ) " + " للفعل " + " ( " + controlPaneContainer.getVerbText() + " )";
         //put the title
         content = content.replaceFirst("DocTitle", docTitle);
 
         int shift = 0;
         for (int i = 0; i < 6; i++) {
-            Object result = dataFieldsList.get(i+shift);
+            Object result = dataFieldsList.get(i + shift);
             //&nbsp; means blank in HTML
             String ni = null;
             if (result == null || result.toString().trim().length() == 0)
@@ -182,7 +175,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
 
         shift = 6;
         for (int i = 0; i < 6; i++) {
-            Object result = dataFieldsList.get(i+shift);
+            Object result = dataFieldsList.get(i + shift);
             String ni = null;
             if (result == null || result.toString().trim().length() == 0)
                 ni = "&nbsp;";
@@ -195,7 +188,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
 
         shift = 12;
         for (int i = 0; i < 6; i++) {
-            Object result = dataFieldsList.get(i+shift);
+            Object result = dataFieldsList.get(i + shift);
             String ni = null;
             if (result == null || result.toString().trim().length() == 0)
                 ni = "&nbsp;";
@@ -216,9 +209,8 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
     }
 
 
-
     class StatePanel extends JPanel {
-        final List labelList = new ArrayList(6);
+        final List<JLabel> labelList = new ArrayList<>(6);
 
         StatePanel(boolean isHeader) {
             setFont(VerbConjugationUI.FONT);
@@ -229,8 +221,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
                 add(decoratePronounLabel(new JLabel()));
                 add(decoratePronounLabel(new JLabel("مذكر")));
                 add(decoratePronounLabel(new JLabel("مؤنث")));
-            }
-            else {
+            } else {
                 setLayout(new GridLayout(3, 3));
             }
 
@@ -268,13 +259,13 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
             labelList.add(lbl);
         }
 
-        public void setLabelText(int index, String text) {
-            ((JLabel) labelList.get(index)).setText(text);
+        void setLabelText(int index, String text) {
+            labelList.get(index).setText(text);
         }
     }
 
     public String getSavedFileNameTitle() {
-        return "تصريف "+ " "+ title + " " +" للفعل "+ "  "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText();
+        return "تصريف " + " " + title + " " + " للفعل " + "  " + controlPaneContainer.getVerbText();
     }
-
 }
+

@@ -19,7 +19,7 @@ import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
  * @version 1.0
  */
 public class Mahmouz {
-    private final List modifiers = new LinkedList();
+    private final List<IUnaugmentedTrilateralNounModificationApplier> modifiers = new ArrayList<>();
     private final LamMahmouz lamMahmouz = new LamMahmouz();
 
     public Mahmouz() {
@@ -29,10 +29,9 @@ public class Mahmouz {
     }
 
     public void apply(ConjugationResult conjResult) {
-        for (Object o : modifiers) {
-            IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) o;
+        for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                ((SubstitutionsApplier) (IUnaugmentedTrilateralNounModificationApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

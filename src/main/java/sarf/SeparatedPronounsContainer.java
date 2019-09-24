@@ -15,10 +15,9 @@ import java.util.*;
  * @version 1.0
  */
 public class SeparatedPronounsContainer {
-    private static final SeparatedPronounsContainer instance = new SeparatedPronounsContainer();
-    private final List<String> pronouns = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
+    private static final List<String> pronouns = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
 
-    private SeparatedPronounsContainer() {
+    static {
         pronouns.add("أنا");
         pronouns.add("نحن");
         pronouns.add("أنتَ");
@@ -34,12 +33,7 @@ public class SeparatedPronounsContainer {
         pronouns.add("هنَّ");
     }
 
-    public static SeparatedPronounsContainer getInstance() {
-        return instance;
+    public static List<String> getPronouns() {
+        return Collections.unmodifiableList(pronouns);
     }
-
-    public List<String> getPronouns() {
-        return pronouns;
-    }
-
 }

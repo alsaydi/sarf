@@ -4,7 +4,6 @@ import java.util.*;
 
 import sarf.noun.*;
 import sarf.verb.quadriliteral.*;
-import sarf.verb.quadriliteral.modifier.*;
 import sarf.verb.quadriliteral.substitution.*;
 
 /**
@@ -26,12 +25,11 @@ public class Geminator extends QuadrilateralNounSubstitutionApplier {
         substitutions.add(new ExpressionInfixSubstitution("ْC4َC4","َC4ّ"));// EX: (هو مُقْشَعَرٌّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getFormulaNo() == 3;
+    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
+        return quadriConjugationResult.getFormulaNo() == 3;
     }
 }

@@ -1,26 +1,33 @@
 package sarf.ui.controlpane;
 
-import java.awt.*;
-import java.util.List;
-
-import javax.swing.*;
-
+import sarf.Action;
+import sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier;
+import sarf.gerund.modifier.trilateral.augmented.standard.TrilateralAugmentedStandardModifier;
 import sarf.gerund.quadrilateral.augmented.QuadrilateralAugmentedGerundConjugator;
 import sarf.gerund.quadrilateral.augmented.nomen.QuadrilateralAugmentedNomenGerundConjugator;
 import sarf.gerund.quadrilateral.unaugmented.QuadrilateralUnaugmentedGerundConjugator;
-import sarf.gerund.quadrilateral.unaugmented.QuadrilateralUnaugmentedNomenGerundConjugator;
-import sarf.ui.*;
-import sarf.verb.quadriliteral.augmented.*;
-import sarf.verb.quadriliteral.unaugmented.*;
-import sarf.verb.trilateral.augmented.*;
-import sarf.verb.quadriliteral.QuadrilateralRoot;
-import sarf.Action;
-import sarf.noun.quadriliteral.augmented.AugmentedQuadriliteralPassiveParticipleConjugator;
-import sarf.noun.trilateral.augmented.AugmentedTrilateralPassiveParticipleConjugator;
-import sarf.noun.quadriliteral.unaugmented.UnaugmentedQuadriliteralPassiveParticipleConjugator;
-import sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugatorListener;
 import sarf.gerund.quadrilateral.unaugmented.QuadrilateralUnaugmentedGerundConjugatorListener;
+import sarf.gerund.quadrilateral.unaugmented.QuadrilateralUnaugmentedNomenGerundConjugator;
+import sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugator;
+import sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugatorListener;
+import sarf.gerund.trilateral.augmented.nomen.TrilateralAugmentedNomenGerundConjugator;
+import sarf.noun.GenericNounSuffixContainer;
+import sarf.noun.quadriliteral.augmented.AugmentedQuadrilateralPassiveParticipleConjugator;
+import sarf.noun.quadriliteral.unaugmented.UnaugmentedQuadrilateralPassiveParticipleConjugator;
+import sarf.noun.trilateral.augmented.AugmentedTrilateralPassiveParticipleConjugator;
+import sarf.noun.trilateral.augmented.modifier.passiveparticiple.PassiveParticipleModifier;
+import sarf.ui.*;
+import sarf.verb.quadriliteral.QuadriConjugationResult;
+import sarf.verb.quadriliteral.QuadrilateralRoot;
+import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
+import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
+import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
+import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -35,14 +42,31 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListen
  * @version 1.0
  */
 public class GerundSelectionUI extends JPanel implements IControlPane, TrilateralAugmentedGerundConjugatorListener, QuadrilateralUnaugmentedGerundConjugatorListener, AugmentedTrilateralModifierListener {
+    private final IMainControlPanel controlPaneContainer;
     private SelectionInfo selectionInfo;
 
     private final ToggleRenderedButton standardBtn = new ToggleRenderedButton("المصدر الأصلي");
     private final ToggleRenderedButton nomenBtn = new ToggleRenderedButton("مصدر المرة");
     private final ToggleRenderedButton meemBtn = new ToggleRenderedButton("المصدر الميمي ");
 
-    public GerundSelectionUI() {
+    public GerundSelectionUI(ControlPaneContainer controlPaneContainer
+            , TrilateralAugmentedGerundConjugator trilateralAugmentedGerundConjugator
+            , TrilateralAugmentedStandardModifier trilateralAugmentedStandardModifier
+            , PassiveParticipleModifier passiveParticipleModifier
+            , QuadrilateralUnaugmentedGerundConjugator quadrilateralUnaugmentedGerundConjugator
+            , TrilateralAugmentedNomenGerundConjugator trilateralAugmentedNomenGerundConjugator
+            , GenericNounSuffixContainer genericNounSuffixContainer
+            , QuadrilateralUnaugmentedNomenGerundConjugator quadrilateralUnaugmentedNomenGerundConjugator
+            , AugmentedTrilateralPassiveParticipleConjugator augmentedTrilateralPassiveParticipleConjugator
+            , AugmentedQuadrilateralPassiveParticipleConjugator augmentedQuadrilateralPassiveParticipleConjugator
+            , UnaugmentedQuadrilateralPassiveParticipleConjugator unaugmentedQuadrilateralPassiveParticipleConjugator
+            , QuadrilateralAugmentedGerundConjugator quadrilateralAugmentedGerundConjugator
+            , QuadrilateralAugmentedNomenGerundConjugator quadrilateralAugmentedNomenGerundConjugator
+            , QuadrilateralStandardModifier quadrilateralStandardModifier
+            , sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier quadrilateralPassiveParticipleModifier) {
+
         super(new BorderLayout());
+        this.controlPaneContainer = controlPaneContainer;
 
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
@@ -63,60 +87,60 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
 
         add(buttonsPanel);
 
-        sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugator.getInstance().setListener(this);
-        sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugator.getInstance().setAugmentedTrilateralModifierListener(this);
-        QuadrilateralUnaugmentedGerundConjugator.getInstance().setListener(this);
+        trilateralAugmentedGerundConjugator.setListener(this);
+        trilateralAugmentedGerundConjugator.setAugmentedTrilateralModifierListener(this);
+        quadrilateralUnaugmentedGerundConjugator.setListener(this);
 
         standardBtn.addActionListener(e -> {
             Action action = () -> {
                 List gerunds = null;
                 if (selectionInfo.isTrilateral()) {
-                    gerunds = sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugator.getInstance().createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    ConjugationResult conjResult = sarf.gerund.modifier.trilateral.augmented.standard.TitlateralAugmentedStandardModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                    gerunds = trilateralAugmentedGerundConjugator.createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    TriAugmentedConjugationResult conjResult = trilateralAugmentedStandardModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                             selectionInfo.getAugmentationFormulaNo(), gerunds, GerundSelectionUI.this);
                     return conjResult.getFinalResult();
                 }
 
                 if (selectionInfo.isAugmented()) {
-                    gerunds = QuadrilateralAugmentedGerundConjugator.getInstance().createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    gerunds = quadrilateralAugmentedGerundConjugator.createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                 } else {
-                    gerunds = QuadrilateralUnaugmentedGerundConjugator.getInstance().createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
+                    gerunds = quadrilateralUnaugmentedGerundConjugator.createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
                 }
-                sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), gerunds);
+                QuadriConjugationResult conjResult = quadrilateralStandardModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), gerunds);
                 return conjResult.getFinalResult();
             };
-            NounConjugationUI ui = new NounConjugationUI(action, standardBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            NounConjugationUI ui = new NounConjugationUI(this.controlPaneContainer, action, genericNounSuffixContainer, standardBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
 
         nomenBtn.addActionListener(e -> {
             Action action = () -> {
-                List gerunds = null;
+                List gerunds;
                 if (selectionInfo.isTrilateral()) {
-                    gerunds = sarf.gerund.trilateral.augmented.nomen.TrilateralAugmentedNomenGerundConjugator.getInstance().createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    ConjugationResult conjResult = sarf.gerund.modifier.trilateral.augmented.standard.TitlateralAugmentedStandardModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                    gerunds = trilateralAugmentedNomenGerundConjugator.createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    TriAugmentedConjugationResult conjResult = trilateralAugmentedStandardModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                             selectionInfo.getAugmentationFormulaNo(), gerunds, GerundSelectionUI.this);
                     return conjResult.getFinalResult();
                 }
 
                 if (selectionInfo.isAugmented()) {
-                    gerunds = QuadrilateralAugmentedNomenGerundConjugator.getInstance().createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    gerunds = quadrilateralAugmentedNomenGerundConjugator.createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                 } else {
-                    gerunds = QuadrilateralUnaugmentedNomenGerundConjugator.getInstance().createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
+                    gerunds = quadrilateralUnaugmentedNomenGerundConjugator.createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
                 }
-                sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), gerunds);
+                QuadriConjugationResult conjResult = quadrilateralStandardModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), gerunds);
                 return conjResult.getFinalResult();
             };
-            NounConjugationUI ui = new NounConjugationUI(action, nomenBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            NounConjugationUI ui = new NounConjugationUI(this.controlPaneContainer, action, genericNounSuffixContainer, nomenBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
 
         meemBtn.addActionListener(e -> {
             Action action = () -> {
                 if (selectionInfo.isTrilateral()) {
                     //here the Trilateral augmented
-                    List result = AugmentedTrilateralPassiveParticipleConjugator.getInstance().createMeemGerundNounList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    ConjugationResult conjResult = sarf.noun.trilateral.augmented.modifier.passiveparticiple.PassiveParticipleModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                    List result = augmentedTrilateralPassiveParticipleConjugator.createMeemGerundNounList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    TriAugmentedConjugationResult conjResult = passiveParticipleModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                             selectionInfo.getAugmentationFormulaNo(), result, GerundSelectionUI.this);
 
                     return conjResult.getFinalResult();
@@ -124,18 +148,18 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
 
                 List result = null;
                 if (selectionInfo.isAugmented()) {
-                    result = AugmentedQuadriliteralPassiveParticipleConjugator.getInstance().createMeemGerundNounList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    result = augmentedQuadrilateralPassiveParticipleConjugator.createMeemGerundNounList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                 } else {
-                    result = UnaugmentedQuadriliteralPassiveParticipleConjugator.getInstance().createMeemGerundNounList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
+                    result = unaugmentedQuadrilateralPassiveParticipleConjugator.createMeemGerundNounList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
                 }
 
-                sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result);
+                QuadriConjugationResult conjResult = quadrilateralPassiveParticipleModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result);
 
                 return conjResult.getFinalResult();
             };
 
-            NounConjugationUI ui = new NounConjugationUI(action, meemBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            NounConjugationUI ui = new NounConjugationUI(this.controlPaneContainer, action, genericNounSuffixContainer, meemBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
 
     }
@@ -144,7 +168,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
         return this;
     }
 
-    public void setInfo(SelectionInfo selectionInfo) {
+    void setInfo(SelectionInfo selectionInfo) {
         this.selectionInfo = selectionInfo;
         //to ask the user again for this new verb, reset the cashed user response
         cashedUserResponse = null;
@@ -154,6 +178,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
     }
 
     private boolean opened = false;
+
     public void controlPaneOpened() {
         opened = true;
     }
@@ -163,7 +188,8 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
         opened = false;
     }
 
-    int cashedPatternFormulaNo  = -1;
+    private int cashedPatternFormulaNo = -1;
+
     public int selectPatternFormNo(int formulaNo) {
         if (cashedPatternFormulaNo != -1)
             return cashedPatternFormulaNo;
@@ -185,7 +211,8 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
         return -1;
     }
 
-    private int cashedQuadPatternFormulaNo  = -1;
+    private int cashedQuadPatternFormulaNo = -1;
+
     public int selectFormNo() {
         if (cashedQuadPatternFormulaNo != -1)
             return cashedQuadPatternFormulaNo;
@@ -198,6 +225,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
     }
 
     private Boolean cashedUserResponse = null;
+
     //to let the user select when there is two states for the verb: with vocalization and without
     public boolean doSelectVocalization() {
         if (cashedUserResponse != null) {

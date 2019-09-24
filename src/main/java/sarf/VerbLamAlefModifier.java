@@ -1,7 +1,10 @@
 package sarf;
 
 import java.util.*;
+
+import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.trilateral.Substitution.*;
+import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -15,32 +18,25 @@ import sarf.verb.trilateral.Substitution.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class VerbLamAlefModifier extends SubstitutionsApplier{
+public final class VerbLamAlefModifier extends SubstitutionsApplier{
     private final List<Substitution> substitutions = new LinkedList<>();
 
-    private VerbLamAlefModifier() {
-
+    public VerbLamAlefModifier() {
         substitutions.add(new InfixSubstitution("لَا","لا"));// EX: (قالا)
         substitutions.add(new InfixSubstitution("لَّا","لاَّ"));// EX: (انْشَلاَّ)
         substitutions.add(new InfixSubstitution("لَأ","لأ"));// EX: (مَلأَ، مَلأْتُ)
         substitutions.add(new InfixSubstitution("لًا","لاً"));// EX: (حملاً)
     }
 
-    private static final VerbLamAlefModifier instance = new VerbLamAlefModifier();
-
-    public static VerbLamAlefModifier getInstance() {
-        return instance;
-    }
-
     public void apply(sarf.verb.trilateral.unaugmented.ConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
     }
 
-    public void apply(sarf.verb.trilateral.augmented.ConjugationResult conjResult) {
+    public void apply(TriAugmentedConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
     }
 
-    public void apply(sarf.verb.quadriliteral.ConjugationResult conjResult) {
+    public void apply(QuadriConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
     }
 

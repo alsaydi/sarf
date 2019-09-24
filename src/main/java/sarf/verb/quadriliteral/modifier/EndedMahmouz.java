@@ -30,7 +30,7 @@ public class EndedMahmouz {
         modifiersMap.put(SystemConstants.PRESENT_TENSE + "false", new sarf.verb.quadriliteral.modifier.hamza.ended.passive.PresentMahmouz());
     }
 
-    public void apply(String tense, boolean active, ConjugationResult conjResult) {
+    public void apply(String tense, boolean active, QuadriConjugationResult conjResult) {
         SubstitutionsApplier modifier = modifiersMap.get(tense + active);
         if (modifier.isApplied(conjResult))
             modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());

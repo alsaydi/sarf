@@ -1,6 +1,10 @@
 package sarf.noun.trilateral.unaugmented.timeandplace;
 
+import com.google.inject.Inject;
 import sarf.noun.*;
+import sarf.noun.trilateral.unaugmented.timeandplace.nonstandard.NounFormula1;
+import sarf.noun.trilateral.unaugmented.timeandplace.nonstandard.NounFormula2;
+import sarf.noun.trilateral.unaugmented.timeandplace.nonstandard.NounFormula3;
 import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
 import sarf.*;
@@ -22,34 +26,31 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
 
     //map <symbol,formulaName>
     private final Map<String, String> formulaSymbolsNamesMap = new HashMap<>();
+    private final DatabaseManager databaseManager;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    private TimeAndPlaceConjugator() {
-        for (int i=1; i<=3;i++) {
-            String formulaClassName = getClass().getPackage().getName()+".nonstandard.NounFormula"+i;
-            try {
-                Class formulaClass = Class.forName(formulaClassName);
-                NonStandardTimeAndPlaceNounFormula nounFormula = (NonStandardTimeAndPlaceNounFormula) formulaClass.newInstance();
-                formulaClassNamesMap.put(nounFormula.getFormulaName(), formulaClass);
-                formulaSymbolsNamesMap.put(nounFormula.getSymbol(), nounFormula.getFormulaName());
-            }
-            catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
+    @Inject
+    public TimeAndPlaceConjugator(DatabaseManager databaseManager, GenericNounSuffixContainer genericNounSuffixContainer) {
+        this.databaseManager = databaseManager;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
+        addNonStandardNounFormulaToMap(NounFormula1.class, new NounFormula1());
+        addNonStandardNounFormulaToMap(NounFormula2.class, new NounFormula2());
+        addNonStandardNounFormulaToMap(NounFormula3.class, new NounFormula3());
     }
 
-    private static final TimeAndPlaceConjugator instance = new TimeAndPlaceConjugator();
-
-    public static TimeAndPlaceConjugator getInstance() {
-        return instance;
+    private void addNonStandardNounFormulaToMap(Class formulaClass, NonStandardTimeAndPlaceNounFormula instance){
+        formulaClassNamesMap.put(instance.getFormulaName(), formulaClass);
+        formulaSymbolsNamesMap.put(instance.getSymbol(), instance.getFormulaName());
     }
 
     public NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaName) {
-        Object [] parameters = {root, suffixNo+""};
+        Object [] parameters = {root, suffixNo+"", genericNounSuffixContainer};
 
         try {
-            Class formulaClass = formulaClassNamesMap.get(formulaName);
-            return (NounFormula) formulaClass.getConstructors()[0].newInstance(parameters);
+            var formulaClass = formulaClassNamesMap.get(formulaName);
+
+            var constructor = formulaClass.getConstructor(root.getClass(), "".getClass(), genericNounSuffixContainer.getClass());
+            return (NounFormula) constructor.newInstance(parameters);
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -59,7 +60,7 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
 
     public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
         List<NounFormula> result = new ArrayList<>();
-        for (int i = 0; i < 18; i++) {
+        for (int i = 0; i < SystemConstants.NOUN_POSSIBLE_STATES; i++) {
             NounFormula noun = createNoun(root, i, formulaName);
             result.add(noun);
         }
@@ -73,7 +74,7 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
      * @return List
      */
     public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
-        XmlTimeAndPlaceNounFormulaTree formulaTree =  DatabaseManager.getInstance().getTimeAndPlaceNounFormulaTree(root.getC1());
+        XmlTimeAndPlaceNounFormulaTree formulaTree =  databaseManager.getTimeAndPlaceNounFormulaTree(root.getC1());
         if (formulaTree == null)
             return null;
 
@@ -82,13 +83,13 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
         for (Object o : formulaTree.getFormulaList()) {
             XmlTimeAndPlaceNounFormula formula = (XmlTimeAndPlaceNounFormula) o;
             if (formula.getNoc().equals(root.getConjugation()) && formula.getC2() == root.getC2() && formula.getC3() == root.getC3()) {
-                if (formula.getForm1() != null && formula.getForm1() != "")
-                    //add the formula pattern insteaed of the symbol (form1)
+                if (formula.getForm1() != null && !formula.getForm1().equals(""))
+                    //add the formula pattern instead of the symbol (form1)
                     result.add(formulaSymbolsNamesMap.get(formula.getForm1()));
 
-                //may the verb has two forms of instumentals
-                if (formula.getForm2() != null && formula.getForm2() != "")
-                    //add the formula pattern insteaed of the symbol (form2)
+                //may the verb has two forms of instrumentals
+                if (formula.getForm2() != null && !formula.getForm2().equals(""))
+                    //add the formula pattern instead of the symbol (form2)
                     result.add(formulaSymbolsNamesMap.get(formula.getForm2()));
             }
         }

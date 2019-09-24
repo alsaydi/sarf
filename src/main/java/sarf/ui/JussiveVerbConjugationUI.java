@@ -9,7 +9,6 @@ import javax.swing.border.*;
 import java.io.File;
 import java.io.IOException;
 import sarf.util.FileUtil;
-import java.io.FileNotFoundException;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -24,9 +23,10 @@ import java.io.FileNotFoundException;
  * @version 1.0
  */
 public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSaver  {
-    final List dataFieldsList = new ArrayList(13);
+    private final IMainControlPanel controlPaneContainer;
+    private final List dataFieldsList = new ArrayList(SystemConstants.PRONOUN_RANGE_END);
     public static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 30);
-    public static final Border BORDER = BorderFactory.createEtchedBorder();
+    private static final Border BORDER = BorderFactory.createEtchedBorder();
 
     private final String title;
 
@@ -35,12 +35,13 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
      * @param verbConjugationList List
      * @param notGeminatedVerbConjugationList List
      */
-    public JussiveVerbConjugationUI(List verbConjugationList, List notGeminatedVerbConjugationList, String title) {
+    public JussiveVerbConjugationUI(IMainControlPanel controlPaneContainer, List verbConjugationList, List notGeminatedVerbConjugationList, String title) {
         super(new GridLayout(7,4));
+        this.controlPaneContainer = controlPaneContainer;
         this.title = title;
         setFont(FONT);
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-        List pronounsList = SeparatedPronounsContainer.getInstance().getPronouns();
+        List pronounsList = SeparatedPronounsContainer.getPronouns();
         JLabel lbl = null;
         JLabel lbl1 = null;
         JLabel lbl2 = null;
@@ -103,7 +104,7 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
     public boolean saveToHtml(File file) {
         String content = FileUtil.getContents("db/verbs.html");
 
-        String docTitle = "تصريف "+ " ( "+ title + " ) " +" للفعل "+ " ( "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText() +" )";
+        String docTitle = "تصريف "+ " ( "+ title + " ) " +" للفعل "+ " ( "+ controlPaneContainer.getVerbText() +" )";
         //put the title
         content = content.replaceFirst("DocTitle", docTitle);
 
@@ -133,7 +134,7 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
     }
 
     public String getSavedFileNameTitle() {
-        return "تصريف "+ " "+ title + " " +" للفعل "+ "  "+ ControlPaneContainer.getInstance().getVerbTxtFld().getText();
+        return "تصريف "+ " "+ title + " " +" للفعل "+ "  "+ controlPaneContainer.getVerbText();
     }
 
 }

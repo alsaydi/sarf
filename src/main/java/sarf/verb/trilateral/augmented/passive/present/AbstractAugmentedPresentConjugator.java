@@ -1,11 +1,14 @@
 
 package sarf.verb.trilateral.augmented.passive.present;
 
-import java.util.*;
-
-import sarf.verb.trilateral.augmented.*;
 import sarf.AugmentationFormula;
 import sarf.PresentConjugationDataContainer;
+import sarf.verb.trilateral.augmented.AugmentedPresentVerb;
+import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf</p>
@@ -30,47 +33,43 @@ public class AbstractAugmentedPresentConjugator {
     }
 
     public AugmentedPresentVerb createVerb(AugmentedTrilateralRoot root, int pronounIndex, int formulaNo) {
-        String cp = PresentConjugationDataContainer.getInstance().getCp(pronounIndex);
+        String cp = PresentConjugationDataContainer.getCp(pronounIndex);
         String lastDpr = (String) lastDprList.get(pronounIndex);
         String connectedPronoun = (String) connectedPronounList.get(pronounIndex);
-        String formulaClassName = getClass().getPackage().getName()+".formula."+"AugmentedPresentVerb"+formulaNo;
-        Object [] parameters = {root, cp, lastDpr, connectedPronoun};
+        String formulaClassName = getClass().getPackage().getName() + ".formula." + "AugmentedPresentVerb" + formulaNo;
+        Object[] parameters = {root, cp, lastDpr, connectedPronoun};
 
         try {
             return (AugmentedPresentVerb) Class.forName(formulaClassName).getConstructors()[0].newInstance(parameters);
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return null;
     }
 
-    public List createVerbList(AugmentedTrilateralRoot root, int formulaNo) {
+    public List<AugmentedPresentVerb> createVerbList(AugmentedTrilateralRoot root, int formulaNo) {
         AugmentationFormula augmentationFormula = root.getAugmentationFormula(formulaNo);
         if (augmentationFormula.getTransitive() == 'ل') {
             return createLazzemVerbList(root, formulaNo);
-        }
-        else {
+        } else {
 
-            List result = new LinkedList();
+            var result = new ArrayList<AugmentedPresentVerb>();
             for (int i = 0; i < 13; i++) {
                 AugmentedPresentVerb verb = createVerb(root, i, formulaNo);
                 result.add(verb);
             }
-
             return result;
         }
     }
 
     //المبني لمجهول اللازم فقط مع هو او هي
-    public List createLazzemVerbList(AugmentedTrilateralRoot root, int formulaNo) {
-        List result = new LinkedList();
+    private List<AugmentedPresentVerb> createLazzemVerbList(AugmentedTrilateralRoot root, int formulaNo) {
+        var result = new ArrayList<AugmentedPresentVerb>();
         for (int i = 0; i < 13; i++) {
             if (i == 7 || i == 8) {
                 AugmentedPresentVerb verb = createVerb(root, i, formulaNo);
                 result.add(verb);
-            }
-            else {
+            } else {
                 result.add(null);
             }
         }

@@ -1,8 +1,9 @@
 package sarf.ui;
 
-import sarf.noun.INounSuffixContainer;
 import sarf.Action;
-import sarf.ui.controlpane.*;
+import sarf.noun.INounSuffixContainer;
+import sarf.ui.controlpane.ElativeNounStateSelectionUI;
+import sarf.ui.controlpane.INounStateSelectionUI;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -17,14 +18,14 @@ import sarf.ui.controlpane.*;
  * @version 1.0
  */
 public class ElativeNounConjugationUI extends NounConjugationUI {
-    public ElativeNounConjugationUI(sarf.Action sarfAction, String title) {
-        super(sarfAction, null, title);
+    public ElativeNounConjugationUI(IMainControlPanel controlPaneContainer, sarf.Action sarfAction, String title) {
+        super(controlPaneContainer, sarfAction, null, title);
     }
 
+    @Override
     protected INounStateSelectionUI createNounStateSelectionUI(Action action, INounSuffixContainer nounSuffixContainer, NounStateSelectionUIListener listener) {
         ElativeNounStateSelectionUI nounStateSelectionUI = new ElativeNounStateSelectionUI();
-        nounStateSelectionUI.init(action, nounSuffixContainer,this);
+        nounStateSelectionUI.init(action, nounSuffixContainer, listener);
         return nounStateSelectionUI;
     }
-
 }

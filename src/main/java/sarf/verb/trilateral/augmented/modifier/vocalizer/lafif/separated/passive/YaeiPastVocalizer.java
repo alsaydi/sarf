@@ -4,8 +4,8 @@ import java.util.*;
 
 import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
+import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.*;
-import sarf.verb.trilateral.augmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -32,13 +32,13 @@ public class YaeiPastVocalizer extends SubstitutionsApplier implements IAugmente
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        if (conjugationResult.getRoot().getC1() != 'ي') {
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        if (triAugmentedConjugationResult.getRoot().getC1() != 'ي') {
             return false;
         }
 
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         if (kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {
             switch (formulaNo) {

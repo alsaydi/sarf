@@ -1,37 +1,39 @@
 package sarf.noun.quadriliteral.modifier.passiveparticiple;
 
-import java.util.*;
+import com.google.inject.Inject;
+import sarf.KindOfVerb;
+import sarf.NounLamAlefModifier;
+import sarf.NounSunLamModifier;
+import sarf.noun.quadriliteral.augmented.AugmentedQuadrilateralNoun;
+import sarf.verb.quadriliteral.QuadriConjugationResult;
+import sarf.verb.quadriliteral.QuadrilateralRoot;
 
-import sarf.verb.quadriliteral.*;
-import sarf.*;
+import java.util.List;
 
 public class PassiveParticipleModifier {
-
-    private PassiveParticipleModifier() {
-    }
-
-    private static final PassiveParticipleModifier instance = new PassiveParticipleModifier();
-
     private final Geminator geminator = new Geminator();
     private final Vocalizer vocalizer = new Vocalizer();
     private final InternalMahmouz internalMahmouz = new InternalMahmouz();
     private final EndedMahmouz endedMahmouz = new EndedMahmouz();
+    private final NounLamAlefModifier nounLamAlefModifier;
+    private final NounSunLamModifier nounSunLamModifier;
 
-
-
-    public static PassiveParticipleModifier getInstance() {
-        return instance;
+    @Inject
+    public PassiveParticipleModifier(NounLamAlefModifier nounLamAlefModifier, NounSunLamModifier nounSunLamModifier) {
+        this.nounLamAlefModifier = nounLamAlefModifier;
+        this.nounSunLamModifier = nounSunLamModifier;
     }
 
     /**
      * اخراج قائمة الأفعال بعد التعديلات
-     * @param root UnaugmentedTrilateralRoot
+     *
+     * @param root         UnaugmentedTrilateralRoot
      * @param conjugations List
-     * @param tense String (From SystemConstans class the values are stored)  ماضي أو مضارع او أمر
-     * @return ConjugationResult
+     * @param tense        String (From SystemConstans class the values are stored)  ماضي أو مضارع او أمر
+     * @return QuadriConjugationResult
      */
-    public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations) {
-        ConjugationResult conjResult = new ConjugationResult(formulaNo, kov, root, conjugations);
+    public QuadriConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List<AugmentedQuadrilateralNoun> conjugations) {
+        var conjResult = new QuadriConjugationResult<>(formulaNo, kov, root, conjugations);
         if (geminator.isApplied(conjResult))
             geminator.apply(conjResult.getFinalResult(), conjResult.getRoot());
         if (vocalizer.isApplied(conjResult))
@@ -41,8 +43,8 @@ public class PassiveParticipleModifier {
         if (endedMahmouz.isApplied(conjResult))
             endedMahmouz.apply(conjResult.getFinalResult(), conjResult.getRoot());
 
-        NounLamAlefModifier.getInstance().apply(conjResult);
-        NounSunLamModifier.getInstance().apply(conjResult);
+        nounLamAlefModifier.apply(conjResult);
+        nounSunLamModifier.apply(conjResult);
         return conjResult;
     }
 }

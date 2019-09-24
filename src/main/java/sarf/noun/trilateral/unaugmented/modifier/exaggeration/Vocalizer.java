@@ -1,6 +1,8 @@
 package sarf.noun.trilateral.unaugmented.modifier.exaggeration;
 
 import java.util.*;
+
+import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
@@ -18,7 +20,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @version 1.0
  */
 public class Vocalizer {
-    private final List modifiers = new LinkedList();
+    private final List<TrilateralNounSubstitutionApplier> modifiers = new ArrayList<>();
 
     public Vocalizer() {
         modifiers.add(new AVocalizer());

@@ -1,16 +1,19 @@
 package sarf.ui.controlpane;
 
 import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
 import java.util.List;
 
 import javax.swing.*;
 
 import sarf.noun.*;
+import sarf.noun.trilateral.unaugmented.exaggeration.NonStandardExaggerationConjugator;
+import sarf.noun.trilateral.unaugmented.exaggeration.StandardExaggerationConjugator;
+import sarf.noun.trilateral.unaugmented.instrumental.NonStandardInstrumentalConjugator;
+import sarf.noun.trilateral.unaugmented.instrumental.StandardInstrumentalConjugator;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.noun.trilateral.unaugmented.modifier.activeparticiple.*;
 import sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.*;
+import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
 import sarf.ui.*;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.verb.trilateral.unaugmented.ConjugationResult;
@@ -22,7 +25,6 @@ import sarf.noun.trilateral.unaugmented.modifier.exaggeration.*;
 import sarf.noun.trilateral.unaugmented.*;
 import sarf.noun.trilateral.unaugmented.assimilate.*;
 import sarf.noun.trilateral.unaugmented.elative.*;
-import javax.swing.event.*;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -37,17 +39,74 @@ import javax.swing.event.*;
  * @version 1.0
  */
 public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane {
+    private final IMainControlPanel controlPaneContainer;
+    private final NonStandardExaggerationConjugator nonStandardExaggerationConjugator;
+    private final NonStandardInstrumentalConjugator nonStandardInstrumentalConjugator;
+    private final ElativeNounConjugator elativeNounConjugator;
     private SelectionInfo selectionInfo;
     private UnaugmentedTrilateralRoot root;
 
-    final APanel activeParticiplePane = new APanel(new GridLayout(1, 3));
-    final APanel passiveParticiplePane = new APanel(new GridLayout(1, 3));
+    private final APanel activeParticiplePane = new APanel(new GridLayout(1, 3));
+    private final APanel passiveParticiplePane = new APanel(new GridLayout(1, 3));
 
-    final CustomTabbedPane controlPanels = new CustomTabbedPane();
+    private final CustomTabbedPane controlPanels = new CustomTabbedPane();
+    private final AssimilateAdjectiveConjugator assimilateAdjectiveConjugator;
+    private final TrilateralUnaugmentedNouns trilateralUnaugmentedNouns;
+    private final StandardExaggerationConjugator standardExaggerationConjugator;
+    private final StandardInstrumentalConjugator standardInstrumentalConjugator;
+    private final TimeAndPlaceConjugator timeAndPlaceConjugator;
+    private final UnaugmentedTrilateralPassiveParticipleConjugator unaugmentedTrilateralPassiveParticipleConjugator;
+    private final UnaugmentedTrilateralActiveParticipleConjugator unaugmentedTrilateralActiveParticipleConjugator;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
+    private final ActiveParticipleModifier activeParticipleModifier;
+    private final PassiveParticipleModifier passiveParticipleModifier;
+    private final ExaggerationModifier exaggerationModifier;
+    private InstrumentalModifier instrumentalModifier;
+    private TimeAndPlaceModifier timeAndPlaceModifier;
+    private ElativeModifier elativeModifier;
+    private AssimilateModifier assimilateModifier;
 
 
-    public TrilateralUnaugmentedNounsUI() {
+    public TrilateralUnaugmentedNounsUI(ControlPaneContainer controlPaneContainer
+            , NonStandardExaggerationConjugator nonStandardExaggerationConjugator
+            , NonStandardInstrumentalConjugator nonStandardInstrumentalConjugator
+            , ElativeNounConjugator elativeNounConjugator
+            , AssimilateAdjectiveConjugator assimilateAdjectiveConjugator
+            , TrilateralUnaugmentedNouns trilateralUnaugmentedNouns
+            , StandardExaggerationConjugator standardExaggerationConjugator
+            , StandardInstrumentalConjugator standardInstrumentalConjugator
+            , TimeAndPlaceConjugator timeAndPlaceConjugator
+            , UnaugmentedTrilateralPassiveParticipleConjugator unaugmentedTrilateralPassiveParticipleConjugator
+            , UnaugmentedTrilateralActiveParticipleConjugator unaugmentedTrilateralActiveParticipleConjugator
+            , GenericNounSuffixContainer genericNounSuffixContainer
+            , ActiveParticipleModifier activeParticipleModifier
+            , PassiveParticipleModifier passiveParticipleModifier
+            , ExaggerationModifier exaggerationModifier
+            , InstrumentalModifier instrumentalModifier
+            , TimeAndPlaceModifier timeAndPlaceModifier
+            , ElativeModifier elativeModifier
+            , AssimilateModifier assimilateModifier) {
+
         super(new BorderLayout());
+        this.controlPaneContainer = controlPaneContainer;
+        this.nonStandardExaggerationConjugator = nonStandardExaggerationConjugator;
+        this.nonStandardInstrumentalConjugator = nonStandardInstrumentalConjugator;
+        this.elativeNounConjugator = elativeNounConjugator;
+        this.assimilateAdjectiveConjugator = assimilateAdjectiveConjugator;
+        this.trilateralUnaugmentedNouns = trilateralUnaugmentedNouns;
+        this.standardExaggerationConjugator = standardExaggerationConjugator;
+        this.standardInstrumentalConjugator = standardInstrumentalConjugator;
+        this.timeAndPlaceConjugator = timeAndPlaceConjugator;
+        this.unaugmentedTrilateralPassiveParticipleConjugator = unaugmentedTrilateralPassiveParticipleConjugator;
+        this.unaugmentedTrilateralActiveParticipleConjugator = unaugmentedTrilateralActiveParticipleConjugator;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
+        this.activeParticipleModifier = activeParticipleModifier;
+        this.passiveParticipleModifier = passiveParticipleModifier;
+        this.exaggerationModifier = exaggerationModifier;
+        this.instrumentalModifier = instrumentalModifier;
+        this.timeAndPlaceModifier = timeAndPlaceModifier;
+        this.elativeModifier = elativeModifier;
+        this.assimilateModifier = assimilateModifier;
 
         //add(new NounStateSelectionUI());
         add(controlPanels);
@@ -55,8 +114,8 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         controlPanels.addChangeListener(e -> {
             int selectedIndex = controlPanels.getSelectedIndex();
             if (selectedIndex != -1) {
-                JPanel selectedPane = ((JPanel)controlPanels.getComponent(selectedIndex));
-                if (selectedPane.getComponentCount()> 0) {
+                JPanel selectedPane = ((JPanel) controlPanels.getComponent(selectedIndex));
+                if (selectedPane.getComponentCount() > 0) {
                     JToggleButton btn = (JToggleButton) selectedPane.getComponent(0);
                     if (btn.isSelected()) {
                         btn.setSelected(false);
@@ -71,42 +130,42 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         return this;
     }
 
-    public void setInfo(SelectionInfo selectionInfo) {
+    void setInfo(SelectionInfo selectionInfo) {
 
         this.selectionInfo = selectionInfo;
         root = (UnaugmentedTrilateralRoot) selectionInfo.getRoot();
 
         controlPanels.removeAll();
-        TrilateralUnaugmentedNouns nounsObject = new TrilateralUnaugmentedNouns(root);
 
         controlPanels.add("اسم الفاعل ", activeParticiplePane);
         activeParticiplePane.removeAll();
-        JToggleButton activeParticipleBtn = createButton("فَاعِل", UnaugmentedTrilateralActiveParticipleConjugator.getInstance(), ActiveParticipleModifier.getInstance(), "اسم الفاعل");
+        JToggleButton activeParticipleBtn = createButton("فَاعِل", unaugmentedTrilateralActiveParticipleConjugator, activeParticipleModifier, "اسم الفاعل");
         activeParticiplePane.add(activeParticipleBtn);
         activeParticipleBtn.doClick();
 
         controlPanels.add("اسم المفعول ", passiveParticiplePane);
         passiveParticiplePane.removeAll();
-        passiveParticiplePane.add(createButton("مَفْعُول", UnaugmentedTrilateralPassiveParticipleConjugator.getInstance(), PassiveParticipleModifier.getInstance(), "اسم المفعول"));
+        passiveParticiplePane.add(createButton("مَفْعُول", unaugmentedTrilateralPassiveParticipleConjugator, passiveParticipleModifier , "اسم المفعول"));
 
         JPanel standardExaggerationsPnl = null;
-        if (nounsObject.getStandardExaggerations() != null && !nounsObject.getStandardExaggerations().isEmpty()) {
-            standardExaggerationsPnl = createControlPanel(sarf.noun.trilateral.unaugmented.exaggeration.StandardExaggerationConjugator.getInstance(), ExaggerationModifier.getInstance(), "مبالغة اسم الفاعل");
+        if (trilateralUnaugmentedNouns.getStandardExaggerations(root) != null && !trilateralUnaugmentedNouns.getStandardExaggerations(root).isEmpty()) {
+            standardExaggerationsPnl = createControlPanel(standardExaggerationConjugator, exaggerationModifier, "مبالغة اسم الفاعل");
         }
         JPanel nonStandardExaggerationsPnl = null;
-        if (nounsObject.getNonStandardExaggerations() != null && !nounsObject.getNonStandardExaggerations().isEmpty()) {
-            nonStandardExaggerationsPnl = createControlPanel(sarf.noun.trilateral.unaugmented.exaggeration.NonStandardExaggerationConjugator.getInstance(), ExaggerationModifier.getInstance(), "مبالغة اسم الفاعل");
+        if (trilateralUnaugmentedNouns.getNonStandardExaggerations(root) != null && !trilateralUnaugmentedNouns.getNonStandardExaggerations(root).isEmpty()) {
+            nonStandardExaggerationsPnl = createControlPanel(nonStandardExaggerationConjugator, exaggerationModifier, "مبالغة اسم الفاعل");
         }
         if (standardExaggerationsPnl != null || nonStandardExaggerationsPnl != null) {
             ButtonGroup bg = new ButtonGroup();
             JPanel result = new APanel();
+            assert standardExaggerationsPnl != null;
             int buttonsCount = standardExaggerationsPnl.getComponentCount();
             if (nonStandardExaggerationsPnl != null) {
                 buttonsCount += nonStandardExaggerationsPnl.getComponentCount();
             }
             result.setLayout(new GridLayout(1, buttonsCount));
 
-            bg.add((JToggleButton)standardExaggerationsPnl.getComponent(0));
+            bg.add((JToggleButton) standardExaggerationsPnl.getComponent(0));
             result.add(standardExaggerationsPnl.getComponent(0));
             if (nonStandardExaggerationsPnl != null) {
                 int count = nonStandardExaggerationsPnl.getComponentCount();
@@ -121,14 +180,13 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         }
 
 
-
         JPanel standardInstrumentalsPnl = null;
-        if (nounsObject.getStandardInstrumentals() != null && !nounsObject.getStandardInstrumentals().isEmpty()) {
-            standardInstrumentalsPnl = createControlPanel(sarf.noun.trilateral.unaugmented.instrumental.StandardInstrumentalConjugator.getInstance(), InstrumentalModifier.getInstance(), "اسم الآلة");
+        if (trilateralUnaugmentedNouns.getStandardInstrumentals(root) != null && !trilateralUnaugmentedNouns.getStandardInstrumentals(root).isEmpty()) {
+            standardInstrumentalsPnl = createControlPanel(standardInstrumentalConjugator, instrumentalModifier, "اسم الآلة");
         }
         JPanel nonStandardInstrumentalsPnl = null;
-        if (nounsObject.getNonStandardInstrumentals() != null && !nounsObject.getNonStandardInstrumentals().isEmpty()) {
-            nonStandardInstrumentalsPnl = createControlPanel(sarf.noun.trilateral.unaugmented.instrumental.NonStandardInstrumentalConjugator.getInstance(), InstrumentalModifier.getInstance(), "اسم الآلة");
+        if (trilateralUnaugmentedNouns.getNonStandardInstrumentals(root) != null && !trilateralUnaugmentedNouns.getNonStandardInstrumentals(root).isEmpty()) {
+            nonStandardInstrumentalsPnl = createControlPanel(nonStandardInstrumentalConjugator, instrumentalModifier, "اسم الآلة");
         }
         if (standardInstrumentalsPnl != null || nonStandardInstrumentalsPnl != null) {
             JPanel result = new APanel();
@@ -164,17 +222,17 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
             controlPanels.add("اسم الآلة ", result);
         }
 
-        if (nounsObject.getTimeAndPlaces() != null && !nounsObject.getTimeAndPlaces().isEmpty()) {
-            controlPanels.add("اسما الزمان والمكان  ", createControlPanel(sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator.getInstance(), TimeAndPlaceModifier.getInstance(), "اسم الزمان والمكان"));
+        if (trilateralUnaugmentedNouns.getTimeAndPlaces(root) != null && !trilateralUnaugmentedNouns.getTimeAndPlaces(root).isEmpty()) {
+            controlPanels.add("اسما الزمان والمكان  ", createControlPanel(timeAndPlaceConjugator, timeAndPlaceModifier, "اسم الزمان والمكان"));
         }
 
 
-        if (nounsObject.getElatives() != null && !nounsObject.getElatives().isEmpty()) {
-            controlPanels.add("اسم التفضيل ", createElativeControlPanel(sarf.noun.trilateral.unaugmented.elative.ElativeNounConjugator.getInstance(), ElativeModifier.getInstance(), ElativeSuffixContainer.getInstance(), "اسم التفضيل "));
+        if (trilateralUnaugmentedNouns.getElatives(root) != null && !trilateralUnaugmentedNouns.getElatives(root).isEmpty()) {
+            controlPanels.add("اسم التفضيل ", createElativeControlPanel(elativeNounConjugator, elativeModifier, ElativeSuffixContainer.getInstance(), "اسم التفضيل "));
         }
 
-        if (nounsObject.getAssimilates() != null && !nounsObject.getAssimilates().isEmpty()) {
-            controlPanels.add("الصفة المشبهة ", createAssimilateControlPanel(sarf.noun.trilateral.unaugmented.assimilate.AssimilateAdjectiveConjugator.getInstance(), AssimilateModifier.getInstance(), "الصفة المشبهة"));
+        if (!trilateralUnaugmentedNouns.getAssimilates(root).isEmpty()) {
+            controlPanels.add("الصفة المشبهة ", createAssimilateControlPanel(assimilateAdjectiveConjugator, assimilateModifier, "الصفة المشبهة"));
         }
 
         controlPanels.setMaximumSize(new Dimension(1000, 70));
@@ -185,7 +243,7 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
     }
 
     private APanel createControlPanel(IUnaugmentedTrilateralNounConjugator conjugator, IUnaugmentedTrilateralNounModifier modifier, String title) {
-        return createControlPanel(conjugator, modifier, GenericNounSuffixContainer.getInstance(), title);
+        return createControlPanel(conjugator, modifier, genericNounSuffixContainer, title);
     }
 
     private APanel createControlPanel(IUnaugmentedTrilateralNounConjugator conjugator, IUnaugmentedTrilateralNounModifier modifier, INounSuffixContainer nounSuffixContainer, String title) {
@@ -235,7 +293,7 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
     }
 
     private JToggleButton createButton(final String formula, final IUnaugmentedTrilateralNounConjugator conjugator, final IUnaugmentedTrilateralNounModifier modifier, String title) {
-        return createButton(formula, conjugator, modifier, GenericNounSuffixContainer.getInstance(), title);
+        return createButton(formula, conjugator, modifier, genericNounSuffixContainer, title);
     }
 
     private JToggleButton createButton(final String formula, final IUnaugmentedTrilateralNounConjugator conjugator, final IUnaugmentedTrilateralNounModifier modifier, final INounSuffixContainer nounSuffixContainer, final String title) {
@@ -247,8 +305,8 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
                 return conjResult.getFinalResult();
             };
 
-            NounConjugationUI ui = new NounConjugationUI(sarfAction, nounSuffixContainer, title);
-            ControlPaneContainer.getInstance().openResult(ui);
+            NounConjugationUI ui = new NounConjugationUI(this.controlPaneContainer, sarfAction, nounSuffixContainer, title);
+            controlPaneContainer.openResult(ui);
         });
 
         button.setMaximumSize(new Dimension(30, 30));
@@ -281,8 +339,8 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
                 return conjResult.getFinalResult();
             };
 
-            ElativeNounConjugationUI ui = new ElativeNounConjugationUI(sarfAction, title);
-            ControlPaneContainer.getInstance().openResult(ui);
+            ElativeNounConjugationUI ui = new ElativeNounConjugationUI(this.controlPaneContainer, sarfAction, title);
+            controlPaneContainer.openResult(ui);
         });
 
         button.setMaximumSize(new Dimension(30, 30));
@@ -292,10 +350,10 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
 
 
     private boolean opened = false;
+
     public void controlPaneOpened() {
         opened = true;
     }
-
 
     public void controlPaneClosed() {
         opened = false;

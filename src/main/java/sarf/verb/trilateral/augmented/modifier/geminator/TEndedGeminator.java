@@ -33,10 +33,10 @@ public class TEndedGeminator extends SubstitutionsApplier implements IAugmentedT
     }
 
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        KindOfVerb kov = conjugationResult.getKov();
-        int formulaNo = conjugationResult.getFormulaNo();
-        if (conjugationResult.getRoot().getC3() != 'ت') return false;
+    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+        KindOfVerb kov = triAugmentedConjugationResult.getKov();
+        int formulaNo = triAugmentedConjugationResult.getFormulaNo();
+        if (triAugmentedConjugationResult.getRoot().getC3() != 'ت') return false;
 
         switch (formulaNo) {
             case 1:
@@ -56,7 +56,7 @@ public class TEndedGeminator extends SubstitutionsApplier implements IAugmentedT
         return false;
     }
 
-    public void apply(String tense, boolean active, ConjugationResult conjResult) {
+    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
         if (!tense.equals(SystemConstants.PAST_TENSE)) {
             return;
         }

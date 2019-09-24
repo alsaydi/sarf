@@ -4,7 +4,6 @@ import java.util.*;
 
 import sarf.noun.*;
 import sarf.verb.quadriliteral.*;
-import sarf.verb.quadriliteral.modifier.*;
 import sarf.verb.quadriliteral.substitution.*;
 
 /**
@@ -30,11 +29,13 @@ public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier {
         substitutions.add(new InfixSubstitution("ِءْ","ِئْ"));// EX: (اطمِئْنان، اكوِئْداد، ازيِئْنان)
     }
 
+    @Override
     public List<InfixSubstitution> getSubstitutions() {
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
-        return conjugationResult.getRoot().getC2() == 'ء' || conjugationResult.getRoot().getC3() == 'ء';
+    @Override
+    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
+        return quadriConjugationResult.getRoot().getC2() == 'ء' || quadriConjugationResult.getRoot().getC3() == 'ء';
     }
 }

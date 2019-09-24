@@ -3,15 +3,28 @@ package sarf.ui.controlpane;
 import javax.swing.*;
 import sarf.ui.*;
 import java.awt.*;
-import java.awt.event.*;
+
+import sarf.verb.quadriliteral.QuadriConjugationResult;
+import sarf.verb.quadriliteral.augmented.passive.past.QuadriAugmentedPassivePastConjugator;
+import sarf.verb.quadriliteral.augmented.passive.present.AugmentedQuadPassivePresentConjugator;
+import sarf.verb.quadriliteral.modifier.QuadrilateralModifier;
+import sarf.verb.quadriliteral.unaugmented.passive.QuadPassivePresentConjugator;
+import sarf.verb.quadriliteral.unaugmented.passive.QuadriUnaugmentedPassivePastConjugator;
 import sarf.verb.trilateral.augmented.*;
 import java.util.List;
+
+import sarf.verb.trilateral.augmented.passive.past.AugmentedPassivePastConjugator;
+import sarf.verb.trilateral.augmented.passive.present.AugmentedPassivePresentConjugator;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 import sarf.SystemConstants;
 import sarf.verb.quadriliteral.QuadrilateralRoot;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
+import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
+import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
+import sarf.verb.trilateral.unaugmented.passive.PassivePastConjugator;
+import sarf.verb.trilateral.unaugmented.passive.PassivePresentConjugator;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -26,17 +39,50 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListen
  * @version 1.0
  */
 public class PassiveVerbSelectionUI extends JPanel implements IControlPane, AugmentedTrilateralModifierListener {
+    private final IMainControlPanel controlPaneContainer;
+    private final AugmentedPassivePastConjugator augmentedPassivePastConjugator;
+    private final QuadriAugmentedPassivePastConjugator quadriAugmentedPassivePastConjugator;
+    private final PassivePastConjugator passivePastConjugator;
+    private final QuadriUnaugmentedPassivePastConjugator quadriUnaugmentedPassivePastConjugator;
+    private final QuadrilateralModifier quadrilateralModifier;
+    private final UnaugmentedTrilateralModifier unaugmentedTrilateralModifier;
+    private final QuadPassivePresentConjugator quadPassivePresentConjugator;
+    private final PassivePresentConjugator passivePresentConjugator;
+    private final AugmentedPassivePresentConjugator augmentedPassivePresentConjugator;
+    private final AugmentedQuadPassivePresentConjugator augmentedQuadPassivePresentConjugator;
     private SelectionInfo selectionInfo;
 
-    final ToggleRenderedButton pastBtn = new ToggleRenderedButton("الماضي المجهول ");
-    final ToggleRenderedButton presentNominativeBtn = new ToggleRenderedButton("المضارع المرفوع المجهول ");
-    final ToggleRenderedButton presentAccusativeBtn = new ToggleRenderedButton("المضارع المنصوب المجهول ");
-    final ToggleRenderedButton presentJussiveBtn = new ToggleRenderedButton("المضارع المجزوم المجهول ");
-    final ToggleRenderedButton presentEmphasizedBtn = new ToggleRenderedButton("المضارع المؤكد المجهول ");
+    private final ToggleRenderedButton pastBtn = new ToggleRenderedButton("الماضي المجهول ");
+    private final ToggleRenderedButton presentNominativeBtn = new ToggleRenderedButton("المضارع المرفوع المجهول ");
+    private final ToggleRenderedButton presentAccusativeBtn = new ToggleRenderedButton("المضارع المنصوب المجهول ");
+    private final ToggleRenderedButton presentJussiveBtn = new ToggleRenderedButton("المضارع المجزوم المجهول ");
+    private final ToggleRenderedButton presentEmphasizedBtn = new ToggleRenderedButton("المضارع المؤكد المجهول ");
 
 
-    public PassiveVerbSelectionUI() {
+    public PassiveVerbSelectionUI(ControlPaneContainer controlPaneContainer
+            , AugmentedTrilateralModifier augmentedTrilateralModifier
+            , AugmentedPassivePastConjugator augmentedPassivePastConjugator
+            , QuadriAugmentedPassivePastConjugator quadriAugmentedPassivePastConjugator
+            , PassivePastConjugator passivePastConjugator
+            , QuadriUnaugmentedPassivePastConjugator quadriUnaugmentedPassivePastConjugator
+            , QuadrilateralModifier quadrilateralModifier
+            , UnaugmentedTrilateralModifier unaugmentedTrilateralModifier
+            , QuadPassivePresentConjugator quadPassivePresentConjugator
+            , PassivePresentConjugator passivePresentConjugator
+            , AugmentedPassivePresentConjugator augmentedPassivePresentConjugator
+            , AugmentedQuadPassivePresentConjugator augmentedQuadPassivePresentConjugator) {
         super(new BorderLayout());
+        this.controlPaneContainer = controlPaneContainer;
+        this.augmentedPassivePastConjugator = augmentedPassivePastConjugator;
+        this.quadriAugmentedPassivePastConjugator = quadriAugmentedPassivePastConjugator;
+        this.passivePastConjugator = passivePastConjugator;
+        this.quadriUnaugmentedPassivePastConjugator = quadriUnaugmentedPassivePastConjugator;
+        this.quadrilateralModifier = quadrilateralModifier;
+        this.unaugmentedTrilateralModifier = unaugmentedTrilateralModifier;
+        this.quadPassivePresentConjugator = quadPassivePresentConjugator;
+        this.passivePresentConjugator = passivePresentConjugator;
+        this.augmentedPassivePresentConjugator = augmentedPassivePresentConjugator;
+        this.augmentedQuadPassivePresentConjugator = augmentedQuadPassivePresentConjugator;
 
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
@@ -67,211 +113,211 @@ public class PassiveVerbSelectionUI extends JPanel implements IControlPane, Augm
             List result = null;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.trilateral.augmented.passive.past.AugmentedPassivePastConjugator.getInstance().createVerbList((AugmentedTrilateralRoot) selectionInfo.
+                    result = this.augmentedPassivePastConjugator.createVerbList((AugmentedTrilateralRoot) selectionInfo.
                             getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build((
+                    TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.PAST_TENSE, false, PassiveVerbSelectionUI.this);
                     result = conjResult.getFinalResult();
                 }
                 else {
-                    result = sarf.verb.trilateral.unaugmented.passive.PassivePastConjugator.getInstance().createVerbList((UnaugmentedTrilateralRoot) selectionInfo.getRoot());
-                    sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build((
+                    result = this.passivePastConjugator.createVerbList((UnaugmentedTrilateralRoot) selectionInfo.getRoot());
+                    sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = this.unaugmentedTrilateralModifier.build((
                             UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PAST_TENSE, false);
                     result = conjResult.getFinalResult();
                 }
             }
             else {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.quadriliteral.augmented.passive.past.AugmentedPassivePastConjugator.getInstance().createVerbList((AugmentedQuadrilateralRoot)
+                    result = this.quadriAugmentedPassivePastConjugator.createVerbList((AugmentedQuadrilateralRoot)
                             selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                 }
                 else {
-                    result = sarf.verb.quadriliteral.unaugmented.passive.PassivePastConjugator.getInstance().createVerbList((UnaugmentedQuadrilateralRoot) selectionInfo.
+                    result = this.quadriUnaugmentedPassivePastConjugator.createVerbList((UnaugmentedQuadrilateralRoot) selectionInfo.
                             getRoot());
                 }
-                sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build((QuadrilateralRoot)
+                QuadriConjugationResult conjResult = this.quadrilateralModifier.build((QuadrilateralRoot)
                         selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result, SystemConstants.PAST_TENSE, false);
                 result = conjResult.getFinalResult();
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, pastBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, pastBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
 
         presentNominativeBtn.addActionListener(e -> {
             List result = null;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.trilateral.augmented.passive.present.AugmentedPassivePresentConjugator.getInstance().getNominativeConjugator().createVerbList((
+                    result = this.augmentedPassivePresentConjugator.getNominativeConjugator().createVerbList((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build((
+                    TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.PRESENT_TENSE, false, PassiveVerbSelectionUI.this);
                     result = conjResult.getFinalResult();
                 }
                 else {
-                    result = sarf.verb.trilateral.unaugmented.passive.PassivePresentConjugator.getInstance().createNominativeVerbList((UnaugmentedTrilateralRoot) selectionInfo.
+                    result = this.passivePresentConjugator.createNominativeVerbList((UnaugmentedTrilateralRoot) selectionInfo.
                             getRoot());
-                    sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build((
+                    sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = this.unaugmentedTrilateralModifier.build((
                             UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, false);
                     result = conjResult.getFinalResult();
                 }
             }
             else {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.quadriliteral.augmented.passive.present.AugmentedPassivePresentConjugator.getInstance().getNominativeConjugator().createVerbList((
+                    result = this.augmentedQuadPassivePresentConjugator.getNominativeConjugator().createVerbList((
                             AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                 }
                 else {
-                    result = sarf.verb.quadriliteral.unaugmented.passive.PassivePresentConjugator.getInstance().createNominativeVerbList((UnaugmentedQuadrilateralRoot)
+                    result = this.quadPassivePresentConjugator.createNominativeVerbList((UnaugmentedQuadrilateralRoot)
                             selectionInfo.getRoot());
                 }
-                sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build((QuadrilateralRoot)
+                QuadriConjugationResult conjResult = this.quadrilateralModifier.build((QuadrilateralRoot)
                         selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, false);
                 result = conjResult.getFinalResult();
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, presentNominativeBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, presentNominativeBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
 
         presentAccusativeBtn.addActionListener(e -> {
             List result = null;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.trilateral.augmented.passive.present.AugmentedPassivePresentConjugator.getInstance().getAccusativeConjugator().createVerbList((
+                    result = this.augmentedPassivePresentConjugator.getAccusativeConjugator().createVerbList((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build((
+                    TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.PRESENT_TENSE, false, PassiveVerbSelectionUI.this);
                     result = conjResult.getFinalResult();
                 }
                 else {
-                    result = sarf.verb.trilateral.unaugmented.passive.PassivePresentConjugator.getInstance().createAccusativeVerbList((UnaugmentedTrilateralRoot) selectionInfo.
+                    result = this.passivePresentConjugator.createAccusativeVerbList((UnaugmentedTrilateralRoot) selectionInfo.
                             getRoot());
-                    sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build((
+                    sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = this.unaugmentedTrilateralModifier.build((
                             UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, false);
                     result = conjResult.getFinalResult();
                 }
             }
             else {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.quadriliteral.augmented.passive.present.AugmentedPassivePresentConjugator.getInstance().getAccusativeConjugator().createVerbList((
+                    result = this.augmentedQuadPassivePresentConjugator.getAccusativeConjugator().createVerbList((
                             AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                 }
                 else {
-                    result = sarf.verb.quadriliteral.unaugmented.passive.PassivePresentConjugator.getInstance().createAccusativeVerbList((UnaugmentedQuadrilateralRoot)
+                    result = quadPassivePresentConjugator.createAccusativeVerbList((UnaugmentedQuadrilateralRoot)
                             selectionInfo.getRoot());
                 }
-                sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build((QuadrilateralRoot)
+                QuadriConjugationResult conjResult = this.quadrilateralModifier.build((QuadrilateralRoot)
                         selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, false);
                 result = conjResult.getFinalResult();
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, presentAccusativeBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, presentAccusativeBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
 
         presentJussiveBtn.addActionListener(e -> {
             List result = null;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.trilateral.augmented.passive.present.AugmentedPassivePresentConjugator.getInstance().getJussiveConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
+                    result = this.augmentedPassivePresentConjugator.getJussiveConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.PRESENT_TENSE, false, PassiveVerbSelectionUI.this);
                     result = conjResult.getFinalResult();
                     //testing for applying gemination or not is just for the verb that has c2 = c3
                     //it will displayed in a different component
                     AugmentedTrilateralRoot root = (AugmentedTrilateralRoot) selectionInfo.getRoot();
                     if (root.getC2() == root.getC3()) {
-                        sarf.verb.trilateral.augmented.ConjugationResult notGeminatedConjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                        TriAugmentedConjugationResult notGeminatedConjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                                 selectionInfo.getAugmentationFormulaNo(),
                                 conjResult.getOriginalResult(), SystemConstants.PRESENT_TENSE, false, false, PassiveVerbSelectionUI.this);
                         List notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(result, notGeminatedResult, presentJussiveBtn.getText());
-                        ControlPaneContainer.getInstance().openResult(ui);
+                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(controlPaneContainer, result, notGeminatedResult, presentJussiveBtn.getText());
+                        controlPaneContainer.openResult(ui);
                         return;
                     }
                 }
                 else {
-                    result = sarf.verb.trilateral.unaugmented.passive.PassivePresentConjugator.getInstance().createJussiveVerbList((UnaugmentedTrilateralRoot) selectionInfo.getRoot());
-                    sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, false);
+                    result = this.passivePresentConjugator.createJussiveVerbList((UnaugmentedTrilateralRoot) selectionInfo.getRoot());
+                    sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = this.unaugmentedTrilateralModifier.build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, false);
                     result = conjResult.getFinalResult();
 
                     //testing for applying gemination or not is just for the verb that has c2 = c3
                     //it will displayed in a different component
                     UnaugmentedTrilateralRoot root = (UnaugmentedTrilateralRoot) selectionInfo.getRoot();
                     if (root.getC2() == root.getC3()) {
-                        sarf.verb.trilateral.unaugmented.ConjugationResult notGeminatedConjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                        sarf.verb.trilateral.unaugmented.ConjugationResult notGeminatedConjResult = this.unaugmentedTrilateralModifier.build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                                 conjResult.getOriginalResult(),
                                 SystemConstants.PRESENT_TENSE, false, false);
                         List notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(result, notGeminatedResult, presentJussiveBtn.getText());
-                        ControlPaneContainer.getInstance().openResult(ui);
+                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(controlPaneContainer, result, notGeminatedResult, presentJussiveBtn.getText());
+                        controlPaneContainer.openResult(ui);
                         return;
                     }
                 }
             }
             else {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.quadriliteral.augmented.passive.present.AugmentedPassivePresentConjugator.getInstance().getJussiveConjugator().createVerbList((
+                    result = this.augmentedQuadPassivePresentConjugator.getJussiveConjugator().createVerbList((
                             AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                 }
                 else {
-                    result = sarf.verb.quadriliteral.unaugmented.passive.PassivePresentConjugator.getInstance().createJussiveVerbList((UnaugmentedQuadrilateralRoot)
+                    result = quadPassivePresentConjugator.createJussiveVerbList((UnaugmentedQuadrilateralRoot)
                             selectionInfo.getRoot());
                 }
-                sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, false);
-                sarf.verb.quadriliteral.ConjugationResult notGeminatedConjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), conjResult.getOriginalResult(),
+                QuadriConjugationResult conjResult = this.quadrilateralModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, false);
+                QuadriConjugationResult notGeminatedConjResult = this.quadrilateralModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), conjResult.getOriginalResult(),
                         SystemConstants.PRESENT_TENSE, false, false);
 
-                JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(conjResult.getFinalResult(), notGeminatedConjResult.getFinalResult(), presentJussiveBtn.getText());
-                ControlPaneContainer.getInstance().openResult(ui);
+                JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(controlPaneContainer, conjResult.getFinalResult(), notGeminatedConjResult.getFinalResult(), presentJussiveBtn.getText());
+                controlPaneContainer.openResult(ui);
                 return;
 
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, presentJussiveBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, presentJussiveBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
 
         presentEmphasizedBtn.addActionListener(e -> {
             List result = null;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.trilateral.augmented.passive.present.AugmentedPassivePresentConjugator.getInstance().getEmphasizedConjugator().createVerbList((
+                    result = this.augmentedPassivePresentConjugator.getEmphasizedConjugator().createVerbList((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    sarf.verb.trilateral.augmented.ConjugationResult conjResult = sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier.getInstance().build((
+                    TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.PRESENT_TENSE, false, PassiveVerbSelectionUI.this);
                     result = conjResult.getFinalResult();
                 }
                 else {
-                    result = sarf.verb.trilateral.unaugmented.passive.PassivePresentConjugator.getInstance().createEmphasizedVerbList((UnaugmentedTrilateralRoot) selectionInfo.
+                    result = this.passivePresentConjugator.createEmphasizedVerbList((UnaugmentedTrilateralRoot) selectionInfo.
                             getRoot());
-                    sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier.getInstance().build((
+                    sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = this.unaugmentedTrilateralModifier.build((
                             UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, false);
                     result = conjResult.getFinalResult();
                 }
             }
             else {
                 if (selectionInfo.isAugmented()) {
-                    result = sarf.verb.quadriliteral.augmented.passive.present.AugmentedPassivePresentConjugator.getInstance().getEmphasizedConjugator().createVerbList((
+                    result = this.augmentedQuadPassivePresentConjugator.getEmphasizedConjugator().createVerbList((
                             AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                 }
                 else {
-                    result = sarf.verb.quadriliteral.unaugmented.passive.PassivePresentConjugator.getInstance().createEmphasizedVerbList((UnaugmentedQuadrilateralRoot)
+                    result = quadPassivePresentConjugator.createEmphasizedVerbList((UnaugmentedQuadrilateralRoot)
                             selectionInfo.getRoot());
                 }
-                sarf.verb.quadriliteral.ConjugationResult conjResult = sarf.verb.quadriliteral.modifier.QuadrilateralModifier.getInstance().build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, false);
+                QuadriConjugationResult conjResult = this.quadrilateralModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, false);
                 result = conjResult.getFinalResult();
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(result, presentEmphasizedBtn.getText());
-            ControlPaneContainer.getInstance().openResult(ui);
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, presentEmphasizedBtn.getText());
+            controlPaneContainer.openResult(ui);
         });
     }
 

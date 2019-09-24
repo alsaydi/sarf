@@ -4,7 +4,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import sarf.SystemConstants;
+import com.google.inject.Inject;
+import sarf.gerund.quadrilateral.augmented.nomen.pattern.GerundPattern1;
+import sarf.gerund.quadrilateral.augmented.nomen.pattern.GerundPattern2;
+import sarf.gerund.quadrilateral.augmented.nomen.pattern.GerundPattern3;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.quadriliteral.augmented.*;
 
 import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
@@ -23,29 +27,36 @@ import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
  */
 public class QuadrilateralAugmentedNomenGerundConjugator {
     /* Nomen vicis اسم المرَّة */
-    private static final QuadrilateralAugmentedNomenGerundConjugator instance = new QuadrilateralAugmentedNomenGerundConjugator();
     private final int[] indexArray = {2, 4, 6, 8, 10, 12, 14, 16, 18};
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    public static QuadrilateralAugmentedNomenGerundConjugator getInstance() {
-        return instance;
+    @Inject
+    public QuadrilateralAugmentedNomenGerundConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
     public List<QuadrilateralAugmentedNomenGerund> createGerundList(AugmentedQuadrilateralRoot root, int formulaNo) {
-        var gerundPatternClassName = getClass().getPackage().getName() + ".pattern." + "GerundPattern" + formulaNo;
         var gerundDisplayList = createEmptyList();
 
         for (int value : indexArray) {
             //because index in java start from zero
             int suffixNo = value - 1;
-            Object[] parameters = {root, suffixNo + ""};
-            try {
-                QuadrilateralAugmentedNomenGerund gerund = (QuadrilateralAugmentedNomenGerund) Class.forName(gerundPatternClassName).getConstructors()[0].newInstance(parameters);
-                gerundDisplayList.set(suffixNo, gerund);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+            QuadrilateralAugmentedNomenGerund gerund = createQuadrilateralAugmentedNomenGerund(root, suffixNo + "", formulaNo);
+            gerundDisplayList.set(suffixNo, gerund);
         }
         return gerundDisplayList;
+    }
+
+    private QuadrilateralAugmentedNomenGerund createQuadrilateralAugmentedNomenGerund(AugmentedQuadrilateralRoot root, String suffixNo, int formula) {
+        switch (formula) {
+            case 1:
+                return new GerundPattern1(root, suffixNo, genericNounSuffixContainer);
+            case 2:
+                return new GerundPattern2(root, suffixNo, genericNounSuffixContainer);
+            case 3:
+                return new GerundPattern3(root, suffixNo, genericNounSuffixContainer);
+        }
+        return new EmptyQuadrilateralAugmentedNomenGerund();
     }
 
     private static List<QuadrilateralAugmentedNomenGerund> createEmptyList() {

@@ -18,15 +18,17 @@ import sarf.noun.*;
 public abstract class AugmentedTrilateralNoun {
     protected final AugmentedTrilateralRoot root;
     protected final String suffix;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    public AugmentedTrilateralNoun(AugmentedTrilateralRoot root, String suffix) {
+    public AugmentedTrilateralNoun(AugmentedTrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.root = root;
         this.suffix = suffix;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
     public abstract String form();
 
     public String toString() {
-        return GenericNounSuffixContainer.getInstance().getPrefix()+form();
+        return genericNounSuffixContainer.getPrefix()+form();
     }
 }
