@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>Sarf</groupId>
     <artifactId>Sarf</artifactId>
-    <version>1.0.0-M5</version>
+    <version>1.0.09232019</version>
     <name>Sarf</name>
     <description>Arabic Morphology System</description>
     <properties>
