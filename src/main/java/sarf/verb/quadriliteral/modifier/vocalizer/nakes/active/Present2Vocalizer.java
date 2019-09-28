@@ -1,9 +1,10 @@
 package sarf.verb.quadriliteral.modifier.vocalizer.nakes.active;
 
 import java.util.*;
-import sarf.verb.quadriliteral.substitution.*;
+
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
 import sarf.substitution.SuffixSubstitution;
 import sarf.ConjugationResult;
 

@@ -8,7 +8,7 @@ import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SubstitutionsApplier;
 import sarf.substitution.SuffixSubstitution;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.verb.trilateral.augmented.modifier.*;
 
 /**
@@ -23,7 +23,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Imperative3Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
+public class Imperative3Vocalizer extends SubstitutionsApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Imperative3Vocalizer() {

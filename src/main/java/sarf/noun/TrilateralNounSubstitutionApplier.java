@@ -5,7 +5,6 @@ import java.util.stream.IntStream;
 
 import sarf.SystemConstants;
 import sarf.substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.Substitution.*;
 
 /**
  * <p>Title: Sarf Program</p>

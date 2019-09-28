@@ -5,7 +5,7 @@ import java.util.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.noun.trilateral.unaugmented.modifier.assimilate.vocalizer.*;
 import sarf.substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.ConjugationResult;
 
 /**

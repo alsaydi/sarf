@@ -5,7 +5,7 @@ import java.util.*;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SuffixSubstitution;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.verb.trilateral.augmented.modifier.hamza.ein.*;
 
 /**

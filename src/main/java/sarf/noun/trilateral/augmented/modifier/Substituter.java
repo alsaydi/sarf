@@ -46,7 +46,7 @@ public class Substituter {
 
     public void apply(ConjugationResult conjResult) {
         for (TrilateralNounSubstitutionApplier applier : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) applier;
+            var modifier = applier;
             if (modifier.isApplied(conjResult)) {
                 applier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;

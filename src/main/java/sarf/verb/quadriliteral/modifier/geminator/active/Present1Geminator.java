@@ -1,11 +1,12 @@
 package sarf.verb.quadriliteral.modifier.geminator.active;
 
 import java.util.*;
-import sarf.verb.quadriliteral.substitution.*;
+
 import sarf.substitution.ExpressionInfixSubstitution;
 import sarf.substitution.ExpressionSuffixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.ConjugationResult;
+import sarf.substitution.SubstitutionsApplier;
 
 /**
  * <p>Title: Sarf Program</p>

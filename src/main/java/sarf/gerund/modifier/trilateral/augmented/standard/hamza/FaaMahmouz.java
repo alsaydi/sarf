@@ -6,7 +6,7 @@ import sarf.noun.trilateral.augmented.modifier.*;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.PrefixSubstitution;
 import sarf.substitution.Substitution;
-import sarf.verb.trilateral.Substitution.*;
+
 
 /**
  * <p>Title: Sarf Program</p>

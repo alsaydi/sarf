@@ -1,7 +1,7 @@
 package sarf.verb.quadriliteral.modifier.hamza.ended;
 
-import sarf.verb.quadriliteral.substitution.SubstitutionsApplier;
 import sarf.ConjugationResult;
+import sarf.substitution.SubstitutionsApplier;
 
 public abstract class AbstractQuadrilateralEndedMahmouzModifier extends SubstitutionsApplier {
 

@@ -1,7 +1,7 @@
 package sarf.verb.trilateral.augmented.modifier.geminator;
 
 import sarf.substitution.Substitution;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+
 import sarf.*;
 import java.util.*;
 import sarf.substitution.InfixSubstitution;
@@ -19,7 +19,7 @@ import sarf.substitution.SubstitutionsApplier;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class TStartedGeminator extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
+public class TStartedGeminator extends SubstitutionsApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public TStartedGeminator() {

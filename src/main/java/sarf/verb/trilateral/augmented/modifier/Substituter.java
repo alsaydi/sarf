@@ -4,7 +4,7 @@ import java.util.*;
 
 import sarf.ConjugationResult;
 import sarf.substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.Substitution.*;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -56,7 +56,7 @@ public class Substituter {
         modifiers = active ? activeList : passiveList;
 
         for (SubstitutionsApplier o : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
+            var modifier = o;
             if (modifier.isApplied(conjResult)) {
                 o.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;

@@ -6,7 +6,7 @@ import sarf.substitution.ExpressionInfixSubstitution;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.PrefixSubstitution;
 import sarf.substitution.Substitution;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.verb.trilateral.augmented.modifier.hamza.faa.*;
 
 /**

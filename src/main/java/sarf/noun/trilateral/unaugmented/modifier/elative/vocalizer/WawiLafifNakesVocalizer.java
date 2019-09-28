@@ -8,7 +8,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SuffixSubstitution;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.ConjugationResult;
 
 import static sarf.KindOfVerb.Naqis_Wawi;

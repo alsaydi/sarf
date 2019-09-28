@@ -3,7 +3,7 @@ package sarf.verb.trilateral.augmented.modifier.hamza.faa;
 import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.verb.trilateral.augmented.modifier.*;
 
 /**
@@ -18,7 +18,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
+public abstract class AbstractFaaMahmouz extends SubstitutionsApplier{
     public AbstractFaaMahmouz() {
     }
 

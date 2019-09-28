@@ -1,13 +1,13 @@
 package sarf.noun.trilateral.augmented.modifier.activeparticiple;
 
-import java.util.*;
-
 import sarf.ConjugationResult;
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.augmented.modifier.activeparticiple.vocalizer.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+import sarf.substitution.SubstitutionsApplier;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -38,10 +38,9 @@ public class Vocalizer {
         if (preSeparatedLafifVocalizer.isApplied(conjResult))
             preSeparatedLafifVocalizer.apply(conjResult.getFinalResult(), conjResult.getRoot());
 
-        for (Object o : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
+        for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

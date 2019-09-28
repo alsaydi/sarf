@@ -50,4 +50,9 @@ public class NounLamAlefModifier extends SubstitutionsApplier {
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
+
+    @Override
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        return false;
+    }
 }

@@ -6,7 +6,7 @@ import sarf.ConjugationResult;
 import sarf.noun.*;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.verb.trilateral.augmented.modifier.*;
 
 /**
@@ -21,7 +21,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class RaaEinMahmouz extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class RaaEinMahmouz extends TrilateralNounSubstitutionApplier{
 private final List<Substitution> substitutions = new ArrayList<>();
 
     public RaaEinMahmouz() {

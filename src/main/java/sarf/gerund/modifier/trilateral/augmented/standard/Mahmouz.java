@@ -5,9 +5,9 @@ import java.util.*;
 import sarf.ConjugationResult;
 import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.gerund.modifier.trilateral.augmented.standard.hamza.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -33,7 +33,7 @@ public class Mahmouz {
 
     public void apply(ConjugationResult conjResult) {
         for (TrilateralNounSubstitutionApplier trilateralNounSubstitutionApplier : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) trilateralNounSubstitutionApplier;
+            var modifier = trilateralNounSubstitutionApplier;
             if (modifier.isApplied(conjResult)) {
                 ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;

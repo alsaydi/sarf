@@ -5,7 +5,7 @@ import java.util.*;
 import sarf.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.activeparticiple.hamza.*;
 import sarf.substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 
 /**

@@ -1,7 +1,8 @@
 package sarf.verb.quadriliteral.modifier.geminator.active;
 
 import java.util.*;
-import sarf.verb.quadriliteral.substitution.*;
+
+import sarf.substitution.SubstitutionsApplier;
 import sarf.substitution.ExpressionInfixSubstitution;
 import sarf.substitution.ExpressionSuffixSubstitution;
 import sarf.substitution.Substitution;

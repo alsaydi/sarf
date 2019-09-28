@@ -17,7 +17,7 @@ import sarf.noun.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AbstractGenericSubstituter extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public abstract class AbstractGenericSubstituter extends TrilateralNounSubstitutionApplier{
     public AbstractGenericSubstituter() {
     }
 

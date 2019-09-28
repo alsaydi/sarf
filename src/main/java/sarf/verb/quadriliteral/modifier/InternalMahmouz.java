@@ -1,6 +1,6 @@
 package sarf.verb.quadriliteral.modifier;
 
-import sarf.verb.quadriliteral.substitution.*;
+import sarf.substitution.SubstitutionsApplier;
 
 import java.util.Map;
 import java.util.HashMap;

@@ -5,7 +5,7 @@ import java.util.*;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.Substitution.*;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -35,6 +35,11 @@ public final class VerbLamAlefModifier extends SubstitutionsApplier {
 
     public List<Substitution> getSubstitutions() {
         return substitutions;
+    }
+
+    @Override
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        return false;
     }
 
 }

@@ -4,7 +4,7 @@ import java.util.*;
 
 import sarf.substitution.ExpressionInfixSubstitution;
 import sarf.substitution.Substitution;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
 
 /**

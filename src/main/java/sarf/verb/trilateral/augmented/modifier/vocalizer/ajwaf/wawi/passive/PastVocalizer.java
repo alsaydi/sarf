@@ -6,7 +6,7 @@ import sarf.KindOfVerb;
 import sarf.substitution.ExpressionInfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.ConjugationResult;
 
@@ -22,7 +22,7 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
+public class PastVocalizer extends SubstitutionsApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public PastVocalizer() {

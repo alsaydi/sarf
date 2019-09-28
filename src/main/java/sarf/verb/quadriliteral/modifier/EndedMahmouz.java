@@ -1,10 +1,11 @@
 package sarf.verb.quadriliteral.modifier;
 
-import sarf.verb.quadriliteral.substitution.*;
+
 import java.util.Map;
 import java.util.HashMap;
 import sarf.SystemConstants;
 import sarf.ConjugationResult;
+import sarf.substitution.SubstitutionsApplier;
 
 /**
  * <p>Title: Sarf Program</p>

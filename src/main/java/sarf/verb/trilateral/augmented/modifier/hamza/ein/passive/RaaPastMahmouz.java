@@ -5,9 +5,9 @@ import java.util.*;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.ConjugationResult;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,7 +21,7 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class RaaPastMahmouz extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
+public class RaaPastMahmouz extends SubstitutionsApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public RaaPastMahmouz() {

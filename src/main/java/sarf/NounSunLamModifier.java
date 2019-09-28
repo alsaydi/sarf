@@ -78,6 +78,11 @@ public class NounSunLamModifier extends SubstitutionsApplier {
         return appliedPronounsIndexes;
     }
 
+    @Override
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        return true; //TODO: make sure this is a noun!
+    }
+
     static class ListedInfixSubstitution extends Substitution {
         private final List<String> probableChars;
 

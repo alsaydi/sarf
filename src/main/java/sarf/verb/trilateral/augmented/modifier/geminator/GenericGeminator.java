@@ -1,10 +1,10 @@
 package sarf.verb.trilateral.augmented.modifier.geminator;
 
 import sarf.substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+
 import sarf.*;
 import java.util.*;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.verb.trilateral.augmented.modifier.geminator.generic.*;
 
 /**
@@ -19,7 +19,7 @@ import sarf.verb.trilateral.augmented.modifier.geminator.generic.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class GenericGeminator implements IAugmentedTrilateralModifier {
+public class GenericGeminator{
     private final Map<String, SubstitutionsApplier> geminators = new HashMap<>();
 
     public GenericGeminator() {

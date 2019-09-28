@@ -80,7 +80,7 @@ public class HamzaModifier {
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
         List<SubstitutionsApplier> modifiers = modifiersMap.get(tense+active);
         for (SubstitutionsApplier o : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
+            var modifier = o;
             if (modifier.isApplied(conjResult)) {
                 o.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;

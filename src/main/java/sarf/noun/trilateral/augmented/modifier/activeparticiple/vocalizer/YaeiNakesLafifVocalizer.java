@@ -6,7 +6,7 @@ import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SuffixSubstitution;
 import sarf.ConjugationResult;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public YaeiNakesLafifVocalizer() {

@@ -1,5 +1,6 @@
 package sarf.substitution;
 
+import sarf.ConjugationResult;
 import sarf.SystemConstants;
 import sarf.verb.Root;
 
@@ -21,7 +22,6 @@ import java.util.stream.IntStream;
  */
 public abstract class SubstitutionsApplier<T> {
     private static final List<String> defaultAppliedPronounsIndexes = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
-
     static {
         IntStream.rangeClosed(1, SystemConstants.PRONOUN_RANGE_END)
                 .forEach(i -> defaultAppliedPronounsIndexes.add("" + i));
@@ -68,4 +68,6 @@ public abstract class SubstitutionsApplier<T> {
     protected List<String> getAppliedPronounsIndexes() {
         return defaultAppliedPronounsIndexes;
     }
+
+    public abstract boolean isApplied(ConjugationResult<T> conjugationResult);
 }

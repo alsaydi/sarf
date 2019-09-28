@@ -5,9 +5,9 @@ import java.util.*;
 import sarf.KindOfVerb;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.ConjugationResult;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+
 import sarf.noun.TrilateralNounSubstitutionApplier;
 
 /**
@@ -22,7 +22,7 @@ import sarf.noun.TrilateralNounSubstitutionApplier;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class SpecialSubstituter2 extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class SpecialSubstituter2 extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public SpecialSubstituter2() {

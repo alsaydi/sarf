@@ -4,7 +4,7 @@ import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.ConjugationResult;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+
 
 import java.util.LinkedList;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Geminator0 extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class Geminator0 extends TrilateralNounSubstitutionApplier{
 
     private final List<Substitution> substitutions = new LinkedList<>();
 

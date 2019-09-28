@@ -4,9 +4,9 @@ import java.util.*;
 
 import sarf.ConjugationResult;
 import sarf.substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.gerund.modifier.trilateral.augmented.standard.vocalizer.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,7 +21,7 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @version 1.0
  */
 public class Vocalizer {
-    private final List<IAugmentedTrilateralModifier> modifiers;
+    private final List<SubstitutionsApplier> modifiers;
     private final PreSeparatedLafifVocalizer preSeparatedLafifVocalizer;
 
     public Vocalizer() {
@@ -41,9 +41,9 @@ public class Vocalizer {
         if (preSeparatedLafifVocalizer.isApplied(conjResult))
             preSeparatedLafifVocalizer.apply(conjResult.getFinalResult(), conjResult.getRoot());
 
-        for (IAugmentedTrilateralModifier modifier : modifiers) {
+        for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

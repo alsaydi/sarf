@@ -7,8 +7,8 @@ import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -22,7 +22,7 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PreSeparatedLafifVocalizer extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class PreSeparatedLafifVocalizer extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public PreSeparatedLafifVocalizer() {

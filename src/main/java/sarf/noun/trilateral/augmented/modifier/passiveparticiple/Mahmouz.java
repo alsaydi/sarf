@@ -4,9 +4,9 @@ import java.util.*;
 
 import sarf.ConjugationResult;
 import sarf.substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.noun.trilateral.augmented.modifier.passiveparticiple.hamza.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,7 +21,7 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @version 1.0
  */
 public class Mahmouz {
-    private final List<IAugmentedTrilateralModifier> modifiers = new ArrayList<>();
+    private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
 
     public Mahmouz() {
         modifiers.add(new RaaEinMahmouz());

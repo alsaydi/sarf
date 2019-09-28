@@ -1,10 +1,13 @@
 package sarf.verb.trilateral.augmented.modifier;
 
 import sarf.ConjugationResult;
-
-import java.util.*;
-import sarf.*;
+import sarf.SystemConstants;
 import sarf.substitution.SubstitutionsApplier;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -128,16 +131,16 @@ public class Vocalizer {
     /**
      * تطبيق الاعلال حسب الصيغة ماضي أو مضارع أو أمر للمعلوم أو لمجهول
      * قد لا يطبق أي نوع من الاعلال
-     * @param tense String
-     * @param active boolean
+     *
+     * @param tense      String
+     * @param active     boolean
      * @param conjResult ConjugationResult
      */
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
-        var vocalizers = vocalizerMap.get(tense+active);
-        for (SubstitutionsApplier o : vocalizers) {
-            IAugmentedTrilateralModifier vocalizer = (IAugmentedTrilateralModifier) o;
+        var vocalizers = vocalizerMap.get(tense + active);
+        for (SubstitutionsApplier vocalizer : vocalizers) {
             if (vocalizer.isApplied(conjResult)) {
-                o.apply(conjResult.getFinalResult(), conjResult.getRoot());
+                vocalizer.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

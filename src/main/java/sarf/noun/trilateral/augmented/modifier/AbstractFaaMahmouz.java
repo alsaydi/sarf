@@ -17,7 +17,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AbstractFaaMahmouz extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public abstract class AbstractFaaMahmouz extends TrilateralNounSubstitutionApplier{
 
     public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
