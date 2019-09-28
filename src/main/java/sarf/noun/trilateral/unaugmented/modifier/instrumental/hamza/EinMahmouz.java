@@ -2,6 +2,8 @@ package sarf.noun.trilateral.unaugmented.modifier.instrumental.hamza;
 
 import java.util.*;
 
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 

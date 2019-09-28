@@ -3,6 +3,8 @@ package sarf.noun.trilateral.unaugmented.modifier.assimilate;
 import java.util.*;
 
 import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.verb.trilateral.Substitution.*;
 
 /**

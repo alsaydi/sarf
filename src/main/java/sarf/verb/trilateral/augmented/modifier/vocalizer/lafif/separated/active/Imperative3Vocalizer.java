@@ -3,6 +3,10 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.lafif.separated.active
 import java.util.*;
 
 import sarf.KindOfVerb;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+import sarf.substitution.SuffixSubstitution;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.ConjugationResult;

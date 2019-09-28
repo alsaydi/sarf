@@ -2,10 +2,10 @@ package sarf.noun.trilateral.augmented.modifier.substituter;
 
 import java.util.*;
 
-import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.substitution.Substitution;
 import sarf.ConjugationResult;
 import sarf.noun.trilateral.augmented.modifier.AbstractGenericSubstituter;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.substitution.InfixSubstitution;
 
 /**
  * <p>Title: Sarf Program</p>

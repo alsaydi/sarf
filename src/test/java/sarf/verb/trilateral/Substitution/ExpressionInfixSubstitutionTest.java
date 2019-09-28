@@ -1,6 +1,7 @@
 package sarf.verb.trilateral.Substitution;
 
 import org.junit.jupiter.api.Test;
+import sarf.substitution.ExpressionInfixSubstitution;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 import static org.junit.jupiter.api.Assertions.*;

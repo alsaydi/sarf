@@ -5,7 +5,7 @@ import sarf.gerund.modifier.trilateral.unaugmented.nomen.hamza.FaaMahmouz;
 import sarf.gerund.modifier.trilateral.unaugmented.nomen.hamza.LamMahmouz;
 import sarf.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
-import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.substitution.SubstitutionsApplier;
 
 import java.util.ArrayList;
 import java.util.List;

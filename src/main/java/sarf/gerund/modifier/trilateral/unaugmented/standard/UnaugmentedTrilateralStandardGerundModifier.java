@@ -6,9 +6,9 @@ import sarf.NounLamAlefModifier;
 import sarf.NounSunLamModifier;
 import sarf.noun.trilateral.unaugmented.modifier.AbstractLamMahmouz;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModifier;
-import sarf.verb.trilateral.Substitution.ExpressionInfixSubstitution;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 

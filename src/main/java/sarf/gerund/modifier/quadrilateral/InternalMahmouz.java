@@ -3,7 +3,7 @@ package sarf.gerund.modifier.quadrilateral;
 import java.util.*;
 
 import sarf.noun.*;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.substitution.InfixSubstitution;
 import sarf.ConjugationResult;
 
 /**

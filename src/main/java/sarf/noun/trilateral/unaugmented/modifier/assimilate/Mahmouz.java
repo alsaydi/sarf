@@ -4,6 +4,7 @@ import java.util.*;
 
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.noun.trilateral.unaugmented.modifier.assimilate.hamza.*;
+import sarf.substitution.SubstitutionsApplier;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.ConjugationResult;
 

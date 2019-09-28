@@ -2,6 +2,9 @@ package sarf;
 
 import java.util.*;
 
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
 import sarf.verb.trilateral.Substitution.*;
 
 /**
@@ -16,7 +19,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public final class VerbLamAlefModifier extends SubstitutionsApplier{
+public final class VerbLamAlefModifier extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new LinkedList<>();
 
     public VerbLamAlefModifier() {

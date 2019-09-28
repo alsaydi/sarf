@@ -2,6 +2,9 @@ package sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer;
 
 import java.util.List;
 import java.util.LinkedList;
+
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;

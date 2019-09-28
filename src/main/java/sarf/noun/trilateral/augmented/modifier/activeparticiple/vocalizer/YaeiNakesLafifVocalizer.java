@@ -2,9 +2,9 @@ package sarf.noun.trilateral.augmented.modifier.activeparticiple.vocalizer;
 
 import sarf.KindOfVerb;
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
-import sarf.verb.trilateral.Substitution.SuffixSubstitution;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SuffixSubstitution;
 import sarf.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 

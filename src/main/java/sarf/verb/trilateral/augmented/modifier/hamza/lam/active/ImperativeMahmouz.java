@@ -2,6 +2,8 @@ package sarf.verb.trilateral.augmented.modifier.hamza.lam.active;
 
 import java.util.*;
 
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.hamza.lam.*;
 

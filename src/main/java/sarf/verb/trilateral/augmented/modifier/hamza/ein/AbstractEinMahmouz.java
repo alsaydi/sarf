@@ -2,6 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.hamza.ein;
 
 import sarf.ConjugationResult;
 import sarf.KindOfVerb;
+import sarf.substitution.SubstitutionsApplier;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 

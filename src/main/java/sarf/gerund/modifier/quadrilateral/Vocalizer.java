@@ -1,9 +1,9 @@
 package sarf.gerund.modifier.quadrilateral;
 
 import sarf.noun.QuadrilateralNounSubstitutionApplier;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
-import sarf.verb.trilateral.Substitution.SuffixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.SuffixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.ConjugationResult;
 
 import java.util.LinkedList;

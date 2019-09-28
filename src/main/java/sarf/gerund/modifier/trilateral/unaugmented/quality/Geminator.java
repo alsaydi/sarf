@@ -5,7 +5,7 @@ import sarf.gerund.modifier.trilateral.unaugmented.quality.geminator.Geminator2;
 import sarf.gerund.modifier.trilateral.unaugmented.quality.geminator.Geminator3;
 import sarf.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
-import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.substitution.SubstitutionsApplier;
 
 import java.util.ArrayList;
 import java.util.List;

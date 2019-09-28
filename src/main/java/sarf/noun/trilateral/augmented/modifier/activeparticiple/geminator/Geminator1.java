@@ -2,8 +2,8 @@ package sarf.noun.trilateral.augmented.modifier.activeparticiple.geminator;
 
 import sarf.KindOfVerb;
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.verb.trilateral.Substitution.ExpressionInfixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 

@@ -1,6 +1,10 @@
 package sarf.verb.trilateral.unaugmented.modifier.hamza.faa;
 
 import java.util.*;
+
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.PrefixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.verb.trilateral.unaugmented.modifier.hamza.*;
 import sarf.verb.trilateral.Substitution.*;
 

@@ -4,7 +4,7 @@ package sarf.noun.trilateral.unaugmented.modifier.activeparticiple;
 import sarf.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer.*;
-import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.substitution.SubstitutionsApplier;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -4,6 +4,8 @@ import java.util.*;
 
 import sarf.noun.*;
 
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.ConjugationResult;

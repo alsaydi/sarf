@@ -2,6 +2,7 @@ package sarf.gerund.modifier.trilateral.unaugmented.meem;
 
 import java.util.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.substitution.SubstitutionsApplier;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.gerund.modifier.trilateral.unaugmented.meem.hamza.*;
 import sarf.ConjugationResult;

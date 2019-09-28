@@ -1,7 +1,7 @@
 package sarf.verb.quadriliteral.substitution;
 
 import sarf.verb.Root;
-import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.substitution.Substitution;
 import sarf.ConjugationResult;
 
 import java.util.ArrayList;

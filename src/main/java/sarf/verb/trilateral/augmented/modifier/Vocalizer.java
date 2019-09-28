@@ -4,7 +4,7 @@ import sarf.ConjugationResult;
 
 import java.util.*;
 import sarf.*;
-import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.substitution.SubstitutionsApplier;
 
 /**
  * <p>Title: Sarf Program</p>

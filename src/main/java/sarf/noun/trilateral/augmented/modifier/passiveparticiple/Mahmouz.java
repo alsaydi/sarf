@@ -3,6 +3,7 @@ package sarf.noun.trilateral.augmented.modifier.passiveparticiple;
 import java.util.*;
 
 import sarf.ConjugationResult;
+import sarf.substitution.SubstitutionsApplier;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.augmented.modifier.passiveparticiple.hamza.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;

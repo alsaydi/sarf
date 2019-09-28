@@ -2,6 +2,8 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.yaei;
 
 import java.util.*;
 
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
 
@@ -34,7 +36,7 @@ public class PassivePastAjwafYaeiVocalizer extends AbstractAjwafYaeiVocalizer {
      *
      * @return List
      * @todo Implement this
-     *   sarf.verb.trilateral.Substitution.SubstitutionsApplier method
+     *   SubstitutionsApplier method
      */
     public List getSubstitutions() {
         return substitutions;

@@ -5,7 +5,7 @@ import java.util.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.Substitution;
 import sarf.NounSunLamModifier.ListedInfixSubstitution;
 
 class NounSunLamModifierTest {

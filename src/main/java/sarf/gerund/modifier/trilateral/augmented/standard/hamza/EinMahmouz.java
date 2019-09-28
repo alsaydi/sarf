@@ -3,6 +3,8 @@ package sarf.gerund.modifier.trilateral.augmented.standard.hamza;
 import java.util.*;
 
 import sarf.noun.trilateral.augmented.modifier.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.verb.trilateral.Substitution.*;
 
 /**

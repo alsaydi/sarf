@@ -2,8 +2,8 @@ package sarf;
 
 import com.google.inject.Singleton;
 import sarf.verb.Root;
-import sarf.verb.trilateral.Substitution.Substitution;
-import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

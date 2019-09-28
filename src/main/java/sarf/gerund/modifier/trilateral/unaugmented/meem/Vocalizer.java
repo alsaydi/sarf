@@ -4,6 +4,7 @@ import java.util.*;
 
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer.*;
+import sarf.substitution.SubstitutionsApplier;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.ConjugationResult;
 

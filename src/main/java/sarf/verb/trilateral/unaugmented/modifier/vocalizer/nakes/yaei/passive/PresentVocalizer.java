@@ -2,10 +2,10 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.nakes.yaei.passive;
 
 import sarf.Conjugation;
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
-import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.Substitution.SuffixSubstitution;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+import sarf.substitution.SuffixSubstitution;
 import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
 

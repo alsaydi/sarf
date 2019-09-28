@@ -1,8 +1,7 @@
-package sarf.verb.trilateral.Substitution;
+package sarf.substitution;
 
 import sarf.SystemConstants;
 import sarf.verb.Root;
-import sarf.verb.trilateral.TrilateralRoot;
 
 import java.util.ArrayList;
 import java.util.List;

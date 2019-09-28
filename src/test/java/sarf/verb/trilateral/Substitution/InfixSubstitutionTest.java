@@ -3,6 +3,7 @@ package sarf.verb.trilateral.Substitution;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import sarf.substitution.InfixSubstitution;
 
 class InfixSubstitutionTest {
 

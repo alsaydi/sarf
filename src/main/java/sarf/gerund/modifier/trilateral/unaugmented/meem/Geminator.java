@@ -1,8 +1,8 @@
 package sarf.gerund.modifier.trilateral.unaugmented.meem;
 
 import sarf.noun.trilateral.unaugmented.modifier.AbstractGeminator;
-import sarf.verb.trilateral.Substitution.ExpressionInfixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
 
 import java.util.ArrayList;
 import java.util.List;

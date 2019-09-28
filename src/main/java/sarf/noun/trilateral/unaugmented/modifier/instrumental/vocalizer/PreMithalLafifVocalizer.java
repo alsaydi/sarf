@@ -6,6 +6,8 @@ import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.ConjugationResult;
 

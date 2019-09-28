@@ -1,8 +1,8 @@
 package sarf.noun.quadriliteral.modifier.passiveparticiple;
 
 import sarf.noun.QuadrilateralNounSubstitutionApplier;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.ConjugationResult;
 
 import java.util.ArrayList;

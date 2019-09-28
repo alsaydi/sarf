@@ -3,8 +3,8 @@ package sarf.gerund.modifier.trilateral.unaugmented.quality.geminator;
 import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
-import sarf.verb.trilateral.Substitution.ExpressionInfixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
 
 import java.util.ArrayList;
 import java.util.List;

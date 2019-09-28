@@ -1,8 +1,7 @@
 package sarf.verb.trilateral.Substitution;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+import sarf.substitution.ExpressionSuffixSubstitution;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 import static org.junit.jupiter.api.Assertions.*;

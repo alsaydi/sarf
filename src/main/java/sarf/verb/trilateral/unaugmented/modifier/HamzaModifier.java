@@ -1,6 +1,6 @@
 package sarf.verb.trilateral.unaugmented.modifier;
 
-import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.substitution.SubstitutionsApplier;
 import java.util.*;
 import sarf.SystemConstants;
 import sarf.ConjugationResult;

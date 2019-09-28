@@ -1,7 +1,6 @@
-package sarf.verb.trilateral.Substitution;
+package sarf.substitution;
 
 import sarf.verb.Root;
-import sarf.verb.trilateral.TrilateralRoot;
 
 /**
  * <p>Title: Sarf Program</p>

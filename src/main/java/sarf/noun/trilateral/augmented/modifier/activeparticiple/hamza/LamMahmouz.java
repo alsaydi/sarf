@@ -1,9 +1,9 @@
 package sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza;
 
 import sarf.noun.trilateral.augmented.modifier.AbstractLamMahmouz;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
-import sarf.verb.trilateral.Substitution.SuffixSubstitution;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SuffixSubstitution;
 
 import java.util.ArrayList;
 import java.util.List;

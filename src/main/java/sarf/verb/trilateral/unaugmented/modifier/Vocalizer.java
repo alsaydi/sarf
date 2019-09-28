@@ -2,7 +2,7 @@
 package sarf.verb.trilateral.unaugmented.modifier;
 
 import sarf.SystemConstants;
-import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.substitution.SubstitutionsApplier;
 import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.mithal.ActivePresentVocalizer;
 
