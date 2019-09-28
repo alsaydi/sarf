@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.inject.Inject;
 import sarf.KindOfVerb;
 import sarf.NounLamAlefModifier;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.NounSunLamModifier;

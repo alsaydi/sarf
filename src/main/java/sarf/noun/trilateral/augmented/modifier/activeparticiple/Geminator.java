@@ -7,7 +7,7 @@ import sarf.noun.trilateral.augmented.modifier.activeparticiple.geminator.Gemina
 import sarf.noun.trilateral.augmented.modifier.geminator.Geminator2;
 import sarf.noun.trilateral.augmented.modifier.geminator.Geminator3;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 
 /**

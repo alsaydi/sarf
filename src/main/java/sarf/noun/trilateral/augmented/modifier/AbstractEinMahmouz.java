@@ -1,9 +1,9 @@
 package sarf.noun.trilateral.augmented.modifier;
 
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.augmented.modifier.*;
-import sarf.verb.trilateral.augmented.*;
 
 /**
  * <p>Title: Sarf Program</p>

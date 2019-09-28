@@ -1,9 +1,10 @@
 package sarf.noun.trilateral.augmented.modifier.passiveparticiple;
 
 import java.util.*;
+
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.augmented.modifier.passiveparticiple.geminator.*;
-import sarf.verb.trilateral.augmented.*;
 import sarf.noun.trilateral.augmented.modifier.geminator.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 

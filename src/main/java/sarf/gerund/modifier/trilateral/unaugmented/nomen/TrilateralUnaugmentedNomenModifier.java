@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 import sarf.KindOfVerb;
 import sarf.NounLamAlefModifier;
 import sarf.NounSunLamModifier;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModifier;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 

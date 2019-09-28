@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import sarf.KindOfVerb;
 import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 
 class ConjugationResultTest {
 	

@@ -4,7 +4,7 @@ import java.util.List;
 
 import sarf.KindOfVerb;
 import sarf.VerbLamAlefModifier;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 /**

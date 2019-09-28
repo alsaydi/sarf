@@ -1,7 +1,8 @@
 package sarf.verb.trilateral.augmented.modifier;
 
 import java.util.*;
-import sarf.verb.trilateral.augmented.*;
+
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.Substitution.*;
 
 /**

@@ -4,7 +4,7 @@ import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 import java.util.Map;
 import java.util.HashMap;
 import sarf.SystemConstants;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.hamza.AbstractLamMahmouz;
 
 import static sarf.KindOfVerb.Mahmouz_Faa_Mahmouz_Laam;

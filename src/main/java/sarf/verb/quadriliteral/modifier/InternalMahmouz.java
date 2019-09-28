@@ -5,7 +5,7 @@ import sarf.verb.quadriliteral.substitution.*;
 import java.util.Map;
 import java.util.HashMap;
 import sarf.SystemConstants;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>

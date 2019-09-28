@@ -3,7 +3,7 @@ package sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer;
 import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.verb.trilateral.Substitution.InfixSubstitution;
 import sarf.verb.trilateral.Substitution.Substitution;

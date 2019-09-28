@@ -9,7 +9,7 @@ import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModif
 import sarf.verb.trilateral.Substitution.ExpressionInfixSubstitution;
 import sarf.verb.trilateral.Substitution.InfixSubstitution;
 import sarf.verb.trilateral.Substitution.Substitution;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 import java.util.ArrayList;

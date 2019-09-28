@@ -8,7 +8,7 @@ import java.awt.event.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import sarf.*;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;

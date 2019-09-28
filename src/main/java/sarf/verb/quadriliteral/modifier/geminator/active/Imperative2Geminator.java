@@ -6,7 +6,7 @@ import sarf.verb.trilateral.Substitution.ExpressionInfixSubstitution;
 import sarf.verb.trilateral.Substitution.ExpressionSuffixSubstitution;
 import sarf.verb.trilateral.Substitution.InfixSubstitution;
 import sarf.verb.trilateral.Substitution.Substitution;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>

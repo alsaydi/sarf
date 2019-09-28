@@ -6,7 +6,7 @@ import sarf.verb.trilateral.Substitution.InfixSubstitution;
 import sarf.verb.trilateral.Substitution.Substitution;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 import sarf.verb.trilateral.Substitution.SuffixSubstitution;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
 
 import java.util.ArrayList;

@@ -2,7 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.hamza.ein.passive;
 
 import java.util.*;
 import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 
 /**

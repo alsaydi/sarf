@@ -5,7 +5,7 @@ import sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza.EinMahmouz
 import sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza.FaaMahmouz;
 import sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza.LamMahmouz;
 import sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza.RaaEinMahmouz;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 
 import java.util.ArrayList;

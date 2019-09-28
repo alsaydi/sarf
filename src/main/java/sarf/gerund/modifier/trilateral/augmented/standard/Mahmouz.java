@@ -2,10 +2,10 @@ package sarf.gerund.modifier.trilateral.augmented.standard;
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.gerund.modifier.trilateral.augmented.standard.hamza.*;
-import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 
 /**

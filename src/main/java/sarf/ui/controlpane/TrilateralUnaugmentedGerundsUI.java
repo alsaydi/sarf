@@ -15,7 +15,7 @@ import sarf.gerund.trilateral.unaugmented.meem.*;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.ui.*;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.*;
 
 /**

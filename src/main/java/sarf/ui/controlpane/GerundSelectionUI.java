@@ -21,7 +21,7 @@ import sarf.verb.quadriliteral.QuadrilateralRoot;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
 import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
 
 import javax.swing.*;

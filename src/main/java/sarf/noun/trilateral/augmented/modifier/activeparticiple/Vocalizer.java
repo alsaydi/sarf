@@ -2,10 +2,10 @@ package sarf.noun.trilateral.augmented.modifier.activeparticiple;
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.augmented.modifier.activeparticiple.vocalizer.*;
-import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 
 /**

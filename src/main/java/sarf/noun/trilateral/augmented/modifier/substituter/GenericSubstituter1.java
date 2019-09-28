@@ -3,7 +3,7 @@ package sarf.noun.trilateral.augmented.modifier.substituter;
 import java.util.*;
 
 import sarf.verb.trilateral.Substitution.Substitution;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.noun.trilateral.augmented.modifier.AbstractGenericSubstituter;
 import sarf.verb.trilateral.Substitution.InfixSubstitution;
 

@@ -7,7 +7,7 @@ import sarf.NounSunLamModifier;
 import sarf.noun.trilateral.augmented.AugmentedTrilateralNoun;
 import sarf.noun.trilateral.augmented.modifier.Substituter;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.FormulaApplyingChecker;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.IFormulaApplyingChecker;

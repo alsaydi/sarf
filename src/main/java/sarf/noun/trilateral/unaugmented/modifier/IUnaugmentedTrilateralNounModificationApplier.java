@@ -1,6 +1,6 @@
 package sarf.noun.trilateral.unaugmented.modifier;
 
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>

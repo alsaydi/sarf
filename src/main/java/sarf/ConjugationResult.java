@@ -1,4 +1,4 @@
-package sarf.verb.trilateral.augmented;
+package sarf;
 
 import sarf.KindOfVerb;
 import sarf.verb.Root;

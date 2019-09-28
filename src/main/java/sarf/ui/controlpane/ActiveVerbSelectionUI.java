@@ -13,7 +13,7 @@ import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
 import sarf.verb.quadriliteral.unaugmented.active.QuadActivePresentConjugator;
 import sarf.verb.quadriliteral.unaugmented.active.QuadriActivePastConjugator;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
 import sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator;
 import sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugatorFactory;
@@ -22,7 +22,6 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListen
 import sarf.verb.trilateral.unaugmented.UnaugmentedImperativeConjugator;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
-import sarf.verb.trilateral.unaugmented.active.ActivePastVerb;
 import sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator;
 import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
 

@@ -12,7 +12,7 @@ import sarf.verb.quadriliteral.unaugmented.passive.QuadriUnaugmentedPassivePastC
 import sarf.verb.trilateral.augmented.*;
 import java.util.List;
 
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.augmented.passive.past.AugmentedPassivePastConjugator;
 import sarf.verb.trilateral.augmented.passive.present.AugmentedPassivePresentConjugator;
 import sarf.verb.trilateral.unaugmented.*;

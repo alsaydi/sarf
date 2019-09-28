@@ -28,7 +28,7 @@ import sarf.noun.trilateral.unaugmented.modifier.instrumental.InstrumentalModifi
 import sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.PassiveParticipleModifier;
 import sarf.noun.trilateral.unaugmented.modifier.timeandplace.TimeAndPlaceModifier;
 import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedImperativeConjugator;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;

@@ -1,7 +1,7 @@
 
 package sarf.noun.trilateral.unaugmented.modifier.activeparticiple;
 
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer.*;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;

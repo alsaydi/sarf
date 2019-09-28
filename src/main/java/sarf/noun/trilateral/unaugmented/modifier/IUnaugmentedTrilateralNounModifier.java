@@ -3,7 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier;
 import java.util.List;
 
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 /**

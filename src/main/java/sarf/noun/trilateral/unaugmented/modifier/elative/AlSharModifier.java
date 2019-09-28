@@ -1,9 +1,8 @@
 package sarf.noun.trilateral.unaugmented.modifier.elative;
 
-import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
 
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.elative.*;
 
 /**

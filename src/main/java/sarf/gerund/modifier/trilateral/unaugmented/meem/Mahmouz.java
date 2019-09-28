@@ -4,7 +4,7 @@ import java.util.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.gerund.modifier.trilateral.unaugmented.meem.hamza.*;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>

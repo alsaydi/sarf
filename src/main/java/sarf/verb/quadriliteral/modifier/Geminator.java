@@ -3,7 +3,7 @@ package sarf.verb.quadriliteral.modifier;
 import java.util.*;
 import sarf.*;
 import sarf.verb.quadriliteral.substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>

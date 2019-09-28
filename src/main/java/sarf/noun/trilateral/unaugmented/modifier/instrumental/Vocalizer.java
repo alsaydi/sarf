@@ -5,7 +5,7 @@ import sarf.noun.trilateral.unaugmented.modifier.instrumental.vocalizer.PreMitha
 import sarf.noun.trilateral.unaugmented.modifier.instrumental.vocalizer.WawiNakesLafifVocalizer;
 import sarf.noun.trilateral.unaugmented.modifier.instrumental.vocalizer.YaeiNakesLafifVocalizer;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 
 import java.util.ArrayList;
 import java.util.List;

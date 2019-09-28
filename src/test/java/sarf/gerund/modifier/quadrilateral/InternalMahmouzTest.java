@@ -3,7 +3,7 @@ package sarf.gerund.modifier.quadrilateral;
 import org.junit.jupiter.api.Test;
 import sarf.KindOfVerb;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 
 import java.util.Collections;
 import java.util.Objects;

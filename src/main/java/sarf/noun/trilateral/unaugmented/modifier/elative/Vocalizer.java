@@ -4,7 +4,7 @@ import java.util.*;
 import sarf.noun.trilateral.unaugmented.modifier.elative.vocalizer.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>

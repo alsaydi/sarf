@@ -1,7 +1,6 @@
 package sarf.verb.trilateral.unaugmented.modifier.geminator;
 
-import sarf.verb.trilateral.augmented.ConjugationResult;
-import sarf.verb.trilateral.unaugmented.*;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
 import sarf.*;
 import java.util.*;

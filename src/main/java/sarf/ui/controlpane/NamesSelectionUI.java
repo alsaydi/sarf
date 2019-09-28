@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.swing.*;
 
+import sarf.ConjugationResult;
 import sarf.noun.GenericNounSuffixContainer;
 import sarf.noun.quadriliteral.augmented.*;
 import sarf.noun.quadriliteral.unaugmented.*;

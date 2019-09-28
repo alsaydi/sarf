@@ -1,9 +1,10 @@
 package sarf.gerund.modifier.trilateral.augmented.standard;
 
 import java.util.*;
+
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.gerund.modifier.trilateral.augmented.standard.vocalizer.*;
-import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 
 /**

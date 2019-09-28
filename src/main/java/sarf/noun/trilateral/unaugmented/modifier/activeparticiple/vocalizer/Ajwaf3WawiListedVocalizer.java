@@ -2,7 +2,7 @@ package sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer;
 
 import java.util.*;
 
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;

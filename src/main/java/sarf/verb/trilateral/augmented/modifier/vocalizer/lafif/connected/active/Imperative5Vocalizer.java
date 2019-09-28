@@ -2,10 +2,10 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.lafif.connected.active
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.*;
-import sarf.verb.trilateral.augmented.*;
 
 /**
  * <p>Title: Sarf Program</p>

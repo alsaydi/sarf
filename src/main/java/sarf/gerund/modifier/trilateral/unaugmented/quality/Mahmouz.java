@@ -3,7 +3,7 @@ package sarf.gerund.modifier.trilateral.unaugmented.quality;
 import sarf.gerund.modifier.trilateral.unaugmented.quality.hamza.EinMahmouz;
 import sarf.gerund.modifier.trilateral.unaugmented.quality.hamza.FaaMahmouz;
 import sarf.gerund.modifier.trilateral.unaugmented.quality.hamza.LamMahmouz;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 

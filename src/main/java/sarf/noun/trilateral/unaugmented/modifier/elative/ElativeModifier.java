@@ -6,7 +6,7 @@ import com.google.inject.Inject;
 import sarf.KindOfVerb;
 import sarf.NounLamAlefModifier;
 import sarf.NounSunLamModifier;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 

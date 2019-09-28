@@ -5,9 +5,8 @@ import java.util.*;
 import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.augmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>

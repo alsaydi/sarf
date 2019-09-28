@@ -6,7 +6,7 @@ import sarf.NounLamAlefModifier;
 import sarf.NounSunLamModifier;
 import sarf.noun.quadriliteral.augmented.AugmentedQuadrilateralNoun;
 import sarf.verb.quadriliteral.QuadrilateralRoot;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 
 import java.util.List;
 

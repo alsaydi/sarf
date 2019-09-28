@@ -1,7 +1,7 @@
 package sarf.verb.trilateral.augmented.modifier.substituter;
 
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 

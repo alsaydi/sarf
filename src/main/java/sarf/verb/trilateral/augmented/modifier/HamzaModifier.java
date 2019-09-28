@@ -4,7 +4,7 @@ import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 
 import java.util.*;
 
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.SystemConstants;
 
 /**

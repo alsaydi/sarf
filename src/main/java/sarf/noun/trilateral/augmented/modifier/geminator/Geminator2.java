@@ -2,11 +2,11 @@ package sarf.noun.trilateral.augmented.modifier.geminator;
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
-import sarf.verb.trilateral.augmented.*;
 
 /**
  * <p>Title: Sarf Program</p>

@@ -2,7 +2,7 @@ package sarf.gerund.modifier.trilateral.unaugmented.nomen;
 
 import sarf.gerund.modifier.trilateral.unaugmented.nomen.geminator.Geminator1;
 import sarf.gerund.modifier.trilateral.unaugmented.nomen.geminator.Geminator2;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 

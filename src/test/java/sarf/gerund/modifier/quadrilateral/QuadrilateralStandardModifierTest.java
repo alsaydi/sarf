@@ -11,7 +11,7 @@ import sarf.NounLamAlefModifier;
 import sarf.NounSunLamModifier;
 import sarf.verb.quadriliteral.QuadrilateralRoot;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 
 import java.util.ArrayList;
 

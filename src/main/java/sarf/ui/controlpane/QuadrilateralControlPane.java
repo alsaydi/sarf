@@ -17,7 +17,7 @@ import sarf.SystemConstants;
 import sarf.verb.quadriliteral.augmented.active.past.QuadrilateralAugmentedActivePastConjugator;
 import sarf.verb.quadriliteral.unaugmented.active.QuadActivePresentConjugator;
 import sarf.verb.quadriliteral.unaugmented.active.QuadriActivePastConjugator;
-import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.ConjugationResult;
 
 import java.awt.Color;
 import java.util.stream.Collectors;
