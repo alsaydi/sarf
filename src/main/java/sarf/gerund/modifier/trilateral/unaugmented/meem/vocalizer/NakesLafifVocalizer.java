@@ -3,7 +3,7 @@ package sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer;
 import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.noun.trilateral.unaugmented.modifier.NounConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.verb.trilateral.Substitution.InfixSubstitution;
 import sarf.verb.trilateral.Substitution.Substitution;
@@ -46,7 +46,7 @@ public class NakesLafifVocalizer extends TrilateralNounSubstitutionApplier imple
         return substitutions;
     }
 
-    public boolean isApplied(NounConjugationResult conjugationResult) {
+    public boolean isApplied(ConjugationResult conjugationResult) {
         if (!conjugationResult.getNounFormula().equals("مَفْعَل")) {
             return false;
         }

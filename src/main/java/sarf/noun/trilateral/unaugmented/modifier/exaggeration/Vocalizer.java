@@ -6,6 +6,7 @@ import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -35,7 +36,7 @@ public class Vocalizer {
 
     }
 
-    public void apply(NounConjugationResult conjResult) {
+    public void apply(ConjugationResult conjResult) {
         for (Object o : modifiers) {
             IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) o;
             if (modifier.isApplied(conjResult)) {

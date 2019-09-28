@@ -1,7 +1,7 @@
 package sarf.gerund.modifier.trilateral.unaugmented.quality.geminator;
 
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.noun.trilateral.unaugmented.modifier.NounConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.verb.trilateral.Substitution.ExpressionInfixSubstitution;
 import sarf.verb.trilateral.Substitution.Substitution;
@@ -32,7 +32,7 @@ public class Geminator3 extends TrilateralNounSubstitutionApplier implements IUn
         return substitutions;
     }
 
-    public boolean isApplied(NounConjugationResult conjugationResult) {
+    public boolean isApplied(ConjugationResult conjugationResult) {
         return conjugationResult.getRoot().getC2() == conjugationResult.getRoot().getC3();
     }
 }

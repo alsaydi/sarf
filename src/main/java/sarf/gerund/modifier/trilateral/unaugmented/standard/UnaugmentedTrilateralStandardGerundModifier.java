@@ -5,11 +5,11 @@ import sarf.KindOfVerb;
 import sarf.NounLamAlefModifier;
 import sarf.NounSunLamModifier;
 import sarf.noun.trilateral.unaugmented.modifier.AbstractLamMahmouz;
-import sarf.noun.trilateral.unaugmented.modifier.NounConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModifier;
 import sarf.verb.trilateral.Substitution.ExpressionInfixSubstitution;
 import sarf.verb.trilateral.Substitution.InfixSubstitution;
 import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 import java.util.ArrayList;
@@ -45,8 +45,8 @@ public class UnaugmentedTrilateralStandardGerundModifier extends AbstractLamMahm
         return substitutions;
     }
 
-    public NounConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
-        NounConjugationResult conjResult = new NounConjugationResult(kov, root, conjugations, formula);
+    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
+        var conjResult = new ConjugationResult(kov, root, conjugations, formula);
         if (isApplied(conjResult))
             apply(conjResult.getFinalResult(), root);
         nounLamAlefModifier.apply(conjResult);
@@ -57,7 +57,7 @@ public class UnaugmentedTrilateralStandardGerundModifier extends AbstractLamMahm
 
     //فحص شرط المهموز حسب KOV
     //ومن ثم فحص اذا كان الحرف مناسبا
-    public boolean isApplied(NounConjugationResult conjugationResult) {
+    public boolean isApplied(ConjugationResult conjugationResult) {
         char c2 = conjugationResult.getRoot().getC2();
         return super.isApplied(conjugationResult) && appliedCharactersString.indexOf(c2) != -1;
     }

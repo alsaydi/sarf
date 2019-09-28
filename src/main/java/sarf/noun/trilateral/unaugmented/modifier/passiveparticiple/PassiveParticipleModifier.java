@@ -5,6 +5,7 @@ import java.util.List;
 import com.google.inject.Inject;
 import sarf.KindOfVerb;
 import sarf.NounLamAlefModifier;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.NounSunLamModifier;
@@ -35,8 +36,8 @@ public class PassiveParticipleModifier implements IUnaugmentedTrilateralNounModi
         this.nounSunLamModifier = nounSunLamModifier;
     }
 
-    public NounConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
-        NounConjugationResult conjResult = new NounConjugationResult(kov, root, conjugations, formula);
+    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
+        var conjResult = new ConjugationResult(kov, root, conjugations, formula);
         vocalizer.apply(conjResult);
         mahmouz.apply(conjResult);
         nounLamAlefModifier.apply(conjResult);

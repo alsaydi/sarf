@@ -8,6 +8,7 @@ import sarf.noun.*;
 
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -38,7 +39,7 @@ public class I2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
         return substitutions;
     }
 
-    public boolean isApplied(NounConjugationResult conjugationResult) {
+    public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
         if (!nounFormula.equals("فَعِل")) {
             return false;
@@ -55,7 +56,7 @@ public class I2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
                     return true;
             }
 
-            return noc == Conjugation.Second || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Lafeef_Maqroon) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Lafeef_Mafrooq) {

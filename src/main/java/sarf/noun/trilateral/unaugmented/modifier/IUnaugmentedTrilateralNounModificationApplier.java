@@ -1,5 +1,7 @@
 package sarf.noun.trilateral.unaugmented.modifier;
 
+import sarf.verb.trilateral.augmented.ConjugationResult;
+
 /**
  * <p>Title: Sarf Program</p>
  *
@@ -13,5 +15,5 @@ package sarf.noun.trilateral.unaugmented.modifier;
  * @version 1.0
  */
 public interface IUnaugmentedTrilateralNounModificationApplier {
-   boolean isApplied(NounConjugationResult conjugationResult);
+   boolean isApplied(ConjugationResult conjugationResult);
 }

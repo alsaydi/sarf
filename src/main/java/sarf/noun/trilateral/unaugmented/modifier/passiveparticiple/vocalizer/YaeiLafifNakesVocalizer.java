@@ -1,13 +1,15 @@
 package sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.vocalizer;
 
-import java.util.*;
-
 import sarf.Conjugation;
 import sarf.KindOfVerb;
-import sarf.noun.*;
+import sarf.noun.TrilateralNounSubstitutionApplier;
+import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -25,14 +27,14 @@ public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public YaeiLafifNakesVocalizer() {
-        substitutions.add(new InfixSubstitution("ُوي","ِيّ"));// EX: (مأتِيّ، مرئِيّ، مرمِيّ، مَشْوِيّ، )
+        substitutions.add(new InfixSubstitution("ُوي", "ِيّ"));// EX: (مأتِيّ، مرئِيّ، مرمِيّ، مَشْوِيّ، )
     }
 
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
-    public boolean isApplied(NounConjugationResult conjugationResult) {
+    public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
@@ -43,8 +45,7 @@ public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
                 case Forth:
                     return true;
             }
-
-            return noc == Conjugation.Third || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             return noc == Conjugation.Third || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {

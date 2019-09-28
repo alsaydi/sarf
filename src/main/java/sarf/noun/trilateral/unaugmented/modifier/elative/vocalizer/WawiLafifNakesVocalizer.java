@@ -6,6 +6,7 @@ import sarf.KindOfVerb;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.verb.trilateral.Substitution.*;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 import static sarf.KindOfVerb.Naqis_Wawi;
 
@@ -39,7 +40,7 @@ public class WawiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
         return substitutions;
     }
 
-    public boolean isApplied(NounConjugationResult conjugationResult) {
+    public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         if (kov != Naqis_Wawi) {
             return false;

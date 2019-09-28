@@ -3,7 +3,7 @@ package sarf.noun.trilateral.unaugmented.modifier.elative;
 import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
 
-import sarf.noun.trilateral.unaugmented.modifier.NounConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.elative.*;
 
 /**
@@ -23,7 +23,7 @@ public class AlSharModifier {
     AlSharModifier() {
     }
 
-    public void apply(NounConjugationResult conjResult) {
+    public void apply(ConjugationResult conjResult) {
         List conjugations = conjResult.getFinalResult();
         //جدول تصريف اسم التفضيل المعرّف بـ (أل)
         if (ElativeSuffixContainer.getInstance().isDefinite()) {
@@ -65,7 +65,7 @@ public class AlSharModifier {
         }
     }
 
-    public boolean isApplied(NounConjugationResult conjugationResult) {
+    public boolean isApplied(ConjugationResult conjugationResult) {
         var root = conjugationResult.getRoot();
         return root.getC1() == 'ش' && root.getC2() == 'ر' && root.getC3() == 'ر';
     }

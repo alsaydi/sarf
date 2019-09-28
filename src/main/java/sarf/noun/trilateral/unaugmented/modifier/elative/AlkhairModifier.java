@@ -1,6 +1,6 @@
 package sarf.noun.trilateral.unaugmented.modifier.elative;
 
-import sarf.noun.trilateral.unaugmented.modifier.NounConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.*;
 
 import sarf.noun.trilateral.unaugmented.elative.*;
@@ -22,7 +22,7 @@ public class AlkhairModifier {
     AlkhairModifier() {
     }
 
-    public void apply(NounConjugationResult conjResult) {
+    public void apply(ConjugationResult conjResult) {
         var conjugations = conjResult.getFinalResult();
         //جدول تصريف اسم التفضيل المعرّف بـ (أل)
         if (ElativeSuffixContainer.getInstance().isDefinite()) {
@@ -64,7 +64,7 @@ public class AlkhairModifier {
         }
     }
 
-    public boolean isApplied(NounConjugationResult conjugationResult) {
+    public boolean isApplied(ConjugationResult conjugationResult) {
         var root = conjugationResult.getRoot();
         return root.getC1() == 'خ' && root.getC2() == 'ي' && root.getC3() == 'ر';
     }
