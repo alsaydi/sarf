@@ -1,6 +1,7 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer;
 
 import sarf.Conjugation;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
 import sarf.verb.trilateral.unaugmented.modifier.*;
@@ -26,14 +27,14 @@ public abstract class ListedVocalizer extends SubstitutionsApplier implements IU
     /**
      * isApplied
      *
-     * @param conjugationResult ConjugationResult
+     * @param conjugationResult NounConjugationResult
      * @return boolean
      * @todo Implement this
      *   sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier
      *   method
      */
     public boolean isApplied(ConjugationResult conjugationResult) {
-        UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
+        var root = conjugationResult.getRoot();
         //فحص الباب التصريفي أولاً
         if (root.getConjugation() != getNoc()) return false;
 

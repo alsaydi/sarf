@@ -35,7 +35,7 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
         substitutions.add(new InfixSubstitution("ِوِ", "ِ")); // EX: (مُدْنِينَ، )
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         if (triAugmentedConjugationResult.getRoot().getC3() != 'و')
             return false;
 

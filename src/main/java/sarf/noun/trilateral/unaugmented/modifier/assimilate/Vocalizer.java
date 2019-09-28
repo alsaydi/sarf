@@ -30,7 +30,7 @@ public class Vocalizer {
         modifiers.add(new Vocalizer42());
     }
 
-    public void apply(ConjugationResult conjResult) {
+    public void apply(NounConjugationResult conjResult) {
         for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
                 ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());

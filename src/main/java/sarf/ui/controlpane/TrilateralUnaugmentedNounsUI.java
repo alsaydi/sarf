@@ -16,7 +16,7 @@ import sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.*;
 import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
 import sarf.ui.*;
 import sarf.verb.trilateral.unaugmented.*;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.timeandplace.*;
 import sarf.noun.trilateral.unaugmented.modifier.assimilate.*;
 import sarf.noun.trilateral.unaugmented.modifier.instrumental.*;

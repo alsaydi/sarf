@@ -4,6 +4,7 @@ import java.util.*;
 
 import sarf.Conjugation;
 import sarf.verb.trilateral.Substitution.*;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
 import sarf.verb.trilateral.TrilateralRoot;
 import sarf.verb.trilateral.unaugmented.*;
@@ -30,7 +31,7 @@ public class SpecialImperativeMahmouz1 extends SubstitutionsApplier implements I
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
+        var root = conjugationResult.getRoot();
         return root.getC1() == 'ء' && root.getC2() == 'خ' && root.getC3() == 'ذ' && root.getConjugation() == Conjugation.First;
     }
 

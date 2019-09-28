@@ -2,7 +2,7 @@ package sarf.gerund.modifier.trilateral.unaugmented.nomen;
 
 import sarf.gerund.modifier.trilateral.unaugmented.nomen.geminator.Geminator1;
 import sarf.gerund.modifier.trilateral.unaugmented.nomen.geminator.Geminator2;
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.noun.trilateral.unaugmented.modifier.NounConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 
@@ -29,7 +29,7 @@ public class Geminator {
         modifiers.add(new Geminator2());
     }
 
-    public void apply(ConjugationResult conjResult) {
+    public void apply(NounConjugationResult conjResult) {
         for (var applier : modifiers) {
             IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) applier;
             if (modifier.isApplied(conjResult)) {

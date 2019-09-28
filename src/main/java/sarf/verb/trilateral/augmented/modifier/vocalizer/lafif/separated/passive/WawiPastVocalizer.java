@@ -4,8 +4,8 @@ import java.util.*;
 
 import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.*;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -32,7 +32,7 @@ public class WawiPastVocalizer extends SubstitutionsApplier implements IAugmente
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         if (triAugmentedConjugationResult.getRoot().getC1() != 'و')
             return false;
 

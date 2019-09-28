@@ -2,7 +2,7 @@ package sarf.verb.trilateral.augmented.modifier.substituter.passive;
 
 import java.util.*;
 import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.substituter.*;
 
 /**
@@ -29,7 +29,7 @@ public class GenericSubstituter7 extends AbstractGenericSubstituter {
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         return triAugmentedConjugationResult.getRoot().getC1() == 'ض' && super.isApplied(triAugmentedConjugationResult);
     }
 }

@@ -5,9 +5,8 @@ import java.util.*;
 import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
-import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -48,7 +47,7 @@ public class ActivePresentVocalizer extends SubstitutionsApplier implements IUna
 
     /**
      * فحص أحد ثلاثة احتمالات
-     * @param conjugationResult ConjugationResult
+     * @param conjugationResult NounConjugationResult
      * @return boolean
      */
     public boolean isApplied(ConjugationResult conjugationResult) {
@@ -62,7 +61,7 @@ public class ActivePresentVocalizer extends SubstitutionsApplier implements IUna
     }
 
     private boolean isApplied1(ConjugationResult conjugationResult) {
-        UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
+        var root = conjugationResult.getRoot();
         //فحص الباب التصريفي أولاً
         //if (!root.getConjugation().equals("4")) return false;
         if (root.getConjugation() != Conjugation.Forth) return false;
@@ -78,7 +77,7 @@ public class ActivePresentVocalizer extends SubstitutionsApplier implements IUna
     }
 
     private boolean isApplied2(ConjugationResult conjugationResult) {
-        UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
+        var root = conjugationResult.getRoot();
         //فحص الباب التصريفي أولاً
         //if (!root.getConjugation().equals("3")) return false;
         if (root.getConjugation() != Conjugation.Third ) return false;

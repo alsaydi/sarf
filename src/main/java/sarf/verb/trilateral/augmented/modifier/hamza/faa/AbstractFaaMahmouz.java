@@ -21,7 +21,7 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
     public AbstractFaaMahmouz() {
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

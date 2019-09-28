@@ -9,9 +9,9 @@ import org.mockito.MockitoAnnotations;
 import sarf.KindOfVerb;
 import sarf.NounLamAlefModifier;
 import sarf.NounSunLamModifier;
-import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.quadriliteral.QuadrilateralRoot;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 import java.util.ArrayList;
 
@@ -42,9 +42,9 @@ class QuadrilateralStandardModifierTest {
     @ParameterizedTest(name= "Quadrilateral Standard Modifier Test {0}")
     @ValueSource(booleans = {true, false})
     void build(boolean isApplied) {
-        when(vocalizer.isApplied(any(QuadriConjugationResult.class))).thenReturn(isApplied);
-        when(internalMahmouz.isApplied(any(QuadriConjugationResult.class))).thenReturn(isApplied);
-        when(endedMahmouz.isApplied(any(QuadriConjugationResult.class))).thenReturn(isApplied);
+        when(vocalizer.isApplied(any(ConjugationResult.class))).thenReturn(isApplied);
+        when(internalMahmouz.isApplied(any(ConjugationResult.class))).thenReturn(isApplied);
+        when(endedMahmouz.isApplied(any(ConjugationResult.class))).thenReturn(isApplied);
 
         var root = new AugmentedQuadrilateralRoot();
         var kov = KindOfVerb.Salim;
@@ -54,16 +54,16 @@ class QuadrilateralStandardModifierTest {
         var actual = sut.build(root, formulaNo, kov, conjugations);
 
         assertThat(actual).isNotNull();
-        verify(vocalizer, times(1)).isApplied(any(QuadriConjugationResult.class));
-        verify(internalMahmouz, times(1)).isApplied(any(QuadriConjugationResult.class));
-        verify(endedMahmouz, times(1)).isApplied(any(QuadriConjugationResult.class));
+        verify(vocalizer, times(1)).isApplied(any(ConjugationResult.class));
+        verify(internalMahmouz, times(1)).isApplied(any(ConjugationResult.class));
+        verify(endedMahmouz, times(1)).isApplied(any(ConjugationResult.class));
 
         var times = isApplied ? times(1) : never();
         verify(vocalizer, times).apply(anyList(), any(QuadrilateralRoot.class));
         verify(internalMahmouz, times).apply(anyList(), any(QuadrilateralRoot.class));
         verify(endedMahmouz, times).apply(anyList(), any(QuadrilateralRoot.class));
 
-        verify(nounLamAlefModifier, times(1)).apply(any(QuadriConjugationResult.class));
-        verify(nounSunLamModifier, times(1)).apply(any(QuadriConjugationResult.class));
+        verify(nounLamAlefModifier, times(1)).apply(any(ConjugationResult.class));
+        verify(nounSunLamModifier, times(1)).apply(any(ConjugationResult.class));
     }
 }

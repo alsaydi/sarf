@@ -2,7 +2,10 @@ package sarf.verb.quadriliteral.modifier.vocalizer.nakes.active;
 
 import java.util.*;
 import sarf.verb.quadriliteral.substitution.*;
-import sarf.verb.quadriliteral.*;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.verb.trilateral.Substitution.SuffixSubstitution;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -35,11 +38,17 @@ public class Present1Vocalizer extends SubstitutionsApplier {
         return substitutions;
     }
 
-    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
-        if (quadriConjugationResult.getRoot().getC4() != 'ي')
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        if (conjugationResult.getRoot().getCharacters().isEmpty()) {
+            return false;
+        }
+        if (conjugationResult.getRoot().getCharacters().size() < 4) {
+            return false;
+        }
+        if(conjugationResult.getRoot().getCharacters().get(3).getValue() != 'ي')
             return false;
 
-        switch (quadriConjugationResult.getFormulaNo()) {
+        switch (conjugationResult.getFormulaNo()) {
         case 0:
         case 2:
             return true;

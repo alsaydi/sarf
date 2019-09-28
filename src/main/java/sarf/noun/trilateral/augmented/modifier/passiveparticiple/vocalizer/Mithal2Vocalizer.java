@@ -27,7 +27,7 @@ public class Mithal2Vocalizer extends TrilateralNounSubstitutionApplier implemen
         substitutions.add(new InfixSubstitution("ُيْ","ُو"));// EX: (مُوقَظٌ، )
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

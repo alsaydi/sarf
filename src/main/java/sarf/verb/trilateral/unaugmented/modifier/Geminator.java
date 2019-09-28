@@ -1,7 +1,7 @@
 package sarf.verb.trilateral.unaugmented.modifier;
 
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.geminator.*;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -34,7 +34,7 @@ public class Geminator {
      * قد لا يطبق أي نوع من الادغام
      * @param tense String
      * @param active boolean
-     * @param conjResult ConjugationResult
+     * @param conjResult NounConjugationResult
      */
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
         if (genericGeminator.isApplied(conjResult))

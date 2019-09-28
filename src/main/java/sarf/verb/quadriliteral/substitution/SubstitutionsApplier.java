@@ -1,7 +1,8 @@
 package sarf.verb.quadriliteral.substitution;
 
-import sarf.verb.quadriliteral.QuadriConjugationResult;
-import sarf.verb.quadriliteral.QuadrilateralRoot;
+import sarf.verb.Root;
+import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,15 +20,24 @@ import java.util.List;
  * @version 1.0
  */
 public abstract class SubstitutionsApplier<T> {
-    public abstract boolean isApplied(QuadriConjugationResult<T> quadriConjugationResult);
+    public abstract boolean isApplied(ConjugationResult<T> conjugationResult);
 
+    public abstract List<Substitution> getSubstitutions();
+
+    private static final List<String> defaultAppliedPronounsIndexes = new ArrayList<>(13);
+
+    static {
+        for (int i = 0; i < 13; i++) {
+            defaultAppliedPronounsIndexes.add(i + 1 + "");
+        }
+    }
     /**
      * حلقة تمسح الكلمات وتجرب الاستبدلات على كل  كلمة
      * اذا نجح أحد الاستبدالات لا نبحث عن أخر
      *
      * @param words List
      */
-    public void apply(List words, QuadrilateralRoot root) {
+    public void apply(List words, Root root) {
         for (int i = 0; i < getAppliedPronounsIndexes().size(); i++) {
             int index = Integer.parseInt(getAppliedPronounsIndexes().get(i)) - 1;
             Object wordObj = words.get(index);
@@ -46,21 +56,6 @@ public abstract class SubstitutionsApplier<T> {
                     break;
                 }
             }
-        }
-    }
-
-    /**
-     * قائمة الاستبدالات
-     *
-     * @return List
-     */
-    public abstract List<Substitution> getSubstitutions();
-
-    private static final List<String> defaultAppliedPronounsIndexes = new ArrayList<>(13);
-
-    static {
-        for (int i = 0; i < 13; i++) {
-            defaultAppliedPronounsIndexes.add(i + 1 + "");
         }
     }
 

@@ -1,15 +1,14 @@
-package sarf.verb.trilateral.unaugmented;
+package sarf.verb.trilateral.augmented;
 
 import sarf.KindOfVerb;
+import sarf.verb.Root;
 
 import java.util.*;
 
 /**
  * <p>Title: Sarf Program</p>
  *
- * <p>Description: يمثل نتيجة التصريف مع الجذر ونوع الجذر
- * يستعمل في المعالجة بعد التوليد
- * </p>
+ * <p>Description: يمثل نتيجة التصريف مع الجذر ونوع الجذر      </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -19,16 +18,20 @@ import java.util.*;
  * @version 1.0
  */
 public class ConjugationResult<T> {
-    protected final KindOfVerb kov;
-    protected final UnaugmentedTrilateralRoot root;
+    private final int formulaNo;
+    private final Root root;
+    private final KindOfVerb kov;
 
     //13 conjugated verbs
     private final List<T> originalResult;
     //القائمة بعد  الادغام والاعلال والهمزة
     private final List<T> finalResult;
 
-    public ConjugationResult(KindOfVerb kov, UnaugmentedTrilateralRoot root, List<T> originalResult) {
+    //TODO: I believe originalResult is of List<String> type.
+    
+    public ConjugationResult(KindOfVerb kov, int formulaNo, Root root, List<T> originalResult) {
         this.kov = kov;
+        this.formulaNo = formulaNo;
         this.originalResult = originalResult;
         this.root = root;
         this.finalResult = new ArrayList<>(originalResult);
@@ -46,7 +49,11 @@ public class ConjugationResult<T> {
         return originalResult;
     }
 
-    public UnaugmentedTrilateralRoot getRoot() {
+    public Root getRoot() {
         return root;
+    }
+
+    public int getFormulaNo() {
+        return formulaNo;
     }
 }

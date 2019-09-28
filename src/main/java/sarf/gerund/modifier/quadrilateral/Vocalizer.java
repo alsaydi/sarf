@@ -1,10 +1,10 @@
 package sarf.gerund.modifier.quadrilateral;
 
 import sarf.noun.QuadrilateralNounSubstitutionApplier;
-import sarf.verb.quadriliteral.QuadriConjugationResult;
-import sarf.verb.quadriliteral.substitution.InfixSubstitution;
-import sarf.verb.quadriliteral.substitution.Substitution;
-import sarf.verb.quadriliteral.substitution.SuffixSubstitution;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.SuffixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -43,7 +43,13 @@ public class Vocalizer extends QuadrilateralNounSubstitutionApplier {
     }
 
     @Override
-    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
-        return quadriConjugationResult.getRoot().getC4() == 'ي';
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        if (conjugationResult.getRoot().getCharacters().isEmpty()) {
+            return false;
+        }
+        if (conjugationResult.getRoot().getCharacters().size() < 4) {
+            return false;
+        }
+        return conjugationResult.getRoot().getCharacters().get(3).getValue() == 'ي';
     }
 }

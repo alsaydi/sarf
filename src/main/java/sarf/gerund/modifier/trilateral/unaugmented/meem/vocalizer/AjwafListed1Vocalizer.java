@@ -1,7 +1,7 @@
 package sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer;
 
 import sarf.SystemConstants;
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.noun.trilateral.unaugmented.modifier.NounConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.verb.trilateral.Substitution.InfixSubstitution;
 import sarf.verb.trilateral.Substitution.Substitution;
@@ -47,7 +47,7 @@ public class AjwafListed1Vocalizer extends AbstractAjwafYaeiListedVocalizer impl
         return appliedPronounsIndexes;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         return super.isApplied(conjugationResult);
     }
 }

@@ -1,9 +1,16 @@
 package sarf.verb;
 
+import sarf.Conjugation;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public abstract class Root {
     private char c1;
     private char c2;
     private char c3;
+    private Conjugation conjugation;
 
     public Root(){}
 
@@ -37,8 +44,20 @@ public abstract class Root {
         this.c1 = c1;
     }
 
+    public abstract List<RootLetter> getCharacters();
+
+    public Conjugation getConjugation() {
+        return conjugation;
+    }
+
+    public void setConjugation(Conjugation conjugation) {
+        this.conjugation = conjugation;
+    }
+
     @Override
     public String toString() {
-        return "" + c1 + "" + c2 + "" + c3;
+        List<Character> arr = getCharacters().stream().map(RootLetter::getValue).collect(Collectors.toList());
+        return String.valueOf(arr);
     }
 }
+

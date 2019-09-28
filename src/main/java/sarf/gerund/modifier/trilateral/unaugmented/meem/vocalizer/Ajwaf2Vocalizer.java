@@ -3,7 +3,7 @@ package sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer;
 import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.noun.trilateral.unaugmented.modifier.NounConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.verb.trilateral.Substitution.InfixSubstitution;
 import sarf.verb.trilateral.Substitution.Substitution;
@@ -35,7 +35,7 @@ public class Ajwaf2Vocalizer extends TrilateralNounSubstitutionApplier implement
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 

@@ -3,8 +3,8 @@ package sarf.verb.trilateral.unaugmented.modifier;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 import java.util.Map;
 import java.util.HashMap;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import sarf.SystemConstants;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.hamza.AbstractLamMahmouz;
 
 import static sarf.KindOfVerb.Mahmouz_Faa_Mahmouz_Laam;
@@ -39,7 +39,7 @@ public class PostHamzaModifier {
      * قد لا يطبق أي نوع
      * @param tense String
      * @param active boolean
-     * @param conjResult ConjugationResult
+     * @param conjResult NounConjugationResult
      */
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
         if (conjResult.getKov() != Mahmouz_Faa_Mahmouz_Laam)

@@ -33,7 +33,7 @@ public class C2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
         if (!nounFormula.equals("مِفْعَال")) {
             return false;

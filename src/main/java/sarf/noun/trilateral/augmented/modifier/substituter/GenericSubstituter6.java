@@ -3,7 +3,7 @@ package sarf.noun.trilateral.augmented.modifier.substituter;
 import java.util.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.augmented.modifier.AbstractGenericSubstituter;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -29,7 +29,7 @@ public class GenericSubstituter6 extends AbstractGenericSubstituter {
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         return triAugmentedConjugationResult.getRoot().getC1() == 'ص' && super.isApplied(triAugmentedConjugationResult);
     }
 }

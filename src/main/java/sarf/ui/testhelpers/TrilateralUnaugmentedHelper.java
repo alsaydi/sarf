@@ -28,7 +28,7 @@ import sarf.noun.trilateral.unaugmented.modifier.instrumental.InstrumentalModifi
 import sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.PassiveParticipleModifier;
 import sarf.noun.trilateral.unaugmented.modifier.timeandplace.TimeAndPlaceModifier;
 import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedImperativeConjugator;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
@@ -142,7 +142,7 @@ public class TrilateralUnaugmentedHelper {
         String pastRootText = triActivePastConjugator.createVerb(7, root).toString();
         List<String> conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
-        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, conjugations, SystemConstants.PAST_TENSE, true);
+        var conjResult = unaugmentedTrilateralModifier.build(root, kov, conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         String presentRootText = triUnaugmentedActivePresentConjugator.createNominativeVerb(7, root).toString();
@@ -175,7 +175,7 @@ public class TrilateralUnaugmentedHelper {
 
     private void printActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         List<ActivePastVerb> result = triActivePastConjugator.createVerbList(root);
-        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PAST_TENSE, true);
+        var conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PAST_TENSE, true);
         List finalResult = conjResult.getFinalResult();
         for (Object verb : finalResult) {
             System.out.printf("|%s", verb == null ? "" : verb);
@@ -199,14 +199,14 @@ public class TrilateralUnaugmentedHelper {
 
     private void printPassivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         var result = triPassivePastConjugator.createVerbList(root);
-        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PAST_TENSE, false);
+        var conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PAST_TENSE, false);
         result = conjResult.getFinalResult();
         printFinalResultPipeSeparated(root, result);
     }
 
     private void printPassivePresentConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         var result = passivePresentConjugator.createEmphasizedVerbList(root);
-        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, false);
+        var conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, false);
         result = conjResult.getFinalResult();
         printFinalResultPipeSeparated(root, result);
     }

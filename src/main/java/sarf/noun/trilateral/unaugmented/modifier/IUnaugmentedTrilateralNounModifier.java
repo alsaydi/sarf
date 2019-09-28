@@ -18,5 +18,5 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
  * @version 1.0
  */
 public interface IUnaugmentedTrilateralNounModifier {
-    ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula);
+    NounConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula);
 }

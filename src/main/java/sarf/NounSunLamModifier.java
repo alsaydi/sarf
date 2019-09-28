@@ -1,11 +1,10 @@
 package sarf;
 
 import com.google.inject.Singleton;
-import sarf.verb.quadriliteral.QuadriConjugationResult;
+import sarf.verb.Root;
 import sarf.verb.trilateral.Substitution.Substitution;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.TrilateralRoot;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -67,15 +66,7 @@ public class NounSunLamModifier extends SubstitutionsApplier {
         substitutions.add(new ListedInfixSubstitution(sunLetters, "الSLِ", "الSLِّ"));
     }
 
-    public void apply(sarf.verb.trilateral.unaugmented.ConjugationResult conjResult) {
-        apply(conjResult.getFinalResult(), null);
-    }
-
-    public void apply(TriAugmentedConjugationResult conjResult) {
-        apply(conjResult.getFinalResult(), null);
-    }
-
-    public void apply(QuadriConjugationResult conjResult) {
+    public void apply(ConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
     }
 
@@ -96,11 +87,8 @@ public class NounSunLamModifier extends SubstitutionsApplier {
             this.probableChars = probableChars;
         }
 
-        /**
-         * @param word String
-         * @return String
-         */
-        public String apply(String word, TrilateralRoot root) {
+        @Override
+        public String apply(String word, Root root) {
             for (String sl : probableChars) {
                 String appliedResult = apply(word, sl);
                 if (appliedResult != null) {

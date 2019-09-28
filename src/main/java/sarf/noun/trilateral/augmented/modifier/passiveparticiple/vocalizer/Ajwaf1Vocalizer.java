@@ -28,7 +28,7 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
         substitutions.add(new InfixSubstitution("َوَ","َا"));// EX: (مُنْقادٌ، مُقْتادٌ)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

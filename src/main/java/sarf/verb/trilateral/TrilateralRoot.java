@@ -1,6 +1,9 @@
 package sarf.verb.trilateral;
 
 import sarf.verb.Root;
+import sarf.verb.RootLetter;
+import java.util.List;
+import static sarf.verb.RootLetter.*;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,5 +24,12 @@ public abstract class TrilateralRoot extends Root {
 
     public TrilateralRoot(char c1, char c2, char c3) {
         super(c1, c2, c3);
+    }
+
+    @Override
+    public List<RootLetter> getCharacters() {
+        return List.of(new RootLetter(C1, getC1())
+                , new RootLetter(C2, getC2())
+                , new RootLetter(C3, getC3()));
     }
 }

@@ -13,5 +13,5 @@ package sarf.noun.trilateral.unaugmented.modifier;
  * @version 1.0
  */
 public interface IUnaugmentedTrilateralNounModificationApplier {
-   boolean isApplied(ConjugationResult conjugationResult);
+   boolean isApplied(NounConjugationResult conjugationResult);
 }

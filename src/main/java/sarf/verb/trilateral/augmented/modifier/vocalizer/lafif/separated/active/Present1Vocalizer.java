@@ -4,7 +4,7 @@ import java.util.*;
 
 import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.*;
 
 /**
@@ -36,7 +36,7 @@ public class Present1Vocalizer extends SubstitutionsApplier implements IAugmente
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

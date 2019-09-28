@@ -4,7 +4,7 @@ import java.util.List;
 
 import sarf.KindOfVerb;
 import sarf.VerbLamAlefModifier;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 /**
@@ -38,14 +38,14 @@ public class UnaugmentedTrilateralModifier {
      * @param kov int
      * @param conjugations List
      * @param tense String (From SystemConstants class the values are stored)  ماضي أو مضارع او أمر
-     * @return ConjugationResult
+     * @return NounConjugationResult
      */
     public<T> ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List<T> conjugations, String tense, boolean active) {
         return build(root, kov, conjugations, tense, active, true);
     }
 
     public<T> ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List<T> conjugations, String tense, boolean active, boolean applyGemination) {
-        ConjugationResult<T> conjResult = new ConjugationResult<>(kov, root, conjugations);
+        ConjugationResult<T> conjResult = new ConjugationResult(kov, 0, root, conjugations);
         if (applyGemination)
             geminator.apply(tense, active, conjResult);
         vocalizer.apply(tense, active, conjResult);

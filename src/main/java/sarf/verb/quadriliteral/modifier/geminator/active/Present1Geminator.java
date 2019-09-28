@@ -2,7 +2,10 @@ package sarf.verb.quadriliteral.modifier.geminator.active;
 
 import java.util.*;
 import sarf.verb.quadriliteral.substitution.*;
-import sarf.verb.quadriliteral.*;
+import sarf.verb.trilateral.Substitution.ExpressionInfixSubstitution;
+import sarf.verb.trilateral.Substitution.ExpressionSuffixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -30,7 +33,7 @@ public class Present1Geminator extends SubstitutionsApplier {
         return substitutions;
     }
 
-    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
-        return quadriConjugationResult.getFormulaNo() == 3;
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        return conjugationResult.getFormulaNo() == 3;
     }
 }

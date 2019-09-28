@@ -1,10 +1,11 @@
 package sarf.noun.trilateral.unaugmented.modifier.activeparticiple;
 
 import java.util.*;
+
+import sarf.noun.trilateral.unaugmented.modifier.NounConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.activeparticiple.hamza.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -28,7 +29,7 @@ public class Mahmouz {
         modifiers.add(lamMahmouz);
     }
 
-    public void apply(ConjugationResult conjResult) {
+    public void apply(NounConjugationResult conjResult) {
         for (Object o : modifiers) {
             IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) o;
             if (modifier.isApplied(conjResult)) {

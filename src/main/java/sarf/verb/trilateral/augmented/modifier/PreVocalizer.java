@@ -25,7 +25,7 @@ public class PreVocalizer {
     public PreVocalizer() {
     }
 
-    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
+    public void apply(String tense, boolean active, ConjugationResult conjResult) {
         if (active) {
             if (tense.equals(SystemConstants.PRESENT_TENSE) && separatedLafifActivePresentVocalizer.isApplied(conjResult))
                 separatedLafifActivePresentVocalizer.apply(conjResult.getFinalResult(), conjResult.getRoot());

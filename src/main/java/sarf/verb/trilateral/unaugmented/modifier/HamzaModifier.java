@@ -1,11 +1,9 @@
 package sarf.verb.trilateral.unaugmented.modifier;
 
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
-
 import java.util.*;
-
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import sarf.SystemConstants;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -86,7 +84,7 @@ public class HamzaModifier {
      * قد لا يطبق أي نوع
      * @param tense String
      * @param active boolean
-     * @param conjResult ConjugationResult
+     * @param conjResult NounConjugationResult
      */
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
         var modifiers = modifiersMap.get(tense+active);

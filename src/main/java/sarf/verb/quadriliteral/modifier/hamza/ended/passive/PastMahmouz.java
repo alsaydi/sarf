@@ -4,6 +4,8 @@ import java.util.*;
 
 import sarf.verb.quadriliteral.modifier.hamza.ended.AbstractQuadrilateralEndedMahmouzModifier;
 import sarf.verb.quadriliteral.substitution.*;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
 
 /**
  * <p>Title: Sarf Program</p>

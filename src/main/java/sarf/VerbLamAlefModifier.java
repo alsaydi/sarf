@@ -2,9 +2,8 @@ package sarf;
 
 import java.util.*;
 
-import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -28,15 +27,7 @@ public final class VerbLamAlefModifier extends SubstitutionsApplier{
         substitutions.add(new InfixSubstitution("لًا","لاً"));// EX: (حملاً)
     }
 
-    public void apply(sarf.verb.trilateral.unaugmented.ConjugationResult conjResult) {
-        apply(conjResult.getFinalResult(), null);
-    }
-
-    public void apply(TriAugmentedConjugationResult conjResult) {
-        apply(conjResult.getFinalResult(), null);
-    }
-
-    public void apply(QuadriConjugationResult conjResult) {
+    public void apply(ConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
     }
 

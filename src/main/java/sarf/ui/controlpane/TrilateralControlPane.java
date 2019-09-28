@@ -8,6 +8,7 @@ import java.awt.event.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import sarf.*;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
@@ -165,7 +166,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
         String pastRootText = unaugmentedTriActivePastConjugator.createVerb(7, root).toString();
         List<String> conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
-        sarf.verb.trilateral.unaugmented.ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
+        var conjResult = unaugmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //present text formatting
@@ -190,7 +191,7 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
         String pastRootText = augmentedActivePastConjugator.createVerb(root, 7, formulaNo).toString();
         List<String> conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
-        TriAugmentedConjugationResult conjResult = augmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), formulaNo, conjugations, SystemConstants.PAST_TENSE, true, null);
+        ConjugationResult conjResult = augmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), formulaNo, conjugations, SystemConstants.PAST_TENSE, true, null);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //past text formatting

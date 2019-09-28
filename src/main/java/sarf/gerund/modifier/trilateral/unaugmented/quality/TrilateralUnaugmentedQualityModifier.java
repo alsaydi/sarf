@@ -32,8 +32,8 @@ public class TrilateralUnaugmentedQualityModifier implements IUnaugmentedTrilate
         this.nounSunLamModifier = nounSunLamModifier;
     }
 
-    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
-        ConjugationResult conjResult = new ConjugationResult(kov, root, conjugations, formula);
+    public NounConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
+        NounConjugationResult conjResult = new NounConjugationResult(kov, root, conjugations, formula);
         geminator.apply(conjResult);
         if (ajwafVocalizer.isApplied(conjResult))
             ajwafVocalizer.apply(conjResult.getFinalResult(), root);

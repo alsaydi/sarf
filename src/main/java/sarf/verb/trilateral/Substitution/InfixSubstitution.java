@@ -1,6 +1,6 @@
 package sarf.verb.trilateral.Substitution;
 
-import sarf.verb.trilateral.TrilateralRoot;
+import sarf.verb.Root;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +20,8 @@ public class InfixSubstitution extends Substitution {
         super(segment, result);
     }
 
-    public String apply(String word, TrilateralRoot root) {
+    @Override
+    public String apply(String word, Root root) {
         return word.contains(segment) ? word.replaceAll(segment,result): null;
     }
 }

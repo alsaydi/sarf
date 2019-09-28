@@ -32,7 +32,7 @@ public class ACAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier impleme
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
         if (!nounFormula.equals("مَفْعَل") && !nounFormula.equals("مَفْعَلَة"))
             return false;

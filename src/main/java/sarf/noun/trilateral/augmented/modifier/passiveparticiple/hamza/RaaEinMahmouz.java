@@ -34,8 +34,8 @@ private final List<Substitution> substitutions = new ArrayList<>();
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
-        AugmentedTrilateralRoot root = triAugmentedConjugationResult.getRoot();
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
+        var root = triAugmentedConjugationResult.getRoot();
         return root.getC1() == 'ر' && root.getC2() == 'ء' && root.getC3() == 'ي' && triAugmentedConjugationResult.getFormulaNo() == 1;
     }
 }

@@ -2,8 +2,8 @@ package sarf.gerund.modifier.quadrilateral;
 
 import org.junit.jupiter.api.Test;
 import sarf.KindOfVerb;
-import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 import java.util.Collections;
 import java.util.Objects;
@@ -27,7 +27,7 @@ class VocalizerTest {
     void isApplied() {
         var root = new AugmentedQuadrilateralRoot();
         root.setC4('ي');
-        var result = new QuadriConjugationResult<String>(1, KindOfVerb.Naqis_Wawi, root, Collections.emptyList());
+        var result = new ConjugationResult<String>(KindOfVerb.Naqis_Wawi, 1, root, Collections.emptyList());
         var sut = new Vocalizer();
 
         assertThat(sut.isApplied(result)).isTrue();

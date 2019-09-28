@@ -4,7 +4,7 @@ import java.util.*;
 
 import sarf.KindOfVerb;
 import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 import sarf.noun.TrilateralNounSubstitutionApplier;
 
@@ -21,7 +21,7 @@ import sarf.noun.TrilateralNounSubstitutionApplier;
  * @version 1.0
  */
 public class SpecialSubstituter2 extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
-    private final List<Substitution> substitutions = new LinkedList();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     public SpecialSubstituter2() {
         substitutions.add(new InfixSubstitution("يْت","تّ"));// EX: (اتِّسار،)
@@ -31,7 +31,7 @@ public class SpecialSubstituter2 extends TrilateralNounSubstitutionApplier imple
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
         return triAugmentedConjugationResult.getRoot().getC1() == 'ي' && formulaNo == 5 && (kov == KindOfVerb.Mithal_Yaee_Mahmouz_Ain || kov == KindOfVerb.Mithal_Yaee);

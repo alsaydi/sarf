@@ -7,7 +7,7 @@ import sarf.noun.trilateral.augmented.modifier.activeparticiple.geminator.Gemina
 import sarf.noun.trilateral.augmented.modifier.geminator.Geminator2;
 import sarf.noun.trilateral.augmented.modifier.geminator.Geminator3;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
 
 /**
@@ -31,7 +31,7 @@ public class Geminator {
         modifiers.add(new Geminator3());
     }
 
-    public void apply(TriAugmentedConjugationResult conjResult) {
+    public void apply(ConjugationResult conjResult) {
         for (TrilateralNounSubstitutionApplier trilateralNounSubstitutionApplier : modifiers) {
             IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) trilateralNounSubstitutionApplier;
             if (modifier.isApplied(conjResult)) {

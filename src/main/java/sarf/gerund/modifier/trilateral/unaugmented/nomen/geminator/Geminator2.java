@@ -30,7 +30,7 @@ private final List<Substitution> substitutions = new ArrayList<>();
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         return conjugationResult.getRoot().getC2() =='و' && conjugationResult.getRoot().getC3() == 'ي';
     }
 }

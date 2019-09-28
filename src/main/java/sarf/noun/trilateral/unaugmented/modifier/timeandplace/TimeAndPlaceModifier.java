@@ -36,8 +36,8 @@ public class TimeAndPlaceModifier implements IUnaugmentedTrilateralNounModifier{
         this.nounSunLamModifier = nounSunLamModifier;
     }
 
-    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
-        ConjugationResult conjResult = new ConjugationResult(kov, root, conjugations, formula);
+    public NounConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
+        NounConjugationResult conjResult = new NounConjugationResult(kov, root, conjugations, formula);
         geminator.apply(conjResult.getFinalResult(), root);
         vocalizer.apply(conjResult);
         mahmouz.apply(conjResult);

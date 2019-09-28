@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.noun.trilateral.unaugmented.modifier.NounConjugationResult;
 import java.util.ArrayList;
 
 /**
@@ -43,7 +43,7 @@ public class Ajwaf3YaeiListedVocalizer extends AbstractAjwafYaeiListedVocalizer 
         return appliedPronounIndexes;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         return super.isApplied(conjugationResult);
     }
 }

@@ -21,7 +21,7 @@ public abstract class AbstractLamMahmouz extends SubstitutionsApplier implements
     public AbstractLamMahmouz() {
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

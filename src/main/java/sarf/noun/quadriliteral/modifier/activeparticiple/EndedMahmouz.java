@@ -1,9 +1,9 @@
 package sarf.noun.quadriliteral.modifier.activeparticiple;
 
 import sarf.noun.QuadrilateralNounSubstitutionApplier;
-import sarf.verb.quadriliteral.QuadriConjugationResult;
-import sarf.verb.quadriliteral.substitution.InfixSubstitution;
-import sarf.verb.quadriliteral.substitution.Substitution;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,13 @@ public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier {
         return substitutions;
     }
 
-    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
-        return quadriConjugationResult.getRoot().getC4() == 'ء';
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        if (conjugationResult.getRoot().getCharacters().isEmpty()) {
+            return false;
+        }
+        if (conjugationResult.getRoot().getCharacters().size() < 4) {
+            return false;
+        }
+        return conjugationResult.getRoot().getCharacters().get(3).getValue() == 'ء';
     }
 }

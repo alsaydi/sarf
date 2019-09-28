@@ -1,11 +1,10 @@
 package sarf;
 
 import com.google.inject.Singleton;
-import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.trilateral.Substitution.InfixSubstitution;
 import sarf.verb.trilateral.Substitution.Substitution;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -43,19 +42,7 @@ public class NounLamAlefModifier extends SubstitutionsApplier {
         substitutions.add(new InfixSubstitution("لًا", "لاً"));// EX: (حملاً)
     }
 
-    public void apply(sarf.verb.trilateral.unaugmented.ConjugationResult conjResult) {
-        apply(conjResult.getFinalResult(), null);
-        //قد يوجد لام ألف أخرى تتطابق مع قانون أخر
-        apply(conjResult.getFinalResult(), null);
-    }
-
-    public void apply(TriAugmentedConjugationResult conjResult) {
-        apply(conjResult.getFinalResult(), null);
-        //قد يوجد لام ألف أخرى تتطابق مع قانون أخر
-        apply(conjResult.getFinalResult(), null);
-    }
-
-    public void apply(QuadriConjugationResult conjResult) {
+    public void apply(ConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
         //قد يوجد لام ألف أخرى تتطابق مع قانون أخر
         apply(conjResult.getFinalResult(), null);

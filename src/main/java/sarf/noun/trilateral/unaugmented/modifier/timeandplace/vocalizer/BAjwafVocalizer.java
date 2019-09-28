@@ -32,7 +32,7 @@ public class BAjwafVocalizer extends TrilateralNounSubstitutionApplier implement
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
         if (!nounFormula.equals("مَفْعِل"))
             return false;

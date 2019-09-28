@@ -32,10 +32,10 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTr
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
-        AugmentedTrilateralRoot root = triAugmentedConjugationResult.getRoot();
+        var root = triAugmentedConjugationResult.getRoot();
         if ((root.getC2() == 'و' || root.getC2() == 'ي') && root.getC3() == 'ي') {
             if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa) {
                 switch (formulaNo) {

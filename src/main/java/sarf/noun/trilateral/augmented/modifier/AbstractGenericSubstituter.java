@@ -1,7 +1,7 @@
 package sarf.noun.trilateral.augmented.modifier;
 
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.noun.*;
 
@@ -21,7 +21,7 @@ public abstract class AbstractGenericSubstituter extends TrilateralNounSubstitut
     public AbstractGenericSubstituter() {
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
         if (formulaNo != 5) {

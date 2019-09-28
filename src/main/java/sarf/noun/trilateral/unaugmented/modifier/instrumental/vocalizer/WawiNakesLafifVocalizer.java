@@ -41,7 +41,7 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         if (conjugationResult.getRoot().getC3() != 'و')
             return false;
 

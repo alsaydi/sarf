@@ -3,8 +3,8 @@ package sarf.gerund.modifier.quadrilateral;
 import java.util.*;
 
 import sarf.noun.*;
-import sarf.verb.quadriliteral.*;
-import sarf.verb.quadriliteral.substitution.*;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -34,7 +34,13 @@ public class EndedMahmouz extends QuadrilateralNounSubstitutionApplier {
     }
 
     @Override
-    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
-        return quadriConjugationResult.getRoot().getC4() == 'ء';
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        if (conjugationResult.getRoot().getCharacters().isEmpty()) {
+            return false;
+        }
+        if (conjugationResult.getRoot().getCharacters().size() < 4) {
+            return false;
+        }
+        return conjugationResult.getRoot().getCharacters().get(3).getValue() == 'ء';
     }
 }

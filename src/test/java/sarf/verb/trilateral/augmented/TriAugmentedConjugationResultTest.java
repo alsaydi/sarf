@@ -14,7 +14,7 @@ public class TriAugmentedConjugationResultTest {
 		List<String> originalResult = new ArrayList<String>();
 		originalResult.add("كلمة");
 		
-		TriAugmentedConjugationResult sut = new TriAugmentedConjugationResult(KindOfVerb.Salim, 2, root, originalResult);
+		ConjugationResult sut = new ConjugationResult(KindOfVerb.Salim, 2, root, originalResult);
 		
 		assertEquals(originalResult.size(), sut.getFinalResult().size());
 		assertEquals(KindOfVerb.Salim, sut.getKov());

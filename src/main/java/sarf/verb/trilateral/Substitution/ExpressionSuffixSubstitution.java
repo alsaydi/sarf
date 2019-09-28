@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.Substitution;
 
+import sarf.verb.Root;
 import sarf.verb.trilateral.TrilateralRoot;
 
 /**
@@ -26,7 +27,8 @@ public class ExpressionSuffixSubstitution extends Substitution {
      * @param word String
      * @return String
      */
-    public String apply(String word, TrilateralRoot root) {
+    @Override
+    public String apply(String word, Root root) {
         if(null == word || word.equals(""))
             return  null;
 

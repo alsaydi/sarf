@@ -26,14 +26,14 @@ public class NStartedGeminator extends SubstitutionsApplier implements IAugmente
         substitutions.add(new InfixSubstitution("نْن","نّ"));// EX: (انَّمَسَ)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         return (triAugmentedConjugationResult.getRoot().getC1() == 'ن') && kov == KindOfVerb.Salim && formulaNo == 4;
     }
 
-    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
+    public void apply(String tense, boolean active, ConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
 

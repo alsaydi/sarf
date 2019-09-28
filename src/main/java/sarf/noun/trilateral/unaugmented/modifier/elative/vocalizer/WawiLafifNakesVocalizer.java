@@ -39,7 +39,7 @@ public class WawiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         if (kov != Naqis_Wawi) {
             return false;

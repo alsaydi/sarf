@@ -35,8 +35,8 @@ public class ExaggerationModifier implements IUnaugmentedTrilateralNounModifier{
         this.nounSunLamModifier = nounSunLamModifier;
     }
 
-    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
-        ConjugationResult conjResult = new ConjugationResult(kov, root, conjugations, formula);
+    public NounConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
+        NounConjugationResult conjResult = new NounConjugationResult(kov, root, conjugations, formula);
         vocalizer.apply(conjResult);
         mahmouz.apply(conjResult);
         nounLamAlefModifier.apply(conjResult);

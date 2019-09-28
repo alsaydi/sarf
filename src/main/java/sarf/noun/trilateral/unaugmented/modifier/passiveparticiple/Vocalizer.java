@@ -5,7 +5,7 @@ import java.util.*;
 import sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.vocalizer.*;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.noun.trilateral.unaugmented.modifier.NounConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -30,7 +30,7 @@ public class Vocalizer {
         modifiers.add(new Ajwaf2Vocalizer());
     }
 
-    public void apply(ConjugationResult conjResult) {
+    public void apply(NounConjugationResult conjResult) {
         for (Object o : modifiers) {
             IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) o;
             if (modifier.isApplied(conjResult)) {

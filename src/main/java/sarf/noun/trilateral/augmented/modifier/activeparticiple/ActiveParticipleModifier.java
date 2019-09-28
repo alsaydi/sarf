@@ -7,7 +7,7 @@ import sarf.NounSunLamModifier;
 import sarf.noun.trilateral.augmented.AugmentedTrilateralNoun;
 import sarf.noun.trilateral.augmented.modifier.Substituter;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.FormulaApplyingChecker;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.IFormulaApplyingChecker;
@@ -46,8 +46,8 @@ public class ActiveParticipleModifier {
         this.nounSunLamModifier = nounSunLamModifier;
     }
 
-    public TriAugmentedConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List<AugmentedTrilateralNoun> conjugations, AugmentedTrilateralModifierListener listener) {
-        var conjResult = new TriAugmentedConjugationResult<>(kov, formulaNo, root, conjugations);
+    public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List<AugmentedTrilateralNoun> conjugations, AugmentedTrilateralModifierListener listener) {
+        var conjResult = new ConjugationResult<>(kov, formulaNo, root, conjugations);
         substituter.apply(conjResult);
         geminator.apply(conjResult);
 

@@ -29,7 +29,7 @@ public class PreSeparatedLafifVocalizer extends TrilateralNounSubstitutionApplie
         substitutions.add(new InfixSubstitution("إِيْ", "إِي")); // EX: (إيداء)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

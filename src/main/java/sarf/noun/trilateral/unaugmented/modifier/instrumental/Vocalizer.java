@@ -27,7 +27,7 @@ public class Vocalizer {
         modifiers.add(new YaeiNakesLafifVocalizer());
     }
 
-    public void apply(ConjugationResult conjResult) {
+    public void apply(NounConjugationResult conjResult) {
         // تطبيق اعلال واحد اولا
         if (preMithalLafifVocalizer.isApplied(conjResult))
             preMithalLafifVocalizer.apply(conjResult.getFinalResult(), conjResult.getRoot());

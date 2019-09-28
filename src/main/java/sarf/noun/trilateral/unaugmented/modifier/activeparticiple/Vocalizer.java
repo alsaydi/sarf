@@ -1,7 +1,7 @@
 
 package sarf.noun.trilateral.unaugmented.modifier.activeparticiple;
 
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.noun.trilateral.unaugmented.modifier.NounConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer.*;
 import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
@@ -36,7 +36,7 @@ public class Vocalizer {
         modifiers.add(new Ajwaf4Vocalizer());
     }
 
-    public void apply(ConjugationResult conjResult) {
+    public void apply(NounConjugationResult conjResult) {
         for (IUnaugmentedTrilateralNounModificationApplier modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
                 ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());

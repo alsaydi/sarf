@@ -3,7 +3,6 @@ package sarf.noun.trilateral.unaugmented.modifier;
 import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.noun.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,7 +20,7 @@ public abstract class AbstractGeminator extends TrilateralNounSubstitutionApplie
     protected AbstractGeminator() {
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
 
@@ -34,7 +33,7 @@ public abstract class AbstractGeminator extends TrilateralNounSubstitutionApplie
                 case Fifth:
                     return true;
             }
-            return noc == Conjugation.Second || noc == Conjugation.First; //TODO: simplify this
+            return false;
         } else if (kov == KindOfVerb.Mahmouz_Faa_Mudaaf) {
             return noc == Conjugation.Second || noc == Conjugation.First;
         } else if (kov == KindOfVerb.Mithal_Wawi_Mudaaf) {

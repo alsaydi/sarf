@@ -1,6 +1,6 @@
 package sarf.verb.trilateral.augmented.modifier;
 
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.geminator.*;
 
 /**
@@ -40,9 +40,9 @@ public class Geminator {
      * قد لا يطبق أي نوع من الادغام
      * @param tense String
      * @param active boolean
-     * @param conjResult TriAugmentedConjugationResult
+     * @param conjResult ConjugationResult
      */
-    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
+    public void apply(String tense, boolean active, ConjugationResult conjResult) {
         //althoug it will enter the generic block, it may found some rules in the special ones
         if (genericGeminator.isApplied(conjResult))
             genericGeminator.apply(tense, active, conjResult);

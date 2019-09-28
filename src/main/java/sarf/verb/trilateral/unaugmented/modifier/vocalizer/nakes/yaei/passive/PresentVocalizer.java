@@ -1,12 +1,16 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer.nakes.yaei.passive;
 
-import java.util.*;
-
 import sarf.Conjugation;
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
+import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.verb.trilateral.Substitution.SuffixSubstitution;
+import sarf.verb.trilateral.augmented.ConjugationResult;
+import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>

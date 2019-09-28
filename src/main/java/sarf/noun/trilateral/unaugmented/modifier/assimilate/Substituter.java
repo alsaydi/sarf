@@ -31,7 +31,7 @@ public class Substituter extends TrilateralNounSubstitutionApplier implements IU
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         return conjugationResult.getNounFormula().equals("فَعْلان");
     }
 }

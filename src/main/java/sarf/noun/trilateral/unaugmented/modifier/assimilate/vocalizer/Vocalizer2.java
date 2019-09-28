@@ -32,7 +32,7 @@ public class Vocalizer2 extends TrilateralNounSubstitutionApplier implements IUn
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();

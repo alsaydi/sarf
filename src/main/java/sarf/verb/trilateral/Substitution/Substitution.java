@@ -1,6 +1,6 @@
 package sarf.verb.trilateral.Substitution;
 
-import sarf.verb.trilateral.*;
+import sarf.verb.Root;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -24,17 +24,18 @@ public abstract class Substitution {
     }
 
     /**
-     * check wheather this Substitution cn be applied for this root and word (which generated form this root)
+     * check whether this Substitution cn be applied for this root and word (which generated form this root)
      * if ok the result will be used
      * @param word String
      * @return String
      */
-    public abstract String apply(String word, TrilateralRoot root);
+    public abstract String apply(String word, Root root);
 
-    String buildSubstitution(TrilateralRoot root, String expression) {
-        var effectiveExpression = expression.replaceAll("C1", root.getC1() + "");
-        effectiveExpression = effectiveExpression.replaceAll("C2", root.getC2() + "");
-        effectiveExpression = effectiveExpression.replaceAll("C3", root.getC3() + "");
+    String buildSubstitution(Root root, String expression) {
+        var effectiveExpression = expression;
+        for (var letter : root.getCharacters()) {
+            effectiveExpression = expression.replaceAll(letter.getMoniker(), letter.getValue() + "");
+        }
         return effectiveExpression;
     }
 }

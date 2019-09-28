@@ -7,7 +7,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.augmented.active.present.AugmentedQuadActivePresentConjugator;
 import sarf.verb.quadriliteral.modifier.QuadrilateralModifier;
@@ -18,6 +17,7 @@ import sarf.SystemConstants;
 import sarf.verb.quadriliteral.augmented.active.past.QuadrilateralAugmentedActivePastConjugator;
 import sarf.verb.quadriliteral.unaugmented.active.QuadActivePresentConjugator;
 import sarf.verb.quadriliteral.unaugmented.active.QuadriActivePastConjugator;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 import java.awt.Color;
 import java.util.stream.Collectors;
@@ -145,7 +145,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
         String pastRootText = quadriActivePastConjugator.createVerb(7, root).toString();
         List conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
-        QuadriConjugationResult conjResult = quadrilateralModifier.build(root, 0, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
+        ConjugationResult conjResult = quadrilateralModifier.build(root, 0, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //past text formatting
@@ -171,7 +171,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
         String pastRootText = quadrilateralAugmentedActivePastConjugator.createVerb(root, 7, formulaNo).toString();
         List conjugations = createEmptyList();
         conjugations.set(7, pastRootText);
-        QuadriConjugationResult conjResult = quadrilateralModifier.build(root, formulaNo, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
+        ConjugationResult conjResult = quadrilateralModifier.build(root, formulaNo, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //past text formatting

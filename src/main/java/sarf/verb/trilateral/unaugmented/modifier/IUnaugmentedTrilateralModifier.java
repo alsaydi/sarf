@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.unaugmented.modifier;
 
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.*;
 
 

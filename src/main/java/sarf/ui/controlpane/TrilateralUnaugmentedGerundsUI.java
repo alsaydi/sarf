@@ -15,8 +15,8 @@ import sarf.gerund.trilateral.unaugmented.meem.*;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.ui.*;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.*;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>

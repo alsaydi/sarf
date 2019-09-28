@@ -28,7 +28,7 @@ public class Geminator3 extends TrilateralNounSubstitutionApplier implements IAu
         substitutions.add(new InfixSubstitution("تْت","تّ"));// EX: (اتِّباعٌ، اتِّآم)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

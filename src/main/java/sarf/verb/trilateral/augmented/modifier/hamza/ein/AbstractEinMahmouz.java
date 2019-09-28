@@ -21,7 +21,7 @@ public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements
     public AbstractEinMahmouz() {
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

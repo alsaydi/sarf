@@ -42,7 +42,7 @@ public class NakesLafifMahmouz extends TrilateralNounSubstitutionApplier impleme
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
         if (!nounFormula.equals("فَعَّال")) {
             return false;

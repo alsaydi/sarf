@@ -1,6 +1,7 @@
 package sarf.verb.trilateral.Substitution;
 
 import sarf.SystemConstants;
+import sarf.verb.Root;
 import sarf.verb.trilateral.TrilateralRoot;
 
 import java.util.ArrayList;
@@ -20,7 +21,6 @@ import java.util.stream.IntStream;
  * @version 1.0
  */
 public abstract class SubstitutionsApplier<T> {
-
     private static final List<String> defaultAppliedPronounsIndexes = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
 
     static {
@@ -35,7 +35,7 @@ public abstract class SubstitutionsApplier<T> {
      * @param words List
      * @param root  TrilateralRoot
      */
-    public void apply(List words, TrilateralRoot root) {
+    public void apply(List words, Root root) {
         for (var str : getAppliedPronounsIndexes()) {
             var index = Integer.parseInt(str) - 1;
             var wordObj = words.get(index);

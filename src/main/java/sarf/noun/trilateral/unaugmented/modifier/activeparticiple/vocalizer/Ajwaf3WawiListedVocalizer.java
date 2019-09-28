@@ -1,10 +1,11 @@
 package sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer;
 
 import java.util.*;
+
+import sarf.noun.trilateral.unaugmented.modifier.NounConjugationResult;
 import sarf.verb.trilateral.Substitution.*;
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -41,7 +42,7 @@ public class Ajwaf3WawiListedVocalizer extends AbstractAjwafWawiListedVocalizer 
         return appliedPronounIndexes;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         return super.isApplied(conjugationResult);
     }
 }

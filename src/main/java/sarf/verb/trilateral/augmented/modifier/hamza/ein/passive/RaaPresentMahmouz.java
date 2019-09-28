@@ -2,9 +2,8 @@ package sarf.verb.trilateral.augmented.modifier.hamza.ein.passive;
 
 import java.util.*;
 import sarf.verb.trilateral.Substitution.*;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
-import sarf.verb.trilateral.*;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -29,8 +28,8 @@ public class RaaPresentMahmouz extends SubstitutionsApplier implements IAugmente
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
-        TrilateralRoot root = triAugmentedConjugationResult.getRoot();
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
+        var root = triAugmentedConjugationResult.getRoot();
         return triAugmentedConjugationResult.getFormulaNo() == 1 && root.getC1() == 'ر' && root.getC2() == 'ء' && root.getC3() == 'ي';
     }
 }

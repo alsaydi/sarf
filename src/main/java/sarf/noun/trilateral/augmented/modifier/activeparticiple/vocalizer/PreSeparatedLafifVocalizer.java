@@ -28,7 +28,7 @@ public class PreSeparatedLafifVocalizer extends TrilateralNounSubstitutionApplie
         substitutions.add(new InfixSubstitution("ُيْ","ُو"));// EX: (مُودٍ)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

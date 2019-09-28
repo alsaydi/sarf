@@ -5,6 +5,7 @@ import java.util.*;
 import com.google.inject.Inject;
 import sarf.verb.quadriliteral.*;
 import sarf.*;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 public class QuadrilateralStandardModifier {
     private final NounLamAlefModifier nounLamAlefModifier;
@@ -22,8 +23,8 @@ public class QuadrilateralStandardModifier {
         this.endedMahmouz = endedMahmouz;
     }
 
-    public QuadriConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations) {
-        QuadriConjugationResult conjResult = new QuadriConjugationResult<>(formulaNo, kov, root, conjugations);
+    public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations) {
+        ConjugationResult conjResult = new ConjugationResult(kov, formulaNo, root, conjugations);
         if (vocalizer.isApplied(conjResult))
             vocalizer.apply(conjResult.getFinalResult(), conjResult.getRoot());
         if (internalMahmouz.isApplied(conjResult))

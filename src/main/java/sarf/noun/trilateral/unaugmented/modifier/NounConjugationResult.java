@@ -17,11 +17,11 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ConjugationResult extends sarf.verb.trilateral.unaugmented.ConjugationResult{
+public class NounConjugationResult extends sarf.verb.trilateral.augmented.ConjugationResult{
     private final String nounFormula;
 
-    public ConjugationResult(KindOfVerb kov, UnaugmentedTrilateralRoot root, List originalResult, String nounFormula) {
-        super(kov, root, originalResult);
+    public NounConjugationResult(KindOfVerb kov, UnaugmentedTrilateralRoot root, List originalResult, String nounFormula) {
+        super(kov, 0, root, originalResult);
         this.nounFormula = nounFormula;
     }
 

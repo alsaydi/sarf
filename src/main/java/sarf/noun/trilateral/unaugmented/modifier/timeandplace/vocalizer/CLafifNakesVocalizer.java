@@ -33,7 +33,7 @@ public class CLafifNakesVocalizer extends TrilateralNounSubstitutionApplier impl
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
         if (!nounFormula.equals("مَفْعَلَة")) {
             return false;

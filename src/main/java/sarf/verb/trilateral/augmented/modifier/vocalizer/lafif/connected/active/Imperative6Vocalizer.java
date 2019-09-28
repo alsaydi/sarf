@@ -36,10 +36,10 @@ public class Imperative6Vocalizer extends SubstitutionsApplier implements IAugme
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
-        AugmentedTrilateralRoot root = triAugmentedConjugationResult.getRoot();
+        var root = triAugmentedConjugationResult.getRoot();
         return root.getC2() == root.getC3() && root.getC3() == 'و' &&  kov == KindOfVerb.Lafeef_Maqroon && (formulaNo == 7 || formulaNo == 8);
     }
 }

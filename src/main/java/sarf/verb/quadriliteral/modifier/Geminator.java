@@ -1,9 +1,9 @@
 package sarf.verb.quadriliteral.modifier;
 
-import sarf.verb.quadriliteral.QuadriConjugationResult;
 import java.util.*;
 import sarf.*;
 import sarf.verb.quadriliteral.substitution.SubstitutionsApplier;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -64,9 +64,9 @@ public class Geminator {
      * قد لا يطبق أي نوع من الاعلال
      * @param tense String
      * @param active boolean
-     * @param conjResult QuadriConjugationResult
+     * @param conjResult ConjugationResult
      */
-    public void apply(String tense, boolean active, QuadriConjugationResult conjResult) {
+    public void apply(String tense, boolean active, ConjugationResult conjResult) {
         var modifiers = modifiersMap.get(tense+active);
         for (SubstitutionsApplier substitutionsApplier : modifiers) {
             if (substitutionsApplier.isApplied(conjResult)) {

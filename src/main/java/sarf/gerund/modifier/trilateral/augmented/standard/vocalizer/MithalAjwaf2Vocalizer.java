@@ -28,7 +28,7 @@ public class MithalAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier imp
         substitutions.add(new InfixSubstitution("تِيْ","تِي"));// EX: (استيقاظ)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

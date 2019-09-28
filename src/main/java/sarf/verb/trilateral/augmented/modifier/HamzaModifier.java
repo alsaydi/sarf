@@ -4,7 +4,7 @@ import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
 
 import java.util.*;
 
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.verb.trilateral.augmented.ConjugationResult;
 import sarf.SystemConstants;
 
 /**
@@ -75,9 +75,9 @@ public class HamzaModifier {
      * قد لا يطبق أي نوع
      * @param tense String
      * @param active boolean
-     * @param conjResult TriAugmentedConjugationResult
+     * @param conjResult ConjugationResult
      */
-    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
+    public void apply(String tense, boolean active, ConjugationResult conjResult) {
         List<SubstitutionsApplier> modifiers = modifiersMap.get(tense+active);
         for (SubstitutionsApplier o : modifiers) {
             IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;

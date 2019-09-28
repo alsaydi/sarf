@@ -35,7 +35,7 @@ public class AVocalizer extends TrilateralNounSubstitutionApplier implements IUn
         return substitutions;
     }
 
-    public boolean isApplied(ConjugationResult conjugationResult) {
+    public boolean isApplied(NounConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
         if (!nounFormula.equals("فَعَّال")) {
             return false;

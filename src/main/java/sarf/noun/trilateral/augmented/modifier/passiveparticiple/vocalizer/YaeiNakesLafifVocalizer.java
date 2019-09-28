@@ -62,7 +62,7 @@ public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
         substitutions.add(new InfixSubstitution("َيٍ", "ًى")); // EX: (مررتُ على مُهْدًى)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         if (triAugmentedConjugationResult.getRoot().getC3() != 'ي') {
             return false;
         }

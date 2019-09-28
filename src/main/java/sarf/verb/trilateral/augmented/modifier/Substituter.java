@@ -49,7 +49,7 @@ public class Substituter {
 
     }
 
-    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
+    public void apply(String tense, boolean active, ConjugationResult conjResult) {
         List<SubstitutionsApplier> modifiers = null;
         modifiers = active ? activeList : passiveList;
 
