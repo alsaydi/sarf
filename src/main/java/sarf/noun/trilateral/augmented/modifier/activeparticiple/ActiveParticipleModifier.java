@@ -47,7 +47,7 @@ public class ActiveParticipleModifier {
     }
 
     public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List<AugmentedTrilateralNoun> conjugations, AugmentedTrilateralModifierListener listener) {
-        var conjResult = new ConjugationResult<>(kov, formulaNo, root, conjugations);
+        var conjResult = new ConjugationResult(kov, formulaNo, root, conjugations);
         substituter.apply(conjResult);
         geminator.apply(conjResult);
 

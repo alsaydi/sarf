@@ -1,5 +1,6 @@
 package sarf.substitution;
 
+import sarf.Word;
 import sarf.verb.Root;
 
 /**
@@ -27,8 +28,8 @@ public class ExpressionSuffixSubstitution extends Substitution {
      * @return String
      */
     @Override
-    public String apply(String word, Root root) {
-        if(null == word || word.equals(""))
+    public Word apply(Word word, Root root) {
+        if(null == word || word.isEmpty())
             return  null;
 
         String wordSegment = buildSubstitution(root, segment);

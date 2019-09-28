@@ -735,7 +735,7 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
             AugmentedQuadrilateralRoot augmentedRoot = augmentedList.get(index);
             UnaugmentedQuadrilateralRoot unaugmentedRoot = unaugmentedList.get(index);
 
-            String newRoot = rootTextList.get(index).toString();
+            String newRoot = rootTextList.get(index);
             //حتى لا يتم عرض رسالة نتبيهية
             //إلا في حالة جذر واحد
             if (rootTextList.size() > 1) {

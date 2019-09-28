@@ -1,12 +1,8 @@
 package sarf.noun.quadriliteral.modifier.passiveparticiple;
 
 import com.google.inject.Inject;
-import sarf.KindOfVerb;
-import sarf.NounLamAlefModifier;
-import sarf.NounSunLamModifier;
-import sarf.noun.quadriliteral.augmented.AugmentedQuadrilateralNoun;
+import sarf.*;
 import sarf.verb.quadriliteral.QuadrilateralRoot;
-import sarf.ConjugationResult;
 
 import java.util.List;
 
@@ -29,10 +25,9 @@ public class PassiveParticipleModifier {
      *
      * @param root         UnaugmentedTrilateralRoot
      * @param conjugations List
-     * @param tense        String (From SystemConstants class the values are stored)  ماضي أو مضارع او أمر
      * @return ConjugationResult
      */
-    public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List<AugmentedQuadrilateralNoun> conjugations) {
+    public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List<? extends Word> conjugations) {
         var conjResult = new ConjugationResult(kov, formulaNo, root, conjugations);
         if (geminator.isApplied(conjResult))
             geminator.apply(conjResult.getFinalResult(), conjResult.getRoot());

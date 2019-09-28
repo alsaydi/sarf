@@ -1,7 +1,8 @@
 package sarf.verb.trilateral.unaugmented.active;
 
-import sarf.util.*;
-import sarf.verb.trilateral.unaugmented.*;
+import sarf.Word;
+import sarf.util.ArabCharUtil;
+import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 
 /**
@@ -11,10 +12,11 @@ import sarf.verb.trilateral.unaugmented.*;
  * <p>Description: برنامج التصريف</p>
  * <p>Copyright: Copyright (c) 2006</p>
  * <p>Company: </p>
+ *
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ActivePresentVerb {
+public class ActivePresentVerb extends Word {
     private final UnaugmentedTrilateralRoot root;
 
     //حرف المضارع
@@ -63,8 +65,8 @@ public class ActivePresentVerb {
         return cp;
     }
 
+    @Override
     public String toString() {
-        return cp+vcp+root.getC1()+dpr1+root.getC2()+dpr2+root.getC3()+lastDpr+connectedPronoun;
+        return cp + vcp + root.getC1() + dpr1 + root.getC2() + dpr2 + root.getC3() + lastDpr + connectedPronoun;
     }
-
 }

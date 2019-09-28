@@ -4,6 +4,7 @@ import java.util.List;
 
 import sarf.KindOfVerb;
 import sarf.ConjugationResult;
+import sarf.Word;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 /**
@@ -19,5 +20,5 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
  * @version 1.0
  */
 public interface IUnaugmentedTrilateralNounModifier {
-    ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula);
+    ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List<? extends Word> conjugations, String formula);
 }

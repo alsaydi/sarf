@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.unaugmented.active;
 
+import sarf.Word;
 import sarf.util.ArabCharUtil;
 import sarf.verb.trilateral.unaugmented.*;
 
@@ -13,7 +14,7 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ActivePastVerb {
+public class ActivePastVerb extends Word {
     private final UnaugmentedTrilateralRoot root;
 
     //حركة فاء الفعل وهي الفتحة دائماً

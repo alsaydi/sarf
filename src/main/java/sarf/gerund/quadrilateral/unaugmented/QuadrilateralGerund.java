@@ -1,9 +1,11 @@
 package sarf.gerund.quadrilateral.unaugmented;
 
+import sarf.Word;
+
 /**
  * مصدر الفعل الرباعي المجرد
  */
-public class QuadrilateralGerund {
+public class QuadrilateralGerund extends Word {
     private final String display;
 
     QuadrilateralGerund(String display){

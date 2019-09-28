@@ -40,7 +40,7 @@ public class Vocalizer {
 
         for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

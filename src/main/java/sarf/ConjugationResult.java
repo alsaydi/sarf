@@ -18,28 +18,28 @@ import java.util.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ConjugationResult<T> {
+public class ConjugationResult {
     private final int formulaNo;
     private final Root root;
     private final KindOfVerb kov;
     private final String nounFormula;
 
     //13 conjugated verbs
-    private final List<T> originalResult;
+    private final List<? extends Word> originalResult;
     //القائمة بعد  الادغام والاعلال والهمزة
-    private final List<T> finalResult;
+    private final List<Word> finalResult;
 
     //TODO: I believe originalResult is of List<String> type.
     
-    public ConjugationResult(KindOfVerb kov, int formulaNo, Root root, List<T> originalResult) {
+    public ConjugationResult(KindOfVerb kov, int formulaNo, Root root, List<? extends Word> originalResult) {
         this(kov, formulaNo, root, originalResult, "");
     }
 
-    public ConjugationResult(KindOfVerb kov, Root root, List<T> originalResult, String nounFormula) {
+    public ConjugationResult(KindOfVerb kov, Root root, List<? extends Word> originalResult, String nounFormula) {
         this(kov, 0, root, originalResult, nounFormula);
     }
 
-    private ConjugationResult(KindOfVerb kov, int formulaNo, Root root, List<T> originalResult, String nounFormula){
+    private ConjugationResult(KindOfVerb kov, int formulaNo, Root root, List<? extends Word> originalResult, String nounFormula){
         this.kov = kov;
         this.formulaNo = formulaNo;
         this.originalResult = originalResult;
@@ -48,7 +48,11 @@ public class ConjugationResult<T> {
         this.nounFormula = nounFormula;
     }
 
-    public List<T> getFinalResult() {
+    public void replace(int index, Word word){
+        this.finalResult.set(index, word);
+    }
+
+    public List<? extends Word> getFinalResult() {
         return finalResult;
     }
 
@@ -56,7 +60,7 @@ public class ConjugationResult<T> {
         return kov;
     }
 
-    public List<T> getOriginalResult() {
+    public List<? extends Word> getOriginalResult() {
         return originalResult;
     }
 

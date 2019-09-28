@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.swing.*;
 
+import com.google.common.collect.ImmutableList;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.exaggeration.NonStandardExaggerationConjugator;
 import sarf.noun.trilateral.unaugmented.exaggeration.StandardExaggerationConjugator;
@@ -300,9 +301,9 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         ToggleRenderedButton button = new ToggleRenderedButton(formula);
         button.addActionListener(e -> {
             sarf.Action sarfAction = () -> {
-                List conjugatedNouns = conjugator.createNounList(root, formula);
+                var conjugatedNouns = conjugator.createNounList(root, formula);
                 ConjugationResult conjResult = modifier.build(root, selectionInfo.getKov(), conjugatedNouns, formula);
-                return conjResult.getFinalResult();
+                return ImmutableList.copyOf(conjResult.getFinalResult());
             };
 
             NounConjugationUI ui = new NounConjugationUI(this.controlPaneContainer, sarfAction, nounSuffixContainer, title);
@@ -334,9 +335,9 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         ToggleRenderedButton button = new ToggleRenderedButton(formula);
         button.addActionListener(e -> {
             sarf.Action sarfAction = () -> {
-                List conjugatedNouns = conjugator.createNounList(root, formula);
+                var conjugatedNouns = conjugator.createNounList(root, formula);
                 ConjugationResult conjResult = modifier.build(root, selectionInfo.getKov(), conjugatedNouns, formula);
-                return conjResult.getFinalResult();
+                return ImmutableList.copyOf(conjResult.getFinalResult());
             };
 
             ElativeNounConjugationUI ui = new ElativeNounConjugationUI(this.controlPaneContainer, sarfAction, title);

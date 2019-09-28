@@ -6,12 +6,9 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import sarf.KindOfVerb;
-import sarf.NounLamAlefModifier;
-import sarf.NounSunLamModifier;
+import sarf.*;
 import sarf.verb.quadriliteral.QuadrilateralRoot;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
-import sarf.ConjugationResult;
 
 import java.util.ArrayList;
 
@@ -49,7 +46,7 @@ class QuadrilateralStandardModifierTest {
         var root = new AugmentedQuadrilateralRoot();
         var kov = KindOfVerb.Salim;
         var formulaNo = 1;
-        var conjugations = new ArrayList<String>();
+        var conjugations = new ArrayList<Word>();
 
         var actual = sut.build(root, formulaNo, kov, conjugations);
 

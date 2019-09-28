@@ -1,15 +1,16 @@
 package sarf.noun.trilateral.unaugmented;
 
+import sarf.Word;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.util.*;
 import sarf.noun.*;
 
-public class UnaugmentedTrilateralActiveParticiple  {
+public class UnaugmentedTrilateralActiveParticiple extends Word {
     private final UnaugmentedTrilateralRoot root;
     private final String suffix;
     private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    public UnaugmentedTrilateralActiveParticiple(UnaugmentedTrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
+    UnaugmentedTrilateralActiveParticiple(UnaugmentedTrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.root = root;
         this.suffix = suffix;
         this.genericNounSuffixContainer = genericNounSuffixContainer;

@@ -5,12 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import sarf.KindOfVerb;
-import sarf.NounLamAlefModifier;
-import sarf.NounSunLamModifier;
+import sarf.*;
 import sarf.noun.trilateral.augmented.modifier.Substituter;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
-import sarf.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.FormulaApplyingChecker;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.IFormulaApplyingChecker;
@@ -52,7 +49,7 @@ class TrilateralAugmentedStandardModifierTest {
         var root = new AugmentedTrilateralRoot();
         var kov = KindOfVerb.Salim;
         var formulaNo = 1;
-        var conjugations = new ArrayList<String>();
+        var conjugations = new ArrayList<Word>();
 
         var result = sut.build(root, kov, formulaNo, conjugations, augmentedTrilateralModifierListener);
 
@@ -72,7 +69,7 @@ class TrilateralAugmentedStandardModifierTest {
         var root = new AugmentedTrilateralRoot();
         var kov = KindOfVerb.Salim;
         var formulaNo = 1;
-        var conjugations = new ArrayList<String>();
+        var conjugations = new ArrayList<Word>();
 
         var result = sut.build(root, kov, formulaNo, conjugations, augmentedTrilateralModifierListener);
 
@@ -92,7 +89,7 @@ class TrilateralAugmentedStandardModifierTest {
         var root = new AugmentedTrilateralRoot();
         var kov = KindOfVerb.Salim;
         var formulaNo = 1;
-        var conjugations = new ArrayList<String>();
+        var conjugations = new ArrayList<Word>();
 
         var result = sut.build(root, kov, formulaNo, conjugations, null);
 
@@ -113,7 +110,7 @@ class TrilateralAugmentedStandardModifierTest {
         var root = new AugmentedTrilateralRoot();
         var kov = KindOfVerb.Salim;
         var formulaNo = 1;
-        var conjugations = new ArrayList<String>();
+        var conjugations = new ArrayList<Word>();
 
         var result = sut.build(root, kov, formulaNo, conjugations, augmentedTrilateralModifierListener);
 
@@ -134,7 +131,7 @@ class TrilateralAugmentedStandardModifierTest {
         var root = new AugmentedTrilateralRoot();
         var kov = KindOfVerb.Salim;
         var formulaNo = 1;
-        var conjugations = new ArrayList<String>();
+        var conjugations = new ArrayList<Word>();
 
         var result = sut.build(root, kov, formulaNo, conjugations, augmentedTrilateralModifierListener);
 

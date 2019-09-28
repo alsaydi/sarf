@@ -266,6 +266,6 @@ public class TrilateralAugmentedHelper {
         for (Object word : finalResult) {
             System.out.printf(" %s |", word == null ? "" : word);
         }
-        System.out.println("");
+        System.out.println();
     }
 }

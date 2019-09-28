@@ -75,7 +75,7 @@ public class UnaugmentedImperativeConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createEmphasizedVerbList(UnaugmentedTrilateralRoot root) {
+    public List<ImperativeVerb> createEmphasizedVerbList(UnaugmentedTrilateralRoot root) {
         var result = new ArrayList<ImperativeVerb>();
         for (int i = 0; i < SystemConstants.PRONOUN_RANGE_END; i++) {
             result.add(createEmphasizedVerb(i, root));

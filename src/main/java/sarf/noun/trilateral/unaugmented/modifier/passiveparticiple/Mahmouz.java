@@ -32,7 +32,7 @@ public class Mahmouz {
     public void apply(ConjugationResult conjResult) {
         for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) (IUnaugmentedTrilateralNounModificationApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

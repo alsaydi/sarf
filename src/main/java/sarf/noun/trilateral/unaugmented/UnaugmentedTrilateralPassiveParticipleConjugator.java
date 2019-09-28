@@ -40,7 +40,7 @@ public class UnaugmentedTrilateralPassiveParticipleConjugator implements IUnaugm
     }
 
     //TODO: why null?
-    public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
-        return null;
+    public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
+        return Collections.emptyList();
     }
 }

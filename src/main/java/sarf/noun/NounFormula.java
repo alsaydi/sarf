@@ -1,5 +1,6 @@
 package sarf.noun;
 
+import sarf.Word;
 import sarf.verb.trilateral.unaugmented.*;
 
 /**
@@ -14,7 +15,7 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class NounFormula {
+public abstract class NounFormula extends Word {
     protected UnaugmentedTrilateralRoot root;
     protected int suffixNo;
     protected String suffix;
@@ -35,6 +36,7 @@ public abstract class NounFormula {
 
     public abstract String getFormulaName();
 
+    @Override
     public String toString() {
         String result = form();
         if (result != null && !result.equals("") && genericNounSuffixContainer != null)

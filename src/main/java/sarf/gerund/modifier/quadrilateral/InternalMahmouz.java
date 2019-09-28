@@ -5,6 +5,7 @@ import java.util.*;
 import sarf.noun.*;
 import sarf.substitution.InfixSubstitution;
 import sarf.ConjugationResult;
+import sarf.substitution.Substitution;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,7 +20,7 @@ import sarf.ConjugationResult;
  * @version 1.0
  */
 public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier {
-    private final List<InfixSubstitution> substitutions = new ArrayList<>();
+    private final List<Substitution> substitutions = new ArrayList<>();
 
     InternalMahmouz() {
         substitutions.add(new InfixSubstitution("َءْ","َأْ"));// EX: (جأجأة، بأدلة،  تجأجُؤ، )
@@ -30,7 +31,7 @@ public class InternalMahmouz extends QuadrilateralNounSubstitutionApplier {
     }
 
     @Override
-    public List<InfixSubstitution> getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

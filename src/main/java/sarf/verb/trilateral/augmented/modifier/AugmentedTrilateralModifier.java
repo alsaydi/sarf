@@ -47,7 +47,7 @@ public class AugmentedTrilateralModifier {
      * @param tense String (From SystemConstans class the values are stored)  ماضي أو مضارع او أمر
      * @return ConjugationResult
      */
-    public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List conjugations, String tense, boolean active, boolean applyGemination, AugmentedTrilateralModifierListener listener) {
+    public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List<? extends Word> conjugations, String tense, boolean active, boolean applyGemination, AugmentedTrilateralModifierListener listener) {
         ConjugationResult conjResult = new ConjugationResult(kov, formulaNo, root, conjugations);
         substituter.apply(tense, active, conjResult);
         if (applyGemination) {
@@ -77,7 +77,7 @@ public class AugmentedTrilateralModifier {
         return conjResult;
     }
 
-    public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List conjugations, String tense, boolean active, AugmentedTrilateralModifierListener listener) {
+    public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List<? extends Word> conjugations, String tense, boolean active, AugmentedTrilateralModifierListener listener) {
         return build(root, kov, formulaNo, conjugations, tense, active, true, listener);
     }
 

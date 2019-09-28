@@ -1,5 +1,6 @@
 package sarf.noun.quadriliteral.augmented;
 
+import sarf.Word;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.noun.GenericNounSuffixContainer;
 
@@ -15,7 +16,7 @@ import sarf.noun.GenericNounSuffixContainer;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AugmentedQuadrilateralNoun {
+public abstract class AugmentedQuadrilateralNoun extends Word {
     protected final AugmentedQuadrilateralRoot root;
     protected final String suffix;
     private final GenericNounSuffixContainer genericNounSuffixContainer;
@@ -28,6 +29,7 @@ public abstract class AugmentedQuadrilateralNoun {
 
     public abstract String form();
 
+    @Override
     public String toString() {
         return genericNounSuffixContainer.getPrefix()+form();
     }

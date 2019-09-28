@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.augmented.imperative;
 
+import sarf.Word;
 import sarf.verb.trilateral.augmented.*;
 
 /**
@@ -14,7 +15,7 @@ import sarf.verb.trilateral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AugmentedImperativeVerb {
+public abstract class AugmentedImperativeVerb extends Word {
 
     protected final AugmentedTrilateralRoot root;
     protected final String lastDim;
@@ -40,6 +41,7 @@ public abstract class AugmentedImperativeVerb {
         return lastDim;
     }
 
+    @Override
     public String toString() {
         return form();
     }

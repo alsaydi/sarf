@@ -148,10 +148,10 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
     	unaugmentedButtons.forEach(b -> b.setEnabled(false));
     }
 
-    private static List<String> createEmptyList() {
-        List<String> result = new ArrayList<>(13);
+    private static List<Word> createEmptyList() {
+        List<Word> result = new ArrayList<>(13);
         for (int i = 1; i <= 13; i++) {
-            result.add("");
+            result.add(Word.Empty);
         }
         return result;
     }
@@ -164,15 +164,15 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
         //مع الضمير هو
         //past text formatting
         String pastRootText = unaugmentedTriActivePastConjugator.createVerb(7, root).toString();
-        List<String> conjugations = createEmptyList();
-        conjugations.set(7, pastRootText);
+        List<Word> conjugations = createEmptyList();
+        conjugations.set(7, Word.fromText(pastRootText));
         var conjResult = unaugmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //present text formatting
         String presentRootText = activePresentConjugator.createNominativeVerb(7, root).toString();
         conjugations = createEmptyList();
-        conjugations.set(7, presentRootText);
+        conjugations.set(7, Word.fromText(presentRootText));
         conjResult = unaugmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), conjugations, SystemConstants.PRESENT_TENSE, true);
         presentRootText = conjResult.getFinalResult().get(7).toString();
 
@@ -189,15 +189,15 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
         //مع الضمير هو
         //past text formatting
         String pastRootText = augmentedActivePastConjugator.createVerb(root, 7, formulaNo).toString();
-        List<String> conjugations = createEmptyList();
-        conjugations.set(7, pastRootText);
+        var conjugations = createEmptyList();
+        conjugations.set(7, Word.fromText(pastRootText));
         ConjugationResult conjResult = augmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), formulaNo, conjugations, SystemConstants.PAST_TENSE, true, null);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //past text formatting
         String presentRootText = augmentedActivePresentConjugator.getNominativeConjugator().createVerbList(root, formulaNo).get(7).toString();
         conjugations = createEmptyList();
-        conjugations.set(7, presentRootText);
+        conjugations.set(7, Word.fromText(presentRootText));
         conjResult = augmentedTrilateralModifier.build(root, controlPaneContainer.getKov(), formulaNo, conjugations, SystemConstants.PRESENT_TENSE, true, null);
         presentRootText = conjResult.getFinalResult().get(7).toString();
 
@@ -209,10 +209,10 @@ public class TrilateralControlPane extends JPanel implements IControlPane{
         public void actionPerformed(ActionEvent e) {
             int conjugationNo = Integer.parseInt(((JButton)e.getSource()).getName());
 
-            UnaugmentedTrilateralRoot root = (UnaugmentedTrilateralRoot) unaugmentedTrilateralRoots.get(conjugationNo-1);
+            UnaugmentedTrilateralRoot root = unaugmentedTrilateralRoots.get(conjugationNo-1);
             SelectionInfo selectionInfo = new SelectionInfo(root, true, false, controlPaneContainer.getKov());
 
-            ControlButton controlButton = (ControlButton) unaugmentedButtons.get(conjugationNo-1);
+            ControlButton controlButton = unaugmentedButtons.get(conjugationNo-1);
             selectionInfo.setFormulaText(controlButton.getFormulaText());
             selectionInfo.setVerbText(controlButton.getVerbText());
 

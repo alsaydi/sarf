@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.augmented;
 
+import sarf.Word;
 import sarf.verb.trilateral.augmented.*;
 
 /**
@@ -14,7 +15,7 @@ import sarf.verb.trilateral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AugmentedPresentVerb {
+public abstract class AugmentedPresentVerb extends Word {
 
     protected final AugmentedTrilateralRoot root;
     protected final String lastDpr;
@@ -43,6 +44,7 @@ public abstract class AugmentedPresentVerb {
         return lastDpr;
     }
 
+    @Override
     public String toString() {
         return form();
     }

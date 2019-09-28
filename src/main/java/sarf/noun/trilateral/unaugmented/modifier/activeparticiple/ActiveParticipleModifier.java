@@ -35,7 +35,7 @@ public class ActiveParticipleModifier implements IUnaugmentedTrilateralNounModif
         this.nounSunLamModifier = nounSunLamModifier;
     }
 
-    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
+    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List<? extends Word> conjugations, String formula) {
         var conjResult = new ConjugationResult(kov, root, conjugations, formula);
         if (geminator.isApplied(conjResult))
             geminator.apply(conjResult.getFinalResult(), root);

@@ -1,5 +1,6 @@
 package sarf.substitution;
 
+import sarf.Word;
 import sarf.verb.Root;
 
 /**
@@ -29,7 +30,7 @@ public abstract class Substitution {
      * @param word String
      * @return String
      */
-    public abstract String apply(String word, Root root);
+    public abstract Word apply(Word word, Root root);
 
     String buildSubstitution(Root root, String expression) {
         var effectiveExpression = expression;

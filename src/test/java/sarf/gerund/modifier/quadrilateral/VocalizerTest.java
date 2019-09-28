@@ -27,7 +27,7 @@ class VocalizerTest {
     void isApplied() {
         var root = new AugmentedQuadrilateralRoot();
         root.setC4('ي');
-        var result = new ConjugationResult<String>(KindOfVerb.Naqis_Wawi, 1, root, Collections.emptyList());
+        var result = new ConjugationResult(KindOfVerb.Naqis_Wawi, 1, root, Collections.emptyList());
         var sut = new Vocalizer();
 
         assertThat(sut.isApplied(result)).isTrue();

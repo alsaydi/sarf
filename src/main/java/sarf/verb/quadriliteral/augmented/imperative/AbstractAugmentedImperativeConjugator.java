@@ -21,7 +21,7 @@ public class AbstractAugmentedImperativeConjugator {
     private final List<String> lastDimList;
     private final List<String> connectedPronounList;
 
-    public AbstractAugmentedImperativeConjugator(List<String> lastDimList, List<String> connectedPronounList) {
+    AbstractAugmentedImperativeConjugator(List<String> lastDimList, List<String> connectedPronounList) {
         this.lastDimList = lastDimList;
         this.connectedPronounList = connectedPronounList;
     }
@@ -59,14 +59,4 @@ public class AbstractAugmentedImperativeConjugator {
 
         return result;
     }
-
-    public Map<String, List<AugmentedImperativeVerb>> createAllVerbList(AugmentedQuadrilateralRoot root) {
-        Map<String, List<AugmentedImperativeVerb>> result = new HashMap<>();
-        for (AugmentationFormula formula : (Iterable<AugmentationFormula>) root.getAugmentationList()) {
-            List<AugmentedImperativeVerb> formulaVerbList = createVerbList(root, formula.getFormulaNo());
-            result.put(formula.getFormulaNo() + "", formulaVerbList);
-        }
-        return result;
-    }
-
 }

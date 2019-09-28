@@ -56,8 +56,7 @@ public class Substituter {
         modifiers = active ? activeList : passiveList;
 
         for (SubstitutionsApplier o : modifiers) {
-            var modifier = o;
-            if (modifier.isApplied(conjResult)) {
+            if (o.isApplied(conjResult)) {
                 o.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }

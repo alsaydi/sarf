@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.unaugmented;
 
+import sarf.Word;
 import sarf.util.*;
 
 
@@ -12,7 +13,7 @@ import sarf.util.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ImperativeVerb {
+public class ImperativeVerb extends Word {
     private final UnaugmentedTrilateralRoot root;
 
     //حرف الأمر
@@ -31,7 +32,7 @@ public class ImperativeVerb {
     //ضمير الرفع المتصل
     private final String connectedPronoun;
 
-    public ImperativeVerb(UnaugmentedTrilateralRoot root, String dpr2, String lastDim, String connectedPronoun) {
+    ImperativeVerb(UnaugmentedTrilateralRoot root, String dpr2, String lastDim, String connectedPronoun) {
         this.root = root;
         this.dpr2 = dpr2;
         this.lastDim = lastDim;
@@ -58,6 +59,7 @@ public class ImperativeVerb {
         return ci;
     }
 
+    @Override
     public String toString() {
         return ci+root.getC1()+dim1+root.getC2()+dpr2+root.getC3()+lastDim+connectedPronoun;
     }

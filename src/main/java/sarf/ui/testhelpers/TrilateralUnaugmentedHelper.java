@@ -1,8 +1,10 @@
 package sarf.ui.testhelpers;
 
 import com.google.inject.Inject;
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.SystemConstants;
+import sarf.Word;
 import sarf.gerund.modifier.trilateral.unaugmented.meem.TrilateralUnaugmentedMeemModifier;
 import sarf.gerund.modifier.trilateral.unaugmented.nomen.TrilateralUnaugmentedNomenModifier;
 import sarf.gerund.modifier.trilateral.unaugmented.quality.TrilateralUnaugmentedQualityModifier;
@@ -28,7 +30,6 @@ import sarf.noun.trilateral.unaugmented.modifier.instrumental.InstrumentalModifi
 import sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.PassiveParticipleModifier;
 import sarf.noun.trilateral.unaugmented.modifier.timeandplace.TimeAndPlaceModifier;
 import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
-import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedImperativeConjugator;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
@@ -140,14 +141,14 @@ public class TrilateralUnaugmentedHelper {
 
     public void printTrilateralTree(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         String pastRootText = triActivePastConjugator.createVerb(7, root).toString();
-        List<String> conjugations = createEmptyList();
-        conjugations.set(7, pastRootText);
+        var conjugations = createEmptyList();
+        conjugations.set(7, Word.fromText(pastRootText));
         var conjResult = unaugmentedTrilateralModifier.build(root, kov, conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         String presentRootText = triUnaugmentedActivePresentConjugator.createNominativeVerb(7, root).toString();
         conjugations = createEmptyList();
-        conjugations.set(7, presentRootText);
+        conjugations.set(7, Word.fromText(presentRootText));
         conjResult = unaugmentedTrilateralModifier.build(root, kov, conjugations, SystemConstants.PRESENT_TENSE, true);
         presentRootText = conjResult.getFinalResult().get(7).toString();
 
@@ -198,14 +199,14 @@ public class TrilateralUnaugmentedHelper {
     }
 
     private void printPassivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        var result = triPassivePastConjugator.createVerbList(root);
+        List<? extends Word> result = triPassivePastConjugator.createVerbList(root);
         var conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PAST_TENSE, false);
         result = conjResult.getFinalResult();
         printFinalResultPipeSeparated(root, result);
     }
 
     private void printPassivePresentConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        var result = passivePresentConjugator.createEmphasizedVerbList(root);
+        List<? extends Word> result = passivePresentConjugator.createEmphasizedVerbList(root);
         var conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, false);
         result = conjResult.getFinalResult();
         printFinalResultPipeSeparated(root, result);
@@ -214,7 +215,7 @@ public class TrilateralUnaugmentedHelper {
     private void printActiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         var formulas = new String[]{"فاعل"};
         for (var formula : formulas) {
-            var nouns = unaugmentedTrilateralActiveParticipleConjugator.createNounList(root, formula.toString());
+            var nouns = unaugmentedTrilateralActiveParticipleConjugator.createNounList(root, formula);
             var finalResult = activeParticipleModifier.build(root, kov, nouns, formula).getFinalResult();
             printFinalResultPipeSeparated(root, finalResult);
         }
@@ -223,7 +224,7 @@ public class TrilateralUnaugmentedHelper {
     private void printPastParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         var formulas = new String[]{"مفعول"};
         for (var formula : formulas) {
-            var nouns = unaugmentedTrilateralPassiveParticipleConjugator.createNounList(root, formula.toString());
+            var nouns = unaugmentedTrilateralPassiveParticipleConjugator.createNounList(root, formula);
             var finalResult = trilateralUnaugmentedPassiveParticipleModifier.build(root, kov, nouns, formula).getFinalResult();
             printFinalResultPipeSeparated(root, finalResult);
         }
@@ -346,7 +347,7 @@ public class TrilateralUnaugmentedHelper {
         for (Object word : finalResult) {
             System.out.printf(" %s |", word == null ? "" : word);
         }
-        System.out.println("");
+        System.out.println();
     }
 
     private static void printFinalResultPipeSeparated(UnaugmentedTrilateralRoot root, List finalResult, String formula) {
@@ -355,12 +356,12 @@ public class TrilateralUnaugmentedHelper {
             System.out.printf(" %s |", word == null ? "" : word);
         }
         System.out.printf("%s |", formula);
-        System.out.println("");
+        System.out.println();
     }
 
-    private static List<String> createEmptyList() {
+    private static List<Word> createEmptyList() {
         return IntStream.range(0, SystemConstants.PRONOUN_RANGE_END)
-                .mapToObj(a -> "")
+                .mapToObj(a -> Word.Empty)
                 .collect(Collectors.toList());
     }
 }

@@ -1,5 +1,6 @@
 package sarf.noun.trilateral.augmented;
 
+import sarf.Word;
 import sarf.verb.trilateral.augmented.*;
 import sarf.noun.*;
 
@@ -15,7 +16,7 @@ import sarf.noun.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AugmentedTrilateralNoun {
+public abstract class AugmentedTrilateralNoun extends Word {
     protected final AugmentedTrilateralRoot root;
     protected final String suffix;
     private final GenericNounSuffixContainer genericNounSuffixContainer;
@@ -28,6 +29,7 @@ public abstract class AugmentedTrilateralNoun {
 
     public abstract String form();
 
+    @Override
     public String toString() {
         return genericNounSuffixContainer.getPrefix()+form();
     }

@@ -1,5 +1,6 @@
 package sarf.verb.quadriliteral.unaugmented.active;
 
+import sarf.Word;
 import sarf.util.ArabCharUtil;
 import sarf.verb.quadriliteral.unaugmented.*;
 
@@ -13,7 +14,7 @@ import sarf.verb.quadriliteral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ActivePastVerb {
+public class ActivePastVerb extends Word {
     private final UnaugmentedQuadrilateralRoot root;
 
     //حركة لام الفعل حسب الضمير
@@ -40,8 +41,8 @@ public class ActivePastVerb {
         return lastDpa;
     }
 
+    @Override
     public String toString() {
         return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.FATHA+root.getC4()+lastDpa+connectedPronoun;
     }
-
 }

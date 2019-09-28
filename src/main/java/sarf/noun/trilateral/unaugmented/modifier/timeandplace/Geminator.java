@@ -27,8 +27,7 @@ public class Geminator extends AbstractGeminator {
         substitutions.add(new ExpressionInfixSubstitution("ْC3ِC3", "ِC3ّ")); // EX: (مَرِنّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

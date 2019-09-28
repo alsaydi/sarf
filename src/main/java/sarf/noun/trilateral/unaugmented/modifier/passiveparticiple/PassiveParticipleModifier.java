@@ -3,12 +3,9 @@ package sarf.noun.trilateral.unaugmented.modifier.passiveparticiple;
 import java.util.List;
 
 import com.google.inject.Inject;
-import sarf.KindOfVerb;
-import sarf.NounLamAlefModifier;
-import sarf.ConjugationResult;
+import sarf.*;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.NounSunLamModifier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -36,7 +33,7 @@ public class PassiveParticipleModifier implements IUnaugmentedTrilateralNounModi
         this.nounSunLamModifier = nounSunLamModifier;
     }
 
-    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
+    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List<? extends Word> conjugations, String formula) {
         var conjResult = new ConjugationResult(kov, root, conjugations, formula);
         vocalizer.apply(conjResult);
         mahmouz.apply(conjResult);

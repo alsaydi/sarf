@@ -30,8 +30,8 @@ public class AbstractAugmentedPresentConjugator {
 
     public AugmentedPresentVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
         String cp = PresentConjugationDataContainer.getCp(pronounIndex);
-        String lastDpr = (String) lastDprList.get(pronounIndex);
-        String connectedPronoun = (String) connectedPronounList.get(pronounIndex);
+        String lastDpr = lastDprList.get(pronounIndex);
+        String connectedPronoun = connectedPronounList.get(pronounIndex);
         String formulaClassName = getClass().getPackage().getName()+".formula."+"AugmentedPresentVerb"+formulaNo;
         Object [] parameters = {root, cp, lastDpr, connectedPronoun};
 

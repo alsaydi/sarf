@@ -1,5 +1,6 @@
 package sarf.verb.quadriliteral.augmented.imperative;
 
+import sarf.Word;
 import sarf.verb.quadriliteral.augmented.*;
 
 /**
@@ -14,7 +15,7 @@ import sarf.verb.quadriliteral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AugmentedImperativeVerb {
+public abstract class AugmentedImperativeVerb extends Word {
 
     protected final AugmentedQuadrilateralRoot root;
     protected final String lastDim;

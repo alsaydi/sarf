@@ -1,6 +1,7 @@
 package sarf.ui.controlpane;
 
 import sarf.Action;
+import sarf.Word;
 import sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier;
 import sarf.gerund.modifier.trilateral.augmented.standard.TrilateralAugmentedStandardModifier;
 import sarf.gerund.quadrilateral.augmented.QuadrilateralAugmentedGerundConjugator;
@@ -92,7 +93,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
 
         standardBtn.addActionListener(e -> {
             Action action = () -> {
-                List gerunds = null;
+                List<? extends Word> gerunds = null;
                 if (selectionInfo.isTrilateral()) {
                     gerunds = trilateralAugmentedGerundConjugator.createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     ConjugationResult conjResult = trilateralAugmentedStandardModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
@@ -114,10 +115,10 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
 
         nomenBtn.addActionListener(e -> {
             Action action = () -> {
-                List gerunds;
+                List<? extends Word> gerunds;
                 if (selectionInfo.isTrilateral()) {
                     gerunds = trilateralAugmentedNomenGerundConjugator.createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                    ConjugationResult conjResult = trilateralAugmentedStandardModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
+                    var conjResult = trilateralAugmentedStandardModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                             selectionInfo.getAugmentationFormulaNo(), gerunds, GerundSelectionUI.this);
                     return conjResult.getFinalResult();
                 }

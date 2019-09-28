@@ -1,5 +1,6 @@
 package sarf.verb.quadriliteral.unaugmented.passive;
 
+import sarf.Word;
 import sarf.util.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 
@@ -12,7 +13,7 @@ import sarf.verb.quadriliteral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PassivePastVerb {
+public class PassivePastVerb extends Word {
     private final UnaugmentedQuadrilateralRoot root;
 
 
@@ -22,7 +23,7 @@ public class PassivePastVerb {
     //الأحرف المضافة لنهاية الفعل حسب الضمير
     private final String connectedPronoun;
 
-    public PassivePastVerb(UnaugmentedQuadrilateralRoot root, String lastDpa, String connectedPronoun) {
+    PassivePastVerb(UnaugmentedQuadrilateralRoot root, String lastDpa, String connectedPronoun) {
         this.root = root;
         this.lastDpa = lastDpa;
         this.connectedPronoun = connectedPronoun;

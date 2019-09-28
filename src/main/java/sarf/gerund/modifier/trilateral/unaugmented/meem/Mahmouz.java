@@ -39,7 +39,7 @@ public class Mahmouz {
 
         //الأفعال الثلاثية المجردة المهموزة الفاء والمهموزة اللام (وهي: أبأ، أثأ، أجأ، أزأ، أكأ)
         if (conjResult.getRoot().getC3() == 'ء')
-            ((SubstitutionsApplier)modifiers.get(2)).apply(conjResult.getFinalResult(), conjResult.getRoot());
+            modifiers.get(2).apply(conjResult.getFinalResult(), conjResult.getRoot());
 
     }
 }
