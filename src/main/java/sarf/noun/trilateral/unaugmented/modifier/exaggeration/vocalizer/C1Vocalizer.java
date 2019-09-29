@@ -30,7 +30,7 @@ public class C1Vocalizer extends TrilateralNounSubstitutionApplier{
         substitutions.add(new InfixSubstitution("مِوْ","مِي"));// EX: (مِيصال )
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

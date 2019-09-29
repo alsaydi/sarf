@@ -26,7 +26,7 @@ public class AbstractAugmentedImperativeConjugator {
         this.connectedPronounList = connectedPronounList;
     }
 
-    public AugmentedImperativeVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
+    private AugmentedImperativeVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
         String lastDim = lastDimList.get(pronounIndex);
         String connectedPronoun = connectedPronounList.get(pronounIndex);
         String formulaClassName = getClass().getPackage().getName()+".formula."+"AugmentedImperativeVerb"+formulaNo;

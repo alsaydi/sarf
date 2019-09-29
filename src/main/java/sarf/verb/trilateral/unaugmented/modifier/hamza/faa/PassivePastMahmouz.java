@@ -28,7 +28,7 @@ public class PassivePastMahmouz extends AbstractFaaMahmouz {
         substitutions.add(new PrefixSubstitution("ءُ", "أُ")); // EX: (أُكِلَ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

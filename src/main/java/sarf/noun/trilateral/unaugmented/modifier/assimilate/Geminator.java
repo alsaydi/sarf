@@ -28,7 +28,7 @@ public class Geminator extends AbstractGeminator {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

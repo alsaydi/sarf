@@ -35,7 +35,7 @@ public class PresentMahmouz extends AbstractFaaMahmouz {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

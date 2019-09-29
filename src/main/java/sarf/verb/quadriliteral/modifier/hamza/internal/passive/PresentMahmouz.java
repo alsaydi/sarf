@@ -28,7 +28,7 @@ public class PresentMahmouz extends AbstractQuadrilateralInternalMahmouzModifier
 
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

@@ -27,7 +27,7 @@ public class GenericSubstituter4 extends AbstractGenericSubstituter {
         substitutions.add(new InfixSubstitution("ذْتَ", "ذْدَ")); // EX: (اذْدَكَرَ، يَذْدَكِرُ، اذْدَكِرْ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

@@ -34,7 +34,7 @@ public class ImperativeMahmouz extends AbstractEinMahmouz {
         substitutions.add(new InfixSubstitution("ْءُ","ْؤُ"));// EX: (اضْؤُل، امْؤُ[المتطرفة عروضاً لها حكم المتوسطة أصالة])
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

@@ -38,7 +38,7 @@ public class PassivePastAjwafYaeiVocalizer extends AbstractAjwafYaeiVocalizer {
      * @todo Implement this
      *   SubstitutionsApplier method
      */
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

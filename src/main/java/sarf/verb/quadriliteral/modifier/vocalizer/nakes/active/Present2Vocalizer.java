@@ -34,7 +34,7 @@ public class Present2Vocalizer extends SubstitutionsApplier {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

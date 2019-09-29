@@ -27,7 +27,7 @@ public class ImperativeMahmouz extends AbstractQuadrilateralInternalMahmouzModif
         substitutions.add(new InfixSubstitution("ءِ", "ئِ")); // EX: (طَمْئِنْ، اطْمَئِنُّوا)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

@@ -43,7 +43,7 @@ public class PresentMahmouz extends AbstractEinMahmouz {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

@@ -30,7 +30,7 @@ public class PassivePresentAjwafYaeiVocalizer extends AbstractAjwafYaeiVocalizer
         substitutions.add(new ExpressionInfixSubstitution("ْيَC3ّ", "َC3ّ")); // EX: (أنتن تُلَنَّ، هن يُلَنَّ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

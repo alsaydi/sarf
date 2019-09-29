@@ -37,7 +37,7 @@ public class ImperativeMahmouz extends AbstractLamMahmouz {
         substitutions.add(new InfixSubstitution("ِء","ِئ"));// EX: (قِئْ، قِئْنَ، قِئُنَّ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

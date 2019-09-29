@@ -29,7 +29,7 @@ public class Past1Vocalizer extends SubstitutionsApplier{
         substitutions.add(new InfixSubstitution("يْ", "ي"));// EX: (أُحْيِيتُ، حُيِّيتُ قُوِّيتُ دُوِيتُ، انزويت، احتويتُ، تُحُيِّيتُ تدويت، استُحْيِيتُ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

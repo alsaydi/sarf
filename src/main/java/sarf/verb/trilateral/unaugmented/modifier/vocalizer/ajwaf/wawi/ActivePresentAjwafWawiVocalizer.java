@@ -30,7 +30,7 @@ public class ActivePresentAjwafWawiVocalizer extends AbstractAjwafWawiVocalizer 
         substitutions.add(new ExpressionInfixSubstitution("ْوُC3ّ", "ُC3ّ")); // EX: (أنتن تَصُنَّ، هنّ صُنَّ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

@@ -33,7 +33,7 @@ public class Imperative2Vocalizer extends SubstitutionsApplier {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

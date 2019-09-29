@@ -28,7 +28,7 @@ public class PassivePresentMahmouz extends AbstractFaaMahmouz {
         substitutions.add(new InfixSubstitution("ُءَ", "ُؤَ")); // EX: (يُؤَاب، يُؤَان)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

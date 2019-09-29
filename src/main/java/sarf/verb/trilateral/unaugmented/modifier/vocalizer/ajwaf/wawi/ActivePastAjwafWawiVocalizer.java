@@ -35,7 +35,7 @@ public class ActivePastAjwafWawiVocalizer extends AbstractAjwafWawiVocalizer {
      * @todo Implement this
      *   SubstitutionsApplier method
      */
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

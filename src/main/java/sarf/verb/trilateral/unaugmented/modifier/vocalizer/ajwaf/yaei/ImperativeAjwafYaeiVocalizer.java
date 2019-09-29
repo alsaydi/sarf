@@ -30,7 +30,7 @@ public class ImperativeAjwafYaeiVocalizer extends AbstractAjwafYaeiVocalizer {
         substitutions.add(new ExpressionInfixSubstitution("اC1ْيِC3ّ", "C1ِC3ّ")); // EX: (أنتن لِنَّ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

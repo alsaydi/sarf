@@ -35,7 +35,7 @@ public class PastMahmouz extends AbstractLamMahmouz {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

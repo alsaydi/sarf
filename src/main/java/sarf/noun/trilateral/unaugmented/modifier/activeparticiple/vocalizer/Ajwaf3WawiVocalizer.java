@@ -30,7 +30,7 @@ public class Ajwaf3WawiVocalizer extends TrilateralNounSubstitutionApplier{
         substitutions.add(new InfixSubstitution("اوِ","ائِ"));// EX: (قائِمٌ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

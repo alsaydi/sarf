@@ -39,7 +39,7 @@ public class ImperativeMahmouz extends AbstractLamMahmouz {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

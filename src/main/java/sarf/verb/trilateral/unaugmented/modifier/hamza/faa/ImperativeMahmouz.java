@@ -32,7 +32,7 @@ public class ImperativeMahmouz extends AbstractFaaMahmouz {
         substitutions.add(new PrefixSubstitution("ءُ","أُ"));// EX: (أنتِ أُولي)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

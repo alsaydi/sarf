@@ -130,7 +130,7 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier{
         return false;
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

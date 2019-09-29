@@ -27,7 +27,7 @@ public class PastMahmouz extends AbstractQuadrilateralInternalMahmouzModifier {
         substitutions.add(new InfixSubstitution("َءَ", "َأَ")); // EX: (اطْمَأَنَّ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

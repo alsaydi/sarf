@@ -26,12 +26,12 @@ public class AbstractAugmentedPresentConjugator {
     private final List lastDprList;
     private final List connectedPronounList;
 
-    public AbstractAugmentedPresentConjugator(List lastDprList, List connectedPronounList) {
+    AbstractAugmentedPresentConjugator(List lastDprList, List connectedPronounList) {
         this.lastDprList = lastDprList;
         this.connectedPronounList = connectedPronounList;
     }
 
-    public AugmentedPresentVerb createVerb(AugmentedTrilateralRoot root, int pronounIndex, int formulaNo) {
+    private AugmentedPresentVerb createVerb(AugmentedTrilateralRoot root, int pronounIndex, int formulaNo) {
         String cp = PresentConjugationDataContainer.getCp(pronounIndex);
         String lastDpr = (String) lastDprList.get(pronounIndex);
         String connectedPronoun = (String) connectedPronounList.get(pronounIndex);

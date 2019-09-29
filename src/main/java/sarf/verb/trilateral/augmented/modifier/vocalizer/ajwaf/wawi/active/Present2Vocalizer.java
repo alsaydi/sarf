@@ -31,7 +31,7 @@ public class Present2Vocalizer extends SubstitutionsApplier{
         substitutions.add(new ExpressionInfixSubstitution("َوِC3ْ","َC3ْ"));// EX: (هنّ يَنْقَدْنَ، يَقْتَدْنَ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

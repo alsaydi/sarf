@@ -35,7 +35,7 @@ private final List<Substitution> substitutions = new ArrayList<>();
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

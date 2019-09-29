@@ -29,7 +29,7 @@ public class RaaPastMahmouz extends SubstitutionsApplier{
         substitutions.add(new InfixSubstitution("ْءُ", "ُ")); // EX: (أُرُوا، )
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

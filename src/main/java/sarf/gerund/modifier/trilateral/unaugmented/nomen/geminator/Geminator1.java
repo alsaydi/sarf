@@ -29,7 +29,7 @@ private final List<Substitution> substitutions = new ArrayList<>();
         substitutions.add(new ExpressionInfixSubstitution("َC3ْC3َ","َC3َّ"));// EX: (رَدَّة، )
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

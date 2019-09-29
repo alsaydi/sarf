@@ -33,7 +33,7 @@ public class PassivePresentMahmouz extends AbstractLamMahmouz {
         substitutions.add(new InfixSubstitution("اءُن", "اؤُن")); // EX: (هم يساؤُنَّ، يجاؤنَّ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

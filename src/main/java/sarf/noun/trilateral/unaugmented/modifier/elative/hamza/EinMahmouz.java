@@ -28,7 +28,7 @@ public class EinMahmouz extends AbstractEinMahmouz {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

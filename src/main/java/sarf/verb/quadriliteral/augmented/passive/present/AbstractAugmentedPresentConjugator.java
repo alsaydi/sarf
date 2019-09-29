@@ -28,7 +28,7 @@ public class AbstractAugmentedPresentConjugator {
         this.connectedPronounList = connectedPronounList;
     }
 
-    public AugmentedPresentVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
+    private AugmentedPresentVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
         String cp = PresentConjugationDataContainer.getCp(pronounIndex);
         String lastDpr = lastDprList.get(pronounIndex);
         String connectedPronoun = connectedPronounList.get(pronounIndex);

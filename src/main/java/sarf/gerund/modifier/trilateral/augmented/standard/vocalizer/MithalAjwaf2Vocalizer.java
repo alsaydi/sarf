@@ -37,7 +37,7 @@ public class MithalAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier{
         return (formulaNo == 1 || formulaNo == 9) && (kov == KindOfVerb.Mithal_Yaee_Mahmouz_Ain || kov == KindOfVerb.Mithal_Yaee);
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }
