@@ -2,8 +2,8 @@
 package sarf.noun.trilateral.unaugmented.modifier.activeparticiple;
 
 import sarf.ConjugationResult;
-import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer.*;
+import sarf.substitution.Substitution;
 import sarf.substitution.SubstitutionsApplier;
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import java.util.List;
  * @version 1.0
  */
 public class Vocalizer {
-    private final List<IUnaugmentedTrilateralNounModificationApplier> modifiers = new ArrayList<>();
+    private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
 
     public Vocalizer() {
         modifiers.add(new WawiLafifNakesVocalizer());
@@ -37,9 +37,9 @@ public class Vocalizer {
     }
 
     public void apply(ConjugationResult conjResult) {
-        for (IUnaugmentedTrilateralNounModificationApplier modifier : modifiers) {
+        for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

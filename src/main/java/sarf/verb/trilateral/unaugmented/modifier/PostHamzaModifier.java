@@ -24,7 +24,7 @@ import static sarf.KindOfVerb.Mahmouz_Faa_Mahmouz_Laam;
 public class PostHamzaModifier {
     private final Map<String, AbstractLamMahmouz> modifiersMap = new HashMap<>();
 
-    public PostHamzaModifier() {
+    PostHamzaModifier() {
         //خمس أنواع  أساسية  للمهموز للمعلوم والمبني لمجهول في الماضي والمضارع والأمر
         modifiersMap.put(SystemConstants.PAST_TENSE + "true", new sarf.verb.trilateral.unaugmented.modifier.hamza.lam.ActivePastMahmouz());
         modifiersMap.put(SystemConstants.PRESENT_TENSE + "true", new sarf.verb.trilateral.unaugmented.modifier.hamza.lam.ActivePresentMahmouz());
@@ -45,9 +45,9 @@ public class PostHamzaModifier {
         if (conjResult.getKov() != Mahmouz_Faa_Mahmouz_Laam)
             return;
 
-        IUnaugmentedTrilateralModifier modifier = modifiersMap.get(tense+active);
+        var modifier = modifiersMap.get(tense+active);
         if (modifier.isApplied(conjResult)) {
-            ((SubstitutionsApplier)modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+            modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
         }
     }
 

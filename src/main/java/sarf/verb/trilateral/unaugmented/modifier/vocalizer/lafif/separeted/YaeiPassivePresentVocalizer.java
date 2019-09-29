@@ -24,7 +24,7 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class YaeiPassivePresentVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class YaeiPassivePresentVocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public YaeiPassivePresentVocalizer() {
@@ -38,10 +38,12 @@ public class YaeiPassivePresentVocalizer extends SubstitutionsApplier implements
         substitutions.add(new ExpressionInfixSubstitution("يْC2َيُن", "وC2َوُن")); // EX: (أنتم تُودَوُنَّ)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         if (conjugationResult.getRoot().getC1() != 'ي') {
             return false;

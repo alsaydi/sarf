@@ -21,7 +21,7 @@ import sarf.ConjugationResult;
  * @version 1.0
  */
 public class Vocalizer {
-    private final List<IUnaugmentedTrilateralNounModificationApplier> modifiers = new ArrayList<>();
+    private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
 
     public Vocalizer() {
         modifiers.add(new Vocalizer1());
@@ -35,7 +35,7 @@ public class Vocalizer {
     public void apply(ConjugationResult conjResult) {
         for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

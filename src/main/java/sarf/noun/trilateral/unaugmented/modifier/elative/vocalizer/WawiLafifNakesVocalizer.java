@@ -25,7 +25,7 @@ import static sarf.KindOfVerb.Naqis_Wawi;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class WawiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class WawiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public WawiLafifNakesVocalizer() {

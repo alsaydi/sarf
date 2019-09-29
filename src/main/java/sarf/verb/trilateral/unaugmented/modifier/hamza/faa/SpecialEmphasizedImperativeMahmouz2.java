@@ -1,14 +1,13 @@
 package sarf.verb.trilateral.unaugmented.modifier.hamza.faa;
 
-import java.util.*;
-
 import sarf.Conjugation;
+import sarf.ConjugationResult;
+import sarf.WordPresenter;
 import sarf.substitution.Substitution;
 import sarf.substitution.SubstitutionsApplier;
+import sarf.verb.Root;
 
-import sarf.ConjugationResult;
-import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
-import sarf.verb.trilateral.TrilateralRoot;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -22,9 +21,9 @@ import sarf.verb.trilateral.TrilateralRoot;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class SpecialEmphsizedImperativeMahmouz2 extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class SpecialEmphasizedImperativeMahmouz2 extends SubstitutionsApplier {
 
-    public SpecialEmphsizedImperativeMahmouz2() {
+    public SpecialEmphasizedImperativeMahmouz2() {
     }
 
     public List<Substitution> getSubstitutions() {
@@ -41,11 +40,12 @@ public class SpecialEmphsizedImperativeMahmouz2 extends SubstitutionsApplier imp
      * @param words List
      * @param root TrilateralRoot
      */
-    public void apply(List words, TrilateralRoot root) {
-        words.set(2, "كُلَنَّ");
-        words.set(3, "كُلِنَّ");
-        words.set(4, "كُلاَنِّ");
-        words.set(5, "كُلُنَّ");
-        words.set(6, "كُلْنَانِّ");
+    @Override
+    public void apply(List<WordPresenter> words, Root root) {
+        words.set(2, WordPresenter.fromText("كُلَنَّ"));
+        words.set(3, WordPresenter.fromText("كُلِنَّ"));
+        words.set(4, WordPresenter.fromText("كُلاَنِّ"));
+        words.set(5, WordPresenter.fromText("كُلُنَّ"));
+        words.set(6, WordPresenter.fromText("كُلْنَانِّ"));
     }
 }

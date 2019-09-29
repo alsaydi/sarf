@@ -24,7 +24,7 @@ import sarf.verb.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ActivePresentVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class ActivePresentVocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public ActivePresentVocalizer() {
@@ -53,10 +53,12 @@ public class ActivePresentVocalizer extends SubstitutionsApplier implements IUna
         substitutions.add(new InfixSubstitution("َوَ","َيَ"));// EX: (أنتما تسْويانِ)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();

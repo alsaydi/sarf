@@ -1,9 +1,9 @@
 
 package sarf.verb.trilateral.unaugmented.modifier;
 
+import sarf.ConjugationResult;
 import sarf.SystemConstants;
 import sarf.substitution.SubstitutionsApplier;
-import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.mithal.ActivePresentVocalizer;
 
 import java.util.ArrayList;
@@ -25,14 +25,14 @@ import java.util.Map;
  */
 public class Vocalizer {
     //المعلوم  و  المجهول تحتوي قائمة بالأنواع الخمسة لاعلال لماضي والمضارع والأمر حسب
-    private final Map<String, List<IUnaugmentedTrilateralModifier>> vocalizerMap = new HashMap<>();
+    private final Map<String, List<SubstitutionsApplier>> vocalizerMap = new HashMap<>();
 
     public Vocalizer() {
-        List<IUnaugmentedTrilateralModifier> activePastList = new ArrayList<>();
-        List<IUnaugmentedTrilateralModifier> passivePastList = new ArrayList<>();
-        List<IUnaugmentedTrilateralModifier> activePresentList = new ArrayList<>();
-        List<IUnaugmentedTrilateralModifier> passivePresentList = new ArrayList<>();
-        List<IUnaugmentedTrilateralModifier> imperativeList = new ArrayList<>();
+        List<SubstitutionsApplier> activePastList = new ArrayList<>();
+        List<SubstitutionsApplier> passivePastList = new ArrayList<>();
+        List<SubstitutionsApplier> activePresentList = new ArrayList<>();
+        List<SubstitutionsApplier> passivePresentList = new ArrayList<>();
+        List<SubstitutionsApplier> imperativeList = new ArrayList<>();
 
         //خمس أنواع  أساسية  للاعلال للمعلوم والمبني لمجهول في الماضي والمضارع والأمر
         vocalizerMap.put(SystemConstants.PAST_TENSE + "true", activePastList);
@@ -119,9 +119,9 @@ public class Vocalizer {
      */
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
         var vocalizers = vocalizerMap.get(tense + active);
-        for (IUnaugmentedTrilateralModifier vocalizer : vocalizers) {
+        for (var vocalizer : vocalizers) {
             if (vocalizer.isApplied(conjResult)) {
-                ((SubstitutionsApplier) vocalizer).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                vocalizer.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

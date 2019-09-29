@@ -1,9 +1,8 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf;
 
 import sarf.Conjugation;
-import sarf.substitution.SubstitutionsApplier;
 import sarf.ConjugationResult;
-import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
+import sarf.substitution.SubstitutionsApplier;
 
 import static sarf.KindOfVerb.*;
 
@@ -19,10 +18,11 @@ import static sarf.KindOfVerb.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AbstractAjwafWawiVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
-    public AbstractAjwafWawiVocalizer() {
+public abstract class AbstractAjwafWawiVocalizer extends SubstitutionsApplier {
+    protected AbstractAjwafWawiVocalizer() {
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         // تطبيق القانون العام للفحص
         return (conjugationResult.getRoot().getConjugation() == Conjugation.First) &&

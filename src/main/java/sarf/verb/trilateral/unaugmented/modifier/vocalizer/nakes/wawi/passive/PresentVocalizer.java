@@ -24,7 +24,7 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PresentVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class PresentVocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public PresentVocalizer() {
@@ -39,10 +39,12 @@ public class PresentVocalizer extends SubstitutionsApplier implements IUnaugment
         substitutions.add(new InfixSubstitution("َوُو","َوْ"));// EX: (أنتم تُغْزَوْنَ )
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();

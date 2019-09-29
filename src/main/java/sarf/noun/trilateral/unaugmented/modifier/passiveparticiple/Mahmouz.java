@@ -3,8 +3,6 @@ package sarf.noun.trilateral.unaugmented.modifier.passiveparticiple;
 import java.util.*;
 import sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.hamza.*;
 import sarf.substitution.SubstitutionsApplier;
-
-import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.ConjugationResult;
 
 /**
@@ -20,7 +18,7 @@ import sarf.ConjugationResult;
  * @version 1.0
  */
 public class Mahmouz {
-    private final List<IUnaugmentedTrilateralNounModificationApplier> modifiers = new ArrayList<>();
+    private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
     private final LamMahmouz lamMahmouz = new LamMahmouz();
 
     public Mahmouz() {
@@ -32,7 +30,7 @@ public class Mahmouz {
     public void apply(ConjugationResult conjResult) {
         for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

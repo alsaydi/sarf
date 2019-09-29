@@ -24,7 +24,7 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class WawiPassivePresentVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class WawiPassivePresentVocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public WawiPassivePresentVocalizer() {
@@ -39,10 +39,12 @@ public class WawiPassivePresentVocalizer extends SubstitutionsApplier implements
         substitutions.add(new ExpressionInfixSubstitution("ْC2َيُن", "C2َوُن")); // EX: (أنتم تُوقَوُنَّ)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         if (conjugationResult.getRoot().getC1() != 'و') {
             return false;

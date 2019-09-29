@@ -1,13 +1,13 @@
 package sarf.verb.trilateral.unaugmented.modifier.hamza.ein;
 
-import java.util.*;
-
+import sarf.ConjugationResult;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SubstitutionsApplier;
 
-import sarf.ConjugationResult;
-import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,17 +21,19 @@ import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class RaaPresentMahmouz extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class RaaPresentMahmouz extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public RaaPresentMahmouz() {
-        substitutions.add(new InfixSubstitution("ْءَ","َ"));// EX: (يَرَى)
+        substitutions.add(new InfixSubstitution("ْءَ", "َ"));// EX: (يَرَى)
     }
 
-    public List getSubstitutions() {
+    @Override
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         var root = conjugationResult.getRoot();
         return root.getC1() == 'ر' && root.getC2() == 'ء' && root.getC3() == 'ي';

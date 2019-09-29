@@ -22,7 +22,7 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Geminator1 extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class Geminator1 extends TrilateralNounSubstitutionApplier{
 private final List<Substitution> substitutions = new ArrayList<>();
 
     public Geminator1() {

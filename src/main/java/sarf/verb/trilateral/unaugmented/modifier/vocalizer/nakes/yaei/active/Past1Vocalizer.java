@@ -1,16 +1,15 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer.nakes.yaei.active;
 
-import java.util.*;
-
 import sarf.Conjugation;
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SubstitutionsApplier;
 import sarf.substitution.SuffixSubstitution;
 
-import sarf.ConjugationResult;
-import sarf.verb.trilateral.unaugmented.modifier.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -24,7 +23,7 @@ import sarf.verb.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Past1Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class Past1Vocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Past1Vocalizer() {
@@ -37,6 +36,7 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IUnaugmented
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();

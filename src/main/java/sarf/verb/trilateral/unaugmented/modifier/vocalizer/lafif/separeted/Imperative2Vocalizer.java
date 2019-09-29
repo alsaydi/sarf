@@ -24,7 +24,7 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Imperative2Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class Imperative2Vocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Imperative2Vocalizer() {
@@ -35,10 +35,12 @@ public class Imperative2Vocalizer extends SubstitutionsApplier implements IUnaug
         substitutions.add(new ExpressionInfixSubstitution("اوْC2ِيَ", "C2ِيَ")); // EX: (أنتما قِيا)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();

@@ -1,9 +1,9 @@
 package sarf.noun.trilateral.unaugmented.modifier;
 
 import sarf.Conjugation;
-import sarf.KindOfVerb;
-import sarf.noun.*;
 import sarf.ConjugationResult;
+import sarf.KindOfVerb;
+import sarf.noun.TrilateralNounSubstitutionApplier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -17,10 +17,11 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AbstractGeminator extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public abstract class AbstractGeminator extends TrilateralNounSubstitutionApplier {
     protected AbstractGeminator() {
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();

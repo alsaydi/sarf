@@ -23,7 +23,7 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public PreMithalLafifVocalizer() {
@@ -31,10 +31,12 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
         substitutions.add(new InfixSubstitution("مِيْ", "مِي")); // EX: (مِيقَن، مِيقنة، مِيقان، مِيداء)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
@@ -57,7 +59,7 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
                     return true;
             }
 
-            return noc == Conjugation.Second || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Mithal_Wawi) {
             switch (noc) {
                 case Second:
@@ -68,7 +70,7 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
                     return true;
             }
 
-            return noc == Conjugation.Second || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Mithal_Yaee_Mudaaf) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Mithal_Yaee_Mahmouz_Ain) {

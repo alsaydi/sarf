@@ -1,12 +1,12 @@
 package sarf.noun.trilateral.augmented.modifier.substituter;
 
-import java.util.*;
-
+import sarf.ConjugationResult;
+import sarf.noun.trilateral.augmented.modifier.AbstractGenericSubstituter;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 
-import sarf.noun.trilateral.augmented.modifier.AbstractGenericSubstituter;
-import sarf.ConjugationResult;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -28,10 +28,12 @@ public class GenericSubstituter4 extends AbstractGenericSubstituter {
         substitutions.add(new InfixSubstitution("ذْت", "ذْد")); // EX: (اذْدِكار،)
     }
 
-    public List getSubstitutions() {
+    @Override
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         return triAugmentedConjugationResult.getRoot().getC1() == 'ذ' && super.isApplied(triAugmentedConjugationResult);
     }

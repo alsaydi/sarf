@@ -24,7 +24,7 @@ import sarf.verb.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Past1Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class Past1Vocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Past1Vocalizer() {
@@ -37,6 +37,7 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IUnaugmented
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();

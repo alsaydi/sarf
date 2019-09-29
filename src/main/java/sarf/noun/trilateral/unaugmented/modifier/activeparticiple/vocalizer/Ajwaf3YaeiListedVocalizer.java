@@ -1,15 +1,13 @@
 package sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer;
 
-import java.util.List;
-import java.util.LinkedList;
-
+import sarf.ConjugationResult;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
+import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.AbstractAjwafYaeiListedVocalizer;
 
-import sarf.ConjugationResult;
-import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
-import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -23,18 +21,20 @@ import java.util.ArrayList;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Ajwaf3YaeiListedVocalizer extends AbstractAjwafYaeiListedVocalizer implements IUnaugmentedTrilateralNounModificationApplier {
+public class Ajwaf3YaeiListedVocalizer extends AbstractAjwafYaeiListedVocalizer {
     private final List<Substitution> substitutions = new LinkedList<>();
 
     public Ajwaf3YaeiListedVocalizer() {
         substitutions.add(new InfixSubstitution("ايِ", "ائِ")); // EX: (بائِعٌ)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     private static final List<String> appliedPronounIndexes = new ArrayList<>(18);
+
     static {
         for (int i = 0; i < 18; i++) {
             appliedPronounIndexes.add(i + 1 + "");
@@ -46,6 +46,7 @@ public class Ajwaf3YaeiListedVocalizer extends AbstractAjwafYaeiListedVocalizer 
         return appliedPronounIndexes;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         return super.isApplied(conjugationResult);
     }

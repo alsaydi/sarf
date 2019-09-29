@@ -23,7 +23,7 @@ import sarf.verb.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class Imperative1Vocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     private final List<String> acceptList = new ArrayList<>();
@@ -43,6 +43,7 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaug
         substitutions.add(new InfixSubstitution("اوْ",""));
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
@@ -52,6 +53,7 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaug
      * @param conjugationResult NounConjugationResult
      * @return boolean
      */
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();

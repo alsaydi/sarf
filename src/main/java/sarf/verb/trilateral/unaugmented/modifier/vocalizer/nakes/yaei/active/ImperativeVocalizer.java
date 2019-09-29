@@ -24,7 +24,7 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ImperativeVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class ImperativeVocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public ImperativeVocalizer() {

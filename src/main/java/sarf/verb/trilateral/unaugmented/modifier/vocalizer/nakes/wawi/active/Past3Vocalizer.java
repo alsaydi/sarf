@@ -23,7 +23,7 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Past3Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class Past3Vocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Past3Vocalizer() {
@@ -32,10 +32,12 @@ public class Past3Vocalizer extends SubstitutionsApplier implements IUnaugmented
         substitutions.add(new InfixSubstitution("ِوُ", "ُ"));
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();

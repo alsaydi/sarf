@@ -1,11 +1,10 @@
 package sarf.noun.trilateral.unaugmented.modifier.instrumental;
 
-import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
+import sarf.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.instrumental.vocalizer.PreMithalLafifVocalizer;
 import sarf.noun.trilateral.unaugmented.modifier.instrumental.vocalizer.WawiNakesLafifVocalizer;
 import sarf.noun.trilateral.unaugmented.modifier.instrumental.vocalizer.YaeiNakesLafifVocalizer;
 import sarf.substitution.SubstitutionsApplier;
-import sarf.ConjugationResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,7 @@ import java.util.List;
  * @version 1.0
  */
 public class Vocalizer {
-    private final List<IUnaugmentedTrilateralNounModificationApplier> modifiers = new ArrayList<>();
+    private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
 
     private final PreMithalLafifVocalizer preMithalLafifVocalizer = new PreMithalLafifVocalizer();
 
@@ -39,7 +38,7 @@ public class Vocalizer {
 
         for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

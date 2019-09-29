@@ -4,7 +4,6 @@ import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.ConjugationResult;
-import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 
@@ -23,7 +22,7 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Ajwaf1Vocalizer() {
@@ -31,10 +30,12 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
         substitutions.add(new InfixSubstitution("ْيَ", "َا"));// EX: (محار)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();

@@ -1,17 +1,15 @@
 package sarf.noun.trilateral.unaugmented.modifier.exaggeration.hamza;
 
-import java.util.*;
-
 import sarf.Conjugation;
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.noun.*;
-
+import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SuffixSubstitution;
 
-import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.ConjugationResult;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -25,27 +23,29 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class NakesLafifMahmouz extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class NakesLafifMahmouz extends TrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public NakesLafifMahmouz() {
-        substitutions.add(new InfixSubstitution("اءٌ","اءٌ"));// EX: (غزّاءٌ، رمَّاءٌ، مِعطاءٌ، مِجناء، مِعواء، مِيفاء)
-        substitutions.add(new InfixSubstitution("اءً","اءً"));// EX: (مِعطاءً ،  )
-        substitutions.add(new InfixSubstitution("اءٍ","اءٍ"));// EX: (مِعطاءٍ ،   )
-        substitutions.add(new SuffixSubstitution("اءُ","اءُ"));// EX: (المعطاءُ )
-        substitutions.add(new SuffixSubstitution("اءِ","اءِ"));// EX: (المعطاءِ )
-        substitutions.add(new SuffixSubstitution("آَّءُ","آَّءُ"));// EX: (مَآَّءُ )
-        substitutions.add(new SuffixSubstitution("آَّءِ","آَّءِ"));// EX: (مَآَّءِ )
-        substitutions.add(new InfixSubstitution("آَّءُ","آَّؤُ"));// EX: (مَآَّؤُونَ )
-        substitutions.add(new InfixSubstitution("آَّءِ","آَّئِ"));// EX: (مَآَّئِينَ )
-        substitutions.add(new InfixSubstitution("اءُ","اؤُ"));// EX: (معطاؤونَ )
-        substitutions.add(new InfixSubstitution("اءِ","ائِ"));// EX: (معطائِينَ )
+        substitutions.add(new InfixSubstitution("اءٌ", "اءٌ"));// EX: (غزّاءٌ، رمَّاءٌ، مِعطاءٌ، مِجناء، مِعواء، مِيفاء)
+        substitutions.add(new InfixSubstitution("اءً", "اءً"));// EX: (مِعطاءً ،  )
+        substitutions.add(new InfixSubstitution("اءٍ", "اءٍ"));// EX: (مِعطاءٍ ،   )
+        substitutions.add(new SuffixSubstitution("اءُ", "اءُ"));// EX: (المعطاءُ )
+        substitutions.add(new SuffixSubstitution("اءِ", "اءِ"));// EX: (المعطاءِ )
+        substitutions.add(new SuffixSubstitution("آَّءُ", "آَّءُ"));// EX: (مَآَّءُ )
+        substitutions.add(new SuffixSubstitution("آَّءِ", "آَّءِ"));// EX: (مَآَّءِ )
+        substitutions.add(new InfixSubstitution("آَّءُ", "آَّؤُ"));// EX: (مَآَّؤُونَ )
+        substitutions.add(new InfixSubstitution("آَّءِ", "آَّئِ"));// EX: (مَآَّئِينَ )
+        substitutions.add(new InfixSubstitution("اءُ", "اؤُ"));// EX: (معطاؤونَ )
+        substitutions.add(new InfixSubstitution("اءِ", "ائِ"));// EX: (معطائِينَ )
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
         if (!nounFormula.equals("فَعَّال")) {
@@ -67,14 +67,7 @@ public class NakesLafifMahmouz extends TrilateralNounSubstitutionApplier impleme
                 case Fifth:
                     return true;
             }
-
-
-            if (noc == Conjugation.Second) {
-                return true;
-            }
-
-
-            return noc == Conjugation.Third || noc == Conjugation.Forth;
+            return noc == Conjugation.Second;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee) {
             switch (noc) {
                 case Second:
@@ -82,9 +75,7 @@ public class NakesLafifMahmouz extends TrilateralNounSubstitutionApplier impleme
                 case Forth:
                     return true;
             }
-
-
-            return noc == Conjugation.Third || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             return noc == Conjugation.Third || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {

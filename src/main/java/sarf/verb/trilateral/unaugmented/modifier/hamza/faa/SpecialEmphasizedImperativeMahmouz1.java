@@ -22,9 +22,9 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class SpecialImperativeMahmouz2 extends SubstitutionsApplier {
+public class SpecialEmphasizedImperativeMahmouz1 extends SubstitutionsApplier {
 
-    public SpecialImperativeMahmouz2() {
+    public SpecialEmphasizedImperativeMahmouz1() {
     }
 
     @Override
@@ -35,7 +35,7 @@ public class SpecialImperativeMahmouz2 extends SubstitutionsApplier {
     @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         var root = conjugationResult.getRoot();
-        return root.getC1() == 'ء' && root.getC2() == 'ك' && root.getC3() == 'ل' && root.getConjugation() == Conjugation.First;
+        return root.getC1() == 'ء' && root.getC2() == 'خ' && root.getC3() == 'ذ' && root.getConjugation() == Conjugation.First;
     }
 
     /**
@@ -46,10 +46,10 @@ public class SpecialImperativeMahmouz2 extends SubstitutionsApplier {
      */
     @Override
     public void apply(List<WordPresenter> words, Root root) {
-        words.set(2, WordPresenter.fromText("كُلْ"));
-        words.set(3, WordPresenter.fromText("كُلِي"));
-        words.set(4, WordPresenter.fromText("كُلاَ"));
-        words.set(5, WordPresenter.fromText("كُلُوا"));
-        words.set(6, WordPresenter.fromText("كُلْنَ"));
+        words.set(2, WordPresenter.fromText("خُذَنَّ"));
+        words.set(3, WordPresenter.fromText("خُذِنَّ"));
+        words.set(4, WordPresenter.fromText("خُذَانِّ"));
+        words.set(5, WordPresenter.fromText("خُذُنَّ"));
+        words.set(6, WordPresenter.fromText("خُذْنَانِّ"));
     }
 }

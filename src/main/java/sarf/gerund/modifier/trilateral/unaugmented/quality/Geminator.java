@@ -1,10 +1,9 @@
 package sarf.gerund.modifier.trilateral.unaugmented.quality;
 
+import sarf.ConjugationResult;
 import sarf.gerund.modifier.trilateral.unaugmented.quality.geminator.Geminator1;
 import sarf.gerund.modifier.trilateral.unaugmented.quality.geminator.Geminator2;
 import sarf.gerund.modifier.trilateral.unaugmented.quality.geminator.Geminator3;
-import sarf.ConjugationResult;
-import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 import sarf.substitution.SubstitutionsApplier;
 
 import java.util.ArrayList;
@@ -33,8 +32,7 @@ public class Geminator {
 
     public void apply(ConjugationResult conjResult) {
         for (var geminator : modifiers) {
-            var modifier = (IUnaugmentedTrilateralNounModificationApplier) geminator;
-            if (modifier.isApplied(conjResult)) {
+            if (geminator.isApplied(conjResult)) {
                 geminator.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }

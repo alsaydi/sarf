@@ -1,14 +1,14 @@
 package sarf.verb.trilateral.unaugmented.modifier.geminator;
 
-import java.util.*;
-
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SubstitutionsApplier;
 
-import sarf.ConjugationResult;
-import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -27,7 +27,7 @@ import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class TGeminator extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier{
+public class TGeminator extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
     private final List<String> appliedPronounsIndexes = new ArrayList<>(6);
 
@@ -53,9 +53,10 @@ public class TGeminator extends SubstitutionsApplier implements IUnaugmentedTril
         return appliedPronounsIndexes;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
-        return (conjugationResult.getRoot().getC3()=='ت' && (kov == KindOfVerb.Salim || kov == KindOfVerb.Mudaaf || kov == KindOfVerb.Mahmouz_Faa_Mudaaf || kov == KindOfVerb.Mahmouz_Faa || kov == KindOfVerb.Mahmouz_Ain || kov == KindOfVerb.Mithal_Wawi || kov == KindOfVerb.Ajwaf_Wawi || kov == KindOfVerb.Ajwaf_Yaee));
+        return (conjugationResult.getRoot().getC3() == 'ت' && (kov == KindOfVerb.Salim || kov == KindOfVerb.Mudaaf || kov == KindOfVerb.Mahmouz_Faa_Mudaaf || kov == KindOfVerb.Mahmouz_Faa || kov == KindOfVerb.Mahmouz_Ain || kov == KindOfVerb.Mithal_Wawi || kov == KindOfVerb.Ajwaf_Wawi || kov == KindOfVerb.Ajwaf_Yaee));
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {

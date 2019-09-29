@@ -7,7 +7,6 @@ import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
-import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,13 +20,14 @@ import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModif
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Ajwaf3WawiListedVocalizer extends AbstractAjwafWawiListedVocalizer implements IUnaugmentedTrilateralNounModificationApplier{
+public class Ajwaf3WawiListedVocalizer extends AbstractAjwafWawiListedVocalizer {
     private final List<Substitution> substitutions = new LinkedList<>();
 
     public Ajwaf3WawiListedVocalizer() {
         substitutions.add(new InfixSubstitution("اوِ","ائِ"));// EX: (قائِمٌ)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
@@ -44,6 +44,7 @@ public class Ajwaf3WawiListedVocalizer extends AbstractAjwafWawiListedVocalizer 
         return appliedPronounIndexes;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         return super.isApplied(conjugationResult);
     }

@@ -1,11 +1,13 @@
 package sarf.gerund.modifier.trilateral.unaugmented.meem;
 
-import java.util.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.ConjugationResult;
+import sarf.gerund.modifier.trilateral.unaugmented.meem.hamza.EinMahmouz;
+import sarf.gerund.modifier.trilateral.unaugmented.meem.hamza.FaaMahmouz;
+import sarf.gerund.modifier.trilateral.unaugmented.meem.hamza.LamMahmouz;
 import sarf.substitution.SubstitutionsApplier;
 
-import sarf.gerund.modifier.trilateral.unaugmented.meem.hamza.*;
-import sarf.ConjugationResult;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -29,10 +31,9 @@ public class Mahmouz {
     }
 
     public void apply(ConjugationResult conjResult) {
-        for (Object o : modifiers) {
-            IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) o;
+        for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

@@ -24,7 +24,7 @@ import sarf.verb.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ActivePresent3Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class ActivePresent3Vocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public ActivePresent3Vocalizer() {
@@ -36,10 +36,12 @@ public class ActivePresent3Vocalizer extends SubstitutionsApplier implements IUn
         substitutions.add(new InfixSubstitution("َيُن","َوُن"));// EX: (أنتم تَوْجَوُنَّ)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
