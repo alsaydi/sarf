@@ -19,7 +19,7 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Vocalizer {
+class Vocalizer {
     private final List<TrilateralNounSubstitutionApplier> modifiers = new ArrayList<>();
 
     public Vocalizer() {

@@ -123,7 +123,7 @@ public class TrilateralAugmentedGerundConjugator {
         return listener.selectPatternFormNo(formulaNo);
     }
 
-    public List<TrilateralAugmentedGerund> createEmptyList() {
+    private List<TrilateralAugmentedGerund> createEmptyList() {
         return IntStream.rangeClosed(1, SystemConstants.NOUN_POSSIBLE_STATES)
                 .mapToObj(i -> new EmptyGerundPattern(new AugmentedTrilateralRoot(), "0", genericNounSuffixContainer))
                 .collect(Collectors.toList());

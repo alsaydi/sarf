@@ -33,7 +33,7 @@ class MainFrame extends JFrame {
     private final ControlPaneContainer controlPaneContainer;
 
     @Inject
-    MainFrame(SarfDictionary sarfDictionary, ControlPaneContainer controlPaneContainer) {
+    private MainFrame(SarfDictionary sarfDictionary, ControlPaneContainer controlPaneContainer) {
         this.controlPaneContainer = controlPaneContainer;
         try {
             setDefaultCloseOperation(EXIT_ON_CLOSE);

@@ -64,7 +64,7 @@ public class ElativeNounStateSelectionUI extends JPanel implements INounStateSel
         definiteBtn.addActionListener(e -> {
             ElativeSuffixContainer.getInstance().selectDefiniteMode();
             //generate the new conjugation with the new suffixes
-            java.util.List newResult = action.execute();
+            var newResult = action.execute();
             //display this new result via this listener
             listener.newStateConjugationResultGenerated(newResult);
         });
@@ -72,7 +72,7 @@ public class ElativeNounStateSelectionUI extends JPanel implements INounStateSel
         annexedIndefiniteBtn.addActionListener(e -> {
             ElativeSuffixContainer.getInstance().selectInDefiniteMode();
             //generate the new conjugation with the new suffixes
-            java.util.List newResult = action.execute();
+            var newResult = action.execute();
             //display this new result via this listener
             listener.newStateConjugationResultGenerated(newResult);
         });
@@ -80,7 +80,7 @@ public class ElativeNounStateSelectionUI extends JPanel implements INounStateSel
         notAnnexedIndefiniteBtn.addActionListener(e -> {
             ElativeSuffixContainer.getInstance().selectNotAnnexedMode();
             //generate the new conjugation with the new suffixes
-            java.util.List newResult = action.execute();
+            var newResult = action.execute();
             //display this new result via this listener
             listener.newStateConjugationResultGenerated(newResult);
         });
@@ -88,7 +88,7 @@ public class ElativeNounStateSelectionUI extends JPanel implements INounStateSel
         annexedDefiniteBtn.addActionListener(e -> {
             ElativeSuffixContainer.getInstance().selectAnnexedMode();
             //generate the new conjugation with the new suffixes
-            java.util.List newResult = action.execute();
+            var newResult = action.execute();
             //display this new result via this listener
             listener.newStateConjugationResultGenerated(newResult);
         });

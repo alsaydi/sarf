@@ -21,7 +21,7 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Geminator {
+class Geminator {
     private final List<TrilateralNounSubstitutionApplier> modifiers = new LinkedList<>();
 
     public Geminator() {

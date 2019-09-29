@@ -24,7 +24,7 @@ import sarf.util.FileUtil;
  */
 public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentSaver{
     private final List dataFieldsList = new ArrayList(13);
-    public static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 30);
+    private static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 30);
     private static final Border BORDER = BorderFactory.createEtchedBorder();
 
     private final IMainControlPanel controlPaneContainer;

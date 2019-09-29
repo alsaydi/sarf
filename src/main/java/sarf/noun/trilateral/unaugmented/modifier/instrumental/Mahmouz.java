@@ -21,10 +21,10 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Mahmouz {
+class Mahmouz {
     private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
 
-    public Mahmouz() {
+    Mahmouz() {
         modifiers.add(new FaaMahmouz());
         modifiers.add(new EinMahmouz());
         modifiers.add(new LamMahmouz());
@@ -40,7 +40,7 @@ public class Mahmouz {
 
         //الأفعال الثلاثية المجردة المهموزة الفاء والمهموزة اللام (وهي: أبأ، أثأ، أجأ، أزأ، أكأ)
         if (conjResult.getRoot().getC3() == 'ء')
-            ((SubstitutionsApplier) modifiers.get(2)).apply(conjResult.getFinalResult(), conjResult.getRoot());
+            modifiers.get(2).apply(conjResult.getFinalResult(), conjResult.getRoot());
 
     }
 }

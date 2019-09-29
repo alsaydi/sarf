@@ -21,13 +21,13 @@ public abstract class AugmentedImperativeVerb extends Word {
     protected final String lastDim;
     protected final String connectedPronoun;
 
-    public AugmentedImperativeVerb(AugmentedQuadrilateralRoot root, String lastDim, String connectedPronoun) {
+    protected AugmentedImperativeVerb(AugmentedQuadrilateralRoot root, String lastDim, String connectedPronoun) {
         this.root = root;
         this.lastDim = lastDim;
         this.connectedPronoun = connectedPronoun;
     }
 
-    public abstract String form();
+    protected abstract String form();
 
     public String getConnectedPronoun() {
         return connectedPronoun;

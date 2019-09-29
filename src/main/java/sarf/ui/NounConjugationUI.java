@@ -91,7 +91,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
      * @param listener            NounStateSelectionUIListener
      * @return JPanel
      */
-    protected INounStateSelectionUI createNounStateSelectionUI(Action action, INounSuffixContainer nounSuffixContainer, NounStateSelectionUIListener listener) {
+    INounStateSelectionUI createNounStateSelectionUI(Action action, INounSuffixContainer nounSuffixContainer, NounStateSelectionUIListener listener) {
         NounStateSelectionUI nounStateSelectionUI = new NounStateSelectionUI();
         nounStateSelectionUI.init(action, nounSuffixContainer, listener);
         return nounStateSelectionUI;

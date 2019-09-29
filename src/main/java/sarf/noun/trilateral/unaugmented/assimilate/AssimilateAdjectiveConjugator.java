@@ -47,7 +47,7 @@ public class AssimilateAdjectiveConjugator implements IUnaugmentedTrilateralNoun
         formulaIDsMap.put(instance.getFormulaName(), formulaId);
     }
 
-    public NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaID) {
+    private NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaID) {
             /*
                 لكي تكون هنا: جرب بالفعل صب المضعف.
              */

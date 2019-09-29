@@ -17,7 +17,7 @@ import sarf.substitution.SubstitutionsApplier;
  * @version 1.0
  */
 public abstract class AbstractFaaMahmouz extends SubstitutionsApplier{
-    public AbstractFaaMahmouz() {
+    protected AbstractFaaMahmouz() {
     }
 
     public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {

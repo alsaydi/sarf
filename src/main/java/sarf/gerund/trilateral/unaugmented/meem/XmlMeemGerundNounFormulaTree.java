@@ -16,7 +16,7 @@ import java.util.*;
  */
 public class XmlMeemGerundNounFormulaTree {
 
-    private final List formulas = new LinkedList();
+    private final List<XmlMeemGerundNounFormula> formulas = new ArrayList<>();
 
     public XmlMeemGerundNounFormulaTree() {
     }
@@ -28,5 +28,4 @@ public class XmlMeemGerundNounFormulaTree {
     public List getFormulaList() {
         return formulas;
     }
-
 }

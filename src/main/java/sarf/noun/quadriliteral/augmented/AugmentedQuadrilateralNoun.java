@@ -21,13 +21,13 @@ public abstract class AugmentedQuadrilateralNoun extends Word {
     protected final String suffix;
     private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    public AugmentedQuadrilateralNoun(AugmentedQuadrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
+    protected AugmentedQuadrilateralNoun(AugmentedQuadrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.root = root;
         this.suffix = suffix;
         this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
-    public abstract String form();
+    protected abstract String form();
 
     @Override
     public String toString() {

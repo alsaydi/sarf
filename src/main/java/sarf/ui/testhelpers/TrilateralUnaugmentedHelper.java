@@ -300,9 +300,9 @@ public class TrilateralUnaugmentedHelper {
     private void printStandardGerund(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         var formulas = trilateralUnaugmentedGerundConjugator.getAppliedFormulaList(root);
         for (var formula : formulas) {
-            var rawNouns = trilateralUnaugmentedGerundConjugator.createGerundList(root, formula.toString());
-            var conjugationResult = unaugmentedTrilateralStandardGerundModifier.build(root, kov, rawNouns, formula.toString()).getFinalResult();
-            printFinalResultPipeSeparated(root, conjugationResult, formula.toString());
+            var rawNouns = trilateralUnaugmentedGerundConjugator.createGerundList(root, formula);
+            var conjugationResult = unaugmentedTrilateralStandardGerundModifier.build(root, kov, rawNouns, formula).getFinalResult();
+            printFinalResultPipeSeparated(root, conjugationResult, formula);
 
         }
     }

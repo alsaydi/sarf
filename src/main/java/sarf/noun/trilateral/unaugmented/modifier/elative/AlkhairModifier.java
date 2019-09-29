@@ -16,13 +16,12 @@ import sarf.noun.trilateral.unaugmented.elative.ElativeSuffixContainer;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class AlkhairModifier {
+class AlkhairModifier {
 
     AlkhairModifier() {
     }
 
     public void apply(ConjugationResult conjResult) {
-        var conjugations = conjResult.getFinalResult();
         //جدول تصريف اسم التفضيل المعرّف بـ (أل)
         if (ElativeSuffixContainer.getInstance().isDefinite()) {
             for (int i = 0; i < 6; i++) {

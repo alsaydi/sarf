@@ -17,7 +17,7 @@ import sarf.substitution.SubstitutionsApplier;
  * @version 1.0
  */
 public abstract class AbstractEinMahmouz extends SubstitutionsApplier {
-    public AbstractEinMahmouz() {
+    protected AbstractEinMahmouz() {
     }
 
     @Override

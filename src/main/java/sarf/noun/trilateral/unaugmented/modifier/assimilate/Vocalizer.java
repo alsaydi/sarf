@@ -19,7 +19,7 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Vocalizer {
+class Vocalizer {
     private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
 
     public Vocalizer() {

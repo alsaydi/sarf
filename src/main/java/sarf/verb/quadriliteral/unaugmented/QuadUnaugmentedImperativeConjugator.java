@@ -23,7 +23,7 @@ public class QuadUnaugmentedImperativeConjugator {
      * @param root QuadrilateralVerb
      * @return PresentConjugation
      */
-    public ImperativeVerb createVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
+    private ImperativeVerb createVerb(int pronounIndex, UnaugmentedQuadrilateralRoot root) {
         String lastDim = ImperativeConjugationDataContainer.getLastDim(pronounIndex);
         String connectedPronoun = ImperativeConjugationDataContainer.getConnectedPronoun(pronounIndex);
         if (lastDim.equals("") && connectedPronoun.equals("")) return null;

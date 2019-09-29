@@ -26,7 +26,7 @@ public abstract class TrilateralNounSubstitutionApplier extends SubstitutionsApp
                 .forEachOrdered(appliedPronounsIndexes::add);
     }
 
-    public TrilateralNounSubstitutionApplier() {
+    protected TrilateralNounSubstitutionApplier() {
     }
 
     @Override

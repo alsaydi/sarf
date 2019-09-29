@@ -17,10 +17,10 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
  * @version 1.0
  */
 public abstract class NonStandardTimeAndPlaceNounFormula extends NounFormula {
-    public NonStandardTimeAndPlaceNounFormula() {
+    protected NonStandardTimeAndPlaceNounFormula() {
     }
 
-    public NonStandardTimeAndPlaceNounFormula(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+    protected NonStandardTimeAndPlaceNounFormula(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         super(root, suffixNo, genericNounSuffixContainer);
     }
 

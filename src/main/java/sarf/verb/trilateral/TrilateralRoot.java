@@ -18,11 +18,11 @@ import static sarf.verb.RootLetter.*;
  * @version 1.0
  */
 public abstract class TrilateralRoot extends Root {
-    public TrilateralRoot() {
+    protected TrilateralRoot() {
         super();
     }
 
-    public TrilateralRoot(char c1, char c2, char c3) {
+    protected TrilateralRoot(char c1, char c2, char c3) {
         super(c1, c2, c3);
     }
 

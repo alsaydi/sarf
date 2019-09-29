@@ -20,7 +20,7 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Mahmouz {
+class Mahmouz {
     private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
 
     public Mahmouz() {

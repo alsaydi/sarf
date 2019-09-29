@@ -51,7 +51,7 @@ public class GerundPattern2 extends TrilateralAugmentedGerund {
         return "ت"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+"ي"+root.getC3()+suffix;
     }
 
-    public String form1() {
+    private String form1() {
         switch (suffixNo) {
         case 1:
         case 3:
@@ -68,13 +68,13 @@ public class GerundPattern2 extends TrilateralAugmentedGerund {
 
     }
 
-    public String form2() {
+    private String form2() {
         if (suffixNo%2 == 0)
             return generateForm();
         return "";
     }
 
-    public String form3() {
+    private String form3() {
         if (suffixNo%2 == 0)
             return "ت"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
         return "";

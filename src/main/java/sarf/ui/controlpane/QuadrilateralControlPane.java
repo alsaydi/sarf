@@ -130,7 +130,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
         return this;
     }
 
-    public List<Word> createEmptyList() {
+    private List<Word> createEmptyList() {
         return IntStream.rangeClosed(1, SystemConstants.PRONOUN_RANGE_END)
                 .mapToObj(i -> Word.empty())
                 .collect(Collectors.toCollection(() -> new ArrayList<>(SystemConstants.PRONOUN_RANGE_END)));

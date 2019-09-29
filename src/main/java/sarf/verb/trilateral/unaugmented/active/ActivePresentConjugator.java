@@ -59,7 +59,7 @@ public class ActivePresentConjugator {
      * @param root         TrilateralVerb
      * @return PresentConjugation
      */
-    public ActivePresentVerb createAccusativeVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
+    private ActivePresentVerb createAccusativeVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getAccusativeLastDprList()
                 , PresentConjugationDataContainer.getAccusativeConnectedPronounList());
     }
@@ -72,7 +72,7 @@ public class ActivePresentConjugator {
      * @param root         TrilateralVerb
      * @return PresentConjugation
      */
-    public ActivePresentVerb createJussiveVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
+    private ActivePresentVerb createJussiveVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getJussiveLastDprList()
                 , PresentConjugationDataContainer.getJussiveConnectedPronounList());
     }

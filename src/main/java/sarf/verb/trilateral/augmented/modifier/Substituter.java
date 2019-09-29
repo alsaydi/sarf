@@ -18,7 +18,7 @@ import sarf.substitution.SubstitutionsApplier;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Substituter {
+class Substituter {
 
     //حسب التحليل فإن الماضي والمضارع والأمر تشترك في الابدال للمعلوم
     //ولكن للمجهول يختلف فقط الماضي أما المضارع فهو نفسه في المعلوم

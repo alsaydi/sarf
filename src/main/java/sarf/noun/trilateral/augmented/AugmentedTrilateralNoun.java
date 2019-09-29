@@ -21,13 +21,13 @@ public abstract class AugmentedTrilateralNoun extends Word {
     protected final String suffix;
     private final GenericNounSuffixContainer genericNounSuffixContainer;
 
-    public AugmentedTrilateralNoun(AugmentedTrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
+    protected AugmentedTrilateralNoun(AugmentedTrilateralRoot root, String suffix, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.root = root;
         this.suffix = suffix;
         this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
-    public abstract String form();
+    protected abstract String form();
 
     @Override
     public String toString() {

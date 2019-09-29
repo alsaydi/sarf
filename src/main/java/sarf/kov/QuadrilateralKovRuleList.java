@@ -22,7 +22,6 @@ public class QuadrilateralKovRuleList {
 
     /**
      * this function is used at run-time when the app starts.
-     * @param rule
      */
     public void addRule(QuadrilateralKovRule rule) {
         rules.add(rule);

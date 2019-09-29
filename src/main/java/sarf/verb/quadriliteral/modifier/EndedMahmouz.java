@@ -19,7 +19,7 @@ import sarf.substitution.SubstitutionsApplier;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class EndedMahmouz {
+class EndedMahmouz {
     private final Map<String, SubstitutionsApplier> modifiersMap = new HashMap<>();
 
     EndedMahmouz() {

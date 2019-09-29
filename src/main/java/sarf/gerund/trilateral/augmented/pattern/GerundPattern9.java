@@ -41,7 +41,7 @@ public class GerundPattern9 extends TrilateralAugmentedGerund implements IChange
 
     }
 
-    public String form1() {
+    private String form1() {
         switch (suffixNo) {
         case 1:
         case 3:
@@ -57,7 +57,7 @@ public class GerundPattern9 extends TrilateralAugmentedGerund implements IChange
         return "";
     }
 
-    public String form2() {
+    private String form2() {
         if (suffixNo % 2 == 0)
             return generateForm();
         return "";

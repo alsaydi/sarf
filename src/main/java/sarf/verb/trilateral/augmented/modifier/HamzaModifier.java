@@ -19,7 +19,7 @@ import sarf.SystemConstants;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class HamzaModifier {
+class HamzaModifier {
     private final Map<String, List<SubstitutionsApplier>> modifiersMap = new HashMap<>();
 
     HamzaModifier() {

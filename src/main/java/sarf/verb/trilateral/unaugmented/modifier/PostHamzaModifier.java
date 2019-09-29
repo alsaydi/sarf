@@ -20,7 +20,7 @@ import static sarf.KindOfVerb.Mahmouz_Faa_Mahmouz_Laam;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PostHamzaModifier {
+class PostHamzaModifier {
     private final Map<String, AbstractLamMahmouz> modifiersMap = new HashMap<>();
 
     PostHamzaModifier() {

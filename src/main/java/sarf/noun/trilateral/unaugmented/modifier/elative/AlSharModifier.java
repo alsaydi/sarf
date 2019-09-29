@@ -16,7 +16,7 @@ import sarf.noun.trilateral.unaugmented.elative.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class AlSharModifier {
+class AlSharModifier {
 
     AlSharModifier() {
     }

@@ -26,7 +26,7 @@ public class UnaugmentedTrilateralActiveParticipleConjugator implements IUnaugme
         this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
-    public UnaugmentedTrilateralActiveParticiple createNoun(UnaugmentedTrilateralRoot root, int suffixIndex) {
+    private UnaugmentedTrilateralActiveParticiple createNoun(UnaugmentedTrilateralRoot root, int suffixIndex) {
         String suffix = genericNounSuffixContainer.get(suffixIndex);
         return new UnaugmentedTrilateralActiveParticiple(root, suffix, genericNounSuffixContainer);
     }

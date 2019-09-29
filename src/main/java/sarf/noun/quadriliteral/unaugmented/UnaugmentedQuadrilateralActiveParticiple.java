@@ -22,7 +22,7 @@ public class UnaugmentedQuadrilateralActiveParticiple extends Word {
      * @return String
      * @todo Implement this sarf.noun.Quadriliteral.QuadriliteralNoun method
      */
-    public String form() {
+    private String form() {
         return genericNounSuffixContainer.getPrefix()+"م"+ArabCharUtil.DAMMA+root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.KASRA+root.getC4()+suffix;
     }
 

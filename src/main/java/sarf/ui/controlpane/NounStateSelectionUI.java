@@ -71,7 +71,7 @@ public class NounStateSelectionUI extends JPanel implements INounStateSelectionU
         definiteBtn.addActionListener(e -> {
             nounSuffixContainer.selectDefiniteMode();
             //generate the new conjugation with the new suffixes
-            java.util.List newResult = action.execute();
+            var newResult = action.execute();
             //display this new result via this listener
             listener.newStateConjugationResultGenerated(newResult);
         });
@@ -79,7 +79,7 @@ public class NounStateSelectionUI extends JPanel implements INounStateSelectionU
         indefiniteBtn.addActionListener(e -> {
             nounSuffixContainer.selectInDefiniteMode();
             //generate the new conjugation with the new suffixes
-            java.util.List newResult = action.execute();
+            var newResult = action.execute();
             //display this new result via this listener
             listener.newStateConjugationResultGenerated(newResult);
 
@@ -88,13 +88,13 @@ public class NounStateSelectionUI extends JPanel implements INounStateSelectionU
         annexedBtn.addActionListener(e -> {
             nounSuffixContainer.selectAnnexedMode();
             //generate the new conjugation with the new suffixes
-            java.util.List newResult = action.execute();
+            var newResult = action.execute();
             //display this new result via this listener
             listener.newStateConjugationResultGenerated(newResult);
         });
     }
 
-    //execute a selected button to refelct the result on the UI
+    //execute a selected button to reflect the result on the UI
     public void selectOne() {
         indefiniteBtn.doClick();
     }

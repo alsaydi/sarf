@@ -22,10 +22,10 @@ public abstract class NounFormula extends Word {
     private INounSuffixContainer genericNounSuffixContainer;
 
     //to be used in refection getting the formula name
-    public NounFormula() {
+    protected NounFormula() {
     }
 
-    public NounFormula(UnaugmentedTrilateralRoot root, String suffixNo, INounSuffixContainer genericNounSuffixContainer) {
+    protected NounFormula(UnaugmentedTrilateralRoot root, String suffixNo, INounSuffixContainer genericNounSuffixContainer) {
         this.genericNounSuffixContainer = genericNounSuffixContainer;
         this.root = root;
         this.suffixNo = Integer.parseInt(suffixNo)+1;

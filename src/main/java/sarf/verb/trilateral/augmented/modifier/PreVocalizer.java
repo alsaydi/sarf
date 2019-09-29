@@ -15,7 +15,7 @@ import sarf.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PreVocalizer {
+class PreVocalizer {
 
     private final SeparatedLafifActivePresentVocalizer separatedLafifActivePresentVocalizer = new SeparatedLafifActivePresentVocalizer();
     private final SeparatedLafifPassivePresentVocalizer separatedLafifPassivePresentVocalizer = new SeparatedLafifPassivePresentVocalizer();

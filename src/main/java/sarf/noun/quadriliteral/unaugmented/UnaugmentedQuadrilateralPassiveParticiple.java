@@ -28,7 +28,7 @@ public class UnaugmentedQuadrilateralPassiveParticiple extends Word {
      * @return String
      * @todo Implement this sarf.noun.Quadrilateral.QuadrilateralNoun method
      */
-    public String form() {
+    private String form() {
         if (genericNounSuffixContainer == null || suffix == null || suffix.equals(""))
             return "";
 

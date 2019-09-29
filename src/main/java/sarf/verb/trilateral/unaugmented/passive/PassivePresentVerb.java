@@ -15,7 +15,7 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PassivePresentVerb extends Word {
+class PassivePresentVerb extends Word {
     private final UnaugmentedTrilateralRoot root;
 
     //حرف المضارع

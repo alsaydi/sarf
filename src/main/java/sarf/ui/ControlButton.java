@@ -16,7 +16,7 @@ import javax.swing.*;
  * @version 1.0
  */
 public class ControlButton extends JPanel{
-    public static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 24);
+    private static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 24);
     //public static final Font FONT = new Font("Tahoma", Font.PLAIN, 12);
 
     private final String formulaText;

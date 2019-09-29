@@ -22,14 +22,14 @@ public abstract class AugmentedPresentVerb extends Word {
     //حرف المضارع
     protected final String cp;
 
-    public AugmentedPresentVerb(AugmentedQuadrilateralRoot root, String cp, String lastDpr, String connectedPronoun) {
+    protected AugmentedPresentVerb(AugmentedQuadrilateralRoot root, String cp, String lastDpr, String connectedPronoun) {
         this.root = root;
         this.cp = cp;
         this.lastDpr = lastDpr;
         this.connectedPronoun = connectedPronoun;
     }
 
-    public abstract String form();
+    protected abstract String form();
 
     public String getConnectedPronoun() {
         return connectedPronoun;

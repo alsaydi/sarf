@@ -34,7 +34,7 @@ public class StandardInstrumentalConjugator implements IUnaugmentedTrilateralNou
         formulas.add("فَعَّالَة");
     }
 
-    public NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, int formulaNo) {
+    private NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, int formulaNo) {
         String formulaClassName = getClass().getPackage().getName()+".standard.NounFormula"+formulaNo;
         Object [] parameters = {root, suffixNo+"", genericNounSuffixContainer};
 
@@ -49,7 +49,7 @@ public class StandardInstrumentalConjugator implements IUnaugmentedTrilateralNou
         return null;
     }
 
-    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, int formulaNo) {
+    private List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, int formulaNo) {
         List<NounFormula> result = new LinkedList<>();
         for (int i = 0; i < SystemConstants.NOUN_POSSIBLE_STATES; i++) {
             NounFormula noun = createNoun(root, i, formulaNo);

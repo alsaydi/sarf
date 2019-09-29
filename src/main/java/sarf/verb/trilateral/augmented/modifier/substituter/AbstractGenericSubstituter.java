@@ -17,7 +17,7 @@ import sarf.substitution.SubstitutionsApplier;
  * @version 1.0
  */
 public abstract class AbstractGenericSubstituter extends SubstitutionsApplier {
-    public AbstractGenericSubstituter() {
+    protected AbstractGenericSubstituter() {
     }
 
     public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {

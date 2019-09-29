@@ -19,7 +19,7 @@ public abstract class Substitution {
     protected final String segment;
     protected final String result;
 
-    public Substitution(String segment, String result) {
+    protected Substitution(String segment, String result) {
         this.segment = segment;
         this.result = result;
     }

@@ -18,7 +18,7 @@ import sarf.verb.trilateral.augmented.modifier.geminator.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Geminator {
+class Geminator {
     //ادغام العام
     private final GenericGeminator genericGeminator = new GenericGeminator();
     //ادغام المنتهي بحرف النون

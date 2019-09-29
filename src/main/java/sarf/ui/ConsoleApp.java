@@ -28,7 +28,7 @@ public class ConsoleApp {
     private final QuadrilateralAugmentedHelper quadrilateralAugmentedHelper;
 
     @Inject
-    public ConsoleApp(SarfDictionary sarfDictionary
+    private ConsoleApp(SarfDictionary sarfDictionary
             , KovRulesManager kovRulesManager
             , TrilateralUnaugmentedHelper trilateralUnaugmentedHelper
             , TrilateralAugmentedHelper augmentedTrilateralHelper, QuadrilateralUnaugmentedHelper quadrilateralUnaugmentedHelper, QuadrilateralAugmentedHelper quadrilateralAugmentedHelper) {

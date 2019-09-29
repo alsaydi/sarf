@@ -17,7 +17,7 @@ import sarf.noun.*;
  * @version 1.0
  */
 public abstract class AbstractGenericSubstituter extends TrilateralNounSubstitutionApplier{
-    public AbstractGenericSubstituter() {
+    protected AbstractGenericSubstituter() {
     }
 
     public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {

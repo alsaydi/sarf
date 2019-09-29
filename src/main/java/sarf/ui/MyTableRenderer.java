@@ -17,7 +17,7 @@ import java.awt.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class MyTableRenderer extends DefaultTableCellRenderer {
+class MyTableRenderer extends DefaultTableCellRenderer {
     public MyTableRenderer() {
     }
 

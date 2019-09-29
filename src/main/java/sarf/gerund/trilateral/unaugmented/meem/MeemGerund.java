@@ -19,20 +19,20 @@ import sarf.verb.trilateral.unaugmented.*;
 public abstract class MeemGerund extends Word {
     private final GenericNounSuffixContainer genericNounSuffixContainer;
     protected UnaugmentedTrilateralRoot root;
-    protected int suffixNo;
+    private int suffixNo;
     protected String suffix;
     protected MeemGerund() {
         genericNounSuffixContainer = null;
     }
 
-    public MeemGerund(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+    protected MeemGerund(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.root = root;
         this.genericNounSuffixContainer = genericNounSuffixContainer;
         this.suffixNo = "".equals(suffixNo) ? 0 : Integer.parseInt(suffixNo);
         suffix = genericNounSuffixContainer != null ? genericNounSuffixContainer.get(this.suffixNo) : "";
     }
 
-    public abstract String form();
+    protected abstract String form();
     public abstract String getPattern();
 
     public String toString() {

@@ -36,7 +36,7 @@ public class ImperativeVerb extends Word {
         return root;
     }
 
-    public String getlastDim() {
+    public String getLastDim() {
         return lastDim;
     }
 

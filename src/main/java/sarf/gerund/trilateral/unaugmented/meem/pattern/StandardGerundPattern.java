@@ -73,11 +73,11 @@ public class StandardGerundPattern extends MeemGerund {
         return form2();
     }
 
-    public String form1() {
+    private String form1() {
         return "م"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
     }
 
-    public String form2() {
+    private String form2() {
         return "م"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+root.getC3()+suffix;
     }
 

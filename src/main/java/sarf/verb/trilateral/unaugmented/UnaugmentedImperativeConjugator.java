@@ -28,7 +28,7 @@ public class UnaugmentedImperativeConjugator {
      * @param root         TrilateralVerb
      * @return PresentConjugation
      */
-    public ImperativeVerb createVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
+    private ImperativeVerb createVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
         String dpr2 = PresentConjugationDataContainer.getDpr2(root);
         String lastDim = ImperativeConjugationDataContainer.getLastDim(pronounIndex);
         String connectedPronoun = ImperativeConjugationDataContainer.getConnectedPronoun(pronounIndex);

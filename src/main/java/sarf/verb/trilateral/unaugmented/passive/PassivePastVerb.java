@@ -14,7 +14,7 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PassivePastVerb extends Word {
+class PassivePastVerb extends Word {
     private final UnaugmentedTrilateralRoot root;
 
     //حركة فاء الفعل وهي دائماً  ضمة

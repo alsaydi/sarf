@@ -19,7 +19,7 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class InternalMahmouz {
+class InternalMahmouz {
     private final Map<String, SubstitutionsApplier> modifiersMap = new HashMap<>();
 
     InternalMahmouz() {

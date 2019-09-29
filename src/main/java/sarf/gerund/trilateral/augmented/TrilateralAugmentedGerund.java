@@ -22,7 +22,7 @@ public abstract class TrilateralAugmentedGerund extends Word {
     protected final int suffixNo;
     protected final String suffix;
 
-    public TrilateralAugmentedGerund(AugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+    protected TrilateralAugmentedGerund(AugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.suffixNo = Integer.parseInt(suffixNo) + 1;
         this.root = root;
         this.genericNounSuffixContainer = genericNounSuffixContainer;
@@ -30,7 +30,7 @@ public abstract class TrilateralAugmentedGerund extends Word {
         suffix = genericNounSuffixContainer.get(this.suffixNo - 1);
     }
 
-    public abstract String form();
+    protected abstract String form();
     public abstract String getPattern();
 
     @Override

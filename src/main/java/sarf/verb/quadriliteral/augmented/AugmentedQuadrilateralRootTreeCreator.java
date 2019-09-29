@@ -24,11 +24,11 @@ public class AugmentedQuadrilateralRootTreeCreator {
     public AugmentedQuadrilateralRootTreeCreator() {
     }
 
-    public static AugmentedQuadriliteralRootTree buildXmlVerbTree(InputStream inputStream) throws SAXException, IOException {
+    public static AugmentedQuadrilateralRootTree buildXmlVerbTree(InputStream inputStream) throws SAXException, IOException {
         Digester digester = new Digester();
         digester.setValidating(false);
 
-        digester.addObjectCreate("roots", AugmentedQuadriliteralRootTree.class);
+        digester.addObjectCreate("roots", AugmentedQuadrilateralRootTree.class);
 
         digester.addObjectCreate("roots/root", AugmentedQuadrilateralRoot.class);
         digester.addSetProperties("roots/root", "c1", "c1");
@@ -43,6 +43,6 @@ public class AugmentedQuadrilateralRootTreeCreator {
 
         digester.addSetNext("roots/root", "addRoot");
 
-        return (AugmentedQuadriliteralRootTree) digester.parse(inputStream);
+        return (AugmentedQuadrilateralRootTree) digester.parse(inputStream);
     }
 }

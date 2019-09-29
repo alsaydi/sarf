@@ -14,10 +14,10 @@ import java.util.*;
  * @author not attributable
  * @version 1.0
  */
-public class AugmentedQuadriliteralRootTree {
+public class AugmentedQuadrilateralRootTree {
     private final List<AugmentedQuadrilateralRoot> roots = new ArrayList<>();
 
-    public AugmentedQuadriliteralRootTree() {
+    public AugmentedQuadrilateralRootTree() {
     }
 
     public void addRoot(AugmentedQuadrilateralRoot root) {

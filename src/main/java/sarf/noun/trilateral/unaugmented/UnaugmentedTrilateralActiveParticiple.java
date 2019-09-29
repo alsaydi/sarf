@@ -22,7 +22,7 @@ public class UnaugmentedTrilateralActiveParticiple extends Word {
      * @return String
      * @todo Implement this sarf.noun.Trilateral.TrilateralNoun method
      */
-    public String form() {
+    private String form() {
         return genericNounSuffixContainer.getPrefix()+root.getC1()+ArabCharUtil.FATHA+"ا"+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
     }
 

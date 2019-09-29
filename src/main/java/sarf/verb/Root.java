@@ -11,9 +11,9 @@ public abstract class Root {
     private char c3;
     private Conjugation conjugation;
 
-    public Root(){}
+    protected Root(){}
 
-    public Root(char c1, char c2, char c3) {
+    protected Root(char c1, char c2, char c3) {
         this.setC1(c1);
         this.setC2(c2);
         this.setC3(c3);

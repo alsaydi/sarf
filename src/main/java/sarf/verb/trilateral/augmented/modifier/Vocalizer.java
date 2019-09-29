@@ -21,7 +21,7 @@ import java.util.Map;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Vocalizer {
+class Vocalizer {
     //المعلوم  و  المجهول تحتوي قائمة بالأنواع الخمسة لاعلال لماضي والمضارع والأمر حسب
     private final Map<String, List<SubstitutionsApplier>> vocalizerMap = new HashMap<>();
 

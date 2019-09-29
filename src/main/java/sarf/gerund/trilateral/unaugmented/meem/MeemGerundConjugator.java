@@ -77,7 +77,7 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
         return gerundDisplayList;
     }
 
-    public List<StandardGerundPattern> createEmptyList() {
+    private List<StandardGerundPattern> createEmptyList() {
         List<StandardGerundPattern> result = new ArrayList<>();
         for (int i = 1; i <= SystemConstants.NOUN_POSSIBLE_STATES; i++) {
             result.add(StandardGerundPattern.Empty);
