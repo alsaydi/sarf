@@ -53,8 +53,8 @@ public class ConsoleApp {
     }
 
     private void processQuadrilateral(String root) {
-        quadrilateralAugmentedHelper.printPastActive(root);
-        //quadrilateralUnaugmentedHelper.printPastActive(root);
+        //quadrilateralAugmentedHelper.printPastActive(root);
+        quadrilateralUnaugmentedHelper.printPastActive(root);
         //quadrilateralUnaugmentedHelper.printPresentActive(root);
         //quadrilateralUnaugmentedHelper.printImperative(root);
         //quadrilateralUnaugmentedHelper.printPassivePast(root);
@@ -192,10 +192,10 @@ public class ConsoleApp {
                 ,"بخدن", "حبطء", "حوصل", "سلقي" , "فرقع" , "قشعر" , "كوءد", "كوهد", "مضحن"
         };
 
-        qroots = new String []{"جءجء"};
-
+        //qroots = new String []{"جءجء"};
+        roots = new String[]{"حيحي"};
         var rootsFound = 0;
-        for (var root : Stream.concat(Arrays.stream(qroots), Arrays.stream(qroots)).distinct().collect(Collectors.toList())) {
+        for (var root : Stream.concat(Arrays.stream(roots), Arrays.stream(roots)).distinct().collect(Collectors.toList())) {
             //System.out.println(root);
             if (root.length() == 3) {
                 if (processTrilateral(root)) {
@@ -231,9 +231,9 @@ public class ConsoleApp {
         String kovText = rule.getDesc();
         KindOfVerb kov = rule.getKov();
 
-//        for (UnaugmentedTrilateralRoot root : unaugmentedRoots) {
-//            trilateralUnaugmentedHelper.printTrilateralTree(root, kov);
-//        }
+        for (UnaugmentedTrilateralRoot root : unaugmentedRoots) {
+            trilateralUnaugmentedHelper.printTrilateralTree(root, kov);
+        }
 
         //augmentedTrilateralHelper.printPastActiveAugmentedVerbs(rootText);
         //augmentedTrilateralHelper.printPresentActiveAugmentedVerbs(rootText);
@@ -245,7 +245,7 @@ public class ConsoleApp {
         //augmentedTrilateralHelper.printTimeAndPlace(rootText);
         //augmentedTrilateralHelper.printGerund(rootText);
         //augmentedTrilateralHelper.printNomenGerund(rootText);
-        augmentedTrilateralHelper.printMeemGerund(rootText);
+       // augmentedTrilateralHelper.printMeemGerund(rootText);
     }
 
     private static void displayErrorMessage(String message) {

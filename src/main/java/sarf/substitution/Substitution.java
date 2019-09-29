@@ -36,7 +36,7 @@ public abstract class Substitution {
     String buildSubstitution(Root root, String expression) {
         var effectiveExpression = expression;
         for (var letter : root.getCharacters()) {
-            effectiveExpression = expression.replaceAll(letter.getMoniker(), letter.getValue() + "");
+            effectiveExpression = effectiveExpression.replaceAll(letter.getMoniker(), letter.getValue() + "");
         }
         return effectiveExpression;
     }

@@ -168,6 +168,7 @@ public class TrilateralUnaugmentedHelper {
         // printAssimilateNouns(root, kov);
         // printElatives(root, kov);
         // printStandardGerund(root, kov);
+        printStandardGerund(root, kov);
         try {
             printQualityGerund(root, kov);
         } catch (Exception ignored) {
