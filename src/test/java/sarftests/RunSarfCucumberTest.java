@@ -6,6 +6,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 //@CucumberOptions(plugin = {"html:test_output"})
-@CucumberOptions(plugin = {"junit:test_output"}, strict = true)
+@CucumberOptions(plugin = {"junit:test_output.xml"}, strict = true)
 public class RunSarfCucumberTest {
 }

@@ -5,4 +5,4 @@ sarf.zip
 /.vscode/
 /.settings/
 .classpath
-test_output
+test_output.xml
