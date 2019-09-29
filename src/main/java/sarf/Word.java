@@ -11,8 +11,6 @@ public abstract class Word {
             public String toString() {
                 return "";
             }
-
-            ;
         };
     }
 
