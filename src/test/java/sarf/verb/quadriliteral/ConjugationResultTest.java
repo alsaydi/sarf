@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.Word;
+import sarf.WordPresenter;
 import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ class ConjugationResultTest {
     void propertiesAreSet() {
         QuadrilateralRoot root = new UnaugmentedQuadrilateralRoot();
         List<Word> originalResult = new ArrayList<>();
-        originalResult.add(Word.fromText("Test"));
+        originalResult.add(Word.fromString("Test"));
 
         ConjugationResult sut = new ConjugationResult(KindOfVerb.Mudaaf, 1, root, originalResult);
 
@@ -27,7 +28,7 @@ class ConjugationResultTest {
         assertSame(originalResult, sut.getOriginalResult());
         assertNotSame(originalResult, sut.getFinalResult());
         assertEquals(1, sut.getFinalResult().size());
-        assertIterableEquals(originalResult, sut.getFinalResult());
+        assertEquals(sut.getFinalResult().get(0), WordPresenter.fromText("Test"));
     }
 
 }

@@ -3,6 +3,7 @@ package sarf.ui.controlpane;
 import javax.swing.*;
 
 import sarf.Word;
+import sarf.WordPresenter;
 import sarf.ui.*;
 import java.util.*;
 import java.awt.GridLayout;
@@ -132,7 +133,7 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
 
     public List<Word> createEmptyList() {
         return IntStream.rangeClosed(1, SystemConstants.PRONOUN_RANGE_END)
-                .mapToObj(i -> Word.Empty)
+                .mapToObj(i -> Word.empty())
                 .collect(Collectors.toCollection(() -> new ArrayList<>(SystemConstants.PRONOUN_RANGE_END)));
     }
 
@@ -146,14 +147,14 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
         //past text formatting
         String pastRootText = quadriActivePastConjugator.createVerb(7, root).toString();
         var conjugations = createEmptyList();
-        conjugations.set(7, Word.fromText(pastRootText));
+        conjugations.set(7, Word.fromString(pastRootText));
         ConjugationResult conjResult = quadrilateralModifier.build(root, 0, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //past text formatting
         String presentRootText = quadActivePresentConjugator.createNominativeVerb(7, root).toString();
         conjugations = createEmptyList();
-        conjugations.set(7, Word.fromText(presentRootText));
+        conjugations.set(7, Word.fromString(presentRootText));
         conjResult = quadrilateralModifier.build(root, 0, controlPaneContainer.getKov(), conjugations, SystemConstants.PRESENT_TENSE, true);
         presentRootText = conjResult.getFinalResult().get(7).toString();
 
@@ -172,14 +173,14 @@ public class QuadrilateralControlPane extends JPanel implements IControlPane {
         //past text formatting
         String pastRootText = quadrilateralAugmentedActivePastConjugator.createVerb(root, 7, formulaNo).toString();
         List<Word> conjugations = createEmptyList();
-        conjugations.set(7, Word.fromText(pastRootText));
+        conjugations.set(7, Word.fromString(pastRootText));
         ConjugationResult conjResult = quadrilateralModifier.build(root, formulaNo, controlPaneContainer.getKov(), conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         //past text formatting
         String presentRootText = augmentedQuadActivePresentConjugator.getNominativeConjugator().createVerb(root, 7, formulaNo).toString();
         conjugations = createEmptyList();
-        conjugations.set(7, Word.fromText(presentRootText));
+        conjugations.set(7, Word.fromString(presentRootText));
         conjResult = quadrilateralModifier.build(root, formulaNo, controlPaneContainer.getKov(), conjugations, SystemConstants.PRESENT_TENSE, true);
         presentRootText = conjResult.getFinalResult().get(7).toString();
 

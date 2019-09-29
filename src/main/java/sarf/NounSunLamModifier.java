@@ -92,9 +92,9 @@ public class NounSunLamModifier extends SubstitutionsApplier {
         }
 
         @Override
-        public Word apply(Word word, Root root) {
+        public WordPresenter apply(WordPresenter wordPresenter, Root root) {
             for (String sl : probableChars) {
-                var appliedResult = apply(word, sl);
+                var appliedResult = apply(wordPresenter, sl);
                 if (appliedResult != null) {
                     return appliedResult;
                 }
@@ -102,7 +102,7 @@ public class NounSunLamModifier extends SubstitutionsApplier {
             return null;
         }
 
-        private Word apply(Word word, String sl) {
+        private WordPresenter apply(WordPresenter word, String sl) {
             String wordSegment = segment.replaceAll("SL", sl);
 
             if (!word.contains(wordSegment)) {

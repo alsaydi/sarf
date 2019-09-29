@@ -2,6 +2,7 @@ package sarf.noun.trilateral.unaugmented.modifier.elative;
 
 import sarf.ConjugationResult;
 import sarf.Word;
+import sarf.WordPresenter;
 import sarf.noun.trilateral.unaugmented.elative.ElativeSuffixContainer;
 
 /**
@@ -26,38 +27,38 @@ public class AlkhairModifier {
         //جدول تصريف اسم التفضيل المعرّف بـ (أل)
         if (ElativeSuffixContainer.getInstance().isDefinite()) {
             for (int i = 0; i < 6; i++) {
-                conjResult.replace(i, Word.fromText("الْخَيْرُ"));
+                conjResult.replace(i, WordPresenter.fromText("الْخَيْرُ"));
             }
             for (int i = 6; i < 12; i++) {
-                conjResult.replace(i, Word.fromText("الْخَيْرَ"));
+                conjResult.replace(i, WordPresenter.fromText("الْخَيْرَ"));
             }
             for (int i = 12; i < 18; i++) {
-                conjResult.replace(i, Word.fromText("الْخَيْرِ"));
+                conjResult.replace(i, WordPresenter.fromText("الْخَيْرِ"));
             }
         }
         //- جدول تصريف اسم التفضيل المضاف إلى معرفة
         // جدول تصريف اسم التفضيل المضاف إلى نكرة
         else if (ElativeSuffixContainer.getInstance().isAnnexed() || ElativeSuffixContainer.getInstance().isIndefinite()) {
             for (int i = 0; i < 6; i++) {
-                conjResult.replace(i, Word.fromText("خَيْرُ"));
+                conjResult.replace(i, WordPresenter.fromText("خَيْرُ"));
             }
             for (int i = 6; i < 12; i++) {
-                conjResult.replace(i, Word.fromText("خَيْرَ"));
+                conjResult.replace(i, WordPresenter.fromText("خَيْرَ"));
             }
             for (int i = 12; i < 18; i++) {
-                conjResult.replace(i, Word.fromText("خَيْرِ"));
+                conjResult.replace(i, WordPresenter.fromText("خَيْرِ"));
             }
         }
         // جدول تصريف اسم التفضيل غير المضاف
         else {
             for (int i = 0; i < 6; i++) {
-                conjResult.replace(i, Word.fromText("خَيْرٌ"));
+                conjResult.replace(i, WordPresenter.fromText("خَيْرٌ"));
             }
             for (int i = 6; i < 12; i++) {
-                conjResult.replace(i, Word.fromText("خَيْرًا"));
+                conjResult.replace(i, WordPresenter.fromText("خَيْرًا"));
             }
             for (int i = 12; i < 18; i++) {
-                conjResult.replace(i, Word.fromText("خَيْرٍ"));
+                conjResult.replace(i, WordPresenter.fromText("خَيْرٍ"));
             }
         }
     }

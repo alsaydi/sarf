@@ -53,7 +53,7 @@ public class ConsoleApp {
     }
 
     private void processQuadrilateral(String root) {
-        //quadrilateralAugmentedHelper.printPastActive(root);
+        quadrilateralAugmentedHelper.printPastActive(root);
         //quadrilateralUnaugmentedHelper.printPastActive(root);
         //quadrilateralUnaugmentedHelper.printPresentActive(root);
         //quadrilateralUnaugmentedHelper.printImperative(root);
@@ -75,7 +75,7 @@ public class ConsoleApp {
         //quadrilateralAugmentedHelper.printTimeAndPlace(root);
         //quadrilateralAugmentedHelper.printGerund(root);
         //quadrilateralAugmentedHelper.printMeemGerund(root);
-        quadrilateralAugmentedHelper.printNomenGerund(root);
+        //quadrilateralAugmentedHelper.printNomenGerund(root);
     }
 
     private void run() throws Exception {
@@ -191,6 +191,8 @@ public class ConsoleApp {
                 ,"شيطن", "وشوش"
                 ,"بخدن", "حبطء", "حوصل", "سلقي" , "فرقع" , "قشعر" , "كوءد", "كوهد", "مضحن"
         };
+
+        qroots = new String []{"جءجء"};
 
         var rootsFound = 0;
         for (var root : Stream.concat(Arrays.stream(qroots), Arrays.stream(qroots)).distinct().collect(Collectors.toList())) {

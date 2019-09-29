@@ -29,7 +29,7 @@ public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
     private final String title;
 
 
-    public VerbConjugationUI(IMainControlPanel controlPaneContainer, List verbConjugationList, String title) {
+    public VerbConjugationUI(IMainControlPanel controlPaneContainer, List<WordPresenter> verbConjugationList, String title) {
         super(new GridLayout(7, 4));
         this.controlPaneContainer = controlPaneContainer;
         this.title = title;

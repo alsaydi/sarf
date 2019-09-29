@@ -1,6 +1,7 @@
 package sarf.verb.quadriliteral.unaugmented.active;
 
 import sarf.Word;
+import sarf.WordPresenter;
 import sarf.util.*;
 import sarf.verb.quadriliteral.unaugmented.*;
 

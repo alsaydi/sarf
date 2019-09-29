@@ -35,7 +35,7 @@ public class JussiveVerbConjugationUI extends JPanel implements IHtmlContentSave
      * @param verbConjugationList List
      * @param notGeminatedVerbConjugationList List
      */
-    public JussiveVerbConjugationUI(IMainControlPanel controlPaneContainer, List verbConjugationList, List notGeminatedVerbConjugationList, String title) {
+    public JussiveVerbConjugationUI(IMainControlPanel controlPaneContainer, List<WordPresenter> verbConjugationList, List<WordPresenter> notGeminatedVerbConjugationList, String title) {
         super(new GridLayout(7,4));
         this.controlPaneContainer = controlPaneContainer;
         this.title = title;

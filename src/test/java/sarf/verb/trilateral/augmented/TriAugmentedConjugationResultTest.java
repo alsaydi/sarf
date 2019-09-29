@@ -7,14 +7,15 @@ import org.junit.jupiter.api.Test;
 import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.Word;
+import sarf.WordPresenter;
 
-public class TriAugmentedConjugationResultTest {
+class TriAugmentedConjugationResultTest {
 
 	@Test
-	void newlyConstructedConjugationResult_propertiesSet() throws Exception {
+	void newlyConstructedConjugationResult_propertiesSet() {
 		AugmentedTrilateralRoot root = new AugmentedTrilateralRoot();
 		List<Word> originalResult = new ArrayList<>();
-		originalResult.add( Word.fromText("كلمة" ));
+		originalResult.add( Word.fromString("كلمة" ));
 		
 		ConjugationResult sut = new ConjugationResult(KindOfVerb.Salim, 2, root, originalResult);
 		

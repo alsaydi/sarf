@@ -4,6 +4,7 @@ import java.util.*;
 
 import com.google.inject.Inject;
 import sarf.SystemConstants;
+import sarf.Word;
 import sarf.noun.*;
 import sarf.util.*;
 import sarf.verb.trilateral.unaugmented.*;
@@ -30,23 +31,23 @@ public class TrilateralUnaugmentedNomenGerundConjugator implements IUnaugmentedT
         this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
-    private List<String> createEmptyList() {
-        List<String> result = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
+    private List<Word> createEmptyList() {
+        List<Word> result = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
         for (int i = 1; i <= SystemConstants.NOUN_POSSIBLE_STATES; i++) {
-            result.add("");
+            result.add(Word.empty());
         }
         return result;
     }
 
-    public List<String> createGerundList(UnaugmentedTrilateralRoot root, String formulaName) {
-        List<String> gerundDisplayList = createEmptyList();
+    public List<Word> createGerundList(UnaugmentedTrilateralRoot root, String formulaName) {
+        var gerundDisplayList = createEmptyList();
 
         String gerund = genericNounSuffixContainer.getPrefix() + root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3();
         for (int value : indexList1) {
             //because index in java start from zero
             int suffixNo = value - 1;
             String suffix = genericNounSuffixContainer.get(suffixNo);
-            gerundDisplayList.set(suffixNo, gerund + suffix);
+            gerundDisplayList.set(suffixNo, Word.fromString(gerund + suffix));
         }
 
         if (root.getC2() == 'و' || root.getC2() == 'ي') {
@@ -55,7 +56,7 @@ public class TrilateralUnaugmentedNomenGerundConjugator implements IUnaugmentedT
                 //because index in java start from zero
                 int suffixNo = value - 1;
                 String suffix = genericNounSuffixContainer.get(suffixNo);
-                gerundDisplayList.set(suffixNo, gerund + suffix);
+                gerundDisplayList.set(suffixNo, Word.fromString(gerund + suffix));
             }
 
         }
@@ -65,7 +66,7 @@ public class TrilateralUnaugmentedNomenGerundConjugator implements IUnaugmentedT
                 //because index in java start from zero
                 int suffixNo = value - 1;
                 String suffix = genericNounSuffixContainer.get(suffixNo);
-                gerundDisplayList.set(suffixNo, gerund + suffix);
+                gerundDisplayList.set(suffixNo, Word.fromString(gerund + suffix));
             }
         }
 

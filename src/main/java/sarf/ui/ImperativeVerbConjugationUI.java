@@ -35,7 +35,7 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
      * @param verbConjugationList List
      * @param notGeminatedVerbConjugationList List
      */
-    public ImperativeVerbConjugationUI(IMainControlPanel controlPaneContainer, List verbConjugationList, List notGeminatedVerbConjugationList, String title) {
+    public ImperativeVerbConjugationUI(IMainControlPanel controlPaneContainer, List<WordPresenter> verbConjugationList, List notGeminatedVerbConjugationList, String title) {
         super(new GridLayout(7,4));
         this.controlPaneContainer = controlPaneContainer;
         this.title = title;

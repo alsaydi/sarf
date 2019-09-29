@@ -2,6 +2,7 @@ package sarf.ui.controlpane;
 
 import sarf.Action;
 import sarf.Word;
+import sarf.WordPresenter;
 import sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier;
 import sarf.gerund.modifier.trilateral.augmented.standard.TrilateralAugmentedStandardModifier;
 import sarf.gerund.quadrilateral.augmented.QuadrilateralAugmentedGerundConjugator;
@@ -93,7 +94,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
 
         standardBtn.addActionListener(e -> {
             Action action = () -> {
-                List<? extends Word> gerunds = null;
+                List<? extends Word> gerunds;
                 if (selectionInfo.isTrilateral()) {
                     gerunds = trilateralAugmentedGerundConjugator.createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     ConjugationResult conjResult = trilateralAugmentedStandardModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),

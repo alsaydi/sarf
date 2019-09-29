@@ -5,6 +5,7 @@ import sarf.verb.Root;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -27,7 +28,7 @@ public class ConjugationResult {
     //13 conjugated verbs
     private final List<? extends Word> originalResult;
     //القائمة بعد  الادغام والاعلال والهمزة
-    private final List<Word> finalResult;
+    private final List<WordPresenter> finalResult;
 
     //TODO: I believe originalResult is of List<String> type.
     
@@ -44,15 +45,17 @@ public class ConjugationResult {
         this.formulaNo = formulaNo;
         this.originalResult = originalResult;
         this.root = root;
-        this.finalResult = new ArrayList<>(originalResult);
+        this.finalResult = originalResult.stream()
+                .map(w -> w == null ? WordPresenter.Empty : w.producePresenter())
+                .collect(Collectors.toList());
         this.nounFormula = nounFormula;
     }
 
-    public void replace(int index, Word word){
-        this.finalResult.set(index, word);
+    public void replace(int index, WordPresenter wordPresenter){
+        this.finalResult.set(index, wordPresenter);
     }
 
-    public List<? extends Word> getFinalResult() {
+    public List<WordPresenter> getFinalResult() {
         return finalResult;
     }
 

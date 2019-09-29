@@ -36,9 +36,9 @@ class NounSunLamModifierTest {
 		
 		ListedInfixSubstitution sut = new ListedInfixSubstitution(sunLetters, "سSLص", "صصSLسس");
 		
-		var actual = sut.apply(Word.fromText("ستصمر"), null);
+		var actual = sut.apply(WordPresenter.fromText("ستصمر"), null);
 		
-		assertEquals(Word.fromText("صصتسسمر"), actual);
+		assertEquals(WordPresenter.fromText("صصتسسمر"), actual);
 	}
 
 	@Test
@@ -48,7 +48,7 @@ class NounSunLamModifierTest {
 		
 		ListedInfixSubstitution sut = new ListedInfixSubstitution(sunLetters, "سSLص", "صصSLسس");
 		
-		var actual = sut.apply(Word.fromText("سصمر"), null);
+		var actual = sut.apply(WordPresenter.fromText("سصمر"), null);
 		
 		assertNull(actual);
 	}

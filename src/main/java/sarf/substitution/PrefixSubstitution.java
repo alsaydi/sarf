@@ -1,6 +1,7 @@
 package sarf.substitution;
 
 import sarf.Word;
+import sarf.WordPresenter;
 import sarf.verb.Root;
 
 /**
@@ -22,7 +23,7 @@ public class PrefixSubstitution extends Substitution {
     }
 
     @Override
-    public Word apply(Word word, Root root) {
-        return word.startsWith(segment)? word.replaceFirst(segment,result): null;
+    public WordPresenter apply(WordPresenter wordPresenter, Root root) {
+        return wordPresenter.startsWith(segment)? wordPresenter.replaceFirst(segment,result): null;
     }
 }

@@ -142,13 +142,13 @@ public class TrilateralUnaugmentedHelper {
     public void printTrilateralTree(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         String pastRootText = triActivePastConjugator.createVerb(7, root).toString();
         var conjugations = createEmptyList();
-        conjugations.set(7, Word.fromText(pastRootText));
+        conjugations.set(7, Word.fromString(pastRootText));
         var conjResult = unaugmentedTrilateralModifier.build(root, kov, conjugations, SystemConstants.PAST_TENSE, true);
         pastRootText = conjResult.getFinalResult().get(7).toString();
 
         String presentRootText = triUnaugmentedActivePresentConjugator.createNominativeVerb(7, root).toString();
         conjugations = createEmptyList();
-        conjugations.set(7, Word.fromText(presentRootText));
+        conjugations.set(7, Word.fromString(presentRootText));
         conjResult = unaugmentedTrilateralModifier.build(root, kov, conjugations, SystemConstants.PRESENT_TENSE, true);
         presentRootText = conjResult.getFinalResult().get(7).toString();
 
@@ -185,14 +185,14 @@ public class TrilateralUnaugmentedHelper {
     }
 
     private void printActivePresentConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        List result = triUnaugmentedActivePresentConjugator.createNominativeVerbList(root);
+        var result = triUnaugmentedActivePresentConjugator.createNominativeVerbList(root);
         ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, true);
         List finalResult = conjResult.getFinalResult();
         printFinalResultPipeSeparated(root, finalResult);
     }
 
     private void printImperativeConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        List result = unaugmentedImperativeConjugator.createEmphasizedVerbList(root);
+        var result = unaugmentedImperativeConjugator.createEmphasizedVerbList(root);
         ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true);
         List finalResult = conjResult.getFinalResult();
         printFinalResultPipeSeparated(root, finalResult);
@@ -201,15 +201,13 @@ public class TrilateralUnaugmentedHelper {
     private void printPassivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         List<? extends Word> result = triPassivePastConjugator.createVerbList(root);
         var conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PAST_TENSE, false);
-        result = conjResult.getFinalResult();
-        printFinalResultPipeSeparated(root, result);
+        printFinalResultPipeSeparated(root, conjResult.getFinalResult());
     }
 
     private void printPassivePresentConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         List<? extends Word> result = passivePresentConjugator.createEmphasizedVerbList(root);
         var conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, false);
-        result = conjResult.getFinalResult();
-        printFinalResultPipeSeparated(root, result);
+        printFinalResultPipeSeparated(root, conjResult.getFinalResult());
     }
 
     private void printActiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
@@ -361,7 +359,7 @@ public class TrilateralUnaugmentedHelper {
 
     private static List<Word> createEmptyList() {
         return IntStream.range(0, SystemConstants.PRONOUN_RANGE_END)
-                .mapToObj(a -> Word.Empty)
+                .mapToObj(a -> Word.empty())
                 .collect(Collectors.toList());
     }
 }

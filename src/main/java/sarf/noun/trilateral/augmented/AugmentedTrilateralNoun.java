@@ -1,8 +1,8 @@
 package sarf.noun.trilateral.augmented;
 
 import sarf.Word;
-import sarf.verb.trilateral.augmented.*;
-import sarf.noun.*;
+import sarf.noun.GenericNounSuffixContainer;
+import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -31,6 +31,6 @@ public abstract class AugmentedTrilateralNoun extends Word {
 
     @Override
     public String toString() {
-        return genericNounSuffixContainer.getPrefix()+form();
+        return genericNounSuffixContainer.getPrefix() + form();
     }
 }

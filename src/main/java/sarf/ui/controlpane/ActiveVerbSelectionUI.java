@@ -1,7 +1,9 @@
 package sarf.ui.controlpane;
 
+import sarf.ConjugationResult;
 import sarf.SystemConstants;
 import sarf.Word;
+import sarf.WordPresenter;
 import sarf.ui.*;
 import sarf.verb.quadriliteral.QuadrilateralRoot;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
@@ -14,7 +16,6 @@ import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
 import sarf.verb.quadriliteral.unaugmented.active.QuadActivePresentConjugator;
 import sarf.verb.quadriliteral.unaugmented.active.QuadriActivePastConjugator;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
-import sarf.ConjugationResult;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
 import sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator;
 import sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugatorFactory;
@@ -109,92 +110,87 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
         add(buttonsPanel);
 
         pastBtn.addActionListener(e -> {
-            List result;
+            List<WordPresenter> finalResult;
             if (selectionInfo.isTrilateral()) {
-                result = generateTrilateralActivePastResult();
+                finalResult = generateTrilateralActivePastResult();
+            } else {
+                finalResult = generateQuadrilateralActivePastResult();
             }
-            else {
-                result = generateQuadrilateralActivePastResult();
-            }
-            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, "الماضي");
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, finalResult, "الماضي");
             controlPaneContainer.openResult(ui);
         });
 
         presentNominativeBtn.addActionListener(e -> {
             List<? extends Word> result;
+            List<WordPresenter> finalResult;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
                     result = this.augmentedActivePresentConjugator.getNominativeConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     ConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.PRESENT_TENSE, true, ActiveVerbSelectionUI.this);
-                    result = conjResult.getFinalResult();
-                }
-                else {
+                    finalResult = conjResult.getFinalResult();
+                } else {
                     result = this.activePresentConjugator.createNominativeVerbList((UnaugmentedTrilateralRoot) selectionInfo.
                             getRoot());
                     var conjResult = this.unaugmentedTrilateralModifier.build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, true);
-                    result = conjResult.getFinalResult();
+                    finalResult = conjResult.getFinalResult();
                 }
-            }
-            else {
+            } else {
                 if (selectionInfo.isAugmented()) {
                     result = this.augmentedQuadActivePresentConjugator.getNominativeConjugator().createVerbList((
                             AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                }
-                else {
+                } else {
                     result = this.quadActivePresentConjugator.createNominativeVerbList((UnaugmentedQuadrilateralRoot)
                             selectionInfo.getRoot());
                 }
                 ConjugationResult conjResult = quadrilateralModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, true);
-                result = conjResult.getFinalResult();
+                finalResult = conjResult.getFinalResult();
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, "المضارع المرفوع");
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, finalResult, "المضارع المرفوع");
             controlPaneContainer.openResult(ui);
         });
 
         presentAccusativeBtn.addActionListener(e -> {
-            List result = null;
+            List<? extends Word> result;
+            List<WordPresenter> finalResult;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
                     result = augmentedActivePresentConjugator.getAccusativeConjugator().createVerbList((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     ConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.PRESENT_TENSE, true, ActiveVerbSelectionUI.this);
-                    result = conjResult.getFinalResult();
-                }
-                else {
+                    finalResult = conjResult.getFinalResult();
+                } else {
                     result = this.activePresentConjugator.createAccusativeVerbList((UnaugmentedTrilateralRoot) selectionInfo.
                             getRoot());
                     var conjResult = this.unaugmentedTrilateralModifier.build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, true);
-                    result = conjResult.getFinalResult();
+                    finalResult = conjResult.getFinalResult();
                 }
-            }
-            else {
+            } else {
                 if (selectionInfo.isAugmented()) {
                     result = augmentedQuadActivePresentConjugator.getAccusativeConjugator().createVerbList((
                             AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                }
-                else {
+                } else {
                     result = quadActivePresentConjugator.createAccusativeVerbList((UnaugmentedQuadrilateralRoot)
                             selectionInfo.getRoot());
                 }
                 ConjugationResult conjResult = quadrilateralModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, true);
-                result = conjResult.getFinalResult();
-
+                finalResult = conjResult.getFinalResult();
             }
-            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, "المضارع المنصوب");
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, finalResult, "المضارع المنصوب");
             controlPaneContainer.openResult(ui);
         });
 
         presentJussiveBtn.addActionListener(e -> {
-            List result = null;
+            List<? extends Word> result;
+            List<WordPresenter> finalResult;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
                     result = augmentedActivePresentConjugator.getJussiveConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     ConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.PRESENT_TENSE, true, ActiveVerbSelectionUI.this);
-                    result = conjResult.getFinalResult();
+                    finalResult = conjResult.getFinalResult();
 
                     //testing for applying gemination or not is just for the verb that has c2 = c3
                     //it will displayed in a different component
@@ -203,17 +199,16 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                         ConjugationResult notGeminatedConjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                                 selectionInfo.getAugmentationFormulaNo(),
                                 conjResult.getOriginalResult(), SystemConstants.PRESENT_TENSE, true, false, ActiveVerbSelectionUI.this);
-                        List notGeminatedResult = notGeminatedConjResult.getFinalResult();
+                        var notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(this.controlPaneContainer, result, notGeminatedResult, presentJussiveBtn.getText());
+                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(this.controlPaneContainer, finalResult, notGeminatedResult, presentJussiveBtn.getText());
                         controlPaneContainer.openResult(ui);
                         return;
                     }
-                }
-                else {
+                } else {
                     result = this.activePresentConjugator.createJussiveVerbList((UnaugmentedTrilateralRoot) selectionInfo.getRoot());
                     var conjResult = this.unaugmentedTrilateralModifier.build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, true);
-                    result = conjResult.getFinalResult();
+                    finalResult = conjResult.getFinalResult();
                     //testing for applying gemination or not is just for the verb that has c2 = c3
                     //it will displayed in a different component
                     UnaugmentedTrilateralRoot root = (UnaugmentedTrilateralRoot) selectionInfo.getRoot();
@@ -221,20 +216,18 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                         var notGeminatedConjResult = this.unaugmentedTrilateralModifier.build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                                 conjResult.getOriginalResult(),
                                 SystemConstants.PRESENT_TENSE, true, false);
-                        List notGeminatedResult = notGeminatedConjResult.getFinalResult();
+                        var notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(this.controlPaneContainer, result, notGeminatedResult, presentJussiveBtn.getText());
+                        JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(this.controlPaneContainer, finalResult, notGeminatedResult, presentJussiveBtn.getText());
                         controlPaneContainer.openResult(ui);
                         return;
                     }
                 }
-            }
-            else {
+            } else {
                 if (selectionInfo.isAugmented()) {
                     result = augmentedQuadActivePresentConjugator.getJussiveConjugator().createVerbList((
                             AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                }
-                else {
+                } else {
                     result = quadActivePresentConjugator.createJussiveVerbList((UnaugmentedQuadrilateralRoot)
                             selectionInfo.getRoot());
                 }
@@ -242,58 +235,58 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                 ConjugationResult notGeminatedConjResult = quadrilateralModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), conjResult.getOriginalResult(),
                         SystemConstants.PRESENT_TENSE, true, false);
 
+                finalResult = conjResult.getFinalResult();
                 JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(this.controlPaneContainer, conjResult.getFinalResult(), notGeminatedConjResult.getFinalResult(), presentJussiveBtn.getText());
                 controlPaneContainer.openResult(ui);
                 return;
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, "المضارع المجزوم");
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, finalResult, "المضارع المجزوم");
             controlPaneContainer.openResult(ui);
         });
 
         presentEmphasizedBtn.addActionListener(e -> {
-            List result = null;
+            List<? extends Word> result;
+            List<WordPresenter> finalResult;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
                     result = augmentedActivePresentConjugator.getEmphasizedConjugator().createVerbList((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     ConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.PRESENT_TENSE, true, ActiveVerbSelectionUI.this);
-                    result = conjResult.getFinalResult();
-                }
-                else {
+                    finalResult = conjResult.getFinalResult();
+                } else {
                     result = this.activePresentConjugator.createEmphasizedVerbList((UnaugmentedTrilateralRoot) selectionInfo.
                             getRoot());
                     var conjResult = this.unaugmentedTrilateralModifier.build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, true);
-                    result = conjResult.getFinalResult();
+                    finalResult = conjResult.getFinalResult();
                 }
-            }
-            else {
+            } else {
                 if (selectionInfo.isAugmented()) {
                     result = augmentedQuadActivePresentConjugator.getEmphasizedConjugator().createVerbList((
                             AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                }
-                else {
+                } else {
                     result = quadActivePresentConjugator.createEmphasizedVerbList((UnaugmentedQuadrilateralRoot)
                             selectionInfo.getRoot());
                 }
                 ConjugationResult conjResult = quadrilateralModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result, SystemConstants.PRESENT_TENSE, true);
-                result = conjResult.getFinalResult();
+                finalResult = conjResult.getFinalResult();
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, "المضارع المؤكد");
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, finalResult, "المضارع المؤكد");
             controlPaneContainer.openResult(ui);
         });
 
         imperativeBtn.addActionListener(e -> {
-            List result = null;
+            List<? extends Word> result;
+            List<WordPresenter> finalResult;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
                     result = this.augmentedImperativeConjugatorFactory.getNotEmphasizedConjugator().createVerbList((
                             AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     ConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true, ActiveVerbSelectionUI.this);
-                    result = conjResult.getFinalResult();
+                    finalResult = conjResult.getFinalResult();
 
                     //testing for applying gemination or not is just for the verb that has c2 = c3
                     //it will displayed in a different component
@@ -303,18 +296,17 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                         ConjugationResult notGeminatedConjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                                 selectionInfo.getAugmentationFormulaNo(),
                                 conjResult.getOriginalResult(), SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true, false, ActiveVerbSelectionUI.this);
-                        List notGeminatedResult = notGeminatedConjResult.getFinalResult();
+                        var notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, result, notGeminatedResult, imperativeBtn.getText());
+                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, finalResult, notGeminatedResult, imperativeBtn.getText());
                         controlPaneContainer.openResult(ui);
                         return;
                     }
-                }
-                else {
+                } else {
                     result = this.unaugmentedImperativeConjugator.createVerbList((UnaugmentedTrilateralRoot) selectionInfo.getRoot());
                     var conjResult = this.unaugmentedTrilateralModifier.build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result,
                             SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true);
-                    result = conjResult.getFinalResult();
+                    finalResult = conjResult.getFinalResult();
 
                     //testing for applying gemination or not is just for the verb that has c2 = c3
                     //it will displayed in a different component
@@ -323,45 +315,45 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                         var notGeminatedConjResult = this.unaugmentedTrilateralModifier.build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                                 conjResult.getOriginalResult(),
                                 SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true, false);
-                        List notGeminatedResult = notGeminatedConjResult.getFinalResult();
+                        var notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, result, notGeminatedResult, imperativeBtn.getText());
+                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, finalResult, notGeminatedResult, imperativeBtn.getText());
                         controlPaneContainer.openResult(ui);
                         return;
                     }
                 }
-            }
-            else {
+            } else {
                 if (selectionInfo.isAugmented()) {
                     result = this.augmentedQuadImperativeConjugator.getNotEmphasizedConjugator().createVerbList((
                             AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                }
-                else {
+                } else {
                     result = this.quadUnaugmentedImperativeConjugator.createVerbList((UnaugmentedQuadrilateralRoot) selectionInfo.
                             getRoot());
                 }
-                ConjugationResult conjResult = quadrilateralModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result,
+                var conjResult = quadrilateralModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result,
                         SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true);
+                finalResult = conjResult.getFinalResult();
 
-                ConjugationResult notGeminatedConjResult = quadrilateralModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result,
+                var notGeminatedConjResult = quadrilateralModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result,
                         SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true, false);
 
-                ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, conjResult.getFinalResult(), notGeminatedConjResult.getFinalResult(), imperativeBtn.getText());
+                ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, finalResult, notGeminatedConjResult.getFinalResult(), imperativeBtn.getText());
                 controlPaneContainer.openResult(ui);
                 return;
             }
-            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, "الأمر");
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, finalResult, "الأمر");
             controlPaneContainer.openResult(ui);
         });
 
         imperativeEmphasizedBtn.addActionListener(e -> {
-            List result = null;
+            List<? extends Word> result;
+            List<WordPresenter> finalResult;
             if (selectionInfo.isTrilateral()) {
                 if (selectionInfo.isAugmented()) {
                     result = augmentedImperativeConjugatorFactory.getEmphasizedConjugator().createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     ConjugationResult conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                             SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true, ActiveVerbSelectionUI.this);
-                    result = conjResult.getFinalResult();
+                    finalResult = conjResult.getFinalResult();
 
                     //testing for applying gemination or not is just for the verb that has c2 = c3
                     //it will displayed in a different component
@@ -375,18 +367,17 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                                 , true
                                 , false
                                 , ActiveVerbSelectionUI.this);
-                        List notGeminatedResult = notGeminatedConjResult.getFinalResult();
+                        var notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, result, notGeminatedResult, imperativeEmphasizedBtn.getText());
+                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, finalResult, notGeminatedResult, imperativeEmphasizedBtn.getText());
                         controlPaneContainer.openResult(ui);
                         return;
                     }
-                }
-                else {
+                } else {
                     result = this.unaugmentedImperativeConjugator.createEmphasizedVerbList((UnaugmentedTrilateralRoot) selectionInfo.getRoot());
                     var conjResult = this.unaugmentedTrilateralModifier.build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result,
                             SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true);
-                    result = conjResult.getFinalResult();
+                    finalResult = conjResult.getFinalResult();
 
                     //testing for applying gemination or not is just for the verb that has c2 = c3
                     //it will displayed in a different component
@@ -395,20 +386,18 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                         var notGeminatedConjResult = this.unaugmentedTrilateralModifier.build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                                 conjResult.getOriginalResult(),
                                 SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true, false);
-                        List notGeminatedResult = notGeminatedConjResult.getFinalResult();
+                        var notGeminatedResult = notGeminatedConjResult.getFinalResult();
 
-                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, result, notGeminatedResult, imperativeEmphasizedBtn.getText());
+                        ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, finalResult, notGeminatedResult, imperativeEmphasizedBtn.getText());
                         controlPaneContainer.openResult(ui);
                         return;
                     }
                 }
-            }
-            else {
+            } else {
                 if (selectionInfo.isAugmented()) {
                     result = augmentedQuadImperativeConjugator.getEmphasizedConjugator().createVerbList((
                             AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
-                }
-                else {
+                } else {
                     result = quadUnaugmentedImperativeConjugator.createEmphasizedVerbList((UnaugmentedQuadrilateralRoot)
                             selectionInfo.getRoot());
                 }
@@ -417,17 +406,18 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                 ConjugationResult notGeminatedConjResult = quadrilateralModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result,
                         SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true, false);
 
-                ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, conjResult.getFinalResult(), notGeminatedConjResult.getFinalResult(), imperativeEmphasizedBtn.getText());
+                finalResult = conjResult.getFinalResult();
+                ImperativeVerbConjugationUI ui = new ImperativeVerbConjugationUI(this.controlPaneContainer, finalResult, notGeminatedConjResult.getFinalResult(), imperativeEmphasizedBtn.getText());
                 controlPaneContainer.openResult(ui);
                 return;
 
             }
-            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, result, "الأمر المؤكد");
+            VerbConjugationUI ui = new VerbConjugationUI(this.controlPaneContainer, finalResult, "الأمر المؤكد");
             controlPaneContainer.openResult(ui);
         });
     }
 
-    private List<? extends Word> generateQuadrilateralActivePastResult() {
+    private List<WordPresenter> generateQuadrilateralActivePastResult() {
         if (selectionInfo.isAugmented()) {
             var result = quadrilateralAugmentedActivePastConjugator.createVerbList((AugmentedQuadrilateralRoot)
                     selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
@@ -440,23 +430,23 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
         return conjResult.getFinalResult();
     }
 
-    private List generateTrilateralActivePastResult() {
+    private List<WordPresenter> generateTrilateralActivePastResult() {
         List<? extends Word> result;
+        List<WordPresenter> presentableResult;
         if (selectionInfo.isAugmented()) {
             result = augmentedActivePastConjugator.createVerbList((AugmentedTrilateralRoot) selectionInfo.getRoot()
                     , selectionInfo.getAugmentationFormulaNo());
             var conjResult = augmentedTrilateralModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot()
                     , selectionInfo.getKov(), selectionInfo.getAugmentationFormulaNo(), result,
                     SystemConstants.PAST_TENSE, true, ActiveVerbSelectionUI.this);
-            result = conjResult.getFinalResult();
-        }
-        else {
+            presentableResult = conjResult.getFinalResult();
+        } else {
             result = activePastConjugator.createVerbList((UnaugmentedTrilateralRoot) selectionInfo.getRoot());
             var conjResult =
                     unaugmentedTrilateralModifier.build((UnaugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(), result, SystemConstants.PAST_TENSE, true);
-            result = conjResult.getFinalResult();
+            presentableResult = conjResult.getFinalResult();
         }
-        return result;
+        return presentableResult;
     }
 
     public JComponent getComponent() {
@@ -471,6 +461,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
     }
 
     private boolean opened = false;
+
     public void controlPaneOpened() {
         opened = true;
     }
@@ -484,7 +475,6 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
 
     /**
      * to let the user select when there is two states for the verb: with vocalization and without
-     * @return
      */
     public boolean doSelectVocalization() {
         if (null != cashedUserResponse) {

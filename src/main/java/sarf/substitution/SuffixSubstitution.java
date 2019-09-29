@@ -1,6 +1,7 @@
 package sarf.substitution;
 
 import sarf.Word;
+import sarf.WordPresenter;
 import sarf.verb.Root;
 
 /**
@@ -22,13 +23,13 @@ public class SuffixSubstitution extends Substitution {
     }
 
     @Override
-    public Word apply(Word word, Root root) {
-        if (word.endsWith(segment)) {
-            int changeIndex = word.lastIndexOf(segment);
+    public WordPresenter apply(WordPresenter wordPresenter, Root root) {
+        if (wordPresenter.endsWith(segment)) {
+            int changeIndex = wordPresenter.lastIndexOf(segment);
             //String replacement = word.substring(changeIndex, word.length());
             //replacement.replaceAll(segment, result);
-            return word.substring(0,changeIndex).append(result);
+            return wordPresenter.substring(0,changeIndex).append(result);
         }
-        return  Word.Empty;
+        return  WordPresenter.Empty;
     }
 }

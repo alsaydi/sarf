@@ -1,6 +1,7 @@
 package sarf.substitution;
 
 import sarf.Word;
+import sarf.WordPresenter;
 import sarf.verb.Root;
 
 /**
@@ -22,21 +23,16 @@ public class ExpressionSuffixSubstitution extends Substitution {
         super(segment, result);
     }
 
-    /**
-     *
-     * @param word String
-     * @return String
-     */
     @Override
-    public Word apply(Word word, Root root) {
-        if(null == word || word.isEmpty())
+    public WordPresenter apply(WordPresenter wordPresenter, Root root) {
+        if(null == wordPresenter || wordPresenter.isEmpty())
             return  null;
 
         String wordSegment = buildSubstitution(root, segment);
-        if (!word.endsWith(wordSegment)) return null;
+        if (!wordPresenter.endsWith(wordSegment)) return null;
 
         String replacedResult = buildSubstitution(root, result);
 
-        return word.replaceAll(wordSegment,replacedResult);
+        return wordPresenter.replaceAll(wordSegment,replacedResult);
     }
 }

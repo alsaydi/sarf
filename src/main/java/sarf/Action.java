@@ -16,5 +16,5 @@ import java.util.*;
  */
 public interface Action {
     //return the conjugation list result
-    List<? extends Word> execute();
+    List<WordPresenter> execute();
 }

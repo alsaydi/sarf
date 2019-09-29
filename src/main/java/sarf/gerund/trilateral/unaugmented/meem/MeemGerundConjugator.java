@@ -1,15 +1,19 @@
 package sarf.gerund.trilateral.unaugmented.meem;
 
 import com.google.inject.Inject;
-import sarf.*;
-import java.util.*;
-import java.util.stream.Collectors;
-
-import sarf.kov.KovRulesManager;
-import sarf.verb.trilateral.unaugmented.*;
-import sarf.gerund.trilateral.unaugmented.meem.pattern.*;
-import sarf.noun.*;
+import sarf.DatabaseManager;
+import sarf.SystemConstants;
 import sarf.gerund.trilateral.unaugmented.IUnaugmentedTrilateralGerundConjugator;
+import sarf.gerund.trilateral.unaugmented.meem.pattern.NonStandardGerundPattern;
+import sarf.gerund.trilateral.unaugmented.meem.pattern.StandardGerundPattern;
+import sarf.kov.KovRulesManager;
+import sarf.noun.GenericNounSuffixContainer;
+import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -36,16 +40,16 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
         this.databaseManager = databaseManager;
         this.genericNounSuffixContainer = genericNounSuffixContainer;
 
-        symbolToFormulaNameMap.put("C","مَفْعَلَة");
-        symbolToFormulaNameMap.put("D","مَفْعُلَة");
-        symbolToFormulaNameMap.put("E","مَفْعِلَة");
+        symbolToFormulaNameMap.put("C", "مَفْعَلَة");
+        symbolToFormulaNameMap.put("D", "مَفْعُلَة");
+        symbolToFormulaNameMap.put("E", "مَفْعِلَة");
 
         formulaNameToSymbolMap.put("مَفْعَلَة", "C");
         formulaNameToSymbolMap.put("مَفْعُلَة", "D");
         formulaNameToSymbolMap.put("مَفْعِلَة", "E");
     }
 
-    public List createGerundList(UnaugmentedTrilateralRoot root, String formulaName) {
+    public List<? extends MeemGerund> createGerundList(UnaugmentedTrilateralRoot root, String formulaName) {
         //check if it is standard
         if (formulaName.equals("مَفْعِل") || formulaName.equals("مَفْعَل")) {
             List<StandardGerundPattern> standardGerunds = createEmptyList();
@@ -58,32 +62,39 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
         //FIXME: this function relies on this.getAppliedFormulaList being called. Otherwise, appliedXmlMeemGerundNounFormula will be null.
 
         //non standard
-        List<String> gerundDisplayList = createEmptyList()
-                .stream()
-                .map(i -> "").collect(Collectors.toList());
+        var gerundDisplayList = createNonStandardEmptyList();
         String formulaSymbol = formulaNameToSymbolMap.get(formulaName);
-        String gerundText = appliedXmlMeemGerundNounFormula.getSymbol1().equals(formulaSymbol)? appliedXmlMeemGerundNounFormula.getGerund1(): appliedXmlMeemGerundNounFormula.getGerund2();
+        String gerundText = appliedXmlMeemGerundNounFormula.getSymbol1().equals(formulaSymbol) ? appliedXmlMeemGerundNounFormula.getGerund1() : appliedXmlMeemGerundNounFormula.getGerund2();
 
         //لعدم حذف التاء المربوطة من قاعدة المعطيات وحذفها من توليد القانون لأنها موجودة في اللاحقة
         //وحذف الفتحة من قاعدة المعطيات لأنها موجودة في اللاحقة
-        gerundText = gerundText.substring(0, gerundText.length()-2);
-        gerundText = genericNounSuffixContainer.getPrefix()+ gerundText;
-        gerundDisplayList.set(1, gerundText+genericNounSuffixContainer.get(1));
-        gerundDisplayList.set(7, gerundText+genericNounSuffixContainer.get(7));
-        gerundDisplayList.set(13, gerundText+genericNounSuffixContainer.get(13));
+        gerundText = gerundText.substring(0, gerundText.length() - 2);
+        gerundText = genericNounSuffixContainer.getPrefix() + gerundText;
+        gerundDisplayList.set(1, new NonStandardGerundPattern(gerundText + genericNounSuffixContainer.get(1)));
+        gerundDisplayList.set(7, new NonStandardGerundPattern(gerundText + genericNounSuffixContainer.get(7)));
+        gerundDisplayList.set(13, new NonStandardGerundPattern(gerundText + genericNounSuffixContainer.get(13)));
 
         return gerundDisplayList;
     }
 
     public List<StandardGerundPattern> createEmptyList() {
-        List<StandardGerundPattern> result = new ArrayList<>(18);
-        for (int i = 1; i <= 18; i++) {
+        List<StandardGerundPattern> result = new ArrayList<>();
+        for (int i = 1; i <= SystemConstants.NOUN_POSSIBLE_STATES; i++) {
             result.add(StandardGerundPattern.Empty);
         }
         return result;
     }
 
+    private static List<NonStandardGerundPattern> createNonStandardEmptyList() {
+        List<NonStandardGerundPattern> result = new ArrayList<>();
+        for (int i = 1; i <= SystemConstants.NOUN_POSSIBLE_STATES; i++) {
+            result.add(new NonStandardGerundPattern(""));
+        }
+        return result;
+    }
+
     private XmlMeemGerundNounFormula appliedXmlMeemGerundNounFormula;
+
     public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) throws Exception {
         var result = new ArrayList<String>();
         var kov = kovRulesManager.getTrilateralKov(root.getC1(), root.getC2(), root.getC3());

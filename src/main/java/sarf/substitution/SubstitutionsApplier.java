@@ -2,7 +2,7 @@ package sarf.substitution;
 
 import sarf.ConjugationResult;
 import sarf.SystemConstants;
-import sarf.Word;
+import sarf.WordPresenter;
 import sarf.verb.Root;
 
 import java.util.ArrayList;
@@ -23,6 +23,7 @@ import java.util.stream.IntStream;
  */
 public abstract class SubstitutionsApplier {
     private static final List<String> defaultAppliedPronounsIndexes = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
+
     static {
         IntStream.rangeClosed(1, SystemConstants.PRONOUN_RANGE_END)
                 .forEach(i -> defaultAppliedPronounsIndexes.add("" + i));
@@ -35,7 +36,7 @@ public abstract class SubstitutionsApplier {
      * @param words List of Word instances
      * @param root  Root
      */
-    public void apply(List<? extends Word> words, Root root) {
+    public void apply(List<WordPresenter> words, Root root) {
         for (var str : getAppliedPronounsIndexes()) {
             var index = Integer.parseInt(str) - 1;
             var word = words.get(index);
@@ -45,10 +46,9 @@ public abstract class SubstitutionsApplier {
 
             for (Substitution substitution : getSubstitutions()) {
                 var result = substitution.apply(word, root);
-                if (result != null) {
+                if (result != null && !result.isEmpty()) {
                     //تبديل الكلمة الجديدة المستبدلة بالكلمة القديمة
-                    //words.set(index, result);
-                    word = result;
+                    words.set(index, result);
                     //لا داعي لفحص باقي الاستبدالات
                     break;
                 }

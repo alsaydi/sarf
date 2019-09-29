@@ -31,7 +31,7 @@ public class UnaugmentedTrilateralActiveParticipleConjugator implements IUnaugme
         return new UnaugmentedTrilateralActiveParticiple(root, suffix, genericNounSuffixContainer);
     }
 
-    public List createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
+    public List<UnaugmentedTrilateralActiveParticiple> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
         List<UnaugmentedTrilateralActiveParticiple> result = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
         for (int i=0; i<SystemConstants.NOUN_POSSIBLE_STATES; i++) {
             result.add(createNoun(root, i));
@@ -39,7 +39,7 @@ public class UnaugmentedTrilateralActiveParticipleConjugator implements IUnaugme
         return result;
     }
 
-    public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
-        return null;
+    public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
+        return Collections.emptyList();
     }
 }
