@@ -32,7 +32,7 @@ public class PastVocalizer extends SubstitutionsApplier {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
@@ -43,7 +43,7 @@ public class PastVocalizer extends SubstitutionsApplier {
         if (conjugationResult.getRoot().getCharacters().size() < 4) {
             return false;
         }
-        if (conjugationResult.getRoot().getCharacters().get(3).getValue() == 'ي')
+        if (conjugationResult.getRoot().getCharacters().get(3).getValue() != 'ي')
             return false;
 
         switch (conjugationResult.getFormulaNo()) {
