@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 import javax.swing.*;
 
-import sarf.Word;
 import sarf.WordPresenter;
 import sarf.gerund.modifier.trilateral.unaugmented.meem.*;
 import sarf.gerund.modifier.trilateral.unaugmented.nomen.*;

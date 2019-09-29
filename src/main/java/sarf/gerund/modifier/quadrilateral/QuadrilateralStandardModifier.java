@@ -5,7 +5,6 @@ import java.util.*;
 import com.google.inject.Inject;
 import sarf.verb.quadriliteral.*;
 import sarf.*;
-import sarf.ConjugationResult;
 
 public class QuadrilateralStandardModifier {
     private final NounLamAlefModifier nounLamAlefModifier;

@@ -4,8 +4,6 @@ import sarf.KindOfVerb;
 import sarf.ConjugationResult;
 import sarf.substitution.SubstitutionsApplier;
 
-import sarf.verb.trilateral.unaugmented.modifier.*;
-
 /**
  * <p>Title: Sarf Program</p>
  *

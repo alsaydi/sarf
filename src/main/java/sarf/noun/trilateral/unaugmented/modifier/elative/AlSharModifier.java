@@ -1,7 +1,5 @@
 package sarf.noun.trilateral.unaugmented.modifier.elative;
 
-import java.util.*;
-
 import sarf.ConjugationResult;
 import sarf.WordPresenter;
 import sarf.noun.trilateral.unaugmented.elative.*;

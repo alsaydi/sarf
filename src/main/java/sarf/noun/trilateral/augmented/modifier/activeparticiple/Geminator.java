@@ -6,7 +6,6 @@ import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.noun.trilateral.augmented.modifier.activeparticiple.geminator.Geminator1;
 import sarf.noun.trilateral.augmented.modifier.geminator.Geminator2;
 import sarf.noun.trilateral.augmented.modifier.geminator.Geminator3;
-import sarf.substitution.SubstitutionsApplier;
 import sarf.ConjugationResult;
 
 

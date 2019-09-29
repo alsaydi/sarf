@@ -32,6 +32,7 @@ public class ActivePastGeminator extends SubstitutionsApplier {
         substitutions.add(new ExpressionInfixSubstitution("َC3َC3ُ","َC3ُّ"));// EX: (احمرُّوا)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }

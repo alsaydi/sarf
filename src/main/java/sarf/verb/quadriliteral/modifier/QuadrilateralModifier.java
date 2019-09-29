@@ -4,7 +4,6 @@ import java.util.*;
 
 import sarf.verb.quadriliteral.*;
 import sarf.*;
-import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>

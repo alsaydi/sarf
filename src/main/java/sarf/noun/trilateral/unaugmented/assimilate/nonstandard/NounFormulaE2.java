@@ -5,7 +5,6 @@ import sarf.noun.NounFormula;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.util.*;
 import sarf.noun.trilateral.unaugmented.assimilate.*;
-import sarf.noun.INounSuffixContainer;
 
 /**
  * <p>Title: Sarf Program</p>

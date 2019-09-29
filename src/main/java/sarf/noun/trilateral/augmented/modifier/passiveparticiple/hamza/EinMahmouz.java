@@ -36,8 +36,8 @@ public class EinMahmouz extends AbstractEinMahmouz {
         substitutions.add(new InfixSubstitution("َءًّ", "َأًّ")); // EX: (مُرَأًّى)
     }
 
-
-    public List getSubstitutions() {
+    @Override
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

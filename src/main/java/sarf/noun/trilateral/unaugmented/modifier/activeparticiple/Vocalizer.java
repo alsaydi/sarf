@@ -3,7 +3,6 @@ package sarf.noun.trilateral.unaugmented.modifier.activeparticiple;
 
 import sarf.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.activeparticiple.vocalizer.*;
-import sarf.substitution.Substitution;
 import sarf.substitution.SubstitutionsApplier;
 
 import java.util.ArrayList;

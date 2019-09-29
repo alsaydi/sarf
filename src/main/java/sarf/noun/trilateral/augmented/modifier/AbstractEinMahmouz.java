@@ -3,7 +3,6 @@ package sarf.noun.trilateral.augmented.modifier;
 import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.noun.*;
-import sarf.verb.trilateral.augmented.modifier.*;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,6 +18,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
  */
 public abstract class AbstractEinMahmouz extends TrilateralNounSubstitutionApplier{
 
+    @Override
     public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         return kov == KindOfVerb.Mahmouz_Ain || kov == KindOfVerb.Mithal_Wawi_Mahmouz_Ain || kov == KindOfVerb.Mithal_Yaee_Mahmouz_Ain || kov == KindOfVerb.Naqis_Wawi_Mahmouz_Ain || kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain;

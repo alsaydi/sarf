@@ -1,10 +1,6 @@
 package sarf.gerund.trilateral.unaugmented.meem.pattern;
 
-import sarf.KindOfVerb;
 import sarf.gerund.trilateral.unaugmented.meem.MeemGerund;
-import sarf.noun.GenericNounSuffixContainer;
-import sarf.noun.trilateral.unaugmented.instrumental.NonStandardInstrumentalConjugator;
-import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 /**
  * <p>Title: Sarf Program</p>

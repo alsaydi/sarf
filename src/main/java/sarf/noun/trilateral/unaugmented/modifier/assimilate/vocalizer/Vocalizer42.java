@@ -10,7 +10,6 @@ import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SuffixSubstitution;
 
-import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.ConjugationResult;
 
 /**

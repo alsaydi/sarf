@@ -2,15 +2,12 @@ package sarf.verb.trilateral.unaugmented.modifier.geminator;
 
 import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.SystemConstants;
 import sarf.substitution.ExpressionInfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SubstitutionsApplier;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 /**

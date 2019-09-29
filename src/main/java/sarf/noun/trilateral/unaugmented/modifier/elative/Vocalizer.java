@@ -6,7 +6,6 @@ import sarf.noun.trilateral.unaugmented.modifier.elative.vocalizer.YaeiLafifNake
 import sarf.substitution.SubstitutionsApplier;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**

@@ -3,7 +3,6 @@ package sarf.ui.controlpane;
 import javax.swing.*;
 
 import sarf.Word;
-import sarf.WordPresenter;
 import sarf.ui.*;
 import java.util.*;
 import java.awt.GridLayout;

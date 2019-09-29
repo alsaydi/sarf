@@ -2,7 +2,6 @@ package sarf.ui.controlpane;
 
 import sarf.Action;
 import sarf.Word;
-import sarf.WordPresenter;
 import sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier;
 import sarf.gerund.modifier.trilateral.augmented.standard.TrilateralAugmentedStandardModifier;
 import sarf.gerund.quadrilateral.augmented.QuadrilateralAugmentedGerundConjugator;

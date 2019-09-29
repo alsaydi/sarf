@@ -3,7 +3,6 @@ package sarf.gerund.modifier.trilateral.unaugmented.meem;
 import java.util.List;
 
 import com.google.inject.Inject;
-import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.*;

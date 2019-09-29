@@ -8,7 +8,6 @@ import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SubstitutionsApplier;
 
-import sarf.verb.trilateral.unaugmented.modifier.*;
 import sarf.ConjugationResult;
 
 /**

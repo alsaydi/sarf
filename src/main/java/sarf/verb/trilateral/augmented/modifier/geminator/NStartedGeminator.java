@@ -8,8 +8,6 @@ import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 import sarf.substitution.SubstitutionsApplier;
 
-import sarf.verb.trilateral.augmented.modifier.*;
-
 /**
  * <p>Title: Sarf Program</p>
  *

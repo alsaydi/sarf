@@ -2,7 +2,6 @@ package sarf.verb.quadriliteral.modifier;
 
 import java.util.*;
 import sarf.*;
-import sarf.ConjugationResult;
 import sarf.substitution.SubstitutionsApplier;
 
 /**

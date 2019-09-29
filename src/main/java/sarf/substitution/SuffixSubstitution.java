@@ -1,6 +1,5 @@
 package sarf.substitution;
 
-import sarf.Word;
 import sarf.WordPresenter;
 import sarf.verb.Root;
 

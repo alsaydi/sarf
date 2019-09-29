@@ -2,7 +2,6 @@ package sarf;
 
 import sarf.KindOfVerb;
 import sarf.verb.Root;
-import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 import java.util.*;
 import java.util.stream.Collectors;

@@ -1,7 +1,6 @@
 package sarf.noun.trilateral.unaugmented.modifier.elative;
 
 import sarf.ConjugationResult;
-import sarf.Word;
 import sarf.WordPresenter;
 import sarf.noun.trilateral.unaugmented.elative.ElativeSuffixContainer;
 

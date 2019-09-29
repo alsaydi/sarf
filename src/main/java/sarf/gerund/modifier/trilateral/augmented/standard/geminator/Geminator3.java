@@ -37,6 +37,7 @@ public class Geminator3 extends TrilateralNounSubstitutionApplier{
         return triAugmentedConjugationResult.getRoot().getC1() == 'ت' && (kov == KindOfVerb.Salim || kov == KindOfVerb.Mahmouz_Ain) && formulaNo == 5;
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }

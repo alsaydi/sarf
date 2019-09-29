@@ -9,7 +9,6 @@ import sarf.noun.*;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 
-import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.ConjugationResult;
 
 /**
@@ -68,7 +67,7 @@ public class ALafifNakesVocalizer extends TrilateralNounSubstitutionApplier{
             }
 
 
-            return noc == Conjugation.Third || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee) {
             switch (noc) {
                 case Second:
@@ -78,7 +77,7 @@ public class ALafifNakesVocalizer extends TrilateralNounSubstitutionApplier{
             }
 
 
-            return noc == Conjugation.Third || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             return noc == Conjugation.Third || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {

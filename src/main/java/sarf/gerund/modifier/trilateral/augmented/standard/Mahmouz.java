@@ -4,7 +4,6 @@ import java.util.*;
 
 import sarf.ConjugationResult;
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.substitution.SubstitutionsApplier;
 
 import sarf.gerund.modifier.trilateral.augmented.standard.hamza.*;
 

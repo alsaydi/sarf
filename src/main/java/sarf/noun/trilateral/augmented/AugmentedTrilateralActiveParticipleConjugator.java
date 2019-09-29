@@ -1,7 +1,6 @@
 package sarf.noun.trilateral.augmented;
 
 import com.google.inject.Inject;
-import sarf.AugmentationFormula;
 import sarf.SystemConstants;
 import sarf.noun.GenericNounSuffixContainer;
 import sarf.noun.trilateral.augmented.activeparticiple.*;
