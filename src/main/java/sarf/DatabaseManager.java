@@ -45,7 +45,7 @@ public class DatabaseManager {
 	private final Map<String, AugmentedTrilateralRootTree> tripleAugmentedTreeMap = new HashMap<>();
 
 	private final Map<String, UnaugmentedQuadriliteralRootTree> quadrilateralUnaugmentedTreeMap = new HashMap<>();
-	private final Map<String, AugmentedQuadriliteralRootTree> quadrilateralAugmentedTreeMap = new HashMap<>();
+	private final Map<String, AugmentedQuadrilateralRootTree> quadrilateralAugmentedTreeMap = new HashMap<>();
 
 	private final Map<String, AssimilateAdjectiveFormulaTree> assimilateAdjectiveMap = new HashMap<>();
 	private final Map<String, ElativeNounFormulaTree> elativeNounMap = new HashMap<>();
@@ -61,7 +61,6 @@ public class DatabaseManager {
 	 * @param c1
 	 *            char
 	 * @return UnaugmentedTrilateralRootTree
-	 * @throws Exception
 	 */
 	UnaugmentedTrilateralRootTree getUnaugmentedTrilateralRootTree(char c1) throws Exception {
 		UnaugmentedTrilateralRootTree rootsTree = tripleUnaugmentedTreeMap.get(c1 + "");
@@ -81,7 +80,6 @@ public class DatabaseManager {
 	 * @param c1
 	 *            char
 	 * @return AugmentedTrilateralRootTree
-	 * @throws Exception
 	 */
 	AugmentedTrilateralRootTree getAugmentedTrilateralRootTree(char c1) throws Exception {
 		AugmentedTrilateralRootTree rootsTree = tripleAugmentedTreeMap.get(c1 + "");
@@ -107,7 +105,7 @@ public class DatabaseManager {
 		if (rootsTree != null)
 			return rootsTree;
 
-		rootsTree = UnaugmentedQuadriliteralRootTreeCreator
+		rootsTree = UnaugmentedQuadrilateralRootTreeCreator
 				.buildXmlVerbTree(getResourceInputStream("db/quadriliteral/unaugmented/" + c1 + ".xml"));
 		quadrilateralUnaugmentedTreeMap.put(c1 + "", rootsTree);
 		return rootsTree;
@@ -120,8 +118,8 @@ public class DatabaseManager {
 	 *            char
 	 * @return AugmentedQuadrilateralRootTree
 	 */
-	AugmentedQuadriliteralRootTree getAugmentedQuadrilateralRootTree(char c1) throws Exception {
-		AugmentedQuadriliteralRootTree rootsTree = quadrilateralAugmentedTreeMap.get(c1 + "");
+	AugmentedQuadrilateralRootTree getAugmentedQuadrilateralRootTree(char c1) throws Exception {
+		AugmentedQuadrilateralRootTree rootsTree = quadrilateralAugmentedTreeMap.get(c1 + "");
 		if (rootsTree != null)
 			return rootsTree;
 
@@ -140,7 +138,6 @@ public class DatabaseManager {
 	 * @param c1
 	 *            char
 	 * @return UnaugmentedTrilateralRootTree
-	 * @throws Exception
 	 */
 	public XmlNounFormulaTree getXmlNounFormulaTree(char c1, String folderName) throws Exception {
 		Map<String, XmlNounFormulaTree> folderMap = allNounsTreeMap.computeIfAbsent(folderName, k -> new HashMap<>());

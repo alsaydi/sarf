@@ -29,7 +29,7 @@ public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
     private final String title;
 
 
-    public VerbConjugationUI(IMainControlPanel controlPaneContainer, List verbConjugationList, String title) {
+    public VerbConjugationUI(IMainControlPanel controlPaneContainer, List<WordPresenter> verbConjugationList, String title) {
         super(new GridLayout(7, 4));
         this.controlPaneContainer = controlPaneContainer;
         this.title = title;
@@ -37,7 +37,7 @@ public class VerbConjugationUI extends JPanel implements IHtmlContentSaver {
         setFont(FONT);
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         List pronounsList = SeparatedPronounsContainer.getPronouns();
-        JLabel lbl = null;
+        JLabel lbl;
         for (int i = 0; i < 6; i++) {
             //إضافة نص يمثل الضمير
             add(lbl = new JLabel((String) pronounsList.get(i)));

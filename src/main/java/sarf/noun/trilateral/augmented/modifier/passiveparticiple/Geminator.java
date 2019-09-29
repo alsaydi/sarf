@@ -1,11 +1,13 @@
 package sarf.noun.trilateral.augmented.modifier.passiveparticiple;
 
 import java.util.*;
-import sarf.verb.trilateral.Substitution.*;
+
+import sarf.ConjugationResult;
+import sarf.substitution.SubstitutionsApplier;
+
 import sarf.noun.trilateral.augmented.modifier.passiveparticiple.geminator.*;
-import sarf.verb.trilateral.augmented.*;
 import sarf.noun.trilateral.augmented.modifier.geminator.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,8 +21,8 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Geminator {
-    private final List modifiers = new LinkedList();
+class Geminator {
+    private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
 
     public Geminator() {
         modifiers.add(new Geminator1());
@@ -28,11 +30,10 @@ public class Geminator {
         modifiers.add(new Geminator3());
     }
 
-    public void apply(TriAugmentedConjugationResult conjResult) {
-        for (Object o : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
+    public void apply(ConjugationResult conjResult) {
+        for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

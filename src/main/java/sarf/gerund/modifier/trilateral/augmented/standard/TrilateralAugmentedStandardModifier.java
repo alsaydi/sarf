@@ -1,12 +1,9 @@
 package sarf.gerund.modifier.trilateral.augmented.standard;
 
 import com.google.inject.Inject;
-import sarf.KindOfVerb;
-import sarf.NounLamAlefModifier;
-import sarf.NounSunLamModifier;
+import sarf.*;
 import sarf.noun.trilateral.augmented.modifier.Substituter;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.FormulaApplyingChecker;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.IFormulaApplyingChecker;
@@ -48,8 +45,8 @@ public class TrilateralAugmentedStandardModifier {
         this.nounSunLamModifier = nounSunLamModifier;
     }
 
-    public TriAugmentedConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List conjugations, AugmentedTrilateralModifierListener listener) {
-        TriAugmentedConjugationResult conjResult = new TriAugmentedConjugationResult<>(kov, formulaNo, root, conjugations);
+    public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List<? extends Word> conjugations, AugmentedTrilateralModifierListener listener) {
+        ConjugationResult conjResult = new ConjugationResult(kov, formulaNo, root, conjugations);
         substituter.apply(conjResult);
         geminator.apply(conjResult);
 

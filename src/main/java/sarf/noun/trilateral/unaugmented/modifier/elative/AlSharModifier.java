@@ -1,9 +1,7 @@
 package sarf.noun.trilateral.unaugmented.modifier.elative;
 
-import sarf.verb.trilateral.unaugmented.*;
-import java.util.*;
-
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.ConjugationResult;
+import sarf.WordPresenter;
 import sarf.noun.trilateral.unaugmented.elative.*;
 
 /**
@@ -18,55 +16,55 @@ import sarf.noun.trilateral.unaugmented.elative.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class AlSharModifier {
+class AlSharModifier {
 
     AlSharModifier() {
     }
 
     public void apply(ConjugationResult conjResult) {
-        List conjugations = conjResult.getFinalResult();
+        var conjugations = conjResult.getFinalResult();
         //جدول تصريف اسم التفضيل المعرّف بـ (أل)
         if (ElativeSuffixContainer.getInstance().isDefinite()) {
             for (int i=0;i<6; i++) {
-                conjugations.set(i, "الشَّرُّ");
+                conjugations.set(i, WordPresenter.fromText("الشَّرُّ"));
             }
             for (int i=6;i<12; i++) {
-                conjugations.set(i, "الشَّرَّ");
+                conjugations.set(i,WordPresenter.fromText( "الشَّرَّ"));
             }
             for (int i=12;i<18; i++) {
-                conjugations.set(i, "الشَّرِّ");
+                conjugations.set(i,WordPresenter.fromText( "الشَّرِّ"));
             }
         }
         //- جدول تصريف اسم التفضيل المضاف إلى معرفة
         // جدول تصريف اسم التفضيل المضاف إلى نكرة
         else if (ElativeSuffixContainer.getInstance().isAnnexed() || ElativeSuffixContainer.getInstance().isIndefinite()) {
             for (int i=0;i<6; i++) {
-                conjugations.set(i, "شَرُّ");
+                conjugations.set(i, WordPresenter.fromText("شَرُّ"));
             }
             for (int i=6;i<12; i++) {
-                conjugations.set(i, "شَرَّ");
+                conjugations.set(i,WordPresenter.fromText( "شَرَّ"));
             }
             for (int i=12;i<18; i++) {
-                conjugations.set(i, "شَرِّ");
+                conjugations.set(i, WordPresenter.fromText("شَرِّ"));
             }
         }
         // جدول تصريف اسم التفضيل غير المضاف
         else {
             for (int i=0;i<6; i++) {
-                conjugations.set(i, "شَرٌّ");
+                conjugations.set(i, WordPresenter.fromText("شَرٌّ"));
             }
             for (int i=6;i<12; i++) {
-                conjugations.set(i, "شَرًّا");
+                conjugations.set(i, WordPresenter.fromText("شَرًّا"));
             }
             for (int i=12;i<18; i++) {
-                conjugations.set(i, "شَرٍّ");
+                conjugations.set(i, WordPresenter.fromText("شَرٍّ"));
             }
 
         }
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
+        var root = conjugationResult.getRoot();
         return root.getC1() == 'ش' && root.getC2() == 'ر' && root.getC3() == 'ر';
     }
 }

@@ -1,16 +1,17 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer;
 
 import sarf.Conjugation;
-import sarf.verb.trilateral.unaugmented.*;
-import java.util.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.Substitution.*;
+import sarf.ConjugationResult;
+import sarf.substitution.SubstitutionsApplier;
+
+import java.util.List;
+
 
 /**
  * <p>Title: Sarf Program</p>
  *
  * <p>Description:كان  من  ضمنها  هذا  الجذر  أو  لا في حالات الاعلال يتم فحص قائمة من الجذور اذا
- *  </p>
+ * </p>
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -19,21 +20,22 @@ import sarf.verb.trilateral.Substitution.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class ListedVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
-    public ListedVocalizer() {
+public abstract class ListedVocalizer extends SubstitutionsApplier {
+    protected ListedVocalizer() {
     }
 
     /**
      * isApplied
      *
-     * @param conjugationResult ConjugationResult
+     * @param conjugationResult NounConjugationResult
      * @return boolean
      * @todo Implement this
-     *   sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier
-     *   method
+     * sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier
+     * method
      */
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
-        UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
+        var root = conjugationResult.getRoot();
         //فحص الباب التصريفي أولاً
         if (root.getConjugation() != getNoc()) return false;
 
@@ -49,5 +51,6 @@ public abstract class ListedVocalizer extends SubstitutionsApplier implements IU
     }
 
     protected abstract List getAppliedRoots();
+
     protected abstract Conjugation getNoc();
 }

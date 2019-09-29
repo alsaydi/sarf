@@ -1,7 +1,7 @@
 package sarf.verb.quadriliteral.augmented.imperative;
 
 import java.util.*;
-import sarf.AugmentationFormula;
+
 import sarf.verb.quadriliteral.augmented.*;
 
 /**
@@ -21,12 +21,12 @@ public class AbstractAugmentedImperativeConjugator {
     private final List<String> lastDimList;
     private final List<String> connectedPronounList;
 
-    public AbstractAugmentedImperativeConjugator(List<String> lastDimList, List<String> connectedPronounList) {
+    AbstractAugmentedImperativeConjugator(List<String> lastDimList, List<String> connectedPronounList) {
         this.lastDimList = lastDimList;
         this.connectedPronounList = connectedPronounList;
     }
 
-    public AugmentedImperativeVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
+    private AugmentedImperativeVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
         String lastDim = lastDimList.get(pronounIndex);
         String connectedPronoun = connectedPronounList.get(pronounIndex);
         String formulaClassName = getClass().getPackage().getName()+".formula."+"AugmentedImperativeVerb"+formulaNo;
@@ -59,14 +59,4 @@ public class AbstractAugmentedImperativeConjugator {
 
         return result;
     }
-
-    public Map<String, List<AugmentedImperativeVerb>> createAllVerbList(AugmentedQuadrilateralRoot root) {
-        Map<String, List<AugmentedImperativeVerb>> result = new HashMap<>();
-        for (AugmentationFormula formula : (Iterable<AugmentationFormula>) root.getAugmentationList()) {
-            List<AugmentedImperativeVerb> formulaVerbList = createVerbList(root, formula.getFormulaNo());
-            result.put(formula.getFormulaNo() + "", formulaVerbList);
-        }
-        return result;
-    }
-
 }

@@ -1,8 +1,8 @@
 package sarf.gerund.modifier.trilateral.unaugmented.quality.hamza;
 
 import sarf.noun.trilateral.unaugmented.modifier.AbstractFaaMahmouz;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
 
 import java.util.ArrayList;
 import java.util.List;

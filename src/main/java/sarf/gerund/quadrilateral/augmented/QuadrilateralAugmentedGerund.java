@@ -1,5 +1,6 @@
 package sarf.gerund.quadrilateral.augmented;
 
+import sarf.Word;
 import sarf.noun.*;
 import sarf.verb.quadriliteral.augmented.*;
 
@@ -15,13 +16,13 @@ import sarf.verb.quadriliteral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class QuadrilateralAugmentedGerund {
+public abstract class QuadrilateralAugmentedGerund extends Word {
     private final GenericNounSuffixContainer genericNounSuffixContainer;
     protected final AugmentedQuadrilateralRoot root;
-    protected final int suffixNo;
+    private final int suffixNo;
     protected final String suffix;
 
-    public QuadrilateralAugmentedGerund(AugmentedQuadrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+    protected QuadrilateralAugmentedGerund(AugmentedQuadrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.genericNounSuffixContainer = genericNounSuffixContainer;
         this.root = root;
         this.suffixNo = Integer.parseInt(suffixNo);
@@ -29,10 +30,11 @@ public abstract class QuadrilateralAugmentedGerund {
         suffix = genericNounSuffixContainer.get(this.suffixNo);
     }
 
-    public abstract String form();
+    protected abstract String form();
 
     public abstract String getPattern();
 
+    @Override
     public String toString() {
         String result = form();
         if (result != null && !result.equals(""))

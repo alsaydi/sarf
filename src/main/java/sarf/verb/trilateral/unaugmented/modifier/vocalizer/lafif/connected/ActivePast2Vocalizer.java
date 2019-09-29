@@ -1,12 +1,14 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer.lafif.connected;
 
-import java.util.*;
-
 import sarf.Conjugation;
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +22,7 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ActivePast2Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class ActivePast2Vocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public ActivePast2Vocalizer() {
@@ -28,13 +30,15 @@ public class ActivePast2Vocalizer extends SubstitutionsApplier implements IUnaug
         substitutions.add(new InfixSubstitution("ِوُ", "ُ"));
         substitutions.add(new InfixSubstitution("ِيْ", "ِي"));
         substitutions.add(new InfixSubstitution("ِيُ", "ُ"));
-        substitutions.add(new InfixSubstitution("ِوَ","ِيَ"));
+        substitutions.add(new InfixSubstitution("ِوَ", "ِيَ"));
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();

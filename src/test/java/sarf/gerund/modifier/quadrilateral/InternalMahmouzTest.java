@@ -2,8 +2,8 @@ package sarf.gerund.modifier.quadrilateral;
 
 import org.junit.jupiter.api.Test;
 import sarf.KindOfVerb;
-import sarf.verb.quadriliteral.QuadriConjugationResult;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
+import sarf.ConjugationResult;
 
 import java.util.Collections;
 import java.util.Objects;
@@ -27,7 +27,7 @@ class InternalMahmouzTest {
     void isApplied() {
         var root = new AugmentedQuadrilateralRoot();
         root.setC2('ء');
-        var result = new QuadriConjugationResult<>(1, KindOfVerb.Naqis_Wawi, root, Collections.emptyList());
+        var result = new ConjugationResult(KindOfVerb.Naqis_Wawi, 1, root, Collections.emptyList());
 
         var sut = new InternalMahmouz();
 

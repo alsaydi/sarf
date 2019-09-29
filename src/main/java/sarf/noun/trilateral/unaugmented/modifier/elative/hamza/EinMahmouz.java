@@ -2,7 +2,9 @@ package sarf.noun.trilateral.unaugmented.modifier.elative.hamza;
 
 import java.util.*;
 
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
 import sarf.noun.trilateral.unaugmented.modifier.*;
 
 /**
@@ -26,7 +28,7 @@ public class EinMahmouz extends AbstractEinMahmouz {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

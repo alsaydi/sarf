@@ -2,10 +2,11 @@ package sarf.verb.trilateral.augmented.modifier.geminator;
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.*;
-import sarf.verb.trilateral.augmented.modifier.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,14 +20,14 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class NEndedGeminator extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
+public class NEndedGeminator extends SubstitutionsApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public NEndedGeminator() {
         substitutions.add(new InfixSubstitution("نْن","نّ"));// EX: (نحن سَكَّنَّا، هنَّ سَكَّنَّ)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
         if (triAugmentedConjugationResult.getRoot().getC3() != 'ن') return false;
@@ -48,7 +49,7 @@ public class NEndedGeminator extends SubstitutionsApplier implements IAugmentedT
         return false;
     }
 
-    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
+    public void apply(String tense, boolean active, ConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
 

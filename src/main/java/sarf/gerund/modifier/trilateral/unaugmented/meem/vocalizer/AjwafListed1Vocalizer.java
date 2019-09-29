@@ -1,10 +1,9 @@
 package sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer;
 
 import sarf.SystemConstants;
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
-import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
+import sarf.ConjugationResult;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.AbstractAjwafYaeiListedVocalizer;
 
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class AjwafListed1Vocalizer extends AbstractAjwafYaeiListedVocalizer implements IUnaugmentedTrilateralNounModificationApplier {
+public class AjwafListed1Vocalizer extends AbstractAjwafYaeiListedVocalizer{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public AjwafListed1Vocalizer() {
@@ -30,6 +29,7 @@ public class AjwafListed1Vocalizer extends AbstractAjwafYaeiListedVocalizer impl
         substitutions.add(new InfixSubstitution("ْيَ", "َا"));// EX: (محار)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
@@ -47,6 +47,7 @@ public class AjwafListed1Vocalizer extends AbstractAjwafYaeiListedVocalizer impl
         return appliedPronounsIndexes;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         return super.isApplied(conjugationResult);
     }

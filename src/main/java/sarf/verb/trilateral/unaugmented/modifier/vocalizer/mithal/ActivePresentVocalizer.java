@@ -1,13 +1,14 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer.mithal;
 
-import java.util.*;
-
 import sarf.Conjugation;
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
-import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,7 +22,7 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ActivePresentVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class ActivePresentVocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     private final List<String> acceptList = new ArrayList<>();
@@ -38,31 +39,33 @@ public class ActivePresentVocalizer extends SubstitutionsApplier implements IUna
         declineList.add("وسع");
         declineList.add("وهل");
 
-        substitutions.add(new InfixSubstitution("َوْ","َ"));
+        substitutions.add(new InfixSubstitution("َوْ", "َ"));
     }
 
-
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     /**
      * فحص أحد ثلاثة احتمالات
-     * @param conjugationResult ConjugationResult
+     *
+     * @param conjugationResult NounConjugationResult
      * @return boolean
      */
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
         return (kov == KindOfVerb.Mithal_Wawi_Mahmouz_Ain || kov == KindOfVerb.Mithal_Wawi_Mahmouz_Laam || kov == KindOfVerb.Mithal_Wawi) &&
                 ((noc == Conjugation.Second || noc == Conjugation.Sixth)  //احمال1
-                || isApplied1(conjugationResult) //احتمال2
-                || isApplied2(conjugationResult)); // احتمال 3
+                        || isApplied1(conjugationResult) //احتمال2
+                        || isApplied2(conjugationResult)); // احتمال 3
 
     }
 
     private boolean isApplied1(ConjugationResult conjugationResult) {
-        UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
+        var root = conjugationResult.getRoot();
         //فحص الباب التصريفي أولاً
         //if (!root.getConjugation().equals("4")) return false;
         if (root.getConjugation() != Conjugation.Forth) return false;
@@ -78,10 +81,10 @@ public class ActivePresentVocalizer extends SubstitutionsApplier implements IUna
     }
 
     private boolean isApplied2(ConjugationResult conjugationResult) {
-        UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
+        var root = conjugationResult.getRoot();
         //فحص الباب التصريفي أولاً
         //if (!root.getConjugation().equals("3")) return false;
-        if (root.getConjugation() != Conjugation.Third ) return false;
+        if (root.getConjugation() != Conjugation.Third) return false;
 
         for (String appliedRoot : declineList) {
             char c1 = appliedRoot.charAt(0);

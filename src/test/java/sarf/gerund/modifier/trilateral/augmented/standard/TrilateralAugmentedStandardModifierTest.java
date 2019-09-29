@@ -5,12 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import sarf.KindOfVerb;
-import sarf.NounLamAlefModifier;
-import sarf.NounSunLamModifier;
+import sarf.*;
 import sarf.noun.trilateral.augmented.modifier.Substituter;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.FormulaApplyingChecker;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.IFormulaApplyingChecker;
@@ -52,18 +49,18 @@ class TrilateralAugmentedStandardModifierTest {
         var root = new AugmentedTrilateralRoot();
         var kov = KindOfVerb.Salim;
         var formulaNo = 1;
-        var conjugations = new ArrayList<String>();
+        var conjugations = new ArrayList<Word>();
 
         var result = sut.build(root, kov, formulaNo, conjugations, augmentedTrilateralModifierListener);
 
         assertThat(result).isNotNull();
-        verify(substituter, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(geminator, times(1)).apply(any(TriAugmentedConjugationResult.class));
+        verify(substituter, times(1)).apply(any(ConjugationResult.class));
+        verify(geminator, times(1)).apply(any(ConjugationResult.class));
         verify(formulaApplyingChecker, times(1)).check(root, formulaNo);
-        verify(vocalizer, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(mahmouz, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(nounLamAlefModifier, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(nounSunLamModifier, times(1)).apply(any(TriAugmentedConjugationResult.class));
+        verify(vocalizer, times(1)).apply(any(ConjugationResult.class));
+        verify(mahmouz, times(1)).apply(any(ConjugationResult.class));
+        verify(nounLamAlefModifier, times(1)).apply(any(ConjugationResult.class));
+        verify(nounSunLamModifier, times(1)).apply(any(ConjugationResult.class));
     }
 
     @Test
@@ -72,18 +69,18 @@ class TrilateralAugmentedStandardModifierTest {
         var root = new AugmentedTrilateralRoot();
         var kov = KindOfVerb.Salim;
         var formulaNo = 1;
-        var conjugations = new ArrayList<String>();
+        var conjugations = new ArrayList<Word>();
 
         var result = sut.build(root, kov, formulaNo, conjugations, augmentedTrilateralModifierListener);
 
         assertThat(result).isNotNull();
-        verify(substituter, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(geminator, times(1)).apply(any(TriAugmentedConjugationResult.class));
+        verify(substituter, times(1)).apply(any(ConjugationResult.class));
+        verify(geminator, times(1)).apply(any(ConjugationResult.class));
         verify(formulaApplyingChecker, times(1)).check(root, formulaNo);
-        verify(vocalizer, never()).apply(any(TriAugmentedConjugationResult.class));
-        verify(mahmouz, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(nounLamAlefModifier, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(nounSunLamModifier, times(1)).apply(any(TriAugmentedConjugationResult.class));
+        verify(vocalizer, never()).apply(any(ConjugationResult.class));
+        verify(mahmouz, times(1)).apply(any(ConjugationResult.class));
+        verify(nounLamAlefModifier, times(1)).apply(any(ConjugationResult.class));
+        verify(nounSunLamModifier, times(1)).apply(any(ConjugationResult.class));
     }
 
     @Test
@@ -92,18 +89,18 @@ class TrilateralAugmentedStandardModifierTest {
         var root = new AugmentedTrilateralRoot();
         var kov = KindOfVerb.Salim;
         var formulaNo = 1;
-        var conjugations = new ArrayList<String>();
+        var conjugations = new ArrayList<Word>();
 
         var result = sut.build(root, kov, formulaNo, conjugations, null);
 
         assertThat(result).isNotNull();
-        verify(substituter, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(geminator, times(1)).apply(any(TriAugmentedConjugationResult.class));
+        verify(substituter, times(1)).apply(any(ConjugationResult.class));
+        verify(geminator, times(1)).apply(any(ConjugationResult.class));
         verify(formulaApplyingChecker, times(1)).check(root, formulaNo);
-        verify(vocalizer, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(mahmouz, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(nounLamAlefModifier, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(nounSunLamModifier, times(1)).apply(any(TriAugmentedConjugationResult.class));
+        verify(vocalizer, times(1)).apply(any(ConjugationResult.class));
+        verify(mahmouz, times(1)).apply(any(ConjugationResult.class));
+        verify(nounLamAlefModifier, times(1)).apply(any(ConjugationResult.class));
+        verify(nounSunLamModifier, times(1)).apply(any(ConjugationResult.class));
     }
 
     @Test
@@ -113,18 +110,18 @@ class TrilateralAugmentedStandardModifierTest {
         var root = new AugmentedTrilateralRoot();
         var kov = KindOfVerb.Salim;
         var formulaNo = 1;
-        var conjugations = new ArrayList<String>();
+        var conjugations = new ArrayList<Word>();
 
         var result = sut.build(root, kov, formulaNo, conjugations, augmentedTrilateralModifierListener);
 
         assertThat(result).isNotNull();
-        verify(substituter, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(geminator, times(1)).apply(any(TriAugmentedConjugationResult.class));
+        verify(substituter, times(1)).apply(any(ConjugationResult.class));
+        verify(geminator, times(1)).apply(any(ConjugationResult.class));
         verify(formulaApplyingChecker, times(1)).check(root, formulaNo);
-        verify(vocalizer, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(mahmouz, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(nounLamAlefModifier, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(nounSunLamModifier, times(1)).apply(any(TriAugmentedConjugationResult.class));
+        verify(vocalizer, times(1)).apply(any(ConjugationResult.class));
+        verify(mahmouz, times(1)).apply(any(ConjugationResult.class));
+        verify(nounLamAlefModifier, times(1)).apply(any(ConjugationResult.class));
+        verify(nounSunLamModifier, times(1)).apply(any(ConjugationResult.class));
     }
 
     @Test
@@ -134,17 +131,17 @@ class TrilateralAugmentedStandardModifierTest {
         var root = new AugmentedTrilateralRoot();
         var kov = KindOfVerb.Salim;
         var formulaNo = 1;
-        var conjugations = new ArrayList<String>();
+        var conjugations = new ArrayList<Word>();
 
         var result = sut.build(root, kov, formulaNo, conjugations, augmentedTrilateralModifierListener);
 
         assertThat(result).isNotNull();
-        verify(substituter, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(geminator, times(1)).apply(any(TriAugmentedConjugationResult.class));
+        verify(substituter, times(1)).apply(any(ConjugationResult.class));
+        verify(geminator, times(1)).apply(any(ConjugationResult.class));
         verify(formulaApplyingChecker, times(1)).check(root, formulaNo);
-        verify(vocalizer, never()).apply(any(TriAugmentedConjugationResult.class));
-        verify(mahmouz, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(nounLamAlefModifier, times(1)).apply(any(TriAugmentedConjugationResult.class));
-        verify(nounSunLamModifier, times(1)).apply(any(TriAugmentedConjugationResult.class));
+        verify(vocalizer, never()).apply(any(ConjugationResult.class));
+        verify(mahmouz, times(1)).apply(any(ConjugationResult.class));
+        verify(nounLamAlefModifier, times(1)).apply(any(ConjugationResult.class));
+        verify(nounSunLamModifier, times(1)).apply(any(ConjugationResult.class));
     }
 }

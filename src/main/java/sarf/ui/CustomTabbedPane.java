@@ -16,7 +16,7 @@ import java.awt.*;
  * @version 1.0
  */
 public class CustomTabbedPane extends JTabbedPane {
-    public static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 18);
+    private static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 18);
 
     public CustomTabbedPane() {
         setFont(FONT);

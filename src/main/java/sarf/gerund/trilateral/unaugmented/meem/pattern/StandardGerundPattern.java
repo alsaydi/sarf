@@ -25,7 +25,7 @@ import static sarf.KindOfVerb.*;
  */
 public class StandardGerundPattern extends MeemGerund {
     private boolean form1;
-    public static StandardGerundPattern Empty = new StandardGerundPattern();
+    public static final StandardGerundPattern Empty = new StandardGerundPattern();
     public StandardGerundPattern(UnaugmentedTrilateralRoot root, String suffixNo, KindOfVerb kov, GenericNounSuffixContainer genericNounSuffixContainer) {
         super(root, suffixNo, genericNounSuffixContainer);
         var noc = root.getConjugation();
@@ -73,11 +73,11 @@ public class StandardGerundPattern extends MeemGerund {
         return form2();
     }
 
-    public String form1() {
+    private String form1() {
         return "م"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.KASRA+root.getC3()+suffix;
     }
 
-    public String form2() {
+    private String form2() {
         return "م"+ArabCharUtil.FATHA+root.getC1()+ArabCharUtil.SKOON+root.getC2()+ArabCharUtil.FATHA+root.getC3()+suffix;
     }
 

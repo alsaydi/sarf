@@ -1,10 +1,11 @@
 package sarf.verb.quadriliteral.modifier;
 
-import sarf.verb.quadriliteral.*;
-import sarf.verb.quadriliteral.substitution.*;
+
 import java.util.Map;
 import java.util.HashMap;
 import sarf.SystemConstants;
+import sarf.ConjugationResult;
+import sarf.substitution.SubstitutionsApplier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -18,7 +19,7 @@ import sarf.SystemConstants;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class EndedMahmouz {
+class EndedMahmouz {
     private final Map<String, SubstitutionsApplier> modifiersMap = new HashMap<>();
 
     EndedMahmouz() {
@@ -30,7 +31,7 @@ public class EndedMahmouz {
         modifiersMap.put(SystemConstants.PRESENT_TENSE + "false", new sarf.verb.quadriliteral.modifier.hamza.ended.passive.PresentMahmouz());
     }
 
-    public void apply(String tense, boolean active, QuadriConjugationResult conjResult) {
+    public void apply(String tense, boolean active, ConjugationResult conjResult) {
         SubstitutionsApplier modifier = modifiersMap.get(tense + active);
         if (modifier.isApplied(conjResult))
             modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());

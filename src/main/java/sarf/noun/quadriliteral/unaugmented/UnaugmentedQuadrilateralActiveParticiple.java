@@ -1,10 +1,11 @@
 package sarf.noun.quadriliteral.unaugmented;
 
+import sarf.Word;
 import sarf.verb.quadriliteral.unaugmented.*;
 import sarf.util.*;
 import sarf.noun.GenericNounSuffixContainer;
 
-public class UnaugmentedQuadrilateralActiveParticiple {
+public class UnaugmentedQuadrilateralActiveParticiple extends Word {
     private final UnaugmentedQuadrilateralRoot root;
     private final String suffix;
     private final GenericNounSuffixContainer genericNounSuffixContainer;
@@ -21,10 +22,11 @@ public class UnaugmentedQuadrilateralActiveParticiple {
      * @return String
      * @todo Implement this sarf.noun.Quadriliteral.QuadriliteralNoun method
      */
-    public String form() {
+    private String form() {
         return genericNounSuffixContainer.getPrefix()+"م"+ArabCharUtil.DAMMA+root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+ArabCharUtil.KASRA+root.getC4()+suffix;
     }
 
+    @Override
     public String toString() {
         return form();
     }

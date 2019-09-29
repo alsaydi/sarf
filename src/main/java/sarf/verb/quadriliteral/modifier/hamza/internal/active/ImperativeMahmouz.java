@@ -3,7 +3,8 @@ package sarf.verb.quadriliteral.modifier.hamza.internal.active;
 import java.util.*;
 
 import sarf.verb.quadriliteral.modifier.hamza.internal.AbstractQuadrilateralInternalMahmouzModifier;
-import sarf.verb.quadriliteral.substitution.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -26,7 +27,7 @@ public class ImperativeMahmouz extends AbstractQuadrilateralInternalMahmouzModif
         substitutions.add(new InfixSubstitution("ءِ", "ئِ")); // EX: (طَمْئِنْ، اطْمَئِنُّوا)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

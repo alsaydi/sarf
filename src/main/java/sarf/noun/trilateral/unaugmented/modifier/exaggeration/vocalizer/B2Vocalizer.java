@@ -1,13 +1,14 @@
 package sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer;
 
-import java.util.*;
-
 import sarf.Conjugation;
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.noun.*;
+import sarf.noun.TrilateralNounSubstitutionApplier;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
 
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,17 +22,19 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class B2Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class B2Vocalizer extends TrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public B2Vocalizer() {
         substitutions.add(new InfixSubstitution("ُوي", "ِيّ"));// EX: (جَنِيّ، قَوِيّ، وَفِيّ )
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
         if (!nounFormula.equals("فَعُول")) {
@@ -49,7 +52,7 @@ public class B2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
                     return true;
             }
 
-            return noc == Conjugation.Second || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Lafeef_Maqroon) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Lafeef_Mafrooq) {

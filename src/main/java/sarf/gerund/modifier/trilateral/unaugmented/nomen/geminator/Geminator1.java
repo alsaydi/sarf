@@ -4,8 +4,10 @@ import java.util.*;
 
 import sarf.noun.*;
 
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
+
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,7 +21,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Geminator1 extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class Geminator1 extends TrilateralNounSubstitutionApplier{
 private final List<Substitution> substitutions = new ArrayList<>();
 
     public Geminator1() {
@@ -27,7 +29,7 @@ private final List<Substitution> substitutions = new ArrayList<>();
         substitutions.add(new ExpressionInfixSubstitution("َC3ْC3َ","َC3َّ"));// EX: (رَدَّة، )
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

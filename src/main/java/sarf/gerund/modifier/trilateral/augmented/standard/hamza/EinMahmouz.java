@@ -3,7 +3,9 @@ package sarf.gerund.modifier.trilateral.augmented.standard.hamza;
 import java.util.*;
 
 import sarf.noun.trilateral.augmented.modifier.*;
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -31,6 +33,7 @@ public class EinMahmouz extends AbstractEinMahmouz {
         substitutions.add(new InfixSubstitution("اءُ","اؤُ"));// EX: (تساؤل، ترؤّف)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }

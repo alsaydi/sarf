@@ -1,6 +1,7 @@
-package sarf.verb.trilateral.Substitution;
+package sarf.substitution;
 
-import sarf.verb.trilateral.TrilateralRoot;
+import sarf.WordPresenter;
+import sarf.verb.Root;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,12 +21,8 @@ public class PrefixSubstitution extends Substitution {
         super(segment, result);
     }
 
-    /**
-     *
-     * @param word String
-     * @return String
-     */
-    public String apply(String word, TrilateralRoot root) {
-        return word.startsWith(segment)? word.replaceFirst(segment,result): null;
+    @Override
+    public WordPresenter apply(WordPresenter wordPresenter, Root root) {
+        return wordPresenter.startsWith(segment)? wordPresenter.replaceFirst(segment,result): null;
     }
 }

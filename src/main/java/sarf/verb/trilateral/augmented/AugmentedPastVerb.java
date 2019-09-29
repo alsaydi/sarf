@@ -1,5 +1,7 @@
 package sarf.verb.trilateral.augmented;
 
+import sarf.Word;
+
 /**
  * <p>Title: Sarf</p>
  *
@@ -12,19 +14,19 @@ package sarf.verb.trilateral.augmented;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AugmentedPastVerb {
+public abstract class AugmentedPastVerb extends Word {
 
     protected final AugmentedTrilateralRoot root;
     protected final String lastDpa;
     protected final String connectedPronoun;
 
-    public AugmentedPastVerb(AugmentedTrilateralRoot root, String lastDpa, String connectedPronoun) {
+    protected AugmentedPastVerb(AugmentedTrilateralRoot root, String lastDpa, String connectedPronoun) {
         this.root = root;
         this.lastDpa = lastDpa;
         this.connectedPronoun = connectedPronoun;
     }
 
-    public abstract String form();
+    protected abstract String form();
 
     public String getConnectedPronoun() {
         return connectedPronoun;
@@ -38,8 +40,8 @@ public abstract class AugmentedPastVerb {
         return lastDpa;
     }
 
+    @Override
     public String toString() {
         return form();
     }
-
 }

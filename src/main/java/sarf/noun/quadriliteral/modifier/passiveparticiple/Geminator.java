@@ -3,8 +3,9 @@ package sarf.noun.quadriliteral.modifier.passiveparticiple;
 import java.util.*;
 
 import sarf.noun.*;
-import sarf.verb.quadriliteral.*;
-import sarf.verb.quadriliteral.substitution.*;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -29,7 +30,7 @@ public class Geminator extends QuadrilateralNounSubstitutionApplier {
         return substitutions;
     }
 
-    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
-        return quadriConjugationResult.getFormulaNo() == 3;
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        return conjugationResult.getFormulaNo() == 3;
     }
 }

@@ -2,7 +2,9 @@ package sarf.noun.trilateral.unaugmented.modifier.timeandplace;
 
 import java.util.*;
 
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
+
 import sarf.noun.trilateral.unaugmented.modifier.*;
 
 /**
@@ -25,8 +27,7 @@ public class Geminator extends AbstractGeminator {
         substitutions.add(new ExpressionInfixSubstitution("ْC3ِC3", "ِC3ّ")); // EX: (مَرِنّ)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

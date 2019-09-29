@@ -2,11 +2,13 @@ package sarf.gerund.modifier.trilateral.augmented.standard.vocalizer;
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.noun.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
-import sarf.verb.trilateral.augmented.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,14 +22,14 @@ import sarf.verb.trilateral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class MithalAjwaf4Vocalizer extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class MithalAjwaf4Vocalizer extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public MithalAjwaf4Vocalizer() {
         substitutions.add(new InfixSubstitution("ْوَا","َا"));// EX: (إجابة، استجابة)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

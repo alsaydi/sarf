@@ -50,7 +50,7 @@ public class SarfDictionary {
         char c3 = rootText.charAt(2);
         char c4 = rootText.charAt(3);
 
-        AugmentedQuadriliteralRootTree augmentedRootsTree;
+        AugmentedQuadrilateralRootTree augmentedRootsTree;
         try {
             augmentedRootsTree = databaseManager.getAugmentedQuadrilateralRootTree(c1);
         } catch (Exception ex) {

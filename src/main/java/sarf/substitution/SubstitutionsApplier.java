@@ -1,7 +1,9 @@
-package sarf.verb.trilateral.Substitution;
+package sarf.substitution;
 
+import sarf.ConjugationResult;
 import sarf.SystemConstants;
-import sarf.verb.trilateral.TrilateralRoot;
+import sarf.WordPresenter;
+import sarf.verb.Root;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +21,7 @@ import java.util.stream.IntStream;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class SubstitutionsApplier<T> {
-
+public abstract class SubstitutionsApplier {
     private static final List<String> defaultAppliedPronounsIndexes = new ArrayList<>(SystemConstants.PRONOUN_RANGE_END);
 
     static {
@@ -32,24 +33,20 @@ public abstract class SubstitutionsApplier<T> {
      * حلقة تمسح الكلمات وتجرب الاستبدلات على كل  كلمة
      * اذا نجح أحد الاستبدالات لا نبحث عن أخر
      *
-     * @param words List
-     * @param root  TrilateralRoot
+     * @param words List of Word instances
+     * @param root  Root
      */
-    public void apply(List words, TrilateralRoot root) {
+    public void apply(List<WordPresenter> words, Root root) {
         for (var str : getAppliedPronounsIndexes()) {
             var index = Integer.parseInt(str) - 1;
-            var wordObj = words.get(index);
-            if (wordObj == null) {
-                continue;
-            }
-            var word = wordObj.toString().trim();
-            if(word.equals("")) {
+            var word = words.get(index);
+            if (word == null || word.isEmpty()) {
                 continue;
             }
 
             for (Substitution substitution : getSubstitutions()) {
-                String result = substitution.apply(word, root);
-                if (result != null) {
+                var result = substitution.apply(word, root);
+                if (result != null && !result.isEmpty()) {
                     //تبديل الكلمة الجديدة المستبدلة بالكلمة القديمة
                     words.set(index, result);
                     //لا داعي لفحص باقي الاستبدالات
@@ -69,4 +66,6 @@ public abstract class SubstitutionsApplier<T> {
     protected List<String> getAppliedPronounsIndexes() {
         return defaultAppliedPronounsIndexes;
     }
+
+    public abstract boolean isApplied(ConjugationResult conjugationResult);
 }

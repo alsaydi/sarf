@@ -6,8 +6,10 @@ import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.noun.*;
 
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,7 +23,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Vocalizer32 extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class Vocalizer32 extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Vocalizer32() {

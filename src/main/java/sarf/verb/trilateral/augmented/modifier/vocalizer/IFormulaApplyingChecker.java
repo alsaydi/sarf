@@ -21,7 +21,7 @@ public abstract class IFormulaApplyingChecker {
     public final static int NOT_VOCALIZED = 2;
     public final static int NO_THING = 0;
 
-    public IFormulaApplyingChecker() {
+    IFormulaApplyingChecker() {
     }
 
     /**
@@ -42,7 +42,7 @@ public abstract class IFormulaApplyingChecker {
         return NO_THING;
     }
 
-    public abstract List getNotVocalizedList();
+    protected abstract List getNotVocalizedList();
 
-    public abstract List getTwoStateList();
+    protected abstract List getTwoStateList();
 }

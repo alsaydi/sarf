@@ -1,10 +1,10 @@
 package sarf.verb.trilateral.augmented.modifier.geminator;
 
-import sarf.verb.trilateral.augmented.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+import sarf.substitution.SubstitutionsApplier;
+
 import sarf.*;
 import java.util.*;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.verb.trilateral.augmented.modifier.geminator.generic.*;
 
 /**
@@ -19,7 +19,7 @@ import sarf.verb.trilateral.augmented.modifier.geminator.generic.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class GenericGeminator implements IAugmentedTrilateralModifier {
+public class GenericGeminator{
     private final Map<String, SubstitutionsApplier> geminators = new HashMap<>();
 
     public GenericGeminator() {
@@ -33,7 +33,7 @@ public class GenericGeminator implements IAugmentedTrilateralModifier {
         geminators.put(SystemConstants.PRESENT_TENSE + "false", new PassivePresentGeminator());
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
@@ -57,7 +57,7 @@ public class GenericGeminator implements IAugmentedTrilateralModifier {
         return false;
     }
 
-    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
+    public void apply(String tense, boolean active, ConjugationResult conjResult) {
         SubstitutionsApplier geminator = geminators.get(tense + active);
         geminator.apply(conjResult.getFinalResult(), conjResult.getRoot());
     }

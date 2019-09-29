@@ -2,10 +2,10 @@ package sarf.noun.trilateral.augmented.modifier.passiveparticiple.hamza;
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.noun.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.*;
-import sarf.verb.trilateral.augmented.modifier.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,7 +19,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class RaaEinMahmouz extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class RaaEinMahmouz extends TrilateralNounSubstitutionApplier{
 private final List<Substitution> substitutions = new ArrayList<>();
 
     public RaaEinMahmouz() {
@@ -30,12 +30,12 @@ private final List<Substitution> substitutions = new ArrayList<>();
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
-        AugmentedTrilateralRoot root = triAugmentedConjugationResult.getRoot();
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
+        var root = triAugmentedConjugationResult.getRoot();
         return root.getC1() == 'ر' && root.getC2() == 'ء' && root.getC3() == 'ي' && triAugmentedConjugationResult.getFormulaNo() == 1;
     }
 }

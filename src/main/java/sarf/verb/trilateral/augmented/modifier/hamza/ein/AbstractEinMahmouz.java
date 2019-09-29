@@ -1,9 +1,8 @@
 package sarf.verb.trilateral.augmented.modifier.hamza.ein;
 
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.augmented.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.modifier.*;
+import sarf.substitution.SubstitutionsApplier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -17,11 +16,11 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AbstractEinMahmouz extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-    public AbstractEinMahmouz() {
+public abstract class AbstractEinMahmouz extends SubstitutionsApplier{
+    protected AbstractEinMahmouz() {
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

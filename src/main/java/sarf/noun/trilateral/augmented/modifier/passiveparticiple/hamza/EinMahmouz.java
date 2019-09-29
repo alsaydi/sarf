@@ -2,7 +2,9 @@ package sarf.noun.trilateral.augmented.modifier.passiveparticiple.hamza;
 
 import java.util.*;
 
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
 import sarf.noun.trilateral.augmented.modifier.*;
 
 /**
@@ -34,8 +36,8 @@ public class EinMahmouz extends AbstractEinMahmouz {
         substitutions.add(new InfixSubstitution("َءًّ", "َأًّ")); // EX: (مُرَأًّى)
     }
 
-
-    public List getSubstitutions() {
+    @Override
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

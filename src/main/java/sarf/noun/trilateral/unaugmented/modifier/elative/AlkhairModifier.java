@@ -1,10 +1,8 @@
 package sarf.noun.trilateral.unaugmented.modifier.elative;
 
-import sarf.verb.trilateral.unaugmented.*;
-import java.util.*;
-
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
-import sarf.noun.trilateral.unaugmented.elative.*;
+import sarf.ConjugationResult;
+import sarf.WordPresenter;
+import sarf.noun.trilateral.unaugmented.elative.ElativeSuffixContainer;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -18,55 +16,53 @@ import sarf.noun.trilateral.unaugmented.elative.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class AlkhairModifier {
+class AlkhairModifier {
 
     AlkhairModifier() {
     }
 
     public void apply(ConjugationResult conjResult) {
-        var conjugations = conjResult.getFinalResult();
         //جدول تصريف اسم التفضيل المعرّف بـ (أل)
         if (ElativeSuffixContainer.getInstance().isDefinite()) {
-            for (int i=0;i<6; i++) {
-                conjugations.set(i, "الْخَيْرُ");
+            for (int i = 0; i < 6; i++) {
+                conjResult.replace(i, WordPresenter.fromText("الْخَيْرُ"));
             }
-            for (int i=6;i<12; i++) {
-                conjugations.set(i, "الْخَيْرَ");
+            for (int i = 6; i < 12; i++) {
+                conjResult.replace(i, WordPresenter.fromText("الْخَيْرَ"));
             }
-            for (int i=12;i<18; i++) {
-                conjugations.set(i, "الْخَيْرِ");
+            for (int i = 12; i < 18; i++) {
+                conjResult.replace(i, WordPresenter.fromText("الْخَيْرِ"));
             }
         }
         //- جدول تصريف اسم التفضيل المضاف إلى معرفة
         // جدول تصريف اسم التفضيل المضاف إلى نكرة
         else if (ElativeSuffixContainer.getInstance().isAnnexed() || ElativeSuffixContainer.getInstance().isIndefinite()) {
-            for (int i=0;i<6; i++) {
-                conjugations.set(i, "خَيْرُ");
+            for (int i = 0; i < 6; i++) {
+                conjResult.replace(i, WordPresenter.fromText("خَيْرُ"));
             }
-            for (int i=6;i<12; i++) {
-                conjugations.set(i, "خَيْرَ");
+            for (int i = 6; i < 12; i++) {
+                conjResult.replace(i, WordPresenter.fromText("خَيْرَ"));
             }
-            for (int i=12;i<18; i++) {
-                conjugations.set(i, "خَيْرِ");
+            for (int i = 12; i < 18; i++) {
+                conjResult.replace(i, WordPresenter.fromText("خَيْرِ"));
             }
         }
         // جدول تصريف اسم التفضيل غير المضاف
         else {
-            for (int i=0;i<6; i++) {
-                conjugations.set(i, "خَيْرٌ");
+            for (int i = 0; i < 6; i++) {
+                conjResult.replace(i, WordPresenter.fromText("خَيْرٌ"));
             }
-            for (int i=6;i<12; i++) {
-                conjugations.set(i, "خَيْرًا");
+            for (int i = 6; i < 12; i++) {
+                conjResult.replace(i, WordPresenter.fromText("خَيْرًا"));
             }
-            for (int i=12;i<18; i++) {
-                conjugations.set(i, "خَيْرٍ");
+            for (int i = 12; i < 18; i++) {
+                conjResult.replace(i, WordPresenter.fromText("خَيْرٍ"));
             }
-
         }
     }
 
     public boolean isApplied(ConjugationResult conjugationResult) {
-        UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
+        var root = conjugationResult.getRoot();
         return root.getC1() == 'خ' && root.getC2() == 'ي' && root.getC3() == 'ر';
     }
 }

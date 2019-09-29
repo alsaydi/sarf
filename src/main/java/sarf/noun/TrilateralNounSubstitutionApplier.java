@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.IntStream;
 
 import sarf.SystemConstants;
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.SubstitutionsApplier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -26,7 +26,7 @@ public abstract class TrilateralNounSubstitutionApplier extends SubstitutionsApp
                 .forEachOrdered(appliedPronounsIndexes::add);
     }
 
-    public TrilateralNounSubstitutionApplier() {
+    protected TrilateralNounSubstitutionApplier() {
     }
 
     @Override

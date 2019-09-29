@@ -2,7 +2,9 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.yaei;
 
 import java.util.*;
 
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
+
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
 
 /**
@@ -28,7 +30,7 @@ public class PassivePresentAjwafYaeiVocalizer extends AbstractAjwafYaeiVocalizer
         substitutions.add(new ExpressionInfixSubstitution("ْيَC3ّ", "َC3ّ")); // EX: (أنتن تُلَنَّ، هن يُلَنَّ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

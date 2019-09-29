@@ -1,5 +1,6 @@
 package sarf.verb.quadriliteral.unaugmented;
 
+import sarf.Word;
 import sarf.util.*;
 
 
@@ -12,7 +13,7 @@ import sarf.util.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ImperativeVerb {
+public class ImperativeVerb extends Word {
     private final UnaugmentedQuadrilateralRoot root;
 
     //حركة لام الفعل حسب الضمير
@@ -21,7 +22,7 @@ public class ImperativeVerb {
     //ضمير الرفع المتصل
     private final String connectedPronoun;
 
-    public ImperativeVerb(UnaugmentedQuadrilateralRoot root, String lastDim, String connectedPronoun) {
+    ImperativeVerb(UnaugmentedQuadrilateralRoot root, String lastDim, String connectedPronoun) {
         this.root = root;
         this.lastDim = lastDim;
         this.connectedPronoun = connectedPronoun;
@@ -35,7 +36,7 @@ public class ImperativeVerb {
         return root;
     }
 
-    public String getlastDim() {
+    public String getLastDim() {
         return lastDim;
     }
 

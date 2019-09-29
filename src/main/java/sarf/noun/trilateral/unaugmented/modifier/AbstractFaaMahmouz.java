@@ -2,7 +2,7 @@ package sarf.noun.trilateral.unaugmented.modifier;
 
 import sarf.KindOfVerb;
 import sarf.noun.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -16,7 +16,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AbstractFaaMahmouz extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public abstract class AbstractFaaMahmouz extends TrilateralNounSubstitutionApplier{
 
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();

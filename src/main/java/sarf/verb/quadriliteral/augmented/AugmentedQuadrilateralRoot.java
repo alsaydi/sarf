@@ -1,10 +1,12 @@
 package sarf.verb.quadriliteral.augmented;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import sarf.AugmentationFormula;
+import sarf.verb.quadriliteral.QuadrilateralRoot;
 
-import sarf.*;
-import sarf.verb.quadriliteral.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>Title: Sarf</p>
@@ -12,7 +14,7 @@ import sarf.verb.quadriliteral.*;
  * <p>Description: الجذر الرباعي المزيد
  * متضمنا الأحرف الأربعة                </p>
  *
-
+ *
  *
  * <p>Copyright: Copyright (c) 2006</p>
  *
@@ -21,7 +23,7 @@ import sarf.verb.quadriliteral.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public final class AugmentedQuadrilateralRoot extends QuadrilateralRoot{
+public final class AugmentedQuadrilateralRoot extends QuadrilateralRoot {
 
     //قائمة صيغ المزيد الممكنة لهذا الجذر
     private final Map<String, AugmentationFormula> augmentations = new HashMap<>();
@@ -30,7 +32,7 @@ public final class AugmentedQuadrilateralRoot extends QuadrilateralRoot{
     }
 
     public void addAugmentationFormula(AugmentationFormula formula) {
-        augmentations.put(formula.getFormulaNo()+"",formula);
+        augmentations.put(formula.getFormulaNo() + "", formula);
     }
 
     public List<AugmentationFormula> getAugmentationList() {
@@ -38,6 +40,6 @@ public final class AugmentedQuadrilateralRoot extends QuadrilateralRoot{
     }
 
     public AugmentationFormula getAugmentationFormula(int formulaNo) {
-        return augmentations.get(formulaNo+"");
+        return augmentations.get(formulaNo + "");
     }
 }

@@ -1,6 +1,8 @@
 package sarf.gerund.trilateral.unaugmented;
 
 import java.util.List;
+
+import sarf.Word;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 /**
@@ -16,6 +18,6 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
  * @version 1.0
  */
 public interface IUnaugmentedTrilateralGerundConjugator {
-    List createGerundList(UnaugmentedTrilateralRoot root, String formulaName);
-    List getAppliedFormulaList(UnaugmentedTrilateralRoot root) throws Exception;
+    List<? extends Word> createGerundList(UnaugmentedTrilateralRoot root, String formulaName);
+    List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) throws Exception;
 }

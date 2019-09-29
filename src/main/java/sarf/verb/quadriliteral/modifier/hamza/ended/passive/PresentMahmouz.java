@@ -3,7 +3,9 @@ package sarf.verb.quadriliteral.modifier.hamza.ended.passive;
 import java.util.*;
 
 import sarf.verb.quadriliteral.modifier.hamza.ended.AbstractQuadrilateralEndedMahmouzModifier;
-import sarf.verb.quadriliteral.substitution.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SuffixSubstitution;
 
 /**
  * <p>Title: Sarf Program</p>

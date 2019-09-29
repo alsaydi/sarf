@@ -2,7 +2,9 @@ package sarf.noun.trilateral.unaugmented.modifier.elative;
 
 import java.util.*;
 
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
+
 import sarf.noun.trilateral.unaugmented.modifier.*;
 
 /**
@@ -25,8 +27,7 @@ private final List<Substitution> substitutions = new ArrayList<>();
         substitutions.add(new ExpressionInfixSubstitution("ُC3ْC3", "ُC3ّ")); // EX: (حُرَّى)
     }
 
-
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

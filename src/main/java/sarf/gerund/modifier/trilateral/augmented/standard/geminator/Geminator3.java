@@ -2,11 +2,13 @@ package sarf.gerund.modifier.trilateral.augmented.standard.geminator;
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.noun.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
-import sarf.verb.trilateral.augmented.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +22,7 @@ import sarf.verb.trilateral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Geminator3 extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class Geminator3 extends TrilateralNounSubstitutionApplier{
 
     private final List<Substitution> substitutions = new LinkedList<>();
 
@@ -28,13 +30,14 @@ public class Geminator3 extends TrilateralNounSubstitutionApplier implements IAu
         substitutions.add(new InfixSubstitution("تْت","تّ"));// EX: (اتِّباعٌ، اتِّآم)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         return triAugmentedConjugationResult.getRoot().getC1() == 'ت' && (kov == KindOfVerb.Salim || kov == KindOfVerb.Mahmouz_Ain) && formulaNo == 5;
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }

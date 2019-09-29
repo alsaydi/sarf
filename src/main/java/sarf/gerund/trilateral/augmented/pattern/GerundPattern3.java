@@ -18,7 +18,7 @@ import sarf.util.*;
  * @version 1.0
  */
 public class GerundPattern3 extends TrilateralAugmentedGerund {
-    private boolean form2Applied;
+    private final boolean form2Applied;
 
     public GerundPattern3(AugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer, boolean applyForm2) {
         super(root, suffixNo, genericNounSuffixContainer);
@@ -39,14 +39,14 @@ public class GerundPattern3 extends TrilateralAugmentedGerund {
         return form2Applied ? form2() : form1();
     }
 
-    public String form1() {
+    private String form1() {
         if (suffixNo % 2 == 0) {
             return "م" + ArabCharUtil.DAMMA + root.getC1() + ArabCharUtil.FATHA + "ا" + root.getC2() + ArabCharUtil.FATHA + root.getC3() + suffix;
         }
         return "";
     }
 
-    public String form2() {
+    private String form2() {
         switch (suffixNo) {
         case 1:
         case 3:

@@ -5,8 +5,10 @@ import java.util.*;
 import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.noun.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,17 +22,19 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ACAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class ACAjwaf1Vocalizer extends TrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public ACAjwaf1Vocalizer() {
         substitutions.add(new InfixSubstitution("ْوَ", "َا"));// EX: (مَزَار، مَقامَة)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         String nounFormula = conjugationResult.getNounFormula();
         if (!nounFormula.equals("مَفْعَل") && !nounFormula.equals("مَفْعَلَة"))

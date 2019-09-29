@@ -2,7 +2,9 @@ package sarf.noun.trilateral.unaugmented.modifier.activeparticiple;
 
 import java.util.*;
 
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
+
 import sarf.noun.trilateral.unaugmented.modifier.*;
 
 /**
@@ -24,7 +26,7 @@ private final List<Substitution> substitutions = new ArrayList<>();
         substitutions.add(new ExpressionInfixSubstitution("اC3ِC3","اC3ّ"));// EX: (مادٌّ، مادًّا، مادٍّ، مادَّةٌ، مادُّون، مادِّينَ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

@@ -1,7 +1,13 @@
 package sarf.verb.trilateral.augmented.modifier.geminator.generic;
 
 import java.util.*;
-import sarf.verb.trilateral.Substitution.*;
+
+import sarf.ConjugationResult;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.ExpressionSuffixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -39,5 +45,10 @@ public class ActivePresentGeminator extends SubstitutionsApplier {
 
     public List<Substitution> getSubstitutions() {
         return substitutions;
+    }
+
+    @Override
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        return false;
     }
 }

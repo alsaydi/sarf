@@ -4,10 +4,11 @@ import java.util.*;
 
 import sarf.Conjugation;
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
-import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,7 +22,7 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class Imperative1Vocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     private final List<String> acceptList = new ArrayList<>();
@@ -41,15 +42,17 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaug
         substitutions.add(new InfixSubstitution("اوْ",""));
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
     /**
      * فحص أحد ثلاثة احتمالات
-     * @param conjugationResult ConjugationResult
+     * @param conjugationResult NounConjugationResult
      * @return boolean
      */
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
@@ -61,7 +64,7 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaug
     }
 
     private boolean isApplied1(ConjugationResult conjugationResult) {
-        UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
+        var root = conjugationResult.getRoot();
         //فحص الباب التصريفي أولاً
         if (root.getConjugation() != Conjugation.Forth) return false;
 
@@ -76,7 +79,7 @@ public class Imperative1Vocalizer extends SubstitutionsApplier implements IUnaug
     }
 
     private boolean isApplied2(ConjugationResult conjugationResult) {
-        UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
+        var root = conjugationResult.getRoot();
         //فحص الباب التصريفي أولاً
         if (root.getConjugation() != Conjugation.Third) return false;
 

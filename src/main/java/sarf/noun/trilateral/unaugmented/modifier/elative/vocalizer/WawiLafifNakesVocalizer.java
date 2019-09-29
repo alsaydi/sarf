@@ -4,8 +4,11 @@ import java.util.*;
 
 import sarf.KindOfVerb;
 import sarf.noun.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SuffixSubstitution;
+
+import sarf.ConjugationResult;
 
 import static sarf.KindOfVerb.Naqis_Wawi;
 
@@ -21,7 +24,7 @@ import static sarf.KindOfVerb.Naqis_Wawi;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class WawiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class WawiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public WawiLafifNakesVocalizer() {

@@ -1,6 +1,7 @@
 package sarf.noun.trilateral.unaugmented.elative;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -16,7 +17,7 @@ import java.util.*;
  */
 public class ElativeNounFormulaTree {
 
-    private final List formulas = new LinkedList();
+    private final List<ElativeNounFormula> formulas = new ArrayList<>();
 
     public ElativeNounFormulaTree() {
     }
@@ -28,5 +29,4 @@ public class ElativeNounFormulaTree {
     public List getFormulaList() {
         return formulas;
     }
-
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.swing.*;
 
+import com.google.common.collect.ImmutableList;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.exaggeration.NonStandardExaggerationConjugator;
 import sarf.noun.trilateral.unaugmented.exaggeration.StandardExaggerationConjugator;
@@ -16,7 +17,7 @@ import sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.*;
 import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
 import sarf.ui.*;
 import sarf.verb.trilateral.unaugmented.*;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
+import sarf.ConjugationResult;
 import sarf.noun.trilateral.unaugmented.modifier.timeandplace.*;
 import sarf.noun.trilateral.unaugmented.modifier.assimilate.*;
 import sarf.noun.trilateral.unaugmented.modifier.instrumental.*;
@@ -61,10 +62,10 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
     private final ActiveParticipleModifier activeParticipleModifier;
     private final PassiveParticipleModifier passiveParticipleModifier;
     private final ExaggerationModifier exaggerationModifier;
-    private InstrumentalModifier instrumentalModifier;
-    private TimeAndPlaceModifier timeAndPlaceModifier;
-    private ElativeModifier elativeModifier;
-    private AssimilateModifier assimilateModifier;
+    private final InstrumentalModifier instrumentalModifier;
+    private final TimeAndPlaceModifier timeAndPlaceModifier;
+    private final ElativeModifier elativeModifier;
+    private final AssimilateModifier assimilateModifier;
 
 
     public TrilateralUnaugmentedNounsUI(ControlPaneContainer controlPaneContainer
@@ -269,22 +270,31 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         APanel panel = new APanel(new GridLayout(1, formulas.size()));
         for (Object o : formulas) {
             String formula = (String) o;
-            if (formula.equals("أَفْعَل")) {
-                JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaCSuffixContainer.getInstance(), title);
-                panel.add(button);
-                bg.add(button);
-            } else if (formula.equals("فَعْلان / فَعْلانة")) {
-                JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaE1SuffixContainer.getInstance(), title);
-                panel.add(button);
-                bg.add(button);
-            } else if (formula.equals("فَعْلان / فَعْلَى")) {
-                JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaE2SuffixContainer.getInstance(), title);
-                panel.add(button);
-                bg.add(button);
-            } else {
-                JToggleButton button = createButton(formula, conjugator, modifier, title);
-                panel.add(button);
-                bg.add(button);
+            switch (formula) {
+                case "أَفْعَل": {
+                    JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaCSuffixContainer.getInstance(), title);
+                    panel.add(button);
+                    bg.add(button);
+                    break;
+                }
+                case "فَعْلان / فَعْلانة": {
+                    JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaE1SuffixContainer.getInstance(), title);
+                    panel.add(button);
+                    bg.add(button);
+                    break;
+                }
+                case "فَعْلان / فَعْلَى": {
+                    JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaE2SuffixContainer.getInstance(), title);
+                    panel.add(button);
+                    bg.add(button);
+                    break;
+                }
+                default: {
+                    JToggleButton button = createButton(formula, conjugator, modifier, title);
+                    panel.add(button);
+                    bg.add(button);
+                    break;
+                }
             }
         }
         panel.setMaximumSize(new Dimension(300, 30));
@@ -300,9 +310,9 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         ToggleRenderedButton button = new ToggleRenderedButton(formula);
         button.addActionListener(e -> {
             sarf.Action sarfAction = () -> {
-                List conjugatedNouns = conjugator.createNounList(root, formula);
+                var conjugatedNouns = conjugator.createNounList(root, formula);
                 ConjugationResult conjResult = modifier.build(root, selectionInfo.getKov(), conjugatedNouns, formula);
-                return conjResult.getFinalResult();
+                return ImmutableList.copyOf(conjResult.getFinalResult());
             };
 
             NounConjugationUI ui = new NounConjugationUI(this.controlPaneContainer, sarfAction, nounSuffixContainer, title);
@@ -334,9 +344,9 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         ToggleRenderedButton button = new ToggleRenderedButton(formula);
         button.addActionListener(e -> {
             sarf.Action sarfAction = () -> {
-                List conjugatedNouns = conjugator.createNounList(root, formula);
+                var conjugatedNouns = conjugator.createNounList(root, formula);
                 ConjugationResult conjResult = modifier.build(root, selectionInfo.getKov(), conjugatedNouns, formula);
-                return conjResult.getFinalResult();
+                return ImmutableList.copyOf(conjResult.getFinalResult());
             };
 
             ElativeNounConjugationUI ui = new ElativeNounConjugationUI(this.controlPaneContainer, sarfAction, title);

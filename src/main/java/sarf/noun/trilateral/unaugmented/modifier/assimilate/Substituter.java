@@ -3,8 +3,10 @@ package sarf.noun.trilateral.unaugmented.modifier.assimilate;
 import java.util.*;
 
 import sarf.noun.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -18,19 +20,20 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Substituter extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class Substituter extends TrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
-    public Substituter() {
+    Substituter() {
         substitutions.add(new InfixSubstitution("اءَا","اوَا"));// EX: (عَمْياوان)
         substitutions.add(new InfixSubstitution("اءَي","اوَي"));// EX: (عَمْياوين)
     }
 
-
-    public List getSubstitutions() {
+    @Override
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         return conjugationResult.getNounFormula().equals("فَعْلان");
     }

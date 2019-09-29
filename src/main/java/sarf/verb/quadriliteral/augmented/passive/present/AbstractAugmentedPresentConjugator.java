@@ -23,15 +23,15 @@ public class AbstractAugmentedPresentConjugator {
     private final List<String> lastDprList;
     private final List<String> connectedPronounList;
 
-    public AbstractAugmentedPresentConjugator(List<String> lastDprList, List<String> connectedPronounList) {
+    AbstractAugmentedPresentConjugator(List<String> lastDprList, List<String> connectedPronounList) {
         this.lastDprList = lastDprList;
         this.connectedPronounList = connectedPronounList;
     }
 
-    public AugmentedPresentVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
+    private AugmentedPresentVerb createVerb(AugmentedQuadrilateralRoot root, int pronounIndex, int formulaNo) {
         String cp = PresentConjugationDataContainer.getCp(pronounIndex);
-        String lastDpr = (String) lastDprList.get(pronounIndex);
-        String connectedPronoun = (String) connectedPronounList.get(pronounIndex);
+        String lastDpr = lastDprList.get(pronounIndex);
+        String connectedPronoun = connectedPronounList.get(pronounIndex);
         String formulaClassName = getClass().getPackage().getName()+".formula."+"AugmentedPresentVerb"+formulaNo;
         Object [] parameters = {root, cp, lastDpr, connectedPronoun};
 
@@ -44,7 +44,7 @@ public class AbstractAugmentedPresentConjugator {
         return null;
     }
 
-    public List createVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
+    public List<AugmentedPresentVerb> createVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
         AugmentationFormula augmentationFormula = root.getAugmentationFormula(formulaNo);
         if (augmentationFormula.getTransitive() == 'ل') {
             return createLazzemVerbList(root, formulaNo);
@@ -62,7 +62,7 @@ public class AbstractAugmentedPresentConjugator {
     }
 
     //المبني لمجهول اللازم فقط مع هو او هي
-    public List<AugmentedPresentVerb> createLazzemVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
+    private List<AugmentedPresentVerb> createLazzemVerbList(AugmentedQuadrilateralRoot root, int formulaNo) {
         List<AugmentedPresentVerb> result = new LinkedList<>();
         for (int i = 0; i < 13; i++) {
             if (i == 7 || i == 8) {
@@ -75,6 +75,4 @@ public class AbstractAugmentedPresentConjugator {
         }
         return result;
     }
-
-
 }

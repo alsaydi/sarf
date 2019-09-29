@@ -2,7 +2,9 @@ package sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.hamza;
 
 import java.util.*;
 
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
 import sarf.noun.trilateral.unaugmented.modifier.*;
 
 /**
@@ -27,7 +29,7 @@ public class FaaMahmouz extends AbstractFaaMahmouz {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

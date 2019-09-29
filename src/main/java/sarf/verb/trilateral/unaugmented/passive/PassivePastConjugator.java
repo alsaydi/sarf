@@ -2,7 +2,6 @@ package sarf.verb.trilateral.unaugmented.passive;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.LinkedList;
 
 import com.google.inject.Inject;
 import sarf.verb.trilateral.unaugmented.*;

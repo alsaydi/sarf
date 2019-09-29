@@ -139,7 +139,7 @@ public class AssimilateFormulaE2SuffixContainer implements INounSuffixContainer{
     }
 
     public String get(int index) {
-        return (String) currentSuffixList.get(index);
+        return currentSuffixList.get(index);
     }
 
 }

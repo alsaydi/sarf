@@ -4,8 +4,10 @@ import java.util.*;
 
 import sarf.noun.*;
 
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,17 +21,19 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Geminator2 extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class Geminator2 extends TrilateralNounSubstitutionApplier {
 private final List<Substitution> substitutions = new ArrayList<>();
 
     public Geminator2() {
         substitutions.add(new InfixSubstitution("َوْيَ","َيَّ"));// EX: (شيَّة، ليَّة)
     }
 
-    public List getSubstitutions() {
+    @Override
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         return conjugationResult.getRoot().getC2() =='و' && conjugationResult.getRoot().getC3() == 'ي';
     }

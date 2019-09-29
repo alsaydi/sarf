@@ -1,13 +1,12 @@
 package sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer;
 
 import sarf.Conjugation;
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
-import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
-import sarf.verb.trilateral.Substitution.SuffixSubstitution;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SuffixSubstitution;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +23,7 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class NakesLafifVocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class NakesLafifVocalizer extends TrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public NakesLafifVocalizer() {
@@ -42,10 +41,12 @@ public class NakesLafifVocalizer extends TrilateralNounSubstitutionApplier imple
         substitutions.add(new SuffixSubstitution("َيِ", "َى")); // EX: (بِمرمَى القوم)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         if (!conjugationResult.getNounFormula().equals("مَفْعَل")) {
             return false;

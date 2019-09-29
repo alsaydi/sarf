@@ -3,9 +3,11 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.lafif.separated.passiv
 import java.util.*;
 
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
-import sarf.verb.trilateral.augmented.modifier.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,7 +21,7 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class YaeiPastVocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
+public class YaeiPastVocalizer extends SubstitutionsApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public YaeiPastVocalizer() {
@@ -32,7 +34,7 @@ public class YaeiPastVocalizer extends SubstitutionsApplier implements IAugmente
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         if (triAugmentedConjugationResult.getRoot().getC1() != 'ي') {
             return false;
         }

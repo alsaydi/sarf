@@ -1,13 +1,14 @@
 package sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer;
 
-import java.util.*;
-
 import sarf.Conjugation;
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.noun.*;
+import sarf.noun.TrilateralNounSubstitutionApplier;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
 
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,12 +22,12 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class C2Vocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class C2Vocalizer extends TrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public C2Vocalizer() {
-        substitutions.add(new InfixSubstitution("او","اء"));// EX: (مِعطاء )
-        substitutions.add(new InfixSubstitution("اي","اء"));// EX: (مِجْناء، مِعْواء )
+        substitutions.add(new InfixSubstitution("او", "اء"));// EX: (مِعطاء )
+        substitutions.add(new InfixSubstitution("اي", "اء"));// EX: (مِجْناء، مِعْواء )
     }
 
     public List<Substitution> getSubstitutions() {
@@ -58,7 +59,7 @@ public class C2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
             }
 
 
-            return noc == Conjugation.Second || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Naqis_Yaee) {
             switch (noc) {
                 case Second:
@@ -68,7 +69,7 @@ public class C2Vocalizer extends TrilateralNounSubstitutionApplier implements IU
             }
 
 
-            return noc == Conjugation.Second || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Lafeef_Maqroon) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         }

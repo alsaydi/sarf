@@ -2,11 +2,11 @@ package sarf.gerund.modifier.trilateral.augmented.standard;
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.verb.trilateral.Substitution.*;
+
 import sarf.gerund.modifier.trilateral.augmented.standard.hamza.*;
-import sarf.verb.trilateral.augmented.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -30,11 +30,10 @@ public class Mahmouz {
         modifiers.add(new LamMahmouz());
     }
 
-    public void apply(TriAugmentedConjugationResult conjResult) {
+    public void apply(ConjugationResult conjResult) {
         for (TrilateralNounSubstitutionApplier trilateralNounSubstitutionApplier : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) trilateralNounSubstitutionApplier;
-            if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+            if (trilateralNounSubstitutionApplier.isApplied(conjResult)) {
+                trilateralNounSubstitutionApplier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

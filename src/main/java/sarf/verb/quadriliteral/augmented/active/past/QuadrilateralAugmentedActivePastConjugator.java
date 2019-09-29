@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import com.google.inject.Inject;
-import sarf.AugmentationFormula;
 import sarf.PastConjugationDataContainer;
 import sarf.SystemConstants;
 import sarf.verb.quadriliteral.augmented.*;

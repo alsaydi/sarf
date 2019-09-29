@@ -5,7 +5,7 @@ import java.util.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.Substitution;
 import sarf.NounSunLamModifier.ListedInfixSubstitution;
 
 class NounSunLamModifierTest {
@@ -36,9 +36,9 @@ class NounSunLamModifierTest {
 		
 		ListedInfixSubstitution sut = new ListedInfixSubstitution(sunLetters, "سSLص", "صصSLسس");
 		
-		String actual = sut.apply("ستصمر", null);
+		var actual = sut.apply(WordPresenter.fromText("ستصمر"), null);
 		
-		assertEquals("صصتسسمر", actual);
+		assertEquals(WordPresenter.fromText("صصتسسمر"), actual);
 	}
 
 	@Test
@@ -48,7 +48,7 @@ class NounSunLamModifierTest {
 		
 		ListedInfixSubstitution sut = new ListedInfixSubstitution(sunLetters, "سSLص", "صصSLسس");
 		
-		String actual = sut.apply("سصمر", null);
+		var actual = sut.apply(WordPresenter.fromText("سصمر"), null);
 		
 		assertNull(actual);
 	}

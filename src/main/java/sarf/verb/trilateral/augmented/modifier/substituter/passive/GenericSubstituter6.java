@@ -1,9 +1,12 @@
 package sarf.verb.trilateral.augmented.modifier.substituter.passive;
 
 import java.util.*;
-import sarf.verb.trilateral.Substitution.*;
+
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.substituter.*;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -25,11 +28,11 @@ public class GenericSubstituter6 extends AbstractGenericSubstituter {
         substitutions.add(new InfixSubstitution("صْت", "صْط")); // EX: (اصْطُبِر)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         return triAugmentedConjugationResult.getRoot().getC1() == 'ص' && super.isApplied(triAugmentedConjugationResult);
     }
 }

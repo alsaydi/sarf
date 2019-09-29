@@ -74,7 +74,6 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 import sarf.verb.trilateral.augmented.passive.past.AugmentedPassivePastConjugator;
 import sarf.verb.trilateral.augmented.passive.present.AugmentedPassivePresentConjugator;
 import sarf.verb.trilateral.unaugmented.*;
-import sarf.verb.trilateral.unaugmented.UnaugmentedImperativeConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator;
 import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
@@ -658,8 +657,8 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
 
         //عرض رسالة تنبيهية اذا تم تصحيح تلقائي
         if (!rootText.equals(rootFld.getText())) {
-            String msg = "لقد تم تصحيح الجذر المدخل إلى       ";
-            msg += rootText;
+            //String msg = "لقد تم تصحيح الجذر المدخل إلى       ";
+            //msg += rootText;
             //JOptionPane.showMessageDialog(this, msg, "", JOptionPane.INFORMATION_MESSAGE);
 
             //عرضه بعد التعديل اذا جرى تعديل
@@ -735,7 +734,7 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
             AugmentedQuadrilateralRoot augmentedRoot = augmentedList.get(index);
             UnaugmentedQuadrilateralRoot unaugmentedRoot = unaugmentedList.get(index);
 
-            String newRoot = rootTextList.get(index).toString();
+            String newRoot = rootTextList.get(index);
             //حتى لا يتم عرض رسالة نتبيهية
             //إلا في حالة جذر واحد
             if (rootTextList.size() > 1) {
@@ -758,8 +757,8 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
 
         //عرض رسالة تنبيهية اذا تم تصحيح تلقائي
         if (!rootText.equals(rootFld.getText())) {
-            String msg = "لقد تم تصحيح الجذر المدخل إلى       ";
-            msg += rootText;
+            //String msg = "لقد تم تصحيح الجذر المدخل إلى       ";
+            //msg += rootText;
             //JOptionPane.showMessageDialog(this, msg, "", JOptionPane.INFORMATION_MESSAGE);
 
             //عرضه بعد التعديل اذا جرى تعديل

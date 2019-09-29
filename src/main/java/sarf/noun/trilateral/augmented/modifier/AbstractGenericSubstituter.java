@@ -1,8 +1,7 @@
 package sarf.noun.trilateral.augmented.modifier;
 
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
-import sarf.verb.trilateral.augmented.modifier.*;
+import sarf.ConjugationResult;
 import sarf.noun.*;
 
 /**
@@ -17,11 +16,11 @@ import sarf.noun.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AbstractGenericSubstituter extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
-    public AbstractGenericSubstituter() {
+public abstract class AbstractGenericSubstituter extends TrilateralNounSubstitutionApplier{
+    protected AbstractGenericSubstituter() {
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
         if (formulaNo != 5) {

@@ -1,10 +1,10 @@
 package sarf.verb.trilateral.augmented.modifier;
 
-import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.substitution.SubstitutionsApplier;
 
 import java.util.*;
 
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.ConjugationResult;
 import sarf.SystemConstants;
 
 /**
@@ -19,7 +19,7 @@ import sarf.SystemConstants;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class HamzaModifier {
+class HamzaModifier {
     private final Map<String, List<SubstitutionsApplier>> modifiersMap = new HashMap<>();
 
     HamzaModifier() {
@@ -75,13 +75,12 @@ public class HamzaModifier {
      * قد لا يطبق أي نوع
      * @param tense String
      * @param active boolean
-     * @param conjResult TriAugmentedConjugationResult
+     * @param conjResult ConjugationResult
      */
-    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
+    public void apply(String tense, boolean active, ConjugationResult conjResult) {
         List<SubstitutionsApplier> modifiers = modifiersMap.get(tense+active);
         for (SubstitutionsApplier o : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
-            if (modifier.isApplied(conjResult)) {
+            if (o.isApplied(conjResult)) {
                 o.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }

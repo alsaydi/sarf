@@ -36,11 +36,11 @@ public class UnaugmentedQuadrilateralPassiveParticipleConjugator {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public List createMeemGerundNounList(UnaugmentedQuadrilateralRoot root) {
+    public List<UnaugmentedQuadrilateralPassiveParticiple> createMeemGerundNounList(UnaugmentedQuadrilateralRoot root) {
         return createNounList(root, meemGerundIndexesList);
     }
 
-    public List createTimeAndPlaceNounList(UnaugmentedQuadrilateralRoot root) {
+    public List<UnaugmentedQuadrilateralPassiveParticiple> createTimeAndPlaceNounList(UnaugmentedQuadrilateralRoot root) {
         return createNounList(root, timeAndPlaceIndexList);
     }
 

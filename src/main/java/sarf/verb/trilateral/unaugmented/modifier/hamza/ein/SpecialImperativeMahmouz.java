@@ -1,11 +1,13 @@
 package sarf.verb.trilateral.unaugmented.modifier.hamza.ein;
 
-import java.util.*;
+import sarf.ConjugationResult;
+import sarf.WordPresenter;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+import sarf.verb.Root;
 
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
-import sarf.verb.trilateral.TrilateralRoot;
-import sarf.verb.trilateral.unaugmented.*;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,30 +21,34 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class SpecialImperativeMahmouz extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class SpecialImperativeMahmouz extends SubstitutionsApplier {
 
     public SpecialImperativeMahmouz() {
     }
 
-    public List getSubstitutions() {
-        return null;
+    @Override
+    public List<Substitution> getSubstitutions() {
+        return Collections.emptyList();
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
-        UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
+        var root = conjugationResult.getRoot();
         return root.getC1() == 'س' && root.getC2() == 'ء' && root.getC3() == 'ل';
     }
 
     /**
      * override this method to return the custom list
+     *
      * @param words List
-     * @param root TrilateralRoot
+     * @param root  TrilateralRoot
      */
-    public void apply(List words, TrilateralRoot root) {
-        words.set(2, "سَلْ/اسْأَلْ");
-        words.set(3, "سَلِي/اسْأَلِي");
-        words.set(4, "سَلاَ/اسْأَلاَ");
-        words.set(5, "سَلُوا/اسْأَلُوا");
-        words.set(6, "سَلْنَ/اسْأَلْنَ");
+    @Override
+    public void apply(List<WordPresenter> words, Root root) {
+        words.set(2, WordPresenter.fromText("سَلْ/اسْأَلْ"));
+        words.set(3, WordPresenter.fromText("سَلِي/اسْأَلِي"));
+        words.set(4, WordPresenter.fromText("سَلاَ/اسْأَلاَ"));
+        words.set(5, WordPresenter.fromText("سَلُوا/اسْأَلُوا"));
+        words.set(6, WordPresenter.fromText("سَلْنَ/اسْأَلْنَ"));
     }
 }

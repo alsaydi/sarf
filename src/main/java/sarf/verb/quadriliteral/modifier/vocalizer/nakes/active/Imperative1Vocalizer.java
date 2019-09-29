@@ -1,8 +1,13 @@
 package sarf.verb.quadriliteral.modifier.vocalizer.nakes.active;
 
-import java.util.*;
-import sarf.verb.quadriliteral.substitution.*;
-import sarf.verb.quadriliteral.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+import sarf.substitution.SuffixSubstitution;
+import sarf.ConjugationResult;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -29,18 +34,25 @@ public class Imperative1Vocalizer extends SubstitutionsApplier {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
-    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
-        if (quadriConjugationResult.getRoot().getC4() != 'ي')
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        if (conjugationResult.getRoot().getCharacters().isEmpty()) {
             return false;
+        }
+        if (conjugationResult.getRoot().getCharacters().size() < 4) {
+            return false;
+        }
+        if (conjugationResult.getRoot().getCharacters().get(3).getValue() != 'ي') {
+            return false;
+        }
 
-        switch (quadriConjugationResult.getFormulaNo()) {
-        case 0:
-        case 2:
-            return true;
+        switch (conjugationResult.getFormulaNo()) {
+            case 0:
+            case 2:
+                return true;
         }
 
         return false;

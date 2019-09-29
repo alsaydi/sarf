@@ -1,13 +1,14 @@
 package sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.vocalizer;
 
-import java.util.*;
-
 import sarf.Conjugation;
 import sarf.KindOfVerb;
-import sarf.noun.*;
+import sarf.noun.TrilateralNounSubstitutionApplier;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.ConjugationResult;
 
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,17 +22,19 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public YaeiLafifNakesVocalizer() {
-        substitutions.add(new InfixSubstitution("ُوي","ِيّ"));// EX: (مأتِيّ، مرئِيّ، مرمِيّ، مَشْوِيّ، )
+        substitutions.add(new InfixSubstitution("ُوي", "ِيّ"));// EX: (مأتِيّ، مرئِيّ، مرمِيّ، مَشْوِيّ، )
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
@@ -43,8 +46,7 @@ public class YaeiLafifNakesVocalizer extends TrilateralNounSubstitutionApplier i
                 case Forth:
                     return true;
             }
-
-            return noc == Conjugation.Third || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             return noc == Conjugation.Third || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {

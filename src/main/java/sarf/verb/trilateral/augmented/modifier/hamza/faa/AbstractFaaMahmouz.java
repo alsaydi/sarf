@@ -1,9 +1,8 @@
 package sarf.verb.trilateral.augmented.modifier.hamza.faa;
 
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.augmented.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.modifier.*;
+import sarf.substitution.SubstitutionsApplier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -17,11 +16,11 @@ import sarf.verb.trilateral.augmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
-    public AbstractFaaMahmouz() {
+public abstract class AbstractFaaMahmouz extends SubstitutionsApplier{
+    protected AbstractFaaMahmouz() {
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
@@ -35,7 +34,7 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier implements
                 case 9:
                     return true;
             }
-            return formulaNo == 5;
+            return false;
         } else if (kov == KindOfVerb.Mahmouz_Faa_Mahmouz_Laam) {
             return formulaNo == 5;
         } else if (kov == KindOfVerb.Mahmouz_Faa) {

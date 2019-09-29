@@ -5,8 +5,11 @@ import java.util.*;
 import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.noun.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SuffixSubstitution;
+
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +23,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class YaeiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public YaeiNakesLafifVocalizer() {

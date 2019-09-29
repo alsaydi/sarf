@@ -2,9 +2,8 @@ package sarf.noun.trilateral.augmented.modifier;
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.noun.*;
-import sarf.verb.trilateral.augmented.*;
-import sarf.verb.trilateral.augmented.modifier.*;
 import sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter1;
 import sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter2;
 import sarf.noun.trilateral.augmented.modifier.substituter.GenericSubstituter3;
@@ -44,10 +43,9 @@ public class Substituter {
         modifiers.add(new SpecialSubstituter2());
     }
 
-    public void apply(TriAugmentedConjugationResult conjResult) {
+    public void apply(ConjugationResult conjResult) {
         for (TrilateralNounSubstitutionApplier applier : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) applier;
-            if (modifier.isApplied(conjResult)) {
+            if (applier.isApplied(conjResult)) {
                 applier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }

@@ -1,8 +1,9 @@
 package sarf.verb.trilateral.Substitution;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+import sarf.Word;
+import sarf.WordPresenter;
+import sarf.substitution.ExpressionSuffixSubstitution;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,7 +23,7 @@ class ExpressionSuffixSubstitutionTest {
     void emptyWord_apply_returnsNull() {
         var sut = new ExpressionSuffixSubstitution("C1", "C1C1");
 
-        var actual = sut.apply("", new UnaugmentedTrilateralRoot());
+        var actual = sut.apply(WordPresenter.Empty, new UnaugmentedTrilateralRoot());
 
         assertNull(actual);
     }
@@ -36,8 +37,8 @@ class ExpressionSuffixSubstitutionTest {
         root.setC2('ع');
         root.setC3('ل');
 
-        var actual = sut.apply("تفعل", root);
+        var actual = sut.apply(WordPresenter.fromText("تفعل"), root);
 
-        assertEquals("تفعلل", actual);
+        assertEquals(WordPresenter.fromText("تفعلل"), actual);
     }
 }

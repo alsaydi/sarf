@@ -1,6 +1,7 @@
-package sarf.verb.trilateral.Substitution;
+package sarf.substitution;
 
-import sarf.verb.trilateral.TrilateralRoot;
+import sarf.WordPresenter;
+import sarf.verb.Root;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -21,20 +22,19 @@ public class ExpressionSuffixSubstitution extends Substitution {
         super(segment, result);
     }
 
-    /**
-     *
-     * @param word String
-     * @return String
-     */
-    public String apply(String word, TrilateralRoot root) {
-        if(null == word || word.equals(""))
-            return  null;
+    @Override
+    public WordPresenter apply(WordPresenter wordPresenter, Root root) {
+        if (null == wordPresenter || wordPresenter.isEmpty()) {
+            return null;
+        }
 
         String wordSegment = buildSubstitution(root, segment);
-        if (!word.endsWith(wordSegment)) return null;
+        if (!wordPresenter.endsWith(wordSegment)) {
+            return null;
+        }
 
         String replacedResult = buildSubstitution(root, result);
 
-        return word.replaceAll(wordSegment,replacedResult);
+        return wordPresenter.replaceAll(wordSegment, replacedResult);
     }
 }

@@ -1,6 +1,5 @@
 package sarf.verb.trilateral.augmented.modifier;
 
-import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.augmented.modifier.pre.vocalizer.*;
 import sarf.*;
 
@@ -16,7 +15,7 @@ import sarf.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PreVocalizer {
+class PreVocalizer {
 
     private final SeparatedLafifActivePresentVocalizer separatedLafifActivePresentVocalizer = new SeparatedLafifActivePresentVocalizer();
     private final SeparatedLafifPassivePresentVocalizer separatedLafifPassivePresentVocalizer = new SeparatedLafifPassivePresentVocalizer();
@@ -25,7 +24,7 @@ public class PreVocalizer {
     public PreVocalizer() {
     }
 
-    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
+    public void apply(String tense, boolean active, ConjugationResult conjResult) {
         if (active) {
             if (tense.equals(SystemConstants.PRESENT_TENSE) && separatedLafifActivePresentVocalizer.isApplied(conjResult))
                 separatedLafifActivePresentVocalizer.apply(conjResult.getFinalResult(), conjResult.getRoot());

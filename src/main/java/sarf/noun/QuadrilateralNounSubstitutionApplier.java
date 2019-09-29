@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.IntStream;
 
 import sarf.SystemConstants;
-import sarf.verb.quadriliteral.substitution.*;
+import sarf.substitution.SubstitutionsApplier;
 
 /**
  * <p>Title: Sarf Program</p>

@@ -1,12 +1,14 @@
 package sarf.verb.trilateral.unaugmented.modifier.hamza.faa;
 
-import java.util.*;
-
 import sarf.Conjugation;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
-import sarf.verb.trilateral.TrilateralRoot;
-import sarf.verb.trilateral.unaugmented.*;
+import sarf.ConjugationResult;
+import sarf.WordPresenter;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+import sarf.verb.Root;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,30 +22,34 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class SpecialImperativeMahmouz1 extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class SpecialImperativeMahmouz1 extends SubstitutionsApplier {
 
     public SpecialImperativeMahmouz1() {
     }
 
-    public List getSubstitutions() {
-        return null;
+    @Override
+    public List<Substitution> getSubstitutions() {
+        return Collections.emptyList();
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
-        UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
+        var root = conjugationResult.getRoot();
         return root.getC1() == 'ء' && root.getC2() == 'خ' && root.getC3() == 'ذ' && root.getConjugation() == Conjugation.First;
     }
 
     /**
      * override this method to return the custom list
+     *
      * @param words List
-     * @param root TrilateralRoot
+     * @param root  TrilateralRoot
      */
-    public void apply(List words, TrilateralRoot root) {
-        words.set(2, "خُذْ");
-        words.set(3, "خُذِي");
-        words.set(4, "خُذَا");
-        words.set(5, "خُذُوا");
-        words.set(6, "خُذْنَ");
+    @Override
+    public void apply(List<WordPresenter> words, Root root) {
+        words.set(2, WordPresenter.fromText("خُذْ"));
+        words.set(3, WordPresenter.fromText("خُذِي"));
+        words.set(4, WordPresenter.fromText("خُذَا"));
+        words.set(5, WordPresenter.fromText("خُذُوا"));
+        words.set(6, WordPresenter.fromText("خُذْنَ"));
     }
 }

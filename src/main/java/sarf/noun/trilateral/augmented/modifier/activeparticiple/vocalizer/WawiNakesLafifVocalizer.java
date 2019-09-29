@@ -2,11 +2,14 @@ package sarf.noun.trilateral.augmented.modifier.activeparticiple.vocalizer;
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.noun.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
-import sarf.verb.trilateral.augmented.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SuffixSubstitution;
+
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +23,7 @@ import sarf.verb.trilateral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public WawiNakesLafifVocalizer() {
@@ -35,7 +38,7 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
         substitutions.add(new InfixSubstitution("ِوِ", "ِ")); // EX: (مُدْنِينَ، )
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         if (triAugmentedConjugationResult.getRoot().getC3() != 'و')
             return false;
 

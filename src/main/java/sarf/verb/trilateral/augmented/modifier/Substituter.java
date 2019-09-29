@@ -1,8 +1,10 @@
 package sarf.verb.trilateral.augmented.modifier;
 
 import java.util.*;
-import sarf.verb.trilateral.augmented.*;
-import sarf.verb.trilateral.Substitution.*;
+
+import sarf.ConjugationResult;
+import sarf.substitution.SubstitutionsApplier;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -16,7 +18,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Substituter {
+class Substituter {
 
     //حسب التحليل فإن الماضي والمضارع والأمر تشترك في الابدال للمعلوم
     //ولكن للمجهول يختلف فقط الماضي أما المضارع فهو نفسه في المعلوم
@@ -49,13 +51,12 @@ public class Substituter {
 
     }
 
-    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
-        List<SubstitutionsApplier> modifiers = null;
+    public void apply(String tense, boolean active, ConjugationResult conjResult) {
+        List<SubstitutionsApplier> modifiers;
         modifiers = active ? activeList : passiveList;
 
         for (SubstitutionsApplier o : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
-            if (modifier.isApplied(conjResult)) {
+            if (o.isApplied(conjResult)) {
                 o.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }

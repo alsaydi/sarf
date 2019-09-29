@@ -3,7 +3,10 @@ package sarf.gerund.modifier.trilateral.augmented.standard.hamza;
 import java.util.*;
 
 import sarf.noun.trilateral.augmented.modifier.*;
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.PrefixSubstitution;
+import sarf.substitution.Substitution;
+
 
 /**
  * <p>Title: Sarf Program</p>

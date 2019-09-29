@@ -2,7 +2,7 @@ package sarf.verb.quadriliteral.unaugmented.active;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.LinkedList;
+
 import sarf.PresentConjugationDataContainer;
 import sarf.SystemConstants;
 import sarf.verb.quadriliteral.unaugmented.*;

@@ -1,6 +1,5 @@
 package sarf.noun.trilateral.unaugmented.exaggeration.nonstandard;
 
-import sarf.Gerund;
 import sarf.noun.GenericNounSuffixContainer;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.util.*;

@@ -1,12 +1,12 @@
 package sarf.noun.trilateral.augmented.modifier.activeparticiple;
 
-import java.util.*;
-
+import sarf.ConjugationResult;
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.verb.trilateral.Substitution.*;
 import sarf.noun.trilateral.augmented.modifier.activeparticiple.vocalizer.*;
-import sarf.verb.trilateral.augmented.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +20,7 @@ import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Vocalizer {
+class Vocalizer {
     private final List<TrilateralNounSubstitutionApplier> modifiers = new ArrayList<>();
     private final PreSeparatedLafifVocalizer preSeparatedLafifVocalizer = new PreSeparatedLafifVocalizer();
 
@@ -33,14 +33,13 @@ public class Vocalizer {
         modifiers.add(new YaeiNakesLafifVocalizer());
     }
 
-    public void apply(TriAugmentedConjugationResult conjResult) {
+    public void apply(ConjugationResult conjResult) {
         if (preSeparatedLafifVocalizer.isApplied(conjResult))
             preSeparatedLafifVocalizer.apply(conjResult.getFinalResult(), conjResult.getRoot());
 
-        for (Object o : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) o;
+        for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

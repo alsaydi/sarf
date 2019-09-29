@@ -107,7 +107,7 @@ public final class ImperativeConjugationDataContainer {
      * @return String
      */
     public static String getLastDim(int pronounIndex) {
-        return (String) lastDimList.get(pronounIndex);
+        return lastDimList.get(pronounIndex);
     }
 
     /**

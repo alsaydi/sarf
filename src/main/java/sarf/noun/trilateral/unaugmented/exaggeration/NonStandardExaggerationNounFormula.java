@@ -16,10 +16,10 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
  * @version 1.0
  */
 public abstract class NonStandardExaggerationNounFormula extends NounFormula {
-    public NonStandardExaggerationNounFormula() {
+    protected NonStandardExaggerationNounFormula() {
     }
 
-    public NonStandardExaggerationNounFormula(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+    protected NonStandardExaggerationNounFormula(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         super(root, suffixNo, genericNounSuffixContainer);
     }
 

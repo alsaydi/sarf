@@ -2,11 +2,13 @@ package sarf.gerund.modifier.trilateral.augmented.standard.vocalizer;
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.noun.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
-import sarf.verb.trilateral.augmented.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +22,7 @@ import sarf.verb.trilateral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class MithalAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class MithalAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public MithalAjwaf2Vocalizer() {
@@ -28,14 +30,14 @@ public class MithalAjwaf2Vocalizer extends TrilateralNounSubstitutionApplier imp
         substitutions.add(new InfixSubstitution("تِيْ","تِي"));// EX: (استيقاظ)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
         return (formulaNo == 1 || formulaNo == 9) && (kov == KindOfVerb.Mithal_Yaee_Mahmouz_Ain || kov == KindOfVerb.Mithal_Yaee);
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

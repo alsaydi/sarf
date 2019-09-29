@@ -1,10 +1,13 @@
 package sarf.verb.trilateral.augmented.modifier.hamza.ein.active;
 
 import java.util.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
-import sarf.verb.trilateral.*;
+
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+
+import sarf.ConjugationResult;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -18,7 +21,7 @@ import sarf.verb.trilateral.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class RaaImperativeMahmouz extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
+public class RaaImperativeMahmouz extends SubstitutionsApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public RaaImperativeMahmouz() {
@@ -28,12 +31,12 @@ public class RaaImperativeMahmouz extends SubstitutionsApplier implements IAugme
 
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
-        TrilateralRoot root = triAugmentedConjugationResult.getRoot();
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
+        var root = triAugmentedConjugationResult.getRoot();
         return triAugmentedConjugationResult.getFormulaNo() == 1 && root.getC1() == 'ر' && root.getC2() == 'ء' && root.getC3() == 'ي';
     }
 }

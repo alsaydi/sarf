@@ -1,10 +1,15 @@
 package sarf.noun.trilateral.unaugmented.modifier.exaggeration;
 
-import java.util.*;
-import sarf.noun.trilateral.unaugmented.modifier.exaggeration.hamza.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.ConjugationResult;
+import sarf.noun.trilateral.unaugmented.modifier.exaggeration.hamza.EinMahmouz;
+import sarf.noun.trilateral.unaugmented.modifier.exaggeration.hamza.FaaMahmouz;
+import sarf.noun.trilateral.unaugmented.modifier.exaggeration.hamza.LamMahmouz;
+import sarf.noun.trilateral.unaugmented.modifier.exaggeration.hamza.NakesLafifMahmouz;
+import sarf.substitution.SubstitutionsApplier;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -18,8 +23,8 @@ import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Mahmouz {
-    private final List modifiers = new LinkedList();
+class Mahmouz {
+    private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
 
     private final NakesLafifMahmouz nakesLafifMahmouz = new NakesLafifMahmouz();
 
@@ -30,10 +35,9 @@ public class Mahmouz {
     }
 
     public void apply(ConjugationResult conjResult) {
-        for (Object o : modifiers) {
-            IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) o;
+        for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }
@@ -43,6 +47,6 @@ public class Mahmouz {
 
         //الأفعال الثلاثية المجردة المهموزة الفاء والمهموزة اللام (وهي: أبأ، أثأ، أجأ، أزأ، أكأ)
         if (conjResult.getRoot().getC3() == 'ء')
-            ((SubstitutionsApplier)modifiers.get(2)).apply(conjResult.getFinalResult(), conjResult.getRoot());
+            modifiers.get(2).apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
 }

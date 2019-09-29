@@ -9,7 +9,6 @@ import sarf.noun.quadriliteral.augmented.passiveparticiple.NounFormula3;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

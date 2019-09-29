@@ -5,7 +5,6 @@ import sarf.SystemConstants;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -60,7 +59,7 @@ public class ActivePresentConjugator {
      * @param root         TrilateralVerb
      * @return PresentConjugation
      */
-    public ActivePresentVerb createAccusativeVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
+    private ActivePresentVerb createAccusativeVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getAccusativeLastDprList()
                 , PresentConjugationDataContainer.getAccusativeConnectedPronounList());
     }
@@ -73,7 +72,7 @@ public class ActivePresentConjugator {
      * @param root         TrilateralVerb
      * @return PresentConjugation
      */
-    public ActivePresentVerb createJussiveVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
+    private ActivePresentVerb createJussiveVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getJussiveLastDprList()
                 , PresentConjugationDataContainer.getJussiveConnectedPronounList());
     }
@@ -86,7 +85,7 @@ public class ActivePresentConjugator {
      * @param root         TrilateralVerb
      * @return PresentConjugation
      */
-    public ActivePresentVerb createEmphasizedVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
+    private ActivePresentVerb createEmphasizedVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
         return createVerb(pronounIndex, root, PresentConjugationDataContainer.getEmphasizedLastDprList()
                 , PresentConjugationDataContainer.getEmphasizedConnectedPronounList());
     }
@@ -144,7 +143,7 @@ public class ActivePresentConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createEmphasizedVerbList(UnaugmentedTrilateralRoot root) {
+    public List<ActivePresentVerb> createEmphasizedVerbList(UnaugmentedTrilateralRoot root) {
         var result = new ArrayList<ActivePresentVerb>();
         for (int i = 0; i < SystemConstants.PRONOUN_RANGE_END; i++) {
             result.add(createEmphasizedVerb(i, root));

@@ -1,12 +1,15 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer.nakes.wawi.active;
 
-import java.util.*;
-
 import sarf.Conjugation;
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+import sarf.substitution.SuffixSubstitution;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +23,7 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PresentVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class PresentVocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public PresentVocalizer() {

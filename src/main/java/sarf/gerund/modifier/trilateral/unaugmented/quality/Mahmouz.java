@@ -1,11 +1,10 @@
 package sarf.gerund.modifier.trilateral.unaugmented.quality;
 
+import sarf.ConjugationResult;
 import sarf.gerund.modifier.trilateral.unaugmented.quality.hamza.EinMahmouz;
 import sarf.gerund.modifier.trilateral.unaugmented.quality.hamza.FaaMahmouz;
 import sarf.gerund.modifier.trilateral.unaugmented.quality.hamza.LamMahmouz;
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
-import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModificationApplier;
-import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.substitution.SubstitutionsApplier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +21,7 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Mahmouz {
+class Mahmouz {
     private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
 
     public Mahmouz() {
@@ -33,8 +32,7 @@ public class Mahmouz {
 
     public void apply(ConjugationResult conjResult) {
         for (var mahmouz : modifiers) {
-            var modifier = (IUnaugmentedTrilateralNounModificationApplier) mahmouz;
-            if (modifier.isApplied(conjResult)) {
+            if (mahmouz.isApplied(conjResult)) {
                 mahmouz.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }

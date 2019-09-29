@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.unaugmented.passive;
 
+import sarf.Word;
 import sarf.util.*;
 import sarf.verb.trilateral.unaugmented.*;
 
@@ -14,7 +15,7 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PassivePresentVerb {
+class PassivePresentVerb extends Word {
     private final UnaugmentedTrilateralRoot root;
 
     //حرف المضارع
@@ -62,8 +63,8 @@ public class PassivePresentVerb {
         return cp;
     }
 
+    @Override
     public String toString() {
         return cp+vcp+root.getC1()+dpr1+root.getC2()+dpr2+root.getC3()+lastDpr+connectedPronoun;
     }
-
 }

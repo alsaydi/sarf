@@ -1,9 +1,8 @@
 package sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf;
 
 import sarf.Conjugation;
-import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
+import sarf.ConjugationResult;
+import sarf.substitution.SubstitutionsApplier;
 
 import static sarf.KindOfVerb.*;
 
@@ -19,14 +18,16 @@ import static sarf.KindOfVerb.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AbstractAjwafWawiVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
-    public AbstractAjwafWawiVocalizer() {
+public abstract class AbstractAjwafWawiVocalizer extends SubstitutionsApplier {
+    protected AbstractAjwafWawiVocalizer() {
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         // تطبيق القانون العام للفحص
-        return (conjugationResult.getRoot().getConjugation()== Conjugation.First) &&
-                (conjugationResult.getKov() == Ajwaf_Wawi_Mahmouz_Faa || conjugationResult.getKov() == Ajwaf_Wawi_Mahmouz_Laam || conjugationResult.getKov() == Ajwaf_Wawi);
+        return (conjugationResult.getRoot().getConjugation() == Conjugation.First) &&
+                (conjugationResult.getKov() == Ajwaf_Wawi_Mahmouz_Faa
+                        || conjugationResult.getKov() == Ajwaf_Wawi_Mahmouz_Laam
+                        || conjugationResult.getKov() == Ajwaf_Wawi);
     }
-
 }

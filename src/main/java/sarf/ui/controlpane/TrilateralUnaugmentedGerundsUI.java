@@ -3,9 +3,11 @@ package sarf.ui.controlpane;
 import java.awt.*;
 import java.util.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.swing.*;
 
+import sarf.WordPresenter;
 import sarf.gerund.modifier.trilateral.unaugmented.meem.*;
 import sarf.gerund.modifier.trilateral.unaugmented.nomen.*;
 import sarf.gerund.modifier.trilateral.unaugmented.quality.*;
@@ -15,8 +17,8 @@ import sarf.gerund.trilateral.unaugmented.meem.*;
 import sarf.noun.*;
 import sarf.noun.trilateral.unaugmented.modifier.*;
 import sarf.ui.*;
+import sarf.ConjugationResult;
 import sarf.verb.trilateral.unaugmented.*;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -141,9 +143,9 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
         ToggleRenderedButton button = new ToggleRenderedButton(formula);
         button.addActionListener(e -> {
             sarf.Action sarfAction = () -> {
-                List conjugatedNouns = conjugator.createGerundList(root, formula);
+                var conjugatedNouns = conjugator.createGerundList(root, formula);
                 if (modifier == null)
-                    return conjugatedNouns;
+                    return conjugatedNouns.stream().map(w -> w == null ? WordPresenter.Empty : w.producePresenter()).collect(Collectors.toList());
                 ConjugationResult conjResult = modifier.build(root, selectionInfo.getKov(), conjugatedNouns, formula);
                 return conjResult.getFinalResult();
             };

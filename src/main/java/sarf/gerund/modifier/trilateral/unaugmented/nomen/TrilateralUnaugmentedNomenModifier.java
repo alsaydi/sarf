@@ -1,10 +1,7 @@
 package sarf.gerund.modifier.trilateral.unaugmented.nomen;
 
 import com.google.inject.Inject;
-import sarf.KindOfVerb;
-import sarf.NounLamAlefModifier;
-import sarf.NounSunLamModifier;
-import sarf.noun.trilateral.unaugmented.modifier.ConjugationResult;
+import sarf.*;
 import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModifier;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
@@ -36,8 +33,8 @@ public class TrilateralUnaugmentedNomenModifier implements IUnaugmentedTrilatera
         this.nounSunLamModifier = nounSunLamModifier;
     }
 
-    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
-        ConjugationResult conjResult = new ConjugationResult(kov, root, conjugations, formula);
+    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List<? extends Word> conjugations, String formula) {
+        var conjResult = new ConjugationResult(kov, root, conjugations, formula);
         geminator.apply(conjResult);
         mahmouz.apply(conjResult);
         nounLamAlefModifier.apply(conjResult);

@@ -12,7 +12,7 @@ package sarf.noun.trilateral.unaugmented.elative;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ElativeNounFormula {
+class ElativeNounFormula {
     private char c1;
     private char c2;
     private char c3;

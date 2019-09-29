@@ -4,9 +4,12 @@ import java.util.*;
 
 import sarf.Conjugation;
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.ExpressionSuffixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +23,7 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ActivePresent1Vocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class ActivePresent1Vocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public ActivePresent1Vocalizer() {
@@ -33,10 +36,12 @@ public class ActivePresent1Vocalizer extends SubstitutionsApplier implements IUn
         substitutions.add(new ExpressionInfixSubstitution("َيْC2ِيَ","َC2ِيَ"));// EX: (أنتما تَدِيان)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();

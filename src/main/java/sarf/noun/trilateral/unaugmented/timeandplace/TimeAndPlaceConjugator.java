@@ -43,7 +43,7 @@ public class TimeAndPlaceConjugator implements IUnaugmentedTrilateralNounConjuga
         formulaSymbolsNamesMap.put(instance.getSymbol(), instance.getFormulaName());
     }
 
-    public NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaName) {
+    private NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaName) {
         Object [] parameters = {root, suffixNo+"", genericNounSuffixContainer};
 
         try {

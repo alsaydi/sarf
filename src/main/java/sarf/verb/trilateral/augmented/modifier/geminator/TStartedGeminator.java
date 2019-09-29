@@ -1,12 +1,11 @@
 package sarf.verb.trilateral.augmented.modifier.geminator;
 
-import sarf.verb.trilateral.Substitution.Substitution;
-import sarf.verb.trilateral.augmented.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+import sarf.substitution.Substitution;
+
 import sarf.*;
 import java.util.*;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
-import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.SubstitutionsApplier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +19,7 @@ import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class TStartedGeminator extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
+public class TStartedGeminator extends SubstitutionsApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public TStartedGeminator() {
@@ -32,13 +31,13 @@ public class TStartedGeminator extends SubstitutionsApplier implements IAugmente
     }
 
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
         return triAugmentedConjugationResult.getRoot().getC1() == 'ت' && (kov == KindOfVerb.Salim || kov == KindOfVerb.Mahmouz_Ain) && (formulaNo == 5);
     }
 
-    public void apply(String tense, boolean active, TriAugmentedConjugationResult conjResult) {
+    public void apply(String tense, boolean active, ConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), conjResult.getRoot());
     }
 }

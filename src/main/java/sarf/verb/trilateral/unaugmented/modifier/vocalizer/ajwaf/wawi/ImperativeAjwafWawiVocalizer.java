@@ -2,7 +2,9 @@ package sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.wawi;
 
 import java.util.*;
 
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
+
 import sarf.verb.trilateral.unaugmented.modifier.vocalizer.ajwaf.*;
 
 /**
@@ -28,7 +30,7 @@ public class ImperativeAjwafWawiVocalizer extends AbstractAjwafWawiVocalizer {
         substitutions.add(new ExpressionInfixSubstitution("اC1ْوُC3ّ","C1ُC3ّ"));// EX: (أنتن صُنَّ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 

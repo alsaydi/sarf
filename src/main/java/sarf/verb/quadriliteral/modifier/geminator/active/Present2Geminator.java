@@ -1,8 +1,9 @@
 package sarf.verb.quadriliteral.modifier.geminator.active;
 
 import java.util.*;
-import sarf.verb.quadriliteral.substitution.*;
-import sarf.verb.quadriliteral.*;
+
+import sarf.substitution.*;
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -32,7 +33,13 @@ public class Present2Geminator extends SubstitutionsApplier {
         return substitutions;
     }
 
-    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
-        return quadriConjugationResult.getRoot().getC4() == 'ن';
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        if (conjugationResult.getRoot().getCharacters().isEmpty()) {
+            return false;
+        }
+        if (conjugationResult.getRoot().getCharacters().size() < 4) {
+            return false;
+        }
+        return conjugationResult.getRoot().getCharacters().get(3).getValue() == 'ن';
     }
 }

@@ -1,12 +1,15 @@
 package sarf.noun.trilateral.unaugmented.modifier.instrumental.vocalizer;
 
-import java.util.*;
-
 import sarf.Conjugation;
 import sarf.KindOfVerb;
-import sarf.noun.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.Substitution.*;
+import sarf.noun.TrilateralNounSubstitutionApplier;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SuffixSubstitution;
+import sarf.ConjugationResult;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +23,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public WawiNakesLafifVocalizer() {
@@ -34,7 +37,7 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
         substitutions.add(new InfixSubstitution("َوَة", "َاة")); // EX: (مِغْزاة )
         substitutions.add(new InfixSubstitution("َوَت", "َات")); // EX: (مِغْزاتان )
         substitutions.add(new InfixSubstitution("َوَ", "َيَ")); // EX: (مِغْزَيان )
-        substitutions.add(new InfixSubstitution("او","اء"));// EX: (مِغْزاء )
+        substitutions.add(new InfixSubstitution("او", "اء"));// EX: (مِغْزاء )
     }
 
     public List<Substitution> getSubstitutions() {
@@ -61,10 +64,7 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
                     return true;
             }
 
-            if (noc == Conjugation.Second) {
-                return true;
-            }
-            return noc == Conjugation.Third || noc == Conjugation.Forth;
+            return noc == Conjugation.Second;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee) {
             switch (noc) {
                 case Second:
@@ -72,7 +72,7 @@ public class WawiNakesLafifVocalizer extends TrilateralNounSubstitutionApplier i
                 case Forth:
                     return true;
             }
-            return noc == Conjugation.Third || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             return noc == Conjugation.Third || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {

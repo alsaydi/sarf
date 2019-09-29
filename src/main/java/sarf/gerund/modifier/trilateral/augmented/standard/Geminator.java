@@ -1,12 +1,14 @@
 package sarf.gerund.modifier.trilateral.augmented.standard;
 
-import java.util.*;
-
-import sarf.gerund.modifier.trilateral.augmented.standard.geminator.*;
+import sarf.ConjugationResult;
+import sarf.gerund.modifier.trilateral.augmented.standard.geminator.Geminator0;
+import sarf.gerund.modifier.trilateral.augmented.standard.geminator.Geminator1;
+import sarf.gerund.modifier.trilateral.augmented.standard.geminator.Geminator2;
+import sarf.gerund.modifier.trilateral.augmented.standard.geminator.Geminator3;
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.*;
-import sarf.verb.trilateral.augmented.modifier.*;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -30,11 +32,10 @@ public class Geminator {
         modifiers.add(new Geminator3());
     }
 
-    public void apply(TriAugmentedConjugationResult conjResult) {
-        for (TrilateralNounSubstitutionApplier trilateralNounSubstitutionApplier : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) trilateralNounSubstitutionApplier;
+    public void apply(ConjugationResult conjResult) {
+        for (TrilateralNounSubstitutionApplier modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

@@ -3,9 +3,11 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.ajwaf.yaei.passive;
 import java.util.*;
 
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.modifier.*;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,7 +21,7 @@ import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
+public class PastVocalizer extends SubstitutionsApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public PastVocalizer() {
@@ -37,7 +39,7 @@ public class PastVocalizer extends SubstitutionsApplier implements IAugmentedTri
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

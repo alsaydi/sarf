@@ -24,7 +24,7 @@ import sarf.util.FileUtil;
  */
 public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentSaver{
     private final List dataFieldsList = new ArrayList(13);
-    public static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 30);
+    private static final Font FONT = new Font("Traditional Arabic", Font.PLAIN, 30);
     private static final Border BORDER = BorderFactory.createEtchedBorder();
 
     private final IMainControlPanel controlPaneContainer;
@@ -35,14 +35,14 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
      * @param verbConjugationList List
      * @param notGeminatedVerbConjugationList List
      */
-    public ImperativeVerbConjugationUI(IMainControlPanel controlPaneContainer, List verbConjugationList, List notGeminatedVerbConjugationList, String title) {
+    public ImperativeVerbConjugationUI(IMainControlPanel controlPaneContainer, List<WordPresenter> verbConjugationList, List notGeminatedVerbConjugationList, String title) {
         super(new GridLayout(7,4));
         this.controlPaneContainer = controlPaneContainer;
         this.title = title;
         setFont(FONT);
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         List pronounsList = SeparatedPronounsContainer.getPronouns();
-        JLabel lbl = null;
+        JLabel lbl;
         for (int i=0; i<6;i++) {
             //إضافة نص يمثل الضمير
             add(lbl = new JLabel((String) pronounsList.get(i)));

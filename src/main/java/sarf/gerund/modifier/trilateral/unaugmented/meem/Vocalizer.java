@@ -1,10 +1,14 @@
 package sarf.gerund.modifier.trilateral.unaugmented.meem;
 
-import java.util.*;
+import sarf.ConjugationResult;
+import sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer.Ajwaf1Vocalizer;
+import sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer.Ajwaf2Vocalizer;
+import sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer.AjwafListed1Vocalizer;
+import sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer.NakesLafifVocalizer;
+import sarf.substitution.SubstitutionsApplier;
 
-import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.gerund.modifier.trilateral.unaugmented.meem.vocalizer.*;
-import sarf.verb.trilateral.Substitution.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -18,8 +22,9 @@ import sarf.verb.trilateral.Substitution.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Vocalizer {
+class Vocalizer {
     private final List<SubstitutionsApplier> modifiers = new ArrayList<>();
+
     public Vocalizer() {
         modifiers.add(new Ajwaf1Vocalizer());
         modifiers.add(new AjwafListed1Vocalizer());
@@ -28,10 +33,9 @@ public class Vocalizer {
     }
 
     public void apply(ConjugationResult conjResult) {
-        for (Object o : modifiers) {
-            IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) o;
+        for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

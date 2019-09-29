@@ -133,7 +133,7 @@ public class TrilateralAugmentedHelper {
     }
 
     public void printPassivePast(String rootLetters){
-        AugmentedTrilateralRoot augmentedRoot = null;
+        AugmentedTrilateralRoot augmentedRoot;
         try {
             augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
 
@@ -266,6 +266,6 @@ public class TrilateralAugmentedHelper {
         for (Object word : finalResult) {
             System.out.printf(" %s |", word == null ? "" : word);
         }
-        System.out.println("");
+        System.out.println();
     }
 }

@@ -2,16 +2,13 @@
 package sarf.verb.trilateral.augmented.active.past;
 
 import com.google.inject.Inject;
-import sarf.AugmentationFormula;
 import sarf.PastConjugationDataContainer;
 import sarf.SystemConstants;
 import sarf.verb.trilateral.augmented.AugmentedPastVerb;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.augmented.active.past.formula.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -71,14 +68,5 @@ public class AugmentedActivePastConjugator {
         return IntStream.range(0, SystemConstants.PRONOUN_RANGE_END)
                 .mapToObj(i -> createVerb(root, i, formulaNo))
                 .collect(Collectors.toList());
-    }
-
-    public Map createAllVerbList(AugmentedTrilateralRoot root) {
-        Map<String, List<AugmentedPastVerb>> result = new HashMap<>();
-        for (AugmentationFormula formula : root.getAugmentationList()) {
-            var formulaVerbList = createVerbList(root, formula.getFormulaNo());
-            result.put(formula.getFormulaNo() + "", formulaVerbList);
-        }
-        return result;
     }
 }

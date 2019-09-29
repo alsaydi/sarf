@@ -1,11 +1,11 @@
 package sarf.noun.trilateral.unaugmented.modifier.exaggeration;
 
-import java.util.*;
-
+import sarf.ConjugationResult;
 import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,7 +19,7 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Vocalizer {
+class Vocalizer {
     private final List<TrilateralNounSubstitutionApplier> modifiers = new ArrayList<>();
 
     public Vocalizer() {
@@ -36,10 +36,9 @@ public class Vocalizer {
     }
 
     public void apply(ConjugationResult conjResult) {
-        for (Object o : modifiers) {
-            IUnaugmentedTrilateralNounModificationApplier modifier = (IUnaugmentedTrilateralNounModificationApplier) o;
+        for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                ((SubstitutionsApplier) modifier).apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

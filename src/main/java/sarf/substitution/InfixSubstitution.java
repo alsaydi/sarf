@@ -1,6 +1,7 @@
-package sarf.verb.quadriliteral.substitution;
+package sarf.substitution;
 
-import sarf.verb.quadriliteral.QuadrilateralRoot;
+import sarf.WordPresenter;
+import sarf.verb.Root;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,12 +21,8 @@ public class InfixSubstitution extends Substitution {
         super(segment, result);
     }
 
-    /**
-     *
-     * @param word String
-     * @return String
-     */
-    public String apply(String word, QuadrilateralRoot root) {
-        return word.contains(segment) ? word.replaceAll(segment,result): null;
+    @Override
+    public WordPresenter apply(WordPresenter wordPresenter, Root root) {
+        return wordPresenter.contains(segment) ? wordPresenter.replaceAll(segment,result): null;
     }
 }

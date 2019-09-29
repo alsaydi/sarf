@@ -2,11 +2,12 @@ package sarf.noun.trilateral.augmented.modifier.passiveparticiple.vocalizer;
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.noun.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
-import sarf.verb.trilateral.augmented.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +21,7 @@ import sarf.verb.trilateral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PreSeparatedLafifVocalizer extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class PreSeparatedLafifVocalizer extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public PreSeparatedLafifVocalizer() {
@@ -28,7 +29,7 @@ public class PreSeparatedLafifVocalizer extends TrilateralNounSubstitutionApplie
         substitutions.add(new InfixSubstitution("ُيْ","ُو"));// EX: (مُودٍ)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

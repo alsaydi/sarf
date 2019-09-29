@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.unaugmented.passive;
 
+import sarf.Word;
 import sarf.util.ArabCharUtil;
 import sarf.verb.trilateral.unaugmented.*;
 
@@ -13,7 +14,7 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PassivePastVerb {
+class PassivePastVerb extends Word {
     private final UnaugmentedTrilateralRoot root;
 
     //حركة فاء الفعل وهي دائماً  ضمة
@@ -28,7 +29,7 @@ public class PassivePastVerb {
     //الأحرف المضافة لنهاية الفعل حسب الضمير
     private final String connectedPronoun;
 
-    public PassivePastVerb(UnaugmentedTrilateralRoot root, String lastDpa, String connectedPronoun) {
+    PassivePastVerb(UnaugmentedTrilateralRoot root, String lastDpa, String connectedPronoun) {
         this.root = root;
         this.lastDpa = lastDpa;
         this.connectedPronoun = connectedPronoun;

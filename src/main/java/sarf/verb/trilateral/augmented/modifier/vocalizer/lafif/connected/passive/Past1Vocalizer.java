@@ -2,10 +2,11 @@ package sarf.verb.trilateral.augmented.modifier.vocalizer.lafif.connected.passiv
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.modifier.*;
-import sarf.verb.trilateral.augmented.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,7 +20,7 @@ import sarf.verb.trilateral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTrilateralModifier {
+public class Past1Vocalizer extends SubstitutionsApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Past1Vocalizer() {
@@ -28,14 +29,14 @@ public class Past1Vocalizer extends SubstitutionsApplier implements IAugmentedTr
         substitutions.add(new InfixSubstitution("يْ", "ي"));// EX: (أُحْيِيتُ، حُيِّيتُ قُوِّيتُ دُوِيتُ، انزويت، احتويتُ، تُحُيِّيتُ تدويت، استُحْيِيتُ)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
-        AugmentedTrilateralRoot root = triAugmentedConjugationResult.getRoot();
+        var root = triAugmentedConjugationResult.getRoot();
         if ((root.getC2() == 'و' || root.getC2() == 'ي') && root.getC3() == 'ي') {
             if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa) {
                 switch (formulaNo) {

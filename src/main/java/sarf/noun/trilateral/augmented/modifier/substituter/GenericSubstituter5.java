@@ -1,9 +1,12 @@
 package sarf.noun.trilateral.augmented.modifier.substituter;
 
 import java.util.*;
-import sarf.verb.trilateral.Substitution.*;
+
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
 import sarf.noun.trilateral.augmented.modifier.AbstractGenericSubstituter;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -24,11 +27,11 @@ public class GenericSubstituter5 extends AbstractGenericSubstituter {
         substitutions.add(new InfixSubstitution("زْت","زْد"));// EX: (ازدِراد، )
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         return triAugmentedConjugationResult.getRoot().getC1() == 'ز' && super.isApplied(triAugmentedConjugationResult);
     }
 }

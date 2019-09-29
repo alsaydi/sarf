@@ -2,10 +2,10 @@ package sarf.noun.trilateral.augmented.modifier.activeparticiple.vocalizer;
 
 import sarf.KindOfVerb;
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.ConjugationResult;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Ajwaf1Vocalizer() {
@@ -30,7 +30,7 @@ public class Ajwaf1Vocalizer extends TrilateralNounSubstitutionApplier implement
         substitutions.add(new InfixSubstitution("َوِ", "َا")); // EX: (مُنْقادٌ، مُقْتادٌ)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

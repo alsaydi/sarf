@@ -1,8 +1,11 @@
 package sarf.verb.trilateral.unaugmented.modifier.hamza.faa;
 
 import java.util.*;
+
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.verb.trilateral.unaugmented.modifier.hamza.*;
-import sarf.verb.trilateral.Substitution.*;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -25,7 +28,7 @@ public class PassivePresentMahmouz extends AbstractFaaMahmouz {
         substitutions.add(new InfixSubstitution("ُءَ", "ُؤَ")); // EX: (يُؤَاب، يُؤَان)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

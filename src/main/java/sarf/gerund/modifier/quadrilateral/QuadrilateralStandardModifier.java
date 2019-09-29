@@ -22,8 +22,8 @@ public class QuadrilateralStandardModifier {
         this.endedMahmouz = endedMahmouz;
     }
 
-    public QuadriConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List conjugations) {
-        QuadriConjugationResult conjResult = new QuadriConjugationResult<>(formulaNo, kov, root, conjugations);
+    public ConjugationResult build(QuadrilateralRoot root, int formulaNo, KindOfVerb kov, List<? extends Word> conjugations) {
+        ConjugationResult conjResult = new ConjugationResult(kov, formulaNo, root, conjugations);
         if (vocalizer.isApplied(conjResult))
             vocalizer.apply(conjResult.getFinalResult(), conjResult.getRoot());
         if (internalMahmouz.isApplied(conjResult))

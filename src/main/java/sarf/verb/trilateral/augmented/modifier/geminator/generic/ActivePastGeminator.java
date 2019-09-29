@@ -1,6 +1,10 @@
 package sarf.verb.trilateral.augmented.modifier.geminator.generic;
 
-import sarf.verb.trilateral.Substitution.*;
+import sarf.ConjugationResult;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+
 
 import java.util.*;
 
@@ -28,7 +32,13 @@ public class ActivePastGeminator extends SubstitutionsApplier {
         substitutions.add(new ExpressionInfixSubstitution("َC3َC3ُ","َC3ُّ"));// EX: (احمرُّوا)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
+    }
+
+    @Override
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        return false;
     }
 }

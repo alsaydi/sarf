@@ -4,14 +4,15 @@ import com.google.inject.Inject;
 import org.apache.commons.digester3.Digester;
 import sarf.Gerund;
 import sarf.SystemConstants;
+import sarf.Word;
 import sarf.util.FileUtil;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
-import java.io.File;
 import java.io.InputStream;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -35,15 +36,13 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
         init();
     }
 
-    private static List<String> createEmptyList() {
-        List<String> result = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
-        for (int i = 1; i <= SystemConstants.NOUN_POSSIBLE_STATES; i++) {
-            result.add("");
-        }
-        return result;
+    private static List<Word> createEmptyList() {
+        return IntStream.rangeClosed(1, SystemConstants.NOUN_POSSIBLE_STATES)
+                .mapToObj(i -> Word.empty())
+                .collect(Collectors.toCollection(() -> new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES)));
     }
 
-    public List createGerundList(UnaugmentedTrilateralRoot root, String pattern) {
+    public List<Word> createGerundList(UnaugmentedTrilateralRoot root, String pattern) {
         GerundDescription gerundDescription = gerundDescriptionList.getGerundDescriptionByPattern(pattern);
         Gerund gerund = root.getGerund(gerundDescription.getSymbol());
 
@@ -56,45 +55,47 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
 
         //الحالة العامة
         if (gerundDescription.isFeminine()) {
-            gerundDisplayList.set(1, gerundText + standardTrilateralUnaugmentedSuffixContainer.get(1));
-            gerundDisplayList.set(7, gerundText + standardTrilateralUnaugmentedSuffixContainer.get(7));
-            gerundDisplayList.set(13, gerundText + standardTrilateralUnaugmentedSuffixContainer.get(13));
+            gerundDisplayList.set(1, Word.fromString(gerundText + standardTrilateralUnaugmentedSuffixContainer.get(1)));
+            gerundDisplayList.set(7, Word.fromString(gerundText + standardTrilateralUnaugmentedSuffixContainer.get(7)));
+            gerundDisplayList.set(13, Word.fromString(gerundText + standardTrilateralUnaugmentedSuffixContainer.get(13)));
         } else {
-            gerundDisplayList.set(0, gerundText + standardTrilateralUnaugmentedSuffixContainer.get(0));
-            gerundDisplayList.set(6, gerundText + standardTrilateralUnaugmentedSuffixContainer.get(6));
-            gerundDisplayList.set(12, gerundText + standardTrilateralUnaugmentedSuffixContainer.get(12));
+            gerundDisplayList.set(0, Word.fromString(gerundText + standardTrilateralUnaugmentedSuffixContainer.get(0)));
+            gerundDisplayList.set(6, Word.fromString(gerundText + standardTrilateralUnaugmentedSuffixContainer.get(6)));
+            gerundDisplayList.set(12, Word.fromString(gerundText + standardTrilateralUnaugmentedSuffixContainer.get(12)));
         }
         return gerundDisplayList;
     }
 
-    private boolean isSpecialCase(String gerundText, List<String> gerundDisplayList, GerundDescription gerundDescription) {
+    private boolean isSpecialCase(String gerundText, List<Word> gerundDisplayList, GerundDescription gerundDescription) {
+        final boolean endsWithYa = gerundText.endsWith("َى") || gerundText.endsWith("َّى") || gerundText.endsWith("يَا");
+        final boolean endsWithAlef = gerundText.endsWith("ًى") || gerundText.endsWith("ًا") || gerundText.endsWith("لاً");
         if (standardTrilateralUnaugmentedSuffixContainer.isIndefinite()) {
-            if (gerundText.endsWith("َى") || gerundText.endsWith("َّى") || gerundText.endsWith("يَا")) {
+            if (endsWithYa) {
                 //لا تضيف أي شيء
                 if (gerundDescription.isFeminine()) {
-                    gerundDisplayList.set(1, gerundText);
-                    gerundDisplayList.set(7, gerundText);
-                    gerundDisplayList.set(13, gerundText);
+                    gerundDisplayList.set(1, Word.fromString(gerundText));
+                    gerundDisplayList.set(7, Word.fromString(gerundText));
+                    gerundDisplayList.set(13, Word.fromString(gerundText));
                 } else {
-                    gerundDisplayList.set(0, gerundText);
-                    gerundDisplayList.set(6, gerundText);
-                    gerundDisplayList.set(12, gerundText);
+                    gerundDisplayList.set(0, Word.fromString(gerundText));
+                    gerundDisplayList.set(6, Word.fromString(gerundText));
+                    gerundDisplayList.set(12, Word.fromString(gerundText));
                 }
                 return true;
             }
 
             if (!gerundDescription.isFeminine()) {
                 if (gerundText.endsWith("اء") || gerundText.endsWith("َأ")) {
-                    gerundDisplayList.set(0, gerundText + standardTrilateralUnaugmentedSuffixContainer.get(0));
+                    gerundDisplayList.set(0, Word.fromString(gerundText + standardTrilateralUnaugmentedSuffixContainer.get(0)));
                     //اضافة فقط التنوين
-                    gerundDisplayList.set(6, gerundText + "ً");
-                    gerundDisplayList.set(12, gerundText + standardTrilateralUnaugmentedSuffixContainer.get(12));
+                    gerundDisplayList.set(6, Word.fromString(gerundText + "ً"));
+                    gerundDisplayList.set(12, Word.fromString(gerundText + standardTrilateralUnaugmentedSuffixContainer.get(12)));
                     return true;
-                } else if (gerundText.endsWith("ًى") || gerundText.endsWith("ًا") || gerundText.endsWith("لاً")) {
+                } else if (endsWithAlef) {
                     //لا تضيف أي شيء
-                    gerundDisplayList.set(0, gerundText);
-                    gerundDisplayList.set(6, gerundText);
-                    gerundDisplayList.set(12, gerundText);
+                    gerundDisplayList.set(0, Word.fromString(gerundText));
+                    gerundDisplayList.set(6, Word.fromString(gerundText));
+                    gerundDisplayList.set(12, Word.fromString(gerundText));
                     return true;
                 }
             }
@@ -102,29 +103,29 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
         }
         //معالجة الاضافة والمعرفة
         else {
-            if (gerundText.endsWith("َى") || gerundText.endsWith("َّى") || gerundText.endsWith("يَا")) {
+            if (endsWithYa) {
                 //لا تضيف أي شيء
                 if (gerundDescription.isFeminine()) {
-                    gerundDisplayList.set(1, gerundText);
-                    gerundDisplayList.set(7, gerundText);
-                    gerundDisplayList.set(13, gerundText);
+                    gerundDisplayList.set(1, Word.fromString(gerundText));
+                    gerundDisplayList.set(7, Word.fromString(gerundText));
+                    gerundDisplayList.set(13, Word.fromString(gerundText));
                 } else {
-                    gerundDisplayList.set(0, gerundText);
-                    gerundDisplayList.set(6, gerundText);
-                    gerundDisplayList.set(12, gerundText);
+                    gerundDisplayList.set(0, Word.fromString(gerundText));
+                    gerundDisplayList.set(6, Word.fromString(gerundText));
+                    gerundDisplayList.set(12, Word.fromString(gerundText));
 
                 }
                 return true;
             }
 
             if (!gerundDescription.isFeminine()) {
-                if (gerundText.endsWith("ًى") || gerundText.endsWith("ًا") || gerundText.endsWith("لاً")) {
+                if (endsWithAlef) {
                     //لا تضيف أي شيء
                     //تستبدل التنوين بفتحة
                     String text = gerundText.replaceAll("ً", "َ");
-                    gerundDisplayList.set(0, text);
-                    gerundDisplayList.set(6, text);
-                    gerundDisplayList.set(12, text);
+                    gerundDisplayList.set(0, Word.fromString(gerundText));
+                    gerundDisplayList.set(6, Word.fromString(gerundText));
+                    gerundDisplayList.set(12, Word.fromString(gerundText));
                     return true;
                 }
             }
@@ -132,7 +133,7 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
         return false;
     }
 
-    public List getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
+    public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
         List<String> result = new ArrayList<>();
         for (String symbol : root.getGerundsSymbols()) {
             GerundDescription gerundDescription = gerundDescriptionList.getGerundDescriptionBySymbol(symbol);

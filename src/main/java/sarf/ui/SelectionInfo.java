@@ -17,7 +17,7 @@ import sarf.verb.Root;
  */
 public class SelectionInfo {
 
-    public boolean trilateral;
+    private boolean trilateral;
     private boolean augmented;
     private boolean active;
     private final KindOfVerb kov;

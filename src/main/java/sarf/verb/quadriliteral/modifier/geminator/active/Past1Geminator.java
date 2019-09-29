@@ -1,8 +1,11 @@
 package sarf.verb.quadriliteral.modifier.geminator.active;
 
 import java.util.*;
-import sarf.verb.quadriliteral.substitution.*;
-import sarf.verb.quadriliteral.*;
+
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.ConjugationResult;
+import sarf.substitution.SubstitutionsApplier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -28,7 +31,7 @@ public class Past1Geminator extends SubstitutionsApplier {
         return substitutions;
     }
 
-    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
-        return quadriConjugationResult.getFormulaNo() == 3;
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        return conjugationResult.getFormulaNo() == 3;
     }
 }

@@ -2,7 +2,10 @@ package sarf.verb.trilateral.augmented.modifier.hamza.ein.active;
 
 import java.util.*;
 
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SuffixSubstitution;
+
 import sarf.verb.trilateral.augmented.modifier.hamza.ein.*;
 
 /**
@@ -39,7 +42,7 @@ public class ImperativeMahmouz extends AbstractEinMahmouz {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

@@ -36,7 +36,7 @@ public class GerundPattern9 extends TrilateralAugmentedNomenGerund {
 
     }
 
-    public String form1() {
+    private String form1() {
         return "اس" + ArabCharUtil.SKOON + "ت" + ArabCharUtil.KASRA + root.getC1() + ArabCharUtil.SKOON + root.getC2() + ArabCharUtil.FATHA + "ا" + root.getC3() + suffix;
     }
 

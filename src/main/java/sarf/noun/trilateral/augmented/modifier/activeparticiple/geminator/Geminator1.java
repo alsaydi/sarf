@@ -2,10 +2,10 @@ package sarf.noun.trilateral.augmented.modifier.activeparticiple.geminator;
 
 import sarf.KindOfVerb;
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.verb.trilateral.Substitution.ExpressionInfixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.ConjugationResult;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class Geminator1 extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Geminator1() {
@@ -30,7 +30,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
         substitutions.add(new ExpressionInfixSubstitution("C3ِC3", "C3ّ")); // EX: (مُحاجٌّ، مُنْقَضٌّ، مُشْتَدٌّ، مُتَصامٌّ)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 

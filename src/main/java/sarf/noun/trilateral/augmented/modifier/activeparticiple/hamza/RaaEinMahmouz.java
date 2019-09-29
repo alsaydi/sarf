@@ -1,11 +1,10 @@
 package sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza;
 
 import sarf.noun.TrilateralNounSubstitutionApplier;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
-import sarf.verb.trilateral.Substitution.Substitution;
-import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.ConjugationResult;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +21,7 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class RaaEinMahmouz extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class RaaEinMahmouz extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public RaaEinMahmouz() {
@@ -35,8 +34,8 @@ public class RaaEinMahmouz extends TrilateralNounSubstitutionApplier implements 
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
-        AugmentedTrilateralRoot root = triAugmentedConjugationResult.getRoot();
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
+        var root = triAugmentedConjugationResult.getRoot();
         return root.getC1() == 'ر' && root.getC2() == 'ء' && root.getC3() == 'ي' && triAugmentedConjugationResult.getFormulaNo() == 1;
     }
 }

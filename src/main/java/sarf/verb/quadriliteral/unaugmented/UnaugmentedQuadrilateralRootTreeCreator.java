@@ -19,7 +19,7 @@ import java.io.InputStream;
  * @author not attributable
  * @version 1.0
  */
-public class UnaugmentedQuadriliteralRootTreeCreator {
+public class UnaugmentedQuadrilateralRootTreeCreator {
     public static UnaugmentedQuadriliteralRootTree buildXmlVerbTree(InputStream inputStream) throws IOException, SAXException {
         Digester digester = new Digester();
         digester.setValidating( false );

@@ -91,7 +91,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
      * @param listener            NounStateSelectionUIListener
      * @return JPanel
      */
-    protected INounStateSelectionUI createNounStateSelectionUI(Action action, INounSuffixContainer nounSuffixContainer, NounStateSelectionUIListener listener) {
+    INounStateSelectionUI createNounStateSelectionUI(Action action, INounSuffixContainer nounSuffixContainer, NounStateSelectionUIListener listener) {
         NounStateSelectionUI nounStateSelectionUI = new NounStateSelectionUI();
         nounStateSelectionUI.init(action, nounSuffixContainer, listener);
         return nounStateSelectionUI;
@@ -163,7 +163,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
         for (int i = 0; i < 6; i++) {
             Object result = dataFieldsList.get(i + shift);
             //&nbsp; means blank in HTML
-            String ni = null;
+            String ni;
             if (result == null || result.toString().trim().length() == 0)
                 ni = "&nbsp;";
             else
@@ -176,7 +176,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
         shift = 6;
         for (int i = 0; i < 6; i++) {
             Object result = dataFieldsList.get(i + shift);
-            String ni = null;
+            String ni;
             if (result == null || result.toString().trim().length() == 0)
                 ni = "&nbsp;";
             else
@@ -189,7 +189,7 @@ public class NounConjugationUI extends APanel implements NounStateSelectionUILis
         shift = 12;
         for (int i = 0; i < 6; i++) {
             Object result = dataFieldsList.get(i + shift);
-            String ni = null;
+            String ni;
             if (result == null || result.toString().trim().length() == 0)
                 ni = "&nbsp;";
             else

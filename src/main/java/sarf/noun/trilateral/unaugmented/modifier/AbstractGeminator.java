@@ -1,9 +1,9 @@
 package sarf.noun.trilateral.unaugmented.modifier;
 
 import sarf.Conjugation;
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.noun.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
+import sarf.noun.TrilateralNounSubstitutionApplier;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -17,10 +17,11 @@ import sarf.noun.trilateral.unaugmented.modifier.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AbstractGeminator extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public abstract class AbstractGeminator extends TrilateralNounSubstitutionApplier {
     protected AbstractGeminator() {
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
@@ -34,7 +35,7 @@ public abstract class AbstractGeminator extends TrilateralNounSubstitutionApplie
                 case Fifth:
                     return true;
             }
-            return noc == Conjugation.Second || noc == Conjugation.First; //TODO: simplify this
+            return false;
         } else if (kov == KindOfVerb.Mahmouz_Faa_Mudaaf) {
             return noc == Conjugation.Second || noc == Conjugation.First;
         } else if (kov == KindOfVerb.Mithal_Wawi_Mudaaf) {

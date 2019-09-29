@@ -19,7 +19,6 @@ import sarf.verb.quadriliteral.augmented.imperative.AugmentedQuadImperativeConju
 import sarf.verb.quadriliteral.augmented.passive.past.QuadriAugmentedPassivePastConjugator;
 import sarf.verb.quadriliteral.augmented.passive.present.AugmentedQuadPassivePresentConjugator;
 import sarf.verb.quadriliteral.modifier.QuadrilateralModifier;
-import sarf.verb.trilateral.augmented.passive.present.AugmentedPassivePresentConjugator;
 
 import java.util.List;
 
@@ -326,6 +325,6 @@ public class QuadrilateralAugmentedHelper {
         for (Object word : finalResult) {
             System.out.printf(" %s |", word == null ? "" : word);
         }
-        System.out.println("");
+        System.out.println();
     }
 }

@@ -5,8 +5,8 @@ import sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza.EinMahmouz
 import sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza.FaaMahmouz;
 import sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza.LamMahmouz;
 import sarf.noun.trilateral.augmented.modifier.activeparticiple.hamza.RaaEinMahmouz;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
+import sarf.ConjugationResult;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Mahmouz {
+class Mahmouz {
     private final List<TrilateralNounSubstitutionApplier> modifiers = new ArrayList<>();
 
     public Mahmouz() {
@@ -33,10 +33,9 @@ public class Mahmouz {
         modifiers.add(new LamMahmouz());
     }
 
-    public void apply(TriAugmentedConjugationResult conjResult) {
+    public void apply(ConjugationResult conjResult) {
         for (TrilateralNounSubstitutionApplier substitutionApplier : modifiers) {
-            IAugmentedTrilateralModifier modifier = (IAugmentedTrilateralModifier) substitutionApplier;
-            if (modifier.isApplied(conjResult)) {
+            if (substitutionApplier.isApplied(conjResult)) {
                 substitutionApplier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }

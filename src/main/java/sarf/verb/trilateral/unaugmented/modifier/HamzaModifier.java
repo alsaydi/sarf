@@ -1,11 +1,12 @@
 package sarf.verb.trilateral.unaugmented.modifier;
 
-import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
-
+import sarf.substitution.SubstitutionsApplier;
 import java.util.*;
-
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
 import sarf.SystemConstants;
+import sarf.ConjugationResult;
+import sarf.verb.trilateral.unaugmented.modifier.hamza.ein.SpecialEmphasizedImperativeMahmouz;
+import sarf.verb.trilateral.unaugmented.modifier.hamza.faa.SpecialEmphasizedImperativeMahmouz1;
+import sarf.verb.trilateral.unaugmented.modifier.hamza.faa.SpecialEmphasizedImperativeMahmouz2;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -19,7 +20,7 @@ import sarf.SystemConstants;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class HamzaModifier {
+class HamzaModifier {
     private final Map<String, List<SubstitutionsApplier>> modifiersMap = new HashMap<>();
 
     HamzaModifier() {
@@ -73,9 +74,9 @@ public class HamzaModifier {
 
         //قائمة الأمر المؤكد
         emphasizedImperativeList.add(imperativeList.get(0));
-        emphasizedImperativeList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.faa.SpecialEmphsizedImperativeMahmouz1());
-        emphasizedImperativeList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.faa.SpecialEmphsizedImperativeMahmouz2());
-        emphasizedImperativeList.add(new sarf.verb.trilateral.unaugmented.modifier.hamza.ein.SpecialEmphsizedImperativeMahmouz());
+        emphasizedImperativeList.add(new SpecialEmphasizedImperativeMahmouz1());
+        emphasizedImperativeList.add(new SpecialEmphasizedImperativeMahmouz2());
+        emphasizedImperativeList.add(new SpecialEmphasizedImperativeMahmouz());
         emphasizedImperativeList.add(imperativeList.get(4));
         emphasizedImperativeList.add(imperativeList.get(5));
         emphasizedImperativeList.add(imperativeList.get(6));
@@ -86,14 +87,13 @@ public class HamzaModifier {
      * قد لا يطبق أي نوع
      * @param tense String
      * @param active boolean
-     * @param conjResult ConjugationResult
+     * @param conjResult NounConjugationResult
      */
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
         var modifiers = modifiersMap.get(tense+active);
-        for (SubstitutionsApplier o : modifiers) {
-            IUnaugmentedTrilateralModifier modifier = (IUnaugmentedTrilateralModifier) o;
+        for (var modifier : modifiers) {
             if (modifier.isApplied(conjResult)) {
-                o.apply(conjResult.getFinalResult(), conjResult.getRoot());
+                modifier.apply(conjResult.getFinalResult(), conjResult.getRoot());
                 break;
             }
         }

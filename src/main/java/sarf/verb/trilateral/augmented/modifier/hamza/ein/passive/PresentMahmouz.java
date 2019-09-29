@@ -2,7 +2,9 @@ package sarf.verb.trilateral.augmented.modifier.hamza.ein.passive;
 
 import java.util.*;
 
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
 import sarf.verb.trilateral.augmented.modifier.hamza.ein.AbstractEinMahmouz;
 
 /**
@@ -33,7 +35,7 @@ public class PresentMahmouz extends AbstractEinMahmouz {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

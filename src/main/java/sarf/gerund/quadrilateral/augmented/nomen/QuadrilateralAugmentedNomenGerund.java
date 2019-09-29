@@ -1,5 +1,6 @@
 package sarf.gerund.quadrilateral.augmented.nomen;
 
+import sarf.Word;
 import sarf.noun.*;
 import sarf.verb.quadriliteral.augmented.*;
 
@@ -15,9 +16,9 @@ import sarf.verb.quadriliteral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class QuadrilateralAugmentedNomenGerund {
+public abstract class QuadrilateralAugmentedNomenGerund extends Word {
     protected AugmentedQuadrilateralRoot root;
-    protected int suffixNo;
+    private int suffixNo;
     private final GenericNounSuffixContainer genericNounSuffixContainer;
     protected String suffix;
 
@@ -25,7 +26,7 @@ public abstract class QuadrilateralAugmentedNomenGerund {
         genericNounSuffixContainer = null;
     }
 
-    public QuadrilateralAugmentedNomenGerund(AugmentedQuadrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+    protected QuadrilateralAugmentedNomenGerund(AugmentedQuadrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         this.root = root;
         this.suffixNo = Integer.parseInt(suffixNo);
         this.genericNounSuffixContainer = genericNounSuffixContainer;
@@ -33,9 +34,10 @@ public abstract class QuadrilateralAugmentedNomenGerund {
         suffix = genericNounSuffixContainer.get(this.suffixNo);
     }
 
-    public abstract String form();
+    protected abstract String form();
     public abstract String getPattern();
 
+    @Override
     public String toString() {
         String result = form();
         if (result != null && !result.equals(""))

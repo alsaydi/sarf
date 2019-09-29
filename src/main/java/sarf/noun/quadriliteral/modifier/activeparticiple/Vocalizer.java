@@ -1,10 +1,10 @@
 package sarf.noun.quadriliteral.modifier.activeparticiple;
 
 import sarf.noun.QuadrilateralNounSubstitutionApplier;
-import sarf.verb.quadriliteral.QuadriConjugationResult;
-import sarf.verb.quadriliteral.substitution.InfixSubstitution;
-import sarf.verb.quadriliteral.substitution.Substitution;
-import sarf.verb.quadriliteral.substitution.SuffixSubstitution;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.SuffixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.ConjugationResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +38,13 @@ public class Vocalizer extends QuadrilateralNounSubstitutionApplier {
         return substitutions;
     }
 
-    public boolean isApplied(QuadriConjugationResult quadriConjugationResult) {
-        return quadriConjugationResult.getRoot().getC4() == 'ي';
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        if (conjugationResult.getRoot().getCharacters().isEmpty()) {
+            return false;
+        }
+        if (conjugationResult.getRoot().getCharacters().size() < 4) {
+            return false;
+        }
+        return conjugationResult.getRoot().getCharacters().get(3).getValue() == 'ي';
     }
 }

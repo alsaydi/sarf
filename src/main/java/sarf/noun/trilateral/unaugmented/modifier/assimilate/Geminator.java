@@ -3,7 +3,9 @@ package sarf.noun.trilateral.unaugmented.modifier.assimilate;
 import java.util.*;
 
 import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -26,7 +28,7 @@ public class Geminator extends AbstractGeminator {
     }
 
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

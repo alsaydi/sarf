@@ -28,7 +28,7 @@ public class UnaugmentedImperativeConjugator {
      * @param root         TrilateralVerb
      * @return PresentConjugation
      */
-    public ImperativeVerb createVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
+    private ImperativeVerb createVerb(int pronounIndex, UnaugmentedTrilateralRoot root) {
         String dpr2 = PresentConjugationDataContainer.getDpr2(root);
         String lastDim = ImperativeConjugationDataContainer.getLastDim(pronounIndex);
         String connectedPronoun = ImperativeConjugationDataContainer.getConnectedPronoun(pronounIndex);
@@ -75,7 +75,7 @@ public class UnaugmentedImperativeConjugator {
      * @param root TripleVerb
      * @return List
      */
-    public List createEmphasizedVerbList(UnaugmentedTrilateralRoot root) {
+    public List<ImperativeVerb> createEmphasizedVerbList(UnaugmentedTrilateralRoot root) {
         var result = new ArrayList<ImperativeVerb>();
         for (int i = 0; i < SystemConstants.PRONOUN_RANGE_END; i++) {
             result.add(createEmphasizedVerb(i, root));

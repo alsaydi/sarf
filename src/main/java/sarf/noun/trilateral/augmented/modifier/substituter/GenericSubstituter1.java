@@ -2,10 +2,10 @@ package sarf.noun.trilateral.augmented.modifier.substituter;
 
 import java.util.*;
 
-import sarf.verb.trilateral.Substitution.Substitution;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.substitution.Substitution;
+import sarf.ConjugationResult;
 import sarf.noun.trilateral.augmented.modifier.AbstractGenericSubstituter;
-import sarf.verb.trilateral.Substitution.InfixSubstitution;
+import sarf.substitution.InfixSubstitution;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -26,11 +26,11 @@ public class GenericSubstituter1 extends AbstractGenericSubstituter {
         substitutions.add(new InfixSubstitution("ثْت","ثّ"));// EX: (اثِّمادٌ،)
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         return triAugmentedConjugationResult.getRoot().getC1() == 'ث' && super.isApplied(triAugmentedConjugationResult);
     }
 }

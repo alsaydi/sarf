@@ -1,12 +1,14 @@
 package sarf.verb.trilateral.unaugmented.modifier.hamza.faa;
 
-import java.util.*;
-
 import sarf.Conjugation;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.unaugmented.modifier.IUnaugmentedTrilateralModifier;
-import sarf.verb.trilateral.TrilateralRoot;
-import sarf.verb.trilateral.unaugmented.*;
+import sarf.ConjugationResult;
+import sarf.WordPresenter;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+import sarf.verb.Root;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,30 +22,34 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class SpecialImperativeMahmouz2 extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class SpecialImperativeMahmouz2 extends SubstitutionsApplier {
 
     public SpecialImperativeMahmouz2() {
     }
 
-    public List getSubstitutions() {
-        return null;
+    @Override
+    public List<Substitution> getSubstitutions() {
+        return Collections.emptyList();
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
-        UnaugmentedTrilateralRoot root = conjugationResult.getRoot();
-        return root.getC1() == 'ء' && root.getC2() == 'ك' && root.getC3() == 'ل'&& root.getConjugation() == Conjugation.First;
+        var root = conjugationResult.getRoot();
+        return root.getC1() == 'ء' && root.getC2() == 'ك' && root.getC3() == 'ل' && root.getConjugation() == Conjugation.First;
     }
 
     /**
      * override this method to return the custom list
+     *
      * @param words List
-     * @param root TrilateralRoot
+     * @param root  TrilateralRoot
      */
-    public void apply(List words, TrilateralRoot root) {
-        words.set(2, "كُلْ");
-        words.set(3, "كُلِي");
-        words.set(4, "كُلاَ");
-        words.set(5, "كُلُوا");
-        words.set(6, "كُلْنَ");
+    @Override
+    public void apply(List<WordPresenter> words, Root root) {
+        words.set(2, WordPresenter.fromText("كُلْ"));
+        words.set(3, WordPresenter.fromText("كُلِي"));
+        words.set(4, WordPresenter.fromText("كُلاَ"));
+        words.set(5, WordPresenter.fromText("كُلُوا"));
+        words.set(6, WordPresenter.fromText("كُلْنَ"));
     }
 }

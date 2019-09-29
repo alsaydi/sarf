@@ -2,11 +2,13 @@ package sarf.noun.trilateral.augmented.modifier.passiveparticiple.geminator;
 
 import java.util.*;
 
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.noun.*;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.augmented.modifier.IAugmentedTrilateralModifier;
-import sarf.verb.trilateral.augmented.*;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
+
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +22,7 @@ import sarf.verb.trilateral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAugmentedTrilateralModifier {
+public class Geminator1 extends TrilateralNounSubstitutionApplier{
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public Geminator1() {
@@ -28,7 +30,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
         substitutions.add(new ExpressionInfixSubstitution("C3َC3","C3ّ"));// EX: (مُحاجٌّ، مُنْقَضٌّ، مُشْتَدٌّ، مُتَصامٌّ)
     }
 
-    public boolean isApplied(TriAugmentedConjugationResult triAugmentedConjugationResult) {
+    public boolean isApplied(ConjugationResult triAugmentedConjugationResult) {
         KindOfVerb kov = triAugmentedConjugationResult.getKov();
         int formulaNo = triAugmentedConjugationResult.getFormulaNo();
 
@@ -50,7 +52,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
             }
 
 
-            return formulaNo == 3 || formulaNo == 7;
+            return false;
         } else if (kov == KindOfVerb.Mahmouz_Faa_Mudaaf) {
             switch (formulaNo) {
                 case 3:
@@ -61,7 +63,7 @@ public class Geminator1 extends TrilateralNounSubstitutionApplier implements IAu
             }
 
 
-            return formulaNo == 3 || formulaNo == 7;
+            return false;
         } else if (kov == KindOfVerb.Mithal_Wawi_Mudaaf) {
             return formulaNo == 3 || formulaNo == 7;
         }

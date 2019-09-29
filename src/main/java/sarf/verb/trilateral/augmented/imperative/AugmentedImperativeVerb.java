@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.augmented.imperative;
 
+import sarf.Word;
 import sarf.verb.trilateral.augmented.*;
 
 /**
@@ -14,19 +15,19 @@ import sarf.verb.trilateral.augmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public abstract class AugmentedImperativeVerb {
+public abstract class AugmentedImperativeVerb extends Word {
 
     protected final AugmentedTrilateralRoot root;
     protected final String lastDim;
     protected final String connectedPronoun;
 
-    public AugmentedImperativeVerb(AugmentedTrilateralRoot root, String lastDim, String connectedPronoun) {
+    protected AugmentedImperativeVerb(AugmentedTrilateralRoot root, String lastDim, String connectedPronoun) {
         this.root = root;
         this.lastDim = lastDim;
         this.connectedPronoun = connectedPronoun;
     }
 
-    public abstract String form();
+    protected abstract String form();
 
     public String getConnectedPronoun() {
         return connectedPronoun;
@@ -40,6 +41,7 @@ public abstract class AugmentedImperativeVerb {
         return lastDim;
     }
 
+    @Override
     public String toString() {
         return form();
     }

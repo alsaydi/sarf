@@ -5,8 +5,10 @@ import java.util.*;
 import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.noun.*;
-import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.Substitution.*;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +22,7 @@ import sarf.verb.trilateral.Substitution.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier implements IUnaugmentedTrilateralNounModificationApplier {
+public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public PreMithalLafifVocalizer() {
@@ -28,10 +30,12 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
         substitutions.add(new InfixSubstitution("مِيْ", "مِي")); // EX: (مِيقَن، مِيقنة، مِيقان، مِيداء)
     }
 
+    @Override
     public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();
@@ -54,7 +58,7 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
                     return true;
             }
 
-            return noc == Conjugation.Second || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Mithal_Wawi) {
             switch (noc) {
                 case Second:
@@ -65,7 +69,7 @@ public class PreMithalLafifVocalizer extends TrilateralNounSubstitutionApplier i
                     return true;
             }
 
-            return noc == Conjugation.Second || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Mithal_Yaee_Mudaaf) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Mithal_Yaee_Mahmouz_Ain) {

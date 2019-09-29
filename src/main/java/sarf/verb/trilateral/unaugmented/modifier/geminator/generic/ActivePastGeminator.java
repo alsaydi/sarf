@@ -1,6 +1,10 @@
 package sarf.verb.trilateral.unaugmented.modifier.geminator.generic;
 
-import sarf.verb.trilateral.Substitution.*;
+import sarf.ConjugationResult;
+import sarf.substitution.ExpressionInfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+
 
 import java.util.*;
 
@@ -16,7 +20,7 @@ import java.util.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ActivePastGeminator extends SubstitutionsApplier{
+public class ActivePastGeminator extends SubstitutionsApplier {
 
     private final List<Substitution> substitutions = new ArrayList<>();
 
@@ -30,7 +34,12 @@ public class ActivePastGeminator extends SubstitutionsApplier{
 
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
+    }
+
+    @Override
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        return false;
     }
 }

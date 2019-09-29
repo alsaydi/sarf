@@ -4,9 +4,12 @@ import java.util.*;
 
 import sarf.Conjugation;
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.Substitution.*;
-import sarf.verb.trilateral.unaugmented.modifier.*;
-import sarf.verb.trilateral.unaugmented.ConjugationResult;
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
+import sarf.substitution.SuffixSubstitution;
+
+import sarf.ConjugationResult;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -20,7 +23,7 @@ import sarf.verb.trilateral.unaugmented.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class ImperativeVocalizer extends SubstitutionsApplier implements IUnaugmentedTrilateralModifier {
+public class ImperativeVocalizer extends SubstitutionsApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public ImperativeVocalizer() {
@@ -38,10 +41,12 @@ public class ImperativeVocalizer extends SubstitutionsApplier implements IUnaugm
         substitutions.add(new InfixSubstitution("َوَن", "َيَن")); // EX: (أنتَ ارضيَنَّ، )
     }
 
-    public List getSubstitutions() {
+    @Override
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 
+    @Override
     public boolean isApplied(ConjugationResult conjugationResult) {
         KindOfVerb kov = conjugationResult.getKov();
         var noc = conjugationResult.getRoot().getConjugation();

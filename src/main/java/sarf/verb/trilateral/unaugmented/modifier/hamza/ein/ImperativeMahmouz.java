@@ -1,8 +1,12 @@
 package sarf.verb.trilateral.unaugmented.modifier.hamza.ein;
 
 import java.util.*;
+
+import sarf.substitution.InfixSubstitution;
+import sarf.substitution.PrefixSubstitution;
+import sarf.substitution.Substitution;
 import sarf.verb.trilateral.unaugmented.modifier.hamza.*;
-import sarf.verb.trilateral.Substitution.*;
+
 
 /**
  * <p>Title: Sarf Program</p>
@@ -30,7 +34,7 @@ public class ImperativeMahmouz extends AbstractEinMahmouz {
         substitutions.add(new InfixSubstitution("ْءُ","ْؤُ"));// EX: (اضْؤُل، امْؤُ[المتطرفة عروضاً لها حكم المتوسطة أصالة])
     }
 
-    public List getSubstitutions() {
+    public List<Substitution> getSubstitutions() {
         return substitutions;
     }
 }

@@ -1,11 +1,9 @@
 package sarf;
 
 import com.google.inject.Singleton;
-import sarf.verb.quadriliteral.QuadriConjugationResult;
-import sarf.verb.trilateral.Substitution.Substitution;
-import sarf.verb.trilateral.Substitution.SubstitutionsApplier;
-import sarf.verb.trilateral.TrilateralRoot;
-import sarf.verb.trilateral.augmented.TriAugmentedConjugationResult;
+import sarf.verb.Root;
+import sarf.substitution.Substitution;
+import sarf.substitution.SubstitutionsApplier;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -67,15 +65,7 @@ public class NounSunLamModifier extends SubstitutionsApplier {
         substitutions.add(new ListedInfixSubstitution(sunLetters, "الSLِ", "الSLِّ"));
     }
 
-    public void apply(sarf.verb.trilateral.unaugmented.ConjugationResult conjResult) {
-        apply(conjResult.getFinalResult(), null);
-    }
-
-    public void apply(TriAugmentedConjugationResult conjResult) {
-        apply(conjResult.getFinalResult(), null);
-    }
-
-    public void apply(QuadriConjugationResult conjResult) {
+    public void apply(ConjugationResult conjResult) {
         apply(conjResult.getFinalResult(), null);
     }
 
@@ -88,6 +78,11 @@ public class NounSunLamModifier extends SubstitutionsApplier {
         return appliedPronounsIndexes;
     }
 
+    @Override
+    public boolean isApplied(ConjugationResult conjugationResult) {
+        return true; //TODO: make sure this is a noun!
+    }
+
     static class ListedInfixSubstitution extends Substitution {
         private final List<String> probableChars;
 
@@ -96,13 +91,10 @@ public class NounSunLamModifier extends SubstitutionsApplier {
             this.probableChars = probableChars;
         }
 
-        /**
-         * @param word String
-         * @return String
-         */
-        public String apply(String word, TrilateralRoot root) {
+        @Override
+        public WordPresenter apply(WordPresenter wordPresenter, Root root) {
             for (String sl : probableChars) {
-                String appliedResult = apply(word, sl);
+                var appliedResult = apply(wordPresenter, sl);
                 if (appliedResult != null) {
                     return appliedResult;
                 }
@@ -110,7 +102,7 @@ public class NounSunLamModifier extends SubstitutionsApplier {
             return null;
         }
 
-        private String apply(String word, String sl) {
+        private WordPresenter apply(WordPresenter word, String sl) {
             String wordSegment = segment.replaceAll("SL", sl);
 
             if (!word.contains(wordSegment)) {
