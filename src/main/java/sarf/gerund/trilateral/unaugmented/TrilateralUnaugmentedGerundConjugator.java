@@ -67,8 +67,10 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
     }
 
     private boolean isSpecialCase(String gerundText, List<Word> gerundDisplayList, GerundDescription gerundDescription) {
+        final boolean endsWithYa = gerundText.endsWith("َى") || gerundText.endsWith("َّى") || gerundText.endsWith("يَا");
+        final boolean endsWithAlef = gerundText.endsWith("ًى") || gerundText.endsWith("ًا") || gerundText.endsWith("لاً");
         if (standardTrilateralUnaugmentedSuffixContainer.isIndefinite()) {
-            if (gerundText.endsWith("َى") || gerundText.endsWith("َّى") || gerundText.endsWith("يَا")) {
+            if (endsWithYa) {
                 //لا تضيف أي شيء
                 if (gerundDescription.isFeminine()) {
                     gerundDisplayList.set(1, Word.fromString(gerundText));
@@ -89,7 +91,7 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
                     gerundDisplayList.set(6, Word.fromString(gerundText + "ً"));
                     gerundDisplayList.set(12, Word.fromString(gerundText + standardTrilateralUnaugmentedSuffixContainer.get(12)));
                     return true;
-                } else if (gerundText.endsWith("ًى") || gerundText.endsWith("ًا") || gerundText.endsWith("لاً")) {
+                } else if (endsWithAlef) {
                     //لا تضيف أي شيء
                     gerundDisplayList.set(0, Word.fromString(gerundText));
                     gerundDisplayList.set(6, Word.fromString(gerundText));
@@ -101,7 +103,7 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
         }
         //معالجة الاضافة والمعرفة
         else {
-            if (gerundText.endsWith("َى") || gerundText.endsWith("َّى") || gerundText.endsWith("يَا")) {
+            if (endsWithYa) {
                 //لا تضيف أي شيء
                 if (gerundDescription.isFeminine()) {
                     gerundDisplayList.set(1, Word.fromString(gerundText));
@@ -117,7 +119,7 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
             }
 
             if (!gerundDescription.isFeminine()) {
-                if (gerundText.endsWith("ًى") || gerundText.endsWith("ًا") || gerundText.endsWith("لاً")) {
+                if (endsWithAlef) {
                     //لا تضيف أي شيء
                     //تستبدل التنوين بفتحة
                     String text = gerundText.replaceAll("ً", "َ");
