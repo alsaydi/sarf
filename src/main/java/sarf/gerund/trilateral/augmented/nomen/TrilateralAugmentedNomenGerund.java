@@ -18,9 +18,9 @@ import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
  */
 public abstract class TrilateralAugmentedNomenGerund extends Word {
     private final GenericNounSuffixContainer genericNounSuffixContainer;
-    protected AugmentedTrilateralRoot root;
-    protected int suffixNo;
-    protected String suffix;
+    protected final AugmentedTrilateralRoot root;
+    protected final int suffixNo;
+    protected final String suffix;
 
     public TrilateralAugmentedNomenGerund(AugmentedTrilateralRoot root, String suffixNo
             , GenericNounSuffixContainer genericNounSuffixContainer) {

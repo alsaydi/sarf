@@ -325,16 +325,10 @@ public class XmlDataGenerator {
                     rootElement.addAttribute("form1", Objects.requireNonNullElse(form1, ""));
 
                     String form2 = resultSet.getString("form2");
-                    if (form2 != null)
-                        rootElement.addAttribute("form2", form2);
-                    else
-                        rootElement.addAttribute("form2", "");
+                    rootElement.addAttribute("form2", Objects.requireNonNullElse(form2, ""));
 
                     String form3 = resultSet.getString("form3");
-                    if (form3 != null)
-                        rootElement.addAttribute("form3", form3);
-                    else
-                        rootElement.addAttribute("form3", "");
+                    rootElement.addAttribute("form3", Objects.requireNonNullElse(form3, ""));
 
 
                     rootElement.closeStartTag();
@@ -372,16 +366,10 @@ public class XmlDataGenerator {
                     rootElement.addAttribute("c3", resultSet.getString("c3"));
                     rootElement.addAttribute("noc", resultSet.getString("noc"));
                     String form1 = resultSet.getString("form1");
-                    if (form1 != null)
-                        rootElement.addAttribute("form1", form1);
-                    else
-                        rootElement.addAttribute("form1", "");
+                    rootElement.addAttribute("form1", Objects.requireNonNullElse(form1, ""));
 
                     String form2 = resultSet.getString("form2");
-                    if (form2 != null)
-                        rootElement.addAttribute("form2", form2);
-                    else
-                        rootElement.addAttribute("form2", "");
+                    rootElement.addAttribute("form2", Objects.requireNonNullElse(form2, ""));
 
                     rootElement.closeStartTag();
                     rootElement.close();

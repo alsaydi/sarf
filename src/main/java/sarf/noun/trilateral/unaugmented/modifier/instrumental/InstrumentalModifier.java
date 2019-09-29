@@ -1,14 +1,11 @@
 package sarf.noun.trilateral.unaugmented.modifier.instrumental;
 
-import java.util.List;
-
 import com.google.inject.Inject;
-import sarf.KindOfVerb;
-import sarf.NounLamAlefModifier;
-import sarf.ConjugationResult;
+import sarf.*;
+import sarf.noun.trilateral.unaugmented.modifier.IUnaugmentedTrilateralNounModifier;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
-import sarf.noun.trilateral.unaugmented.modifier.*;
-import sarf.NounSunLamModifier;
+
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -24,7 +21,7 @@ import sarf.NounSunLamModifier;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class InstrumentalModifier implements IUnaugmentedTrilateralNounModifier{
+public class InstrumentalModifier implements IUnaugmentedTrilateralNounModifier {
     private final Geminator geminator = new Geminator();
     private final Vocalizer vocalizer = new Vocalizer();
     private final Mahmouz mahmouz = new Mahmouz();
@@ -37,7 +34,7 @@ public class InstrumentalModifier implements IUnaugmentedTrilateralNounModifier{
         this.nounSunLamModifier = nounSunLamModifier;
     }
 
-    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List conjugations, String formula) {
+    public ConjugationResult build(UnaugmentedTrilateralRoot root, KindOfVerb kov, List<? extends Word> conjugations, String formula) {
         var conjResult = new ConjugationResult(kov, root, conjugations, formula);
         geminator.apply(conjResult.getFinalResult(), root);
         vocalizer.apply(conjResult);

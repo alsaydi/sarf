@@ -317,7 +317,7 @@ public class TrilateralUnaugmentedHelper {
         }
     }
 
-    private void printNomenGerund(UnaugmentedTrilateralRoot root, KindOfVerb kov) throws Exception {
+    private void printNomenGerund(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         var formulas = trilateralUnaugmentedNomenGerundConjugator.getAppliedFormulaList(root);
         for (var formula : formulas) {
             var rawNouns = trilateralUnaugmentedNomenGerundConjugator.createGerundList(root, formula);
@@ -327,7 +327,7 @@ public class TrilateralUnaugmentedHelper {
         }
     }
 
-    private void printQualityGerund(UnaugmentedTrilateralRoot root, KindOfVerb kov) throws Exception {
+    private void printQualityGerund(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         var rawNouns = qualityGerundConjugator.createGerundList(root, null);
         var conjugationResult = qualityGerundModifier.build(root, kov, rawNouns, null).getFinalResult();
         printFinalResultPipeSeparated(root, conjugationResult, "");

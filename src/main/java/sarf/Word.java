@@ -5,8 +5,7 @@ public abstract class Word {
         return WordPresenter.fromText(this.toString());
     }
 
-    public static Word empty()
-    {
+    public static Word empty() {
         return new Word() {
             @Override
             public String toString() {

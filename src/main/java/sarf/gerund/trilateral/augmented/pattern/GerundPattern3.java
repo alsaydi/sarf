@@ -18,7 +18,7 @@ import sarf.util.*;
  * @version 1.0
  */
 public class GerundPattern3 extends TrilateralAugmentedGerund {
-    private boolean form2Applied;
+    private final boolean form2Applied;
 
     public GerundPattern3(AugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer, boolean applyForm2) {
         super(root, suffixNo, genericNounSuffixContainer);

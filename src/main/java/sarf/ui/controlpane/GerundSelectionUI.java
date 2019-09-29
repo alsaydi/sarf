@@ -139,7 +139,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
             Action action = () -> {
                 if (selectionInfo.isTrilateral()) {
                     //here the Trilateral augmented
-                    List result = augmentedTrilateralPassiveParticipleConjugator.createMeemGerundNounList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    var result = augmentedTrilateralPassiveParticipleConjugator.createMeemGerundNounList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                     ConjugationResult conjResult = passiveParticipleModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                             selectionInfo.getAugmentationFormulaNo(), result, GerundSelectionUI.this);
 

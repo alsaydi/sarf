@@ -62,10 +62,10 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
     private final ActiveParticipleModifier activeParticipleModifier;
     private final PassiveParticipleModifier passiveParticipleModifier;
     private final ExaggerationModifier exaggerationModifier;
-    private InstrumentalModifier instrumentalModifier;
-    private TimeAndPlaceModifier timeAndPlaceModifier;
-    private ElativeModifier elativeModifier;
-    private AssimilateModifier assimilateModifier;
+    private final InstrumentalModifier instrumentalModifier;
+    private final TimeAndPlaceModifier timeAndPlaceModifier;
+    private final ElativeModifier elativeModifier;
+    private final AssimilateModifier assimilateModifier;
 
 
     public TrilateralUnaugmentedNounsUI(ControlPaneContainer controlPaneContainer

@@ -62,12 +62,7 @@ public class ALafifNakesVocalizer extends TrilateralNounSubstitutionApplier{
             }
 
 
-            if (noc == Conjugation.Second) {
-                return true;
-            }
-
-
-            return false;
+            return noc == Conjugation.Second;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee) {
             switch (noc) {
                 case Second:

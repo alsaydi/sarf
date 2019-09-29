@@ -197,8 +197,7 @@ public class QuadrilateralUnaugmentedHelper {
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
             gerundConjugator.setListener(() -> 1);
-            List nouns; //TODO: fix the typing in the modifier build function so we don't have to do this trick.
-            nouns = gerundConjugator.createGerundList(root);
+            var nouns = gerundConjugator.createGerundList(root);
 
             var conjugationResult =  standardModifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult);
@@ -212,8 +211,7 @@ public class QuadrilateralUnaugmentedHelper {
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
             gerundConjugator.setListener(() -> 1);
-            List nouns; //TODO: fix the typing in the modifier build function so we don't have to do this trick.
-            nouns = nomenGerundConjugator.createGerundList(root);
+            var nouns = nomenGerundConjugator.createGerundList(root);
 
             var conjugationResult =  standardModifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult);
@@ -227,8 +225,7 @@ public class QuadrilateralUnaugmentedHelper {
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
             gerundConjugator.setListener(() -> 1);
-            List nouns; //TODO: fix the typing in the modifier build function so we don't have to do this trick.
-            nouns = passiveParticipleConjugator.createMeemGerundNounList(root);
+            var nouns = passiveParticipleConjugator.createMeemGerundNounList(root);
 
             var conjugationResult =  passiveParticipleModifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult);

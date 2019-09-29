@@ -657,8 +657,8 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
 
         //عرض رسالة تنبيهية اذا تم تصحيح تلقائي
         if (!rootText.equals(rootFld.getText())) {
-            String msg = "لقد تم تصحيح الجذر المدخل إلى       ";
-            msg += rootText;
+            //String msg = "لقد تم تصحيح الجذر المدخل إلى       ";
+            //msg += rootText;
             //JOptionPane.showMessageDialog(this, msg, "", JOptionPane.INFORMATION_MESSAGE);
 
             //عرضه بعد التعديل اذا جرى تعديل
@@ -757,8 +757,8 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
 
         //عرض رسالة تنبيهية اذا تم تصحيح تلقائي
         if (!rootText.equals(rootFld.getText())) {
-            String msg = "لقد تم تصحيح الجذر المدخل إلى       ";
-            msg += rootText;
+            //String msg = "لقد تم تصحيح الجذر المدخل إلى       ";
+            //msg += rootText;
             //JOptionPane.showMessageDialog(this, msg, "", JOptionPane.INFORMATION_MESSAGE);
 
             //عرضه بعد التعديل اذا جرى تعديل

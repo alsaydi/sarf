@@ -18,8 +18,8 @@ import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
  * @version 1.0
  */
 public class GerundPattern2 extends TrilateralAugmentedGerund {
-    private boolean form2Applied;
-    private boolean form3Applied;
+    private final boolean form2Applied;
+    private final boolean form3Applied;
     public GerundPattern2(AugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         this(root, suffixNo, genericNounSuffixContainer, false, false);
     }
