@@ -1,15 +1,14 @@
 package sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer;
 
-import java.util.*;
-
 import sarf.Conjugation;
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.noun.*;
-
+import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 
-import sarf.ConjugationResult;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -23,7 +22,7 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class B2Vocalizer extends TrilateralNounSubstitutionApplier{
+public class B2Vocalizer extends TrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new ArrayList<>();
 
     public B2Vocalizer() {
@@ -53,7 +52,7 @@ public class B2Vocalizer extends TrilateralNounSubstitutionApplier{
                     return true;
             }
 
-            return noc == Conjugation.Second || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Lafeef_Maqroon) {
             return noc == Conjugation.Second || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Lafeef_Mafrooq) {

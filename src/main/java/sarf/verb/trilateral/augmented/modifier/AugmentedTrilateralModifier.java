@@ -59,12 +59,9 @@ public class AugmentedTrilateralModifier {
         if (result == IFormulaApplyingChecker.NOT_VOCALIZED) {
             applyVocalization = false;
         }
-        else if (result == IFormulaApplyingChecker.TWO_STATE) {
-            if (listener == null)
-                applyVocalization = true;
-            else
-                //asking the listener to apply or not the vocaliztion
-                applyVocalization = listener.doSelectVocalization();
+        else if (result == IFormulaApplyingChecker.TWO_STATE && listener != null    ) {
+            //asking the listener to apply or not the vocalization
+            applyVocalization = listener.doSelectVocalization();
         }
 
         if (applyVocalization) {

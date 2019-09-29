@@ -146,7 +146,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
                     return conjResult.getFinalResult();
                 }
 
-                List result = null;
+                List<? extends Word> result;
                 if (selectionInfo.isAugmented()) {
                     result = augmentedQuadrilateralPassiveParticipleConjugator.createMeemGerundNounList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                 } else {

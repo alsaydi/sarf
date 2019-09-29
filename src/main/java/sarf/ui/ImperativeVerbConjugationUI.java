@@ -42,7 +42,7 @@ public class ImperativeVerbConjugationUI extends JPanel implements IHtmlContentS
         setFont(FONT);
         setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         List pronounsList = SeparatedPronounsContainer.getPronouns();
-        JLabel lbl = null;
+        JLabel lbl;
         for (int i=0; i<6;i++) {
             //إضافة نص يمثل الضمير
             add(lbl = new JLabel((String) pronounsList.get(i)));

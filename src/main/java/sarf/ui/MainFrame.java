@@ -104,7 +104,7 @@ class MainFrame extends JFrame {
     /**
      * Component initialization.
      */
-    private void jbInit() throws Exception {
+    private void jbInit() {
         contentPane = (JPanel) getContentPane();
         contentPane.setLayout(borderLayout1);
         setSize(new Dimension(600, 500));

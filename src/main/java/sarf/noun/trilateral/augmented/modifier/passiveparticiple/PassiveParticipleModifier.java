@@ -1,12 +1,9 @@
 package sarf.noun.trilateral.augmented.modifier.passiveparticiple;
 
 import com.google.inject.Inject;
-import sarf.KindOfVerb;
-import sarf.NounLamAlefModifier;
-import sarf.NounSunLamModifier;
+import sarf.*;
 import sarf.noun.trilateral.augmented.modifier.Substituter;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
-import sarf.ConjugationResult;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifierListener;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.FormulaApplyingChecker;
 import sarf.verb.trilateral.augmented.modifier.vocalizer.IFormulaApplyingChecker;
@@ -45,7 +42,7 @@ public class PassiveParticipleModifier {
         this.nounSunLamModifier = nounSunLamModifier;
     }
 
-    public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List conjugations, AugmentedTrilateralModifierListener listener) {
+    public ConjugationResult build(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo, List<? extends Word> conjugations, AugmentedTrilateralModifierListener listener) {
         ConjugationResult conjResult = new ConjugationResult(kov, formulaNo, root, conjugations);
         substituter.apply(conjResult);
         geminator.apply(conjResult);
@@ -54,12 +51,9 @@ public class PassiveParticipleModifier {
         int result = formulaApplyingChecker.check(root, formulaNo);
         if (result == IFormulaApplyingChecker.NOT_VOCALIZED) {
             applyVocalization = false;
-        } else if (result == IFormulaApplyingChecker.TWO_STATE) {
-            if (listener == null)
-                applyVocalization = true;
-            else
-                //asking the listener to apply or not the vocaliztion
-                applyVocalization = listener.doSelectVocalization();
+        } else if (result == IFormulaApplyingChecker.TWO_STATE && listener != null) {
+            //asking the listener to apply or not the vocalization
+            applyVocalization = listener.doSelectVocalization();
         }
 
         if (applyVocalization) {

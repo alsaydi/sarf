@@ -1,15 +1,14 @@
 package sarf.noun.trilateral.unaugmented.modifier.exaggeration.vocalizer;
 
-import java.util.*;
-
 import sarf.Conjugation;
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
-import sarf.noun.*;
-
+import sarf.noun.TrilateralNounSubstitutionApplier;
 import sarf.substitution.InfixSubstitution;
 import sarf.substitution.Substitution;
 
-import sarf.ConjugationResult;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * <p>Title: Sarf Program</p>
@@ -23,7 +22,7 @@ import sarf.ConjugationResult;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-public class AVocalizer extends TrilateralNounSubstitutionApplier{
+public class AVocalizer extends TrilateralNounSubstitutionApplier {
     private final List<Substitution> substitutions = new LinkedList<>();
 
     public AVocalizer() {
@@ -60,12 +59,7 @@ public class AVocalizer extends TrilateralNounSubstitutionApplier{
             }
 
 
-            if (noc == Conjugation.Second) {
-                return true;
-            }
-
-
-            return noc == Conjugation.Third || noc == Conjugation.Forth;
+            return noc == Conjugation.Second;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Faa || kov == KindOfVerb.Naqis_Yaee) {
             switch (noc) {
                 case Second:
@@ -74,7 +68,7 @@ public class AVocalizer extends TrilateralNounSubstitutionApplier{
                     return true;
             }
 
-            return noc == Conjugation.Third || noc == Conjugation.Forth;
+            return false;
         } else if (kov == KindOfVerb.Naqis_Yaee_Mahmouz_Ain) {
             return noc == Conjugation.Third || noc == Conjugation.Forth;
         } else if (kov == KindOfVerb.Lafeef_Maqroon_Mahmouz_Faa || kov == KindOfVerb.Lafeef_Mafrooq_Mahmouz_Ain) {

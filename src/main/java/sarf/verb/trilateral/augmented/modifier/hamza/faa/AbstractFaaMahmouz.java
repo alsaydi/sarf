@@ -34,7 +34,7 @@ public abstract class AbstractFaaMahmouz extends SubstitutionsApplier{
                 case 9:
                     return true;
             }
-            return formulaNo == 5;
+            return false;
         } else if (kov == KindOfVerb.Mahmouz_Faa_Mahmouz_Laam) {
             return formulaNo == 5;
         } else if (kov == KindOfVerb.Mahmouz_Faa) {

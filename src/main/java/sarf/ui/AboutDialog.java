@@ -52,7 +52,7 @@ class AboutDialog extends JDialog {
         closeBtn.addActionListener(e -> setVisible(false));
     }
 
-    private void jbInit() throws Exception {
+    private void jbInit() {
         this.getContentPane().setLayout(new BorderLayout());
     }
 

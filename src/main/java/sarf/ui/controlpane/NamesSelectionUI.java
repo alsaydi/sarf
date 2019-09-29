@@ -115,7 +115,7 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
                     return conjResult.getFinalResult();
                 }
 
-                List result = null;
+                List result;
                 if (selectionInfo.isAugmented()) {
                     result = augmentedQuadrilateralPassiveParticipleConjugator.createNounList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                 } else {
@@ -143,7 +143,7 @@ public class NamesSelectionUI extends JPanel implements IControlPane, AugmentedT
                     return conjResult.getFinalResult();
                 }
 
-                List result = null;
+                List result;
                 if (selectionInfo.isAugmented()) {
                     result = augmentedQuadrilateralPassiveParticipleConjugator.createTimeAndPlaceNounList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
                 } else {

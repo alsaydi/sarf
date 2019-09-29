@@ -2,7 +2,6 @@ package sarf.ui;
 
 import java.awt.*;
 import javax.swing.*;
-import java.util.ArrayList;
 
 /**
  * <p>Title: Sarf Program</p>

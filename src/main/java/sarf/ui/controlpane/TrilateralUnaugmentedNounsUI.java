@@ -270,22 +270,31 @@ public class TrilateralUnaugmentedNounsUI extends JPanel implements IControlPane
         APanel panel = new APanel(new GridLayout(1, formulas.size()));
         for (Object o : formulas) {
             String formula = (String) o;
-            if (formula.equals("أَفْعَل")) {
-                JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaCSuffixContainer.getInstance(), title);
-                panel.add(button);
-                bg.add(button);
-            } else if (formula.equals("فَعْلان / فَعْلانة")) {
-                JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaE1SuffixContainer.getInstance(), title);
-                panel.add(button);
-                bg.add(button);
-            } else if (formula.equals("فَعْلان / فَعْلَى")) {
-                JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaE2SuffixContainer.getInstance(), title);
-                panel.add(button);
-                bg.add(button);
-            } else {
-                JToggleButton button = createButton(formula, conjugator, modifier, title);
-                panel.add(button);
-                bg.add(button);
+            switch (formula) {
+                case "أَفْعَل": {
+                    JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaCSuffixContainer.getInstance(), title);
+                    panel.add(button);
+                    bg.add(button);
+                    break;
+                }
+                case "فَعْلان / فَعْلانة": {
+                    JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaE1SuffixContainer.getInstance(), title);
+                    panel.add(button);
+                    bg.add(button);
+                    break;
+                }
+                case "فَعْلان / فَعْلَى": {
+                    JToggleButton button = createButton(formula, conjugator, modifier, AssimilateFormulaE2SuffixContainer.getInstance(), title);
+                    panel.add(button);
+                    bg.add(button);
+                    break;
+                }
+                default: {
+                    JToggleButton button = createButton(formula, conjugator, modifier, title);
+                    panel.add(button);
+                    bg.add(button);
+                    break;
+                }
             }
         }
         panel.setMaximumSize(new Dimension(300, 30));

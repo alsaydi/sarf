@@ -236,7 +236,7 @@ public class ActiveVerbSelectionUI extends JPanel implements IControlPane, Augme
                         SystemConstants.PRESENT_TENSE, true, false);
 
                 finalResult = conjResult.getFinalResult();
-                JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(this.controlPaneContainer, conjResult.getFinalResult(), notGeminatedConjResult.getFinalResult(), presentJussiveBtn.getText());
+                JussiveVerbConjugationUI ui = new JussiveVerbConjugationUI(this.controlPaneContainer, finalResult, notGeminatedConjResult.getFinalResult(), presentJussiveBtn.getText());
                 controlPaneContainer.openResult(ui);
                 return;
 

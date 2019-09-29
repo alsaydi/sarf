@@ -52,7 +52,7 @@ public class Substituter {
     }
 
     public void apply(String tense, boolean active, ConjugationResult conjResult) {
-        List<SubstitutionsApplier> modifiers = null;
+        List<SubstitutionsApplier> modifiers;
         modifiers = active ? activeList : passiveList;
 
         for (SubstitutionsApplier o : modifiers) {
