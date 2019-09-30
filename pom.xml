@@ -6,10 +6,25 @@
 
     <groupId>Sarf</groupId>
     <artifactId>sarf-parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0-9302019</version>
     <packaging>pom</packaging>
     <modules>
         <module>sarf-library</module>
 		<module>sarf-library-tests</module>
     </modules>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>3.9.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.inject</groupId>
+                <artifactId>guice</artifactId>
+                <version>4.2.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
