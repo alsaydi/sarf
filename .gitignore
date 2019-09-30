@@ -1,8 +1,8 @@
 /bin/
-/target/
 sarf.zip
 /.idea/
 /.vscode/
 /.settings/
 .classpath
 test_output.xml
+target/
