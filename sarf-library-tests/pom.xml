@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>sarf-library-tests</artifactId>
-    <version>1.0-9302019</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 	<parent>
-        <groupId>Sarf</groupId>
-        <version>1.0-9302019</version>
+        <groupId>sarf</groupId>
+        <version>1.0.1-SNAPSHOT</version>
         <artifactId>sarf-parent</artifactId>
     </parent>
     <properties>
@@ -48,9 +46,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>Sarf</groupId>
+            <groupId>sarf</groupId>
             <artifactId>sarf-library</artifactId>
-            <version>1.0.09282019</version>
+            <version>1.0.1-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -58,19 +56,4 @@
             <artifactId>assertj-core</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                    <source>12</source>
-                    <target>12</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>
