@@ -9,6 +9,7 @@ import sarfwebservice.exceptions.RootNotFoundException;
 import sarfwebservice.services.SarfService;
 
 @RestController
+@RequestMapping("/sarf")
 public class SarfController {
 
     private final SarfService sarfService;
