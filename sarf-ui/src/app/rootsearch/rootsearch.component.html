@@ -1,0 +1,13 @@
+<form class="root-search-form">
+    <mat-form-field class="root-form-full-width">
+        <input matInput placeholder="الجذر الثلاثي أو الرباعي" [formControl]="rootFormControl" [errorStateMatcher]="matcher" 
+        maxlength="4" lang="ar">
+        <mat-hint>أدخل جذراً ثلاثياً أو رباعياً</mat-hint>
+        <mat-error *ngIf="!rootFormControl.hasError('required')">
+            الرجاء إدخال جذر كلمة عربية ثلاثي أو رباعي
+        </mat-error>
+        <mat-error *ngIf="rootFormControl.hasError('required')">
+            الجذر <strong>ضروري</strong>
+        </mat-error>
+    </mat-form-field>
+</form>
