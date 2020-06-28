@@ -10,13 +10,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RootsearchComponent } from './rootsearch/rootsearch.component';
 import { ConjugationLabelComponent } from './conjugation-label/conjugation-label.component';
 import { ConjugationGroupComponent } from './conjugation-group/conjugation-group.component';
+import { TrilateralConjugationPanelComponent } from './trilateral-conjugation-panel/trilateral-conjugation-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RootsearchComponent,
     ConjugationLabelComponent,
-    ConjugationGroupComponent
+    ConjugationGroupComponent,
+    TrilateralConjugationPanelComponent
   ],
   imports: [
     BrowserModule,
