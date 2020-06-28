@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { ConjugationClass } from '../models/conjugationclass';
+import { ConjugationGroup } from '../models/conjugationgroup';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -24,12 +25,15 @@ export class RootsearchComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  public conjugationClasses: ConjugationClass[];
+  private conjugationClasses: ConjugationClass[];
+  public conjugationGroup: ConjugationGroup;
 
   ngOnInit(): void {
     this.conjugationClasses = new Array<ConjugationClass>(6);
     for (let i = 0; i < this.conjugationClasses.length; i++) {
       this.conjugationClasses[i] = new ConjugationClass(i + 1, 'فعل يفعل', 'صبر يصبر');
     }
+
+    this.conjugationGroup = new ConjugationGroup('الأفعال الثلاثيةالمزيدة', this.conjugationClasses);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ConjugationClass } from '../models/conjugationclass';
+import { ConjugationGroup } from '../models/conjugationgroup';
 
 @Component({
   selector: 'app-conjugation-group',
@@ -8,7 +8,7 @@ import { ConjugationClass } from '../models/conjugationclass';
 })
 export class ConjugationGroupComponent implements OnInit {
 
-  @Input() public conjugationClasses: ConjugationClass[];
+  @Input() public conjugationGroup: ConjugationGroup;
 
   constructor() { }
 

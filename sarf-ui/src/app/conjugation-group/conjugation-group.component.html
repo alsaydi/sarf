@@ -1,8 +1,8 @@
 <mat-card>
-    <mat-card-title>الأفعال الثلاثية المجردة</mat-card-title>
+    <mat-card-title>{{conjugationGroup.label}}</mat-card-title>
     <mat-card-content>
-        <mat-grid-list cols={{conjugationClasses.length}} rowHeight="fit">
-            <mat-grid-tile *ngFor="let conjugationClass of conjugationClasses">
+        <mat-grid-list cols={{conjugationGroup.conjugationClasses.length}} rowHeight="fit">
+            <mat-grid-tile *ngFor="let conjugationClass of conjugationGroup.conjugationClasses">
                 <app-conjugation-label [conjugationClass]="conjugationClass"></app-conjugation-label>
             </mat-grid-tile>
         </mat-grid-list>
