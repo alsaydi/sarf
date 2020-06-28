@@ -13,14 +13,19 @@
                     <mat-error *ngIf="rootFormControl.hasError('required')">
                         الجذر <strong>ضروري</strong>
                     </mat-error>
-                </mat-form-field>                
+                </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
                 <button type="submit" style="font-size: x-large;">بحث</button>
             </mat-grid-tile>
         </mat-grid-list>
     </form>
-    <div>
-        <app-trilateral-conjugation-panel></app-trilateral-conjugation-panel>
+    <div *ngIf="showResult(); then thenBlock else elseBlock">
     </div>
+    <ng-template #thenBlock>
+        <app-trilateral-conjugation-panel></app-trilateral-conjugation-panel>
+    </ng-template>
+    <ng-template #elseBlock>
+        <p>الجذر {{rootFormControl.value}} غير موجود</p>
+    </ng-template>
 </mat-card>

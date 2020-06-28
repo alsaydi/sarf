@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { ConjugationClass } from '../models/conjugationclass';
 import { ConjugationGroup } from '../models/conjugationgroup';
+import { RootType } from '../root-type.enum';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -35,5 +36,21 @@ export class RootsearchComponent implements OnInit {
     }
 
     this.conjugationGroup = new ConjugationGroup('الأفعال الثلاثيةالمزيدة', this.conjugationClasses);
+  }
+
+  public getRootType(): RootType {
+    if (this.rootFormControl.value == null) {
+      return RootType.None;
+    }
+
+    if (this.rootFormControl.value.length === 3) {
+      return RootType.Tri;
+    }
+
+    return RootType.Quad;
+  }
+
+  public showResult(): boolean {
+    return this.conjugationGroup != null;
   }
 }

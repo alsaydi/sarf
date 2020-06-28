@@ -13,7 +13,7 @@ export class TrilateralConjugationPanelComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     const unaugmented = this.buildUnaugmentedConjugationClasses();
     const augmentedByOne = this.buildAugmentedByOneConjugationClasses();
     const augmentedByTwo = this.buildAugmentedByTwoConjugationClasses();
@@ -47,7 +47,7 @@ export class TrilateralConjugationPanelComponent implements OnInit {
   }
 
   private buildAugmentedByTwoConjugationClasses(): ConjugationGroup {
-    const conjugationClasses: ConjugationClass[] =[
+    const conjugationClasses: ConjugationClass[] = [
     new ConjugationClass(1, 'انْفَعَل يَنْفَعِل', ''),
     new ConjugationClass(2, 'افْتَعَل يَفْتَعِل', ''),
     new ConjugationClass(3, 'افْعَلَّ يَفْعَلُّ', ''),
