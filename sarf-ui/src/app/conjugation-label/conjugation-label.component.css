@@ -1,0 +1,11 @@
+mat-card-title {
+    font-size: smaller;
+    text-align: right;
+    vertical-align: top;
+    text-decoration: underline;
+}
+
+mat-card-content {
+    font-size: large;
+    text-align: center;
+}

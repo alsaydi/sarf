@@ -1,6 +1,6 @@
 <mat-card>
     <form class="root-search-form">
-        <mat-grid-list cols="1" rowHeight="2:1">
+        <mat-grid-list cols="2" rowHeight="2:1">
             <mat-grid-tile>
                 <mat-form-field class="root-form-full-width">
                     <input matInput placeholder="أدخل جذراً ثلاثياً أو رباعياً (فعل، مثلاً)"
@@ -13,9 +13,14 @@
                     <mat-error *ngIf="rootFormControl.hasError('required')">
                         الجذر <strong>ضروري</strong>
                     </mat-error>
-                </mat-form-field>
-                <button mat-button type="submit">بحث</button>
+                </mat-form-field>                
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <button type="submit" style="font-size: x-large;">بحث</button>
             </mat-grid-tile>
         </mat-grid-list>
     </form>
+    <div>
+        <app-conjugation-group [conjugationClasses]="conjugationClasses"></app-conjugation-group>
+    </div>
 </mat-card>

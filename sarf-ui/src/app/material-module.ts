@@ -4,6 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
     exports: [
@@ -11,7 +12,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         MatFormFieldModule,
         MatInputModule,
         MatCardModule,
-        MatGridListModule
+        MatGridListModule,
+        MatButtonModule
     ]
 })
 export class AppMaterialModule { }

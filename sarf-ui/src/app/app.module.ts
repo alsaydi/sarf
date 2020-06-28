@@ -8,11 +8,15 @@ import { AppMaterialModule } from './material-module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RootsearchComponent } from './rootsearch/rootsearch.component';
+import { ConjugationLabelComponent } from './conjugation-label/conjugation-label.component';
+import { ConjugationGroupComponent } from './conjugation-group/conjugation-group.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RootsearchComponent
+    RootsearchComponent,
+    ConjugationLabelComponent,
+    ConjugationGroupComponent
   ],
   imports: [
     BrowserModule,
