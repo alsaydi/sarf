@@ -22,10 +22,6 @@ export class TrilateralConjugationPanelComponent implements OnInit {
     this.conjugationGroup = new TrilateralConjugationGroup(unaugmented, augmentedByOne, augmentedByTwo, augmentedByThreeOrMore);
   }
 
-  public getunaugmented(): ConjugationGroup {
-    return this.conjugationGroup.unaugmented;
-  }
-
   private buildUnaugmentedConjugationClasses(): ConjugationGroup {
     const conjugationClasses: ConjugationClass[] = [new ConjugationClass(1, 'فعَل يفْعُل', '')
     , new ConjugationClass(2, 'فعَل يفْعِل', '')

@@ -11,6 +11,7 @@ import { RootsearchComponent } from './rootsearch/rootsearch.component';
 import { ConjugationLabelComponent } from './conjugation-label/conjugation-label.component';
 import { ConjugationGroupComponent } from './conjugation-group/conjugation-group.component';
 import { TrilateralConjugationPanelComponent } from './trilateral-conjugation-panel/trilateral-conjugation-panel.component';
+import { QuadilateralConjugationPanelComponent } from './quadilateral-conjugation-panel/quadilateral-conjugation-panel.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TrilateralConjugationPanelComponent } from './trilateral-conjugation-pa
     RootsearchComponent,
     ConjugationLabelComponent,
     ConjugationGroupComponent,
-    TrilateralConjugationPanelComponent
+    TrilateralConjugationPanelComponent,
+    QuadilateralConjugationPanelComponent
   ],
   imports: [
     BrowserModule,

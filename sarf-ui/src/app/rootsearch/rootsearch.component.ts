@@ -38,8 +38,12 @@ export class RootsearchComponent implements OnInit {
     this.conjugationGroup = new ConjugationGroup('الأفعال الثلاثيةالمزيدة', this.conjugationClasses);
   }
 
-  public getRootType(): RootType {
-    if (this.rootFormControl.value == null) {
+  public isTri(): boolean {
+    return this.getRootType() === RootType.Tri;
+  }
+
+  private getRootType(): RootType {
+    if (this.rootFormControl.value == null || this.rootFormControl.value.length === 0) {
       return RootType.None;
     }
 
@@ -51,6 +55,6 @@ export class RootsearchComponent implements OnInit {
   }
 
   public showResult(): boolean {
-    return this.conjugationGroup != null;
+    return this.getRootType() !== RootType.None && this.conjugationGroup != null;
   }
 }
