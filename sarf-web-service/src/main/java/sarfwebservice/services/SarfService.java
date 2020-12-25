@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface SarfService {
     boolean isArabic(String letters);
-    List<? extends Root> getRoot(String rootLetters) throws Exception;
+    List<? extends Root> getRoots(String rootLetters) throws Exception;
 }

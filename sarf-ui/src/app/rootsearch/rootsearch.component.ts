@@ -4,6 +4,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { ConjugationClass } from '../models/conjugationclass';
 import { ConjugationGroup } from '../models/conjugationgroup';
 import { RootType } from '../root-type.enum';
+import { SarfService } from '../services/sarf-service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -20,13 +21,14 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 
 export class RootsearchComponent implements OnInit {
-  rootFormControl = new FormControl('', [
-    Validators.required
-  ]);
-
+  rootFormControl = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
 
   private conjugationClasses: ConjugationClass[];
+
+  constructor(private sarfService: SarfService) {
+  }
+
   public conjugationGroup: ConjugationGroup;
 
   ngOnInit(): void {
@@ -40,6 +42,14 @@ export class RootsearchComponent implements OnInit {
 
   public isTri(): boolean {
     return this.getRootType() === RootType.Tri;
+  }
+
+  public search(event: any): void {
+    // tslint:disable-next-line:no-console
+    console.debug(event);
+    this.sarfService.findTrilateralConjugations(this.rootFormControl.value).subscribe(n => {
+      console.log(n);
+    }, n => console.log(n));
   }
 
   private getRootType(): RootType {

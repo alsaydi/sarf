@@ -6,6 +6,7 @@ import sarf.SarfDictionary;
 import sarf.Validator;
 import sarf.verb.Root;
 
+import java.util.HashSet;
 import java.util.List;
 
 @Service
@@ -24,9 +25,16 @@ public class SarfServiceImpl implements SarfService {
         return sarfValidator.checkArabicLetters(letters);
     }
 
-    public List<? extends Root> getRoot(String rootLetters) {
+    public List<? extends Root> getRoots(String rootLetters) {
         try {
-            return sarfDictionary.getUnaugmentedTrilateralRoots(rootLetters);
+            var unaugmentedTrilateralRoots = sarfDictionary.getUnaugmentedTrilateralRoots(rootLetters);
+            var augmentedTrilateralRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
+            var augmentationFormulas =  augmentedTrilateralRoot.getAugmentationList();
+            for(var formula : augmentationFormulas) {
+                formula
+            }
+            var set = new HashSet<Root>(unaugmentedTrilateralRoots);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
