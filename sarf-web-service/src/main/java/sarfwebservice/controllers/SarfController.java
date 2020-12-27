@@ -19,7 +19,6 @@ public class SarfController {
 
     @Autowired
     public SarfController(SarfService sarfService) {
-
         this.sarfService = sarfService;
     }
 

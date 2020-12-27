@@ -31,7 +31,7 @@ public class SarfServiceImpl implements SarfService {
             var augmentedTrilateralRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
             var augmentationFormulas =  augmentedTrilateralRoot.getAugmentationList();
             for(var formula : augmentationFormulas) {
-                formula
+
             }
             var set = new HashSet<Root>(unaugmentedTrilateralRoots);
 
