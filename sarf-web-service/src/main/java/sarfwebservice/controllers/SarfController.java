@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import sarf.verb.Root;
 import sarfwebservice.exceptions.InvalidRootException;
 import sarfwebservice.exceptions.RootNotFoundException;
+import sarfwebservice.models.RootResult;
 import sarfwebservice.services.SarfService;
 
 import java.util.List;
@@ -23,15 +24,15 @@ public class SarfController {
     }
 
     @RequestMapping("/{rootLetters}")
-    List<? extends Root> home(@PathVariable String rootLetters) throws Exception {
+    RootResult home(@PathVariable String rootLetters) throws Exception {
         if (!isValidRoot(rootLetters)) {
             throw new InvalidRootException(String.format("ينبغي تحديد جذر مناسب للكلمة - %s.", rootLetters));
         }
-        var roots = sarfService.getRoots(rootLetters);
-        if (roots == null || roots.isEmpty()) {
+        var rootResult = sarfService.getRoots(rootLetters);
+        if (rootResult == null || rootResult.isEmpty()) {
             throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
         }
-        return roots;
+        return rootResult;
     }
 
     private boolean isValidRoot(String rootLetters) {

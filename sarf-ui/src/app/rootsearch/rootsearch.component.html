@@ -24,7 +24,7 @@
     </div>
     <ng-template #thenBlock>
         <div *ngIf="isTri(); then rootThenBlock else rootElseBlock"></div>
-        <ng-template #rootThenBlock><app-trilateral-conjugation-panel></app-trilateral-conjugation-panel></ng-template>
+        <ng-template #rootThenBlock><app-trilateral-conjugation-panel [conjugationGroup]="conjugationGroup" ></app-trilateral-conjugation-panel></ng-template>
         <ng-template #rootElseBlock><app-quadilateral-conjugation-panel></app-quadilateral-conjugation-panel></ng-template>
     </ng-template>
     <ng-template #elseBlock>

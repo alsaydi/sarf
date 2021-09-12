@@ -554,7 +554,7 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
 
         //رد الهمزة إلى أصلها
         root = validator.correctHamza(root);
-        //لكي لا تظهر رسالة التصحيح التلقائي للهمزة
+        //لكيلا تظهر رسالة التصحيح التلقائي للهمزة
         rootFld.setText(root);
 
         if (!validator.checkArabicLetters(root)) {
@@ -608,7 +608,7 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
                     unaugmentedLists.add(unaugmentedList);
                 }
             }
-            //فحص اذا نجح احتمال أو أكثر
+            //فحص إذا نجح احتمال أو أكثر
             if (rootTextList.isEmpty()) {
                 //لم ينجح أي بديل
                 displayErrorMessage("لم يرد هذا الجذر في قاعدة المعطيات      ");
@@ -635,7 +635,7 @@ public class ControlPaneContainer extends JPanel implements IMainControlPanel {
             AugmentedTrilateralRoot augmentedRoot = augmentedList.get(index);
             List<UnaugmentedTrilateralRoot> unaugmentedList = unaugmentedLists.get(index);
             String newRoot = rootTextList.get(index);
-            //حتى لا يتم عرض رسالة نتبيهية
+            //حتى لا يتم عرض رسالة تنبيهية
             //إلا في حالة جذر واحد
             if (rootTextList.size() > 1) {
                 rootFld.setText(newRoot);
