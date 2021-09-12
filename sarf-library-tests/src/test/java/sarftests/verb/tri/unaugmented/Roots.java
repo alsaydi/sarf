@@ -1,8 +1,8 @@
 package sarftests.verb.tri.unaugmented;
 
 import com.google.inject.Inject;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import sarf.KindOfVerb;
 import sarf.SarfDictionary;
 import sarf.SystemConstants;

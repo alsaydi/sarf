@@ -1,0 +1,10 @@
+<mat-card>
+    <mat-card-title>{{conjugationGroup.label}}</mat-card-title>
+    <mat-card-content>
+        <mat-grid-list cols={{conjugationGroup.conjugationClasses.length}} rowHeight="fit">
+            <mat-grid-tile *ngFor="let conjugationClass of conjugationGroup.conjugationClasses">
+                <app-conjugation-label [conjugationClass]="conjugationClass"></app-conjugation-label>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+</mat-card>

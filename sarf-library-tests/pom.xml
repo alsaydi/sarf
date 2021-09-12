@@ -11,7 +11,7 @@
         <artifactId>sarf-parent</artifactId>
     </parent>
     <properties>
-        <cucumber.version>4.2.6</cucumber.version>
+        <cucumber.version>6.11.0</cucumber.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

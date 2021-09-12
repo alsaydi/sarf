@@ -1,6 +1,6 @@
 package sarftests;
 
-import cucumber.runtime.java.guice.ScenarioScoped;
+import io.cucumber.guice.ScenarioScoped;
 import sarftests.noun.NounType;
 
 @ScenarioScoped
