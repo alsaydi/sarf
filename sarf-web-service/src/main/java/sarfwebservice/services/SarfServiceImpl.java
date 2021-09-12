@@ -4,13 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sarf.*;
 import sarf.kov.KovRulesManager;
-import sarf.verb.Root;
+import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
+import sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator;
 import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
+import sarfwebservice.models.ConjugationResultDisplay;
 import sarfwebservice.models.RootResult;
 import sarfwebservice.models.TriRootDisplay;
 
@@ -28,6 +30,7 @@ public class SarfServiceImpl implements SarfService {
     private final ActivePastConjugator unaugmentedTriActivePastConjugator;
     private final UnaugmentedTrilateralModifier unaugmentedTrilateralModifier;
     private final ActivePresentConjugator activePresentConjugator;
+    private final AugmentedActivePresentConjugator augmentedActivePresentConjugator;
 
     @Autowired
     public SarfServiceImpl(SarfDictionary sarfDictionary
@@ -36,7 +39,7 @@ public class SarfServiceImpl implements SarfService {
             , AugmentedActivePastConjugator augmentedActivePastConjugator
             , AugmentedTrilateralModifier augmentedTrilateralModifier
             , ActivePastConjugator unaugmentedTriActivePastConjugator
-            , UnaugmentedTrilateralModifier unaugmentedTrilateralModifier, ActivePresentConjugator activePresentConjugator){
+            , UnaugmentedTrilateralModifier unaugmentedTrilateralModifier, ActivePresentConjugator activePresentConjugator, AugmentedActivePresentConjugator augmentedActivePresentConjugator){
         this.sarfDictionary = sarfDictionary;
         this.sarfValidator = sarfValidator;
         this.kovRulesManager = kovRulesManager;
@@ -45,6 +48,7 @@ public class SarfServiceImpl implements SarfService {
         this.unaugmentedTriActivePastConjugator = unaugmentedTriActivePastConjugator;
         this.unaugmentedTrilateralModifier = unaugmentedTrilateralModifier;
         this.activePresentConjugator = activePresentConjugator;
+        this.augmentedActivePresentConjugator = augmentedActivePresentConjugator;
     }
 
     public boolean isArabic(String letters){
@@ -55,7 +59,7 @@ public class SarfServiceImpl implements SarfService {
         try {
             var rootResult = new RootResult();
             var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
-            var conjugationResults = new ArrayList<ConjugationResult>();
+            var conjugationResultDisplays = new ArrayList<ConjugationResultDisplay>();
             var displays = new ArrayList<TriRootDisplay>();
 
             var unaugmentedTrilateralRoots = sarfDictionary.getUnaugmentedTrilateralRoots(rootLetters);
@@ -71,10 +75,14 @@ public class SarfServiceImpl implements SarfService {
                 var verbs = augmentedActivePastConjugator.createVerbList(augmentedTrilateralRoot, formula.getFormulaNo());
                 var conjugationResult = augmentedTrilateralModifier.build(augmentedTrilateralRoot, kov, formula.getFormulaNo(), verbs, SystemConstants.PAST_TENSE
                         , true, () -> true);
-                conjugationResults.add(conjugationResult);
+
+                var conjugationResultDisplay = new ConjugationResultDisplay();
+                conjugationResultDisplay.setConjugationResult(conjugationResult);
+                conjugationResultDisplay.setDisplay(conjugateAugmentedRoot(formula.getFormulaNo(), augmentedTrilateralRoot, kov));
+                conjugationResultDisplays.add(conjugationResultDisplay);
             }
             rootResult.setUnaugmentedRoots(displays);
-            rootResult.setConjugationResults(conjugationResults);
+            rootResult.setConjugationResults(conjugationResultDisplays);
             return rootResult;
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,6 +107,25 @@ public class SarfServiceImpl implements SarfService {
         return finalPastVerbText + " "+ finalPresentVerbText;
     }
 
+    private String conjugateAugmentedRoot(int formulaNo, AugmentedTrilateralRoot root, KindOfVerb kov) {
+        //مع الضمير هو
+        //past text formatting
+        var pastRootText = augmentedActivePastConjugator.createVerb(root, 7, formulaNo);
+        var conjugations = createEmptyList();
+        conjugations.set(7, pastRootText);
+        ConjugationResult conjResult = augmentedTrilateralModifier.build(root, kov, formulaNo, conjugations, SystemConstants.PAST_TENSE, true, null);
+        var finalPastRootText = conjResult.getFinalResult().get(7).toString();
+
+        //past text formatting
+        var presentRootText = augmentedActivePresentConjugator.getNominativeConjugator().createVerbList(root, formulaNo).get(7);
+        conjugations = createEmptyList();
+        conjugations.set(7, presentRootText);
+        conjResult = augmentedTrilateralModifier.build(root, kov, formulaNo, conjugations, SystemConstants.PRESENT_TENSE, true, null);
+        var finalPresentRootText = conjResult.getFinalResult().get(7).toString();
+
+        return finalPastRootText + " "+ finalPresentRootText;
+    }
+
     private static List<Word> createEmptyList() {
         List<Word> result = new ArrayList<>(13);
         for (int i = 1; i <= 13; i++) {
@@ -106,5 +133,4 @@ public class SarfServiceImpl implements SarfService {
         }
         return result;
     }
-
 }

@@ -7,21 +7,21 @@ import java.util.List;
 
 public class RootResult {
     private List<TriRootDisplay> unaugmentedRoots;
-    private List<ConjugationResult> conjugationResults;
+    private List<ConjugationResultDisplay> conjugationResults;
 
     public List<TriRootDisplay> getUnaugmentedRoots() {
         return unaugmentedRoots;
+    }
+
+    public List<ConjugationResultDisplay> getConjugationResults() {
+        return conjugationResults;
     }
 
     public void setUnaugmentedRoots(List<TriRootDisplay> unaugmentedRoots) {
         this.unaugmentedRoots = unaugmentedRoots;
     }
 
-    public List<ConjugationResult> getConjugationResults() {
-        return conjugationResults;
-    }
-
-    public void setConjugationResults(List<ConjugationResult> conjugationResults) {
+    public void setConjugationResults(List<ConjugationResultDisplay> conjugationResults) {
         this.conjugationResults = conjugationResults;
     }
 

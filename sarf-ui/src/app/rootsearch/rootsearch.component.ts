@@ -66,9 +66,9 @@ export class RootsearchComponent implements OnInit {
     this.sarfService.findTrilateralConjugations(this.rootFormControl.value).subscribe(rootResult => {
       console.log(rootResult);
       const unaugmented = this.buildUnaugmentedConjugationClasses(rootResult.unaugmentedRoots);
-      const augmentedByOne = this.buildAugmentedByOneConjugationClasses();
-      const augmentedByTwo = this.buildAugmentedByTwoConjugationClasses();
-      const augmentedByThreeOrMore = this.buildAugmentedByThreeConjugationClasses();
+      const augmentedByOne = this.buildAugmentedByOneConjugationClasses(rootResult.conjugationResults);
+      const augmentedByTwo = this.buildAugmentedByTwoConjugationClasses(rootResult.conjugationResults);
+      const augmentedByThreeOrMore = this.buildAugmentedByThreeConjugationClasses(rootResult.conjugationResults);
 
       this.conjugationGroup = new TrilateralConjugationGroup(unaugmented, augmentedByOne, augmentedByTwo, augmentedByThreeOrMore);
 
@@ -76,7 +76,7 @@ export class RootsearchComponent implements OnInit {
   }
 
   private buildUnaugmentedConjugationClasses(unaugmentedRoots): ConjugationGroup {
-    if(!unaugmentedRoots) {
+    if (!unaugmentedRoots) {
       return;
     }
 
@@ -86,50 +86,70 @@ export class RootsearchComponent implements OnInit {
     var forth = this.getTriUnaugmentedRootText(unaugmentedRoots, "Forth");
     var fifth = this.getTriUnaugmentedRootText(unaugmentedRoots, "Fifth");
     var sixth = this.getTriUnaugmentedRootText(unaugmentedRoots, "Sixth");
-    const conjugationClasses: ConjugationClass[] = 
-    [
-      new ConjugationClass(1, TriFirstConjugationClass, first)
-      , new ConjugationClass(2, TriSecondConjugationClass, second)
-      , new ConjugationClass(3, TriThirdConjugationClass, third)
-      , new ConjugationClass(4, TriForthConjugationClass, forth)
-      , new ConjugationClass(5, TriFifthConjugationClass, fifth)
-      , new ConjugationClass(6, TriSixthConjugationClass, sixth)
-    ];    
+    const conjugationClasses: ConjugationClass[] =
+      [
+        new ConjugationClass(1, TriFirstConjugationClass, first)
+        , new ConjugationClass(2, TriSecondConjugationClass, second)
+        , new ConjugationClass(3, TriThirdConjugationClass, third)
+        , new ConjugationClass(4, TriForthConjugationClass, forth)
+        , new ConjugationClass(5, TriFifthConjugationClass, fifth)
+        , new ConjugationClass(6, TriSixthConjugationClass, sixth)
+      ];
     return new ConjugationGroup(ConjugationGroup.TriUnaugmentedLabel, conjugationClasses);
   }
 
   private getTriUnaugmentedRootText(unaugmentedRoots: any, conjugationclass: string) {
     return unaugmentedRoots.filter(r => r.root.conjugation === conjugationclass)
-    .map(r => r.display)
-    .join('');
+      .map(r => r.display)
+      .join('');
   }
 
-  private buildAugmentedByOneConjugationClasses(): ConjugationGroup {
+  private buildAugmentedByOneConjugationClasses(conjugationResults): ConjugationGroup {
+    var formula1 = this.getTriAugmentedRootText(conjugationResults, 1);
+    var formula2 = this.getTriAugmentedRootText(conjugationResults, 2);
+    var formula3 = this.getTriAugmentedRootText(conjugationResults, 3);
     const conjugationClasses: ConjugationClass[] = [
-      new ConjugationClass(1, TriAugmentedByOneFirstConjugationClass, ''),
-      new ConjugationClass(2, TriAugmentedByOneSecondConjugationClass, ''),
-      new ConjugationClass(3, TriAugmentedByOneThirdConjugationClass, '')
-    ];    
+      new ConjugationClass(1, TriAugmentedByOneFirstConjugationClass, formula1),
+      new ConjugationClass(2, TriAugmentedByOneSecondConjugationClass, formula2),
+      new ConjugationClass(3, TriAugmentedByOneThirdConjugationClass, formula3)
+    ];
     return new ConjugationGroup(ConjugationGroup.TriAugmentedByOneLabel, conjugationClasses);
   }
 
-  private buildAugmentedByTwoConjugationClasses(): ConjugationGroup {
+  private buildAugmentedByTwoConjugationClasses(conjugationResults): ConjugationGroup {
+    var formula4 = this.getTriAugmentedRootText(conjugationResults, 4);
+    var formula5 = this.getTriAugmentedRootText(conjugationResults, 5);
+    var formula6 = this.getTriAugmentedRootText(conjugationResults, 6);
+    var formula7 = this.getTriAugmentedRootText(conjugationResults, 7);
+    var formula8 = this.getTriAugmentedRootText(conjugationResults, 8);
+
     const conjugationClasses: ConjugationClass[] = [
-      new ConjugationClass(1, TriAugmentedByTwoFirstConjugationClass, ''),
-      new ConjugationClass(2, TriAugmentedByTwoSecondConjugationClass, ''),
-      new ConjugationClass(3, TriAugmentedByTwoThirdConjugationClass, ''),
-      new ConjugationClass(4, TriAugmentedByTwoForthConjugationClass, ''),
-      new ConjugationClass(5, TriAugmentedByTwoFifthConjugationClass, '')];
+      new ConjugationClass(1, TriAugmentedByTwoFirstConjugationClass, formula4),
+      new ConjugationClass(2, TriAugmentedByTwoSecondConjugationClass, formula5),
+      new ConjugationClass(3, TriAugmentedByTwoThirdConjugationClass, formula6),
+      new ConjugationClass(4, TriAugmentedByTwoForthConjugationClass, formula7),
+      new ConjugationClass(5, TriAugmentedByTwoFifthConjugationClass, formula8)];
     return new ConjugationGroup(ConjugationGroup.TriAugmentedByTwoLabel, conjugationClasses);
   }
 
-  private buildAugmentedByThreeConjugationClasses(): ConjugationGroup {
+  private buildAugmentedByThreeConjugationClasses(conjugationResults): ConjugationGroup {
+    var formula9 = this.getTriAugmentedRootText(conjugationResults, 9);
+    var formula10 = this.getTriAugmentedRootText(conjugationResults, 10);
+    var formula11 = this.getTriAugmentedRootText(conjugationResults, 11);
+    var formula12 = this.getTriAugmentedRootText(conjugationResults, 12);
+
     const conjugationClasses: ConjugationClass[] = [
-      new ConjugationClass(1, TriAugmentedByThreeFirstConjugationClass, ''),
-      new ConjugationClass(2, TriAugmentedByThreeSecConjugationClass, ''),
-      new ConjugationClass(3, TriAugmentedByThreeThirdConjugationClass, ''),
-      new ConjugationClass(4, TriAugmentedByThreeForthConjugationClass, '')];
+      new ConjugationClass(1, TriAugmentedByThreeFirstConjugationClass, formula9),
+      new ConjugationClass(2, TriAugmentedByThreeSecConjugationClass, formula10),
+      new ConjugationClass(3, TriAugmentedByThreeThirdConjugationClass, formula11),
+      new ConjugationClass(4, TriAugmentedByThreeForthConjugationClass, formula12)];
     return new ConjugationGroup(ConjugationGroup.TriAugmentedByThreeLabel, conjugationClasses);
+  }
+
+  private getTriAugmentedRootText(conjugationResults: any, formulaNo: number) {
+    return conjugationResults.filter(r => r.conjugationResult.formulaNo === formulaNo)
+      .map(r => r.display)
+      .join('');
   }
 
   private getRootType(): RootType {
@@ -149,28 +169,5 @@ export class RootsearchComponent implements OnInit {
   public showResult(): boolean {
     return this.getRootType() !== RootType.None && this.conjugationGroup != null;
   }
-}
-function convertToNumber(conjugation: string) {
-  if (!conjugation) {
-    return 0;
-  }
-  conjugation = conjugation.toLowerCase();
-  switch (conjugation) {
-    case "first":
-      return 1;
-    case "second":
-      return 2;
-    case "third":
-      return 3;
-    case "forth":
-      return 4;
-    case "fifth":
-      return 5;
-    case "sixth":
-      return 6;
-    default:
-      console.error(`invalid conjugation {conjugation}`);
-  }
-  return 0;
 }
 

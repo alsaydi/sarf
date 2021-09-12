@@ -10,12 +10,12 @@ public class TriRootDisplay {
         return display;
     }
 
-    public void setDisplay(String display) {
-        this.display = display;
-    }
-
     public Root getRoot() {
         return root;
+    }
+
+    public void setDisplay(String display) {
+        this.display = display;
     }
 
     public void setRoot(Root root) {
