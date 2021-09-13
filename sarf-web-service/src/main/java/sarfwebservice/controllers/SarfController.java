@@ -1,6 +1,5 @@
 package sarfwebservice.controllers;
 
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,7 +34,6 @@ public class SarfController {
         return getRootResultQuad(rootLetters);
     }
 
-    @NotNull
     private RootResult getRootResultTri(String rootLetters) throws Exception {
         var rootResult = sarfServiceTri.getRoots(rootLetters);
         if (rootResult == null || rootResult.isEmpty()) {
@@ -44,8 +42,12 @@ public class SarfController {
         return rootResult;
     }
 
-    private RootResult getRootResultQuad(String rootLetters) {
-        return null;
+    private RootResult getRootResultQuad(String rootLetters) throws Exception {
+        var rootResult = sarfServiceQuad.getRoots(rootLetters);
+        if (rootResult == null || rootResult.isEmpty()) {
+            throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
+        }
+        return rootResult;
     }
 
     private boolean isValidRoot(String rootLetters) {
