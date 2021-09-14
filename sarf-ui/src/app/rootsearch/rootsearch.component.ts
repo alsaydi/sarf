@@ -32,6 +32,7 @@ export class RootsearchComponent implements OnInit {
   constructor(private sarfService: SarfService) {
   }
 
+  private currentRoot: string;
   public conjugationGroup: TrilateralConjugationGroup;
   public quadConjugationGroup: QuadConjugationGroup;
 
@@ -45,6 +46,7 @@ export class RootsearchComponent implements OnInit {
   public search(event: any): void {
     this.conjugationGroup = null;
     this.quadConjugationGroup = null;
+    this.currentRoot = this.rootFormControl.value;
     // tslint:disable-next-line:no-console
     console.debug(event);
     this.sarfService.findTrilateralConjugations(this.rootFormControl.value).subscribe(rootResult => {
@@ -184,21 +186,21 @@ export class RootsearchComponent implements OnInit {
   }
 
   private getRootType(): RootType {
-    if (this.rootFormControl.value == null || this.rootFormControl.value.length === 0) {
+    if (this.currentRoot == null || this.currentRoot.length === 0) {
       return RootType.None;
     }
 
-    if (this.rootFormControl.value.length === 3) {
+    if (this.currentRoot.length === 3) {
       return RootType.Tri;
     }
-    if (this.rootFormControl.value.length === 4) {
+    if (this.currentRoot.length === 4) {
       return RootType.Quad;
     }
     return RootType.None;
   }
 
   public showResult(): boolean {
-    return this.getRootType() !== RootType.None && (this.conjugationGroup != null || this.quadConjugationGroup != null);
+    return this.currentRoot && (this.conjugationGroup != null || this.quadConjugationGroup != null);
   }
 }
 
