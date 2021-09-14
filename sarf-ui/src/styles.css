@@ -1,10 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-html, body { height: 100%; 
-    font-family:  "Amiri", serif, Roboto, "Helvetica Neue", sans-serif; 
-    font-size: larger;
+html, body { 
+    height: 100%; 
+    direction: rtl;
+    font-family: Kitab,system-ui;
+    font-size: 1rem;
+    overscroll-behavior-y: contain;
 }
 body { 
     margin: 0;
+}
+
+@font-face {
+    font-display: block;
+    font-family: Kitab;
+    src: url(https://fonts.nuqayah.com/kitab-base.woff2?v3)
+}
+
+@font-face {
+    font-display: block;
+    font-family: Kitab;
+    font-weight: 700;
+    src: url(https://fonts.nuqayah.com/kitab-base-b.woff2?v3)
+}
+
+@font-face {
+    font-family: Kitab;
+    src: url(https://fonts.nuqayah.com/kitab-phrases.woff2?v3)
+}
+
+@font-face {
+    font-family: Kitab;
+    font-weight: 700;
+    src: url(https://fonts.nuqayah.com/kitab-phrases.woff2?v3)
+}
+
+html {
+    font-size: 22px
+}
+
+.mat-card{
+    font-family: Kitab,system-ui;
 }
