@@ -1,4 +1,23 @@
-<app-conjugation-group [conjugationGroup]="conjugationGroup?.unaugmented"></app-conjugation-group>
-<app-conjugation-group [conjugationGroup]="conjugationGroup?.augmentedByOne"></app-conjugation-group>
-<app-conjugation-group [conjugationGroup]="conjugationGroup?.augmentedByTwo"></app-conjugation-group>
-<app-conjugation-group [conjugationGroup]="conjugationGroup?.augmentedByThree"></app-conjugation-group>
+<div *ngIf="hasSingleResult(); then resultBlock else emptyBlock"></div>
+<ng-template #resultBlock>
+    <app-conjugation-group [conjugationGroup]="conjugationGroup?.unaugmented"></app-conjugation-group>
+    <app-conjugation-group [conjugationGroup]="conjugationGroup?.augmentedByOne"></app-conjugation-group>
+    <app-conjugation-group [conjugationGroup]="conjugationGroup?.augmentedByTwo"></app-conjugation-group>
+    <app-conjugation-group [conjugationGroup]="conjugationGroup?.augmentedByThree"></app-conjugation-group>
+</ng-template>
+<ng-template #emptyBlock>
+    <div *ngIf="hasAlternatives(); then alternativesBlock else notFoundBlock"></div>
+
+    <ng-template #alternativesBlock>
+        <p>يوجد أكثر من جذر. إختر أحد الجذرين</p>
+        <mat-nav-list>
+            <mat-list-item *ngFor="let alternative of alternatives">
+               <a (click)="navigatTo(alternative.path)" >{{alternative.display}}</a>
+            </mat-list-item>
+          </mat-nav-list>
+    </ng-template>
+
+    <ng-template #notFoundBlock>
+        <app-not-found></app-not-found>
+    </ng-template>
+</ng-template>

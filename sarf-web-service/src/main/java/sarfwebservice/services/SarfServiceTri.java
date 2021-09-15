@@ -2,6 +2,8 @@ package sarfwebservice.services;
 
 import sarfwebservice.models.RootResult;
 
+import java.util.List;
+
 public interface SarfServiceTri extends SarfService {
-    RootResult getRoots(String rootLetters) throws Exception;
+    List<RootResult> getRoots(String rootLetters) throws Exception;
 }

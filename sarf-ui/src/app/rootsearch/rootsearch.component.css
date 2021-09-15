@@ -1,9 +1,17 @@
+
 .root-search-form {
-    min-width: 150px;
-    max-width: 500px;
+    margin: 15px;
+    font-family: Kitab, system-ui;
+    
+  }
+
+  .mat-form-field {
+    margin-left: 12px;
+    font-family: Kitab, system-ui;
     width: 100%;
   }
-  
-  .root-form-full-width {
-    width: 100%;
+
+  button
+  {
+    font-family: Kitab, system-ui; 
   }

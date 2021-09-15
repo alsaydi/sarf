@@ -3,7 +3,7 @@ import { TrilateralConjugationGroup } from '../models/trilateral-conjugation-gro
 import { ConjugationGroup } from '../models/conjugationgroup';
 import { ConjugationClass } from '../models/conjugationclass';
 import { SarfService } from '../services/sarf-service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-trilateral-conjugation-panel',
@@ -12,24 +12,60 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TrilateralConjugationPanelComponent implements OnInit {
   public conjugationGroup: TrilateralConjugationGroup;
+  public alternatives: Array<any>;
 
   constructor(private sarfService: SarfService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit(): void {
-    const currentRoot = this.route.snapshot.paramMap.get('root');
+    const currentRoot = this.resetSearch();
 
     this.sarfService.findTrilateralConjugations(currentRoot).subscribe(rootResult => {
       console.log(rootResult);
-        this.processTriResult(rootResult);
+      this.processTriResult(rootResult);
     }, n => console.log(n));
   }
 
+  private resetSearch() {
+    const currentRoot = this.route.snapshot.paramMap.get('root');
+    this.conjugationGroup = null;
+    this.alternatives = null;
+    return currentRoot;
+  }
+
+  public hasSingleResult(): boolean {
+    return this.conjugationGroup != null;
+  }
+
+  public hasAlternatives(): boolean {
+    return this.alternatives != null && this.alternatives.length > 1;
+  }
+
+  public navigatTo(path: string) {
+    this.router.navigateByUrl('/', {skipLocationChange: true})
+    .then(() => this.router.navigate([path]));
+  }
+
   private processTriResult(rootResult: any) {
-    const unaugmented = this.buildUnaugmentedConjugationClasses(rootResult.unaugmentedRoots);
-    const augmentedByOne = this.buildAugmentedByOneConjugationClasses(rootResult.conjugationResults);
-    const augmentedByTwo = this.buildAugmentedByTwoConjugationClasses(rootResult.conjugationResults);
-    const augmentedByThreeOrMore = this.buildAugmentedByThreeConjugationClasses(rootResult.conjugationResults);
+
+    if (rootResult == null || rootResult.length == 0) {
+      return;
+    }
+
+    if (rootResult.length > 1) {
+      this.alternatives = rootResult.map(root => ({
+        "path": `/tri/${root.root}`,
+        "display": root.root
+      }));
+      return;
+    }
+
+    const result = rootResult[0];
+    const unaugmented = this.buildUnaugmentedConjugationClasses(result.unaugmentedRoots);
+    const augmentedByOne = this.buildAugmentedByOneConjugationClasses(result.conjugationResults);
+    const augmentedByTwo = this.buildAugmentedByTwoConjugationClasses(result.conjugationResults);
+    const augmentedByThreeOrMore = this.buildAugmentedByThreeConjugationClasses(result.conjugationResults);
 
     this.conjugationGroup = new TrilateralConjugationGroup(unaugmented, augmentedByOne, augmentedByTwo, augmentedByThreeOrMore);
   }
@@ -39,12 +75,12 @@ export class TrilateralConjugationPanelComponent implements OnInit {
       return;
     }
 
-    var first = this.getTriUnaugmentedRootText(unaugmentedRoots, "First");
-    var second = this.getTriUnaugmentedRootText(unaugmentedRoots, "Second");
-    var third = this.getTriUnaugmentedRootText(unaugmentedRoots, "Third");
-    var forth = this.getTriUnaugmentedRootText(unaugmentedRoots, "Forth");
-    var fifth = this.getTriUnaugmentedRootText(unaugmentedRoots, "Fifth");
-    var sixth = this.getTriUnaugmentedRootText(unaugmentedRoots, "Sixth");
+    const first = this.getTriUnaugmentedRootText(unaugmentedRoots, "First");
+    const second = this.getTriUnaugmentedRootText(unaugmentedRoots, "Second");
+    const third = this.getTriUnaugmentedRootText(unaugmentedRoots, "Third");
+    const forth = this.getTriUnaugmentedRootText(unaugmentedRoots, "Forth");
+    const fifth = this.getTriUnaugmentedRootText(unaugmentedRoots, "Fifth");
+    const sixth = this.getTriUnaugmentedRootText(unaugmentedRoots, "Sixth");
     const conjugationClasses: ConjugationClass[] =
       [
         new ConjugationClass(1, ConjugationClass.TriFirstConjugationClass, first)
@@ -57,7 +93,7 @@ export class TrilateralConjugationPanelComponent implements OnInit {
     return new ConjugationGroup(ConjugationGroup.TriUnaugmentedLabel, conjugationClasses);
   }
 
-  private getTriUnaugmentedRootText(unaugmentedRoots: any, conjugationclass: string) {
+  private getTriUnaugmentedRootText(unaugmentedRoots: any, conjugationclass: string): string {
     return unaugmentedRoots.filter(r => r.root.conjugation === conjugationclass)
       .map(r => r.display)
       .join('');

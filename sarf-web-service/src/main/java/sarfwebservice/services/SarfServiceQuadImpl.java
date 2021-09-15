@@ -16,6 +16,7 @@ import sarfwebservice.models.RootResult;
 import sarfwebservice.models.TriRootDisplay;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -44,33 +45,9 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
     }
 
     @Override
-    public RootResult getRoots(String rootLetters) throws Exception {
+    public List<RootResult> getRoots(String rootLetters) throws Exception {
         try {
-            var rootResult = new RootResult();
-            var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
-            var conjugationResultDisplays = new ArrayList<ConjugationResultDisplay>();
-            var displays = new ArrayList<TriRootDisplay>();
-
-            var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
-            var display = new TriRootDisplay();
-            display.setRoot(root);
-            display.setDisplay(conjugateRoot(root, kov));
-            displays.add(display);
-            var augmentedQuadrilateralRoot = sarfDictionary.getAugmentedQuadrilateralRoot(rootLetters);
-            var augmentationFormulas = augmentedQuadrilateralRoot.getAugmentationList();
-            for (var formula : augmentationFormulas) {
-                var verbs = quadrilateralAugmentedActivePastConjugator.createVerbList(augmentedQuadrilateralRoot, formula.getFormulaNo());
-                var conjugationResult = quadrilateralModifier.build(augmentedQuadrilateralRoot, formula.getFormulaNo(), kov, verbs, SystemConstants.PAST_TENSE
-                        , true);
-
-                var conjugationResultDisplay = new ConjugationResultDisplay();
-                conjugationResultDisplay.setConjugationResult(conjugationResult);
-                conjugationResultDisplay.setDisplay(conjugateAugmentedRoot(formula.getFormulaNo(), augmentedQuadrilateralRoot, kov));
-                conjugationResultDisplays.add(conjugationResultDisplay);
-            }
-            rootResult.setUnaugmentedRoots(displays);
-            rootResult.setConjugationResults(conjugationResultDisplays);
-            return rootResult;
+            return processQuadrilateral(rootLetters);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -78,8 +55,8 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
     }
 
     private String conjugateRoot(UnaugmentedQuadrilateralRoot root, KindOfVerb kov) {
-        if(root == null) {
-            return  "";
+        if (root == null) {
+            return "";
         }
         //مع الضمير هو
         //past text formatting
@@ -122,5 +99,64 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
         return IntStream.rangeClosed(1, SystemConstants.PRONOUN_RANGE_END)
                 .mapToObj(i -> Word.empty())
                 .collect(Collectors.toCollection(() -> new ArrayList<>(SystemConstants.PRONOUN_RANGE_END)));
+    }
+
+    private List<RootResult> processQuadrilateral(String root) throws Exception {
+        //فحص إذا كان الفعل يبتدأ بهمزة
+        if (root.charAt(0) == 'ء') {
+            //displayErrorMessage("لا يوجد رباعي يبتدئ بهمزة");
+            return Arrays.asList();
+        }
+
+        List<String> alefAlternatives = getSarfValidator().getQuadrilateralAlefAlternatives(root);
+        if (alefAlternatives.isEmpty()) {
+            //لا يوجد احتمالات للألف
+            AugmentedQuadrilateralRoot augmentedRoot = sarfDictionary.getAugmentedQuadrilateralRoot(root);
+            UnaugmentedQuadrilateralRoot unaugmentedRoot = sarfDictionary.getUnaugmentedQuadrilateralRoot(root);
+            if (augmentedRoot == null && unaugmentedRoot == null) {
+                //displayErrorMessage("لم يرد هذا الجذر في قاعدة المعطيات      ");
+                return Arrays.asList();
+            }
+            return Arrays.asList(findRootResult(root, unaugmentedRoot, augmentedRoot));
+        }
+        //تجريب بدائل الألف
+        var resultList = new ArrayList<RootResult>();
+        for (String alternativeRoot : alefAlternatives) {
+            AugmentedQuadrilateralRoot augmentedRoot = sarfDictionary.getAugmentedQuadrilateralRoot(alternativeRoot);
+            UnaugmentedQuadrilateralRoot unaugmentedRoot = sarfDictionary.getUnaugmentedQuadrilateralRoot(alternativeRoot);
+            if (augmentedRoot != null || unaugmentedRoot != null) {
+                resultList.add(findRootResult(alternativeRoot, unaugmentedRoot, augmentedRoot));
+            }
+        }
+        return resultList;
+    }
+
+    private RootResult findRootResult(String rootLetters, UnaugmentedQuadrilateralRoot root, AugmentedQuadrilateralRoot augmentedQuadrilateralRoot) {
+        var rootResult = new RootResult();
+        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+        var conjugationResultDisplays = new ArrayList<ConjugationResultDisplay>();
+        var displays = new ArrayList<TriRootDisplay>();
+
+        var display = new TriRootDisplay();
+        display.setRoot(root);
+        display.setDisplay(conjugateRoot(root, kov));
+        displays.add(display);
+        if(augmentedQuadrilateralRoot != null) {
+            var augmentationFormulas = augmentedQuadrilateralRoot.getAugmentationList();
+            for (var formula : augmentationFormulas) {
+                var verbs = quadrilateralAugmentedActivePastConjugator.createVerbList(augmentedQuadrilateralRoot, formula.getFormulaNo());
+                var conjugationResult = quadrilateralModifier.build(augmentedQuadrilateralRoot, formula.getFormulaNo(), kov, verbs, SystemConstants.PAST_TENSE
+                        , true);
+
+                var conjugationResultDisplay = new ConjugationResultDisplay();
+                conjugationResultDisplay.setConjugationResult(conjugationResult);
+                conjugationResultDisplay.setDisplay(conjugateAugmentedRoot(formula.getFormulaNo(), augmentedQuadrilateralRoot, kov));
+                conjugationResultDisplays.add(conjugationResultDisplay);
+            }
+        }
+        rootResult.setRoot(rootLetters);
+        rootResult.setUnaugmentedRoots(displays);
+        rootResult.setConjugationResults(conjugationResultDisplays);
+        return rootResult;
     }
 }

@@ -15,6 +15,7 @@ import { ConjugationGroupComponent } from './conjugation-group/conjugation-group
 import { TrilateralConjugationPanelComponent } from './trilateral-conjugation-panel/trilateral-conjugation-panel.component';
 import { QuadilateralConjugationPanelComponent } from './quadilateral-conjugation-panel/quadilateral-conjugation-panel.component';
 import { StartComponent } from './start/start.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
   {path: '', component: StartComponent},
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     ConjugationGroupComponent,
     TrilateralConjugationPanelComponent,
     QuadilateralConjugationPanelComponent,
-    StartComponent
+    StartComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

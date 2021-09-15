@@ -8,6 +8,9 @@ public abstract class SarfServiceImpl implements SarfService {
         this.sarfValidator = sarfValidator;
     }
 
+    protected Validator getSarfValidator() {
+        return sarfValidator;
+    }
     public boolean isArabic(String letters){
         return sarfValidator.checkArabicLetters(letters);
     }

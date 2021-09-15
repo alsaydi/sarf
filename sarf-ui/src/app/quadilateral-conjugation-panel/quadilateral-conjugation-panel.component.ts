@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ConjugationClass } from '../models/conjugationclass';
 import { ConjugationGroup } from '../models/conjugationgroup';
 import { QuadConjugationGroup } from '../models/quad-conjugation-group';
@@ -12,24 +12,58 @@ import { SarfService } from '../services/sarf-service';
 })
 export class QuadilateralConjugationPanelComponent implements OnInit {
   public conjugationGroup: QuadConjugationGroup;
+  public alternatives: Array<any>;
 
-  constructor(private sarfService: SarfService,
-    private route: ActivatedRoute){}
+  constructor(private sarfService: SarfService, private route: ActivatedRoute
+    , private router: Router){}
 
   ngOnInit(): void {
     this.conjugationGroup = null;
     // tslint:disable-next-line:no-console
-    const currentRoot = this.route.snapshot.paramMap.get('root');
+    const currentRoot = this.resetSearch();
     this.sarfService.findTrilateralConjugations(currentRoot).subscribe(rootResult => {
       console.log(rootResult);
         this.processQuadResult(rootResult);
     }, n => console.log(n));
   }
 
+  public navigatTo(path: string) {
+    this.router.navigateByUrl('/', {skipLocationChange: true})
+    .then(() => this.router.navigate([path]));
+  }
+
+  private resetSearch() {
+    const currentRoot = this.route.snapshot.paramMap.get('root');
+    this.conjugationGroup = null;
+    this.alternatives = null;
+    return currentRoot;
+  }
+
+  public hasSingleResult(): boolean {
+    return this.conjugationGroup != null;
+  }
+
+  public hasAlternatives(): boolean {
+    return this.alternatives != null && this.alternatives.length > 1;
+  }
+
   private processQuadResult(rootResult: any) {
-    const unaugmented = this.buildQuadUnaugmentedConjugationClasses(rootResult.unaugmentedRoots);
-    const augmentedByOne = this.buildQuadAugmentedByOneConjugationClasses(rootResult.conjugationResults);
-    const augmentedByTwo = this.buildQuadAugmentedByTwoConjugationClasses(rootResult.conjugationResults);
+    if (rootResult == null || rootResult.length == 0) {
+      return;
+    }
+
+    if (rootResult.length > 1) {
+      this.alternatives = rootResult.map(root => ({
+        "path": `/tri/${root.root}`,
+        "display": root.root
+      }));
+      return;
+    }
+
+    const result = rootResult[0];
+    const unaugmented = this.buildQuadUnaugmentedConjugationClasses(result.unaugmentedRoots);
+    const augmentedByOne = this.buildQuadAugmentedByOneConjugationClasses(result.conjugationResults);
+    const augmentedByTwo = this.buildQuadAugmentedByTwoConjugationClasses(result.conjugationResults);
     this.conjugationGroup = new QuadConjugationGroup(unaugmented, augmentedByOne, augmentedByTwo);
   }
 

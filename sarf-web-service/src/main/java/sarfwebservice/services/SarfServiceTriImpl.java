@@ -17,6 +17,7 @@ import sarfwebservice.models.RootResult;
 import sarfwebservice.models.TriRootDisplay;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -50,35 +51,17 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         this.augmentedActivePresentConjugator = augmentedActivePresentConjugator;
     }
 
-    public RootResult getRoots(String rootLetters) {
+    private static List<Word> createEmptyList() {
+        List<Word> result = new ArrayList<>(13);
+        for (int i = 1; i <= 13; i++) {
+            result.add(Word.empty());
+        }
+        return result;
+    }
+
+    public List<RootResult> getRoots(String rootLetters) {
         try {
-            var rootResult = new RootResult();
-            var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
-            var conjugationResultDisplays = new ArrayList<ConjugationResultDisplay>();
-            var displays = new ArrayList<TriRootDisplay>();
-
-            var unaugmentedTrilateralRoots = sarfDictionary.getUnaugmentedTrilateralRoots(rootLetters);
-            for (var root : unaugmentedTrilateralRoots) {
-                var display = new TriRootDisplay();
-                display.setRoot(root);
-                display.setDisplay(conjugateRoot(root, kov));
-                displays.add(display);
-            }
-            var augmentedTrilateralRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
-            var augmentationFormulas = augmentedTrilateralRoot.getAugmentationList();
-            for (var formula : augmentationFormulas) {
-                var verbs = augmentedActivePastConjugator.createVerbList(augmentedTrilateralRoot, formula.getFormulaNo());
-                var conjugationResult = augmentedTrilateralModifier.build(augmentedTrilateralRoot, kov, formula.getFormulaNo(), verbs, SystemConstants.PAST_TENSE
-                        , true, () -> true);
-
-                var conjugationResultDisplay = new ConjugationResultDisplay();
-                conjugationResultDisplay.setConjugationResult(conjugationResult);
-                conjugationResultDisplay.setDisplay(conjugateAugmentedRoot(formula.getFormulaNo(), augmentedTrilateralRoot, kov));
-                conjugationResultDisplays.add(conjugationResultDisplay);
-            }
-            rootResult.setUnaugmentedRoots(displays);
-            rootResult.setConjugationResults(conjugationResultDisplays);
-            return rootResult;
+            return processTrilateral(rootLetters);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -121,11 +104,61 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         return finalPastRootText + " " + finalPresentRootText;
     }
 
-    private static List<Word> createEmptyList() {
-        List<Word> result = new ArrayList<>(13);
-        for (int i = 1; i <= 13; i++) {
-            result.add(Word.empty());
+    private List<RootResult> processTrilateral(String root) throws Exception {
+        var alefAlternatives = getSarfValidator().getTrilateralAlefAlternatives(root);
+        if (alefAlternatives.isEmpty()) {
+            //لا يوجد احتمالات للألف
+            AugmentedTrilateralRoot augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(root);
+            List<UnaugmentedTrilateralRoot> unaugmentedList = sarfDictionary.getUnaugmentedTrilateralRoots(root);
+            if (augmentedRoot == null && unaugmentedList.isEmpty()) {
+                return Arrays.asList();
+            } else {
+                return Arrays.asList(findRootResult(root, unaugmentedList, augmentedRoot));
+            }
         }
-        return result;
+        //تجريب بدائل الألف
+        var resultList = new ArrayList<RootResult>();
+        for (String alternativeRoot : alefAlternatives) {
+            var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(alternativeRoot);
+            var unaugmentedList = sarfDictionary.getUnaugmentedTrilateralRoots(alternativeRoot);
+
+            if (augmentedRoot != null || !unaugmentedList.isEmpty()) {
+                resultList.add(findRootResult(alternativeRoot, unaugmentedList, augmentedRoot));
+            }
+        }
+        return resultList;
+    }
+
+    private RootResult findRootResult(String rootLetters
+            , List<UnaugmentedTrilateralRoot> unaugmentedTrilateralRoots
+            , AugmentedTrilateralRoot augmentedTrilateralRoot) throws Exception {
+        var rootResult = new RootResult();
+        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+        var conjugationResultDisplays = new ArrayList<ConjugationResultDisplay>();
+        var displays = new ArrayList<TriRootDisplay>();
+
+        for (var root : unaugmentedTrilateralRoots) {
+            var display = new TriRootDisplay();
+            display.setRoot(root);
+            display.setDisplay(conjugateRoot(root, kov));
+            displays.add(display);
+        }
+        if (augmentedTrilateralRoot != null) {
+            var augmentationFormulas = augmentedTrilateralRoot.getAugmentationList();
+            for (var formula : augmentationFormulas) {
+                var verbs = augmentedActivePastConjugator.createVerbList(augmentedTrilateralRoot, formula.getFormulaNo());
+                var conjugationResult = augmentedTrilateralModifier.build(augmentedTrilateralRoot, kov, formula.getFormulaNo(), verbs, SystemConstants.PAST_TENSE
+                        , true, () -> true);
+
+                var conjugationResultDisplay = new ConjugationResultDisplay();
+                conjugationResultDisplay.setConjugationResult(conjugationResult);
+                conjugationResultDisplay.setDisplay(conjugateAugmentedRoot(formula.getFormulaNo(), augmentedTrilateralRoot, kov));
+                conjugationResultDisplays.add(conjugationResultDisplay);
+            }
+        }
+        rootResult.setRoot(rootLetters);
+        rootResult.setUnaugmentedRoots(displays);
+        rootResult.setConjugationResults(conjugationResultDisplays);
+        return rootResult;
     }
 }

@@ -10,6 +10,8 @@ import sarfwebservice.models.RootResult;
 import sarfwebservice.services.SarfServiceQuad;
 import sarfwebservice.services.SarfServiceTri;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/sarf")
 public class SarfController {
@@ -24,7 +26,7 @@ public class SarfController {
     }
 
     @RequestMapping("/{rootLetters}")
-    RootResult home(@PathVariable String rootLetters) throws Exception {
+    List<RootResult> home(@PathVariable String rootLetters) throws Exception {
         if (!isValidRoot(rootLetters)) {
             throw new InvalidRootException(String.format("ينبغي تحديد جذر مناسب للكلمة - %s.", rootLetters));
         }
@@ -34,7 +36,7 @@ public class SarfController {
         return getRootResultQuad(rootLetters);
     }
 
-    private RootResult getRootResultTri(String rootLetters) throws Exception {
+    private List<RootResult> getRootResultTri(String rootLetters) throws Exception {
         var rootResult = sarfServiceTri.getRoots(rootLetters);
         if (rootResult == null || rootResult.isEmpty()) {
             throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
@@ -42,7 +44,7 @@ public class SarfController {
         return rootResult;
     }
 
-    private RootResult getRootResultQuad(String rootLetters) throws Exception {
+    private List<RootResult> getRootResultQuad(String rootLetters) throws Exception {
         var rootResult = sarfServiceQuad.getRoots(rootLetters);
         if (rootResult == null || rootResult.isEmpty()) {
             throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));

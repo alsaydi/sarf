@@ -4,6 +4,13 @@
     flex: 1 1 auto;
   }
 
-  .titleDiv{
+  .titleDiv {
      text-align: center;
+     font-family: Kitab, system-ui;
+  }
+
+  .app-name , .app-sub-title {
+   text-align: center;
+   font-size: xx-large;
+      font-family: Kitab, system-ui;
   }
