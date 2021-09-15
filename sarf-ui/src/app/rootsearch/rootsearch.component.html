@@ -20,14 +20,4 @@
             </mat-grid-tile>
         </mat-grid-list>
     </form>
-    <div *ngIf="showResult(); then thenBlock else elseBlock">
-    </div>
-    <ng-template #thenBlock>
-        <div *ngIf="isTri(); then rootThenBlock else rootElseBlock"></div>
-        <ng-template #rootThenBlock><app-trilateral-conjugation-panel [conjugationGroup]="conjugationGroup" ></app-trilateral-conjugation-panel></ng-template>
-        <ng-template #rootElseBlock><app-quadilateral-conjugation-panel [conjugationGroup]="quadConjugationGroup" ></app-quadilateral-conjugation-panel></ng-template>
-    </ng-template>
-    <ng-template #elseBlock>
-        <p>الجذر {{rootFormControl.value}} غير موجود</p>
-    </ng-template>
 </mat-card>
