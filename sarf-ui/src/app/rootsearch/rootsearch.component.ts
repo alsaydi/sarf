@@ -23,6 +23,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class RootsearchComponent implements OnInit {
   rootFormControl = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
+  public verbType: string;
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 

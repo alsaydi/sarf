@@ -8,10 +8,16 @@
   .mat-form-field {
     margin-left: 12px;
     font-family: Kitab, system-ui;
-    width: 100%;
+    width: 30%;
   }
 
   button
   {
     font-family: Kitab, system-ui; 
+  }
+
+  .search-button
+  {
+    vertical-align: middle;
+    float:left;
   }
