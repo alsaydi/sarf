@@ -4,6 +4,7 @@ import { ConjugationGroup } from '../models/conjugationgroup';
 import { ConjugationClass } from '../models/conjugationclass';
 import { SarfService } from '../services/sarf-service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppNotificationsService } from '../services/app-notifications.service';
 
 @Component({
   selector: 'app-trilateral-conjugation-panel',
@@ -14,7 +15,7 @@ export class TrilateralConjugationPanelComponent implements OnInit {
   public conjugationGroup: TrilateralConjugationGroup;
   public alternatives: Array<any>;
 
-  constructor(private sarfService: SarfService,
+  constructor(private sarfService: SarfService, private appNotificationsService: AppNotificationsService,
     private route: ActivatedRoute,
     private router: Router) {}
 
@@ -68,6 +69,7 @@ export class TrilateralConjugationPanelComponent implements OnInit {
     const augmentedByThreeOrMore = this.buildAugmentedByThreeConjugationClasses(result.conjugationResults);
 
     this.conjugationGroup = new TrilateralConjugationGroup(unaugmented, augmentedByOne, augmentedByTwo, augmentedByThreeOrMore);
+    this.appNotificationsService.broadcastRootResult(result);
   }
 
   private buildUnaugmentedConjugationClasses(unaugmentedRoots): ConjugationGroup {

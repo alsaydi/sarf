@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { RootType } from '../root-type.enum';
-import { SarfService } from '../services/sarf-service';
+import { AppNotificationsService } from '../services/app-notifications.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -24,17 +24,37 @@ export class RootsearchComponent implements OnInit {
   rootFormControl = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
   public verbType: string;
+  private hamzaString = "أؤئإ";
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private appNotificationsService: AppNotificationsService
+    , private router: Router) {
+    this.appNotificationsService.rootResultRetrieved$.subscribe(
+      rootResult => this.processRootResult(rootResult)
+      , err => {
+        console.error(err);
+      }, () => { });
+  }
+  processRootResult(rootResult: any): void {
+    if (rootResult == null) {
+      return;
+    }
 
-  ngOnInit(): void {}
+    this.rootFormControl.setValue(rootResult.root);
+    //this.verbType = rootResult.
+  }
+
+  ngOnInit(): void { }
 
   public isTri(): boolean {
     return this.getRootType() === RootType.Tri;
   }
 
   public search(event: any): void {
-    const currentRoot = this.rootFormControl.value;
+    const currentRoot = this.correctHamza(this.rootFormControl.value);
+    if(currentRoot !== this.rootFormControl.value) {
+      this.rootFormControl.setValue(currentRoot);
+    }
+    
     // tslint:disable-next-line:no-console
     console.debug(event);
 
@@ -63,5 +83,22 @@ export class RootsearchComponent implements OnInit {
       return RootType.Quad;
     }
     return RootType.None;
+  }
+
+  private correctHamza(root: string): string {
+    if (root == null)
+      return null;
+
+
+    let newRoot = "";
+
+    for (let i = 0; i < root.length; i++) {
+      if (this.hamzaString.indexOf(root[i]) != -1) {
+        newRoot += 'ء';
+        continue;
+      }
+      newRoot += root[i];
+    }
+    return newRoot;
   }
 }
