@@ -1,33 +1,27 @@
-<mat-card>
-    <form class="root-search-form" (ngSubmit)="search($event)">
-        <mat-grid-list cols="2" rowHeight="2:1">
-            <mat-grid-tile>
-                <mat-form-field class="root-form-full-width">
-                    <input matInput placeholder="أدخل جذراً ثلاثياً أو رباعياً (خرج، مثلاً)"
-                        [formControl]="rootFormControl" [errorStateMatcher]="matcher" maxlength="4" lang="ar"
-                        minlength="3" dir="rtl" />
+<form class="root-search-form" (ngSubmit)="search($event)">
+    <div class="form-fields-container">
+        <mat-form-field appearance="fill">
+            <mat-label>جذر كلمة</mat-label>
+            <input matInput placeholder="أدخل جذراً ثلاثياً أو رباعياً (خرج، مثلاً)" [formControl]="rootFormControl"
+                [errorStateMatcher]="matcher" maxlength="4" lang="ar" minlength="3" dir="rtl" style="font-size: xx-large;" />
 
-                    <mat-error *ngIf="!rootFormControl.hasError('required')">
-                        أدخل جذر كلمة عربية ثلاثي أو رباعي
-                    </mat-error>
-                    <mat-error *ngIf="rootFormControl.hasError('required')">
-                        الجذر <strong>ضروري</strong>
-                    </mat-error>
-                </mat-form-field>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <button type="submit" style="font-size: x-large;">بحث</button>
-            </mat-grid-tile>
-        </mat-grid-list>
-    </form>
-    <div *ngIf="showResult(); then thenBlock else elseBlock">
+            <mat-error *ngIf="!rootFormControl.hasError('required')">
+                أدخل جذر كلمة عربية ثلاثي أو رباعي
+            </mat-error>
+            <mat-error *ngIf="rootFormControl.hasError('required')">
+                الجذر <strong>ضروري</strong>
+            </mat-error>
+            <button mat-raised-button class="search-button" type="submit" style="font-size: x-large;">
+                <mat-icon title="إبحث" >search</mat-icon>
+            </button>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="" lang="ar" dir="rtl" disabled="disabled" value="{{verbType}}" />
+            <button mat-button style="font-size: large;">نوع الفعل المجرد</button>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="" lang="ar" dir="rtl" disabled="disabled" value="{{verbType}}" />
+            <button mat-button style="font-size: large;">التعدية و اللزوم</button>
+        </mat-form-field>
     </div>
-    <ng-template #thenBlock>
-        <div *ngIf="isTri(); then rootThenBlock else rootElseBlock"></div>
-        <ng-template #rootThenBlock><app-trilateral-conjugation-panel [conjugationGroup]="conjugationGroup" ></app-trilateral-conjugation-panel></ng-template>
-        <ng-template #rootElseBlock><app-quadilateral-conjugation-panel></app-quadilateral-conjugation-panel></ng-template>
-    </ng-template>
-    <ng-template #elseBlock>
-        <p>الجذر {{rootFormControl.value}} غير موجود</p>
-    </ng-template>
-</mat-card>
+</form>

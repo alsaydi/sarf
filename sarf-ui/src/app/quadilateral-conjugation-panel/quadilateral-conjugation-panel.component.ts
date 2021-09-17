@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ConjugationClass } from '../models/conjugationclass';
-import { TrilateralConjugationGroup } from '../models/trilateral-conjugation-group';
 import { ConjugationGroup } from '../models/conjugationgroup';
+import { QuadConjugationGroup } from '../models/quad-conjugation-group';
+import { SarfService } from '../services/sarf-service';
 
 @Component({
   selector: 'app-quadilateral-conjugation-panel',
@@ -9,34 +11,97 @@ import { ConjugationGroup } from '../models/conjugationgroup';
   styleUrls: ['./quadilateral-conjugation-panel.component.css']
 })
 export class QuadilateralConjugationPanelComponent implements OnInit {
-  @Input() conjugationGroup: TrilateralConjugationGroup;
+  public conjugationGroup: QuadConjugationGroup;
+  public alternatives: Array<any>;
 
-  constructor() { }
+  constructor(private sarfService: SarfService, private route: ActivatedRoute
+    , private router: Router){}
 
   ngOnInit(): void {
-    const unaugmented = this.buildUnaugmentedConjugationClasses();
-    const augmentedByOne = this.buildAugmentedByOneConjugationClasses();
-    const augmentedByTwo = this.buildAugmentedByTwoConjugationClasses();
-
-    this.conjugationGroup = new TrilateralConjugationGroup(unaugmented, augmentedByOne, augmentedByTwo, null);
+    this.conjugationGroup = null;
+    // tslint:disable-next-line:no-console
+    const currentRoot = this.resetSearch();
+    this.sarfService.findTrilateralConjugations(currentRoot).subscribe(rootResult => {
+      console.log(rootResult);
+        this.processQuadResult(rootResult);
+    }, n => console.log(n));
   }
 
-  private buildUnaugmentedConjugationClasses(): ConjugationGroup {
-    const conjugationClasses: ConjugationClass[] = [new ConjugationClass(1, 'فَعْلَل يُفَعْلِل', '')];
-    return new ConjugationGroup('الأفعال الرباعية المجردة', conjugationClasses);
+  public navigatTo(path: string) {
+    this.router.navigateByUrl('/', {skipLocationChange: true})
+    .then(() => this.router.navigate([path]));
   }
 
-  private buildAugmentedByOneConjugationClasses(): ConjugationGroup {
+  private resetSearch() {
+    const currentRoot = this.route.snapshot.paramMap.get('root');
+    this.conjugationGroup = null;
+    this.alternatives = null;
+    return currentRoot;
+  }
+
+  public hasSingleResult(): boolean {
+    return this.conjugationGroup != null;
+  }
+
+  public hasAlternatives(): boolean {
+    return this.alternatives != null && this.alternatives.length > 1;
+  }
+
+  private processQuadResult(rootResult: any) {
+    if (rootResult == null || rootResult.length == 0) {
+      return;
+    }
+
+    if (rootResult.length > 1) {
+      this.alternatives = rootResult.map(root => ({
+        "path": `/tri/${root.root}`,
+        "display": root.root
+      }));
+      return;
+    }
+
+    const result = rootResult[0];
+    const unaugmented = this.buildQuadUnaugmentedConjugationClasses(result.unaugmentedRoots);
+    const augmentedByOne = this.buildQuadAugmentedByOneConjugationClasses(result.conjugationResults);
+    const augmentedByTwo = this.buildQuadAugmentedByTwoConjugationClasses(result.conjugationResults);
+    this.conjugationGroup = new QuadConjugationGroup(unaugmented, augmentedByOne, augmentedByTwo);
+  }
+
+  private buildQuadUnaugmentedConjugationClasses(unaugmentedRoots): ConjugationGroup {
+    if (!unaugmentedRoots) {
+      return;
+    }
+
+    var first = unaugmentedRoots ? unaugmentedRoots[0].display : "";
+    const conjugationClasses: ConjugationClass[] =
+      [
+        new ConjugationClass(1, ConjugationClass.QuadFirstClassLabel, first)
+      ];
+    return new ConjugationGroup(ConjugationGroup.QuadUnaugmentedLabel, conjugationClasses);
+  }
+
+  private buildQuadAugmentedByOneConjugationClasses(conjugationResults): ConjugationGroup {
+    var formula1 = this.getAugmentedRootText(conjugationResults, 1);
     const conjugationClasses: ConjugationClass[] = [
-    new ConjugationClass(1, 'تَفْعَل يَتَفَعْلَل', ''),
+      new ConjugationClass(1, ConjugationClass.QuadAugmentedFormulaLabel1, formula1),
     ];
-    return new ConjugationGroup('الأفعال الرباعية المزيدة بحرف', conjugationClasses);
+    return new ConjugationGroup(ConjugationGroup.QuadAugmentedByOneLabel, conjugationClasses);
   }
 
-  private buildAugmentedByTwoConjugationClasses(): ConjugationGroup {
+  private buildQuadAugmentedByTwoConjugationClasses(conjugationResults): ConjugationGroup {
+    var formula2 = this.getAugmentedRootText(conjugationResults, 2);
+    var formula3 = this.getAugmentedRootText(conjugationResults, 3);
+
     const conjugationClasses: ConjugationClass[] = [
-    new ConjugationClass(1, 'افْعَلَلّ يَفعَلِلّ', ''),
-    new ConjugationClass(2, 'افْعَنْلَل يَفْعَنْلِل', '')];
-    return new ConjugationGroup('الأفعال الرباعية المزيدة بحرفين', conjugationClasses);
+      new ConjugationClass(2, ConjugationClass.QuadAugmentedFormulaLabel3, formula3),
+      new ConjugationClass(1, ConjugationClass.QuadAugmentedFormulaLabel2, formula2)
+    ];
+    return new ConjugationGroup(ConjugationGroup.QuadAugmentedByTwoLabel, conjugationClasses);
+  }
+
+  private getAugmentedRootText(conjugationResults: any, formulaNo: number) {
+    return conjugationResults.filter(r => r.conjugationResult.formulaNo === formulaNo)
+      .map(r => r.display)
+      .join('');
   }
 }

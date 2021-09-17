@@ -1,11 +1,9 @@
 package sarfwebservice.models;
 
-import sarf.ConjugationResult;
-import sarf.verb.Root;
-
 import java.util.List;
 
 public class RootResult {
+    private String root;
     private List<TriRootDisplay> unaugmentedRoots;
     private List<ConjugationResultDisplay> conjugationResults;
 
@@ -27,5 +25,13 @@ public class RootResult {
 
     public boolean isEmpty() {
         return unaugmentedRoots.isEmpty() && conjugationResults.isEmpty();
+    }
+
+    public String getRoot() {
+        return root;
+    }
+
+    public void setRoot(String root) {
+        this.root = root;
     }
 }

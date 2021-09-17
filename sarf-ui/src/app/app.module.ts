@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { Routes, RouterModule} from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,14 @@ import { ConjugationLabelComponent } from './conjugation-label/conjugation-label
 import { ConjugationGroupComponent } from './conjugation-group/conjugation-group.component';
 import { TrilateralConjugationPanelComponent } from './trilateral-conjugation-panel/trilateral-conjugation-panel.component';
 import { QuadilateralConjugationPanelComponent } from './quadilateral-conjugation-panel/quadilateral-conjugation-panel.component';
+import { StartComponent } from './start/start.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+const appRoutes: Routes = [
+  {path: '', component: StartComponent},
+  {path: 'tri/:root', component: TrilateralConjugationPanelComponent},
+  {path: 'quad/:root', component: QuadilateralConjugationPanelComponent}
+]
 
 @NgModule({
   declarations: [
@@ -21,7 +30,9 @@ import { QuadilateralConjugationPanelComponent } from './quadilateral-conjugatio
     ConjugationLabelComponent,
     ConjugationGroupComponent,
     TrilateralConjugationPanelComponent,
-    QuadilateralConjugationPanelComponent
+    QuadilateralConjugationPanelComponent,
+    StartComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +42,8 @@ import { QuadilateralConjugationPanelComponent } from './quadilateral-conjugatio
     BrowserAnimationsModule,
     AppMaterialModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes, {onSameUrlNavigation: 'reload'})
   ],
   providers: [],
   bootstrap: [AppComponent]

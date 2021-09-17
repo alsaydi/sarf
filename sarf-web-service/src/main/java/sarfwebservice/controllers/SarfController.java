@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sarf.verb.Root;
 import sarfwebservice.exceptions.InvalidRootException;
 import sarfwebservice.exceptions.RootNotFoundException;
 import sarfwebservice.models.RootResult;
-import sarfwebservice.services.SarfService;
+import sarfwebservice.services.SarfServiceQuad;
+import sarfwebservice.services.SarfServiceTri;
 
 import java.util.List;
 
@@ -16,19 +16,36 @@ import java.util.List;
 @RequestMapping("/sarf")
 public class SarfController {
 
-    private final SarfService sarfService;
+    private final SarfServiceTri sarfServiceTri;
+    private final SarfServiceQuad sarfServiceQuad;
 
     @Autowired
-    public SarfController(SarfService sarfService) {
-        this.sarfService = sarfService;
+    public SarfController(SarfServiceTri sarfServiceTri, SarfServiceQuad sarfServiceQuad) {
+        this.sarfServiceTri = sarfServiceTri;
+        this.sarfServiceQuad = sarfServiceQuad;
     }
 
     @RequestMapping("/{rootLetters}")
-    RootResult home(@PathVariable String rootLetters) throws Exception {
+    List<RootResult> home(@PathVariable String rootLetters) throws Exception {
         if (!isValidRoot(rootLetters)) {
             throw new InvalidRootException(String.format("ينبغي تحديد جذر مناسب للكلمة - %s.", rootLetters));
         }
-        var rootResult = sarfService.getRoots(rootLetters);
+        if(rootLetters.length() == 3) {
+            return getRootResultTri(rootLetters);
+        }
+        return getRootResultQuad(rootLetters);
+    }
+
+    private List<RootResult> getRootResultTri(String rootLetters) throws Exception {
+        var rootResult = sarfServiceTri.getRoots(rootLetters);
+        if (rootResult == null || rootResult.isEmpty()) {
+            throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
+        }
+        return rootResult;
+    }
+
+    private List<RootResult> getRootResultQuad(String rootLetters) throws Exception {
+        var rootResult = sarfServiceQuad.getRoots(rootLetters);
         if (rootResult == null || rootResult.isEmpty()) {
             throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
         }
@@ -40,7 +57,7 @@ public class SarfController {
             return false;
         }
 
-        if (!sarfService.isArabic(rootLetters)) {
+        if (!sarfServiceTri.isArabic(rootLetters)) {
             return false;
         }
 
