@@ -1,4 +1,4 @@
-import { ConjugationClass } from './conjugationclass';
+import { IConjugationClass } from './conjugationclass';
 
 export class ConjugationGroup {
     public static TriUnaugmentedLabel = 'الأفعال الثلاثية المجردة';
@@ -10,6 +10,6 @@ export class ConjugationGroup {
     public static QuadAugmentedByOneLabel = 'الأفعال الرباعية المزيدة بحرف';
     public static QuadAugmentedByTwoLabel = 'الأفعال الرباعية المزيدة بحرفين';
 
-    constructor(public label: string, public conjugationClasses: ConjugationClass[]) {
+    constructor(public label: string, public conjugationClasses: IConjugationClass[]) {
     }
 }

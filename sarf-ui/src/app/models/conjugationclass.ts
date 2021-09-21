@@ -1,4 +1,4 @@
-export class ConjugationClass {
+export class ConjugationClassStatic {
 
     public static TriFirstConjugationClass = 'فعَل يفْعُل';
     public static TriSecondConjugationClass = 'فعَل يفْعِل';
@@ -23,7 +23,38 @@ export class ConjugationClass {
     public static QuadAugmentedFormulaLabel1 = 'تَفْعَل يَتَفَعْلَل';
     public static QuadAugmentedFormulaLabel3 = 'افْعَلَلّ يَفعَلِلّ';
     public static QuadAugmentedFormulaLabel2 = 'افْعَنْلَل يَفْعَنْلِل';
+}
 
-    public constructor(public conjguationNumber: number, public label: string, public content: string) {
+export interface IConjugationClass {
+    readonly reference: string;
+    readonly content: string;
+    readonly label: string;
+}
+
+export class UnaugmentedTriConjugationClass implements IConjugationClass {
+    public constructor(public classNumber: number, public label: string, public content: string, public root: string) {
+        this.reference = `/verb/tri/u/${root}/${classNumber}`;
     }
+    reference: string;
+}
+
+export class AugmentedTriConjugationClass implements IConjugationClass {
+    public constructor(public formulaNumber: number, public label: string, public content: string, public root: string) {
+        this.reference = `/verb/tri/a/${root}/${formulaNumber}`;
+    }
+    reference: string;
+}
+
+export class UnaugmentedQuadConjugationClass implements IConjugationClass {
+    public constructor(public label: string, public content: string, public root: string) {
+        this.reference = `/verb/quad/u/${root}`;
+    }
+    reference: string;
+}
+
+export class AugmentedQuadConjugationClass implements IConjugationClass {
+    public constructor(public formulaNumber: number, public label: string, public content: string, public root: string) {
+        this.reference = `/verb/quad/a/${root}/${formulaNumber}`;
+    }
+    reference: string;
 }
