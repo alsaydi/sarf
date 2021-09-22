@@ -12,7 +12,7 @@ package sarf.noun;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-class XmlNounFormula {
+public class XmlNounFormula {
     private char c1;
     private char c2;
     private char c3;
