@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title>{{conjugationClass.label}}</mat-card-title>
-  <mat-card-content (click)="showDetails($event)" >
-    <a style="color: blue">
+  <mat-card-content>
+    <a style="color: blue" routerLink="{{conjugationClass.reference}}">
       {{conjugationClass.content}}
     </a>
   </mat-card-content>
