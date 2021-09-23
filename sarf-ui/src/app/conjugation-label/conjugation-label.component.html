@@ -1,8 +1,8 @@
-<mat-card>
-  <mat-card-title>{{conjugationClass.label}}</mat-card-title>
-  <mat-card-content>
-    <a style="color: blue" routerLink="{{conjugationClass.reference}}">
+<mat-grid-tile-header>
+  <p>{{conjugationClass.label}}</p>
+</mat-grid-tile-header>
+<mat-grid-tile-footer>
+  <a routerLink="{{conjugationClass.reference}}" class="verb-link">
       {{conjugationClass.content}}
-    </a>
-  </mat-card-content>
-</mat-card>
+  </a>
+</mat-grid-tile-footer>
