@@ -23,10 +23,12 @@ const appRoutes: Routes = [
   {path: '', component: StartComponent},
   {path: 'tri/:root', component: TrilateralConjugationPanelComponent},
   {path: 'quad/:root', component: QuadilateralConjugationPanelComponent},
-  {path: 'verb/tri/u/:verb/:class', component: ActiveVerbsComponent},
-  {path: 'verb/tri/a/:verb/:formula', component: ActiveVerbsComponent},
-  {path: 'verb/quad/u/:verb', component: ActiveVerbsComponent},
-  {path: 'verb/quad/a/:verb/:formula', component: ActiveVerbsComponent},
+  {path: 'verb/tri/u/:verb/:class', component: InitialSarfComponent},
+  {path: 'verb/tri/u/:verb/:class/active', component: ActiveVerbsComponent},
+  {path: 'verb/tri/a/:verb/:formula', component: InitialSarfComponent},
+  {path: 'verb/tri/a/:verb/:formula/active', component: ActiveVerbsComponent},
+  {path: 'verb/quad/u/:verb', component: InitialSarfComponent},
+  {path: 'verb/quad/a/:verb/:formula', component: InitialSarfComponent},
 ]
 
 @NgModule({
