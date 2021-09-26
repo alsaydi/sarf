@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, PRIMARY_OUTLET, UrlSegment, UrlSegmentGroup } from '@angular/router';
+import { ActivatedRoute, UrlSegment } from '@angular/router';
 import { VerbSelectionDetail } from '../models/VerbSelectionDetail';
 import { AppNotificationsService } from '../services/app-notifications.service';
-import { SarfService } from '../services/sarf-service';
 
 @Component({
-  selector: 'app-sarf-detail-view',
-  templateUrl: './sarf-detail-view.component.html',
-  styleUrls: ['./sarf-detail-view.component.css']
+  selector: 'app-initial-sarf',
+  templateUrl: './initial-sarf.component.html',
+  styleUrls: ['./initial-sarf.component.css']
 })
-export class SarfDetailViewComponent implements OnInit {
+export class InitialSarfComponent implements OnInit {
 
   private tri: string = 'tri';
   private quad: string = 'quad';

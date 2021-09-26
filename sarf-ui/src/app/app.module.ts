@@ -16,16 +16,17 @@ import { TrilateralConjugationPanelComponent } from './trilateral-conjugation-pa
 import { QuadilateralConjugationPanelComponent } from './quadilateral-conjugation-panel/quadilateral-conjugation-panel.component';
 import { StartComponent } from './start/start.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { SarfDetailViewComponent } from './sarf-detail-view/sarf-detail-view.component';
+import { InitialSarfComponent } from './initial-sarf/initial-sarf.component';
+import { ActiveVerbsComponent } from './active-verbs/active-verbs.component';
 
 const appRoutes: Routes = [
   {path: '', component: StartComponent},
   {path: 'tri/:root', component: TrilateralConjugationPanelComponent},
   {path: 'quad/:root', component: QuadilateralConjugationPanelComponent},
-  {path: 'verb/tri/u/:verb/:class', component: SarfDetailViewComponent},
-  {path: 'verb/tri/a/:verb/:formula', component: SarfDetailViewComponent},
-  {path: 'verb/quad/u/:verb', component: SarfDetailViewComponent},
-  {path: 'verb/quad/a/:verb/:formula', component: SarfDetailViewComponent},
+  {path: 'verb/tri/u/:verb/:class', component: ActiveVerbsComponent},
+  {path: 'verb/tri/a/:verb/:formula', component: ActiveVerbsComponent},
+  {path: 'verb/quad/u/:verb', component: ActiveVerbsComponent},
+  {path: 'verb/quad/a/:verb/:formula', component: ActiveVerbsComponent},
 ]
 
 @NgModule({
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     QuadilateralConjugationPanelComponent,
     StartComponent,
     NotFoundComponent,
-    SarfDetailViewComponent
+    InitialSarfComponent,
+    ActiveVerbsComponent
   ],
   imports: [
     BrowserModule,
