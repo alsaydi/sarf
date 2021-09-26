@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { VerbSelectionDetail } from '../models/VerbSelectionDetail';
 import { RootType } from '../root-type.enum';
 import { AppNotificationsService } from '../services/app-notifications.service';
 
@@ -23,8 +24,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class RootsearchComponent implements OnInit {
   rootFormControl = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
-  public verbType: string;
+  kindOfVerb: string;
+  transitivity: string;
   private hamzaString = "أؤئإ";
+  private currentlySelectedRoot: any;
 
   constructor(private appNotificationsService: AppNotificationsService
     , private router: Router) {
@@ -33,28 +36,86 @@ export class RootsearchComponent implements OnInit {
       , err => {
         console.error(err);
       }, () => { });
+
+    this.appNotificationsService.verbSelected$.subscribe(verbSelectionDetail => {
+      this.processVerbSelection(verbSelectionDetail);
+    });
   }
+
+  processVerbSelection(verbSelectionDetail: VerbSelectionDetail) {
+    if (!this.currentlySelectedRoot) return;
+
+    let transitiveState = '';
+    if (verbSelectionDetail.isAugmented) {
+      const selection = this.currentlySelectedRoot.conjugationResults.filter(cr => cr.conjugationResult.formulaNo === verbSelectionDetail.formula)
+        .map(cr => cr.transitivity);
+      if (selection && selection.length === 1) {
+        transitiveState = selection[0];
+      }
+    } else {
+      if (verbSelectionDetail.isTri) {
+        const selection = this.currentlySelectedRoot.unaugmentedRoots.filter(r => this.conjugationClassToNumber(r.root.conjugation) === verbSelectionDetail.conjugationClass)
+          .map(r => r.root.transitive);
+        if (selection && selection.length === 1) {
+          transitiveState = selection[0];
+        }
+      }
+      else {
+        const selection = this.currentlySelectedRoot.unaugmentedRoots.map(r => r.root.transitive);
+        if (selection && selection.length === 1) {
+          transitiveState = selection[0];
+        }
+      }
+    }
+    if (transitiveState) {
+      this.transitivity = this.getTransitivityDescription(transitiveState);
+    }
+  }
+  getTransitivityDescription(t: string) {
+    switch (t) {
+      case 'ك':
+        return "متعد وﻻزم"
+      case 'ل':
+        return "ﻻزم";
+      case 'م':
+        return "متعد";
+      default:
+        break;
+    }
+    return "--";
+  }
+
   processRootResult(rootResult: any): void {
     if (rootResult == null) {
       return;
     }
 
+    this.currentlySelectedRoot = rootResult;
     this.rootFormControl.setValue(rootResult.root);
-    //this.verbType = rootResult.
+    this.kindOfVerb = rootResult.kindOfVerb;
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.reset();
+  }
+
+  private reset(){
+    this.currentlySelectedRoot = null;
+    this.kindOfVerb = "";
+    this.transitivity = "";
+  }
 
   public isTri(): boolean {
     return this.getRootType() === RootType.Tri;
   }
 
   public search(event: any): void {
+    this.reset();
     const currentRoot = this.correctHamza(this.rootFormControl.value);
-    if(currentRoot !== this.rootFormControl.value) {
+    if (currentRoot !== this.rootFormControl.value) {
       this.rootFormControl.setValue(currentRoot);
     }
-    
+
     // tslint:disable-next-line:no-console
     console.debug(event);
 
@@ -100,5 +161,24 @@ export class RootsearchComponent implements OnInit {
       newRoot += root[i];
     }
     return newRoot;
+  }
+
+  private conjugationClassToNumber(cclass: string): Number {
+    cclass = cclass.toLocaleLowerCase();
+    switch (cclass) {
+      case "first":
+        return 1;
+      case "second":
+        return 2;
+      case "third":
+        return 3;
+      case "forth":
+        return 4;
+      case "fifth":
+        return 5;
+      case "sixth":
+        return 6;
+    }
+    return 0;
   }
 }

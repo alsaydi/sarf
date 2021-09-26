@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ConjugationClass } from '../models/conjugationclass';
+import { IConjugationClass } from '../models/conjugationclass';
 
 @Component({
   selector: 'app-conjugation-label',
@@ -8,7 +8,7 @@ import { ConjugationClass } from '../models/conjugationclass';
 })
 export class ConjugationLabelComponent implements OnInit {
 
-  @Input() public conjugationClass: ConjugationClass;
+  @Input() public conjugationClass: IConjugationClass;
   constructor() { }
 
   ngOnInit(): void {

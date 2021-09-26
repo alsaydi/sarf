@@ -12,7 +12,7 @@ package sarf.noun.trilateral.unaugmented.instrumental;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-class XmlNonStandardInstrumentalNounFormula {
+public class XmlNonStandardInstrumentalNounFormula {
     private char c1;
     private char c2;
     private char c3;

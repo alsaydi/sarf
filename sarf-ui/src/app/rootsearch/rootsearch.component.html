@@ -1,27 +1,30 @@
 <form class="root-search-form" (ngSubmit)="search($event)">
-    <div class="form-fields-container">
-        <mat-form-field appearance="fill">
-            <mat-label>جذر كلمة</mat-label>
-            <input matInput placeholder="أدخل جذراً ثلاثياً أو رباعياً (خرج، مثلاً)" [formControl]="rootFormControl"
-                [errorStateMatcher]="matcher" maxlength="4" lang="ar" minlength="3" dir="rtl" style="font-size: xx-large;" />
+    <div class="form-fields-container containerX">
+        <div fxLayout="row" fxLayoutAlign="left center">
+            <mat-form-field appearance="fill" fxFlex>
+                <mat-label>جذر كلمة</mat-label>
+                <input matInput placeholder="أدخل جذراً ثلاثياً أو رباعياً (بدء، مثلاً)" [formControl]="rootFormControl"
+                    [errorStateMatcher]="matcher" maxlength="4" lang="ar" minlength="3" dir="rtl"
+                    style="font-size: x-large;" />
 
-            <mat-error *ngIf="!rootFormControl.hasError('required')">
-                أدخل جذر كلمة عربية ثلاثي أو رباعي
-            </mat-error>
-            <mat-error *ngIf="rootFormControl.hasError('required')">
-                الجذر <strong>ضروري</strong>
-            </mat-error>
-            <button mat-raised-button class="search-button" type="submit" style="font-size: x-large;">
-                <mat-icon title="إبحث" >search</mat-icon>
-            </button>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <input matInput placeholder="" lang="ar" dir="rtl" disabled="disabled" value="{{verbType}}" />
-            <button mat-button style="font-size: large;">نوع الفعل المجرد</button>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <input matInput placeholder="" lang="ar" dir="rtl" disabled="disabled" value="{{verbType}}" />
-            <button mat-button style="font-size: large;">التعدية و اللزوم</button>
-        </mat-form-field>
+                <mat-error *ngIf="!rootFormControl.hasError('required')">
+                    <em>أدخل جذر كلمة عربية ثلاثي أو رباعي</em>
+                </mat-error>
+                <mat-error *ngIf="rootFormControl.hasError('required')">
+                 <em>الجذر <strong>ضروري</strong></em>
+                </mat-error>
+                <button mat-raised-button class="search-button" type="submit">
+                    <mat-icon title="إبحث">search</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field appearance="fill" fxFlex>
+                <input matInput placeholder="" lang="ar" dir="rtl" disabled="disabled" style="color: blue;" value="{{kindOfVerb}}" />
+                <button mat-button style="font-size: large;" disabled="disabled">نوع الفعل المجرد</button>
+            </mat-form-field>
+            <mat-form-field appearance="fill" fxFlex>
+                <input matInput placeholder="" lang="ar" dir="rtl" disabled="disabled" style="color: blue;" value="{{transitivity}}" />
+                <button mat-button style="font-size: large;" disabled="disabled">التعدية و اللزوم</button>
+            </mat-form-field>
+        </div>
     </div>
 </form>

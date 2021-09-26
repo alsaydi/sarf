@@ -4,6 +4,7 @@ import java.util.List;
 
 public class RootResult {
     private String root;
+    private String kindOfVerb;
     private List<TriRootDisplay> unaugmentedRoots;
     private List<ConjugationResultDisplay> conjugationResults;
 
@@ -33,5 +34,13 @@ public class RootResult {
 
     public void setRoot(String root) {
         this.root = root;
+    }
+
+    public String getKindOfVerb() {
+        return kindOfVerb;
+    }
+
+    public void setKindOfVerb(String kindOfVerb) {
+        this.kindOfVerb = kindOfVerb;
     }
 }

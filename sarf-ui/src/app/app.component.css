@@ -1,16 +1,6 @@
-.fill-remaining-space {
-    /* This fills the remaining space, by using flexbox. 
-       Every toolbar row uses a flexbox row layout. */
-    flex: 1 1 auto;
-  }
-
-  .titleDiv {
-     text-align: center;
-     font-family: Kitab, system-ui;
-  }
-
-  .app-name , .app-sub-title {
+  .app-name , .app-sub-title 
+  {
    text-align: center;
-   font-size: xx-large;
-      font-family: Kitab, system-ui;
+   font-size: 1.3em;
+   font-family: Kitab, system-ui;
   }

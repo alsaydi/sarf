@@ -5,6 +5,7 @@ import sarf.ConjugationResult;
 public class ConjugationResultDisplay {
     private ConjugationResult conjugationResult;
     private String display;
+    private char transitivity;
 
     public ConjugationResult getConjugationResult() {
         return conjugationResult;
@@ -20,5 +21,13 @@ public class ConjugationResultDisplay {
 
     public void setDisplay(String display) {
         this.display = display;
+    }
+
+    public char getTransitivity() {
+        return transitivity;
+    }
+
+    public void setTransitivity(char transitivity) {
+        this.transitivity = transitivity;
     }
 }
