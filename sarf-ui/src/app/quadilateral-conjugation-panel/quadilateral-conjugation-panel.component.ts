@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AugmentedQuadConjugationClass, ConjugationClassStatic, IConjugationClass, UnaugmentedQuadConjugationClass } from '../models/conjugationclass';
 import { ConjugationGroup } from '../models/conjugationgroup';
 import { QuadConjugationGroup } from '../models/quad-conjugation-group';
+import { AppNotificationsService } from '../services/app-notifications.service';
 import { SarfService } from '../services/sarf-service';
 
 @Component({
@@ -14,8 +15,11 @@ export class QuadilateralConjugationPanelComponent implements OnInit {
   public conjugationGroup: QuadConjugationGroup;
   public alternatives: Array<any>;
 
-  constructor(private sarfService: SarfService, private route: ActivatedRoute
-    , private router: Router){}
+  constructor(private sarfService: SarfService
+    , private route: ActivatedRoute
+    , private router: Router
+    , private appNotificationsService: AppNotificationsService
+    ){}
 
   ngOnInit(): void {
     this.conjugationGroup = null;
@@ -66,6 +70,7 @@ export class QuadilateralConjugationPanelComponent implements OnInit {
     const augmentedByOne = this.buildQuadAugmentedByOneConjugationClasses(result.conjugationResults, root);
     const augmentedByTwo = this.buildQuadAugmentedByTwoConjugationClasses(result.conjugationResults, root);
     this.conjugationGroup = new QuadConjugationGroup(unaugmented, augmentedByOne, augmentedByTwo);
+    this.appNotificationsService.broadcastRootResult(result);
   }
 
   private buildQuadUnaugmentedConjugationClasses(unaugmentedRoots: Array<any>, root: string): ConjugationGroup {

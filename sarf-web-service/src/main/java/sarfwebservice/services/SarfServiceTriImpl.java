@@ -133,7 +133,8 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
             , List<UnaugmentedTrilateralRoot> unaugmentedTrilateralRoots
             , AugmentedTrilateralRoot augmentedTrilateralRoot) throws Exception {
         var rootResult = new RootResult();
-        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+        var kovRule = kovRulesManager.getTrilateralKovRule(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+        var kov = kovRule.getKov();
         var conjugationResultDisplays = new ArrayList<ConjugationResultDisplay>();
         var displays = new ArrayList<TriRootDisplay>();
 
@@ -153,10 +154,12 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
                 var conjugationResultDisplay = new ConjugationResultDisplay();
                 conjugationResultDisplay.setConjugationResult(conjugationResult);
                 conjugationResultDisplay.setDisplay(conjugateAugmentedRoot(formula.getFormulaNo(), augmentedTrilateralRoot, kov));
+                conjugationResultDisplay.setTransitivity(formula.getTransitive());
                 conjugationResultDisplays.add(conjugationResultDisplay);
             }
         }
         rootResult.setRoot(rootLetters);
+        rootResult.setKindOfVerb(kovRule.getDesc());
         rootResult.setUnaugmentedRoots(displays);
         rootResult.setConjugationResults(conjugationResultDisplays);
         return rootResult;

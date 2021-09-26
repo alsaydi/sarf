@@ -133,7 +133,8 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
 
     private RootResult findRootResult(String rootLetters, UnaugmentedQuadrilateralRoot root, AugmentedQuadrilateralRoot augmentedQuadrilateralRoot) {
         var rootResult = new RootResult();
-        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+        var kovRule = kovRulesManager.getQuadrilateralKovRule(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2), rootLetters.charAt(3));
+        var kov = kovRule.getKov();
         var conjugationResultDisplays = new ArrayList<ConjugationResultDisplay>();
         var displays = new ArrayList<TriRootDisplay>();
 
@@ -151,10 +152,12 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
                 var conjugationResultDisplay = new ConjugationResultDisplay();
                 conjugationResultDisplay.setConjugationResult(conjugationResult);
                 conjugationResultDisplay.setDisplay(conjugateAugmentedRoot(formula.getFormulaNo(), augmentedQuadrilateralRoot, kov));
+                conjugationResultDisplay.setTransitivity(formula.getTransitive());
                 conjugationResultDisplays.add(conjugationResultDisplay);
             }
         }
         rootResult.setRoot(rootLetters);
+        rootResult.setKindOfVerb(kovRule.getDesc());
         rootResult.setUnaugmentedRoots(displays);
         rootResult.setConjugationResults(conjugationResultDisplays);
         return rootResult;

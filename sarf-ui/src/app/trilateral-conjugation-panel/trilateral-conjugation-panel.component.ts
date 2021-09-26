@@ -122,11 +122,11 @@ export class TrilateralConjugationPanelComponent implements OnInit {
     var formula8 = this.getTriAugmentedRootText(conjugationResults, 8);
 
     const conjugationClasses: IConjugationClass[] = [
-      new AugmentedTriConjugationClass(1, ConjugationClassStatic.TriAugmentedByTwoFirstConjugationClass, formula4, root),
-      new AugmentedTriConjugationClass(2, ConjugationClassStatic.TriAugmentedByTwoSecondConjugationClass, formula5, root),
-      new AugmentedTriConjugationClass(3, ConjugationClassStatic.TriAugmentedByTwoThirdConjugationClass, formula6, root),
-      new AugmentedTriConjugationClass(4, ConjugationClassStatic.TriAugmentedByTwoForthConjugationClass, formula7, root),
-      new AugmentedTriConjugationClass(5, ConjugationClassStatic.TriAugmentedByTwoFifthConjugationClass, formula8, root)];
+      new AugmentedTriConjugationClass(4, ConjugationClassStatic.TriAugmentedByTwoFirstConjugationClass, formula4, root),
+      new AugmentedTriConjugationClass(5, ConjugationClassStatic.TriAugmentedByTwoSecondConjugationClass, formula5, root),
+      new AugmentedTriConjugationClass(6, ConjugationClassStatic.TriAugmentedByTwoThirdConjugationClass, formula6, root),
+      new AugmentedTriConjugationClass(7, ConjugationClassStatic.TriAugmentedByTwoForthConjugationClass, formula7, root),
+      new AugmentedTriConjugationClass(8, ConjugationClassStatic.TriAugmentedByTwoFifthConjugationClass, formula8, root)];
     return new ConjugationGroup(ConjugationGroup.TriAugmentedByTwoLabel, conjugationClasses);
   }
 
@@ -137,10 +137,10 @@ export class TrilateralConjugationPanelComponent implements OnInit {
     var formula12 = this.getTriAugmentedRootText(conjugationResults, 12);
 
     const conjugationClasses: IConjugationClass[] = [
-      new AugmentedTriConjugationClass(1, ConjugationClassStatic.TriAugmentedByThreeFirstConjugationClass, formula9, root),
-      new AugmentedTriConjugationClass(2, ConjugationClassStatic.TriAugmentedByThreeSecConjugationClass, formula10, root),
-      new AugmentedTriConjugationClass(3, ConjugationClassStatic.TriAugmentedByThreeThirdConjugationClass, formula11, root),
-      new AugmentedTriConjugationClass(4, ConjugationClassStatic.TriAugmentedByThreeForthConjugationClass, formula12, root)];
+      new AugmentedTriConjugationClass(9, ConjugationClassStatic.TriAugmentedByThreeFirstConjugationClass, formula9, root),
+      new AugmentedTriConjugationClass(10, ConjugationClassStatic.TriAugmentedByThreeSecConjugationClass, formula10, root),
+      new AugmentedTriConjugationClass(11, ConjugationClassStatic.TriAugmentedByThreeThirdConjugationClass, formula11, root),
+      new AugmentedTriConjugationClass(12, ConjugationClassStatic.TriAugmentedByThreeForthConjugationClass, formula12, root)];
     return new ConjugationGroup(ConjugationGroup.TriAugmentedByThreeLabel, conjugationClasses);
   }
 

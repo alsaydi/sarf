@@ -1,8 +1,8 @@
 
 .root-search-form {
     margin: 15px;
+    margin-bottom: -1px;
     font-family: Kitab, system-ui;
-    
   }
 
   .mat-form-field {
