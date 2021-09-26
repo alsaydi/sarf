@@ -21,7 +21,7 @@ export class QuadilateralConjugationPanelComponent implements OnInit {
     this.conjugationGroup = null;
     // tslint:disable-next-line:no-console
     const currentRoot = this.resetSearch();
-    this.sarfService.findTrilateralConjugations(currentRoot).subscribe(rootResult => {
+    this.sarfService.findSarf(currentRoot).subscribe(rootResult => {
       console.log(rootResult);
         this.processQuadResult(rootResult);
     }, n => console.log(n));

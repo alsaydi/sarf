@@ -22,7 +22,7 @@ export class TrilateralConjugationPanelComponent implements OnInit {
   ngOnInit(): void {
     const currentRoot = this.resetSearch();
 
-    this.sarfService.findTrilateralConjugations(currentRoot).subscribe(rootResult => {
+    this.sarfService.findSarf(currentRoot).subscribe(rootResult => {
       console.log(rootResult);
       this.processTriResult(rootResult);
     }, n => console.log(n));

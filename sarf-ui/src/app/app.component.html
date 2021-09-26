@@ -1,15 +1,13 @@
-<div>
-<mat-toolbar color="primary" dir="rtl">
-    <div fxLayout="column" fxLayoutAlign="center center">
-        <h1 class="app-name">
-          صــــــــــرف
-        </h1>
-        <h2 class="app-sub-title">
-          نظام الإشتقاق و التصريف في اللغة العربية
-        </h2>
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout="column">
+    <div class="app-name" fxFlex>
+      صــــــــــرف
     </div>
-  </mat-toolbar>
-</div>
+    <div class="app-sub-title" fxFlex>
+      نظام الإشتقاق و التصريف في اللغة العربية
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
 <main>
   <app-rootsearch></app-rootsearch>
   <router-outlet></router-outlet>
