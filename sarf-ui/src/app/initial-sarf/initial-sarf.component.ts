@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, UrlSegment } from '@angular/router';
 import { VerbSelectionDetail } from '../models/VerbSelectionDetail';
 import { AppNotificationsService } from '../services/app-notifications.service';
@@ -18,10 +18,7 @@ export class InitialSarfComponent implements OnInit {
   public verb: string;
   public conjugationClass: number;
   public formula: number;
-
-  @Input() activeView: string;
-  constructor(private route: ActivatedRoute, private appNotificationService: AppNotificationsService) { 
-  }
+  constructor(private route: ActivatedRoute, private appNotificationService: AppNotificationsService) { }
 
   ngOnInit(): void {
     this.verb = this.route.snapshot.paramMap.get('verb');
@@ -52,12 +49,5 @@ export class InitialSarfComponent implements OnInit {
     };
 
     this.appNotificationService.broadcastVerbSelected(verbSelectionDetail);
-  }
-
-  getClass(button: string): string{
-    if(this.activeView === button) {
-      return "selected-initial-sarf";
-    }
-    return "unselected-initial-sarf";
   }
 }

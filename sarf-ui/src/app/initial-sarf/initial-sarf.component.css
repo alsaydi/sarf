@@ -6,16 +6,3 @@ button {
     font-family: 'Kitab', 'System-ui';
     font-size: 1.0em;
 }
-
-.selected-initial-sarf{
-    padding: 2px;
-    background-color: wheat;
-    box-shadow:
-          0 -0.1em 0.1em grey,
-               0 0  0 2px rgb(255,255,255),
-               0.1em 0.1em 1em rgb(255,255,255),
-}
-
-.unselected-initial-sarf{
-    background-color: cadetblue;
-}
