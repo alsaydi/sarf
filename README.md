@@ -52,6 +52,6 @@ I relaxed the screen resolution requirement and will remove that in the future h
 * إمكان تحديث قواعد معطياته (إضافة وحذفاً وتعديلاً).
 * سهولة العمل به بفضل اللوحات وقوائم الخيارات.
 
-# Credit (of the original source code (does not include the web sevice & tests)
-
+# Credit 
+لأصل البرنامج 
 ![alt credits](https://user-images.githubusercontent.com/916695/134840142-13da7bff-f47f-49c6-bfc0-94e5d5ddaa62.png)
