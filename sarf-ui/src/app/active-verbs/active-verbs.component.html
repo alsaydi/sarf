@@ -1,11 +1,11 @@
-<div class="containerX">
-    <div class="container" fxLayout="row" fxLayoutGap="3px" fxLayoutAlign="center center">
-        <button mat-raised-button color="primary" fxFlex>الماضي</button>
-        <button mat-raised-button color="primary" fxFlex>المضارع المرفوع</button>
-        <button mat-raised-button color="primary" fxFlex>المضارع المنصوب</button>
-        <button mat-raised-button color="primary" fxFlex>المضارع المجزوم </button>
-        <button mat-raised-button color="primary" fxFlex>المضارع المؤكد</button>
-        <button mat-raised-button color="primary" fxFlex>الأمر</button>
-        <button mat-raised-button color="primary" fxFlex>الأمر المؤكد</button>
-    </div>
-</div>
+<mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+    <mat-tab label="الماضي">
+        <app-sarf-verb-pronouns></app-sarf-verb-pronouns>
+    </mat-tab>
+    <mat-tab label="المضارع المرفوع"></mat-tab>
+    <mat-tab label="المضارع المنصوب"></mat-tab>
+    <mat-tab label="المضارع المجزوم "></mat-tab>
+    <mat-tab label="المضارع المؤكد"></mat-tab>
+    <mat-tab label="الأمر"></mat-tab>
+    <mat-tab label="الأمر المؤكد"></mat-tab>
+</mat-tab-group>

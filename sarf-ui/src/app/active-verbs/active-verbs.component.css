@@ -1,9 +1,6 @@
 .containerX {
     margin:-5px 100px;
 }
-
-button {
-    font-family: 'Kitab', 'System-ui';
-    font-size: x-large;
-    font-size: 1.0em;
+.mat-tab-label-content {
+    font-size: 1.3em;
 }

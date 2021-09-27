@@ -18,6 +18,7 @@ import { StartComponent } from './start/start.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { InitialSarfComponent } from './initial-sarf/initial-sarf.component';
 import { ActiveVerbsComponent } from './active-verbs/active-verbs.component';
+import { SarfVerbPronounsComponent } from './sarf-verb-pronouns/sarf-verb-pronouns.component';
 
 const appRoutes: Routes = [
   {path: '', component: StartComponent},
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     StartComponent,
     NotFoundComponent,
     InitialSarfComponent,
-    ActiveVerbsComponent
+    ActiveVerbsComponent,
+    SarfVerbPronounsComponent
   ],
   imports: [
     BrowserModule,
