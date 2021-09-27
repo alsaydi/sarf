@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, PRIMARY_OUTLET, UrlSegment, UrlSegmentGroup } from '@angular/router';
+import { ActivatedRoute, UrlSegment } from '@angular/router';
 import { VerbSelectionDetail } from '../models/VerbSelectionDetail';
 import { AppNotificationsService } from '../services/app-notifications.service';
-import { SarfService } from '../services/sarf-service';
 
 @Component({
-  selector: 'app-sarf-detail-view',
-  templateUrl: './sarf-detail-view.component.html',
-  styleUrls: ['./sarf-detail-view.component.css']
+  selector: 'app-initial-sarf',
+  templateUrl: './initial-sarf.component.html',
+  styleUrls: ['./initial-sarf.component.css']
 })
-export class SarfDetailViewComponent implements OnInit {
+export class InitialSarfComponent implements OnInit {
 
   private tri: string = 'tri';
   private quad: string = 'quad';
   private unaugmented: string = 'u';
   private augmented: string = 'a';
+  private verbSelectionDetail: VerbSelectionDetail;
 
   public verb: string;
   public conjugationClass: number;
@@ -36,12 +36,12 @@ export class SarfDetailViewComponent implements OnInit {
       }
     }
     else if (verbSize === this.quad) {
-      if (augmentation == this.augmented) {
+      if (augmentation === this.augmented) {
         this.formula = Number.parseInt(this.route.snapshot.paramMap.get('formula'));
       }
     }
 
-    const verbSelectionDetail: VerbSelectionDetail =
+    this.verbSelectionDetail =
     {
       isTri: verbSize === this.tri,
       isAugmented: augmentation === this.augmented,
@@ -49,6 +49,23 @@ export class SarfDetailViewComponent implements OnInit {
       conjugationClass: this.conjugationClass
     };
 
-    this.appNotificationService.broadcastVerbSelected(verbSelectionDetail);
+    this.appNotificationService.broadcastVerbSelected(this.verbSelectionDetail);
+  }
+
+  getActiveLink(): string {
+    var path = "/" + this.route.snapshot.url.map(m => m.path).join("/")
+    return path + "/active";
+  }
+
+  getPassiveLink(): string {
+    return "";
+  }
+
+  getNounsLink(): string {
+    return "";
+  }
+
+  getGerundsLink(): string {
+    return "";
   }
 }

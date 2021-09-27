@@ -1,0 +1,9 @@
+@use '~@angular/material' as mat;
+@font-face {
+   font-family: 'Kitab';
+   src: url('./assets/kitab-base.woff2-v3');
+ }
+$custom-typography: mat.define-typography-config(
+  $font-family: 'Kitab'
+);
+@include mat.core($custom-typography);
