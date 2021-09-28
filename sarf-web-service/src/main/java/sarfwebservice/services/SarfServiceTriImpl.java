@@ -15,6 +15,8 @@ import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
 import sarfwebservice.models.ConjugationResultDisplay;
 import sarfwebservice.models.RootResult;
 import sarfwebservice.models.TriRootDisplay;
+import sarfwebservice.models.VerbConjugations;
+import sarfwebservice.sarf.bridges.TrilateralUnaugmentedBridge;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,6 +33,7 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
     private final UnaugmentedTrilateralModifier unaugmentedTrilateralModifier;
     private final ActivePresentConjugator activePresentConjugator;
     private final AugmentedActivePresentConjugator augmentedActivePresentConjugator;
+    private final TrilateralUnaugmentedBridge trilateralUnaugmentedBridge;
 
     @Autowired
     public SarfServiceTriImpl(SarfDictionary sarfDictionary
@@ -39,7 +42,10 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
             , AugmentedActivePastConjugator augmentedActivePastConjugator
             , AugmentedTrilateralModifier augmentedTrilateralModifier
             , ActivePastConjugator unaugmentedTriActivePastConjugator
-            , UnaugmentedTrilateralModifier unaugmentedTrilateralModifier, ActivePresentConjugator activePresentConjugator, AugmentedActivePresentConjugator augmentedActivePresentConjugator) {
+            , UnaugmentedTrilateralModifier unaugmentedTrilateralModifier
+            , ActivePresentConjugator activePresentConjugator
+            , AugmentedActivePresentConjugator augmentedActivePresentConjugator
+            , TrilateralUnaugmentedBridge trilateralUnaugmentedBridge) {
         super(sarfValidator);
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
@@ -49,6 +55,7 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         this.unaugmentedTrilateralModifier = unaugmentedTrilateralModifier;
         this.activePresentConjugator = activePresentConjugator;
         this.augmentedActivePresentConjugator = augmentedActivePresentConjugator;
+        this.trilateralUnaugmentedBridge = trilateralUnaugmentedBridge;
     }
 
     private static List<Word> createEmptyList() {
@@ -59,6 +66,7 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         return result;
     }
 
+    @Override
     public List<RootResult> getRoots(String rootLetters) {
         try {
             return processTrilateral(rootLetters);
@@ -66,6 +74,37 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public VerbConjugations getActiveVerbConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        if (augmented) {
+            return null;
+        }
+        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+        var root = sarfDictionary.getUnaugmentedTrilateralRoots(rootLetters).stream()
+                .filter(r -> r.getConjugation().getValue() == cclass)
+                .findFirst().orElse(null);
+        if (root == null) {
+            throw new Exception(String.format("Could not find a root with letters %s and class of %d.", rootLetters, cclass));
+        }
+
+        var past = this.trilateralUnaugmentedBridge.retrieveActivePastConjugations(root, kov).stream().map(wp -> wp.toString()).toList();
+        var nominativePresent = this.trilateralUnaugmentedBridge.retrieveActiveNominativePresent(root, kov).stream().map(wp -> wp.toString()).toList();
+        var accusativePresent = this.trilateralUnaugmentedBridge.retrieveActiveAccusativePresent(root, kov).stream().map(wp -> wp.toString()).toList();
+        var jussivePresent = this.trilateralUnaugmentedBridge.retrieveActiveJussivePresent(root, kov).stream().map(wp -> wp.toString()).toList();
+        var emphasizedPresent = this.trilateralUnaugmentedBridge.retrieveActiveEmphasizedPresent(root, kov).stream().map(wp -> wp.toString()).toList();
+        var imperative = this.trilateralUnaugmentedBridge.retrieveImperative(root, kov).stream().map(wp -> wp.toString()).toList();
+        var emphasizedImperative = this.trilateralUnaugmentedBridge.retrieveEmphasizedImperative(root, kov).stream().map(wp -> wp.toString()).toList();
+        var verbConjugations = new VerbConjugations();
+        verbConjugations.setPast(past);
+        verbConjugations.setNominativePresent(nominativePresent);
+        verbConjugations.setAccusativePresent(accusativePresent);
+        verbConjugations.setJussivePresent(jussivePresent);
+        verbConjugations.setEmphasizedPresent(emphasizedPresent);
+        verbConjugations.setImperative(imperative);
+        verbConjugations.setEmphasizedImperative(emphasizedImperative);
+        return verbConjugations;
     }
 
     private String conjugateRoot(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
