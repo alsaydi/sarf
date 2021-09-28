@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sarf-verb-pronouns',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SarfVerbPronounsComponent implements OnInit {
 
+  @Input() public verbs: Array<string>;
   constructor() { }
 
   ngOnInit(): void {

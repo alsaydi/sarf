@@ -1,4 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, UrlSegment } from '@angular/router';
+import { VerbSelectionDetail } from '../models/VerbSelectionDetail';
+import { SarfService } from '../services/sarf-service';
 
 @Component({
   selector: 'app-active-verbs',
@@ -8,9 +11,52 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class ActiveVerbsComponent implements OnInit {
 
-  constructor() { }
+  private tri: string = 'tri';
+  private quad: string = 'quad';
+  private unaugmented: string = 'u';
+  private augmented: string = 'a';
+  public verbs: Array<string>;
+
+  constructor(private sarfService: SarfService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const verbSelectionDetail = this.getVerbSelectionDetail();
+    this.sarfService.getActiveVerbConjugatons(verbSelectionDetail).subscribe(result => {
+      console.log(result);
+      this.verbs = result.conjugations;
+    });
   }
 
+  private getVerbSelectionDetail() {
+    const verb = this.route.snapshot.paramMap.get('verb');
+    const segments: UrlSegment[] = this.route.snapshot.url;
+    let conjugationClass = 0;
+    let formula = 0;
+
+    const verbSize = segments[1].path;
+    const augmentation = segments[2].path;
+    if (verbSize === this.tri) {
+      if (augmentation === this.unaugmented) {
+        conjugationClass = Number.parseInt(this.route.snapshot.paramMap.get('class'));
+      }
+      else if (augmentation === this.augmented) {
+        formula = Number.parseInt(this.route.snapshot.paramMap.get('formula'));
+      }
+    }
+    else if (verbSize === this.quad) {
+      if (augmentation === this.augmented) {
+        formula = Number.parseInt(this.route.snapshot.paramMap.get('formula'));
+      }
+    }
+
+    const verbSelectionDetail: VerbSelectionDetail =
+    {
+      verb: verb,
+      isTri: verbSize === this.tri,
+      isAugmented: augmentation === this.augmented,
+      formula: formula,
+      conjugationClass: conjugationClass
+    };
+    return verbSelectionDetail;
+  }
 }
