@@ -2,6 +2,7 @@ package sarfwebservice.sarf.bridges;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.SystemConstants;
 import sarf.WordPresenter;
@@ -144,5 +145,49 @@ public class TrilateralUnaugmentedBridgeImpl implements TrilateralUnaugmentedBri
         var conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PAST_TENSE, true);
         var finalResult = conjResult.getFinalResult();
         return  finalResult;
+    }
+
+    @Override
+    public List<WordPresenter> retrieveActiveNominativePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var result = triUnaugmentedActivePresentConjugator.createNominativeVerbList(root);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, true);
+        return conjResult.getFinalResult();
+    }
+
+    @Override
+    public List<WordPresenter> retrieveActiveAccusativePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var result = triUnaugmentedActivePresentConjugator.createAccusativeVerbList(root);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, true);
+        return conjResult.getFinalResult();
+    }
+
+    @Override
+    public List<WordPresenter> retrieveActiveJussivePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var result = triUnaugmentedActivePresentConjugator.createJussiveVerbList(root);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, true);
+        return conjResult.getFinalResult();
+    }
+
+    @Override
+    public List<WordPresenter> retrieveActiveEmphasizedPresent(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var result = triUnaugmentedActivePresentConjugator.createEmphasizedVerbList(root);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, true);
+        return conjResult.getFinalResult();
+    }
+
+    @Override
+    public List<WordPresenter> retrieveImperative(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var result = unaugmentedImperativeConjugator.createVerbList(root);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true);
+        return conjResult.getFinalResult()
+                .stream().map(wp -> wp.isEmpty() ? WordPresenter.fromText("-") : wp).toList();
+    }
+
+    @Override
+    public List<WordPresenter> retrieveEmphasizedImperative(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var result = unaugmentedImperativeConjugator.createEmphasizedVerbList(root);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true);
+        return conjResult.getFinalResult()
+                .stream().map(wp -> wp.isEmpty() ? WordPresenter.fromText("-") : wp).toList();
     }
 }

@@ -15,7 +15,13 @@ export class ActiveVerbsComponent implements OnInit {
   private quad: string = 'quad';
   private unaugmented: string = 'u';
   private augmented: string = 'a';
-  public verbs: Array<string>;
+  public past: Array<string>;
+  public nominativePresent: Array<string>;
+  public accusativePresent: Array<string>;
+  public jussivePresent: Array<string>;
+  public emphasizedPresent: Array<string>;
+  public imperative: Array<string>;
+  public emphasizedImperative: Array<string>;
 
   constructor(private sarfService: SarfService, private route: ActivatedRoute) { }
 
@@ -23,7 +29,13 @@ export class ActiveVerbsComponent implements OnInit {
     const verbSelectionDetail = this.getVerbSelectionDetail();
     this.sarfService.getActiveVerbConjugatons(verbSelectionDetail).subscribe(result => {
       console.log(result);
-      this.verbs = result.conjugations;
+      this.past = result.past;
+      this.nominativePresent = result.nominativePresent;
+      this.accusativePresent = result.accusativePresent;
+      this.jussivePresent = result.jussivePresent;
+      this.emphasizedPresent = result.emphasizedPresent
+      this.imperative = result.imperative
+      this.emphasizedImperative = result.emphasizedImperative
     });
   }
 

@@ -71,7 +71,7 @@ public class SarfController {
 
     private VerbConjugations getActiveVerbConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
         var result = this.sarfServiceTri.getActiveVerbConjugationsTri(rootLetters, augmented, cclass, formula);
-        if(result == null && result.getConjugations() == null || result.getConjugations().isEmpty()) {
+        if(result == null && result.getPast() == null || result.getPast().isEmpty()) {
             throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
         }
         return  result;

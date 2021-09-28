@@ -1,23 +1,23 @@
 <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
     <mat-tab label="الماضي">
-        <app-sarf-verb-pronouns [verbs]="verbs"></app-sarf-verb-pronouns>
+        <app-sarf-verb-pronouns [verbs]="past"></app-sarf-verb-pronouns>
     </mat-tab>
     <mat-tab label="المضارع المرفوع">
-        <app-sarf-verb-pronouns></app-sarf-verb-pronouns>
+        <app-sarf-verb-pronouns [verbs]="nominativePresent"></app-sarf-verb-pronouns>
     </mat-tab>
     <mat-tab label="المضارع المنصوب">
-        <app-sarf-verb-pronouns></app-sarf-verb-pronouns>
+        <app-sarf-verb-pronouns [verbs]="accusativePresent"></app-sarf-verb-pronouns>
     </mat-tab>
     <mat-tab label="المضارع المجزوم ">
-        <app-sarf-verb-pronouns></app-sarf-verb-pronouns>
+        <app-sarf-verb-pronouns [verbs]="jussivePresent"></app-sarf-verb-pronouns>
     </mat-tab>
     <mat-tab label="المضارع المؤكد">
-        <app-sarf-verb-pronouns></app-sarf-verb-pronouns>
+        <app-sarf-verb-pronouns [verbs]="emphasizedPresent"></app-sarf-verb-pronouns>
     </mat-tab>
     <mat-tab label="الأمر">
-        <app-sarf-verb-pronouns></app-sarf-verb-pronouns>
+        <app-sarf-verb-pronouns [verbs]="imperative"></app-sarf-verb-pronouns>
     </mat-tab>
     <mat-tab label="الأمر المؤكد">
-        <app-sarf-verb-pronouns></app-sarf-verb-pronouns>
+        <app-sarf-verb-pronouns [verbs]="emphasizedImperative"></app-sarf-verb-pronouns>
     </mat-tab>
 </mat-tab-group>

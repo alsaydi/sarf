@@ -88,10 +88,22 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         if (root == null) {
             throw new Exception(String.format("Could not find a root with letters %s and class of %d.", rootLetters, cclass));
         }
-        var wordPresenters = this.trilateralUnaugmentedBridge.retrieveActivePastConjugations(root, kov);
-        var words = wordPresenters.stream().map(wp -> wp.toString()).toList();
+
+        var past = this.trilateralUnaugmentedBridge.retrieveActivePastConjugations(root, kov).stream().map(wp -> wp.toString()).toList();
+        var nominativePresent = this.trilateralUnaugmentedBridge.retrieveActiveNominativePresent(root, kov).stream().map(wp -> wp.toString()).toList();
+        var accusativePresent = this.trilateralUnaugmentedBridge.retrieveActiveAccusativePresent(root, kov).stream().map(wp -> wp.toString()).toList();
+        var jussivePresent = this.trilateralUnaugmentedBridge.retrieveActiveJussivePresent(root, kov).stream().map(wp -> wp.toString()).toList();
+        var emphasizedPresent = this.trilateralUnaugmentedBridge.retrieveActiveEmphasizedPresent(root, kov).stream().map(wp -> wp.toString()).toList();
+        var imperative = this.trilateralUnaugmentedBridge.retrieveImperative(root, kov).stream().map(wp -> wp.toString()).toList();
+        var emphasizedImperative = this.trilateralUnaugmentedBridge.retrieveEmphasizedImperative(root, kov).stream().map(wp -> wp.toString()).toList();
         var verbConjugations = new VerbConjugations();
-        verbConjugations.setConjugations(words);
+        verbConjugations.setPast(past);
+        verbConjugations.setNominativePresent(nominativePresent);
+        verbConjugations.setAccusativePresent(accusativePresent);
+        verbConjugations.setJussivePresent(jussivePresent);
+        verbConjugations.setEmphasizedPresent(emphasizedPresent);
+        verbConjugations.setImperative(imperative);
+        verbConjugations.setEmphasizedImperative(emphasizedImperative);
         return verbConjugations;
     }
 
