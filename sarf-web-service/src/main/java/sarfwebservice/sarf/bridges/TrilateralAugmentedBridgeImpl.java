@@ -20,6 +20,8 @@ import sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugator;
 import sarf.verb.trilateral.augmented.imperative.AugmentedImperativeConjugatorFactory;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 import sarf.verb.trilateral.augmented.passive.past.AugmentedPassivePastConjugator;
+import sarf.verb.trilateral.augmented.passive.present.AbstractAugmentedPresentConjugator;
+import sarf.verb.trilateral.augmented.passive.present.AugmentedPassivePresentConjugator;
 
 import java.util.List;
 
@@ -29,6 +31,7 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
     private final AugmentedActivePastConjugator augmentedActivePastConjugator;
     private final AugmentedTrilateralModifier augmentedTrilateralModifier;
     private final AugmentedActivePresentConjugator augmentedActivePresentConjugator;
+    private final AugmentedPassivePresentConjugator augmentedPassivePresentConjugator;
     private final KovRulesManager kovRulesManager;
     private final AugmentedImperativeConjugatorFactory augmentedImperativeConjugatorFactory;
     private final AugmentedPassivePastConjugator augmentedPassivePastConjugator;
@@ -46,6 +49,7 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
             , AugmentedActivePastConjugator augmentedActivePastConjugator
             , AugmentedTrilateralModifier augmentedTrilateralModifier
             , AugmentedActivePresentConjugator augmentedActivePresentConjugator
+            , AugmentedPassivePresentConjugator augmentedPassivePresentConjugator
             , AugmentedImperativeConjugatorFactory augmentedImperativeConjugatorFactory
             , AugmentedPassivePastConjugator augmentedPassivePastConjugator
             , AugmentedTrilateralActiveParticipleConjugator augmentedTrilateralActiveParticipleConjugator
@@ -61,6 +65,7 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
         this.augmentedActivePastConjugator = augmentedActivePastConjugator;
         this.augmentedTrilateralModifier = augmentedTrilateralModifier;
         this.augmentedActivePresentConjugator = augmentedActivePresentConjugator;
+        this.augmentedPassivePresentConjugator = augmentedPassivePresentConjugator;
         this.augmentedImperativeConjugatorFactory = augmentedImperativeConjugatorFactory;
         this.augmentedPassivePastConjugator = augmentedPassivePastConjugator;
         this.augmentedTrilateralActiveParticipleConjugator = augmentedTrilateralActiveParticipleConjugator;
@@ -91,22 +96,29 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
 
     @Override
     public List<WordPresenter> retrieveNominativePresent(String rootLetters, int formulaNo, boolean active) throws Exception {
-        return getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getNominativeConjugator(), active);
+        return active ?
+                getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getNominativeConjugator()):
+                getWordPresentersPassive(rootLetters, formulaNo, augmentedPassivePresentConjugator.getNominativeConjugator());
     }
 
     @Override
     public List<WordPresenter> retrieveAccusativePresent(String rootLetters, int formulaNo, boolean active) throws Exception {
-        return getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getAccusativeConjugator(), active);
+        return active ?
+                getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getAccusativeConjugator()) :
+                getWordPresentersPassive(rootLetters, formulaNo, augmentedPassivePresentConjugator.getAccusativeConjugator());
     }
 
     @Override
     public List<WordPresenter> retrieveJussivePresent(String rootLetters, int formulaNo, boolean active) throws Exception {
-        return getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getJussiveConjugator(), active);
+        return active ? getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getJussiveConjugator()) :
+                getWordPresentersPassive(rootLetters, formulaNo, augmentedPassivePresentConjugator.getJussiveConjugator());
     }
 
     @Override
     public List<WordPresenter> retrieveEmphasizedPresent(String rootLetters, int formulaNo, boolean active) throws Exception {
-        return getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getEmphasizedConjugator(), active);
+        return active ?
+                getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getEmphasizedConjugator()) :
+                getWordPresentersPassive(rootLetters, formulaNo, augmentedPassivePresentConjugator.getEmphasizedConjugator());
     }
 
     @Override
@@ -119,7 +131,7 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
         return getImperativeWordPresenters(rootLetters, formulaNo, augmentedImperativeConjugatorFactory.getEmphasizedConjugator());
     }
 
-    private List<WordPresenter> getWordPresenters(String rootLetters, int formulaNo, AugmentedPresentConjugator augmentedPresentConjugator, boolean active) throws Exception {
+    private List<WordPresenter> getWordPresenters(String rootLetters, int formulaNo, AugmentedPresentConjugator augmentedPresentConjugator) throws Exception {
         var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
         if (augmentedRoot == null) {
             throw new Exception(String.format("%s root was not found.", rootLetters));
@@ -131,7 +143,23 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
 
         var verbs = augmentedPresentConjugator.createVerbList(augmentedRoot, augmentationFormula.getFormulaNo());
         var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, augmentationFormula.getFormulaNo(), verbs, SystemConstants.PRESENT_TENSE
-                , active, () -> true);
+                , true, () -> true);
+        return conjugationResult.getFinalResult();
+    }
+
+    private List<WordPresenter> getWordPresentersPassive(String rootLetters, int formulaNo, AbstractAugmentedPresentConjugator augmentedPresentConjugator) throws Exception {
+        var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
+        if (augmentedRoot == null) {
+            throw new Exception(String.format("%s root was not found.", rootLetters));
+        }
+        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+        var augmentationFormula = augmentedRoot.getAugmentationList().stream()
+                .filter(f -> f.getFormulaNo() == formulaNo)
+                .findFirst().orElseThrow();
+
+        var verbs = augmentedPresentConjugator.createVerbList(augmentedRoot, augmentationFormula.getFormulaNo());
+        var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, augmentationFormula.getFormulaNo(), verbs, SystemConstants.PRESENT_TENSE
+                , false, () -> true);
         return conjugationResult.getFinalResult();
     }
 
