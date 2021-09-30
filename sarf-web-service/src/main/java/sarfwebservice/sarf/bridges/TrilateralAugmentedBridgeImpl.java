@@ -73,7 +73,7 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
     }
 
     @Override
-    public List<WordPresenter> retrieveActivePastConjugations(String rootLetters, int formulaNo) throws Exception {
+    public List<WordPresenter> retrievePastConjugations(String rootLetters, int formulaNo, boolean active) throws Exception {
         var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
         if (augmentedRoot == null) {
             throw new Exception(String.format("%s root was not found.", rootLetters));
@@ -82,30 +82,31 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
         var augmentationFormula = augmentedRoot.getAugmentationList().stream()
                 .filter(f -> f.getFormulaNo() == formulaNo)
                 .findFirst().orElseThrow();
-        var verbs = augmentedActivePastConjugator.createVerbList(augmentedRoot, augmentationFormula.getFormulaNo());
+        var verbs = active ? augmentedActivePastConjugator.createVerbList(augmentedRoot, augmentationFormula.getFormulaNo())
+                : augmentedPassivePastConjugator.createVerbList(augmentedRoot, augmentationFormula.getFormulaNo());
         var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, augmentationFormula.getFormulaNo(), verbs, SystemConstants.PAST_TENSE
-                , true, () -> true);
+                , active, () -> true);
         return conjugationResult.getFinalResult();
     }
 
     @Override
-    public List<WordPresenter> retrieveActiveNominativePresent(String rootLetters, int formulaNo) throws Exception {
-        return getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getNominativeConjugator());
+    public List<WordPresenter> retrieveNominativePresent(String rootLetters, int formulaNo, boolean active) throws Exception {
+        return getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getNominativeConjugator(), active);
     }
 
     @Override
-    public List<WordPresenter> retrieveActiveAccusativePresent(String rootLetters, int formulaNo) throws Exception {
-        return getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getAccusativeConjugator());
+    public List<WordPresenter> retrieveAccusativePresent(String rootLetters, int formulaNo, boolean active) throws Exception {
+        return getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getAccusativeConjugator(), active);
     }
 
     @Override
-    public List<WordPresenter> retrieveActiveJussivePresent(String rootLetters, int formulaNo) throws Exception {
-        return getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getJussiveConjugator());
+    public List<WordPresenter> retrieveJussivePresent(String rootLetters, int formulaNo, boolean active) throws Exception {
+        return getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getJussiveConjugator(), active);
     }
 
     @Override
-    public List<WordPresenter> retrieveActiveEmphasizedPresent(String rootLetters, int formulaNo) throws Exception {
-        return getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getEmphasizedConjugator());
+    public List<WordPresenter> retrieveEmphasizedPresent(String rootLetters, int formulaNo, boolean active) throws Exception {
+        return getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getEmphasizedConjugator(), active);
     }
 
     @Override
@@ -118,7 +119,7 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
         return getImperativeWordPresenters(rootLetters, formulaNo, augmentedImperativeConjugatorFactory.getEmphasizedConjugator());
     }
 
-    private List<WordPresenter> getWordPresenters(String rootLetters, int formulaNo, AugmentedPresentConjugator augmentedPresentConjugator) throws Exception {
+    private List<WordPresenter> getWordPresenters(String rootLetters, int formulaNo, AugmentedPresentConjugator augmentedPresentConjugator, boolean active) throws Exception {
         var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
         if (augmentedRoot == null) {
             throw new Exception(String.format("%s root was not found.", rootLetters));
@@ -130,7 +131,7 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
 
         var verbs = augmentedPresentConjugator.createVerbList(augmentedRoot, augmentationFormula.getFormulaNo());
         var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, augmentationFormula.getFormulaNo(), verbs, SystemConstants.PRESENT_TENSE
-                , true, () -> true);
+                , active, () -> true);
         return conjugationResult.getFinalResult();
     }
 

@@ -82,16 +82,16 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
 
     @Override
     public VerbConjugations getActiveVerbConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
-        return augmented ? getVerbConjugationsForAugmented(rootLetters, formula)
-                : getVerbConjugationsForUnaugmented(rootLetters, cclass);
+        return augmented ? getVerbConjugationsForAugmented(rootLetters, formula, true)
+                : getVerbConjugationsForUnaugmented(rootLetters, cclass, true);
     }
 
-    private VerbConjugations getVerbConjugationsForAugmented(String rootLetters, int formula) throws Exception {
-        var past = this.trilateralAugmentedBridge.retrieveActivePastConjugations(rootLetters, formula).stream().map(wp -> wp.toString()).toList();
-        var nominativePresent = this.trilateralAugmentedBridge.retrieveActiveNominativePresent(rootLetters, formula).stream().map(wp -> wp.toString()).toList();
-        var accusativePresent = this.trilateralAugmentedBridge.retrieveActiveAccusativePresent(rootLetters, formula).stream().map(wp -> wp.toString()).toList();
-        var jussivePresent = this.trilateralAugmentedBridge.retrieveActiveJussivePresent(rootLetters, formula).stream().map(wp -> wp.toString()).toList();
-        var emphasizedPresent = this.trilateralAugmentedBridge.retrieveActiveEmphasizedPresent(rootLetters, formula).stream().map(wp -> wp.toString()).toList();
+    private VerbConjugations getVerbConjugationsForAugmented(String rootLetters, int formula, boolean active) throws Exception {
+        var past = this.trilateralAugmentedBridge.retrievePastConjugations(rootLetters, formula, active).stream().map(wp -> wp.toString()).toList();
+        var nominativePresent = this.trilateralAugmentedBridge.retrieveNominativePresent(rootLetters, formula, active).stream().map(wp -> wp.toString()).toList();
+        var accusativePresent = this.trilateralAugmentedBridge.retrieveAccusativePresent(rootLetters, formula, active).stream().map(wp -> wp.toString()).toList();
+        var jussivePresent = this.trilateralAugmentedBridge.retrieveJussivePresent(rootLetters, formula, active).stream().map(wp -> wp.toString()).toList();
+        var emphasizedPresent = this.trilateralAugmentedBridge.retrieveEmphasizedPresent(rootLetters, formula, active).stream().map(wp -> wp.toString()).toList();
         var imperative = this.trilateralAugmentedBridge.retrieveImperative(rootLetters, formula).stream().map(wp -> wp.toString()).toList();
         var emphasizedImperative = this.trilateralAugmentedBridge.retrieveEmphasizedImperative(rootLetters, formula).stream().map(wp -> wp.toString()).toList();
         var verbConjugations = new VerbConjugations();
@@ -104,7 +104,7 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         verbConjugations.setEmphasizedImperative(emphasizedImperative);
         return verbConjugations;
     }
-    private VerbConjugations getVerbConjugationsForUnaugmented(String rootLetters, int cclass) throws Exception {
+    private VerbConjugations getVerbConjugationsForUnaugmented(String rootLetters, int cclass, boolean active) throws Exception {
         var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
         var root = sarfDictionary.getUnaugmentedTrilateralRoots(rootLetters).stream()
                 .filter(r -> r.getConjugation().getValue() == cclass)
@@ -113,13 +113,17 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
             throw new Exception(String.format("Could not find a root with letters %s and class of %d.", rootLetters, cclass));
         }
 
-        var past = this.trilateralUnaugmentedBridge.retrieveActivePastConjugations(root, kov).stream().map(wp -> wp.toString()).toList();
-        var nominativePresent = this.trilateralUnaugmentedBridge.retrieveActiveNominativePresent(root, kov).stream().map(wp -> wp.toString()).toList();
-        var accusativePresent = this.trilateralUnaugmentedBridge.retrieveActiveAccusativePresent(root, kov).stream().map(wp -> wp.toString()).toList();
-        var jussivePresent = this.trilateralUnaugmentedBridge.retrieveActiveJussivePresent(root, kov).stream().map(wp -> wp.toString()).toList();
-        var emphasizedPresent = this.trilateralUnaugmentedBridge.retrieveActiveEmphasizedPresent(root, kov).stream().map(wp -> wp.toString()).toList();
-        var imperative = this.trilateralUnaugmentedBridge.retrieveImperative(root, kov).stream().map(wp -> wp.toString()).toList();
-        var emphasizedImperative = this.trilateralUnaugmentedBridge.retrieveEmphasizedImperative(root, kov).stream().map(wp -> wp.toString()).toList();
+        var past = this.trilateralUnaugmentedBridge.retrieveActivePastConjugations(root, kov, active).stream().map(wp -> wp.toString()).toList();
+        var nominativePresent = this.trilateralUnaugmentedBridge.retrieveActiveNominativePresent(root, kov, active).stream().map(wp -> wp.toString()).toList();
+        var accusativePresent = this.trilateralUnaugmentedBridge.retrieveActiveAccusativePresent(root, kov, active).stream().map(wp -> wp.toString()).toList();
+        var jussivePresent = this.trilateralUnaugmentedBridge.retrieveActiveJussivePresent(root, kov, active).stream().map(wp -> wp.toString()).toList();
+        var emphasizedPresent = this.trilateralUnaugmentedBridge.retrieveActiveEmphasizedPresent(root, kov, active).stream().map(wp -> wp.toString()).toList();
+        var imperative = Arrays.asList("");
+        var emphasizedImperative = Arrays.asList("");
+        if(active) {
+            imperative = this.trilateralUnaugmentedBridge.retrieveImperative(root, kov).stream().map(wp -> wp.toString()).toList();
+            emphasizedImperative = this.trilateralUnaugmentedBridge.retrieveEmphasizedImperative(root, kov).stream().map(wp -> wp.toString()).toList();
+        }
         var verbConjugations = new VerbConjugations();
         verbConjugations.setPast(past);
         verbConjugations.setNominativePresent(nominativePresent);
@@ -235,10 +239,10 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
     }
 
     private VerbConjugations getPassiveVerbConjugationsForUnaugmented(String rootLetters, int cclass) throws Exception {
-        throw new Exception("not implemented");
+        return getVerbConjugationsForUnaugmented(rootLetters, cclass, false);
     }
 
     private VerbConjugations getPassiveVerbConjugationsForAugmented(String rootLetters, int formula) throws Exception{
-        throw new Exception("not implemented");
+        return getVerbConjugationsForAugmented(rootLetters, formula, false);
     }
 }
