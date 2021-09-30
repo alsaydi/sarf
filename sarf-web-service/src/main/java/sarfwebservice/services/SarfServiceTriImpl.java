@@ -227,4 +227,18 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         rootResult.setConjugationResults(conjugationResultDisplays);
         return rootResult;
     }
+
+    @Override
+    public VerbConjugations getPassiveVerbConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        return augmented ? getPassiveVerbConjugationsForAugmented(rootLetters, formula)
+                : getPassiveVerbConjugationsForUnaugmented(rootLetters, cclass);
+    }
+
+    private VerbConjugations getPassiveVerbConjugationsForUnaugmented(String rootLetters, int cclass) throws Exception {
+        throw new Exception("not implemented");
+    }
+
+    private VerbConjugations getPassiveVerbConjugationsForAugmented(String rootLetters, int formula) throws Exception{
+        throw new Exception("not implemented");
+    }
 }

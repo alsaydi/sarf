@@ -53,12 +53,11 @@ export class InitialSarfComponent implements OnInit {
   }
 
   getActiveLink(): string {
-    var path = "/" + this.route.snapshot.url.map(m => m.path).join("/")
-    return path + "/active";
+    return this.getPath() + "/active";
   }
 
   getPassiveLink(): string {
-    return "";
+    return this.getPath() + "/passive";
   }
 
   getNounsLink(): string {
@@ -67,5 +66,10 @@ export class InitialSarfComponent implements OnInit {
 
   getGerundsLink(): string {
     return "";
+  }
+
+
+  private getPath(): String {
+    return "/" + this.route.snapshot.url.map(m => m.path).join("/");
   }
 }
