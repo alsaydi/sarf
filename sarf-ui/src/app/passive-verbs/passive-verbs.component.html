@@ -1,0 +1,17 @@
+<mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+    <mat-tab label="الماضي المجهول">
+        <app-sarf-verb-pronouns [verbs]="past"></app-sarf-verb-pronouns>
+    </mat-tab>
+    <mat-tab label="المضارع المرفوع المجهول">
+        <app-sarf-verb-pronouns [verbs]="nominativePresent"></app-sarf-verb-pronouns>
+    </mat-tab>
+    <mat-tab label="المضارع المنصوب المجهول">
+        <app-sarf-verb-pronouns [verbs]="accusativePresent"></app-sarf-verb-pronouns>
+    </mat-tab>
+    <mat-tab label="المضارع المجزوم المجهول ">
+        <app-sarf-verb-pronouns [verbs]="jussivePresent"></app-sarf-verb-pronouns>
+    </mat-tab>
+    <mat-tab label="المضارع المؤكد المجهول">
+        <app-sarf-verb-pronouns [verbs]="emphasizedPresent"></app-sarf-verb-pronouns>
+    </mat-tab>
+</mat-tab-group>

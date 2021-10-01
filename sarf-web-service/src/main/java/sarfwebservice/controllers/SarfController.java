@@ -39,7 +39,7 @@ public class SarfController {
     }
 
     @RequestMapping("/active/{rootLetters}")
-    VerbConjugations home(@PathVariable String rootLetters
+    VerbConjugations active(@PathVariable String rootLetters
             , @RequestParam boolean augmented
             , @RequestParam int cclass
             , @RequestParam int formula) throws Exception {
@@ -51,6 +51,21 @@ public class SarfController {
             return getActiveVerbConjugationsTri(rootLetters, augmented, cclass, formula);
         }
         return getActiveVerbConjugationsQuad(rootLetters, augmented, cclass, formula);
+    }
+
+    @RequestMapping("/passive/{rootLetters}")
+    VerbConjugations passive(@PathVariable String rootLetters
+            , @RequestParam boolean augmented
+            , @RequestParam int cclass
+            , @RequestParam int formula) throws Exception {
+        if (!isValidRoot(rootLetters)) {
+            throw new InvalidRootException(String.format("ينبغي تحديد جذر مناسب للكلمة - %s.", rootLetters));
+        }
+
+        if (rootLetters.length() == 3) {
+            return getPassiveVerbConjugationsTri(rootLetters, augmented, cclass, formula);
+        }
+        return gePassiveVerbConjugationsQuad(rootLetters, augmented, cclass, formula);
     }
 
     private List<RootResult> getRootResultTri(String rootLetters) throws Exception {
@@ -77,7 +92,19 @@ public class SarfController {
         return  result;
     }
 
+    private VerbConjugations getPassiveVerbConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        var result = this.sarfServiceTri.getPassiveVerbConjugationsTri(rootLetters, augmented, cclass, formula);
+        if(result == null && result.getPast() == null || result.getPast().isEmpty()) {
+            throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
+        }
+        return  result;
+    }
+
     private VerbConjugations getActiveVerbConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) {
+        return null;
+    }
+
+    private VerbConjugations gePassiveVerbConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) {
         return null;
     }
 

@@ -2,10 +2,7 @@ package sarfwebservice.sarf.bridges;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sarf.ConjugationResult;
-import sarf.KindOfVerb;
-import sarf.SystemConstants;
-import sarf.WordPresenter;
+import sarf.*;
 import sarf.gerund.modifier.trilateral.unaugmented.meem.TrilateralUnaugmentedMeemModifier;
 import sarf.gerund.modifier.trilateral.unaugmented.nomen.TrilateralUnaugmentedNomenModifier;
 import sarf.gerund.modifier.trilateral.unaugmented.quality.TrilateralUnaugmentedQualityModifier;
@@ -140,38 +137,42 @@ public class TrilateralUnaugmentedBridgeImpl implements TrilateralUnaugmentedBri
     }
 
     @Override
-    public List<WordPresenter> retrieveActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov){
-        List<ActivePastVerb> result = triActivePastConjugator.createVerbList(root);
-        var conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PAST_TENSE, true);
+    public List<WordPresenter> retrieveActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active){
+        List<? extends Word> result = active ? triActivePastConjugator.createVerbList(root) : triPassivePastConjugator.createVerbList(root);
+        var conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PAST_TENSE, active);
         var finalResult = conjResult.getFinalResult();
         return  finalResult;
     }
 
     @Override
-    public List<WordPresenter> retrieveActiveNominativePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        var result = triUnaugmentedActivePresentConjugator.createNominativeVerbList(root);
-        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, true);
+    public List<WordPresenter> retrieveActiveNominativePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active) {
+        var result = active ? triUnaugmentedActivePresentConjugator.createNominativeVerbList(root)
+                : passivePresentConjugator.createNominativeVerbList(root);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, active);
         return conjResult.getFinalResult();
     }
 
     @Override
-    public List<WordPresenter> retrieveActiveAccusativePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        var result = triUnaugmentedActivePresentConjugator.createAccusativeVerbList(root);
-        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, true);
+    public List<WordPresenter> retrieveActiveAccusativePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active) {
+        var result = active ? triUnaugmentedActivePresentConjugator.createAccusativeVerbList(root):
+                passivePresentConjugator.createAccusativeVerbList(root);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, active);
         return conjResult.getFinalResult();
     }
 
     @Override
-    public List<WordPresenter> retrieveActiveJussivePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        var result = triUnaugmentedActivePresentConjugator.createJussiveVerbList(root);
-        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, true);
+    public List<WordPresenter> retrieveActiveJussivePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active) {
+        var result = active ? triUnaugmentedActivePresentConjugator.createJussiveVerbList(root) :
+                passivePresentConjugator.createJussiveVerbList(root);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, active);
         return conjResult.getFinalResult();
     }
 
     @Override
-    public List<WordPresenter> retrieveActiveEmphasizedPresent(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        var result = triUnaugmentedActivePresentConjugator.createEmphasizedVerbList(root);
-        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, true);
+    public List<WordPresenter> retrieveActiveEmphasizedPresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active) {
+        var result = active ? triUnaugmentedActivePresentConjugator.createEmphasizedVerbList(root) :
+                passivePresentConjugator.createEmphasizedVerbList(root);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, active);
         return conjResult.getFinalResult();
     }
 
