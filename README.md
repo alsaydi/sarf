@@ -53,5 +53,6 @@ I relaxed the screen resolution requirement and will remove that in the future h
 * سهولة العمل به بفضل اللوحات وقوائم الخيارات.
 
 # Credit
-
-![alt credits](https://github.com/argsv/sarf/blob/master/src/sarf/ui/about.jpg?raw=true)
+* أصل البرنامَج كم ذكر أعلاه
+--
+* ![alt credits](https://user-images.githubusercontent.com/916695/134840142-13da7bff-f47f-49c6-bfc0-94e5d5ddaa62.png)
