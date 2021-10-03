@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DerivedNounsComponent implements OnInit {
 
+  nouns: string[];
   constructor() { }
 
   ngOnInit(): void {
