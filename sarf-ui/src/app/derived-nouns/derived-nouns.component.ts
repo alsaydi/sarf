@@ -13,14 +13,17 @@ export class DerivedNounsComponent implements OnInit {
 
   nouns: string[];
   activeParticiples: Array<DerivedNoun>;
+  passiveParticiples: Array<DerivedNoun>;
+  timeAndPlaceNouns: Array<DerivedNoun>;
   constructor(private sarfService: SarfService, private route: ActivatedRoute) { }
-
 
   ngOnInit(): void {
     const verbSelectionDetail = this.getVerbSelectionDetail();
     this.sarfService.getDerivedNouns(verbSelectionDetail).subscribe(result => {
       console.log(result);
-      this.activeParticiples = result.activeParticiples;      
+      this.activeParticiples = result.activeParticiples;
+      this.passiveParticiples = result.passiveParticiples;
+      this.timeAndPlaceNouns = result.timeAndPlaceNouns;
     });
   }
 

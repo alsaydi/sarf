@@ -1,7 +1,9 @@
 package sarfwebservice.sarf.bridges;
 
+import com.google.common.collect.ImmutableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sarf.ConjugationResult;
 import sarf.KindOfVerb;
 import sarf.WordPresenter;
 import sarf.noun.GenericNounSuffixContainer;
@@ -23,8 +25,14 @@ import sarf.noun.trilateral.unaugmented.modifier.passiveparticiple.PassivePartic
 import sarf.noun.trilateral.unaugmented.modifier.timeandplace.TimeAndPlaceModifier;
 import sarf.noun.trilateral.unaugmented.timeandplace.TimeAndPlaceConjugator;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
+import sarfwebservice.models.DerivedNounConjugation;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import static sarfwebservice.models.NounConjugations.ACTIVE_PARTICIPLE_KEY;
+import static sarfwebservice.models.NounConjugations.PASSIVE_PARTICIPLE_KEY;
 
 @Service
 public class TrilateralUnaugmentedDerivedNounBridgeImpl implements TrilateralUnaugmentedDerivedNounBridge {
@@ -89,10 +97,70 @@ public class TrilateralUnaugmentedDerivedNounBridgeImpl implements TrilateralUna
     }
 
     @Override
-    public List<WordPresenter> getActiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        var formulaName = "فَاعِل";
+    public List<List<WordPresenter>> getActiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var formulaName = ACTIVE_PARTICIPLE_KEY;
+        this.genericNounSuffixContainer.selectInDefiniteMode();
         var conjugatedNouns = this.unaugmentedTrilateralActiveParticipleConjugator.createNounList(root, formulaName);
-        var result = activeParticipleModifier.build(root, kov, conjugatedNouns, formulaName);
-        return result.getFinalResult();
+        var indefiniteResult = activeParticipleModifier.build(root, kov, conjugatedNouns, formulaName);
+
+        this.genericNounSuffixContainer.selectAnnexedMode();
+        conjugatedNouns = this.unaugmentedTrilateralActiveParticipleConjugator.createNounList(root, formulaName);
+        var annexedResult = activeParticipleModifier.build(root, kov, conjugatedNouns, formulaName);
+
+        this.genericNounSuffixContainer.selectDefiniteMode();
+        conjugatedNouns = this.unaugmentedTrilateralActiveParticipleConjugator.createNounList(root, formulaName);
+        var definiteResult = activeParticipleModifier.build(root, kov, conjugatedNouns, formulaName);
+
+        return List.of(indefiniteResult.getFinalResult(), annexedResult.getFinalResult(), definiteResult.getFinalResult());
+    }
+
+    @Override
+    public List<List<WordPresenter>> getPassiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var formulaName = PASSIVE_PARTICIPLE_KEY;
+        this.genericNounSuffixContainer.selectInDefiniteMode();
+        var conjugatedNouns = this.unaugmentedTrilateralPassiveParticipleConjugator.createNounList(root, formulaName);
+        var indefiniteResult = passiveParticipleModifier.build(root, kov, conjugatedNouns, formulaName);
+
+        this.genericNounSuffixContainer.selectAnnexedMode();
+        conjugatedNouns = this.unaugmentedTrilateralPassiveParticipleConjugator.createNounList(root, formulaName);
+        var annexedResult = passiveParticipleModifier.build(root, kov, conjugatedNouns, formulaName);
+
+        this.genericNounSuffixContainer.selectDefiniteMode();
+        conjugatedNouns = this.unaugmentedTrilateralPassiveParticipleConjugator.createNounList(root, formulaName);
+        var definiteResult = passiveParticipleModifier.build(root, kov, conjugatedNouns, formulaName);
+
+        return List.of(indefiniteResult.getFinalResult(), annexedResult.getFinalResult(), definiteResult.getFinalResult());
+    }
+
+    @Override
+    public List<DerivedNounConjugation> getTimeAndPlaceNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var nouns = trilateralUnaugmentedNouns.getTimeAndPlaces(root);
+
+        if (nouns == null || nouns.isEmpty()) {
+            return Collections.emptyList();
+        }
+        var keys = timeAndPlaceConjugator.getAppliedFormulaList(root);
+        var derivedNounConjugations = new ArrayList<DerivedNounConjugation>();
+        for (var key : keys) {
+            this.genericNounSuffixContainer.selectInDefiniteMode();
+            var conjugatedNouns = timeAndPlaceConjugator.createNounList(root, key);
+            var indefiniteResult = timeAndPlaceModifier.build(root, kov, conjugatedNouns, key);
+
+            this.genericNounSuffixContainer.selectAnnexedMode();
+            conjugatedNouns = timeAndPlaceConjugator.createNounList(root, key);
+            var annexedResult = timeAndPlaceModifier.build(root, kov, conjugatedNouns, key);
+
+            this.genericNounSuffixContainer.selectDefiniteMode();
+            conjugatedNouns = timeAndPlaceConjugator.createNounList(root, key);
+            var definiteResult = timeAndPlaceModifier.build(root, kov, conjugatedNouns, key);
+            var derivedNounConjugation = new DerivedNounConjugation();
+            derivedNounConjugation.setKey(key);
+            derivedNounConjugation.setIndefiniteNouns(indefiniteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+            derivedNounConjugation.setAnnexedNouns(annexedResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+            derivedNounConjugation.setDefiniteNouns(definiteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+
+            derivedNounConjugations.add(derivedNounConjugation);
+        }
+        return derivedNounConjugations;
     }
 }

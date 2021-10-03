@@ -69,14 +69,14 @@
         {{noun}}
     </div>
     <div class="row3" *ngIf="!isElative">
-        <button mat-raised-button color="primary">في حالة النكرة</button>
-        <button mat-raised-button color="primary">في حالة الإضافة</button>
-        <button mat-raised-button color="primary">في حالة المعرفة</button>
+        <button mat-raised-button color="primary" disabled="{{isCaseButtonDisabled('indefinite')}}" (click)="setCase('indefinite')">في حالة النكرة</button>
+        <button mat-raised-button color="primary" disabled="{{isCaseButtonDisabled('annexed')}}" (click)="setCase('annexed')">في حالة الإضافة</button>
+        <button mat-raised-button color="primary" disabled="{{isCaseButtonDisabled('definite')}}" (click)="setCase('definite')">في حالة المعرفة</button>
     </div>
     <div class="row3" *ngIf="isElative">
-        <button mat-raised-button color="primary">المضاف إلى معرفة</button>
-        <button mat-raised-button color="primary">المعرف بألـ</button>
-        <button mat-raised-button color="primary">المضاف إلى نكرة</button>
-        <button mat-raised-button color="primary">غير المضاف</button>
+        <button mat-raised-button color="primary" disabled="isCaseButtonDisabled('annexedToDefinite')" (click)="setCase('annexedToDefinite')">المضاف إلى معرفة</button>
+        <button mat-raised-button color="primary" disabled="isCaseButtonDisabled('definite')" (click)="setCase('definite')">المعرف بألـ</button>
+        <button mat-raised-button color="primary" disabled="isCaseButtonDisabled('annexedToIndefinite')" (click)="setCase('annexedToIndefinite')">المضاف إلى نكرة</button>
+        <button mat-raised-button color=" primary " disabled="isCaseButtonDisabled( 'notAnnexed') " (click)="setCase('notAnnexed')">غير المضاف</button>
     </div>
 </div>

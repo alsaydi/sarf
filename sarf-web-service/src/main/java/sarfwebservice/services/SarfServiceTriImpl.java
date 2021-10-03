@@ -21,6 +21,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static sarfwebservice.models.NounConjugations.ACTIVE_PARTICIPLE_KEY;
+import static sarfwebservice.models.NounConjugations.PASSIVE_PARTICIPLE_KEY;
+
 @Service
 public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTri {
 
@@ -262,14 +265,31 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         if (root == null) {
             throw new Exception(String.format("Could not find a root with letters %s and class of %d.", rootLetters, cclass));
         }
+        var nounConjugations = new NounConjugations();
 
+        setDerivedNouns(kov, root, nounConjugations);
+        return  nounConjugations;
+    }
+
+    private void setDerivedNouns(KindOfVerb kov, UnaugmentedTrilateralRoot root, NounConjugations nounConjugations) {
         var result = this.trilateralUnaugmentedDerivedNounBridge.getActiveParticiple(root, kov);
         var activeParticiple = new DerivedNounConjugation();
-        activeParticiple.setKey("فَاعِل");
-        activeParticiple.setNouns(result.stream().map(wp -> wp.toString()).toList());
-        var nounConjugations = new NounConjugations();
+        activeParticiple.setKey(ACTIVE_PARTICIPLE_KEY);
+        activeParticiple.setIndefiniteNouns(result.get(0).stream().map(wp -> wp.toString()).toList());
+        activeParticiple.setAnnexedNouns(result.get(1).stream().map(wp -> wp.toString()).toList());
+        activeParticiple.setDefiniteNouns(result.get(2).stream().map(wp -> wp.toString()).toList());
         nounConjugations.setActiveParticiples(List.of(activeParticiple));
-        return  nounConjugations;
+
+        var passiveParticiple = new DerivedNounConjugation();
+        result = this.trilateralUnaugmentedDerivedNounBridge.getPassiveParticiple(root, kov);
+        passiveParticiple.setKey(PASSIVE_PARTICIPLE_KEY);
+        passiveParticiple.setIndefiniteNouns(result.get(0).stream().map(wp -> wp.toString()).toList());
+        passiveParticiple.setAnnexedNouns(result.get(1).stream().map(wp -> wp.toString()).toList());
+        passiveParticiple.setDefiniteNouns(result.get(2).stream().map(wp -> wp.toString()).toList());
+        nounConjugations.setPassiveParticiples(List.of(passiveParticiple));
+
+        var timeAndPlaceNouns = this.trilateralUnaugmentedDerivedNounBridge.getTimeAndPlaceNouns(root, kov);
+        nounConjugations.setTimeAndPlaceNouns(timeAndPlaceNouns);
     }
 
     private NounConjugations getNounsForAugmented(String rootLetters, int formula) {

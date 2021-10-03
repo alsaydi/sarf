@@ -7,14 +7,31 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NounsListingComponent implements OnInit {
 
-  @Input() nouns : Array<string>;
-  @Input() isElative: boolean;
+  @Input() indefiniteNouns : Array<string>;
+  @Input() annexedNouns : Array<string>;
+  @Input() definiteNouns : Array<string>;
+  @Input() isElative: boolean = false;
+  nouns: Array<string>;
+  case: string;
   constructor() { }
   
   ngOnInit(): void {
-    this.nouns = Array<string>(18);
-    for(var i = 0; i < 18; i++) {
-      this.nouns[i] = "فاعل " + i;
+    this.case = this.isElative ? 'annexedToDefinite' : 'indefinite';
+    this.nouns = this.indefiniteNouns;
+  }
+
+  isCaseButtonDisabled(theCase: string): boolean {
+    return this.case === theCase;
+  }
+
+  setCase(theCase: string) {
+    this.case = theCase;
+    if(this.case === 'definite') {
+      this.nouns = this.definiteNouns;
+    }else if(this.case === 'annexed') {
+      this.nouns = this.annexedNouns;
+    }else {
+      this.nouns = this.indefiniteNouns;
     }
   }
 }
