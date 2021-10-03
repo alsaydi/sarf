@@ -1,6 +1,11 @@
-  .app-name , .app-sub-title 
-  {
-   text-align: center;
-   font-size: 1.3em;
-   font-family: Kitab, system-ui;
-  }
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+}
+
+.app-name,
+.app-sub-title {
+    text-align: center;
+    font-size: 1.5em;
+    font-family: Kitab, system-ui;
+}

@@ -61,7 +61,7 @@ export class InitialSarfComponent implements OnInit {
   }
 
   getNounsLink(): string {
-    return "";
+    return this.getPath() + "/nouns";
   }
 
   getGerundsLink(): string {
