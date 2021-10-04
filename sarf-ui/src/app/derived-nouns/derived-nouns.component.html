@@ -44,4 +44,13 @@
             </div>
         </mat-tab-group>
     </mat-tab>
+    <mat-tab label="اسم التفضيل" *ngIf="elatives && elatives.length > 0">
+        <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+            <div *ngFor="let elative of elatives">
+                <mat-tab label="{{elative.key}}">
+                    <app-nouns-listing isElative="true" [annexedToIndefinite]="elative.annexedToIndefinite" [annexedToDefinite]="elative.annexedToDefinite" [indefiniteNouns]="elative.indefiniteNouns" [definiteNouns]="elative.definiteNouns"></app-nouns-listing>
+                </mat-tab>
+            </div>
+        </mat-tab-group>
+    </mat-tab>
 </mat-tab-group>

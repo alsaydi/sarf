@@ -283,6 +283,9 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
 
         var instrumentalNouns = this.trilateralUnaugmentedDerivedNounBridge.getInstrumentalNouns(root, kov);
         nounConjugations.setInstrumentalNouns(instrumentalNouns);
+
+        var elatives = this.trilateralUnaugmentedDerivedNounBridge.getElatives(root, kov);
+        nounConjugations.setElatives(elatives);
     }
 
     private NounConjugations getNounsForAugmented(String rootLetters, int formula) {

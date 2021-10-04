@@ -14,4 +14,5 @@ public interface TrilateralUnaugmentedDerivedNounBridge {
     List<DerivedNounConjugation> getExaggeratedActiveParticiples(UnaugmentedTrilateralRoot root, KindOfVerb kov);
 
     List<DerivedNounConjugation> getInstrumentalNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+    List<DerivedNounConjugation> getElatives(UnaugmentedTrilateralRoot root, KindOfVerb kov);
 }

@@ -12,6 +12,7 @@ public class NounConjugations {
     private List<DerivedNounConjugation> timeAndPlaceNouns;
     private List<DerivedNounConjugation> exaggeratedActiveParticiples;
     private List<DerivedNounConjugation> instrumentalNouns;
+    private List<DerivedNounConjugation> elatives;
 
     public List<DerivedNounConjugation> getActiveParticiples() {
         return activeParticiples;
@@ -51,5 +52,13 @@ public class NounConjugations {
 
     public void setInstrumentalNouns(List<DerivedNounConjugation> instrumentalNouns) {
         this.instrumentalNouns = instrumentalNouns;
+    }
+
+    public void setElatives(List<DerivedNounConjugation> elatives) {
+        this.elatives = elatives;
+    }
+
+    public List<DerivedNounConjugation> getElatives() {
+        return elatives;
     }
 }

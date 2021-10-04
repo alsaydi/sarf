@@ -12,6 +12,7 @@ import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralActiveParticipleCon
 import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralPassiveParticipleConjugator;
 import sarf.noun.trilateral.unaugmented.assimilate.AssimilateAdjectiveConjugator;
 import sarf.noun.trilateral.unaugmented.elative.ElativeNounConjugator;
+import sarf.noun.trilateral.unaugmented.elative.ElativeSuffixContainer;
 import sarf.noun.trilateral.unaugmented.exaggeration.NonStandardExaggerationConjugator;
 import sarf.noun.trilateral.unaugmented.exaggeration.StandardExaggerationConjugator;
 import sarf.noun.trilateral.unaugmented.instrumental.NonStandardInstrumentalConjugator;
@@ -260,6 +261,45 @@ public class TrilateralUnaugmentedDerivedNounBridgeImpl implements TrilateralUna
 
         return List.of(standardInstrumentalNouns, nonStandardInstrumentalNouns)
                 .stream().flatMap(Collection::stream).toList();
+    }
+
+    @Override
+    public List<DerivedNounConjugation> getElatives(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var nouns = trilateralUnaugmentedNouns.getElatives(root);
+        if(nouns == null || nouns.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        var derivedNouns = new ArrayList<DerivedNounConjugation>();
+        var keys = elativeNounConjugator.getAppliedFormulaList(root);
+        for(var key: keys) {
+            var derivedNoun = new DerivedNounConjugation();
+            derivedNoun.setKey(key);
+
+            //TODO: getInstance has to return a new instance, we cannot maintain a singleton in a web app.
+            ElativeSuffixContainer.getInstance().selectInDefiniteMode();
+            var conjugatedNouns = elativeNounConjugator.createNounList(root, key);
+            var annexedToIndefinite = elativeModifier.build(root, kov, conjugatedNouns, key);
+            derivedNoun.setAnnexedToIndefinite(annexedToIndefinite.getFinalResult().stream().map(wp -> wp.toString()).toList());
+
+            ElativeSuffixContainer.getInstance().selectAnnexedMode();
+            conjugatedNouns = elativeNounConjugator.createNounList(root, key);
+            var annexedToDefinite = elativeModifier.build(root, kov, conjugatedNouns, key);
+            derivedNoun.setAnnexedToDefinite(annexedToDefinite.getFinalResult().stream().map(wp -> wp.toString()).toList());
+
+            ElativeSuffixContainer.getInstance().selectNotAnnexedMode();
+            conjugatedNouns = elativeNounConjugator.createNounList(root, key);
+            var notAnnexed = elativeModifier.build(root, kov, conjugatedNouns, key);
+            derivedNoun.setIndefiniteNouns(notAnnexed.getFinalResult().stream().map(wp -> wp.toString()).toList());
+
+            ElativeSuffixContainer.getInstance().selectDefiniteMode();
+            conjugatedNouns = elativeNounConjugator.createNounList(root, key);
+            var definite = elativeModifier.build(root, kov, conjugatedNouns, key);
+            derivedNoun.setDefiniteNouns(definite.getFinalResult().stream().map(wp -> wp.toString()).toList());
+
+            derivedNouns.add(derivedNoun);
+        }
+        return derivedNouns;
     }
 
     private List<DerivedNounConjugation> getStandardInstrumentalNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
