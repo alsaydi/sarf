@@ -18,6 +18,7 @@ export class DerivedNounsComponent implements OnInit {
   exaggeratedActiveParticiples: Array<DerivedNoun>;
   instrumentalNouns: Array<DerivedNoun>;
   elatives: Array<DerivedNoun>;
+  assimilates: Array<DerivedNoun>;
   constructor(private sarfService: SarfService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -30,6 +31,7 @@ export class DerivedNounsComponent implements OnInit {
       this.exaggeratedActiveParticiples = result.exaggeratedActiveParticiples;
       this.instrumentalNouns = result.instrumentalNouns;
       this.elatives = result.elatives;
+      this.assimilates = result.assimilates;
     });
   }
 
