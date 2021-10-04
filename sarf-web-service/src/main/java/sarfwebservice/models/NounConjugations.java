@@ -10,6 +10,7 @@ public class NounConjugations {
     private List<DerivedNounConjugation> activeParticiples;
     private List<DerivedNounConjugation> passiveParticiples;
     private List<DerivedNounConjugation> timeAndPlaceNouns;
+    private List<DerivedNounConjugation> exaggeratedActiveParticiples;
 
     public List<DerivedNounConjugation> getActiveParticiples() {
         return activeParticiples;
@@ -33,5 +34,13 @@ public class NounConjugations {
 
     public void setTimeAndPlaceNouns(List<DerivedNounConjugation> timeAndPlaceNouns) {
         this.timeAndPlaceNouns = timeAndPlaceNouns;
+    }
+
+    public void setExaggeratedActiveParticiples(List<DerivedNounConjugation> exaggeratedActiveParticiples) {
+        this.exaggeratedActiveParticiples = exaggeratedActiveParticiples;
+    }
+
+    public List<DerivedNounConjugation> getExaggeratedActiveParticiples() {
+        return exaggeratedActiveParticiples;
     }
 }

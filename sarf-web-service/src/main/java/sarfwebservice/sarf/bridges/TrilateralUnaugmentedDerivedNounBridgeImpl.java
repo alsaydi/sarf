@@ -28,6 +28,7 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarfwebservice.models.DerivedNounConjugation;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -97,7 +98,7 @@ public class TrilateralUnaugmentedDerivedNounBridgeImpl implements TrilateralUna
     }
 
     @Override
-    public List<List<WordPresenter>> getActiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+    public List<DerivedNounConjugation> getActiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         var formulaName = ACTIVE_PARTICIPLE_KEY;
         this.genericNounSuffixContainer.selectInDefiniteMode();
         var conjugatedNouns = this.unaugmentedTrilateralActiveParticipleConjugator.createNounList(root, formulaName);
@@ -111,11 +112,16 @@ public class TrilateralUnaugmentedDerivedNounBridgeImpl implements TrilateralUna
         conjugatedNouns = this.unaugmentedTrilateralActiveParticipleConjugator.createNounList(root, formulaName);
         var definiteResult = activeParticipleModifier.build(root, kov, conjugatedNouns, formulaName);
 
-        return List.of(indefiniteResult.getFinalResult(), annexedResult.getFinalResult(), definiteResult.getFinalResult());
+        var derivedNounConjugation = new DerivedNounConjugation();
+        derivedNounConjugation.setIndefiniteNouns(indefiniteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+        derivedNounConjugation.setAnnexedNouns(annexedResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+        derivedNounConjugation.setDefiniteNouns(definiteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+        derivedNounConjugation.setKey(formulaName);
+        return List.of(derivedNounConjugation);
     }
 
     @Override
-    public List<List<WordPresenter>> getPassiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+    public List<DerivedNounConjugation> getPassiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         var formulaName = PASSIVE_PARTICIPLE_KEY;
         this.genericNounSuffixContainer.selectInDefiniteMode();
         var conjugatedNouns = this.unaugmentedTrilateralPassiveParticipleConjugator.createNounList(root, formulaName);
@@ -125,11 +131,17 @@ public class TrilateralUnaugmentedDerivedNounBridgeImpl implements TrilateralUna
         conjugatedNouns = this.unaugmentedTrilateralPassiveParticipleConjugator.createNounList(root, formulaName);
         var annexedResult = passiveParticipleModifier.build(root, kov, conjugatedNouns, formulaName);
 
+
         this.genericNounSuffixContainer.selectDefiniteMode();
         conjugatedNouns = this.unaugmentedTrilateralPassiveParticipleConjugator.createNounList(root, formulaName);
         var definiteResult = passiveParticipleModifier.build(root, kov, conjugatedNouns, formulaName);
 
-        return List.of(indefiniteResult.getFinalResult(), annexedResult.getFinalResult(), definiteResult.getFinalResult());
+        var derivedNounConjugation = new DerivedNounConjugation();
+        derivedNounConjugation.setIndefiniteNouns(indefiniteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+        derivedNounConjugation.setAnnexedNouns(annexedResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+        derivedNounConjugation.setDefiniteNouns(definiteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+        derivedNounConjugation.setKey(formulaName);
+        return List.of(derivedNounConjugation);
     }
 
     @Override
@@ -159,6 +171,80 @@ public class TrilateralUnaugmentedDerivedNounBridgeImpl implements TrilateralUna
             derivedNounConjugation.setAnnexedNouns(annexedResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
             derivedNounConjugation.setDefiniteNouns(definiteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
 
+            derivedNounConjugations.add(derivedNounConjugation);
+        }
+        return derivedNounConjugations;
+    }
+
+    @Override
+    public List<DerivedNounConjugation> getExaggeratedActiveParticiples(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var standardExaggeratedActiveParticiples = getStandardExaggeratedActiveParticiples(root, kov);
+        var nonStandardExaggeratedActiveParticiples = getNonStandardExaggeratedActiveParticiples(root, kov);
+        if(standardExaggeratedActiveParticiples.isEmpty() && nonStandardExaggeratedActiveParticiples.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        return List.of(standardExaggeratedActiveParticiples, nonStandardExaggeratedActiveParticiples)
+                .stream().flatMap(Collection::stream).toList();
+    }
+
+    private List<DerivedNounConjugation> getStandardExaggeratedActiveParticiples(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var nouns = trilateralUnaugmentedNouns.getStandardExaggerations(root);
+        if(nouns == null || nouns.isEmpty())
+        {
+            return Collections.emptyList();
+        }
+
+        var keys = standardExaggerationConjugator.getAppliedFormulaList(root);
+        var derivedNounConjugations = new ArrayList<DerivedNounConjugation>();
+        for(var key : keys) {
+            var derivedNounConjugation = new DerivedNounConjugation();
+            derivedNounConjugation.setKey(key);
+            this.genericNounSuffixContainer.selectInDefiniteMode();
+            var conjugatedNouns = standardExaggerationConjugator.createNounList(root, key);
+            var indefiniteResult = exaggerationModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setIndefiniteNouns(indefiniteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+
+            this.genericNounSuffixContainer.selectAnnexedMode();
+            conjugatedNouns = standardExaggerationConjugator.createNounList(root, key);
+            var annexedResult = exaggerationModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setAnnexedNouns(annexedResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+
+            this.genericNounSuffixContainer.selectDefiniteMode();
+            conjugatedNouns = standardExaggerationConjugator.createNounList(root, key);
+            var definiteResult = exaggerationModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setDefiniteNouns(definiteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+            derivedNounConjugations.add(derivedNounConjugation);
+        }
+        return derivedNounConjugations;
+    }
+
+    private List<DerivedNounConjugation> getNonStandardExaggeratedActiveParticiples(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var nouns = trilateralUnaugmentedNouns.getNonStandardExaggerations(root);
+        if(nouns == null || nouns.isEmpty())
+        {
+            return Collections.emptyList();
+        }
+
+        var keys = nonStandardExaggerationConjugator.getAppliedFormulaList(root);
+        var derivedNounConjugations = new ArrayList<DerivedNounConjugation>();
+        for(var key : keys) {
+            var derivedNounConjugation = new DerivedNounConjugation();
+            derivedNounConjugation.setKey(key);
+            this.genericNounSuffixContainer.selectInDefiniteMode();
+            var conjugatedNouns = nonStandardExaggerationConjugator.createNounList(root, key);
+            var indefiniteResult = exaggerationModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setIndefiniteNouns(indefiniteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+
+            this.genericNounSuffixContainer.selectAnnexedMode();
+            conjugatedNouns = nonStandardExaggerationConjugator.createNounList(root, key);
+            var annexedResult = exaggerationModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setAnnexedNouns(annexedResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+
+            this.genericNounSuffixContainer.selectDefiniteMode();
+            conjugatedNouns = nonStandardExaggerationConjugator.createNounList(root, key);
+            var definiteResult = exaggerationModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setDefiniteNouns(definiteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
             derivedNounConjugations.add(derivedNounConjugation);
         }
         return derivedNounConjugations;

@@ -272,24 +272,17 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
     }
 
     private void setDerivedNouns(KindOfVerb kov, UnaugmentedTrilateralRoot root, NounConjugations nounConjugations) {
-        var result = this.trilateralUnaugmentedDerivedNounBridge.getActiveParticiple(root, kov);
-        var activeParticiple = new DerivedNounConjugation();
-        activeParticiple.setKey(ACTIVE_PARTICIPLE_KEY);
-        activeParticiple.setIndefiniteNouns(result.get(0).stream().map(wp -> wp.toString()).toList());
-        activeParticiple.setAnnexedNouns(result.get(1).stream().map(wp -> wp.toString()).toList());
-        activeParticiple.setDefiniteNouns(result.get(2).stream().map(wp -> wp.toString()).toList());
-        nounConjugations.setActiveParticiples(List.of(activeParticiple));
+        var activeParticiples = this.trilateralUnaugmentedDerivedNounBridge.getActiveParticiple(root, kov);
+        nounConjugations.setActiveParticiples(activeParticiples);
 
-        var passiveParticiple = new DerivedNounConjugation();
-        result = this.trilateralUnaugmentedDerivedNounBridge.getPassiveParticiple(root, kov);
-        passiveParticiple.setKey(PASSIVE_PARTICIPLE_KEY);
-        passiveParticiple.setIndefiniteNouns(result.get(0).stream().map(wp -> wp.toString()).toList());
-        passiveParticiple.setAnnexedNouns(result.get(1).stream().map(wp -> wp.toString()).toList());
-        passiveParticiple.setDefiniteNouns(result.get(2).stream().map(wp -> wp.toString()).toList());
-        nounConjugations.setPassiveParticiples(List.of(passiveParticiple));
+        var passiveParticiples = this.trilateralUnaugmentedDerivedNounBridge.getPassiveParticiple(root, kov);
+        nounConjugations.setPassiveParticiples(passiveParticiples);
 
         var timeAndPlaceNouns = this.trilateralUnaugmentedDerivedNounBridge.getTimeAndPlaceNouns(root, kov);
         nounConjugations.setTimeAndPlaceNouns(timeAndPlaceNouns);
+
+        var exaggeratedActiveParticiples = this.trilateralUnaugmentedDerivedNounBridge.getExaggeratedActiveParticiples(root, kov);
+        nounConjugations.setExaggeratedActiveParticiples(exaggeratedActiveParticiples);
     }
 
     private NounConjugations getNounsForAugmented(String rootLetters, int formula) {

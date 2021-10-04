@@ -15,6 +15,7 @@ export class DerivedNounsComponent implements OnInit {
   activeParticiples: Array<DerivedNoun>;
   passiveParticiples: Array<DerivedNoun>;
   timeAndPlaceNouns: Array<DerivedNoun>;
+  exaggeratedActiveParticiples: Array<DerivedNoun>;
   constructor(private sarfService: SarfService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -24,6 +25,7 @@ export class DerivedNounsComponent implements OnInit {
       this.activeParticiples = result.activeParticiples;
       this.passiveParticiples = result.passiveParticiples;
       this.timeAndPlaceNouns = result.timeAndPlaceNouns;
+      this.exaggeratedActiveParticiples = result.exaggeratedActiveParticiples;
     });
   }
 
