@@ -249,4 +249,29 @@ public class TrilateralUnaugmentedDerivedNounBridgeImpl implements TrilateralUna
         }
         return derivedNounConjugations;
     }
+
+    @Override
+    public List<DerivedNounConjugation> getInstrumentalNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var standardInstrumentalNouns = getStandardInstrumentalNouns(root, kov);
+        var nonStandardInstrumentalNouns = getNonStandardInstrumentalNouns(root, kov);
+        if(standardInstrumentalNouns.isEmpty() && nonStandardInstrumentalNouns.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        return List.of(standardInstrumentalNouns, nonStandardInstrumentalNouns)
+                .stream().flatMap(Collection::stream).toList();
+    }
+
+    private List<DerivedNounConjugation> getStandardInstrumentalNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var nouns = trilateralUnaugmentedNouns.getStandardInstrumentals(root);
+        if(nouns == null || nouns.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+
+    }
+
+    private List<DerivedNounConjugation> getNonStandardInstrumentalNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        return null;
+    }
 }

@@ -35,4 +35,13 @@
             </div>
         </mat-tab-group>
     </mat-tab>
+    <mat-tab label="اسم الآلة" *ngIf="instrumentalNouns && instrumentalNouns.length > 0">
+        <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+            <div *ngFor="let instrumentalNoun of instrumentalNouns">
+                <mat-tab label="{{instrumentalNoun.key}}">
+                    <app-nouns-listing [indefiniteNouns]="instrumentalNoun.indefiniteNouns" [annexedNouns]="instrumentalNoun.annexedNouns" [definiteNouns]="instrumentalNoun.definiteNouns"></app-nouns-listing>
+                </mat-tab>
+            </div>
+        </mat-tab-group>
+    </mat-tab>
 </mat-tab-group>
