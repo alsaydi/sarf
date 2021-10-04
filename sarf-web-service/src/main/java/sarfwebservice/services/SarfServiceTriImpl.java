@@ -21,9 +21,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static sarfwebservice.models.NounConjugations.ACTIVE_PARTICIPLE_KEY;
-import static sarfwebservice.models.NounConjugations.PASSIVE_PARTICIPLE_KEY;
-
 @Service
 public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTri {
 
@@ -283,6 +280,9 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
 
         var exaggeratedActiveParticiples = this.trilateralUnaugmentedDerivedNounBridge.getExaggeratedActiveParticiples(root, kov);
         nounConjugations.setExaggeratedActiveParticiples(exaggeratedActiveParticiples);
+
+        var instrumentalNouns = this.trilateralUnaugmentedDerivedNounBridge.getInstrumentalNouns(root, kov);
+        nounConjugations.setInstrumentalNouns(instrumentalNouns);
     }
 
     private NounConjugations getNounsForAugmented(String rootLetters, int formula) {

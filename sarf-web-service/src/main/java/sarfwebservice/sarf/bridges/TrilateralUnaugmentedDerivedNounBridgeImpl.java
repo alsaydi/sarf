@@ -268,10 +268,56 @@ public class TrilateralUnaugmentedDerivedNounBridgeImpl implements TrilateralUna
             return Collections.emptyList();
         }
 
+        var derivedNounConjugations = new ArrayList<DerivedNounConjugation>();
+        var keys = standardInstrumentalConjugator.getAppliedFormulaList(root);
+        for(var key: keys) {
+            var derivedNounConjugation = new DerivedNounConjugation();
+            derivedNounConjugation.setKey(key);
+            this.genericNounSuffixContainer.selectInDefiniteMode();
+            var conjugatedNouns = standardInstrumentalConjugator.createNounList(root, key);
+            var indefiniteResult = instrumentalModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setIndefiniteNouns(indefiniteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
 
+            this.genericNounSuffixContainer.selectAnnexedMode();
+            conjugatedNouns = standardInstrumentalConjugator.createNounList(root, key);
+            var annexedResult = instrumentalModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setAnnexedNouns(annexedResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+
+            this.genericNounSuffixContainer.selectDefiniteMode();
+            conjugatedNouns = standardInstrumentalConjugator.createNounList(root, key);
+            var definiteResult = instrumentalModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setDefiniteNouns(definiteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+            derivedNounConjugations.add(derivedNounConjugation);
+        }
+        return derivedNounConjugations;
     }
 
     private List<DerivedNounConjugation> getNonStandardInstrumentalNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        return null;
+        var nouns = trilateralUnaugmentedNouns.getNonStandardInstrumentals(root);
+        if(nouns == null || nouns.isEmpty()) {
+            return Collections.emptyList();
+        }
+        var derivedNounConjugations = new ArrayList<DerivedNounConjugation>();
+        var keys = nonStandardInstrumentalConjugator.getAppliedFormulaList(root);
+        for(var key: keys) {
+            var derivedNounConjugation = new DerivedNounConjugation();
+            derivedNounConjugation.setKey(key);
+            this.genericNounSuffixContainer.selectInDefiniteMode();
+            var conjugatedNouns = nonStandardInstrumentalConjugator.createNounList(root, key);
+            var indefiniteResult = instrumentalModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setIndefiniteNouns(indefiniteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+
+            this.genericNounSuffixContainer.selectAnnexedMode();
+            conjugatedNouns = nonStandardInstrumentalConjugator.createNounList(root, key);
+            var annexedResult = instrumentalModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setAnnexedNouns(annexedResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+
+            this.genericNounSuffixContainer.selectDefiniteMode();
+            conjugatedNouns = nonStandardInstrumentalConjugator.createNounList(root, key);
+            var definiteResult = instrumentalModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setDefiniteNouns(definiteResult.getFinalResult().stream().map(wp -> wp.toString()).toList());
+            derivedNounConjugations.add(derivedNounConjugation);
+        }
+        return derivedNounConjugations;
     }
 }
