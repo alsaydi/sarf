@@ -3,19 +3,19 @@
     width: 100%;
     grid-template-columns: 1fr 1fr 5fr 5fr;
     grid-template-rows: 1fr repeat(9, 2fr) 3fr;
-    column-gap: 1px;
-    background-color: #faf1f1;
+    background-color: blanchedalmond;
 }
 
 .gender {
-    background-color: bisque;
+    background-color: wheat;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid gray;
 }
 
 .text {
-    color: red;
+    color: black;
     font-size: 1.5em;
 }
 
@@ -28,10 +28,11 @@
 }
 
 .column1 {
-    background-color: aliceblue;
+    background-color: wheat;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid gray;
 }
 
 .nominative {
@@ -47,7 +48,7 @@
 }
 
 .count {
-    background-color: aliceblue;
+    background-color: wheat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,38 +56,48 @@
 
 .nominativeCount1 {
     grid-row: 2 / 3;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
 }
 
 .nominativeCount2 {
     grid-row: 3 / 4;
+    border-bottom: 1px solid gray;
 }
 
 .nominativeCount3 {
     grid-row: 4 / 5;
+    border-bottom: 1px solid gray;
 }
 
 .accusativeCount1 {
     grid-row: 5 /6;
+    border-bottom: 1px solid gray;
 }
 
 .accusativeCount2 {
     grid-row: 6/ 7;
+    border-bottom: 1px solid gray;
 }
 
 .accusativeCount3 {
     grid-row: 7 / 8;
+    border-bottom: 1px solid gray;
 }
 
 .genitiveCount1 {
     grid-row: 8 / 9;
+    border-bottom: 1px solid gray;
 }
 
 .genitiveCount2 {
     grid-row: 9 / 10;
+    border-bottom: 1px solid gray;
 }
 
 .genitiveCount3 {
     grid-row: 10 / 11;
+    border-bottom: 1px solid gray;
 }
 
 .column2 {
@@ -110,7 +121,10 @@
 }
 
 .noun {
-    justify-self: center;
-    align-self: center;
-    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
 }
+
+.nounText {}
