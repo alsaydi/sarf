@@ -23,16 +23,6 @@ package sarfwebservice.sarf.bridges;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import sarf.WordPresenter;
 
-import java.util.List;
-
-public interface TrilateralAugmentedBridge {
-    List<WordPresenter> retrievePastConjugations(String rootLetters, int formulaNo, boolean active) throws Exception;
-    List<WordPresenter> retrieveNominativePresent(String rootLetters, int formulaNo, boolean active) throws Exception;
-    List<WordPresenter> retrieveAccusativePresent(String rootLetters, int formulaNo, boolean active) throws Exception;
-    List<WordPresenter> retrieveJussivePresent(String rootLetters, int formulaNo, boolean active) throws Exception;
-    List<WordPresenter> retrieveEmphasizedPresent(String rootLetters, int formulaNo, boolean active) throws Exception;
-    List<WordPresenter> retrieveImperative(String rootLetters, int formulaNo) throws Exception;
-    List<WordPresenter> retrieveEmphasizedImperative(String rootLetters, int formulaNo) throws Exception;
+public interface TrilateralUnaugmentedGerundBridge {
 }
