@@ -25,4 +25,9 @@ export class SarfService {
     console.info(`passive verb conjugations for ${verbSelectionDetail.verb} class: ${verbSelectionDetail.conjugationClass} formula: ${verbSelectionDetail.formula} augmented: ${verbSelectionDetail.isAugmented}`);
     return this.httpClient.get(`/sarf/passive/${encodeURIComponent(verbSelectionDetail.verb)}?augmented=${verbSelectionDetail.isAugmented}&cclass=${verbSelectionDetail.conjugationClass}&formula=${verbSelectionDetail.formula}`)
   }
+
+  getDerivedNouns(verbSelectionDetail: VerbSelectionDetail): Observable<any> {
+    console.info(`derived nouns for ${verbSelectionDetail.verb} class: ${verbSelectionDetail.conjugationClass} formula: ${verbSelectionDetail.formula} augmented: ${verbSelectionDetail.isAugmented}`);
+    return this.httpClient.get(`/sarf/nouns/${encodeURIComponent(verbSelectionDetail.verb)}?augmented=${verbSelectionDetail.isAugmented}&cclass=${verbSelectionDetail.conjugationClass}&formula=${verbSelectionDetail.formula}`)
+  }
 }

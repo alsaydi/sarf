@@ -36,7 +36,7 @@ public class ElativeSuffixContainer implements INounSuffixContainer {
     //يمثل القائمة المختارة تبعاً للحالة
     private ArrayList currentSuffixList = annexedIndefiniteSuffixList;
 
-    private ElativeSuffixContainer() {
+    public ElativeSuffixContainer() {
         annexedIndefiniteSuffixList.add(ArabCharUtil.DAMMA);
         annexedIndefiniteSuffixList.add(ArabCharUtil.DAMMA);
         annexedIndefiniteSuffixList.add(ArabCharUtil.DAMMA);

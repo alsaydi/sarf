@@ -1,6 +1,6 @@
 package sarf.noun.trilateral.unaugmented.assimilate.nonstandard;
 
-import sarf.noun.GenericNounSuffixContainer;
+import sarf.noun.INounSuffixContainer;
 import sarf.noun.NounFormula;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.util.*;
@@ -19,10 +19,15 @@ import sarf.noun.trilateral.unaugmented.assimilate.*;
  * @version 1.0
  */
 public class NounFormulaE2 extends NounFormula {
-    public NounFormulaE2(){}
+    private final INounSuffixContainer nounSuffixContainer;
 
-    public NounFormulaE2(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
-        super(root, suffixNo, genericNounSuffixContainer);
+    public NounFormulaE2(){
+        nounSuffixContainer = AssimilateFormulaE2SuffixContainer.getInstance();
+    }
+
+    public NounFormulaE2(UnaugmentedTrilateralRoot root, String suffixNo, INounSuffixContainer nounSuffixContainer) {
+        super(root, suffixNo, nounSuffixContainer);
+        this.nounSuffixContainer = nounSuffixContainer;
     }
     public String form() {
         switch (suffixNo) {
@@ -48,7 +53,7 @@ public class NounFormulaE2 extends NounFormula {
 
     //فَعْلَى
     private String form1() {
-        suffix = AssimilateFormulaE2SuffixContainer.getInstance().get(this.suffixNo-1).replaceAll(" ","");
+        suffix = nounSuffixContainer.get(this.suffixNo-1).replaceAll(" ","");
         return root.getC1()+ArabCharUtil.FATHA+root.getC2()+ArabCharUtil.SKOON+root.getC3()+suffix;
     }
 

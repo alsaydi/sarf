@@ -1,6 +1,7 @@
 package sarf.noun.trilateral.unaugmented.assimilate.nonstandard;
 
 import sarf.noun.GenericNounSuffixContainer;
+import sarf.noun.INounSuffixContainer;
 import sarf.noun.NounFormula;
 import sarf.verb.trilateral.unaugmented.*;
 import sarf.util.*;
@@ -18,7 +19,7 @@ import sarf.util.*;
  * @version 1.0
  */
 public class NounFormulaB extends NounFormula{
-    public NounFormulaB(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+    public NounFormulaB(UnaugmentedTrilateralRoot root, String suffixNo, INounSuffixContainer genericNounSuffixContainer) {
         super(root, suffixNo, genericNounSuffixContainer);
     }
 

@@ -34,7 +34,7 @@ public class StandardInstrumentalConjugator implements IUnaugmentedTrilateralNou
         formulas.add("فَعَّالَة");
     }
 
-    private NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, int formulaNo) {
+    private NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, int formulaNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         String formulaClassName = getClass().getPackage().getName()+".standard.NounFormula"+formulaNo;
         Object [] parameters = {root, suffixNo+"", genericNounSuffixContainer};
 
@@ -49,17 +49,27 @@ public class StandardInstrumentalConjugator implements IUnaugmentedTrilateralNou
         return null;
     }
 
-    private List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, int formulaNo) {
+    private List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, int formulaNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         List<NounFormula> result = new LinkedList<>();
         for (int i = 0; i < SystemConstants.NOUN_POSSIBLE_STATES; i++) {
-            NounFormula noun = createNoun(root, i, formulaNo);
+            NounFormula noun = createNoun(root, i, formulaNo, genericNounSuffixContainer);
             result.add(noun);
         }
         return result;
     }
 
+    /**
+     * @deprecated Use the version that takes an instance of type GenericNounSuffixContainer
+     * @param root جذر مجرد ثلاثي
+     * @param formulaName وزن إسم الآلة
+     * @return  أوزان قائمة
+     */
     public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
-        return createNounList(root, formulas.indexOf(formulaName) + 1);
+        return createNounList(root, formulaName, this.genericNounSuffixContainer);
+    }
+
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName, GenericNounSuffixContainer genericNounSuffixContainer) {
+        return createNounList(root, formulas.indexOf(formulaName) + 1, genericNounSuffixContainer);
     }
 
     public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) {

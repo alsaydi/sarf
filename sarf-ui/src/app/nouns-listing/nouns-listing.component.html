@@ -1,0 +1,82 @@
+<div class="main-grid">
+    <div class="mas gender">
+        <div class="text">مذكر</div>
+    </div>
+    <div class="fem gender">
+        <div class="text">مؤنث</div>
+    </div>
+    <div class="nominative column1">
+        <div class="text">
+            الرفع
+        </div>
+    </div>
+    <div class="accusative column1">
+        <div class="text">
+            النصب
+        </div>
+    </div>
+    <div class="genitive column1">
+        <div class="text">
+            الجزم
+        </div>
+    </div>
+    <div class="nominativeCount1 count">
+        <div class="text">
+            مفرد
+        </div>
+    </div>
+    <div class="nominativeCount2 count">
+        <div class="text">
+            مثنى
+        </div>
+    </div>
+    <div class="nominativeCount3 count">
+        <div class="text">
+            جمع
+        </div>
+    </div>
+    <div class="accusativeCount1 count">
+        <div class="text">
+            مفرد
+        </div>
+    </div>
+    <div class="accusativeCount2 count">
+        <div class="text">
+            مثنى
+        </div>
+    </div>
+    <div class="accusativeCount3 count">
+        <div class="text">
+            جمع
+        </div>
+    </div>
+    <div class="genitiveCount1 count">
+        <div class="text">
+            مفرد
+        </div>
+    </div>
+    <div class="genitiveCount2 count">
+        <div class="text">
+            مثنى
+        </div>
+    </div>
+    <div class="genitiveCount3 count">
+        <div class="text">
+            جمع
+        </div>
+    </div>
+    <div class="noun" *ngFor="let noun of nouns">
+        {{noun}}
+    </div>
+    <div class="row3" *ngIf="!isElative">
+        <button mat-raised-button color="primary" disabled="{{isCaseButtonDisabled('indefinite')}}" (click)="setCase('indefinite')">في حالة النكرة</button>
+        <button mat-raised-button color="primary" disabled="{{isCaseButtonDisabled('annexed')}}" (click)="setCase('annexed')">في حالة الإضافة</button>
+        <button mat-raised-button color="primary" disabled="{{isCaseButtonDisabled('definite')}}" (click)="setCase('definite')">في حالة المعرفة</button>
+    </div>
+    <div class="row3" *ngIf="isElative">
+        <button mat-raised-button color="primary" disabled="{{isCaseButtonDisabled('annexedToDefinite')}}" (click)="setCase('annexedToDefinite')">المضاف إلى معرفة</button>
+        <button mat-raised-button color="primary" disabled="{{isCaseButtonDisabled('definite')}}" (click)="setCase('definite')">المعرف بألـ</button>
+        <button mat-raised-button color="primary" disabled="{{isCaseButtonDisabled('annexedToIndefinite')}}" (click)="setCase('annexedToIndefinite')">المضاف إلى نكرة</button>
+        <button mat-raised-button color="primary" disabled="{{isCaseButtonDisabled( 'indefiniteNouns')}}" (click)="setCase('indefiniteNouns')">غير المضاف</button>
+    </div>
+</div>

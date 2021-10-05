@@ -18,16 +18,21 @@ import sarf.noun.*;
  * @version 1.0
  */
 public class NounFormulaC extends NounFormula {
-    public NounFormulaC(){}
-    public NounFormulaC(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
-        super(root, suffixNo, genericNounSuffixContainer);
+    private final INounSuffixContainer nounSuffixContainer;
+
+    public NounFormulaC(){
+        nounSuffixContainer = AssimilateFormulaCSuffixContainer.getInstance();
+    }
+    public NounFormulaC(UnaugmentedTrilateralRoot root, String suffixNo, INounSuffixContainer nounSuffixContainer) {
+        super(root, suffixNo, nounSuffixContainer);
+        this.nounSuffixContainer = nounSuffixContainer;
         this.root = root;
         this.suffixNo = Integer.parseInt(suffixNo)+1;
-        suffix = AssimilateFormulaCSuffixContainer.getInstance().get(this.suffixNo-1).replaceAll(" ","");
+        suffix = nounSuffixContainer.get(this.suffixNo-1).replaceAll(" ","");
     }
 
     protected INounSuffixContainer getNounSuffixContainer() {
-        return AssimilateFormulaCSuffixContainer.getInstance();
+        return this.nounSuffixContainer;
     }
 
     public String form() {

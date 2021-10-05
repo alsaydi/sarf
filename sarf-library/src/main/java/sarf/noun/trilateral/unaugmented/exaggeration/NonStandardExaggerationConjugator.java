@@ -59,7 +59,7 @@ public class NonStandardExaggerationConjugator implements IUnaugmentedTrilateral
         formulaSymbolsNamesMap.put(instance.getSymbol(), instance.getFormulaName());
     }
 
-    private NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaName) {
+    private NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaName, GenericNounSuffixContainer genericNounSuffixContainer) {
         Object[] parameters = {root, suffixNo + "", genericNounSuffixContainer};
 
         try {
@@ -72,9 +72,17 @@ public class NonStandardExaggerationConjugator implements IUnaugmentedTrilateral
         return null;
     }
 
-    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
+    /**
+     * @deprecated Use the version that takes an instance of GenericNounSuffixContainer
+     *
+     */
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName){
+        return this.createNounList(root, formulaName, this.genericNounSuffixContainer);
+    }
+
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName, GenericNounSuffixContainer genericNounSuffixContainer) {
         return IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
-                .mapToObj(i -> createNoun(root, i, formulaName))
+                .mapToObj(i -> createNoun(root, i, formulaName, genericNounSuffixContainer))
                 .collect(Collectors.toList());
 
     }

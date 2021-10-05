@@ -1,14 +1,27 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row fxLayout="column">
-    <div class="app-name" fxFlex>
-      صــــــــــرف
+<div class="main-grid">
+    <div class="right-grid"></div>
+    <div class="middle-grid">
+
+        <mat-toolbar color="primary">
+            <mat-toolbar-row fxLayout="column">
+                <div class="app-name" fxFlex>
+                    <h1>
+                        صــــــــــرف
+                    </h1>
+                </div>
+                <div class="app-sub-title" fxFlex>
+                    <h2>
+                        نظام الإشتقاق و التصريف في اللغة العربية
+                    </h2>
+                </div>
+            </mat-toolbar-row>
+        </mat-toolbar>
+
+        <main>
+            <app-rootsearch></app-rootsearch>
+            <router-outlet></router-outlet>
+        </main>
     </div>
-    <div class="app-sub-title" fxFlex>
-      نظام الإشتقاق و التصريف في اللغة العربية
+    <div class="left-grid">
     </div>
-  </mat-toolbar-row>
-</mat-toolbar>
-<main>
-  <app-rootsearch></app-rootsearch>
-  <router-outlet></router-outlet>
-</main>
+</div>

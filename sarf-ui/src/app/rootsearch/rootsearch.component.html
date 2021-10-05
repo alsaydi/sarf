@@ -2,16 +2,13 @@
     <div class="form-fields-container containerX">
         <div fxLayout="row" fxLayoutAlign="left center">
             <mat-form-field appearance="fill" fxFlex>
-                <mat-label>جذر كلمة</mat-label>
-                <input matInput placeholder="أدخل جذراً ثلاثياً أو رباعياً (بدء، مثلاً)" [formControl]="rootFormControl"
-                    [errorStateMatcher]="matcher" maxlength="4" lang="ar" minlength="3" dir="rtl"
-                    style="font-size: x-large;" />
+                <input matInput placeholder="أدخل جذراً ثلاثياً أو رباعياً (بدء، مثلاً)" [formControl]="rootFormControl" [errorStateMatcher]="matcher" maxlength="4" lang="ar" minlength="3" dir="rtl" style="font-size: x-large;" />
 
                 <mat-error *ngIf="!rootFormControl.hasError('required')">
                     <em>أدخل جذر كلمة عربية ثلاثي أو رباعي</em>
                 </mat-error>
                 <mat-error *ngIf="rootFormControl.hasError('required')">
-                 <em>الجذر <strong>ضروري</strong></em>
+                    <em>الجذر <strong>ضروري</strong></em>
                 </mat-error>
                 <button mat-raised-button class="search-button" type="submit">
                     <mat-icon title="إبحث">search</mat-icon>
@@ -23,7 +20,7 @@
             </mat-form-field>
             <mat-form-field appearance="fill" fxFlex>
                 <input matInput placeholder="" lang="ar" dir="rtl" disabled="disabled" style="color: blue;" value="{{transitivity}}" />
-                <button mat-button style="font-size: large;" disabled="disabled">التعدية و اللزوم</button>
+                <button mat-button style="font-size: large;" disabled="disabled">التعدي و اللزوم</button>
             </mat-form-field>
         </div>
     </div>

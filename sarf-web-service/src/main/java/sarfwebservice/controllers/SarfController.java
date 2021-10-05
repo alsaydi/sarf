@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import sarfwebservice.exceptions.InvalidRootException;
 import sarfwebservice.exceptions.RootNotFoundException;
+import sarfwebservice.models.NounConjugations;
 import sarfwebservice.models.RootResult;
 import sarfwebservice.models.VerbConjugations;
 import sarfwebservice.services.SarfServiceQuad;
@@ -118,5 +119,32 @@ public class SarfController {
         }
 
         return rootLetters.length() == 3 || rootLetters.length() == 4;
+    }
+
+    @RequestMapping("/nouns/{rootLetters}")
+    NounConjugations nouns(@PathVariable String rootLetters
+            , @RequestParam boolean augmented
+            , @RequestParam int cclass
+            , @RequestParam int formula) throws Exception {
+        if (!isValidRoot(rootLetters)) {
+            throw new InvalidRootException(String.format("ينبغي تحديد جذر مناسب للكلمة - %s.", rootLetters));
+        }
+
+        if (rootLetters.length() == 3) {
+            return getNounConjugationsTri(rootLetters, augmented, cclass, formula);
+        }
+        return getNounConjugationsQuad(rootLetters, augmented, cclass, formula);
+    }
+
+    private NounConjugations getNounConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        var result = this.sarfServiceTri.getNouns(rootLetters, augmented, cclass, formula);
+        if(result == null) {
+            throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
+        }
+        return  result;
+    }
+
+    private NounConjugations getNounConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) {
+        return null;
     }
 }

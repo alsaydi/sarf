@@ -26,15 +26,22 @@ public class UnaugmentedTrilateralActiveParticipleConjugator implements IUnaugme
         this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
-    private UnaugmentedTrilateralActiveParticiple createNoun(UnaugmentedTrilateralRoot root, int suffixIndex) {
+    private static UnaugmentedTrilateralActiveParticiple createNoun(UnaugmentedTrilateralRoot root, int suffixIndex, GenericNounSuffixContainer genericNounSuffixContainer) {
         String suffix = genericNounSuffixContainer.get(suffixIndex);
         return new UnaugmentedTrilateralActiveParticiple(root, suffix, genericNounSuffixContainer);
     }
 
+    /**
+     * @deprecated Use the version that takes an instance of GenericNounSuffixContainer
+     *
+     */
     public List<UnaugmentedTrilateralActiveParticiple> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
+        return this.createNounList(root, formulaName, this.genericNounSuffixContainer);
+    }
+    public List<UnaugmentedTrilateralActiveParticiple> createNounList(UnaugmentedTrilateralRoot root, String formulaName, GenericNounSuffixContainer genericNounSuffixContainer) {
         List<UnaugmentedTrilateralActiveParticiple> result = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
         for (int i=0; i<SystemConstants.NOUN_POSSIBLE_STATES; i++) {
-            result.add(createNoun(root, i));
+            result.add(createNoun(root, i, genericNounSuffixContainer));
         }
         return result;
     }

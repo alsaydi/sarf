@@ -20,6 +20,8 @@ import { InitialSarfComponent } from './initial-sarf/initial-sarf.component';
 import { ActiveVerbsComponent } from './active-verbs/active-verbs.component';
 import { SarfVerbPronounsComponent } from './sarf-verb-pronouns/sarf-verb-pronouns.component';
 import { PassiveVerbsComponent } from './passive-verbs/passive-verbs.component';
+import { DerivedNounsComponent } from './derived-nouns/derived-nouns.component';
+import { NounsListingComponent } from './nouns-listing/nouns-listing.component';
 
 const appRoutes: Routes = [
   {path: '', component: StartComponent},
@@ -28,9 +30,11 @@ const appRoutes: Routes = [
   {path: 'verb/tri/u/:verb/:class', component: InitialSarfComponent},
   {path: 'verb/tri/u/:verb/:class/active', component: ActiveVerbsComponent},
   {path: 'verb/tri/u/:verb/:class/passive', component: PassiveVerbsComponent},
+  {path: 'verb/tri/u/:verb/:class/nouns', component: DerivedNounsComponent},
   {path: 'verb/tri/a/:verb/:formula', component: InitialSarfComponent},
   {path: 'verb/tri/a/:verb/:formula/active', component: ActiveVerbsComponent},
   {path: 'verb/tri/a/:verb/:formula/passive', component: PassiveVerbsComponent},
+  {path: 'verb/tri/a/:verb/:formula/nouns', component: DerivedNounsComponent},
   {path: 'verb/quad/u/:verb', component: InitialSarfComponent},
   {path: 'verb/quad/a/:verb/:formula', component: InitialSarfComponent},
 ]
@@ -48,7 +52,9 @@ const appRoutes: Routes = [
     InitialSarfComponent,
     ActiveVerbsComponent,
     SarfVerbPronounsComponent,
-    PassiveVerbsComponent
+    PassiveVerbsComponent,
+    DerivedNounsComponent,
+    NounsListingComponent
   ],
   imports: [
     BrowserModule,

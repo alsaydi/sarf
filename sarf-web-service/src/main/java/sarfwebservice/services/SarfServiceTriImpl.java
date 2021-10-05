@@ -12,12 +12,10 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator;
 import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
-import sarfwebservice.models.ConjugationResultDisplay;
-import sarfwebservice.models.RootResult;
-import sarfwebservice.models.TriRootDisplay;
-import sarfwebservice.models.VerbConjugations;
+import sarfwebservice.models.*;
 import sarfwebservice.sarf.bridges.TrilateralAugmentedBridge;
 import sarfwebservice.sarf.bridges.TrilateralUnaugmentedBridge;
+import sarfwebservice.sarf.bridges.TrilateralUnaugmentedDerivedNounBridge;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,6 +34,7 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
     private final AugmentedActivePresentConjugator augmentedActivePresentConjugator;
     private final TrilateralUnaugmentedBridge trilateralUnaugmentedBridge;
     private final TrilateralAugmentedBridge trilateralAugmentedBridge;
+    private final TrilateralUnaugmentedDerivedNounBridge trilateralUnaugmentedDerivedNounBridge;
 
     @Autowired
     public SarfServiceTriImpl(SarfDictionary sarfDictionary
@@ -48,7 +47,8 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
             , ActivePresentConjugator activePresentConjugator
             , AugmentedActivePresentConjugator augmentedActivePresentConjugator
             , TrilateralUnaugmentedBridge trilateralUnaugmentedBridge
-            , TrilateralAugmentedBridge trilateralAugmentedBridge) {
+            , TrilateralAugmentedBridge trilateralAugmentedBridge
+            , TrilateralUnaugmentedDerivedNounBridge trilateralUnaugmentedDerivedNounBridge) {
         super(sarfValidator);
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
@@ -60,6 +60,7 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         this.augmentedActivePresentConjugator = augmentedActivePresentConjugator;
         this.trilateralUnaugmentedBridge = trilateralUnaugmentedBridge;
         this.trilateralAugmentedBridge = trilateralAugmentedBridge;
+        this.trilateralUnaugmentedDerivedNounBridge = trilateralUnaugmentedDerivedNounBridge;
     }
 
     private static List<Word> createEmptyList() {
@@ -244,5 +245,53 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
 
     private VerbConjugations getPassiveVerbConjugationsForAugmented(String rootLetters, int formula) throws Exception{
         return getVerbConjugationsForAugmented(rootLetters, formula, false);
+    }
+
+
+    @Override
+    public NounConjugations getNouns(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        return augmented ? getNounsForAugmented(rootLetters, formula) :
+                getNounsForUnaugmented(rootLetters, cclass);
+    }
+
+    private NounConjugations getNounsForUnaugmented(String rootLetters, int cclass) throws Exception {
+        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+        var root = sarfDictionary.getUnaugmentedTrilateralRoots(rootLetters).stream()
+                .filter(r -> r.getConjugation().getValue() == cclass)
+                .findFirst().orElse(null);
+        if (root == null) {
+            throw new Exception(String.format("Could not find a root with letters %s and class of %d.", rootLetters, cclass));
+        }
+        var nounConjugations = new NounConjugations();
+
+        setDerivedNouns(kov, root, nounConjugations);
+        return  nounConjugations;
+    }
+
+    private void setDerivedNouns(KindOfVerb kov, UnaugmentedTrilateralRoot root, NounConjugations nounConjugations) {
+        var activeParticiples = this.trilateralUnaugmentedDerivedNounBridge.getActiveParticiple(root, kov);
+        nounConjugations.setActiveParticiples(activeParticiples);
+
+        var passiveParticiples = this.trilateralUnaugmentedDerivedNounBridge.getPassiveParticiple(root, kov);
+        nounConjugations.setPassiveParticiples(passiveParticiples);
+
+        var timeAndPlaceNouns = this.trilateralUnaugmentedDerivedNounBridge.getTimeAndPlaceNouns(root, kov);
+        nounConjugations.setTimeAndPlaceNouns(timeAndPlaceNouns);
+
+        var exaggeratedActiveParticiples = this.trilateralUnaugmentedDerivedNounBridge.getExaggeratedActiveParticiples(root, kov);
+        nounConjugations.setExaggeratedActiveParticiples(exaggeratedActiveParticiples);
+
+        var instrumentalNouns = this.trilateralUnaugmentedDerivedNounBridge.getInstrumentalNouns(root, kov);
+        nounConjugations.setInstrumentalNouns(instrumentalNouns);
+
+        var elatives = this.trilateralUnaugmentedDerivedNounBridge.getElatives(root, kov);
+        nounConjugations.setElatives(elatives);
+
+        var assimilates = this.trilateralUnaugmentedDerivedNounBridge.getAssimilates(root, kov);
+        nounConjugations.setAssimilates(assimilates);
+    }
+
+    private NounConjugations getNounsForAugmented(String rootLetters, int formula) {
+        return null;
     }
 }
