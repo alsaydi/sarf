@@ -8,6 +8,7 @@ import sarf.gerund.modifier.trilateral.augmented.standard.TrilateralAugmentedSta
 import sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugator;
 import sarf.gerund.trilateral.augmented.nomen.TrilateralAugmentedNomenGerundConjugator;
 import sarf.kov.KovRulesManager;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.noun.trilateral.augmented.AugmentedTrilateralActiveParticipleConjugator;
 import sarf.noun.trilateral.augmented.AugmentedTrilateralPassiveParticipleConjugator;
 import sarf.noun.trilateral.augmented.modifier.activeparticiple.ActiveParticipleModifier;
@@ -162,7 +163,7 @@ public class TrilateralAugmentedHelper {
                 return;
             }
             for(var formula: augmentedRoot.getAugmentationList()){
-                var nouns = augmentedTrilateralActiveParticipleConjugator.createNounList(augmentedRoot, formula.getFormulaNo());
+                var nouns = augmentedTrilateralActiveParticipleConjugator.createNounList(augmentedRoot, formula.getFormulaNo(), new GenericNounSuffixContainer());
                 var conjugationResult = activeParticipleModifier.build(augmentedRoot, kov, formula.getFormulaNo(), nouns, () -> true);
                 printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(), formula);
             }
@@ -180,7 +181,7 @@ public class TrilateralAugmentedHelper {
                 return;
             }
             for(var formula: augmentedRoot.getAugmentationList()){
-                var nouns = augmentedTrilateralPassiveParticipleConjugator.createNounList(augmentedRoot, formula.getFormulaNo());
+                var nouns = augmentedTrilateralPassiveParticipleConjugator.createNounList(augmentedRoot, formula.getFormulaNo(), new GenericNounSuffixContainer());
                 var conjugationResult = passiveParticipleModifier.build(augmentedRoot, kov, formula.getFormulaNo(), nouns, () -> true);
                 printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(), formula);
             }
@@ -198,7 +199,7 @@ public class TrilateralAugmentedHelper {
                 return;
             }
             for(var formula: augmentedRoot.getAugmentationList()){
-                var nouns = augmentedTrilateralPassiveParticipleConjugator.createTimeAndPlaceNounList(augmentedRoot, formula.getFormulaNo());
+                var nouns = augmentedTrilateralPassiveParticipleConjugator.createTimeAndPlaceNounList(augmentedRoot, formula.getFormulaNo(), new GenericNounSuffixContainer());
                 var conjugationResult = passiveParticipleModifier.build(augmentedRoot, kov, formula.getFormulaNo(), nouns, () -> true);
                 printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(), formula);
             }

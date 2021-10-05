@@ -51,7 +51,7 @@ class AugmentedTrilateralPassiveParticipleConjugatorTest {
     void createNounList(int formula, Class expected) {
         var root = new AugmentedTrilateralRoot();
 
-        var actual = sut.createNounList(root, formula);
+        var actual = sut.createNounList(root, formula, genericNounSuffixContainer);
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(18);
@@ -65,7 +65,7 @@ class AugmentedTrilateralPassiveParticipleConjugatorTest {
     void createTimeAndPlaceNounList(int formula, Class expected){
         var root = new AugmentedTrilateralRoot();
 
-        var actual = sut.createTimeAndPlaceNounList(root, formula);
+        var actual = sut.createTimeAndPlaceNounList(root, formula, genericNounSuffixContainer);
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(18);

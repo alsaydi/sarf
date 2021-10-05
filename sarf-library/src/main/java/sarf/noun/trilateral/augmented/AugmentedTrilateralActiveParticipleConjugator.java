@@ -21,14 +21,12 @@ import java.util.*;
  * @version 1.0
  */
 public class AugmentedTrilateralActiveParticipleConjugator {
-    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
     @Inject
-    public AugmentedTrilateralActiveParticipleConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
-        this.genericNounSuffixContainer = genericNounSuffixContainer;
+    public AugmentedTrilateralActiveParticipleConjugator() {
     }
     
-    private AugmentedTrilateralNoun createNoun(AugmentedTrilateralRoot root, int suffixIndex, int formulaNo) {
+    private AugmentedTrilateralNoun createNoun(AugmentedTrilateralRoot root, int suffixIndex, int formulaNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         String suffix = genericNounSuffixContainer.get(suffixIndex);
         switch (formulaNo){
             case 1: return new NounFormula1(root, suffix, genericNounSuffixContainer);
@@ -47,10 +45,10 @@ public class AugmentedTrilateralActiveParticipleConjugator {
         return  null;
     }
 
-    public List<AugmentedTrilateralNoun> createNounList(AugmentedTrilateralRoot root, int formulaNo) {
+    public List<AugmentedTrilateralNoun> createNounList(AugmentedTrilateralRoot root, int formulaNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         List<AugmentedTrilateralNoun> result = new ArrayList<>();
         for (int i = 0; i < SystemConstants.NOUN_POSSIBLE_STATES; i++) {
-            AugmentedTrilateralNoun noun = createNoun(root, i, formulaNo);
+            AugmentedTrilateralNoun noun = createNoun(root, i, formulaNo, genericNounSuffixContainer);
             result.add(noun);
         }
         return result;

@@ -14,6 +14,7 @@ import sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator;
 import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
 import sarfwebservice.models.*;
 import sarfwebservice.sarf.bridges.TrilateralAugmentedBridge;
+import sarfwebservice.sarf.bridges.TrilateralAugmentedDerivedNounBridge;
 import sarfwebservice.sarf.bridges.TrilateralUnaugmentedBridge;
 import sarfwebservice.sarf.bridges.TrilateralUnaugmentedDerivedNounBridge;
 
@@ -35,6 +36,7 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
     private final TrilateralUnaugmentedBridge trilateralUnaugmentedBridge;
     private final TrilateralAugmentedBridge trilateralAugmentedBridge;
     private final TrilateralUnaugmentedDerivedNounBridge trilateralUnaugmentedDerivedNounBridge;
+    private final TrilateralAugmentedDerivedNounBridge trilateralAugmentedDerivedNounBridge;
 
     @Autowired
     public SarfServiceTriImpl(SarfDictionary sarfDictionary
@@ -48,7 +50,8 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
             , AugmentedActivePresentConjugator augmentedActivePresentConjugator
             , TrilateralUnaugmentedBridge trilateralUnaugmentedBridge
             , TrilateralAugmentedBridge trilateralAugmentedBridge
-            , TrilateralUnaugmentedDerivedNounBridge trilateralUnaugmentedDerivedNounBridge) {
+            , TrilateralUnaugmentedDerivedNounBridge trilateralUnaugmentedDerivedNounBridge
+            , TrilateralAugmentedDerivedNounBridge trilateralAugmentedDerivedNounBridge) {
         super(sarfValidator);
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
@@ -61,6 +64,7 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         this.trilateralUnaugmentedBridge = trilateralUnaugmentedBridge;
         this.trilateralAugmentedBridge = trilateralAugmentedBridge;
         this.trilateralUnaugmentedDerivedNounBridge = trilateralUnaugmentedDerivedNounBridge;
+        this.trilateralAugmentedDerivedNounBridge = trilateralAugmentedDerivedNounBridge;
     }
 
     private static List<Word> createEmptyList() {
@@ -291,7 +295,25 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         nounConjugations.setAssimilates(assimilates);
     }
 
-    private NounConjugations getNounsForAugmented(String rootLetters, int formula) {
-        return null;
+    private NounConjugations getNounsForAugmented(String rootLetters, int formula) throws Exception {
+        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+        var root = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
+        if (root == null) {
+            throw new Exception(String.format("Could not find a root with letters %s", rootLetters));
+        }
+        var nounConjugations = new NounConjugations();
+
+        setDerivedNounsForTrilateralAugmented(kov, root, nounConjugations, formula);
+        return  nounConjugations;
+    }
+    private void setDerivedNounsForTrilateralAugmented(KindOfVerb kov, AugmentedTrilateralRoot root, NounConjugations nounConjugations, int formulaNo){
+        var activeParticiples = this.trilateralAugmentedDerivedNounBridge.getActiveParticiple(root, kov, formulaNo);
+        nounConjugations.setActiveParticiples(activeParticiples);
+
+        var passiveParticiples = this.trilateralAugmentedDerivedNounBridge.getPassiveParticiple(root, kov, formulaNo);
+        nounConjugations.setPassiveParticiples(passiveParticiples);
+
+        var timeAndPlaceNouns = this.trilateralAugmentedDerivedNounBridge.getTimeAndPlaceNouns(root, kov, formulaNo);
+        nounConjugations.setTimeAndPlaceNouns(timeAndPlaceNouns);
     }
 }

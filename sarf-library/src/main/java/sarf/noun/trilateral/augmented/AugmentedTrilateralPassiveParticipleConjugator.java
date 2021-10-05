@@ -24,41 +24,41 @@ import java.util.stream.IntStream;
  * @version 1.0
  */
 public class AugmentedTrilateralPassiveParticipleConjugator {
-    private final GenericNounSuffixContainer genericNounSuffixContainer;
+    private final GenericNounSuffixContainer _genericNounSuffixContainer;
 
     @Inject
     public AugmentedTrilateralPassiveParticipleConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
-        this.genericNounSuffixContainer = genericNounSuffixContainer;
+        this._genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
-    public List<AugmentedTrilateralNoun> createNounList(AugmentedTrilateralRoot root, int formulaNo) {
+    public List<AugmentedTrilateralNoun> createNounList(AugmentedTrilateralRoot root, int formulaNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         return IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
-                .mapToObj(i -> createNoun(root, i, formulaNo))
+                .mapToObj(i -> createNoun(root, i, formulaNo, genericNounSuffixContainer))
                 .collect(Collectors.toList());
     }
 
-    public List<AugmentedTrilateralNoun> createTimeAndPlaceNounList(AugmentedTrilateralRoot root, int formulaNo) {
-        return createNounList(root, formulaNo, timeAndPlaceIndexesList);
+    public List<AugmentedTrilateralNoun> createTimeAndPlaceNounList(AugmentedTrilateralRoot root, int formulaNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        return createNounList(root, formulaNo, timeAndPlaceIndexesList, genericNounSuffixContainer);
     }
 
     public List<AugmentedTrilateralNoun> createMeemGerundNounList(AugmentedTrilateralRoot root, int formulaNo) {
-        return createNounList(root, formulaNo, meemGerundIndexesList);
+        return createNounList(root, formulaNo, meemGerundIndexesList, this._genericNounSuffixContainer);
     }
 
     //تستعمل في اسم الزمان والمكان والمصدر الميمي
-    private List<AugmentedTrilateralNoun> createNounList(AugmentedTrilateralRoot root, int formulaNo, List<Integer> indexes) {
+    private List<AugmentedTrilateralNoun> createNounList(AugmentedTrilateralRoot root, int formulaNo, List<Integer> indexes, GenericNounSuffixContainer genericNounSuffixContainer) {
         List<AugmentedTrilateralNoun> result = IntStream.range(0, 18)
                 .mapToObj(i -> new EmptyAugmentedTrilateralNoun(root, "0", genericNounSuffixContainer))
                 .collect(Collectors.toList());
 
         indexes.forEach(index -> {
-            AugmentedTrilateralNoun noun = createNoun(root, index, formulaNo);
+            AugmentedTrilateralNoun noun = createNoun(root, index, formulaNo, genericNounSuffixContainer);
             result.set(index, noun);
         });
         return result;
     }
 
-    private AugmentedTrilateralNoun createNoun(AugmentedTrilateralRoot root, int suffixIndex, int formulaNo) {
+    private AugmentedTrilateralNoun createNoun(AugmentedTrilateralRoot root, int suffixIndex, int formulaNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         String suffix = genericNounSuffixContainer.get(suffixIndex);
         switch (formulaNo) {
             case 1:

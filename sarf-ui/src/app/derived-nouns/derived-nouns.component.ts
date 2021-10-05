@@ -11,6 +11,7 @@ import { SarfService } from '../services/sarf-service';
 })
 export class DerivedNounsComponent implements OnInit {
 
+  isUnaugmentedTri: boolean;
   nouns: string[];
   activeParticiples: Array<DerivedNoun>;
   passiveParticiples: Array<DerivedNoun>;
@@ -23,6 +24,7 @@ export class DerivedNounsComponent implements OnInit {
 
   ngOnInit(): void {
     const verbSelectionDetail = this.getVerbSelectionDetail();
+    this.isUnaugmentedTri = verbSelectionDetail.isTri && !verbSelectionDetail.isAugmented;
     this.sarfService.getDerivedNouns(verbSelectionDetail).subscribe(result => {
       console.log(result);
       this.activeParticiples = result.activeParticiples;

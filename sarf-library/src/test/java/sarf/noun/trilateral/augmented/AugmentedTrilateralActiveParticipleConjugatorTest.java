@@ -64,7 +64,7 @@ class AugmentedTrilateralActiveParticipleConjugatorTest {
     @ParameterizedTest(name = "createNounList-اسم الفاعل-{0}")
     @MethodSource("getCreateNounListArguments")
     void createNounList(int formulaNo, Class expected) {
-        var actual = sut.createNounList(new AugmentedTrilateralRoot(), formulaNo);
+        var actual = sut.createNounList(new AugmentedTrilateralRoot(), formulaNo, genericNounSuffixContainer);
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(SystemConstants.NOUN_POSSIBLE_STATES);
