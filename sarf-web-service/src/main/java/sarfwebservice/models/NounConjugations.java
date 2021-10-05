@@ -13,6 +13,7 @@ public class NounConjugations {
     private List<DerivedNounConjugation> exaggeratedActiveParticiples;
     private List<DerivedNounConjugation> instrumentalNouns;
     private List<DerivedNounConjugation> elatives;
+    private List<DerivedNounConjugation> assimilates;
 
     public List<DerivedNounConjugation> getActiveParticiples() {
         return activeParticiples;
@@ -60,5 +61,13 @@ public class NounConjugations {
 
     public List<DerivedNounConjugation> getElatives() {
         return elatives;
+    }
+
+    public void setAssimilates(List<DerivedNounConjugation> assimilates) {
+        this.assimilates = assimilates;
+    }
+
+    public List<DerivedNounConjugation> getAssimilates() {
+        return assimilates;
     }
 }

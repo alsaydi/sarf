@@ -9,6 +9,7 @@ import sarf.noun.TrilateralUnaugmentedNouns;
 import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralActiveParticipleConjugator;
 import sarf.noun.trilateral.unaugmented.UnaugmentedTrilateralPassiveParticipleConjugator;
 import sarf.noun.trilateral.unaugmented.assimilate.AssimilateAdjectiveConjugator;
+import sarf.noun.trilateral.unaugmented.assimilate.AssimilateFormulaE1SuffixContainer;
 import sarf.noun.trilateral.unaugmented.elative.ElativeNounConjugator;
 import sarf.noun.trilateral.unaugmented.elative.ElativeSuffixContainer;
 import sarf.noun.trilateral.unaugmented.exaggeration.NonStandardExaggerationConjugator;
@@ -364,6 +365,39 @@ public class TrilateralUnaugmentedDerivedNounBridgeImpl implements TrilateralUna
             derivedNounConjugation.setDefiniteNouns(definiteResult.getFinalResult().stream().map(WordPresenter::toString).toList());
             derivedNounConjugations.add(derivedNounConjugation);
         }
+        return derivedNounConjugations;
+    }
+
+    @Override
+    public List<DerivedNounConjugation> getAssimilates(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+        var nouns = trilateralUnaugmentedNouns.getAssimilates(root);
+        if(nouns == null || nouns.isEmpty()) {
+            return Collections.emptyList();
+        }
+        var derivedNounConjugations = new ArrayList<DerivedNounConjugation>();
+        var keys = assimilateAdjectiveConjugator.getAppliedFormulaList(root);
+        for(var key: keys) {
+            var derivedNounConjugation = new DerivedNounConjugation();
+            derivedNounConjugation.setKey(key);
+            var assimilateFormulaSuffixContainer = this.suffixContainerFactory.createAssimilate(key);
+            assimilateFormulaSuffixContainer.selectInDefiniteMode();
+            var conjugatedNouns = assimilateAdjectiveConjugator.createNounList(root, key, assimilateFormulaSuffixContainer);
+            var indefiniteResult = assimilateModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setIndefiniteNouns(indefiniteResult.getFinalResult().stream().map(WordPresenter::toString).toList());
+
+            assimilateFormulaSuffixContainer.selectAnnexedMode();
+            conjugatedNouns = assimilateAdjectiveConjugator.createNounList(root, key, assimilateFormulaSuffixContainer);
+            var annexedResult = assimilateModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setAnnexedNouns(annexedResult.getFinalResult().stream().map(WordPresenter::toString).toList());
+
+            assimilateFormulaSuffixContainer.selectDefiniteMode();
+            conjugatedNouns = assimilateAdjectiveConjugator.createNounList(root, key, assimilateFormulaSuffixContainer);
+            var definiteResult = assimilateModifier.build(root, kov, conjugatedNouns, key);
+            derivedNounConjugation.setDefiniteNouns(definiteResult.getFinalResult().stream().map(WordPresenter::toString).toList());
+
+            derivedNounConjugations.add(derivedNounConjugation);
+        }
+
         return derivedNounConjugations;
     }
 }

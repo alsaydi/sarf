@@ -53,8 +53,13 @@
             </div>
         </mat-tab-group>
     </mat-tab>
-    <mat-tab lable="الصفة المشبهة" *ngIf="assimilates && assimilates.length > 0">
-
-
+    <mat-tab label="الصفة المشبهة" *ngIf="assimilates && assimilates.length > 0">
+        <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+            <div *ngFor="let assimilate of assimilates">
+                <mat-tab label="{{assimilate.key}}">
+                    <app-nouns-listing [indefiniteNouns]="assimilate.indefiniteNouns" [annexedNouns]="assimilate.annexedNouns" [definiteNouns]="assimilate.definiteNouns"></app-nouns-listing>
+                </mat-tab>
+            </div>
+        </mat-tab-group>
     </mat-tab>
 </mat-tab-group>

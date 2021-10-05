@@ -29,7 +29,7 @@ public class AssimilateFormulaCSuffixContainer implements INounSuffixContainer{
     //يمثل القائمة المختارة تبعاً للحالة
     private ArrayList<String>  currentSuffixList = indefiniteSuffixList ;
 
-    private AssimilateFormulaCSuffixContainer() {
+    public AssimilateFormulaCSuffixContainer() {
         indefiniteSuffixList.add("ُ");
         indefiniteSuffixList.add("َاءُ");
         indefiniteSuffixList.add("َانِ");

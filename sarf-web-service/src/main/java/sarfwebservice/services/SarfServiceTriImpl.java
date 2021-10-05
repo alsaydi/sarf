@@ -286,6 +286,9 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
 
         var elatives = this.trilateralUnaugmentedDerivedNounBridge.getElatives(root, kov);
         nounConjugations.setElatives(elatives);
+
+        var assimilates = this.trilateralUnaugmentedDerivedNounBridge.getAssimilates(root, kov);
+        nounConjugations.setAssimilates(assimilates);
     }
 
     private NounConjugations getNounsForAugmented(String rootLetters, int formula) {

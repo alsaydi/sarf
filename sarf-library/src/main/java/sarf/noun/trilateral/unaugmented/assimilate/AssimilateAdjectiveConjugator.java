@@ -47,30 +47,39 @@ public class AssimilateAdjectiveConjugator implements IUnaugmentedTrilateralNoun
         formulaIDsMap.put(instance.getFormulaName(), formulaId);
     }
 
-    private NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaID) {
+    private NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaID, INounSuffixContainer nounSuffixContainer) {
             /*
                 لكي تكون هنا: جرب بالفعل صب المضعف.
              */
         switch (formulaID) {
             case "A":
-                return new NounFormulaA(root, suffixNo + "", genericNounSuffixContainer);
+                return new NounFormulaA(root, suffixNo + "", nounSuffixContainer);
             case "B":
-                return new NounFormulaB(root, suffixNo + "", genericNounSuffixContainer);
+                return new NounFormulaB(root, suffixNo + "", nounSuffixContainer);
             case "C":
-                return new NounFormulaC(root, suffixNo + "", genericNounSuffixContainer);
+                return new NounFormulaC(root, suffixNo + "", nounSuffixContainer);
             case "D":
-                return new NounFormulaD(root, suffixNo + "", genericNounSuffixContainer);
+                return new NounFormulaD(root, suffixNo + "", nounSuffixContainer);
             case "E1":
-                return new NounFormulaE1(root, suffixNo + "", AssimilateFormulaE1SuffixContainer.getInstance());
+                return new NounFormulaE1(root, suffixNo + "", nounSuffixContainer);
             case "E2":
-                return new NounFormulaE2(root, suffixNo + "", genericNounSuffixContainer);
+                return new NounFormulaE2(root, suffixNo + "", nounSuffixContainer);
         }
         return null;
     }
 
+    /**
+     * @deprecated Use the version that takes an instance of INounSuffixContainer
+     *
+     */
     public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
+        var nounSuffixContainer = createNounSuffixContainer(formulaName);
+        return createNounList(root, formulaName, nounSuffixContainer);
+
+    }
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName, INounSuffixContainer nounSuffixContainer) {
         String formulaID = formulaIDsMap.get(formulaName);
-        return IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES).mapToObj(i -> createNoun(root, i, formulaID)).collect(Collectors.toList());
+        return IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES).mapToObj(i -> createNoun(root, i, formulaID, nounSuffixContainer)).collect(Collectors.toList());
     }
 
     private void addAdjectiveResult(List<String> result, String adj) {
@@ -99,5 +108,19 @@ public class AssimilateAdjectiveConjugator implements IUnaugmentedTrilateralNoun
             }
         }
         return result;
+    }
+
+    private INounSuffixContainer createNounSuffixContainer(String key) {
+        switch (key){
+            case "أَفْعَل":
+                return AssimilateFormulaCSuffixContainer.getInstance();
+            case "فَعْلان / فَعْلانة":
+                return AssimilateFormulaE1SuffixContainer.getInstance();
+            case "فَعْلان / فَعْلَى":
+                return AssimilateFormulaE2SuffixContainer.getInstance();
+            default:
+                break;
+        }
+        return this.genericNounSuffixContainer;
     }
 }

@@ -30,7 +30,7 @@ public class AssimilateFormulaE1SuffixContainer implements INounSuffixContainer{
     //يمثل القائمة المختارة تبعاً للحالة
     private ArrayList<String>  currentSuffixList = indefiniteSuffixList ;
 
-    private AssimilateFormulaE1SuffixContainer() {
+    public AssimilateFormulaE1SuffixContainer() {
         indefiniteSuffixList.add("ُ");
         indefiniteSuffixList.add("َ ةٌ");
         indefiniteSuffixList.add("َ انِ");
