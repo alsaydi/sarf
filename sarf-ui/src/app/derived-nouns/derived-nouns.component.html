@@ -1,30 +1,64 @@
 <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
     <mat-tab label="إسم الفاعل">
-        <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
-            <div *ngFor="let activeParticiple of activeParticiples">
-                <mat-tab label="{{activeParticiple.key}}">
+        <ng-template matTabContent>
+            <div *ngIf="isUnaugmentedTri; then unaugmentedTriBlock else simpleBlock"></div>
+            <ng-template #unaugmentedTriBlock>
+                <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+                    <div *ngFor="let activeParticiple of activeParticiples">
+                        <mat-tab label="{{activeParticiple.key}}">
+                            <app-nouns-listing [indefiniteNouns]="activeParticiple.indefiniteNouns" [annexedNouns]="activeParticiple.annexedNouns" [definiteNouns]="activeParticiple.definiteNouns"></app-nouns-listing>
+                        </mat-tab>
+                    </div>
+                </mat-tab-group>
+            </ng-template>
+
+            <ng-template #simpleBlock>
+                <div *ngFor="let activeParticiple of activeParticiples">
                     <app-nouns-listing [indefiniteNouns]="activeParticiple.indefiniteNouns" [annexedNouns]="activeParticiple.annexedNouns" [definiteNouns]="activeParticiple.definiteNouns"></app-nouns-listing>
-                </mat-tab>
-            </div>
-        </mat-tab-group>
+                </div>
+            </ng-template>
+
+        </ng-template>
+
     </mat-tab>
     <mat-tab label="إسم المفعول">
-        <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
-            <div *ngFor="let passiveParticiple of passiveParticiples">
-                <mat-tab label="{{passiveParticiple.key}}">
+        <ng-template matTabContent>
+            <div *ngIf="isUnaugmentedTri; then unaugmentedTriBlock else simpleBlock"></div>
+            <ng-template #unaugmentedTriBlock>
+                <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+                    <div *ngFor="let passiveParticiple of passiveParticiples">
+                        <mat-tab label="{{passiveParticiple.key}}">
+                            <app-nouns-listing [indefiniteNouns]="passiveParticiple.indefiniteNouns" [annexedNouns]="passiveParticiple.annexedNouns" [definiteNouns]="passiveParticiple.definiteNouns"></app-nouns-listing>
+                        </mat-tab>
+                    </div>
+                </mat-tab-group>
+            </ng-template>
+            <ng-template #simpleBlock>
+                <div *ngFor="let passiveParticiple of passiveParticiples">
                     <app-nouns-listing [indefiniteNouns]="passiveParticiple.indefiniteNouns" [annexedNouns]="passiveParticiple.annexedNouns" [definiteNouns]="passiveParticiple.definiteNouns"></app-nouns-listing>
-                </mat-tab>
-            </div>
-        </mat-tab-group>
+                </div>
+            </ng-template>
+        </ng-template>
     </mat-tab>
     <mat-tab label="إسما الزمان و المكان" *ngIf="timeAndPlaceNouns && timeAndPlaceNouns.length > 0">
-        <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
-            <div *ngFor="let timeAndPlaceNoun of timeAndPlaceNouns">
-                <mat-tab label="{{timeAndPlaceNoun.key}}">
+        <ng-template matTabContent>
+            <div *ngIf="isUnaugmentedTri; then unaugmentedTriBlock else simpleBlock"></div>
+            <ng-template #unaugmentedTriBlock>
+                <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+                    <div *ngFor="let timeAndPlaceNoun of timeAndPlaceNouns">
+                        <mat-tab label="{{timeAndPlaceNoun.key}}">
+                            <app-nouns-listing [indefiniteNouns]="timeAndPlaceNoun.indefiniteNouns" [annexedNouns]="timeAndPlaceNoun.annexedNouns" [definiteNouns]="timeAndPlaceNoun.definiteNouns"></app-nouns-listing>
+                        </mat-tab>
+                    </div>
+                </mat-tab-group>
+            </ng-template>
+            <ng-template #simpleBlock>
+                <div *ngFor="let timeAndPlaceNoun of timeAndPlaceNouns">
                     <app-nouns-listing [indefiniteNouns]="timeAndPlaceNoun.indefiniteNouns" [annexedNouns]="timeAndPlaceNoun.annexedNouns" [definiteNouns]="timeAndPlaceNoun.definiteNouns"></app-nouns-listing>
-                </mat-tab>
-            </div>
-        </mat-tab-group>
+                </div>
+            </ng-template>
+        </ng-template>
+
     </mat-tab>
     <mat-tab label="مبالغة اسم الفاعل" *ngIf="exaggeratedActiveParticiples && exaggeratedActiveParticiples.length > 0">
         <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
