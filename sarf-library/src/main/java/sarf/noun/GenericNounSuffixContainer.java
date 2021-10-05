@@ -16,7 +16,7 @@ import java.util.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
-@Singleton
+@Singleton //TODO: it's ok to be singleton in the desktop app. We can't have this as a singleton in the web app
 public class GenericNounSuffixContainer implements INounSuffixContainer {
     //حالة النكرة
     private final List<String> indefiniteSuffixList = new ArrayList<>(18);

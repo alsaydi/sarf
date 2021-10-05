@@ -21,13 +21,13 @@ public class GenericElativeNounFormula extends NounFormula {
 
     private NounFormula appliedNounFormula;
 
-    public GenericElativeNounFormula(UnaugmentedTrilateralRoot root, String suffixNo) {
-        super(root, suffixNo, ElativeSuffixContainer.getInstance());
-        if ((Integer.parseInt(suffixNo) + 1) % 2 == 0 && (ElativeSuffixContainer.getInstance().isDefinite() || ElativeSuffixContainer.getInstance().isAnnexed())) {
-            appliedNounFormula = new NounFormula2(root, suffixNo);
+    public GenericElativeNounFormula(UnaugmentedTrilateralRoot root, String suffixNo, ElativeSuffixContainer elativeSuffixContainer) {
+        super(root, suffixNo, elativeSuffixContainer);
+        if ((Integer.parseInt(suffixNo) + 1) % 2 == 0 && (elativeSuffixContainer.isDefinite() || elativeSuffixContainer.isAnnexed())) {
+            appliedNounFormula = new NounFormula2(root, suffixNo, elativeSuffixContainer);
         }
         else {
-            appliedNounFormula = new NounFormula1(root, suffixNo);
+            appliedNounFormula = new NounFormula1(root, suffixNo, elativeSuffixContainer);
         }
     }
 

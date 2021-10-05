@@ -66,7 +66,7 @@ public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateral
         formulaSymbolsNamesMap.put(instance.getSymbol(), instance.getFormulaName());
     }
 
-    private NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaName) {
+    private NounFormula createNoun(UnaugmentedTrilateralRoot root, int suffixNo, String formulaName, GenericNounSuffixContainer genericNounSuffixContainer) {
         Object[] parameters = {root, suffixNo + "", genericNounSuffixContainer};
 
         try {
@@ -78,10 +78,17 @@ public class NonStandardInstrumentalConjugator implements IUnaugmentedTrilateral
         return null;
     }
 
+    /**
+     * @deprecated Use the version of this method that takes an instance of GenericNounSuffixContainer
+     * Having a single version of GenericNounSuffixContainer will cause an issue in multi-threaded environments
+     */
     public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
+        return this.createNounList(root, formulaName, this.genericNounSuffixContainer);
+    }
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName, GenericNounSuffixContainer genericNounSuffixContainer) {
         List<NounFormula> result = new LinkedList<>();
         for (int i = 0; i < 18; i++) {
-            NounFormula noun = createNoun(root, i, formulaName);
+            NounFormula noun = createNoun(root, i, formulaName, genericNounSuffixContainer);
             result.add(noun);
         }
         return result;

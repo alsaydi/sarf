@@ -30,9 +30,14 @@ public class ElativeNounConjugator implements IUnaugmentedTrilateralNounConjugat
         this.databaseManager = databaseManager;
     }
 
-    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName)
+    {
+        return this.createNounList(root, formulaName, ElativeSuffixContainer.getInstance());
+    }
+
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName, ElativeSuffixContainer elativeSuffixContainer) {
         return IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
-                .mapToObj(i -> new GenericElativeNounFormula(root, i + ""))
+                .mapToObj(i -> new GenericElativeNounFormula(root, i + "", elativeSuffixContainer))
                 .collect(Collectors.toList());
     }
 

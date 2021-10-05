@@ -19,14 +19,17 @@ import sarf.noun.*;
  */
 public class NounFormula1 extends NounFormula {
 
-    public NounFormula1(UnaugmentedTrilateralRoot root, String suffixNo) {
+    private final ElativeSuffixContainer elativeSuffixContainer;
+    public NounFormula1(UnaugmentedTrilateralRoot root, String suffixNo, ElativeSuffixContainer elativeSuffixContainer) {
+        this.elativeSuffixContainer = elativeSuffixContainer;
         this.root = root;
         this.suffixNo = Integer.parseInt(suffixNo) + 1;
-        suffix = ElativeSuffixContainer.getInstance().get(this.suffixNo - 1).replaceAll(" ", "");
+        suffix = elativeSuffixContainer.get(this.suffixNo - 1).replaceAll(" ", "");
     }
 
     //to be used in refection getting the formula name
     public NounFormula1() {
+        this.elativeSuffixContainer = ElativeSuffixContainer.getInstance();
     }
 
     public String form() {
@@ -38,7 +41,7 @@ public class NounFormula1 extends NounFormula {
     }
 
     protected INounSuffixContainer getNounSuffixContainer() {
-        return ElativeSuffixContainer.getInstance();
+        return this.elativeSuffixContainer;
     }
 
 

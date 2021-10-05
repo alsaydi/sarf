@@ -26,20 +26,26 @@ public class UnaugmentedTrilateralPassiveParticipleConjugator implements IUnaugm
         this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
-    private UnaugmentedTrilateralPassiveParticiple createNoun(UnaugmentedTrilateralRoot root, int suffixIndex) {
+    private static UnaugmentedTrilateralPassiveParticiple createNoun(UnaugmentedTrilateralRoot root, int suffixIndex, GenericNounSuffixContainer genericNounSuffixContainer) {
         String suffix = genericNounSuffixContainer.get(suffixIndex);
         return new UnaugmentedTrilateralPassiveParticiple(root, suffix, genericNounSuffixContainer);
     }
 
+    /**
+     * @deprecated Use the version that takes an instance of GenericNounSuffixContainer
+     *
+     */
     public List<UnaugmentedTrilateralPassiveParticiple> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
+        return this.createNounList(root, formulaName, this.genericNounSuffixContainer);
+    }
+    public List<UnaugmentedTrilateralPassiveParticiple> createNounList(UnaugmentedTrilateralRoot root, String formulaName, GenericNounSuffixContainer genericNounSuffixContainer) {
         List<UnaugmentedTrilateralPassiveParticiple> result = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
         for (int i = 0; i< SystemConstants.NOUN_POSSIBLE_STATES; i++) {
-            result.add(createNoun(root, i));
+            result.add(createNoun(root, i, genericNounSuffixContainer));
         }
         return result;
     }
 
-    //TODO: why null?
     public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) {
         return Collections.emptyList();
     }

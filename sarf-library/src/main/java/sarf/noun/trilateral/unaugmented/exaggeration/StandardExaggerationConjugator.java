@@ -33,7 +33,15 @@ public class StandardExaggerationConjugator implements IUnaugmentedTrilateralNou
         this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
-    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName) {
+    /**
+     * @deprecated Use the version that takes an instance of GenericNounSuffixContainer
+     *
+     */
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName){
+        return this.createNounList(root, formulaName, this.genericNounSuffixContainer);
+    }
+
+    public List<NounFormula> createNounList(UnaugmentedTrilateralRoot root, String formulaName, GenericNounSuffixContainer genericNounSuffixContainer) {
         List<NounFormula> result = new ArrayList<>();
         for (int i = 0; i < SystemConstants.NOUN_POSSIBLE_STATES; i++) {
             NounFormula noun = new NounFormula1(root, i + "", genericNounSuffixContainer);
