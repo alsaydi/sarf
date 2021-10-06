@@ -95,7 +95,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
             Action action = () -> {
                 List<? extends Word> gerunds;
                 if (selectionInfo.isTrilateral()) {
-                    gerunds = trilateralAugmentedGerundConjugator.createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    gerunds = trilateralAugmentedGerundConjugator.createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), genericNounSuffixContainer);
                     ConjugationResult conjResult = trilateralAugmentedStandardModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                             selectionInfo.getAugmentationFormulaNo(), gerunds, GerundSelectionUI.this);
                     return conjResult.getFinalResult();
@@ -117,7 +117,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
             Action action = () -> {
                 List<? extends Word> gerunds;
                 if (selectionInfo.isTrilateral()) {
-                    gerunds = trilateralAugmentedNomenGerundConjugator.createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    gerunds = trilateralAugmentedNomenGerundConjugator.createGerundList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), genericNounSuffixContainer);
                     var conjResult = trilateralAugmentedStandardModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                             selectionInfo.getAugmentationFormulaNo(), gerunds, GerundSelectionUI.this);
                     return conjResult.getFinalResult();
@@ -139,7 +139,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
             Action action = () -> {
                 if (selectionInfo.isTrilateral()) {
                     //here the Trilateral augmented
-                    var result = augmentedTrilateralPassiveParticipleConjugator.createMeemGerundNounList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    var result = augmentedTrilateralPassiveParticipleConjugator.createMeemGerundNounList((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), genericNounSuffixContainer);
                     ConjugationResult conjResult = passiveParticipleModifier.build((AugmentedTrilateralRoot) selectionInfo.getRoot(), selectionInfo.getKov(),
                             selectionInfo.getAugmentationFormulaNo(), result, GerundSelectionUI.this);
 

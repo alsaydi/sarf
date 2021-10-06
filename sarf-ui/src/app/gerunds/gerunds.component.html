@@ -1,30 +1,30 @@
 <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
     <mat-tab label="المصدر الأصلي">
-                <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
-                    <div *ngFor="let standard of standards">
-                        <mat-tab label="{{standard.key}}">
-                            <app-nouns-listing [indefiniteNouns]="standard.indefiniteNouns" [annexedNouns]="standard.annexedNouns" [definiteNouns]="standard.definiteNouns"></app-nouns-listing>
-                        </mat-tab>
-                    </div>
-                </mat-tab-group>
+        <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+            <div *ngFor="let standard of standards">
+                <mat-tab label="{{standard.key}}">
+                    <app-nouns-listing [indefiniteNouns]="standard.indefiniteNouns" [annexedNouns]="standard.annexedNouns" [definiteNouns]="standard.definiteNouns"></app-nouns-listing>
+                </mat-tab>
+            </div>
+        </mat-tab-group>
     </mat-tab>
     <mat-tab label="المصدر الميمي">
-                <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
-                    <div *ngFor="let meem of meems">
-                        <mat-tab label="{{meem.key}}">
-                            <app-nouns-listing [indefiniteNouns]="meem.indefiniteNouns" [annexedNouns]="meem.annexedNouns" [definiteNouns]="meem.definiteNouns"></app-nouns-listing>
-                        </mat-tab>
-                    </div>
-                </mat-tab-group>
+        <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+            <div *ngFor="let meem of meems">
+                <mat-tab label="{{meem.key}}">
+                    <app-nouns-listing [indefiniteNouns]="meem.indefiniteNouns" [annexedNouns]="meem.annexedNouns" [definiteNouns]="meem.definiteNouns"></app-nouns-listing>
+                </mat-tab>
+            </div>
+        </mat-tab-group>
     </mat-tab>
     <mat-tab label="مصدر المرة" *ngIf="nomens && nomens.length > 0">
-                <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
-                    <div *ngFor="let nomen of nomens">
-                        <mat-tab label="{{nomen.key}}">
-                            <app-nouns-listing [indefiniteNouns]="nomen.indefiniteNouns" [annexedNouns]="nomen.annexedNouns" [definiteNouns]="nomen.definiteNouns"></app-nouns-listing>
-                        </mat-tab>
-                    </div>
-                </mat-tab-group>
+        <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+            <div *ngFor="let nomen of nomens">
+                <mat-tab label="{{nomen.key}}">
+                    <app-nouns-listing [indefiniteNouns]="nomen.indefiniteNouns" [annexedNouns]="nomen.annexedNouns" [definiteNouns]="nomen.definiteNouns"></app-nouns-listing>
+                </mat-tab>
+            </div>
+        </mat-tab-group>
     </mat-tab>
     <mat-tab label="مصدر الهيئة" *ngIf="qualityGerunds && qualityGerunds.length > 0">
         <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">

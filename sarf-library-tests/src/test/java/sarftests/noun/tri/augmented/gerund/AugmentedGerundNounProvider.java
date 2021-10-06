@@ -27,6 +27,7 @@ import com.google.inject.Inject;
 import sarf.SarfDictionary;
 import sarf.gerund.modifier.trilateral.augmented.standard.TrilateralAugmentedStandardModifier;
 import sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugator;
+import sarf.noun.GenericNounSuffixContainer;
 import sarftests.noun.INounProvider;
 import sarftests.verb.tri.Common;
 
@@ -59,7 +60,7 @@ public class AugmentedGerundNounProvider implements INounProvider {
         try {
             var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
             var kov = common.getKindOfVerb(rootLetters);
-            var gerunds = conjugator.createGerundList(augmentedRoot, formula);
+            var gerunds = conjugator.createGerundList(augmentedRoot, formula, new GenericNounSuffixContainer());
             var conjugationResult = modifier.build(augmentedRoot, kov, formula, gerunds, () -> true).getFinalResult();
             var result = new ArrayList<String>();
             for (var n : conjugationResult) {

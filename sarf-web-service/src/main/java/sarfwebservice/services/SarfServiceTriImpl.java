@@ -36,11 +36,7 @@ import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator;
 import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
 import sarfwebservice.models.*;
-import sarfwebservice.sarf.bridges.TrilateralAugmentedBridge;
-import sarfwebservice.sarf.bridges.TrilateralAugmentedDerivedNounBridge;
-import sarfwebservice.sarf.bridges.TrilateralUnaugmentedBridge;
-import sarfwebservice.sarf.bridges.TrilateralUnaugmentedDerivedNounBridge;
-import sarfwebservice.sarf.bridges.TrilateralUnaugmentedGerundBridge;
+import sarfwebservice.sarf.bridges.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -62,6 +58,7 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
     private final TrilateralUnaugmentedDerivedNounBridge trilateralUnaugmentedDerivedNounBridge;
     private final TrilateralAugmentedDerivedNounBridge trilateralAugmentedDerivedNounBridge;
     private final TrilateralUnaugmentedGerundBridge trilateralUnaugmentedGerundBridge;
+    private final TrilateralAugmentedGerundBridge trilateralAugmentedGerundBridge;
 
     @Autowired
     public SarfServiceTriImpl(SarfDictionary sarfDictionary
@@ -77,7 +74,8 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
             , TrilateralAugmentedBridge trilateralAugmentedBridge
             , TrilateralUnaugmentedDerivedNounBridge trilateralUnaugmentedDerivedNounBridge
             , TrilateralAugmentedDerivedNounBridge trilateralAugmentedDerivedNounBridge
-            , TrilateralUnaugmentedGerundBridge trilateralUnaugmentedGerundBridge) {
+            , TrilateralUnaugmentedGerundBridge trilateralUnaugmentedGerundBridge
+            , TrilateralAugmentedGerundBridge trilateralAugmentedGerundBridge) {
         super(sarfValidator);
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
@@ -92,6 +90,7 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         this.trilateralUnaugmentedDerivedNounBridge = trilateralUnaugmentedDerivedNounBridge;
         this.trilateralAugmentedDerivedNounBridge = trilateralAugmentedDerivedNounBridge;
         this.trilateralUnaugmentedGerundBridge = trilateralUnaugmentedGerundBridge;
+        this.trilateralAugmentedGerundBridge = trilateralAugmentedGerundBridge;
     }
 
     private static List<Word> createEmptyList() {
@@ -374,11 +373,29 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         var nomens = this.trilateralUnaugmentedGerundBridge.getNomenGerunds(root, kov);
         gerundConjugations.setNomens(nomens);
 
-        var qgerunds = this.trilateralUnaugmentedGerundBridge.getQualityGerunds(root, kov);
-        gerundConjugations.setQualityGerunds(qgerunds);
+        var qGerunds = this.trilateralUnaugmentedGerundBridge.getQualityGerunds(root, kov);
+        gerundConjugations.setQualityGerunds(qGerunds);
     }
 
-    private GerundConjugations getGerundsForAugmented(String rootLetters, int formula) {
-        return null;
+    private GerundConjugations getGerundsForAugmented(String rootLetters, int formula) throws Exception {
+        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+        var root = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
+        if (root == null) {
+            throw new Exception(String.format("Could not find a root with letters %s", rootLetters));
+        }
+        var gerundConjugations = new GerundConjugations();
+        setGerundsForAugmented(kov, formula, root, gerundConjugations);
+        return gerundConjugations;
+    }
+
+    private void setGerundsForAugmented(KindOfVerb kov, int formulaNo, AugmentedTrilateralRoot root, GerundConjugations gerundConjugations) throws Exception {
+        var standards = this.trilateralAugmentedGerundBridge.getStandardGerunds(root, kov, formulaNo);
+        gerundConjugations.setStandards(standards);
+
+        var meems = this.trilateralAugmentedGerundBridge.getMeemGerunds(root, kov, formulaNo);
+        gerundConjugations.setMeems(meems);
+
+        var nomens = this.trilateralAugmentedGerundBridge.getNomenGerunds(root, kov, formulaNo);
+        gerundConjugations.setNomens(nomens);
     }
 }

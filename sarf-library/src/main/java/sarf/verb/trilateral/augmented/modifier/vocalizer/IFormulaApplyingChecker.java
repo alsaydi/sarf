@@ -19,7 +19,7 @@ import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 public abstract class IFormulaApplyingChecker {
     public final static int TWO_STATE = 1;
     public final static int NOT_VOCALIZED = 2;
-    public final static int NO_THING = 0;
+    public final static int NONE = 0;
 
     IFormulaApplyingChecker() {
     }
@@ -39,7 +39,7 @@ public abstract class IFormulaApplyingChecker {
             return NOT_VOCALIZED;
         if (getTwoStateList().contains(rootString))
             return TWO_STATE;
-        return NO_THING;
+        return NONE;
     }
 
     protected abstract List getNotVocalizedList();

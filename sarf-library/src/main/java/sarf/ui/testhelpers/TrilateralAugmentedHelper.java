@@ -217,7 +217,7 @@ public class TrilateralAugmentedHelper {
                 return;
             }
             for(var formula: augmentedRoot.getAugmentationList()){
-                var nouns = gerundConjugator.createGerundList(augmentedRoot, formula.getFormulaNo());
+                var nouns = gerundConjugator.createGerundList(augmentedRoot, formula.getFormulaNo(), new GenericNounSuffixContainer());
                 var conjugationResult = trilateralAugmentedStandardModifier.build(augmentedRoot, kov, formula.getFormulaNo(), nouns, () -> true);
                 printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(), formula);
             }
@@ -235,7 +235,7 @@ public class TrilateralAugmentedHelper {
                 return;
             }
             for(var formula: augmentedRoot.getAugmentationList()){
-                var nouns = nomenGerundConjugator.createGerundList(augmentedRoot, formula.getFormulaNo());
+                var nouns = nomenGerundConjugator.createGerundList(augmentedRoot, formula.getFormulaNo(), new GenericNounSuffixContainer());
                 var conjugationResult = trilateralAugmentedStandardModifier.build(augmentedRoot, kov, formula.getFormulaNo(), nouns, () -> true);
                 printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(), formula);
             }
@@ -253,7 +253,7 @@ public class TrilateralAugmentedHelper {
                 return;
             }
             for(var formula: augmentedRoot.getAugmentationList()){
-                var nouns = augmentedTrilateralPassiveParticipleConjugator.createMeemGerundNounList(augmentedRoot, formula.getFormulaNo());
+                var nouns = augmentedTrilateralPassiveParticipleConjugator.createMeemGerundNounList(augmentedRoot, formula.getFormulaNo(), new GenericNounSuffixContainer());
                 var conjugationResult = passiveParticipleModifier.build(augmentedRoot, kov, formula.getFormulaNo(), nouns, () -> true);
                 printFinalResultPipeSeparated(augmentedRoot, conjugationResult.getFinalResult(), formula);
             }

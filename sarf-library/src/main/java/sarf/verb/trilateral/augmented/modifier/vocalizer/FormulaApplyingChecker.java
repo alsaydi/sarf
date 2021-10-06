@@ -31,6 +31,6 @@ public class FormulaApplyingChecker {
         case 9:
             return formula9ApplyingChecker.check(root);
         }
-        return IFormulaApplyingChecker.NO_THING;
+        return IFormulaApplyingChecker.NONE;
     }
 }
