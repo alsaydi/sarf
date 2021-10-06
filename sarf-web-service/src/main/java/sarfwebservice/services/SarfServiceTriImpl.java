@@ -364,9 +364,18 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         return  gerundConjugations;
     }
 
-    private void setGerunds(KindOfVerb kov, UnaugmentedTrilateralRoot root, GerundConjugations gerundConjugations) {
+    private void setGerunds(KindOfVerb kov, UnaugmentedTrilateralRoot root, GerundConjugations gerundConjugations) throws Exception {
         var standards = this.trilateralUnaugmentedGerundBridge.getStandardGerunds(root, kov);
         gerundConjugations.setStandards(standards);
+
+        var meems = this.trilateralUnaugmentedGerundBridge.getMeemGerunds(root, kov);
+        gerundConjugations.setMeems(meems);
+
+        var nomens = this.trilateralUnaugmentedGerundBridge.getNomenGerunds(root, kov);
+        gerundConjugations.setNomens(nomens);
+
+        var qgerunds = this.trilateralUnaugmentedGerundBridge.getQualityGerunds(root, kov);
+        gerundConjugations.setQualityGerunds(qgerunds);
     }
 
     private GerundConjugations getGerundsForAugmented(String rootLetters, int formula) {

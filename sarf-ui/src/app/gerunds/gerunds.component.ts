@@ -23,6 +23,9 @@ export class GerundsComponent implements OnInit {
     this.sarfService.getGerunds(verbSelectionDetail).subscribe(result => {
       console.log(result);
       this.standards = result.standards;
+      this.meems = result.meems;
+      this.nomens = result.nomens;
+      this.qualityGerunds = result.qualityGerunds;
     });
   }
 

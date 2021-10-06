@@ -32,7 +32,7 @@ import java.util.List;
 
 public interface TrilateralUnaugmentedGerundBridge {
     List<DerivedNounConjugation> getStandardGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
-    List<DerivedNounConjugation> getMeemGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+    List<DerivedNounConjugation> getMeemGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov) throws Exception;
     List<DerivedNounConjugation> getNomenGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
-    List<DerivedNounConjugation> getQualityGerundGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+    List<DerivedNounConjugation> getQualityGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
 }

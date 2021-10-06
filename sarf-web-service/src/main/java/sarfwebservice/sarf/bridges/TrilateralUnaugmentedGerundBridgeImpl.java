@@ -107,20 +107,89 @@ public class TrilateralUnaugmentedGerundBridgeImpl implements TrilateralUnaugmen
     }
 
     @Override
-    public List<DerivedNounConjugation> getMeemGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+    public List<DerivedNounConjugation> getMeemGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov) throws Exception {
         var derivedNounConjugations = new ArrayList<DerivedNounConjugation>();
+        var keys = meemGerundConjugator.getAppliedFormulaList(root);
+        for(var key: keys) {
+            var derivedNounConjugation = new DerivedNounConjugation();
+            var nounSuffixContainer = suffixContainerFactory.create();
+            derivedNounConjugation.setKey(key);
+
+            nounSuffixContainer.selectInDefiniteMode();
+            var conjugatedGerunds = meemGerundConjugator.createGerundList(root, key, nounSuffixContainer);
+            var indefinite = trilateralUnaugmentedMeemModifier.build(root, kov, conjugatedGerunds, key);
+            derivedNounConjugation.setIndefiniteNouns(indefinite.getFinalResult().stream().map(WordPresenter::toString).toList());
+
+            nounSuffixContainer.selectAnnexedMode();
+            conjugatedGerunds = meemGerundConjugator.createGerundList(root, key, nounSuffixContainer);
+            var annexed = trilateralUnaugmentedMeemModifier.build(root, kov, conjugatedGerunds, key);
+            derivedNounConjugation.setAnnexedNouns(annexed.getFinalResult().stream().map(WordPresenter::toString).toList());
+
+            nounSuffixContainer.selectDefiniteMode();
+            conjugatedGerunds = meemGerundConjugator.createGerundList(root, key, nounSuffixContainer);
+            var definite = trilateralUnaugmentedMeemModifier.build(root, kov, conjugatedGerunds, key);
+            derivedNounConjugation.setDefiniteNouns(definite.getFinalResult().stream().map(WordPresenter::toString).toList());
+
+            derivedNounConjugations.add(derivedNounConjugation);
+        }
         return derivedNounConjugations;
     }
 
     @Override
     public List<DerivedNounConjugation> getNomenGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         var derivedNounConjugations = new ArrayList<DerivedNounConjugation>();
+        var keys = trilateralUnaugmentedNomenGerundConjugator.getAppliedFormulaList(root);
+        for(var key: keys) {
+            var derivedNounConjugation = new DerivedNounConjugation();
+            var nounSuffixContainer = suffixContainerFactory.create();
+            derivedNounConjugation.setKey(key);
+
+            nounSuffixContainer.selectInDefiniteMode();
+            var conjugatedGerunds = trilateralUnaugmentedNomenGerundConjugator.createGerundList(root, key, nounSuffixContainer);
+            var indefinite = trilateralUnaugmentedNomenModifier.build(root, kov, conjugatedGerunds, key);
+            derivedNounConjugation.setIndefiniteNouns(indefinite.getFinalResult().stream().map(WordPresenter::toString).toList());
+
+            nounSuffixContainer.selectAnnexedMode();
+            conjugatedGerunds = trilateralUnaugmentedNomenGerundConjugator.createGerundList(root, key, nounSuffixContainer);
+            var annexed = trilateralUnaugmentedNomenModifier.build(root, kov, conjugatedGerunds, key);
+            derivedNounConjugation.setAnnexedNouns(annexed.getFinalResult().stream().map(WordPresenter::toString).toList());
+
+            nounSuffixContainer.selectDefiniteMode();
+            conjugatedGerunds = trilateralUnaugmentedNomenGerundConjugator.createGerundList(root, key, nounSuffixContainer);
+            var definite = trilateralUnaugmentedNomenModifier.build(root, kov, conjugatedGerunds, key);
+            derivedNounConjugation.setDefiniteNouns(definite.getFinalResult().stream().map(WordPresenter::toString).toList());
+
+            derivedNounConjugations.add(derivedNounConjugation);
+        }
         return derivedNounConjugations;
     }
 
     @Override
-    public List<DerivedNounConjugation> getQualityGerundGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+    public List<DerivedNounConjugation> getQualityGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         var derivedNounConjugations = new ArrayList<DerivedNounConjugation>();
+        var keys = List.of("فِعْلَة"); //TODO: move this special to the conjugator for consistency.
+        for(var key: keys) {
+            var derivedNounConjugation = new DerivedNounConjugation();
+            var nounSuffixContainer = suffixContainerFactory.create();
+            derivedNounConjugation.setKey(key);
+
+            nounSuffixContainer.selectInDefiniteMode();
+            var conjugatedGerunds = qualityGerundConjugator.createGerundList(root, key, nounSuffixContainer);
+            var indefinite = trilateralUnaugmentedQualityModifier.build(root, kov, conjugatedGerunds, key);
+            derivedNounConjugation.setIndefiniteNouns(indefinite.getFinalResult().stream().map(WordPresenter::toString).toList());
+
+            nounSuffixContainer.selectAnnexedMode();
+            conjugatedGerunds = qualityGerundConjugator.createGerundList(root, key, nounSuffixContainer);
+            var annexed = trilateralUnaugmentedQualityModifier.build(root, kov, conjugatedGerunds, key);
+            derivedNounConjugation.setAnnexedNouns(annexed.getFinalResult().stream().map(WordPresenter::toString).toList());
+
+            nounSuffixContainer.selectDefiniteMode();
+            conjugatedGerunds = qualityGerundConjugator.createGerundList(root, key, nounSuffixContainer);
+            var definite = trilateralUnaugmentedQualityModifier.build(root, kov, conjugatedGerunds, key);
+            derivedNounConjugation.setDefiniteNouns(definite.getFinalResult().stream().map(WordPresenter::toString).toList());
+
+            derivedNounConjugations.add(derivedNounConjugation);
+        }
         return derivedNounConjugations;
     }
 }
