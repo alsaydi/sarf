@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import sarfwebservice.exceptions.InvalidRootException;
 import sarfwebservice.exceptions.RootNotFoundException;
+import sarfwebservice.models.GerundConjugations;
 import sarfwebservice.models.NounConjugations;
 import sarfwebservice.models.RootResult;
 import sarfwebservice.models.VerbConjugations;
@@ -168,6 +169,33 @@ public class SarfController {
     }
 
     private NounConjugations getNounConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) {
+        return null;
+    }
+
+    @RequestMapping("/gerunds/{rootLetters}")
+    GerundConjugations gerunds(@PathVariable String rootLetters
+            , @RequestParam boolean augmented
+            , @RequestParam int cclass
+            , @RequestParam int formula) throws Exception {
+        if (!isValidRoot(rootLetters)) {
+            throw new InvalidRootException(String.format("ينبغي تحديد جذر مناسب للكلمة - %s.", rootLetters));
+        }
+
+        if (rootLetters.length() == 3) {
+            return getGerundConjugationsTri(rootLetters, augmented, cclass, formula);
+        }
+        return getGerundConjugationsQuad(rootLetters, augmented, cclass, formula);
+    }
+
+    private GerundConjugations getGerundConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        var result = this.sarfServiceTri.getGerunds(rootLetters, augmented, cclass, formula);
+        if(result == null) {
+            throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
+        }
+        return  result;
+    }
+
+    private GerundConjugations getGerundConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) {
         return null;
     }
 }

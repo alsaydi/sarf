@@ -85,10 +85,21 @@ public class TrilateralUnaugmentedGerundBridgeImpl implements TrilateralUnaugmen
             var derivedNounConjugation = new DerivedNounConjugation();
             var nounSuffixContainer = suffixContainerFactory.createStandardGerund();
             derivedNounConjugation.setKey(key);
+
             nounSuffixContainer.selectInDefiniteMode();
             var conjugatedGerunds = trilateralUnaugmentedGerundConjugator.createGerundList(root, key, nounSuffixContainer);
             var indefinite = unaugmentedTrilateralStandardGerundModifier.build(root, kov, conjugatedGerunds, key);
             derivedNounConjugation.setIndefiniteNouns(indefinite.getFinalResult().stream().map(WordPresenter::toString).toList());
+
+            nounSuffixContainer.selectAnnexedMode();
+            conjugatedGerunds = trilateralUnaugmentedGerundConjugator.createGerundList(root, key, nounSuffixContainer);
+            var annexed = unaugmentedTrilateralStandardGerundModifier.build(root, kov, conjugatedGerunds, key);
+            derivedNounConjugation.setAnnexedNouns(annexed.getFinalResult().stream().map(WordPresenter::toString).toList());
+
+            nounSuffixContainer.selectDefiniteMode();
+            conjugatedGerunds = trilateralUnaugmentedGerundConjugator.createGerundList(root, key, nounSuffixContainer);
+            var definite = unaugmentedTrilateralStandardGerundModifier.build(root, kov, conjugatedGerunds, key);
+            derivedNounConjugation.setDefiniteNouns(definite.getFinalResult().stream().map(WordPresenter::toString).toList());
 
             derivedNounConjugations.add(derivedNounConjugation);
         }

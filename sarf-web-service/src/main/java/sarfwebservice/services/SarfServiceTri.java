@@ -24,6 +24,7 @@ package sarfwebservice.services;
  * SOFTWARE.
  */
 
+import sarfwebservice.models.GerundConjugations;
 import sarfwebservice.models.NounConjugations;
 import sarfwebservice.models.RootResult;
 import sarfwebservice.models.VerbConjugations;
@@ -38,4 +39,6 @@ public interface SarfServiceTri extends SarfService {
     VerbConjugations getPassiveVerbConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception;
 
     NounConjugations getNouns(String rootLetters, boolean augmented, int cclass, int formula) throws Exception;
+
+    GerundConjugations getGerunds(String rootLetters, boolean augmented, int cclass, int formula) throws Exception;
 }
