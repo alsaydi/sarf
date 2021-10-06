@@ -24,5 +24,15 @@ package sarfwebservice.sarf.bridges;
  * SOFTWARE.
  */
 
+import sarf.KindOfVerb;
+import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
+import sarfwebservice.models.DerivedNounConjugation;
+
+import java.util.List;
+
 public interface TrilateralUnaugmentedGerundBridge {
+    List<DerivedNounConjugation> getStandardGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+    List<DerivedNounConjugation> getMeemGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+    List<DerivedNounConjugation> getNomenGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+    List<DerivedNounConjugation> getQualityGerundGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
 }

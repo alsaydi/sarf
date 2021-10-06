@@ -5,6 +5,7 @@ import org.apache.commons.digester3.Digester;
 import sarf.Gerund;
 import sarf.SystemConstants;
 import sarf.Word;
+import sarf.noun.INounSuffixContainer;
 import sarf.util.FileUtil;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
@@ -27,12 +28,10 @@ import java.util.stream.IntStream;
  * @version 1.0
  */
 public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilateralGerundConjugator {
-    private final StandardTrilateralUnaugmentedSuffixContainer standardTrilateralUnaugmentedSuffixContainer;
     private static GerundDescriptionList gerundDescriptionList;
 
     @Inject
-    public TrilateralUnaugmentedGerundConjugator(StandardTrilateralUnaugmentedSuffixContainer standardTrilateralUnaugmentedSuffixContainer) {
-        this.standardTrilateralUnaugmentedSuffixContainer = standardTrilateralUnaugmentedSuffixContainer;
+    public TrilateralUnaugmentedGerundConjugator() {
         init();
     }
 
@@ -42,14 +41,15 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
                 .collect(Collectors.toCollection(() -> new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES)));
     }
 
-    public List<Word> createGerundList(UnaugmentedTrilateralRoot root, String pattern) {
+    public List<Word> createGerundList(UnaugmentedTrilateralRoot root, String pattern
+            , INounSuffixContainer standardTrilateralUnaugmentedSuffixContainer) {
         GerundDescription gerundDescription = gerundDescriptionList.getGerundDescriptionByPattern(pattern);
         Gerund gerund = root.getGerund(gerundDescription.getSymbol());
 
         var gerundDisplayList = createEmptyList();
         String gerundText = standardTrilateralUnaugmentedSuffixContainer.getPrefix() + gerund.getValue();
         //فحص واذا نجح الاختبار تكون القائمة جاهزة
-        if (isSpecialCase(gerundText, gerundDisplayList, gerundDescription)) {
+        if (isSpecialCase(gerundText, gerundDisplayList, gerundDescription, standardTrilateralUnaugmentedSuffixContainer)) {
             return gerundDisplayList;
         }
 
@@ -66,7 +66,8 @@ public class TrilateralUnaugmentedGerundConjugator implements IUnaugmentedTrilat
         return gerundDisplayList;
     }
 
-    private boolean isSpecialCase(String gerundText, List<Word> gerundDisplayList, GerundDescription gerundDescription) {
+    private boolean isSpecialCase(String gerundText, List<Word> gerundDisplayList, GerundDescription gerundDescription
+            , INounSuffixContainer standardTrilateralUnaugmentedSuffixContainer) {
         final boolean endsWithYa = gerundText.endsWith("َى") || gerundText.endsWith("َّى") || gerundText.endsWith("يَا");
         final boolean endsWithAlef = gerundText.endsWith("ًى") || gerundText.endsWith("ًا") || gerundText.endsWith("لاً");
         if (standardTrilateralUnaugmentedSuffixContainer.isIndefinite()) {

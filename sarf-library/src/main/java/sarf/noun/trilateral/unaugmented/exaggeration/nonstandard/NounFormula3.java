@@ -22,7 +22,7 @@ public class NounFormula3 extends NonStandardExaggerationNounFormula{
     public NounFormula3(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         super(root, suffixNo,genericNounSuffixContainer);
 
-        if (this.suffixNo == 7 && genericNounSuffixContainer.isInDefiniteMode()) {
+        if (this.suffixNo == 7 && genericNounSuffixContainer.isIndefinite()) {
             suffix = "ً";
         }
     }

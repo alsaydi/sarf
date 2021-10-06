@@ -24,6 +24,7 @@ package sarfwebservice.sarf.factories;
  * SOFTWARE.
  */
 import org.springframework.stereotype.Service;
+import sarf.gerund.trilateral.unaugmented.StandardTrilateralUnaugmentedSuffixContainer;
 import sarf.noun.GenericNounSuffixContainer;
 import sarf.noun.INounSuffixContainer;
 import sarf.noun.trilateral.unaugmented.assimilate.AssimilateFormulaCSuffixContainer;
@@ -53,6 +54,10 @@ public class SuffixContainerFactory {
                 break;
         }
         return new GenericNounSuffixContainer();
+    }
+
+    public INounSuffixContainer createStandardGerund() {
+        return new StandardTrilateralUnaugmentedSuffixContainer();
     }
 }
 

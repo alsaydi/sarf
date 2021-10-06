@@ -17,7 +17,7 @@ import sarf.verb.trilateral.unaugmented.*;
  * @version 1.0
  */
 public abstract class MeemGerund extends Word {
-    private final GenericNounSuffixContainer genericNounSuffixContainer;
+    private final INounSuffixContainer genericNounSuffixContainer;
     protected UnaugmentedTrilateralRoot root;
     private int suffixNo;
     protected String suffix;
@@ -25,7 +25,7 @@ public abstract class MeemGerund extends Word {
         genericNounSuffixContainer = null;
     }
 
-    protected MeemGerund(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+    protected MeemGerund(UnaugmentedTrilateralRoot root, String suffixNo, INounSuffixContainer genericNounSuffixContainer) {
         this.root = root;
         this.genericNounSuffixContainer = genericNounSuffixContainer;
         this.suffixNo = "".equals(suffixNo) ? 0 : Integer.parseInt(suffixNo);

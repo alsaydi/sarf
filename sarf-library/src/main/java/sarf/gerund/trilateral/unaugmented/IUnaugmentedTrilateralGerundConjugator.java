@@ -3,6 +3,7 @@ package sarf.gerund.trilateral.unaugmented;
 import java.util.List;
 
 import sarf.Word;
+import sarf.noun.INounSuffixContainer;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 /**
@@ -18,6 +19,6 @@ import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
  * @version 1.0
  */
 public interface IUnaugmentedTrilateralGerundConjugator {
-    List<? extends Word> createGerundList(UnaugmentedTrilateralRoot root, String formulaName);
+    List<? extends Word> createGerundList(UnaugmentedTrilateralRoot root, String formulaName, INounSuffixContainer nounSuffixContainer);
     List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) throws Exception;
 }

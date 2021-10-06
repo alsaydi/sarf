@@ -144,4 +144,9 @@ public class AssimilateFormulaE1SuffixContainer implements INounSuffixContainer{
         return currentSuffixList.get(index);
     }
 
+    @Override
+    public boolean isIndefinite() {
+        return currentSuffixList == indefiniteSuffixList;
+    }
+
 }

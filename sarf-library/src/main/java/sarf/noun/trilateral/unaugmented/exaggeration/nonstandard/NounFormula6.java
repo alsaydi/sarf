@@ -21,7 +21,7 @@ public class NounFormula6 extends NonStandardExaggerationNounFormula{
 
     public NounFormula6(UnaugmentedTrilateralRoot root, String suffixNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         super(root, suffixNo, genericNounSuffixContainer);
-        if (this.suffixNo == 7 && genericNounSuffixContainer.isInDefiniteMode()) {
+        if (this.suffixNo == 7 && genericNounSuffixContainer.isIndefinite()) {
             suffix = "ً";
         }
 

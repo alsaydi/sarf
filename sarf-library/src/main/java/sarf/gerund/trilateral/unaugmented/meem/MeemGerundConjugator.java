@@ -4,10 +4,12 @@ import com.google.inject.Inject;
 import sarf.DatabaseManager;
 import sarf.SystemConstants;
 import sarf.gerund.trilateral.unaugmented.IUnaugmentedTrilateralGerundConjugator;
+import sarf.gerund.trilateral.unaugmented.StandardTrilateralUnaugmentedSuffixContainer;
 import sarf.gerund.trilateral.unaugmented.meem.pattern.NonStandardGerundPattern;
 import sarf.gerund.trilateral.unaugmented.meem.pattern.StandardGerundPattern;
 import sarf.kov.KovRulesManager;
 import sarf.noun.GenericNounSuffixContainer;
+import sarf.noun.INounSuffixContainer;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 
 import java.util.ArrayList;
@@ -32,13 +34,11 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
     private final Map<String, String> formulaNameToSymbolMap = new HashMap<>();
     private final KovRulesManager kovRulesManager;
     private final DatabaseManager databaseManager;
-    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
     @Inject
-    public MeemGerundConjugator(KovRulesManager kovRulesManager, DatabaseManager databaseManager, GenericNounSuffixContainer genericNounSuffixContainer) {
+    public MeemGerundConjugator(KovRulesManager kovRulesManager, DatabaseManager databaseManager) {
         this.kovRulesManager = kovRulesManager;
         this.databaseManager = databaseManager;
-        this.genericNounSuffixContainer = genericNounSuffixContainer;
 
         symbolToFormulaNameMap.put("C", "مَفْعَلَة");
         symbolToFormulaNameMap.put("D", "مَفْعُلَة");
@@ -49,7 +49,8 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
         formulaNameToSymbolMap.put("مَفْعِلَة", "E");
     }
 
-    public List<? extends MeemGerund> createGerundList(UnaugmentedTrilateralRoot root, String formulaName) {
+    public List<? extends MeemGerund> createGerundList(UnaugmentedTrilateralRoot root, String formulaName
+            , INounSuffixContainer genericNounSuffixContainer) {
         //check if it is standard
         if (formulaName.equals("مَفْعِل") || formulaName.equals("مَفْعَل")) {
             List<StandardGerundPattern> standardGerunds = createEmptyList();
@@ -100,7 +101,7 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
         var kov = kovRulesManager.getTrilateralKov(root.getC1(), root.getC2(), root.getC3());
 
         //add the standard pattern first
-        StandardGerundPattern standardGerundPattern = new StandardGerundPattern(root, "0", kov, genericNounSuffixContainer);
+        StandardGerundPattern standardGerundPattern = new StandardGerundPattern(root, "0", kov, new GenericNounSuffixContainer());
         result.add(standardGerundPattern.getPattern());
 
         XmlMeemGerundNounFormulaTree formulaTree = databaseManager.getMeemGerundFormulaTree(root.getC1());

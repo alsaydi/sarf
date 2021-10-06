@@ -10,6 +10,7 @@ import sarf.gerund.modifier.trilateral.unaugmented.nomen.TrilateralUnaugmentedNo
 import sarf.gerund.modifier.trilateral.unaugmented.quality.TrilateralUnaugmentedQualityModifier;
 import sarf.gerund.modifier.trilateral.unaugmented.standard.UnaugmentedTrilateralStandardGerundModifier;
 import sarf.gerund.trilateral.unaugmented.QualityGerundConjugator;
+import sarf.gerund.trilateral.unaugmented.StandardTrilateralUnaugmentedSuffixContainer;
 import sarf.gerund.trilateral.unaugmented.TrilateralUnaugmentedGerundConjugator;
 import sarf.gerund.trilateral.unaugmented.TrilateralUnaugmentedNomenGerundConjugator;
 import sarf.gerund.trilateral.unaugmented.meem.MeemGerundConjugator;
@@ -300,7 +301,7 @@ public class TrilateralUnaugmentedHelper {
     private void printStandardGerund(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         var formulas = trilateralUnaugmentedGerundConjugator.getAppliedFormulaList(root);
         for (var formula : formulas) {
-            var rawNouns = trilateralUnaugmentedGerundConjugator.createGerundList(root, formula);
+            var rawNouns = trilateralUnaugmentedGerundConjugator.createGerundList(root, formula, new StandardTrilateralUnaugmentedSuffixContainer());
             var conjugationResult = unaugmentedTrilateralStandardGerundModifier.build(root, kov, rawNouns, formula).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult, formula);
 
@@ -310,7 +311,7 @@ public class TrilateralUnaugmentedHelper {
     private void printMeemGerund(UnaugmentedTrilateralRoot root, KindOfVerb kov) throws Exception {
         var formulas = meemGerundConjugator.getAppliedFormulaList(root);
         for (var formula : formulas) {
-            var rawNouns = meemGerundConjugator.createGerundList(root, formula);
+            var rawNouns = meemGerundConjugator.createGerundList(root, formula, new StandardTrilateralUnaugmentedSuffixContainer());
             var conjugationResult = trilateralUnaugmentedMeemModifier.build(root, kov, rawNouns, formula).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult, formula);
 
@@ -320,7 +321,7 @@ public class TrilateralUnaugmentedHelper {
     private void printNomenGerund(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
         var formulas = trilateralUnaugmentedNomenGerundConjugator.getAppliedFormulaList(root);
         for (var formula : formulas) {
-            var rawNouns = trilateralUnaugmentedNomenGerundConjugator.createGerundList(root, formula);
+            var rawNouns = trilateralUnaugmentedNomenGerundConjugator.createGerundList(root, formula, new StandardTrilateralUnaugmentedSuffixContainer());
             var conjugationResult = trilateralUnaugmentedNomenModifier.build(root, kov, rawNouns, formula).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult, formula);
 
@@ -328,7 +329,7 @@ public class TrilateralUnaugmentedHelper {
     }
 
     private void printQualityGerund(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        var rawNouns = qualityGerundConjugator.createGerundList(root, null);
+        var rawNouns = qualityGerundConjugator.createGerundList(root, null, new StandardTrilateralUnaugmentedSuffixContainer());
         var conjugationResult = qualityGerundModifier.build(root, kov, rawNouns, null).getFinalResult();
         printFinalResultPipeSeparated(root, conjugationResult, "");
     }
