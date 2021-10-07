@@ -1,10 +1,10 @@
 package sarf.gerund.trilateral.unaugmented.meem;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import sarf.DatabaseManager;
 import sarf.SystemConstants;
 import sarf.gerund.trilateral.unaugmented.IUnaugmentedTrilateralGerundConjugator;
-import sarf.gerund.trilateral.unaugmented.StandardTrilateralUnaugmentedSuffixContainer;
 import sarf.gerund.trilateral.unaugmented.meem.pattern.NonStandardGerundPattern;
 import sarf.gerund.trilateral.unaugmented.meem.pattern.StandardGerundPattern;
 import sarf.kov.KovRulesManager;
@@ -29,6 +29,8 @@ import java.util.Map;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
+
+@Singleton
 public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjugator {
     private final Map<String, String> symbolToFormulaNameMap = new HashMap<>();
     private final Map<String, String> formulaNameToSymbolMap = new HashMap<>();
@@ -97,6 +99,7 @@ public class MeemGerundConjugator implements IUnaugmentedTrilateralGerundConjuga
     private XmlMeemGerundNounFormula appliedXmlMeemGerundNounFormula;
 
     public List<String> getAppliedFormulaList(UnaugmentedTrilateralRoot root) throws Exception {
+        appliedXmlMeemGerundNounFormula = null;
         var result = new ArrayList<String>();
         var kov = kovRulesManager.getTrilateralKov(root.getC1(), root.getC2(), root.getC3());
 
