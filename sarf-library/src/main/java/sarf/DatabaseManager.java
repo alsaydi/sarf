@@ -2,6 +2,7 @@ package sarf;
 
 import java.util.*;
 
+import com.google.inject.Singleton;
 import sarf.verb.quadriliteral.unaugmented.*;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.trilateral.unaugmented.*;
@@ -37,6 +38,8 @@ import static sarf.util.FileUtil.getResourceInputStream;
  * @author not attributable
  * @version 1.0
  */
+
+@Singleton
 public class DatabaseManager {
 	public DatabaseManager(){
 	}

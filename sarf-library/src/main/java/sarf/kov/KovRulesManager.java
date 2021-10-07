@@ -1,5 +1,6 @@
 package sarf.kov;
 
+import com.google.inject.Singleton;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.digester3.*;
 import sarf.KindOfVerb;
@@ -21,6 +22,8 @@ import static sarf.util.FileUtil.getResourceInputStream;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
+
+@Singleton
 public class KovRulesManager {
     private TrilateralKovRuleList trilateralRulesList;
     private QuadrilateralKovRuleList quadrilateralRulesList;
