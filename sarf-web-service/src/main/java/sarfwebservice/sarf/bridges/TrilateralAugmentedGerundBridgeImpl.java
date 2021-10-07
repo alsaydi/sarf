@@ -165,7 +165,7 @@ public class TrilateralAugmentedGerundBridgeImpl implements TrilateralAugmentedG
 
         nounSuffixContainer.selectInDefiniteMode();
         var conjugatedGerunds = augmentedTrilateralPassiveParticipleConjugator.createMeemGerundNounList(root, formulaNo, nounSuffixContainer);
-        var indefinite = trilateralAugmentedStandardModifier.build(root, kov, formulaNo, conjugatedGerunds, () -> applyVocalization);
+        var indefinite = passiveParticipleModifier.build(root, kov, formulaNo, conjugatedGerunds, () -> applyVocalization);
         derivedNounConjugation.setIndefiniteNouns(indefinite.getFinalResult().stream().map(WordPresenter::toString).toList());
 
         nounSuffixContainer.selectAnnexedMode();
