@@ -3,6 +3,7 @@ package sarf.noun;
 import java.util.*;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import org.jetbrains.annotations.NotNull;
 import sarf.noun.trilateral.unaugmented.assimilate.AssimilateAdjectiveConjugator;
 import sarf.noun.trilateral.unaugmented.elative.ElativeNounConjugator;
@@ -25,6 +26,8 @@ import sarf.verb.trilateral.unaugmented.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
+
+@Singleton
 public class TrilateralUnaugmentedNouns {
     private final NonStandardExaggerationConjugator nonStandardExaggerationConjugator;
     private final NonStandardInstrumentalConjugator nonStandardInstrumentalConjugator;

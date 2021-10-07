@@ -36,26 +36,24 @@ import java.util.stream.IntStream;
  */
 public class TrilateralAugmentedNomenGerundConjugator {
     private final int[] indexArray = {2, 4, 6, 8, 10, 12, 14, 16, 18};
-    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
     @Inject
-    public TrilateralAugmentedNomenGerundConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
-        this.genericNounSuffixContainer = genericNounSuffixContainer;
+    public TrilateralAugmentedNomenGerundConjugator() {
     }
 
-    public List<TrilateralAugmentedNomenGerund> createGerundList(AugmentedTrilateralRoot root, int formulaNo) {
-        var gerundDisplayList = createEmptyList();
+    public List<TrilateralAugmentedNomenGerund> createGerundList(AugmentedTrilateralRoot root, int formulaNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        var gerundDisplayList = createEmptyList(genericNounSuffixContainer);
 
         for (int value : indexArray) {
             //because index in java start from zero
             int suffixNo = value - 1;
-            TrilateralAugmentedNomenGerund gerund = createTrilateralAugmentedNomenGerund(root, formulaNo, suffixNo);
+            TrilateralAugmentedNomenGerund gerund = createTrilateralAugmentedNomenGerund(root, formulaNo, suffixNo, genericNounSuffixContainer);
             gerundDisplayList.set(suffixNo, gerund);
         }
         return gerundDisplayList;
     }
 
-    private TrilateralAugmentedNomenGerund createTrilateralAugmentedNomenGerund(AugmentedTrilateralRoot root, int formulaNo, int suffixIndex) {
+    private TrilateralAugmentedNomenGerund createTrilateralAugmentedNomenGerund(AugmentedTrilateralRoot root, int formulaNo, int suffixIndex, GenericNounSuffixContainer genericNounSuffixContainer) {
         switch (formulaNo) {
             case 1:
                 return new GerundPattern1(root, "" + suffixIndex, genericNounSuffixContainer);
@@ -85,7 +83,7 @@ public class TrilateralAugmentedNomenGerundConjugator {
         return new GerundPatternEmpty(new AugmentedTrilateralRoot(), "0", genericNounSuffixContainer);
     }
 
-    private List<TrilateralAugmentedNomenGerund> createEmptyList() {
+    private List<TrilateralAugmentedNomenGerund> createEmptyList(GenericNounSuffixContainer genericNounSuffixContainer) {
         return IntStream.rangeClosed(1, SystemConstants.NOUN_POSSIBLE_STATES)
                 .mapToObj(i -> new GerundPatternEmpty(new AugmentedTrilateralRoot(), "0", genericNounSuffixContainer))
                 .collect(Collectors.toCollection(() -> new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES)));

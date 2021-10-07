@@ -65,7 +65,7 @@ class TrilateralAugmentedGerundConjugatorTest {
     void createGerundList() {
         var root = new AugmentedTrilateralRoot();
 
-        var actual = sut.createGerundList(root, 1);
+        var actual = sut.createGerundList(root, 1, new GenericNounSuffixContainer());
 
         assertThat(actual).isNotNull();
     }
@@ -87,7 +87,7 @@ class TrilateralAugmentedGerundConjugatorTest {
         sut.setListener(formulaNo -> 1);
         sut.setAugmentedTrilateralModifierListener(() -> true);
 
-        var actual = sut.createGerundList(root, formula);
+        var actual = sut.createGerundList(root, formula, new GenericNounSuffixContainer());
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(18);

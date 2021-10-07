@@ -37,6 +37,11 @@ export class DerivedNounsComponent implements OnInit {
     });
   }
 
+  showSubTabs(): boolean {
+    return this.isUnaugmentedTri
+    || [this.activeParticiples.length, this.passiveParticiples.length, this.timeAndPlaceNouns.length].reduce((a,b) => a+b) > 3; /* one of these nouns has two or more variations */
+  }
+
   private getVerbSelectionDetail() {
     return Utils.getVerbSelectionDetail(this.route);
   }

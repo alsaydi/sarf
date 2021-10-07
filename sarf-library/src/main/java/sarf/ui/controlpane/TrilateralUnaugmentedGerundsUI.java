@@ -143,7 +143,7 @@ public class TrilateralUnaugmentedGerundsUI extends JPanel implements IControlPa
         ToggleRenderedButton button = new ToggleRenderedButton(formula);
         button.addActionListener(e -> {
             sarf.Action sarfAction = () -> {
-                var conjugatedNouns = conjugator.createGerundList(root, formula);
+                var conjugatedNouns = conjugator.createGerundList(root, formula, nounSuffixContainer);
                 if (modifier == null)
                     return conjugatedNouns.stream().map(w -> w == null ? WordPresenter.Empty : w.producePresenter()).collect(Collectors.toList());
                 ConjugationResult conjResult = modifier.build(root, selectionInfo.getKov(), conjugatedNouns, formula);

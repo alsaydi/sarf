@@ -36,10 +36,7 @@ import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator;
 import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
 import sarfwebservice.models.*;
-import sarfwebservice.sarf.bridges.TrilateralAugmentedBridge;
-import sarfwebservice.sarf.bridges.TrilateralAugmentedDerivedNounBridge;
-import sarfwebservice.sarf.bridges.TrilateralUnaugmentedBridge;
-import sarfwebservice.sarf.bridges.TrilateralUnaugmentedDerivedNounBridge;
+import sarfwebservice.sarf.bridges.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -60,6 +57,8 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
     private final TrilateralAugmentedBridge trilateralAugmentedBridge;
     private final TrilateralUnaugmentedDerivedNounBridge trilateralUnaugmentedDerivedNounBridge;
     private final TrilateralAugmentedDerivedNounBridge trilateralAugmentedDerivedNounBridge;
+    private final TrilateralUnaugmentedGerundBridge trilateralUnaugmentedGerundBridge;
+    private final TrilateralAugmentedGerundBridge trilateralAugmentedGerundBridge;
 
     @Autowired
     public SarfServiceTriImpl(SarfDictionary sarfDictionary
@@ -74,7 +73,9 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
             , TrilateralUnaugmentedBridge trilateralUnaugmentedBridge
             , TrilateralAugmentedBridge trilateralAugmentedBridge
             , TrilateralUnaugmentedDerivedNounBridge trilateralUnaugmentedDerivedNounBridge
-            , TrilateralAugmentedDerivedNounBridge trilateralAugmentedDerivedNounBridge) {
+            , TrilateralAugmentedDerivedNounBridge trilateralAugmentedDerivedNounBridge
+            , TrilateralUnaugmentedGerundBridge trilateralUnaugmentedGerundBridge
+            , TrilateralAugmentedGerundBridge trilateralAugmentedGerundBridge) {
         super(sarfValidator);
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
@@ -88,6 +89,8 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         this.trilateralAugmentedBridge = trilateralAugmentedBridge;
         this.trilateralUnaugmentedDerivedNounBridge = trilateralUnaugmentedDerivedNounBridge;
         this.trilateralAugmentedDerivedNounBridge = trilateralAugmentedDerivedNounBridge;
+        this.trilateralUnaugmentedGerundBridge = trilateralUnaugmentedGerundBridge;
+        this.trilateralAugmentedGerundBridge = trilateralAugmentedGerundBridge;
     }
 
     private static List<Word> createEmptyList() {
@@ -330,13 +333,69 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         return  nounConjugations;
     }
     private void setDerivedNounsForTrilateralAugmented(KindOfVerb kov, AugmentedTrilateralRoot root, NounConjugations nounConjugations, int formulaNo){
-        var activeParticiples = this.trilateralAugmentedDerivedNounBridge.getActiveParticiple(root, kov, formulaNo);
+        var activeParticiples = this.trilateralAugmentedDerivedNounBridge.getActiveParticiples(root, kov, formulaNo);
         nounConjugations.setActiveParticiples(activeParticiples);
 
-        var passiveParticiples = this.trilateralAugmentedDerivedNounBridge.getPassiveParticiple(root, kov, formulaNo);
+        var passiveParticiples = this.trilateralAugmentedDerivedNounBridge.getPassiveParticiples(root, kov, formulaNo);
         nounConjugations.setPassiveParticiples(passiveParticiples);
 
         var timeAndPlaceNouns = this.trilateralAugmentedDerivedNounBridge.getTimeAndPlaceNouns(root, kov, formulaNo);
         nounConjugations.setTimeAndPlaceNouns(timeAndPlaceNouns);
+    }
+
+    @Override
+    public GerundConjugations getGerunds(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        return augmented ? getGerundsForAugmented(rootLetters, formula) :
+                getGerundsForUnaugmented(rootLetters, cclass);
+    }
+
+    private GerundConjugations getGerundsForUnaugmented(String rootLetters, int cclass) throws Exception {
+        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+        var root = sarfDictionary.getUnaugmentedTrilateralRoots(rootLetters).stream()
+                .filter(r -> r.getConjugation().getValue() == cclass)
+                .findFirst().orElse(null);
+        if (root == null) {
+            throw new Exception(String.format("Could not find a root with letters %s and class of %d.", rootLetters, cclass));
+        }
+        var gerundConjugations = new GerundConjugations();
+
+        setGerunds(kov, root, gerundConjugations);
+        return  gerundConjugations;
+    }
+
+    private void setGerunds(KindOfVerb kov, UnaugmentedTrilateralRoot root, GerundConjugations gerundConjugations) throws Exception {
+        var standards = this.trilateralUnaugmentedGerundBridge.getStandardGerunds(root, kov);
+        gerundConjugations.setStandards(standards);
+
+        var meems = this.trilateralUnaugmentedGerundBridge.getMeemGerunds(root, kov);
+        gerundConjugations.setMeems(meems);
+
+        var nomens = this.trilateralUnaugmentedGerundBridge.getNomenGerunds(root, kov);
+        gerundConjugations.setNomens(nomens);
+
+        var qGerunds = this.trilateralUnaugmentedGerundBridge.getQualityGerunds(root, kov);
+        gerundConjugations.setQualityGerunds(qGerunds);
+    }
+
+    private GerundConjugations getGerundsForAugmented(String rootLetters, int formula) throws Exception {
+        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+        var root = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
+        if (root == null) {
+            throw new Exception(String.format("Could not find a root with letters %s", rootLetters));
+        }
+        var gerundConjugations = new GerundConjugations();
+        setGerundsForAugmented(kov, formula, root, gerundConjugations);
+        return gerundConjugations;
+    }
+
+    private void setGerundsForAugmented(KindOfVerb kov, int formulaNo, AugmentedTrilateralRoot root, GerundConjugations gerundConjugations) throws Exception {
+        var standards = this.trilateralAugmentedGerundBridge.getStandardGerunds(root, kov, formulaNo);
+        gerundConjugations.setStandards(standards);
+
+        var meems = this.trilateralAugmentedGerundBridge.getMeemGerunds(root, kov, formulaNo);
+        gerundConjugations.setMeems(meems);
+
+        var nomens = this.trilateralAugmentedGerundBridge.getNomenGerunds(root, kov, formulaNo);
+        gerundConjugations.setNomens(nomens);
     }
 }

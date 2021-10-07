@@ -114,7 +114,8 @@ public class GenericNounSuffixContainer implements INounSuffixContainer {
         return currentSuffixList.get(index);
     }
 
-    public boolean isInDefiniteMode() {
+    @Override
+    public boolean isIndefinite() {
         return currentSuffixList == indefiniteSuffixList;
     }
 }

@@ -26,6 +26,7 @@ package sarftests.noun.tri.unaugmented.gerund;
 import com.google.inject.Inject;
 import sarf.gerund.modifier.trilateral.unaugmented.meem.TrilateralUnaugmentedMeemModifier;
 import sarf.gerund.trilateral.unaugmented.meem.MeemGerundConjugator;
+import sarf.noun.GenericNounSuffixContainer;
 import sarftests.noun.INounProvider;
 import sarftests.verb.tri.Common;
 
@@ -56,7 +57,7 @@ public class MeemGerundNounProvider implements INounProvider {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        var rawNouns = conjugator.createGerundList(root, formula);
+        var rawNouns = conjugator.createGerundList(root, formula, new GenericNounSuffixContainer());
         var conjugationResult =  modifier.build(root, kov, rawNouns, formula).getFinalResult();
         var result = new ArrayList<String>();
         for (var g : conjugationResult) {

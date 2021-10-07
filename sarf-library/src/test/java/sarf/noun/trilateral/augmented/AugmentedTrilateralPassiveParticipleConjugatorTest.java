@@ -110,7 +110,7 @@ class AugmentedTrilateralPassiveParticipleConjugatorTest {
     void createMeemGerundNounList(int formula, Class expected){
         var root = new AugmentedTrilateralRoot();
 
-        var actual = sut.createMeemGerundNounList(root, formula);
+        var actual = sut.createMeemGerundNounList(root, formula, genericNounSuffixContainer);
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(18);

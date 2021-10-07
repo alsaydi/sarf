@@ -3,6 +3,7 @@ package sarf.gerund.trilateral.unaugmented.meem.pattern;
 import sarf.Conjugation;
 import sarf.KindOfVerb;
 import sarf.noun.GenericNounSuffixContainer;
+import sarf.noun.INounSuffixContainer;
 import sarf.util.*;
 import sarf.gerund.trilateral.unaugmented.meem.*;
 import sarf.verb.trilateral.unaugmented.*;
@@ -26,7 +27,7 @@ import static sarf.KindOfVerb.*;
 public class StandardGerundPattern extends MeemGerund {
     private boolean form1;
     public static final StandardGerundPattern Empty = new StandardGerundPattern();
-    public StandardGerundPattern(UnaugmentedTrilateralRoot root, String suffixNo, KindOfVerb kov, GenericNounSuffixContainer genericNounSuffixContainer) {
+    public StandardGerundPattern(UnaugmentedTrilateralRoot root, String suffixNo, KindOfVerb kov, INounSuffixContainer genericNounSuffixContainer) {
         super(root, suffixNo, genericNounSuffixContainer);
         var noc = root.getConjugation();
         //try first state

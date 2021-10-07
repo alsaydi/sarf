@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import sarf.verb.quadriliteral.QuadrilateralRoot;
 import sarf.verb.quadriliteral.augmented.*;
 import sarf.verb.quadriliteral.unaugmented.*;
@@ -11,6 +12,7 @@ import sarf.verb.trilateral.TrilateralRoot;
 import sarf.verb.trilateral.augmented.*;
 import sarf.verb.trilateral.unaugmented.*;
 
+@Singleton
 public class SarfDictionary {
     private final DatabaseManager databaseManager;
 

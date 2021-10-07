@@ -24,11 +24,9 @@ import java.util.stream.IntStream;
  * @version 1.0
  */
 public class AugmentedTrilateralPassiveParticipleConjugator {
-    private final GenericNounSuffixContainer _genericNounSuffixContainer;
 
     @Inject
-    public AugmentedTrilateralPassiveParticipleConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
-        this._genericNounSuffixContainer = genericNounSuffixContainer;
+    public AugmentedTrilateralPassiveParticipleConjugator() {
     }
 
     public List<AugmentedTrilateralNoun> createNounList(AugmentedTrilateralRoot root, int formulaNo, GenericNounSuffixContainer genericNounSuffixContainer) {
@@ -41,8 +39,8 @@ public class AugmentedTrilateralPassiveParticipleConjugator {
         return createNounList(root, formulaNo, timeAndPlaceIndexesList, genericNounSuffixContainer);
     }
 
-    public List<AugmentedTrilateralNoun> createMeemGerundNounList(AugmentedTrilateralRoot root, int formulaNo) {
-        return createNounList(root, formulaNo, meemGerundIndexesList, this._genericNounSuffixContainer);
+    public List<AugmentedTrilateralNoun> createMeemGerundNounList(AugmentedTrilateralRoot root, int formulaNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        return createNounList(root, formulaNo, meemGerundIndexesList, genericNounSuffixContainer);
     }
 
     //تستعمل في اسم الزمان والمكان والمصدر الميمي

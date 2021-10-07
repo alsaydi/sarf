@@ -25,6 +25,7 @@ package sarftests.noun.tri.augmented.gerund;
  */
 import com.google.inject.Inject;
 import sarf.SarfDictionary;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.noun.trilateral.augmented.AugmentedTrilateralPassiveParticipleConjugator;
 import sarf.noun.trilateral.augmented.modifier.passiveparticiple.PassiveParticipleModifier;
 import sarftests.noun.INounProvider;
@@ -60,7 +61,7 @@ public class AugmentedMeemGerundNounProvider implements INounProvider {
         try {
             var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
             var kov = common.getKindOfVerb(rootLetters);
-            var nouns = conjugator.createMeemGerundNounList(augmentedRoot, formula);
+            var nouns = conjugator.createMeemGerundNounList(augmentedRoot, formula, new GenericNounSuffixContainer());
             var conjugationResult = modifier.build(augmentedRoot, kov, formula, nouns, () -> true).getFinalResult();
             var result = new ArrayList<String>();
 

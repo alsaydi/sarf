@@ -93,7 +93,7 @@ class TrilateralAugmentedNomenGerundConjugatorTest {
 		var verb = "برد".toCharArray();
 		var root = new AugmentedTrilateralRoot(verb[0],verb[1],verb[2]);
 		
-		var list = sut.createGerundList(root, formula);
+		var list = sut.createGerundList(root, formula, new GenericNounSuffixContainer());
 		
 		assertNotNull(list);
 		assertEquals(18, list.size());

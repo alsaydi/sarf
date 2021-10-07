@@ -24,11 +24,9 @@ import sarf.verb.trilateral.unaugmented.*;
 public class TrilateralUnaugmentedNomenGerundConjugator implements IUnaugmentedTrilateralGerundConjugator {
     private final int[] indexList1 = {2, 4, 8, 10, 14, 16};
     private final int[] indexList2 = {6, 12, 18};
-    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
     @Inject
-    public TrilateralUnaugmentedNomenGerundConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
-        this.genericNounSuffixContainer = genericNounSuffixContainer;
+    public TrilateralUnaugmentedNomenGerundConjugator() {
     }
 
     private List<Word> createEmptyList() {
@@ -39,7 +37,7 @@ public class TrilateralUnaugmentedNomenGerundConjugator implements IUnaugmentedT
         return result;
     }
 
-    public List<Word> createGerundList(UnaugmentedTrilateralRoot root, String formulaName) {
+    public List<Word> createGerundList(UnaugmentedTrilateralRoot root, String formulaName, INounSuffixContainer genericNounSuffixContainer) {
         var gerundDisplayList = createEmptyList();
 
         String gerund = genericNounSuffixContainer.getPrefix() + root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3();

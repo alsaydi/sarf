@@ -22,4 +22,6 @@ public interface INounSuffixContainer {
     String getPrefix();
 
     String get(int index);
+
+    boolean isIndefinite();
 }
