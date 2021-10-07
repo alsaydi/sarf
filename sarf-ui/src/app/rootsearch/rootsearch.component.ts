@@ -24,6 +24,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class RootsearchComponent implements OnInit {
   rootFormControl = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
+  verbDisplay: string;
   kindOfVerb: string;
   transitivity: string;
   private hamzaString = "أؤئإ";
@@ -47,10 +48,10 @@ export class RootsearchComponent implements OnInit {
 
     let transitiveState = '';
     if (verbSelectionDetail.isAugmented) {
-      const selection = this.currentlySelectedRoot.conjugationResults.filter(cr => cr.conjugationResult.formulaNo === verbSelectionDetail.formula)
-        .map(cr => cr.transitivity);
+      const selection = this.currentlySelectedRoot.conjugationResults.filter(cr => cr.conjugationResult.formulaNo === verbSelectionDetail.formula);
       if (selection && selection.length === 1) {
-        transitiveState = selection[0];
+        transitiveState = selection[0].transitivity;
+        this.verbDisplay = selection[0].display;
       }
     } else {
       if (verbSelectionDetail.isTri) {
@@ -58,12 +59,14 @@ export class RootsearchComponent implements OnInit {
           .map(r => r.root.transitive);
         if (selection && selection.length === 1) {
           transitiveState = selection[0];
+          this.verbDisplay = this.currentlySelectedRoot.unaugmentedRoots[0].display;
         }
       }
       else {
-        const selection = this.currentlySelectedRoot.unaugmentedRoots.map(r => r.root.transitive);
+        const selection = this.currentlySelectedRoot.unaugmentedRoots;
         if (selection && selection.length === 1) {
-          transitiveState = selection[0];
+          transitiveState = selection[0].root.transitive;
+          this.verbDisplay = selection[0].display;
         }
       }
     }
@@ -92,7 +95,7 @@ export class RootsearchComponent implements OnInit {
 
     this.currentlySelectedRoot = rootResult;
     this.rootFormControl.setValue(rootResult.root);
-    this.kindOfVerb = rootResult.kindOfVerb;
+    this.kindOfVerb = rootResult.kindOfVerb;    
   }
 
   ngOnInit(): void {
@@ -103,6 +106,7 @@ export class RootsearchComponent implements OnInit {
     this.currentlySelectedRoot = null;
     this.kindOfVerb = "";
     this.transitivity = "";
+    this.verbDisplay = "";
   }
 
   public isTri(): boolean {
