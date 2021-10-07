@@ -333,10 +333,10 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         return  nounConjugations;
     }
     private void setDerivedNounsForTrilateralAugmented(KindOfVerb kov, AugmentedTrilateralRoot root, NounConjugations nounConjugations, int formulaNo){
-        var activeParticiples = this.trilateralAugmentedDerivedNounBridge.getActiveParticiple(root, kov, formulaNo);
+        var activeParticiples = this.trilateralAugmentedDerivedNounBridge.getActiveParticiples(root, kov, formulaNo);
         nounConjugations.setActiveParticiples(activeParticiples);
 
-        var passiveParticiples = this.trilateralAugmentedDerivedNounBridge.getPassiveParticiple(root, kov, formulaNo);
+        var passiveParticiples = this.trilateralAugmentedDerivedNounBridge.getPassiveParticiples(root, kov, formulaNo);
         nounConjugations.setPassiveParticiples(passiveParticiples);
 
         var timeAndPlaceNouns = this.trilateralAugmentedDerivedNounBridge.getTimeAndPlaceNouns(root, kov, formulaNo);

@@ -11,6 +11,7 @@ import { SarfService } from '../services/sarf-service';
 })
 export class GerundsComponent implements OnInit {
 
+  isUnaugmentedTri: boolean;
   standards: Array<DerivedNoun>;
   meems: Array<DerivedNoun>;
   nomens: Array<DerivedNoun>;
@@ -20,6 +21,7 @@ export class GerundsComponent implements OnInit {
 
   ngOnInit(): void {
     const verbSelectionDetail = this.getVerbSelectionDetail();
+    this.isUnaugmentedTri = verbSelectionDetail.isTri && !verbSelectionDetail.isAugmented;
     this.sarfService.getGerunds(verbSelectionDetail).subscribe(result => {
       console.log(result);
       this.standards = result.standards;
@@ -31,5 +33,10 @@ export class GerundsComponent implements OnInit {
 
   private getVerbSelectionDetail() {
     return Utils.getVerbSelectionDetail(this.route);
+  }
+
+  showSubTabs(): boolean {
+    return this.isUnaugmentedTri
+    || [this.standards.length, this.meems.length, this.nomens.length].reduce((a,b) => a+b) > 3; /* one of these nouns has two or more variations */
   }
 }

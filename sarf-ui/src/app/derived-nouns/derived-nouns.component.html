@@ -1,7 +1,7 @@
 <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
     <mat-tab label="إسم الفاعل">
         <ng-template matTabContent>
-            <div *ngIf="isUnaugmentedTri; then unaugmentedTriBlock else simpleBlock"></div>
+            <div *ngIf="showSubTabs(); then unaugmentedTriBlock else simpleBlock"></div>
             <ng-template #unaugmentedTriBlock>
                 <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
                     <div *ngFor="let activeParticiple of activeParticiples">
@@ -23,7 +23,7 @@
     </mat-tab>
     <mat-tab label="إسم المفعول">
         <ng-template matTabContent>
-            <div *ngIf="isUnaugmentedTri; then unaugmentedTriBlock else simpleBlock"></div>
+            <div *ngIf="showSubTabs(); then unaugmentedTriBlock else simpleBlock"></div>
             <ng-template #unaugmentedTriBlock>
                 <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
                     <div *ngFor="let passiveParticiple of passiveParticiples">
@@ -42,7 +42,7 @@
     </mat-tab>
     <mat-tab label="إسما الزمان و المكان" *ngIf="timeAndPlaceNouns && timeAndPlaceNouns.length > 0">
         <ng-template matTabContent>
-            <div *ngIf="isUnaugmentedTri; then unaugmentedTriBlock else simpleBlock"></div>
+            <div *ngIf="showSubTabs(); then unaugmentedTriBlock else simpleBlock"></div>
             <ng-template #unaugmentedTriBlock>
                 <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
                     <div *ngFor="let timeAndPlaceNoun of timeAndPlaceNouns">

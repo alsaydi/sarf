@@ -1,6 +1,7 @@
 package sarf.noun.trilateral.augmented.modifier.activeparticiple;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import sarf.KindOfVerb;
 import sarf.NounLamAlefModifier;
 import sarf.NounSunLamModifier;
@@ -28,6 +29,8 @@ import java.util.List;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
+
+@Singleton
 public class ActiveParticipleModifier {
     private final Substituter substituter = new Substituter();
     private final Geminator geminator = new Geminator();
