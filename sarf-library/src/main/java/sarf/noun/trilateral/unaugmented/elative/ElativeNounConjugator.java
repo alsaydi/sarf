@@ -1,6 +1,7 @@
 package sarf.noun.trilateral.unaugmented.elative;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import sarf.noun.*;
 import sarf.verb.trilateral.unaugmented.*;
 import java.util.*;
@@ -22,6 +23,8 @@ import sarf.noun.trilateral.unaugmented.elative.nonstandard.*;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
+
+@Singleton
 public class ElativeNounConjugator implements IUnaugmentedTrilateralNounConjugator {
     private final DatabaseManager databaseManager;
 

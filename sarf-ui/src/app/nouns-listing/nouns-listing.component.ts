@@ -19,8 +19,7 @@ export class NounsListingComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.case = this.isElative ? 'annexedToDefinite' : 'indefinite';
-    this.nouns = this.indefiniteNouns;
+    this.setCase(this.isElative ? 'annexedToDefinite' : 'indefinite');
   }
 
   isCaseButtonDisabled(theCase: string): boolean {
