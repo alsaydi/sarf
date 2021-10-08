@@ -26,6 +26,7 @@ package sarftests.noun.quad.unaugmented.gerund;
 import com.google.inject.Inject;
 import sarf.SarfDictionary;
 import sarf.kov.KovRulesManager;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier;
 import sarf.noun.quadriliteral.unaugmented.UnaugmentedQuadrilateralPassiveParticipleConjugator;
 import sarftests.noun.INounProvider;
@@ -61,7 +62,7 @@ public class QuadrilateralUnaugmentedMeemGerundNounProvider implements INounProv
         try {
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
-            var nouns = conjugator.createMeemGerundNounList(root);
+            var nouns = conjugator.createMeemGerundNounList(root, new GenericNounSuffixContainer());
 
             var conjugationResult =  modifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             var result = new ArrayList<String>();
