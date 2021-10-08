@@ -1,4 +1,4 @@
-package sarfwebservice.sarf.bridges;
+package sarfwebservice.sarf.bridges.tri;
 /*
  *
  * MIT License
@@ -23,20 +23,16 @@ package sarfwebservice.sarf.bridges;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 import sarf.KindOfVerb;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarfwebservice.models.DerivedNounConjugation;
 
 import java.util.List;
 
-public interface TrilateralUnaugmentedDerivedNounBridge {
-    List<DerivedNounConjugation> getActiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov);
-    List<DerivedNounConjugation> getPassiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov);
-    List<DerivedNounConjugation> getTimeAndPlaceNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov);
-
-    List<DerivedNounConjugation> getExaggeratedActiveParticiples(UnaugmentedTrilateralRoot root, KindOfVerb kov);
-
-    List<DerivedNounConjugation> getInstrumentalNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov);
-    List<DerivedNounConjugation> getElatives(UnaugmentedTrilateralRoot root, KindOfVerb kov);
-    List<DerivedNounConjugation> getAssimilates(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+public interface TrilateralUnaugmentedGerundBridge {
+    List<DerivedNounConjugation> getStandardGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+    List<DerivedNounConjugation> getMeemGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov) throws Exception;
+    List<DerivedNounConjugation> getNomenGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+    List<DerivedNounConjugation> getQualityGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
 }

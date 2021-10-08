@@ -1,4 +1,4 @@
-package sarfwebservice.sarf.bridges;
+package sarfwebservice.sarf.bridges.tri;
 /*
  *
  * MIT License
@@ -24,13 +24,19 @@ package sarfwebservice.sarf.bridges;
  * SOFTWARE.
  */
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
+import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarfwebservice.models.DerivedNounConjugation;
 
 import java.util.List;
 
-public interface TrilateralAugmentedDerivedNounBridge {
-    List<DerivedNounConjugation> getActiveParticiples(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo);
-    List<DerivedNounConjugation> getPassiveParticiples(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo);
-    List<DerivedNounConjugation> getTimeAndPlaceNouns(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo);
+public interface TrilateralUnaugmentedDerivedNounBridge {
+    List<DerivedNounConjugation> getActiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+    List<DerivedNounConjugation> getPassiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+    List<DerivedNounConjugation> getTimeAndPlaceNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+
+    List<DerivedNounConjugation> getExaggeratedActiveParticiples(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+
+    List<DerivedNounConjugation> getInstrumentalNouns(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+    List<DerivedNounConjugation> getElatives(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+    List<DerivedNounConjugation> getAssimilates(UnaugmentedTrilateralRoot root, KindOfVerb kov);
 }
