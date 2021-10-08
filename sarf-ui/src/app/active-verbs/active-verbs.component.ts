@@ -27,6 +27,7 @@ import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Utils } from '../models/Utils';
+import { AppNotificationsService } from '../services/app-notifications.service';
 import { SarfService } from '../services/sarf-service';
 
 @Component({
@@ -46,7 +47,7 @@ export class ActiveVerbsComponent implements OnInit, OnDestroy {
   public imperative: Array<string>;
   public emphasizedImperative: Array<string>;
 
-  constructor(private sarfService: SarfService, private route: ActivatedRoute) { }  
+  constructor(private sarfService: SarfService, private route: ActivatedRoute, private appNotificationsService: AppNotificationsService) { }  
 
   ngOnInit(): void {
     const verbSelectionDetail = this.getVerbSelectionDetail();
@@ -60,6 +61,7 @@ export class ActiveVerbsComponent implements OnInit, OnDestroy {
       this.imperative = result.imperative
       this.emphasizedImperative = result.emphasizedImperative
     });
+    this.appNotificationsService.broadcastVerbSelected(verbSelectionDetail);
   }
 
   private getVerbSelectionDetail() {

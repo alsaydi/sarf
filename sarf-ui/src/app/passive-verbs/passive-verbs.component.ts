@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Utils } from '../models/Utils';
+import { AppNotificationsService } from '../services/app-notifications.service';
 import { SarfService } from '../services/sarf-service';
 
 @Component({
@@ -17,7 +18,7 @@ export class PassiveVerbsComponent implements OnInit, OnDestroy {
   public accusativePresent: Array<string>;
   public jussivePresent: Array<string>;
   public emphasizedPresent: Array<string>;
-  constructor(private sarfService: SarfService, private route: ActivatedRoute) { }
+  constructor(private sarfService: SarfService, private route: ActivatedRoute, private appNotificationsService: AppNotificationsService) { }
 
   ngOnInit(): void {
     const verbSelectionDetail = this.getVerbSelectionDetail();
@@ -29,6 +30,7 @@ export class PassiveVerbsComponent implements OnInit, OnDestroy {
       this.jussivePresent = result.jussivePresent;
       this.emphasizedPresent = result.emphasizedPresent
     });
+    this.appNotificationsService.broadcastVerbSelected(verbSelectionDetail);
   }
 
   private getVerbSelectionDetail() {

@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { VerbSelectionDetail } from '../models/VerbSelectionDetail';
 import { RootType } from '../root-type.enum';
 import { AppNotificationsService } from '../services/app-notifications.service';
+import { SarfService } from '../services/sarf-service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -25,6 +26,7 @@ export class RootsearchComponent implements OnInit, OnDestroy {
   rootFormControl = new FormControl('', [Validators.required]);
   private verbSelectedSubscription: Subscription;
   private rootResultSubscription: Subscription;
+  private sarfServiceSubscription: Subscription;
   matcher = new MyErrorStateMatcher();
   verbDisplay: string;
   kindOfVerb: string;
@@ -32,8 +34,8 @@ export class RootsearchComponent implements OnInit, OnDestroy {
   private hamzaString = "أؤئإ";
   private currentlySelectedRoot: any;
 
-  constructor(private appNotificationsService: AppNotificationsService
-    , private router: Router, private route: ActivatedRoute) {
+  constructor(private appNotificationsService: AppNotificationsService, private sarfService: SarfService
+    , private router: Router) {
     this.appNotificationsService.rootResultRetrieved$.subscribe(
       rootResult => this.processRootResult(rootResult)
       , err => {
@@ -41,19 +43,43 @@ export class RootsearchComponent implements OnInit, OnDestroy {
       }, () => { });
 
     this.appNotificationsService.verbSelected$.subscribe(verbSelectionDetail => {
+      this.sarfServiceSubscription?.unsubscribe();
+      if (this.currentlySelectedRoot == null) {
+        this.retrieveBasicRootInfo(verbSelectionDetail);
+      }
+      else {
+        this.processVerbSelection(verbSelectionDetail);
+      }
+    });
+  }
+
+  private retrieveBasicRootInfo(verbSelectionDetail: VerbSelectionDetail) {
+    this.sarfServiceSubscription = this.sarfService.findSarf(verbSelectionDetail.verb).subscribe(result => {
+      if (!result || result.length == 0) {
+        return;
+      }
+      this.currentlySelectedRoot = result[0];
       this.processVerbSelection(verbSelectionDetail);
     });
   }
 
   processVerbSelection(verbSelectionDetail: VerbSelectionDetail) {
-    if (!this.currentlySelectedRoot) return;
+    if (!this.currentlySelectedRoot) {
+      return;
+    }
+
+    if(!this.rootFormControl.value) {
+      /* this happens when we navigate directly to a page, instead of going through search. */
+      this.rootFormControl.setValue(this.currentlySelectedRoot.root);
+      this.kindOfVerb = this.currentlySelectedRoot.kindOfVerb;
+    }
 
     let transitiveState = '';
     if (verbSelectionDetail.isAugmented) {
       const selection = this.currentlySelectedRoot.conjugationResults.filter(cr => cr.conjugationResult.formulaNo === verbSelectionDetail.formula);
       if (selection && selection.length === 1) {
         transitiveState = selection[0].transitivity;
-        this.verbDisplay = selection[0].display;
+        this.verbDisplay = selection[0].display;        
       }
     } else {
       if (verbSelectionDetail.isTri) {
@@ -76,7 +102,8 @@ export class RootsearchComponent implements OnInit, OnDestroy {
       this.transitivity = this.getTransitivityDescription(transitiveState);
     }
   }
-  getTransitivityDescription(t: string) {
+
+  private getTransitivityDescription(t: string) {
     switch (t) {
       case 'ك':
         return "متعد وﻻزم"
@@ -90,21 +117,21 @@ export class RootsearchComponent implements OnInit, OnDestroy {
     return "--";
   }
 
-  processRootResult(rootResult: any): void {
+  private processRootResult(rootResult: any): void {
     if (rootResult == null) {
       return;
     }
 
     this.currentlySelectedRoot = rootResult;
     this.rootFormControl.setValue(rootResult.root);
-    this.kindOfVerb = rootResult.kindOfVerb;    
+    this.kindOfVerb = rootResult.kindOfVerb;
   }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
     this.reset();
   }
 
-  private reset(){
+  private reset() {
     this.currentlySelectedRoot = null;
     this.kindOfVerb = "";
     this.transitivity = "";
@@ -191,5 +218,6 @@ export class RootsearchComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.verbSelectedSubscription?.unsubscribe();
     this.rootResultSubscription?.unsubscribe();
+    this.sarfServiceSubscription?.unsubscribe();
   }
 }

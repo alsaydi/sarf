@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DerivedNoun } from '../models/derived-noun';
 import { Utils } from '../models/Utils';
+import { AppNotificationsService } from '../services/app-notifications.service';
 import { SarfService } from '../services/sarf-service';
 
 @Component({
@@ -19,7 +20,7 @@ export class GerundsComponent implements OnInit, OnDestroy {
   nomens: Array<DerivedNoun>;
   qualityGerunds: Array<DerivedNoun>;
 
-  constructor(private sarfService: SarfService, private route: ActivatedRoute) { }
+  constructor(private sarfService: SarfService, private route: ActivatedRoute, private appNotificationsService: AppNotificationsService) { }
 
   ngOnInit(): void {
     const verbSelectionDetail = this.getVerbSelectionDetail();
@@ -31,6 +32,7 @@ export class GerundsComponent implements OnInit, OnDestroy {
       this.nomens = result.nomens;
       this.qualityGerunds = result.qualityGerunds;
     });
+    this.appNotificationsService.broadcastVerbSelected(verbSelectionDetail);
   }
 
   private getVerbSelectionDetail() {
@@ -39,7 +41,7 @@ export class GerundsComponent implements OnInit, OnDestroy {
 
   showSubTabs(): boolean {
     return this.isUnaugmentedTri
-    || [this.standards.length, this.meems.length, this.nomens.length].reduce((a,b) => a+b) > 3; /* one of these nouns has two or more variations */
+    || [this.standards?.length, this.meems?.length, this.nomens?.length].reduce((a,b) => a+b) > 3; /* one of these nouns has two or more variations */
   }
 
   ngOnDestroy(): void {
