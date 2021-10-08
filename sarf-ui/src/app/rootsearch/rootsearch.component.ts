@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Utils } from '../models/Utils';
 import { VerbSelectionDetail } from '../models/VerbSelectionDetail';
 import { RootType } from '../root-type.enum';
 import { AppNotificationsService } from '../services/app-notifications.service';
@@ -99,11 +98,6 @@ export class RootsearchComponent implements OnInit {
   }
 
   ngOnInit(): void {    
-    const verbSelectionDetail = null;// Utils.getVerbSelectionDetail(this.router.routerState.snapshot.root);
-    console.log('activeSelection: ', this.router.routerState);
-    if(verbSelectionDetail != null && verbSelectionDetail.verb != null && verbSelectionDetail.verb.length > 0) {
-      this.verbDisplay = verbSelectionDetail.verb;
-    }
     this.reset();
   }
 
