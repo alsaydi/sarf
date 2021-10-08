@@ -36,7 +36,7 @@ import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator;
 import sarf.verb.trilateral.unaugmented.modifier.UnaugmentedTrilateralModifier;
 import sarfwebservice.models.*;
-import sarfwebservice.sarf.bridges.*;
+import sarfwebservice.sarf.bridges.tri.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
