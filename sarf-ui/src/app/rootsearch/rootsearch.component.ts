@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { VerbSelectionDetail } from '../models/VerbSelectionDetail';
 import { RootType } from '../root-type.enum';
 import { AppNotificationsService } from '../services/app-notifications.service';
@@ -20,8 +21,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./rootsearch.component.css']
 })
 
-export class RootsearchComponent implements OnInit {
+export class RootsearchComponent implements OnInit, OnDestroy {
   rootFormControl = new FormControl('', [Validators.required]);
+  private verbSelectedSubscription: Subscription;
+  private rootResultSubscription: Subscription;
   matcher = new MyErrorStateMatcher();
   verbDisplay: string;
   kindOfVerb: string;
@@ -183,5 +186,10 @@ export class RootsearchComponent implements OnInit {
         return 6;
     }
     return 0;
+  }
+
+  ngOnDestroy(): void {
+    this.verbSelectedSubscription?.unsubscribe();
+    this.rootResultSubscription?.unsubscribe();
   }
 }
