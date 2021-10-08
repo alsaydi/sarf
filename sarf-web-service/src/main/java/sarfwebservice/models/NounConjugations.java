@@ -27,8 +27,11 @@ import java.util.List;
 
 public class NounConjugations {
 
-    public static final String ACTIVE_PARTICIPLE_KEY = "فَاعِل";
-    public static final String PASSIVE_PARTICIPLE_KEY = "مَفْعُول";
+    public static final String ACTIVE_PARTICIPLE_KEY_TRI = "فَاعِل";
+    public static final String PASSIVE_PARTICIPLE_KEY_TRI = "مَفْعُول";
+
+    public static final String ACTIVE_PARTICIPLE_KEY_QUAD = "مفعلل";
+    public static final String PASSIVE_PARTICIPLE_KEY_QUAD = "مفعلَل";
 
     private List<DerivedNounConjugation> activeParticiples;
     private List<DerivedNounConjugation> passiveParticiples;

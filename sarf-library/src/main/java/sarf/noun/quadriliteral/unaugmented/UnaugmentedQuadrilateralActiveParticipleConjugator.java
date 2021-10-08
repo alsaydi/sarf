@@ -19,22 +19,19 @@ import java.util.*;
  * @version 1.0
  */
 public class UnaugmentedQuadrilateralActiveParticipleConjugator {
-    private final GenericNounSuffixContainer genericNounSuffixContainer;
-
     @Inject
-    public UnaugmentedQuadrilateralActiveParticipleConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
-        this.genericNounSuffixContainer = genericNounSuffixContainer;
+    public UnaugmentedQuadrilateralActiveParticipleConjugator() {
     }
 
-    private UnaugmentedQuadrilateralActiveParticiple createNoun(UnaugmentedQuadrilateralRoot root, int suffixIndex) {
+    private UnaugmentedQuadrilateralActiveParticiple createNoun(UnaugmentedQuadrilateralRoot root, int suffixIndex, GenericNounSuffixContainer genericNounSuffixContainer) {
         String suffix = genericNounSuffixContainer.get(suffixIndex);
         return new UnaugmentedQuadrilateralActiveParticiple(root, suffix, genericNounSuffixContainer);
     }
 
-    public List<UnaugmentedQuadrilateralActiveParticiple> createNounList(UnaugmentedQuadrilateralRoot root) {
+    public List<UnaugmentedQuadrilateralActiveParticiple> createNounList(UnaugmentedQuadrilateralRoot root, GenericNounSuffixContainer genericNounSuffixContainer) {
         List<UnaugmentedQuadrilateralActiveParticiple> result = new ArrayList<>(SystemConstants.NOUN_POSSIBLE_STATES);
         for (int i=0; i<SystemConstants.NOUN_POSSIBLE_STATES; i++) {
-            result.add(createNoun(root, i));
+            result.add(createNoun(root, i, genericNounSuffixContainer));
         }
         return result;
     }

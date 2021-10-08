@@ -73,7 +73,7 @@ class AugmentedQuadrilateralPassiveParticipleConjugatorTest {
     void createNounList(int formula, Class expected) {
         var root = new AugmentedQuadrilateralRoot();
 
-        var actual = sut.createNounList(root, formula);
+        var actual = sut.createNounList(root, formula, genericNounSuffixContainer);
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(18);
@@ -87,7 +87,7 @@ class AugmentedQuadrilateralPassiveParticipleConjugatorTest {
     void createTimeAndPlaceNounList(int formula, Class expected) {
         var root = new AugmentedQuadrilateralRoot();
 
-        var actual = sut.createTimeAndPlaceNounList(root, formula);
+        var actual = sut.createTimeAndPlaceNounList(root, formula, genericNounSuffixContainer);
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(18);
@@ -110,7 +110,7 @@ class AugmentedQuadrilateralPassiveParticipleConjugatorTest {
     void createMeemGerundNounList(int formula, Class expected) {
         var root = new AugmentedQuadrilateralRoot();
 
-        var actual = sut.createMeemGerundNounList(root, formula);
+        var actual = sut.createMeemGerundNounList(root, formula, genericNounSuffixContainer);
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(18);

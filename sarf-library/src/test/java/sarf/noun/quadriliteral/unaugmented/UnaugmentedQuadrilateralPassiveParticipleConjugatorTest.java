@@ -53,7 +53,7 @@ class UnaugmentedQuadrilateralPassiveParticipleConjugatorTest {
 
     @Test
     void createNounList() {
-        var actual = sut.createNounList(new UnaugmentedQuadrilateralRoot());
+        var actual = sut.createNounList(new UnaugmentedQuadrilateralRoot(), genericNounSuffixContainer);
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(18);
@@ -65,7 +65,7 @@ class UnaugmentedQuadrilateralPassiveParticipleConjugatorTest {
     @Test
     void createMeemGerundNounList() {
         when(genericNounSuffixContainer.get(anyInt())).thenReturn("");
-        var actual = sut.createMeemGerundNounList(new UnaugmentedQuadrilateralRoot());
+        var actual = sut.createMeemGerundNounList(new UnaugmentedQuadrilateralRoot(), genericNounSuffixContainer);
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(18);
         List<Integer> expectedIndexes = List.of(0, 6, 12);
@@ -79,7 +79,7 @@ class UnaugmentedQuadrilateralPassiveParticipleConjugatorTest {
     @Test
     void createTimeAndPlaceNounList() {
         when(genericNounSuffixContainer.get(anyInt())).thenReturn("");
-        var actual = sut.createTimeAndPlaceNounList(new UnaugmentedQuadrilateralRoot());
+        var actual = sut.createTimeAndPlaceNounList(new UnaugmentedQuadrilateralRoot(), genericNounSuffixContainer);
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(18);

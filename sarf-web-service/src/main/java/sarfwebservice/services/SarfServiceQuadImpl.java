@@ -34,12 +34,11 @@ import sarf.verb.quadriliteral.modifier.QuadrilateralModifier;
 import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
 import sarf.verb.quadriliteral.unaugmented.active.QuadActivePresentConjugator;
 import sarf.verb.quadriliteral.unaugmented.active.QuadriActivePastConjugator;
-import sarfwebservice.models.ConjugationResultDisplay;
-import sarfwebservice.models.RootResult;
-import sarfwebservice.models.TriRootDisplay;
-import sarfwebservice.models.VerbConjugations;
+import sarfwebservice.models.*;
 import sarfwebservice.sarf.bridges.quad.QuadAugmentedBridge;
+import sarfwebservice.sarf.bridges.quad.QuadAugmentedDerivedNounBridge;
 import sarfwebservice.sarf.bridges.quad.QuadUnaugmentedBridge;
+import sarfwebservice.sarf.bridges.quad.QuadUnaugmentedDerivedNounBridge;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,9 +58,22 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
     private final AugmentedQuadActivePresentConjugator augmentedQuadActivePresentConjugator;
     private final QuadUnaugmentedBridge quadUnaugmentedBridge;
     private final QuadAugmentedBridge quadAugmentedBridge;
+    private final QuadUnaugmentedDerivedNounBridge quadUnaugmentedDerivedNounBridge;
+    private final QuadAugmentedDerivedNounBridge quadAugmentedDerivedNounBridge;
 
     @Autowired
-    public SarfServiceQuadImpl(Validator sarfValidator, SarfDictionary sarfDictionary, KovRulesManager kovRulesManager, QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator, QuadrilateralModifier quadrilateralModifier, QuadriActivePastConjugator quadriActivePastConjugator, QuadActivePresentConjugator quadActivePresentConjugator, AugmentedQuadActivePresentConjugator augmentedQuadActivePresentConjugator, QuadUnaugmentedBridge quadUnaugmentedBridge, QuadAugmentedBridge quadAugmentedBridge) {
+    public SarfServiceQuadImpl(Validator sarfValidator
+            , SarfDictionary sarfDictionary
+            , KovRulesManager kovRulesManager
+            , QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator
+            , QuadrilateralModifier quadrilateralModifier
+            , QuadriActivePastConjugator quadriActivePastConjugator
+            , QuadActivePresentConjugator quadActivePresentConjugator
+            , AugmentedQuadActivePresentConjugator augmentedQuadActivePresentConjugator
+            , QuadUnaugmentedBridge quadUnaugmentedBridge
+            , QuadAugmentedBridge quadAugmentedBridge
+            , QuadUnaugmentedDerivedNounBridge quadUnaugmentedDerivedNounBridge
+            , QuadAugmentedDerivedNounBridge quadAugmentedDerivedNounBridge) {
         super(sarfValidator);
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
@@ -72,6 +84,8 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
         this.augmentedQuadActivePresentConjugator = augmentedQuadActivePresentConjugator;
         this.quadUnaugmentedBridge = quadUnaugmentedBridge;
         this.quadAugmentedBridge = quadAugmentedBridge;
+        this.quadUnaugmentedDerivedNounBridge = quadUnaugmentedDerivedNounBridge;
+        this.quadAugmentedDerivedNounBridge = quadAugmentedDerivedNounBridge;
     }
 
     @Override
@@ -258,5 +272,57 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
         rootResult.setUnaugmentedRoots(displays);
         rootResult.setConjugationResults(conjugationResultDisplays);
         return rootResult;
+    }
+
+    @Override
+    public NounConjugations getNouns(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        return augmented ? getNounsForAugmented(rootLetters, formula) :
+                getNounsForUnaugmented(rootLetters, cclass);
+    }
+
+    private NounConjugations getNounsForUnaugmented(String rootLetters, int cclass) throws Exception {
+        var kov = kovRulesManager.getQuadrilateralKovRule(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2), rootLetters.charAt(3));
+        var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
+        if (root == null) {
+            throw new Exception(String.format("Could not find a root with letters %s and class of %d.", rootLetters, cclass));
+        }
+        var nounConjugations = new NounConjugations();
+
+        setDerivedNouns(kov.getKov(), root, nounConjugations);
+        return nounConjugations;
+    }
+
+    private void setDerivedNouns(KindOfVerb kov, UnaugmentedQuadrilateralRoot root, NounConjugations nounConjugations) {
+        var activeParticiples = this.quadUnaugmentedDerivedNounBridge.getActiveParticiple(root, kov);
+        nounConjugations.setActiveParticiples(activeParticiples);
+
+        var passiveParticiples = this.quadUnaugmentedDerivedNounBridge.getPassiveParticiple(root, kov);
+        nounConjugations.setPassiveParticiples(passiveParticiples);
+
+        var timeAndPlaceNouns = this.quadUnaugmentedDerivedNounBridge.getTimeAndPlaceNouns(root, kov);
+        nounConjugations.setTimeAndPlaceNouns(timeAndPlaceNouns);
+    }
+
+    private NounConjugations getNounsForAugmented(String rootLetters, int formula) throws Exception {
+        var kov = kovRulesManager.getQuadrilateralKovRule(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2), rootLetters.charAt(3));
+        var root = sarfDictionary.getAugmentedQuadrilateralRoot(rootLetters);
+        if (root == null) {
+            throw new Exception(String.format("Could not find a root with letters %s and class of %d.", rootLetters));
+        }
+        var nounConjugations = new NounConjugations();
+
+        setDerivedNounsAugmented(kov.getKov(), root, nounConjugations, formula);
+        return nounConjugations;
+    }
+
+    private void setDerivedNounsAugmented(KindOfVerb kov, AugmentedQuadrilateralRoot root, NounConjugations nounConjugations, int formulaNo) {
+        var activeParticiples = this.quadAugmentedDerivedNounBridge.getActiveParticiples(root, kov, formulaNo);
+        nounConjugations.setActiveParticiples(activeParticiples);
+
+        var passiveParticiples = this.quadAugmentedDerivedNounBridge.getPassiveParticiples(root, kov, formulaNo);
+        nounConjugations.setPassiveParticiples(passiveParticiples);
+
+        var timeAndPlaceNouns = this.quadAugmentedDerivedNounBridge.getTimeAndPlaceNouns(root, kov, formulaNo);
+        nounConjugations.setTimeAndPlaceNouns(timeAndPlaceNouns);
     }
 }

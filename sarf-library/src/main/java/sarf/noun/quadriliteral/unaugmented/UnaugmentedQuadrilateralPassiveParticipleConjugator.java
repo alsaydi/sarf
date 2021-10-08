@@ -23,25 +23,18 @@ import java.util.stream.IntStream;
  * @version 1.0
  */
 public class UnaugmentedQuadrilateralPassiveParticipleConjugator {
-    private final GenericNounSuffixContainer genericNounSuffixContainer;
-
-    @Inject
-    public UnaugmentedQuadrilateralPassiveParticipleConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
-        this.genericNounSuffixContainer = genericNounSuffixContainer;
-    }
-
-    public List<UnaugmentedQuadrilateralPassiveParticiple> createNounList(UnaugmentedQuadrilateralRoot root) {
+    public List<UnaugmentedQuadrilateralPassiveParticiple> createNounList(UnaugmentedQuadrilateralRoot root, GenericNounSuffixContainer genericNounSuffixContainer) {
         return IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
-                .mapToObj(i -> createNoun(root, i))
+                .mapToObj(i -> createNoun(root, i, genericNounSuffixContainer))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public List<UnaugmentedQuadrilateralPassiveParticiple> createMeemGerundNounList(UnaugmentedQuadrilateralRoot root) {
-        return createNounList(root, meemGerundIndexesList);
+    public List<UnaugmentedQuadrilateralPassiveParticiple> createMeemGerundNounList(UnaugmentedQuadrilateralRoot root, GenericNounSuffixContainer genericNounSuffixContainer) {
+        return createNounList(root, meemGerundIndexesList, genericNounSuffixContainer);
     }
 
-    public List<UnaugmentedQuadrilateralPassiveParticiple> createTimeAndPlaceNounList(UnaugmentedQuadrilateralRoot root) {
-        return createNounList(root, timeAndPlaceIndexList);
+    public List<UnaugmentedQuadrilateralPassiveParticiple> createTimeAndPlaceNounList(UnaugmentedQuadrilateralRoot root, GenericNounSuffixContainer genericNounSuffixContainer) {
+        return createNounList(root, timeAndPlaceIndexList, genericNounSuffixContainer);
     }
 
     private static final List<Integer> timeAndPlaceIndexList = new ArrayList<>();
@@ -65,19 +58,19 @@ public class UnaugmentedQuadrilateralPassiveParticipleConjugator {
         meemGerundIndexesList.add(12);
     }
 
-    private UnaugmentedQuadrilateralPassiveParticiple createNoun(UnaugmentedQuadrilateralRoot root, int suffixIndex) {
+    private UnaugmentedQuadrilateralPassiveParticiple createNoun(UnaugmentedQuadrilateralRoot root, int suffixIndex, GenericNounSuffixContainer genericNounSuffixContainer) {
         String suffix = genericNounSuffixContainer.get(suffixIndex);
         return new UnaugmentedQuadrilateralPassiveParticiple(root, suffix, genericNounSuffixContainer);
     }
 
     //تستعمل في اسم الزمان والمكان والمصدر الميمي
-    private List<UnaugmentedQuadrilateralPassiveParticiple> createNounList(UnaugmentedQuadrilateralRoot root, List<Integer> indexes) {
+    private List<UnaugmentedQuadrilateralPassiveParticiple> createNounList(UnaugmentedQuadrilateralRoot root, List<Integer> indexes, GenericNounSuffixContainer genericNounSuffixContainer) {
         List<UnaugmentedQuadrilateralPassiveParticiple> result = IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
                 .mapToObj(i -> new UnaugmentedQuadrilateralPassiveParticiple())
                 .collect(Collectors.toList());
 
         indexes.forEach(index -> {
-            var noun = createNoun(root, index);
+            var noun = createNoun(root, index, genericNounSuffixContainer);
             result.set(index, noun);
         });
         return result;

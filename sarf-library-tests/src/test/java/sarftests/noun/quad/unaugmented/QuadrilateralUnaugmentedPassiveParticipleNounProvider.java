@@ -26,6 +26,7 @@ package sarftests.noun.quad.unaugmented;
 import com.google.inject.Inject;
 import sarf.SarfDictionary;
 import sarf.kov.KovRulesManager;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier;
 import sarf.noun.quadriliteral.unaugmented.UnaugmentedQuadrilateralPassiveParticipleConjugator;
 import sarftests.noun.INounProvider;
@@ -62,7 +63,7 @@ public class QuadrilateralUnaugmentedPassiveParticipleNounProvider implements IN
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
             List nouns; //TODO: fix the typing in the modifier build function so we don't have to do this trick.
-            nouns = conjugator.createNounList(root);
+            nouns = conjugator.createNounList(root, new GenericNounSuffixContainer());
 
             var conjugationResult =  modifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             var result = new ArrayList<String>();

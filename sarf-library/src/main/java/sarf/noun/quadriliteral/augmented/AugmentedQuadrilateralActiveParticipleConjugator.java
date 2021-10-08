@@ -26,14 +26,7 @@ import sarf.noun.GenericNounSuffixContainer;
  * @version 1.0
  */
 public class AugmentedQuadrilateralActiveParticipleConjugator {
-    private final GenericNounSuffixContainer genericNounSuffixContainer;
-
-    @Inject
-    public AugmentedQuadrilateralActiveParticipleConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
-        this.genericNounSuffixContainer = genericNounSuffixContainer;
-    }
-
-    private AugmentedQuadrilateralNoun createNoun(AugmentedQuadrilateralRoot root, int suffixIndex, int formulaNo) {
+    private AugmentedQuadrilateralNoun createNoun(AugmentedQuadrilateralRoot root, int suffixIndex, int formulaNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         String suffix = genericNounSuffixContainer.get(suffixIndex);
         switch (formulaNo) {
             case 1:
@@ -46,9 +39,9 @@ public class AugmentedQuadrilateralActiveParticipleConjugator {
         return null;
     }
 
-    public List<AugmentedQuadrilateralNoun> createNounList(AugmentedQuadrilateralRoot root, int formulaNo) {
+    public List<AugmentedQuadrilateralNoun> createNounList(AugmentedQuadrilateralRoot root, int formulaNo, GenericNounSuffixContainer genericNounSuffixContainer) {
         return IntStream.range(0, SystemConstants.NOUN_POSSIBLE_STATES)
-                .mapToObj(i -> createNoun(root, i, formulaNo))
+                .mapToObj(i -> createNoun(root, i, formulaNo, genericNounSuffixContainer))
                 .collect(Collectors.toList());
     }
 }

@@ -55,8 +55,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import static sarfwebservice.models.NounConjugations.ACTIVE_PARTICIPLE_KEY;
-import static sarfwebservice.models.NounConjugations.PASSIVE_PARTICIPLE_KEY;
+import static sarfwebservice.models.NounConjugations.ACTIVE_PARTICIPLE_KEY_TRI;
+import static sarfwebservice.models.NounConjugations.PASSIVE_PARTICIPLE_KEY_TRI;
 
 @Service
 public class TrilateralUnaugmentedDerivedNounBridgeImpl implements TrilateralUnaugmentedDerivedNounBridge {
@@ -122,7 +122,7 @@ public class TrilateralUnaugmentedDerivedNounBridgeImpl implements TrilateralUna
 
     @Override
     public List<DerivedNounConjugation> getActiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        var formulaName = ACTIVE_PARTICIPLE_KEY;
+        var formulaName = ACTIVE_PARTICIPLE_KEY_TRI;
         var genericNounSuffixContainer = this.suffixContainerFactory.create();
         genericNounSuffixContainer.selectInDefiniteMode();
         var conjugatedNouns = this.unaugmentedTrilateralActiveParticipleConjugator.createNounList(root, formulaName, genericNounSuffixContainer);
@@ -146,7 +146,7 @@ public class TrilateralUnaugmentedDerivedNounBridgeImpl implements TrilateralUna
 
     @Override
     public List<DerivedNounConjugation> getPassiveParticiple(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
-        var formulaName = PASSIVE_PARTICIPLE_KEY;
+        var formulaName = PASSIVE_PARTICIPLE_KEY_TRI;
         var genericNounSuffixContainer = this.suffixContainerFactory.create();
         genericNounSuffixContainer.selectInDefiniteMode();
         var conjugatedNouns = this.unaugmentedTrilateralPassiveParticipleConjugator.createNounList(root, formulaName, genericNounSuffixContainer);

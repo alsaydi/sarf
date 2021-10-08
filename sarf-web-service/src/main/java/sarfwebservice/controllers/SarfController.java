@@ -176,8 +176,12 @@ public class SarfController {
         return  result;
     }
 
-    private NounConjugations getNounConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) {
-        return null;
+    private NounConjugations getNounConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        var result = this.sarfServiceQuad.getNouns(rootLetters, augmented, cclass, formula);
+        if (result == null) {
+            throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
+        }
+        return result;
     }
 
     @RequestMapping("/gerunds/{rootLetters}")

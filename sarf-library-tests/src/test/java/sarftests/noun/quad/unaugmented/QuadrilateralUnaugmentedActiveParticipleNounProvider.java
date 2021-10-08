@@ -26,6 +26,7 @@ package sarftests.noun.quad.unaugmented;
 import com.google.inject.Inject;
 import sarf.SarfDictionary;
 import sarf.kov.KovRulesManager;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.noun.quadriliteral.modifier.activeparticiple.ActiveParticipleModifier;
 import sarf.noun.quadriliteral.unaugmented.UnaugmentedQuadrilateralActiveParticipleConjugator;
 import sarftests.noun.INounProvider;
@@ -59,7 +60,7 @@ public class QuadrilateralUnaugmentedActiveParticipleNounProvider implements INo
         try {
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
-            var nouns = conjugator.createNounList(root);
+            var nouns = conjugator.createNounList(root, new GenericNounSuffixContainer());
 
             var conjugationResult =  modifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             var result = new ArrayList<String>();
