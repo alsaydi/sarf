@@ -1,4 +1,4 @@
-package sarfwebservice.sarf.bridges;
+package sarfwebservice.sarf.bridges.tri;
 /*
  *
  * MIT License
@@ -23,16 +23,14 @@ package sarfwebservice.sarf.bridges;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 import sarf.KindOfVerb;
-import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
+import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarfwebservice.models.DerivedNounConjugation;
 
 import java.util.List;
 
-public interface TrilateralUnaugmentedGerundBridge {
-    List<DerivedNounConjugation> getStandardGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
-    List<DerivedNounConjugation> getMeemGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov) throws Exception;
-    List<DerivedNounConjugation> getNomenGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
-    List<DerivedNounConjugation> getQualityGerunds(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+public interface TrilateralAugmentedDerivedNounBridge {
+    List<DerivedNounConjugation> getActiveParticiples(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo);
+    List<DerivedNounConjugation> getPassiveParticiples(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo);
+    List<DerivedNounConjugation> getTimeAndPlaceNouns(AugmentedTrilateralRoot root, KindOfVerb kov, int formulaNo);
 }

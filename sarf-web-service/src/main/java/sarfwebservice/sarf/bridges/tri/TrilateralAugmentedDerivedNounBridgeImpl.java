@@ -1,4 +1,4 @@
-package sarfwebservice.sarf.bridges;
+package sarfwebservice.sarf.bridges.tri;
 /*
  *
  * MIT License
