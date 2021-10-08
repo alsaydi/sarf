@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Utils } from '../models/Utils';
 import { VerbSelectionDetail } from '../models/VerbSelectionDetail';
 import { RootType } from '../root-type.enum';
 import { AppNotificationsService } from '../services/app-notifications.service';
@@ -13,7 +14,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }
-
 
 @Component({
   selector: 'app-rootsearch',
@@ -31,7 +31,7 @@ export class RootsearchComponent implements OnInit {
   private currentlySelectedRoot: any;
 
   constructor(private appNotificationsService: AppNotificationsService
-    , private router: Router) {
+    , private router: Router, private route: ActivatedRoute) {
     this.appNotificationsService.rootResultRetrieved$.subscribe(
       rootResult => this.processRootResult(rootResult)
       , err => {
@@ -98,7 +98,12 @@ export class RootsearchComponent implements OnInit {
     this.kindOfVerb = rootResult.kindOfVerb;    
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
+    const verbSelectionDetail = null;// Utils.getVerbSelectionDetail(this.router.routerState.snapshot.root);
+    console.log('activeSelection: ', this.router.routerState);
+    if(verbSelectionDetail != null && verbSelectionDetail.verb != null && verbSelectionDetail.verb.length > 0) {
+      this.verbDisplay = verbSelectionDetail.verb;
+    }
     this.reset();
   }
 
