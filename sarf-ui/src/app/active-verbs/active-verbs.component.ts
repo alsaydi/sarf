@@ -23,8 +23,9 @@
  * SOFTWARE.
  */
 
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Utils } from '../models/Utils';
 import { SarfService } from '../services/sarf-service';
 
@@ -34,8 +35,9 @@ import { SarfService } from '../services/sarf-service';
   styleUrls: ['./active-verbs.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class ActiveVerbsComponent implements OnInit {
+export class ActiveVerbsComponent implements OnInit, OnDestroy {
 
+  private serviceSubscription: Subscription;
   public past: Array<string>;
   public nominativePresent: Array<string>;
   public accusativePresent: Array<string>;
@@ -44,11 +46,11 @@ export class ActiveVerbsComponent implements OnInit {
   public imperative: Array<string>;
   public emphasizedImperative: Array<string>;
 
-  constructor(private sarfService: SarfService, private route: ActivatedRoute) { }
+  constructor(private sarfService: SarfService, private route: ActivatedRoute) { }  
 
   ngOnInit(): void {
     const verbSelectionDetail = this.getVerbSelectionDetail();
-    this.sarfService.getActiveVerbConjugatons(verbSelectionDetail).subscribe(result => {
+    this.serviceSubscription = this.sarfService.getActiveVerbConjugatons(verbSelectionDetail).subscribe(result => {
       console.log(result);
       this.past = result.past;
       this.nominativePresent = result.nominativePresent;
@@ -62,5 +64,9 @@ export class ActiveVerbsComponent implements OnInit {
 
   private getVerbSelectionDetail() {
     return Utils.getVerbSelectionDetail(this.route);
+  }
+
+  ngOnDestroy(): void {
+    this.serviceSubscription?.unsubscribe();
   }
 }

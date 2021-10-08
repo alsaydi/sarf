@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AugmentedQuadConjugationClass, ConjugationClassStatic, IConjugationClass, UnaugmentedQuadConjugationClass } from '../models/conjugationclass';
 import { ConjugationGroup } from '../models/conjugationgroup';
 import { QuadConjugationGroup } from '../models/quad-conjugation-group';
@@ -11,7 +12,9 @@ import { SarfService } from '../services/sarf-service';
   templateUrl: './quadilateral-conjugation-panel.component.html',
   styleUrls: ['./quadilateral-conjugation-panel.component.css']
 })
-export class QuadilateralConjugationPanelComponent implements OnInit {
+export class QuadilateralConjugationPanelComponent implements OnInit, OnDestroy {
+
+  private serviceSubscription: Subscription;
   public conjugationGroup: QuadConjugationGroup;
   public alternatives: Array<any>;
 
@@ -25,7 +28,7 @@ export class QuadilateralConjugationPanelComponent implements OnInit {
     this.conjugationGroup = null;
     // tslint:disable-next-line:no-console
     const currentRoot = this.resetSearch();
-    this.sarfService.findSarf(currentRoot).subscribe(rootResult => {
+    this.serviceSubscription = this.sarfService.findSarf(currentRoot).subscribe(rootResult => {
       console.log(rootResult);
         this.processQuadResult(rootResult);
     }, n => console.log(n));
@@ -109,5 +112,9 @@ export class QuadilateralConjugationPanelComponent implements OnInit {
     return conjugationResults.filter(r => r.conjugationResult.formulaNo === formulaNo)
       .map(r => r.display)
       .join('');
+  }
+
+  ngOnDestroy(): void {
+    this.serviceSubscription?.unsubscribe();
   }
 }

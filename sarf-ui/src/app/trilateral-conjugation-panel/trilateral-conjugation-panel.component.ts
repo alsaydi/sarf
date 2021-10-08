@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TrilateralConjugationGroup } from '../models/trilateral-conjugation-group';
 import { ConjugationGroup } from '../models/conjugationgroup';
 import { AugmentedTriConjugationClass, ConjugationClassStatic, IConjugationClass, UnaugmentedTriConjugationClass } from '../models/conjugationclass';
 import { SarfService } from '../services/sarf-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppNotificationsService } from '../services/app-notifications.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-trilateral-conjugation-panel',
   templateUrl: './trilateral-conjugation-panel.component.html',
   styleUrls: ['./trilateral-conjugation-panel.component.css']
 })
-export class TrilateralConjugationPanelComponent implements OnInit {
+export class TrilateralConjugationPanelComponent implements OnInit, OnDestroy {
+
+  private serviceSubscription: Subscription;
   public conjugationGroup: TrilateralConjugationGroup;
   public alternatives: Array<any>;
 
@@ -22,7 +25,7 @@ export class TrilateralConjugationPanelComponent implements OnInit {
   ngOnInit(): void {
     const currentRoot = this.resetSearch();
 
-    this.sarfService.findSarf(currentRoot).subscribe(rootResult => {
+    this.serviceSubscription = this.sarfService.findSarf(currentRoot).subscribe(rootResult => {
       console.log(rootResult);
       this.processTriResult(rootResult);
     }, n => console.log(n));
@@ -148,5 +151,9 @@ export class TrilateralConjugationPanelComponent implements OnInit {
     return conjugationResults.filter(r => r.conjugationResult.formulaNo === formulaNo)
       .map(r => r.display)
       .join('');
+  }
+
+  ngOnDestroy(): void {
+    this.serviceSubscription?.unsubscribe();
   }
 }
