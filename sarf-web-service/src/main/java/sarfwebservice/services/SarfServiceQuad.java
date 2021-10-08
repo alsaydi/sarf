@@ -24,9 +24,12 @@ package sarfwebservice.services;
  * SOFTWARE.
  */
 import sarfwebservice.models.RootResult;
+import sarfwebservice.models.VerbConjugations;
 
 import java.util.List;
 
 public interface SarfServiceQuad extends SarfService {
     List<RootResult> getRoots(String rootLetters) throws Exception;
+    VerbConjugations getActiveVerbConjugations(String rootLetters, boolean augmented, int cclass, int formula) throws Exception;
+    VerbConjugations getPassiveVerbConjugations(String rootLetters, boolean augmented, int cclass, int formula) throws Exception;
 }

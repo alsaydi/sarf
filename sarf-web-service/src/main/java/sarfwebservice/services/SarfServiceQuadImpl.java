@@ -37,6 +37,9 @@ import sarf.verb.quadriliteral.unaugmented.active.QuadriActivePastConjugator;
 import sarfwebservice.models.ConjugationResultDisplay;
 import sarfwebservice.models.RootResult;
 import sarfwebservice.models.TriRootDisplay;
+import sarfwebservice.models.VerbConjugations;
+import sarfwebservice.sarf.bridges.quad.QuadAugmentedBridge;
+import sarfwebservice.sarf.bridges.quad.QuadUnaugmentedBridge;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,9 +57,11 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
     private final QuadriActivePastConjugator quadriActivePastConjugator;
     private final QuadActivePresentConjugator quadActivePresentConjugator;
     private final AugmentedQuadActivePresentConjugator augmentedQuadActivePresentConjugator;
+    private final QuadUnaugmentedBridge quadUnaugmentedBridge;
+    private final QuadAugmentedBridge quadAugmentedBridge;
 
     @Autowired
-    public SarfServiceQuadImpl(Validator sarfValidator, SarfDictionary sarfDictionary, KovRulesManager kovRulesManager, QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator, QuadrilateralModifier quadrilateralModifier, QuadriActivePastConjugator quadriActivePastConjugator, QuadActivePresentConjugator quadActivePresentConjugator, AugmentedQuadActivePresentConjugator augmentedQuadActivePresentConjugator) {
+    public SarfServiceQuadImpl(Validator sarfValidator, SarfDictionary sarfDictionary, KovRulesManager kovRulesManager, QuadrilateralAugmentedActivePastConjugator quadrilateralAugmentedActivePastConjugator, QuadrilateralModifier quadrilateralModifier, QuadriActivePastConjugator quadriActivePastConjugator, QuadActivePresentConjugator quadActivePresentConjugator, AugmentedQuadActivePresentConjugator augmentedQuadActivePresentConjugator, QuadUnaugmentedBridge quadUnaugmentedBridge, QuadAugmentedBridge quadAugmentedBridge) {
         super(sarfValidator);
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
@@ -65,6 +70,8 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
         this.quadriActivePastConjugator = quadriActivePastConjugator;
         this.quadActivePresentConjugator = quadActivePresentConjugator;
         this.augmentedQuadActivePresentConjugator = augmentedQuadActivePresentConjugator;
+        this.quadUnaugmentedBridge = quadUnaugmentedBridge;
+        this.quadAugmentedBridge = quadAugmentedBridge;
     }
 
     @Override
@@ -75,6 +82,73 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public VerbConjugations getActiveVerbConjugations(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        return augmented ? getActiveVerbConjugationsAugmented(rootLetters, formula, true) :
+                getVerbConjugationsUnaugmented(rootLetters, cclass, true);
+    }
+
+    @Override
+    public VerbConjugations getPassiveVerbConjugations(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        return augmented ? getActiveVerbConjugationsAugmented(rootLetters, formula, false) :
+                getVerbConjugationsUnaugmented(rootLetters, cclass, false);
+    }
+
+    private VerbConjugations getVerbConjugationsUnaugmented(String rootLetters, int cclass, boolean active) throws Exception {
+        var unaugmentedRoot = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
+        if(unaugmentedRoot == null) {
+            throw new Exception(String.format("Could not find root %s.", rootLetters));
+        }
+        var kovRule = kovRulesManager.getQuadrilateralKovRule(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2), rootLetters.charAt(3));
+        var kov = kovRule.getKov();
+
+        var past = quadUnaugmentedBridge.retrievePastConjugations(unaugmentedRoot, kov, active).stream().map(WordPresenter::toString).toList();
+        var nominativePresent = quadUnaugmentedBridge.retrieveNominativePresent(unaugmentedRoot, kov, active).stream().map(WordPresenter::toString).toList();
+        var accusativePresent = quadUnaugmentedBridge.retrieveAccusativePresent(unaugmentedRoot, kov, active).stream().map(WordPresenter::toString).toList();
+        var jussivePresent = quadUnaugmentedBridge.retrieveJussivePresent(unaugmentedRoot, kov, active).stream().map(WordPresenter::toString).toList();
+        var emphasizedPresent = quadUnaugmentedBridge.retrieveEmphasizedPresent(unaugmentedRoot, kov, active).stream().map(WordPresenter::toString).toList();
+        var imperative = Arrays.asList("");
+        var emphasizedImperative = Arrays.asList("");
+        if(active) {
+            imperative = quadUnaugmentedBridge.retrieveImperative(unaugmentedRoot, kov).stream().map(WordPresenter::toString).toList();;
+            emphasizedImperative = quadUnaugmentedBridge.retrieveEmphasizedImperative(unaugmentedRoot, kov).stream().map(WordPresenter::toString).toList();;
+        }
+
+        var verbConjugations = new VerbConjugations();
+        verbConjugations.setPast(past);
+        verbConjugations.setNominativePresent(nominativePresent);
+        verbConjugations.setAccusativePresent(accusativePresent);
+        verbConjugations.setJussivePresent(jussivePresent);
+        verbConjugations.setEmphasizedPresent(emphasizedPresent);
+        verbConjugations.setImperative(imperative);
+        verbConjugations.setEmphasizedImperative(emphasizedImperative);
+        return verbConjugations;
+    }
+
+    private VerbConjugations getActiveVerbConjugationsAugmented(String rootLetters, int formula, boolean active) throws Exception {
+        var past = quadAugmentedBridge.retrievePastConjugations(rootLetters, formula, active).stream().map(WordPresenter::toString).toList();
+        var nominativePresent = quadAugmentedBridge.retrieveNominativePresent(rootLetters, formula, active).stream().map(WordPresenter::toString).toList();
+        var accusativePresent = quadAugmentedBridge.retrieveAccusativePresent(rootLetters, formula, active).stream().map(WordPresenter::toString).toList();
+        var jussivePresent = quadAugmentedBridge.retrieveJussivePresent(rootLetters, formula, active).stream().map(WordPresenter::toString).toList();
+        var emphasizedPresent = quadAugmentedBridge.retrieveEmphasizedPresent(rootLetters, formula, active).stream().map(WordPresenter::toString).toList();
+        var imperative = Arrays.asList("");
+        var emphasizedImperative = Arrays.asList("");
+        if(active) {
+            imperative = quadAugmentedBridge.retrieveImperative(rootLetters, formula).stream().map(WordPresenter::toString).toList();;
+            emphasizedImperative = quadAugmentedBridge.retrieveEmphasizedImperative(rootLetters, formula).stream().map(WordPresenter::toString).toList();;
+        }
+
+        var verbConjugations = new VerbConjugations();
+        verbConjugations.setPast(past);
+        verbConjugations.setNominativePresent(nominativePresent);
+        verbConjugations.setAccusativePresent(accusativePresent);
+        verbConjugations.setJussivePresent(jussivePresent);
+        verbConjugations.setEmphasizedPresent(emphasizedPresent);
+        verbConjugations.setImperative(imperative);
+        verbConjugations.setEmphasizedImperative(emphasizedImperative);
+        return verbConjugations;
     }
 
     private String conjugateRoot(UnaugmentedQuadrilateralRoot root, KindOfVerb kov) {
