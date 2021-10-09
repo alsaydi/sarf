@@ -68,7 +68,7 @@ class QuadrilateralUnaugmentedNomenGerundConjugatorTest {
         root.setC3('ع');
         root.setC4('ل');
 
-        var actual = sut.createGerundList(root);
+        var actual = sut.createGerundList(root, genericNounSuffixContainer);
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(SystemConstants.NOUN_POSSIBLE_STATES);

@@ -125,12 +125,20 @@ public class SarfController {
         return  result;
     }
 
-    private VerbConjugations getActiveVerbConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) {
-        return null;
+    private VerbConjugations getActiveVerbConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        var result = this.sarfServiceQuad.getActiveVerbConjugations(rootLetters, augmented, cclass, formula);
+        if(result == null && result.getPast() == null || result.getPast().isEmpty()) {
+            throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
+        }
+        return  result;
     }
 
-    private VerbConjugations gePassiveVerbConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) {
-        return null;
+    private VerbConjugations gePassiveVerbConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        var result = this.sarfServiceQuad.getPassiveVerbConjugations(rootLetters, augmented, cclass, formula);
+        if(result == null && result.getPast() == null || result.getPast().isEmpty()) {
+            throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
+        }
+        return  result;
     }
 
     private boolean isValidRoot(String rootLetters) {
@@ -168,8 +176,12 @@ public class SarfController {
         return  result;
     }
 
-    private NounConjugations getNounConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) {
-        return null;
+    private NounConjugations getNounConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        var result = this.sarfServiceQuad.getNouns(rootLetters, augmented, cclass, formula);
+        if (result == null) {
+            throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
+        }
+        return result;
     }
 
     @RequestMapping("/gerunds/{rootLetters}")
@@ -195,7 +207,11 @@ public class SarfController {
         return  result;
     }
 
-    private GerundConjugations getGerundConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) {
-        return null;
+    private GerundConjugations getGerundConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        var result = this.sarfServiceQuad.getGerunds(rootLetters, augmented, cclass, formula);
+        if (result == null) {
+            throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
+        }
+        return result;
     }
 }

@@ -43,7 +43,7 @@ class UnaugmentedQuadrilateralActiveParticipleConjugatorTest {
     void createNounList() {
         MockitoAnnotations.initMocks(this);
 
-        var actual = sut.createNounList(new UnaugmentedQuadrilateralRoot());
+        var actual = sut.createNounList(new UnaugmentedQuadrilateralRoot(), new GenericNounSuffixContainer());
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(18);

@@ -25,14 +25,12 @@ import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
  */
 public class QuadrilateralUnaugmentedNomenGerundConjugator {
     private final int[] indexList = {2, 4, 6, 8, 10, 12, 14, 16, 18};
-    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
     @Inject
     public QuadrilateralUnaugmentedNomenGerundConjugator(GenericNounSuffixContainer genericNounSuffixContainer) {
-        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
-    public List<QuadrilateralGerund> createGerundList(UnaugmentedQuadrilateralRoot root) {
+    public List<QuadrilateralGerund> createGerundList(UnaugmentedQuadrilateralRoot root, GenericNounSuffixContainer genericNounSuffixContainer) {
         var gerundDisplayList = createEmptyList();
 
         String gerund = genericNounSuffixContainer.getPrefix()+root.getC1() + ArabCharUtil.FATHA + root.getC2() + ArabCharUtil.SKOON + root.getC3()+ArabCharUtil.FATHA+root.getC4();

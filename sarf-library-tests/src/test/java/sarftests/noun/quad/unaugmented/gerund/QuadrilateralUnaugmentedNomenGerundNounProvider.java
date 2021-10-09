@@ -28,6 +28,7 @@ import sarf.SarfDictionary;
 import sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier;
 import sarf.gerund.quadrilateral.unaugmented.QuadrilateralUnaugmentedNomenGerundConjugator;
 import sarf.kov.KovRulesManager;
+import sarf.noun.GenericNounSuffixContainer;
 import sarftests.noun.INounProvider;
 
 import java.util.ArrayList;
@@ -59,7 +60,7 @@ public class QuadrilateralUnaugmentedNomenGerundNounProvider implements INounPro
         try {
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
-            var nouns = conjugator.createGerundList(root);
+            var nouns = conjugator.createGerundList(root, new GenericNounSuffixContainer());
 
             var conjugationResult =  modifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             var result = new ArrayList<String>();

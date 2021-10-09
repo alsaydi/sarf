@@ -67,7 +67,7 @@ class QuadrilateralAugmentedNomenGerundConjugatorTest {
     @ParameterizedTest(name = "createGerundListTest for {1}")
     @MethodSource("getCreateGerundListTestArguments")
     void createGerundListTest(int formulaNumber, Class expected) {
-        var actual = sut.createGerundList(new AugmentedQuadrilateralRoot(), formulaNumber);
+        var actual = sut.createGerundList(new AugmentedQuadrilateralRoot(), formulaNumber, genericNounSuffixContainer);
 
         assertThat(actual).isNotNull();
         assertThat(actual.get(1)).isInstanceOf(expected);

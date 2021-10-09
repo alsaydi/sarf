@@ -7,6 +7,7 @@ import sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier;
 import sarf.gerund.quadrilateral.unaugmented.QuadrilateralUnaugmentedGerundConjugator;
 import sarf.gerund.quadrilateral.unaugmented.QuadrilateralUnaugmentedNomenGerundConjugator;
 import sarf.kov.KovRulesManager;
+import sarf.noun.GenericNounSuffixContainer;
 import sarf.noun.quadriliteral.modifier.activeparticiple.ActiveParticipleModifier;
 import sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier;
 import sarf.noun.quadriliteral.unaugmented.UnaugmentedQuadrilateralActiveParticipleConjugator;
@@ -39,6 +40,7 @@ public class QuadrilateralUnaugmentedHelper {
     private final QuadrilateralUnaugmentedNomenGerundConjugator nomenGerundConjugator;
     private final QuadUnaugmentedImperativeConjugator quadUnaugmentedImperativeConjugator;
     private final QuadPassivePresentConjugator quadPassivePresentConjugator;
+    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
     @Inject
     public QuadrilateralUnaugmentedHelper(SarfDictionary sarfDictionary
@@ -54,7 +56,8 @@ public class QuadrilateralUnaugmentedHelper {
             , QuadrilateralStandardModifier standardModifier
             , QuadrilateralUnaugmentedNomenGerundConjugator nomenGerundConjugator
             , QuadUnaugmentedImperativeConjugator quadUnaugmentedImperativeConjugator
-            , QuadPassivePresentConjugator quadPassivePresentConjugator){
+            , QuadPassivePresentConjugator quadPassivePresentConjugator
+            , GenericNounSuffixContainer genericNounSuffixContainer){
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
         this.quadriActivePastConjugator = quadriActivePastConjugator;
@@ -70,6 +73,7 @@ public class QuadrilateralUnaugmentedHelper {
         this.nomenGerundConjugator = nomenGerundConjugator;
         this.quadUnaugmentedImperativeConjugator = quadUnaugmentedImperativeConjugator;
         this.quadPassivePresentConjugator = quadPassivePresentConjugator;
+        this.genericNounSuffixContainer = genericNounSuffixContainer;
     }
 
     public void printPastActive(String rootLetters){
@@ -156,7 +160,7 @@ public class QuadrilateralUnaugmentedHelper {
         try {
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
-            var nouns = activeParticipleConjugator.createNounList(root);
+            var nouns = activeParticipleConjugator.createNounList(root, genericNounSuffixContainer);
 
             var conjugationResult =  activeParticipleModifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult);
@@ -170,7 +174,7 @@ public class QuadrilateralUnaugmentedHelper {
         try {
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
-            var nouns = passiveParticipleConjugator.createNounList(root);
+            var nouns = passiveParticipleConjugator.createNounList(root, genericNounSuffixContainer);
 
             var conjugationResult =  passiveParticipleModifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult);
@@ -183,7 +187,7 @@ public class QuadrilateralUnaugmentedHelper {
         try {
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
-            var nouns = passiveParticipleConjugator.createTimeAndPlaceNounList(root);
+            var nouns = passiveParticipleConjugator.createTimeAndPlaceNounList(root, genericNounSuffixContainer);
 
             var conjugationResult =  passiveParticipleModifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult);
@@ -197,7 +201,7 @@ public class QuadrilateralUnaugmentedHelper {
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
             gerundConjugator.setListener(() -> 1);
-            var nouns = gerundConjugator.createGerundList(root);
+            var nouns = gerundConjugator.createGerundList(root, genericNounSuffixContainer);
 
             var conjugationResult =  standardModifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult);
@@ -211,7 +215,7 @@ public class QuadrilateralUnaugmentedHelper {
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
             gerundConjugator.setListener(() -> 1);
-            var nouns = nomenGerundConjugator.createGerundList(root);
+            var nouns = nomenGerundConjugator.createGerundList(root, genericNounSuffixContainer);
 
             var conjugationResult =  standardModifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult);
@@ -225,7 +229,7 @@ public class QuadrilateralUnaugmentedHelper {
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
             gerundConjugator.setListener(() -> 1);
-            var nouns = passiveParticipleConjugator.createMeemGerundNounList(root);
+            var nouns = passiveParticipleConjugator.createMeemGerundNounList(root, genericNounSuffixContainer);
 
             var conjugationResult =  passiveParticipleModifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult);

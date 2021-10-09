@@ -102,9 +102,9 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
                 }
 
                 if (selectionInfo.isAugmented()) {
-                    gerunds = quadrilateralAugmentedGerundConjugator.createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    gerunds = quadrilateralAugmentedGerundConjugator.createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), genericNounSuffixContainer);
                 } else {
-                    gerunds = quadrilateralUnaugmentedGerundConjugator.createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
+                    gerunds = quadrilateralUnaugmentedGerundConjugator.createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot(), genericNounSuffixContainer);
                 }
                 ConjugationResult conjResult = quadrilateralStandardModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), gerunds);
                 return conjResult.getFinalResult();
@@ -124,9 +124,9 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
                 }
 
                 if (selectionInfo.isAugmented()) {
-                    gerunds = quadrilateralAugmentedNomenGerundConjugator.createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    gerunds = quadrilateralAugmentedNomenGerundConjugator.createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), genericNounSuffixContainer);
                 } else {
-                    gerunds = quadrilateralUnaugmentedNomenGerundConjugator.createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
+                    gerunds = quadrilateralUnaugmentedNomenGerundConjugator.createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot(), genericNounSuffixContainer);
                 }
                 ConjugationResult conjResult = quadrilateralStandardModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), gerunds);
                 return conjResult.getFinalResult();
@@ -148,9 +148,9 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
 
                 List<? extends Word> result;
                 if (selectionInfo.isAugmented()) {
-                    result = augmentedQuadrilateralPassiveParticipleConjugator.createMeemGerundNounList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    result = augmentedQuadrilateralPassiveParticipleConjugator.createMeemGerundNounList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), genericNounSuffixContainer);
                 } else {
-                    result = unaugmentedQuadrilateralPassiveParticipleConjugator.createMeemGerundNounList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot());
+                    result = unaugmentedQuadrilateralPassiveParticipleConjugator.createMeemGerundNounList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot(), genericNounSuffixContainer);
                 }
 
                 ConjugationResult conjResult = quadrilateralPassiveParticipleModifier.build((QuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), selectionInfo.getKov(), result);
