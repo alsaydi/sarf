@@ -31,7 +31,7 @@ import sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier;
 import sarf.gerund.quadrilateral.augmented.QuadrilateralAugmentedGerundConjugator;
 import sarf.gerund.quadrilateral.augmented.nomen.QuadrilateralAugmentedNomenGerundConjugator;
 import sarf.noun.quadriliteral.augmented.AugmentedQuadrilateralPassiveParticipleConjugator;
-import sarf.noun.trilateral.augmented.modifier.passiveparticiple.PassiveParticipleModifier;
+import sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
 import sarf.verb.quadriliteral.modifier.QuadrilateralModifier;
 import sarfwebservice.models.DerivedNounConjugation;
@@ -47,6 +47,7 @@ public class QuadAugmentedGerundBridgeImpl implements QuadAugmentedGerundBridge 
     private final QuadrilateralAugmentedNomenGerundConjugator nomenGerundConjugator;
     private final AugmentedQuadrilateralPassiveParticipleConjugator passiveParticipleConjugator;
     private final SuffixContainerFactory suffixContainerFactory;
+    private final PassiveParticipleModifier passiveParticipleModifier;
 
     @Autowired
     public QuadAugmentedGerundBridgeImpl(QuadrilateralAugmentedGerundConjugator gerundConjugator
@@ -59,6 +60,7 @@ public class QuadAugmentedGerundBridgeImpl implements QuadAugmentedGerundBridge 
         this.gerundConjugator = gerundConjugator;
         this.standardModifier = standardModifier;
         this.nomenGerundConjugator = nomenGerundConjugator;
+        this.passiveParticipleModifier = passiveParticipleModifier;
 
         this.passiveParticipleConjugator = passiveParticipleConjugator;
         this.suffixContainerFactory = suffixContainerFactory;
@@ -120,17 +122,17 @@ public class QuadAugmentedGerundBridgeImpl implements QuadAugmentedGerundBridge 
 
         nounSuffixContainer.selectInDefiniteMode();
         var conjugatedGerunds = passiveParticipleConjugator.createMeemGerundNounList(root, formulaNo, nounSuffixContainer);
-        var indefinite = standardModifier.build(root, formulaNo, kov, conjugatedGerunds);
+        var indefinite = passiveParticipleModifier.build(root, formulaNo, kov, conjugatedGerunds);
         derivedNounConjugation.setIndefiniteNouns(indefinite.getFinalResult().stream().map(WordPresenter::toString).toList());
 
         nounSuffixContainer.selectAnnexedMode();
         conjugatedGerunds = passiveParticipleConjugator.createMeemGerundNounList(root, formulaNo, nounSuffixContainer);
-        var annexed = standardModifier.build(root, formulaNo, kov, conjugatedGerunds);
+        var annexed = passiveParticipleModifier.build(root, formulaNo, kov, conjugatedGerunds);
         derivedNounConjugation.setAnnexedNouns(annexed.getFinalResult().stream().map(WordPresenter::toString).toList());
 
         nounSuffixContainer.selectDefiniteMode();
         conjugatedGerunds = passiveParticipleConjugator.createMeemGerundNounList(root, formulaNo, nounSuffixContainer);
-        var definite = standardModifier.build(root, formulaNo, kov, conjugatedGerunds);
+        var definite = passiveParticipleModifier.build(root, formulaNo, kov, conjugatedGerunds);
         derivedNounConjugation.setDefiniteNouns(definite.getFinalResult().stream().map(WordPresenter::toString).toList());
 
         return List.of(derivedNounConjugation);
