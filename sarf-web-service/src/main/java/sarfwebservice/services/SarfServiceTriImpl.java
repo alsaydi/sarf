@@ -44,6 +44,7 @@ import sarfwebservice.sarf.bridges.tri.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 @Service
 public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTri {
@@ -149,10 +150,10 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         var past = this.trilateralAugmentedBridge.retrievePastConjugations(augmentedRoot, formula, active, applyVocalization).stream().map(WordPresenter::toString).toList();
         var nominativePresent = this.trilateralAugmentedBridge.retrieveNominativePresent(augmentedRoot, formula, active, applyVocalization).stream().map(WordPresenter::toString).toList();
         var accusativePresent = this.trilateralAugmentedBridge.retrieveAccusativePresent(augmentedRoot, formula, active, applyVocalization).stream().map(WordPresenter::toString).toList();
-        var jussivePresent = this.trilateralAugmentedBridge.retrieveJussivePresent(augmentedRoot, formula, active, applyVocalization).stream().map(WordPresenter::toString).toList();
+        var jussivePresent = retrieveJussivePresent(augmentedRoot, formula, active, applyVocalization);
         var emphasizedPresent = this.trilateralAugmentedBridge.retrieveEmphasizedPresent(augmentedRoot, formula, active, applyVocalization).stream().map(WordPresenter::toString).toList();
-        var imperative = this.trilateralAugmentedBridge.retrieveImperative(augmentedRoot, formula, applyVocalization).stream().map(WordPresenter::toString).toList();
-        var emphasizedImperative = this.trilateralAugmentedBridge.retrieveEmphasizedImperative(augmentedRoot, formula, applyVocalization).stream().map(WordPresenter::toString).toList();
+        var imperative = retrieveImperative(augmentedRoot, formula, applyVocalization);
+        var emphasizedImperative = retrieveEmphasizedImperative(augmentedRoot, formula, applyVocalization);
         var verbConjugations = new VerbConjugations();
         verbConjugations.setPast(past);
         verbConjugations.setNominativePresent(nominativePresent);
@@ -162,6 +163,45 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         verbConjugations.setImperative(imperative);
         verbConjugations.setEmphasizedImperative(emphasizedImperative);
         return verbConjugations;
+    }
+
+    private List<String> retrieveJussivePresent(AugmentedTrilateralRoot augmentedRoot, int formula, boolean active, boolean applyVocalization) throws Exception {
+        var ungeminated = this.trilateralAugmentedBridge.retrieveJussivePresent(augmentedRoot, formula, active, applyVocalization, false).stream().map(WordPresenter::toString);
+        if(augmentedRoot.getC2() != augmentedRoot.getC3()) {
+            return ungeminated.toList();
+        }
+        var geminated = this.trilateralAugmentedBridge.retrieveJussivePresent(augmentedRoot, formula, active, applyVocalization, true).stream().map(WordPresenter::toString);
+        return zipGeminatedAndUngeminated(ungeminated.toList(), geminated.toList(), true);
+    }
+
+    private List<String> retrieveImperative(AugmentedTrilateralRoot augmentedRoot, int formula, boolean applyVocalization) throws Exception {
+        var ungeminated = this.trilateralAugmentedBridge.retrieveImperative(augmentedRoot, formula, applyVocalization, false).stream().map(WordPresenter::toString);
+        if(augmentedRoot.getC2() != augmentedRoot.getC3()) {
+            return ungeminated.toList();
+        }
+        var geminated = this.trilateralAugmentedBridge.retrieveImperative(augmentedRoot, formula, applyVocalization, true).stream().map(WordPresenter::toString);
+        return zipGeminatedAndUngeminated(ungeminated.toList(), geminated.toList(), false);
+    }
+
+    private List<String> retrieveEmphasizedImperative(AugmentedTrilateralRoot augmentedRoot, int formula, boolean applyVocalization) throws Exception {
+        var ungeminated = this.trilateralAugmentedBridge.retrieveEmphasizedImperative(augmentedRoot, formula, applyVocalization, false).stream().map(WordPresenter::toString);
+        if(augmentedRoot.getC2() != augmentedRoot.getC3()) {
+            return ungeminated.toList();
+        }
+        var geminated = this.trilateralAugmentedBridge.retrieveEmphasizedImperative(augmentedRoot, formula, applyVocalization, true).stream().map(WordPresenter::toString);
+        return zipGeminatedAndUngeminated(ungeminated.toList(), geminated.toList(), false);
+    }
+
+    private List<String> zipGeminatedAndUngeminated(List<String> ungeminated, List<String> geminated, boolean isJussive) {
+        return IntStream.range(0, Math.min(geminated.size(), ungeminated.size()))
+                .mapToObj(i -> canGeminate(ungeminated.get(i), geminated.get(i), i, isJussive)
+                        ? String.format("%s / %s", geminated.get(i), ungeminated.get(i)) : ungeminated.get(i))
+                .toList();
+    }
+
+    private boolean canGeminate(String ungeminated, String geminated, int pronounIndex, boolean isJussive) {
+        return !ungeminated.equals(geminated) && (pronounIndex == 2
+                || (isJussive && pronounIndex == 0 || pronounIndex == 1 || pronounIndex == 7 || pronounIndex == 8));
     }
 
     private VerbConjugations getVerbConjugationsForUnaugmented(String rootLetters, int cclass, boolean active) throws Exception {
