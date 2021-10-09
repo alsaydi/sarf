@@ -28,6 +28,7 @@ import sarf.SarfDictionary;
 import sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier;
 import sarf.gerund.quadrilateral.augmented.QuadrilateralAugmentedGerundConjugator;
 import sarf.kov.KovRulesManager;
+import sarf.noun.GenericNounSuffixContainer;
 import sarftests.noun.INounProvider;
 
 import java.util.ArrayList;
@@ -60,7 +61,7 @@ public class QuadrilateralAugmentedGerundNounProvider implements INounProvider {
             var root = sarfDictionary.getAugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
             List nouns; //TODO: fix the typing in the modifier build function so we don't have to do this trick.
-            nouns = conjugator.createGerundList(root, formula);
+            nouns = conjugator.createGerundList(root, formula, new GenericNounSuffixContainer());
 
             var conjugationResult =  modifier.build(root, formula, kovRule.getKov(), nouns).getFinalResult();
             var result = new ArrayList<String>();

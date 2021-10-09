@@ -102,7 +102,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
                 }
 
                 if (selectionInfo.isAugmented()) {
-                    gerunds = quadrilateralAugmentedGerundConjugator.createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    gerunds = quadrilateralAugmentedGerundConjugator.createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), genericNounSuffixContainer);
                 } else {
                     gerunds = quadrilateralUnaugmentedGerundConjugator.createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot(), genericNounSuffixContainer);
                 }
@@ -124,7 +124,7 @@ public class GerundSelectionUI extends JPanel implements IControlPane, Trilatera
                 }
 
                 if (selectionInfo.isAugmented()) {
-                    gerunds = quadrilateralAugmentedNomenGerundConjugator.createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo());
+                    gerunds = quadrilateralAugmentedNomenGerundConjugator.createGerundList((AugmentedQuadrilateralRoot) selectionInfo.getRoot(), selectionInfo.getAugmentationFormulaNo(), genericNounSuffixContainer);
                 } else {
                     gerunds = quadrilateralUnaugmentedNomenGerundConjugator.createGerundList((UnaugmentedQuadrilateralRoot) selectionInfo.getRoot(), genericNounSuffixContainer);
                 }

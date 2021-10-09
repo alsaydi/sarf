@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import sarf.gerund.quadrilateral.augmented.pattern.GerundPattern1;
 import sarf.gerund.quadrilateral.augmented.pattern.GerundPattern2;
 import sarf.gerund.quadrilateral.augmented.pattern.GerundPattern3;
@@ -25,18 +26,17 @@ import static sarf.SystemConstants.NOUN_POSSIBLE_STATES;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
+
+@Singleton
 public class QuadrilateralAugmentedGerundConjugator {
     private final int[] indexArray = {1, 3, 6, 7, 9, 12, 13, 15, NOUN_POSSIBLE_STATES};
-    private final GenericNounSuffixContainer genericNounSuffixContainer;
 
     @Inject
-    public QuadrilateralAugmentedGerundConjugator(GenericNounSuffixContainer genericNounSuffixContainer){
-        this.genericNounSuffixContainer = genericNounSuffixContainer;
+    public QuadrilateralAugmentedGerundConjugator(){
     }
 
-    public List<QuadrilateralAugmentedGerund> createGerundList(AugmentedQuadrilateralRoot root, int formulaNo) {
-        String gerundPatternClassName = getClass().getPackage().getName() + ".pattern." + "GerundPattern" + formulaNo;
-        List<QuadrilateralAugmentedGerund> gerundDisplayList = createEmptyList();
+    public List<QuadrilateralAugmentedGerund> createGerundList(AugmentedQuadrilateralRoot root, int formulaNo, GenericNounSuffixContainer genericNounSuffixContainer) {
+        List<QuadrilateralAugmentedGerund> gerundDisplayList = createEmptyList(genericNounSuffixContainer);
 
         for (int value : indexArray) {
             //because index in java start from zero
@@ -59,7 +59,7 @@ public class QuadrilateralAugmentedGerundConjugator {
         return null;
     }
 
-    private List<QuadrilateralAugmentedGerund> createEmptyList() {
+    private List<QuadrilateralAugmentedGerund> createEmptyList(GenericNounSuffixContainer genericNounSuffixContainer) {
         return IntStream.rangeClosed(1, NOUN_POSSIBLE_STATES)
                 .<QuadrilateralAugmentedGerund>mapToObj(i -> new EmptyQuadrilateralAugmentedGerund(new AugmentedQuadrilateralRoot(), "0", genericNounSuffixContainer))
                 .collect(Collectors.toCollection(() -> new ArrayList<>(NOUN_POSSIBLE_STATES)));

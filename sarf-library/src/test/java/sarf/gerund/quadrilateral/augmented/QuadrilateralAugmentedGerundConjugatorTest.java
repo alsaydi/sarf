@@ -65,7 +65,7 @@ class QuadrilateralAugmentedGerundConjugatorTest {
     @ParameterizedTest(name = "createGerundList test {1}")
     @MethodSource("createGerundListTestArguments")
     void createGerundListTest(int formulaNumber, Class expected) {
-        var actual = sut.createGerundList(new AugmentedQuadrilateralRoot(), formulaNumber);
+        var actual = sut.createGerundList(new AugmentedQuadrilateralRoot(), formulaNumber, genericNounSuffixContainer);
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(NOUN_POSSIBLE_STATES);

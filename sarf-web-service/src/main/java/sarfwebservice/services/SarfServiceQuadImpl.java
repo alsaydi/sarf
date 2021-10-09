@@ -59,6 +59,7 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
     private final QuadUnaugmentedDerivedNounBridge quadUnaugmentedDerivedNounBridge;
     private final QuadAugmentedDerivedNounBridge quadAugmentedDerivedNounBridge;
     private final QuadUnaugmentedGerundBridge unaugmentedGerundBridge;
+    private final QuadAugmentedGerundBridge augmentedGerundBridge;
 
     @Autowired
     public SarfServiceQuadImpl(Validator sarfValidator
@@ -73,7 +74,8 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
             , QuadAugmentedBridge quadAugmentedBridge
             , QuadUnaugmentedDerivedNounBridge quadUnaugmentedDerivedNounBridge
             , QuadAugmentedDerivedNounBridge quadAugmentedDerivedNounBridge
-            , QuadUnaugmentedGerundBridge unaugmentedGerundBridge) {
+            , QuadUnaugmentedGerundBridge unaugmentedGerundBridge
+            , QuadAugmentedGerundBridge augmentedGerundBridge) {
         super(sarfValidator);
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
@@ -87,6 +89,7 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
         this.quadUnaugmentedDerivedNounBridge = quadUnaugmentedDerivedNounBridge;
         this.quadAugmentedDerivedNounBridge = quadAugmentedDerivedNounBridge;
         this.unaugmentedGerundBridge = unaugmentedGerundBridge;
+        this.augmentedGerundBridge = augmentedGerundBridge;
     }
 
     @Override
@@ -356,7 +359,26 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
         gerundConjugations.setNomens(nomens);
     }
 
-    private GerundConjugations getGerundsForAugmented(String rootLetters, int formula) {
-        return null;
+    private GerundConjugations getGerundsForAugmented(String rootLetters, int formula) throws Exception {
+        var kov = kovRulesManager.getQuadrilateralKovRule(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2), rootLetters.charAt(3));
+        var root = sarfDictionary.getAugmentedQuadrilateralRoot(rootLetters);
+        if (root == null) {
+            throw new Exception(String.format("Could not find a root with letters %s.", rootLetters));
+        }
+        var gerundConjugations = new GerundConjugations();
+
+        setGerundsAugmented(kov, root, gerundConjugations, formula);
+        return  gerundConjugations;
+    }
+
+    private void setGerundsAugmented(QuadrilateralKovRule kov, AugmentedQuadrilateralRoot root, GerundConjugations gerundConjugations, int formulaNo) throws Exception {
+        var standards = this.augmentedGerundBridge.getStandardGerunds(root, kov.getKov(), formulaNo);
+        gerundConjugations.setStandards(standards);
+
+        var meems = this.augmentedGerundBridge.getMeemGerunds(root, kov.getKov(), formulaNo);
+        gerundConjugations.setMeems(meems);
+
+        var nomens = this.augmentedGerundBridge.getNomenGerunds(root, kov.getKov(), formulaNo);
+        gerundConjugations.setNomens(nomens);
     }
 }
