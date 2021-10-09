@@ -69,7 +69,7 @@ public class TrilateralUnaugmentedBridgeImpl implements TrilateralUnaugmentedBri
     }
 
     @Override
-    public List<WordPresenter> retrieveActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active){
+    public List<WordPresenter> retrievePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active){
         List<? extends Word> result = active ? triActivePastConjugator.createVerbList(root) : triPassivePastConjugator.createVerbList(root);
         var conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PAST_TENSE, active);
         var finalResult = conjResult.getFinalResult();
@@ -77,7 +77,7 @@ public class TrilateralUnaugmentedBridgeImpl implements TrilateralUnaugmentedBri
     }
 
     @Override
-    public List<WordPresenter> retrieveActiveNominativePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active) {
+    public List<WordPresenter> retrieveNominativePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active) {
         var result = active ? triUnaugmentedActivePresentConjugator.createNominativeVerbList(root)
                 : passivePresentConjugator.createNominativeVerbList(root);
         ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, active);
@@ -85,7 +85,7 @@ public class TrilateralUnaugmentedBridgeImpl implements TrilateralUnaugmentedBri
     }
 
     @Override
-    public List<WordPresenter> retrieveActiveAccusativePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active) {
+    public List<WordPresenter> retrieveAccusativePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active) {
         var result = active ? triUnaugmentedActivePresentConjugator.createAccusativeVerbList(root):
                 passivePresentConjugator.createAccusativeVerbList(root);
         ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, active);
@@ -93,15 +93,15 @@ public class TrilateralUnaugmentedBridgeImpl implements TrilateralUnaugmentedBri
     }
 
     @Override
-    public List<WordPresenter> retrieveActiveJussivePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active) {
+    public List<WordPresenter> retrieveJussivePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active, boolean applyGemination) {
         var result = active ? triUnaugmentedActivePresentConjugator.createJussiveVerbList(root) :
                 passivePresentConjugator.createJussiveVerbList(root);
-        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, active);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, active, applyGemination);
         return conjResult.getFinalResult();
     }
 
     @Override
-    public List<WordPresenter> retrieveActiveEmphasizedPresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active) {
+    public List<WordPresenter> retrieveEmphasizedPresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active) {
         var result = active ? triUnaugmentedActivePresentConjugator.createEmphasizedVerbList(root) :
                 passivePresentConjugator.createEmphasizedVerbList(root);
         ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, active);
@@ -109,17 +109,17 @@ public class TrilateralUnaugmentedBridgeImpl implements TrilateralUnaugmentedBri
     }
 
     @Override
-    public List<WordPresenter> retrieveImperative(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+    public List<WordPresenter> retrieveImperative(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean applyGemination) {
         var result = unaugmentedImperativeConjugator.createVerbList(root);
-        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true, applyGemination);
         return conjResult.getFinalResult()
                 .stream().map(wp -> wp.isEmpty() ? WordPresenter.fromText("-") : wp).toList();
     }
 
     @Override
-    public List<WordPresenter> retrieveEmphasizedImperative(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+    public List<WordPresenter> retrieveEmphasizedImperative(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean applyGemination) {
         var result = unaugmentedImperativeConjugator.createEmphasizedVerbList(root);
-        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true, applyGemination);
         return conjResult.getFinalResult()
                 .stream().map(wp -> wp.isEmpty() ? WordPresenter.fromText("-") : wp).toList();
     }

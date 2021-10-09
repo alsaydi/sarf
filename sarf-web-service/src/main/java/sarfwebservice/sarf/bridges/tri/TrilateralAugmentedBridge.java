@@ -32,8 +32,8 @@ public interface TrilateralAugmentedBridge {
     List<WordPresenter> retrievePastConjugations(AugmentedTrilateralRoot root, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
     List<WordPresenter> retrieveNominativePresent(AugmentedTrilateralRoot root, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
     List<WordPresenter> retrieveAccusativePresent(AugmentedTrilateralRoot root, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
-    List<WordPresenter> retrieveJussivePresent(AugmentedTrilateralRoot root, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
+    List<WordPresenter> retrieveJussivePresent(AugmentedTrilateralRoot root, int formulaNo, boolean active, boolean applyVocalization, boolean applyGemination) throws Exception;
     List<WordPresenter> retrieveEmphasizedPresent(AugmentedTrilateralRoot root, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
-    List<WordPresenter> retrieveImperative(AugmentedTrilateralRoot root, int formulaNo, boolean applyVocalization) throws Exception;
-    List<WordPresenter> retrieveEmphasizedImperative(AugmentedTrilateralRoot root, int formulaNo, boolean applyVocalization) throws Exception;
+    List<WordPresenter> retrieveImperative(AugmentedTrilateralRoot root, int formulaNo, boolean applyVocalization, boolean applyGemination) throws Exception;
+    List<WordPresenter> retrieveEmphasizedImperative(AugmentedTrilateralRoot root, int formulaNo, boolean applyVocalization, boolean applyGemination) throws Exception;
 }

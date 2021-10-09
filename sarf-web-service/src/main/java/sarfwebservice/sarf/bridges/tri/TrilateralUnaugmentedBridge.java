@@ -31,11 +31,11 @@ import java.util.List;
 
 public interface TrilateralUnaugmentedBridge {
     //active and passive verbs
-    List<WordPresenter> retrieveActivePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active);
-    List<WordPresenter> retrieveActiveNominativePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active);
-    List<WordPresenter> retrieveActiveAccusativePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active);
-    List<WordPresenter> retrieveActiveJussivePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active);
-    List<WordPresenter> retrieveActiveEmphasizedPresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active);
-    List<WordPresenter> retrieveImperative(UnaugmentedTrilateralRoot root, KindOfVerb kov);
-    List<WordPresenter> retrieveEmphasizedImperative(UnaugmentedTrilateralRoot root, KindOfVerb kov);
+    List<WordPresenter> retrievePastConjugations(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active);
+    List<WordPresenter> retrieveNominativePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active);
+    List<WordPresenter> retrieveAccusativePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active);
+    List<WordPresenter> retrieveJussivePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active, boolean applyGemination);
+    List<WordPresenter> retrieveEmphasizedPresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active);
+    List<WordPresenter> retrieveImperative(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean applyGemination);
+    List<WordPresenter> retrieveEmphasizedImperative(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean applyGemination);
 }
