@@ -58,14 +58,7 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
     private final KovRulesManager kovRulesManager;
     private final AugmentedImperativeConjugatorFactory augmentedImperativeConjugatorFactory;
     private final AugmentedPassivePastConjugator augmentedPassivePastConjugator;
-    private final AugmentedTrilateralActiveParticipleConjugator augmentedTrilateralActiveParticipleConjugator;
-    private final ActiveParticipleModifier activeParticipleModifier;
-    private final AugmentedTrilateralPassiveParticipleConjugator augmentedTrilateralPassiveParticipleConjugator;
-    private final PassiveParticipleModifier passiveParticipleModifier;
-    private final TrilateralAugmentedGerundConjugator gerundConjugator;
-    private final TrilateralAugmentedStandardModifier trilateralAugmentedStandardModifier;
-    private final TrilateralAugmentedNomenGerundConjugator nomenGerundConjugator;
-
+    
     @Autowired
     public TrilateralAugmentedBridgeImpl(SarfDictionary sarfDictionary
             , KovRulesManager kovRulesManager
@@ -74,14 +67,7 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
             , AugmentedActivePresentConjugator augmentedActivePresentConjugator
             , AugmentedPassivePresentConjugator augmentedPassivePresentConjugator
             , AugmentedImperativeConjugatorFactory augmentedImperativeConjugatorFactory
-            , AugmentedPassivePastConjugator augmentedPassivePastConjugator
-            , AugmentedTrilateralActiveParticipleConjugator augmentedTrilateralActiveParticipleConjugator
-            , ActiveParticipleModifier activeParticipleModifier
-            , AugmentedTrilateralPassiveParticipleConjugator augmentedTrilateralPassiveParticipleConjugator
-            , PassiveParticipleModifier passiveParticipleModifier
-            , TrilateralAugmentedGerundConjugator gerundConjugator
-            , TrilateralAugmentedStandardModifier trilateralAugmentedStandardModifier
-            , TrilateralAugmentedNomenGerundConjugator nomenGerundConjugator) {
+            , AugmentedPassivePastConjugator augmentedPassivePastConjugator) {
 
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
@@ -91,13 +77,6 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
         this.augmentedPassivePresentConjugator = augmentedPassivePresentConjugator;
         this.augmentedImperativeConjugatorFactory = augmentedImperativeConjugatorFactory;
         this.augmentedPassivePastConjugator = augmentedPassivePastConjugator;
-        this.augmentedTrilateralActiveParticipleConjugator = augmentedTrilateralActiveParticipleConjugator;
-        this.activeParticipleModifier = activeParticipleModifier;
-        this.augmentedTrilateralPassiveParticipleConjugator = augmentedTrilateralPassiveParticipleConjugator;
-        this.passiveParticipleModifier = passiveParticipleModifier;
-        this.gerundConjugator = gerundConjugator;
-        this.trilateralAugmentedStandardModifier = trilateralAugmentedStandardModifier;
-        this.nomenGerundConjugator = nomenGerundConjugator;
     }
 
     @Override
