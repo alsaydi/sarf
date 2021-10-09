@@ -127,4 +127,6 @@
     border: 1px solid gray;
 }
 
-.nounText {}
+.nounText {
+    font-size: xx-large;
+}
