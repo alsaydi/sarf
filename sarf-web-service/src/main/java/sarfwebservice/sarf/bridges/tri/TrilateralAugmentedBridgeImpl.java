@@ -1,4 +1,6 @@
 package sarfwebservice.sarf.bridges.tri;
+import java.util.List;
+
 /*
  *
  * MIT License
@@ -25,17 +27,11 @@ package sarfwebservice.sarf.bridges.tri;
  */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import sarf.SarfDictionary;
 import sarf.SystemConstants;
 import sarf.WordPresenter;
-import sarf.gerund.modifier.trilateral.augmented.standard.TrilateralAugmentedStandardModifier;
-import sarf.gerund.trilateral.augmented.TrilateralAugmentedGerundConjugator;
-import sarf.gerund.trilateral.augmented.nomen.TrilateralAugmentedNomenGerundConjugator;
 import sarf.kov.KovRulesManager;
-import sarf.noun.trilateral.augmented.AugmentedTrilateralActiveParticipleConjugator;
-import sarf.noun.trilateral.augmented.AugmentedTrilateralPassiveParticipleConjugator;
-import sarf.noun.trilateral.augmented.modifier.activeparticiple.ActiveParticipleModifier;
-import sarf.noun.trilateral.augmented.modifier.passiveparticiple.PassiveParticipleModifier;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
 import sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator;
 import sarf.verb.trilateral.augmented.active.present.AugmentedPresentConjugator;
@@ -45,8 +41,6 @@ import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
 import sarf.verb.trilateral.augmented.passive.past.AugmentedPassivePastConjugator;
 import sarf.verb.trilateral.augmented.passive.present.AbstractAugmentedPresentConjugator;
 import sarf.verb.trilateral.augmented.passive.present.AugmentedPassivePresentConjugator;
-
-import java.util.List;
 
 @Service
 public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge {
