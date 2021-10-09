@@ -27,6 +27,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sarf.*;
 import sarf.kov.KovRulesManager;
+import sarf.kov.QuadrilateralKovRule;
 import sarf.verb.quadriliteral.augmented.AugmentedQuadrilateralRoot;
 import sarf.verb.quadriliteral.augmented.active.past.QuadrilateralAugmentedActivePastConjugator;
 import sarf.verb.quadriliteral.augmented.active.present.AugmentedQuadActivePresentConjugator;
@@ -35,10 +36,7 @@ import sarf.verb.quadriliteral.unaugmented.UnaugmentedQuadrilateralRoot;
 import sarf.verb.quadriliteral.unaugmented.active.QuadActivePresentConjugator;
 import sarf.verb.quadriliteral.unaugmented.active.QuadriActivePastConjugator;
 import sarfwebservice.models.*;
-import sarfwebservice.sarf.bridges.quad.QuadAugmentedBridge;
-import sarfwebservice.sarf.bridges.quad.QuadAugmentedDerivedNounBridge;
-import sarfwebservice.sarf.bridges.quad.QuadUnaugmentedBridge;
-import sarfwebservice.sarf.bridges.quad.QuadUnaugmentedDerivedNounBridge;
+import sarfwebservice.sarf.bridges.quad.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -60,6 +58,7 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
     private final QuadAugmentedBridge quadAugmentedBridge;
     private final QuadUnaugmentedDerivedNounBridge quadUnaugmentedDerivedNounBridge;
     private final QuadAugmentedDerivedNounBridge quadAugmentedDerivedNounBridge;
+    private final QuadUnaugmentedGerundBridge unaugmentedGerundBridge;
 
     @Autowired
     public SarfServiceQuadImpl(Validator sarfValidator
@@ -73,7 +72,8 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
             , QuadUnaugmentedBridge quadUnaugmentedBridge
             , QuadAugmentedBridge quadAugmentedBridge
             , QuadUnaugmentedDerivedNounBridge quadUnaugmentedDerivedNounBridge
-            , QuadAugmentedDerivedNounBridge quadAugmentedDerivedNounBridge) {
+            , QuadAugmentedDerivedNounBridge quadAugmentedDerivedNounBridge
+            , QuadUnaugmentedGerundBridge unaugmentedGerundBridge) {
         super(sarfValidator);
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
@@ -86,6 +86,7 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
         this.quadAugmentedBridge = quadAugmentedBridge;
         this.quadUnaugmentedDerivedNounBridge = quadUnaugmentedDerivedNounBridge;
         this.quadAugmentedDerivedNounBridge = quadAugmentedDerivedNounBridge;
+        this.unaugmentedGerundBridge = unaugmentedGerundBridge;
     }
 
     @Override
@@ -324,5 +325,38 @@ public class SarfServiceQuadImpl extends SarfServiceImpl implements SarfServiceQ
 
         var timeAndPlaceNouns = this.quadAugmentedDerivedNounBridge.getTimeAndPlaceNouns(root, kov, formulaNo);
         nounConjugations.setTimeAndPlaceNouns(timeAndPlaceNouns);
+    }
+
+    @Override
+    public GerundConjugations getGerunds(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        return augmented ? getGerundsForAugmented(rootLetters, formula) :
+                getGerundsForUnaugmented(rootLetters);
+    }
+
+    private GerundConjugations getGerundsForUnaugmented(String rootLetters) throws Exception {
+        var kov = kovRulesManager.getQuadrilateralKovRule(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2), rootLetters.charAt(3));
+        var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
+        if (root == null) {
+            throw new Exception(String.format("Could not find a root with letters %s.", rootLetters));
+        }
+        var gerundConjugations = new GerundConjugations();
+
+        setGerunds(kov, root, gerundConjugations);
+        return  gerundConjugations;
+    }
+
+    private void setGerunds(QuadrilateralKovRule kov, UnaugmentedQuadrilateralRoot root, GerundConjugations gerundConjugations) {
+        var standards = this.unaugmentedGerundBridge.getStandardGerunds(root, kov.getKov());
+        gerundConjugations.setStandards(standards);
+
+        var meems = this.unaugmentedGerundBridge.getMeemGerunds(root, kov.getKov());
+        gerundConjugations.setMeems(meems);
+
+        var nomens = this.unaugmentedGerundBridge.getNomenGerunds(root, kov.getKov());
+        gerundConjugations.setNomens(nomens);
+    }
+
+    private GerundConjugations getGerundsForAugmented(String rootLetters, int formula) {
+        return null;
     }
 }

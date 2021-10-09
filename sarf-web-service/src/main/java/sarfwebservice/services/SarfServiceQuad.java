@@ -23,6 +23,7 @@ package sarfwebservice.services;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+import sarfwebservice.models.GerundConjugations;
 import sarfwebservice.models.NounConjugations;
 import sarfwebservice.models.RootResult;
 import sarfwebservice.models.VerbConjugations;
@@ -35,4 +36,6 @@ public interface SarfServiceQuad extends SarfService {
     VerbConjugations getPassiveVerbConjugations(String rootLetters, boolean augmented, int cclass, int formula) throws Exception;
 
     NounConjugations getNouns(String rootLetters, boolean augmented, int cclass, int formula) throws Exception;
+
+    GerundConjugations getGerunds(String rootLetters, boolean augmented, int cclass, int formula) throws Exception;
 }

@@ -58,7 +58,7 @@ class QuadrilateralUnaugmentedGerundConjugatorTest {
         root.setC3('ر');
         root.setC4('ج');
 
-        var actual = sut.createGerundList(root);
+        var actual = sut.createGerundList(root, genericNounSuffixContainer);
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(SystemConstants.NOUN_POSSIBLE_STATES);
@@ -78,7 +78,7 @@ class QuadrilateralUnaugmentedGerundConjugatorTest {
         root.setC3('ز');
         root.setC4('ل');
 
-        var actual = sut.createGerundList(root);
+        var actual = sut.createGerundList(root, genericNounSuffixContainer);
 
         assertThat(actual).isNotNull();
         assertThat(actual.size()).isEqualTo(SystemConstants.NOUN_POSSIBLE_STATES);

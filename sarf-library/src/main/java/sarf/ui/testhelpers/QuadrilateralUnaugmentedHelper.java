@@ -201,7 +201,7 @@ public class QuadrilateralUnaugmentedHelper {
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
             gerundConjugator.setListener(() -> 1);
-            var nouns = gerundConjugator.createGerundList(root);
+            var nouns = gerundConjugator.createGerundList(root, genericNounSuffixContainer);
 
             var conjugationResult =  standardModifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult);
@@ -215,7 +215,7 @@ public class QuadrilateralUnaugmentedHelper {
             var root = sarfDictionary.getUnaugmentedQuadrilateralRoot(rootLetters);
             var kovRule = kovRulesManager.getQuadrilateralKovRule(root.getC1(), root.getC2(), root.getC3(), root.getC4());
             gerundConjugator.setListener(() -> 1);
-            var nouns = nomenGerundConjugator.createGerundList(root);
+            var nouns = nomenGerundConjugator.createGerundList(root, genericNounSuffixContainer);
 
             var conjugationResult =  standardModifier.build(root, 0, kovRule.getKov(), nouns).getFinalResult();
             printFinalResultPipeSeparated(root, conjugationResult);

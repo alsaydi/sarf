@@ -207,7 +207,11 @@ public class SarfController {
         return  result;
     }
 
-    private GerundConjugations getGerundConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) {
-        return null;
+    private GerundConjugations getGerundConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        var result = this.sarfServiceQuad.getGerunds(rootLetters, augmented, cclass, formula);
+        if (result == null) {
+            throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
+        }
+        return result;
     }
 }
