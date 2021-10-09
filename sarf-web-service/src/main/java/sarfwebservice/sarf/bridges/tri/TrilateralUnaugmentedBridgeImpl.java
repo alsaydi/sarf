@@ -65,30 +65,6 @@ public class TrilateralUnaugmentedBridgeImpl implements TrilateralUnaugmentedBri
 
     private final ActivePastConjugator triActivePastConjugator;
     private final PassivePastConjugator triPassivePastConjugator;
-    private final UnaugmentedTrilateralActiveParticipleConjugator unaugmentedTrilateralActiveParticipleConjugator;
-    private final ActiveParticipleModifier activeParticipleModifier;
-    private final UnaugmentedTrilateralPassiveParticipleConjugator unaugmentedTrilateralPassiveParticipleConjugator;
-    private final PassiveParticipleModifier trilateralUnaugmentedPassiveParticipleModifier;
-    private final TrilateralUnaugmentedNouns trilateralUnaugmentedNouns;
-    private final StandardExaggerationConjugator standardExaggerationConjugator;
-    private final ExaggerationModifier exaggerationModifier;
-    private final NonStandardExaggerationConjugator nonStandardExaggerationConjugator;
-    private final TimeAndPlaceConjugator timeAndPlaceConjugator;
-    private final TimeAndPlaceModifier timeAndPlaceModifier;
-    private final StandardInstrumentalConjugator standardInstrumentalConjugator;
-    private final InstrumentalModifier instrumentalModifier;
-    private final AssimilateAdjectiveConjugator assimilateConjugator;
-    private final AssimilateModifier assimilateModifier;
-    private final ElativeNounConjugator elativeConjugator;
-    private final ElativeModifier elativeModifier;
-    private final TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator;
-    private final UnaugmentedTrilateralStandardGerundModifier unaugmentedTrilateralStandardGerundModifier;
-    private final MeemGerundConjugator meemGerundConjugator;
-    private final TrilateralUnaugmentedMeemModifier trilateralUnaugmentedMeemModifier;
-    private final TrilateralUnaugmentedNomenGerundConjugator trilateralUnaugmentedNomenGerundConjugator;
-    private final TrilateralUnaugmentedNomenModifier trilateralUnaugmentedNomenModifier;
-    private final QualityGerundConjugator qualityGerundConjugator;
-    private final TrilateralUnaugmentedQualityModifier qualityGerundModifier;
     private final UnaugmentedTrilateralModifier unaugmentedTrilateralModifier;
     private final ActivePresentConjugator triUnaugmentedActivePresentConjugator;
     private final UnaugmentedImperativeConjugator unaugmentedImperativeConjugator;
@@ -97,29 +73,6 @@ public class TrilateralUnaugmentedBridgeImpl implements TrilateralUnaugmentedBri
     @Autowired
     public TrilateralUnaugmentedBridgeImpl(ActivePastConjugator triActivePastConjugator
             , PassivePastConjugator triPassivePastConjugator
-            , UnaugmentedTrilateralActiveParticipleConjugator unaugmentedTrilateralActiveParticipleConjugator
-            , ActiveParticipleModifier activeParticipleModifier
-            , UnaugmentedTrilateralPassiveParticipleConjugator unaugmentedTrilateralPassiveParticipleConjugator
-            , PassiveParticipleModifier trilateralUnaugmentedPassiveParticipleModifier
-            , TrilateralUnaugmentedNouns trilateralUnaugmentedNouns
-            , StandardExaggerationConjugator standardExaggerationConjugator
-            , ExaggerationModifier exaggerationModifier
-            , NonStandardExaggerationConjugator nonStandardExaggerationConjugator
-            , TimeAndPlaceConjugator timeAndPlaceConjugator
-            , TimeAndPlaceModifier timeAndPlaceModifier
-            , StandardInstrumentalConjugator standardInstrumentalConjugator
-            , InstrumentalModifier instrumentalModifier
-            , AssimilateAdjectiveConjugator assimilateConjugator
-            , AssimilateModifier assimilateModifier
-            , ElativeNounConjugator elativeConjugator
-            , ElativeModifier elativeModifier
-            , TrilateralUnaugmentedGerundConjugator trilateralUnaugmentedGerundConjugator
-            , UnaugmentedTrilateralStandardGerundModifier unaugmentedTrilateralStandardGerundModifier
-            , MeemGerundConjugator meemGerundConjugator
-            , TrilateralUnaugmentedMeemModifier trilateralUnaugmentedMeemModifier
-            , TrilateralUnaugmentedNomenGerundConjugator trilateralUnaugmentedNomenGerundConjugator
-            , TrilateralUnaugmentedNomenModifier trilateralUnaugmentedNomenModifier
-            , QualityGerundConjugator qualityGerundConjugator
             , TrilateralUnaugmentedQualityModifier qualityGerundModifier
             , UnaugmentedTrilateralModifier unaugmentedTrilateralModifier
             , ActivePresentConjugator triUnaugmentedActivePresentConjugator
@@ -127,31 +80,6 @@ public class TrilateralUnaugmentedBridgeImpl implements TrilateralUnaugmentedBri
             , PassivePresentConjugator passivePresentConjugator) {
         this.triActivePastConjugator = triActivePastConjugator;
         this.triPassivePastConjugator = triPassivePastConjugator;
-        this.unaugmentedTrilateralActiveParticipleConjugator = unaugmentedTrilateralActiveParticipleConjugator;
-        this.activeParticipleModifier = activeParticipleModifier;
-        this.unaugmentedTrilateralPassiveParticipleConjugator = unaugmentedTrilateralPassiveParticipleConjugator;
-        this.trilateralUnaugmentedPassiveParticipleModifier = trilateralUnaugmentedPassiveParticipleModifier;
-        this.trilateralUnaugmentedNouns = trilateralUnaugmentedNouns;
-        this.standardExaggerationConjugator = standardExaggerationConjugator;
-        this.exaggerationModifier = exaggerationModifier;
-        this.nonStandardExaggerationConjugator = nonStandardExaggerationConjugator;
-        this.timeAndPlaceConjugator = timeAndPlaceConjugator;
-        this.timeAndPlaceModifier = timeAndPlaceModifier;
-        this.standardInstrumentalConjugator = standardInstrumentalConjugator;
-        this.instrumentalModifier = instrumentalModifier;
-        this.assimilateConjugator = assimilateConjugator;
-        this.assimilateModifier = assimilateModifier;
-        this.elativeConjugator = elativeConjugator;
-        this.elativeModifier = elativeModifier;
-        this.trilateralUnaugmentedGerundConjugator = trilateralUnaugmentedGerundConjugator;
-        this.unaugmentedTrilateralStandardGerundModifier = unaugmentedTrilateralStandardGerundModifier;
-        this.meemGerundConjugator = meemGerundConjugator;
-        this.trilateralUnaugmentedMeemModifier = trilateralUnaugmentedMeemModifier;
-        this.trilateralUnaugmentedNomenGerundConjugator = trilateralUnaugmentedNomenGerundConjugator;
-        this.trilateralUnaugmentedNomenModifier = trilateralUnaugmentedNomenModifier;
-        this.qualityGerundConjugator = qualityGerundConjugator;
-
-        this.qualityGerundModifier = qualityGerundModifier;
         this.unaugmentedTrilateralModifier = unaugmentedTrilateralModifier;
         this.triUnaugmentedActivePresentConjugator = triUnaugmentedActivePresentConjugator;
         this.unaugmentedImperativeConjugator = unaugmentedImperativeConjugator;
