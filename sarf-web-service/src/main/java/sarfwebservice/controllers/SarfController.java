@@ -64,7 +64,7 @@ public class SarfController {
     }
 
     @RequestMapping("/active/{rootLetters}")
-    VerbConjugations active(@PathVariable String rootLetters
+    List<VerbConjugations> active(@PathVariable String rootLetters
             , @RequestParam boolean augmented
             , @RequestParam int cclass
             , @RequestParam int formula) throws Exception {
@@ -75,11 +75,11 @@ public class SarfController {
         if (rootLetters.length() == 3) {
             return getActiveVerbConjugationsTri(rootLetters, augmented, cclass, formula);
         }
-        return getActiveVerbConjugationsQuad(rootLetters, augmented, cclass, formula);
+        return List.of(getActiveVerbConjugationsQuad(rootLetters, augmented, cclass, formula));
     }
 
     @RequestMapping("/passive/{rootLetters}")
-    VerbConjugations passive(@PathVariable String rootLetters
+    List<VerbConjugations> passive(@PathVariable String rootLetters
             , @RequestParam boolean augmented
             , @RequestParam int cclass
             , @RequestParam int formula) throws Exception {
@@ -90,7 +90,7 @@ public class SarfController {
         if (rootLetters.length() == 3) {
             return getPassiveVerbConjugationsTri(rootLetters, augmented, cclass, formula);
         }
-        return gePassiveVerbConjugationsQuad(rootLetters, augmented, cclass, formula);
+        return List.of(gePassiveVerbConjugationsQuad(rootLetters, augmented, cclass, formula));
     }
 
     private List<RootResult> getRootResultTri(String rootLetters) throws Exception {
@@ -109,17 +109,17 @@ public class SarfController {
         return rootResult;
     }
 
-    private VerbConjugations getActiveVerbConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+    private List<VerbConjugations> getActiveVerbConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
         var result = this.sarfServiceTri.getActiveVerbConjugationsTri(rootLetters, augmented, cclass, formula);
-        if(result == null && result.getPast() == null || result.getPast().isEmpty()) {
+        if(result == null) {
             throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
         }
-        return  result;
+        return result;
     }
 
-    private VerbConjugations getPassiveVerbConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+    private List<VerbConjugations> getPassiveVerbConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
         var result = this.sarfServiceTri.getPassiveVerbConjugationsTri(rootLetters, augmented, cclass, formula);
-        if(result == null && result.getPast() == null || result.getPast().isEmpty()) {
+        if(result == null) {
             throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
         }
         return  result;

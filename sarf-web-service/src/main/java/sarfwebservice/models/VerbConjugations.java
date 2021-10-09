@@ -26,6 +26,7 @@ package sarfwebservice.models;
 import java.util.List;
 
 public class VerbConjugations {
+    private String key;
     private List<String> past;
     private List<String> nominativePresent; //مضارع مرفوع
     private List<String> accusativePresent; //مضارع منصوب
@@ -88,5 +89,13 @@ public class VerbConjugations {
 
     public void setPast(List<String> past) {
         this.past = past;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }

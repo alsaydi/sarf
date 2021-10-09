@@ -23,6 +23,7 @@ package sarfwebservice.services;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sarf.*;
@@ -31,6 +32,8 @@ import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
 import sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator;
 import sarf.verb.trilateral.augmented.modifier.AugmentedTrilateralModifier;
+import sarf.verb.trilateral.augmented.modifier.vocalizer.FormulaApplyingChecker;
+import sarf.verb.trilateral.augmented.modifier.vocalizer.IFormulaApplyingChecker;
 import sarf.verb.trilateral.unaugmented.UnaugmentedTrilateralRoot;
 import sarf.verb.trilateral.unaugmented.active.ActivePastConjugator;
 import sarf.verb.trilateral.unaugmented.active.ActivePresentConjugator;
@@ -45,6 +48,8 @@ import java.util.List;
 @Service
 public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTri {
 
+    private static final String إعلال = "إعلال";
+    private static final String تصحيح = "تصحيح";
     private final SarfDictionary sarfDictionary;
     private final KovRulesManager kovRulesManager;
     private final AugmentedActivePastConjugator augmentedActivePastConjugator;
@@ -59,6 +64,7 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
     private final TrilateralAugmentedDerivedNounBridge trilateralAugmentedDerivedNounBridge;
     private final TrilateralUnaugmentedGerundBridge trilateralUnaugmentedGerundBridge;
     private final TrilateralAugmentedGerundBridge trilateralAugmentedGerundBridge;
+    private final FormulaApplyingChecker vocalizationApplicabilityChecker;
 
     @Autowired
     public SarfServiceTriImpl(SarfDictionary sarfDictionary
@@ -75,7 +81,7 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
             , TrilateralUnaugmentedDerivedNounBridge trilateralUnaugmentedDerivedNounBridge
             , TrilateralAugmentedDerivedNounBridge trilateralAugmentedDerivedNounBridge
             , TrilateralUnaugmentedGerundBridge trilateralUnaugmentedGerundBridge
-            , TrilateralAugmentedGerundBridge trilateralAugmentedGerundBridge) {
+            , TrilateralAugmentedGerundBridge trilateralAugmentedGerundBridge, FormulaApplyingChecker vocalizationApplicabilityChecker) {
         super(sarfValidator);
         this.sarfDictionary = sarfDictionary;
         this.kovRulesManager = kovRulesManager;
@@ -91,6 +97,7 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         this.trilateralAugmentedDerivedNounBridge = trilateralAugmentedDerivedNounBridge;
         this.trilateralUnaugmentedGerundBridge = trilateralUnaugmentedGerundBridge;
         this.trilateralAugmentedGerundBridge = trilateralAugmentedGerundBridge;
+        this.vocalizationApplicabilityChecker = vocalizationApplicabilityChecker;
     }
 
     private static List<Word> createEmptyList() {
@@ -112,19 +119,40 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
     }
 
     @Override
-    public VerbConjugations getActiveVerbConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
-        return augmented ? getVerbConjugationsForAugmented(rootLetters, formula, true)
-                : getVerbConjugationsForUnaugmented(rootLetters, cclass, true);
+    public List<VerbConjugations> getActiveVerbConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        if (augmented) {
+            var augmentedRoot = getAugmentedTrilateralRoot(rootLetters);
+            var verbConjugations = new ArrayList<VerbConjugations>();
+            if (vocalizationApplicabilityChecker.check(augmentedRoot, formula) == IFormulaApplyingChecker.TWO_STATE) {
+                var verbConjugation = getVerbConjugationsForAugmented(rootLetters, formula, true, true);
+                verbConjugation.setKey(إعلال);
+                verbConjugations.add(verbConjugation);
+            }
+            var verbConjugation = getVerbConjugationsForAugmented(rootLetters, formula, true, false);
+            verbConjugation.setKey(تصحيح);
+            verbConjugations.add(verbConjugation);
+            return verbConjugations;
+        }
+        return List.of(getVerbConjugationsForUnaugmented(rootLetters, cclass, true));
     }
 
-    private VerbConjugations getVerbConjugationsForAugmented(String rootLetters, int formula, boolean active) throws Exception {
-        var past = this.trilateralAugmentedBridge.retrievePastConjugations(rootLetters, formula, active).stream().map(wp -> wp.toString()).toList();
-        var nominativePresent = this.trilateralAugmentedBridge.retrieveNominativePresent(rootLetters, formula, active).stream().map(wp -> wp.toString()).toList();
-        var accusativePresent = this.trilateralAugmentedBridge.retrieveAccusativePresent(rootLetters, formula, active).stream().map(wp -> wp.toString()).toList();
-        var jussivePresent = this.trilateralAugmentedBridge.retrieveJussivePresent(rootLetters, formula, active).stream().map(wp -> wp.toString()).toList();
-        var emphasizedPresent = this.trilateralAugmentedBridge.retrieveEmphasizedPresent(rootLetters, formula, active).stream().map(wp -> wp.toString()).toList();
-        var imperative = this.trilateralAugmentedBridge.retrieveImperative(rootLetters, formula).stream().map(wp -> wp.toString()).toList();
-        var emphasizedImperative = this.trilateralAugmentedBridge.retrieveEmphasizedImperative(rootLetters, formula).stream().map(wp -> wp.toString()).toList();
+    @NotNull
+    private AugmentedTrilateralRoot getAugmentedTrilateralRoot(String rootLetters) throws Exception {
+        var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
+        if (augmentedRoot == null) {
+            throw new Exception(String.format("%s root was not found.", rootLetters));
+        }
+        return augmentedRoot;
+    }
+
+    private VerbConjugations getVerbConjugationsForAugmented(String rootLetters, int formula, boolean active, boolean  applyVocalization) throws Exception {
+        var past = this.trilateralAugmentedBridge.retrievePastConjugations(rootLetters, formula, active, applyVocalization).stream().map(WordPresenter::toString).toList();
+        var nominativePresent = this.trilateralAugmentedBridge.retrieveNominativePresent(rootLetters, formula, active, applyVocalization).stream().map(WordPresenter::toString).toList();
+        var accusativePresent = this.trilateralAugmentedBridge.retrieveAccusativePresent(rootLetters, formula, active, applyVocalization).stream().map(WordPresenter::toString).toList();
+        var jussivePresent = this.trilateralAugmentedBridge.retrieveJussivePresent(rootLetters, formula, active, applyVocalization).stream().map(WordPresenter::toString).toList();
+        var emphasizedPresent = this.trilateralAugmentedBridge.retrieveEmphasizedPresent(rootLetters, formula, active, applyVocalization).stream().map(WordPresenter::toString).toList();
+        var imperative = this.trilateralAugmentedBridge.retrieveImperative(rootLetters, formula, applyVocalization).stream().map(WordPresenter::toString).toList();
+        var emphasizedImperative = this.trilateralAugmentedBridge.retrieveEmphasizedImperative(rootLetters, formula, applyVocalization).stream().map(WordPresenter::toString).toList();
         var verbConjugations = new VerbConjugations();
         verbConjugations.setPast(past);
         verbConjugations.setNominativePresent(nominativePresent);
@@ -135,6 +163,7 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
         verbConjugations.setEmphasizedImperative(emphasizedImperative);
         return verbConjugations;
     }
+
     private VerbConjugations getVerbConjugationsForUnaugmented(String rootLetters, int cclass, boolean active) throws Exception {
         var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
         var root = sarfDictionary.getUnaugmentedTrilateralRoots(rootLetters).stream()
@@ -144,11 +173,11 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
             throw new Exception(String.format("Could not find a root with letters %s and class of %d.", rootLetters, cclass));
         }
 
-        var past = this.trilateralUnaugmentedBridge.retrieveActivePastConjugations(root, kov, active).stream().map(wp -> wp.toString()).toList();
-        var nominativePresent = this.trilateralUnaugmentedBridge.retrieveActiveNominativePresent(root, kov, active).stream().map(wp -> wp.toString()).toList();
-        var accusativePresent = this.trilateralUnaugmentedBridge.retrieveActiveAccusativePresent(root, kov, active).stream().map(wp -> wp.toString()).toList();
-        var jussivePresent = this.trilateralUnaugmentedBridge.retrieveActiveJussivePresent(root, kov, active).stream().map(wp -> wp.toString()).toList();
-        var emphasizedPresent = this.trilateralUnaugmentedBridge.retrieveActiveEmphasizedPresent(root, kov, active).stream().map(wp -> wp.toString()).toList();
+        var past = this.trilateralUnaugmentedBridge.retrieveActivePastConjugations(root, kov, active).stream().map(WordPresenter::toString).toList();
+        var nominativePresent = this.trilateralUnaugmentedBridge.retrieveActiveNominativePresent(root, kov, active).stream().map(WordPresenter::toString).toList();
+        var accusativePresent = this.trilateralUnaugmentedBridge.retrieveActiveAccusativePresent(root, kov, active).stream().map(WordPresenter::toString).toList();
+        var jussivePresent = this.trilateralUnaugmentedBridge.retrieveActiveJussivePresent(root, kov, active).stream().map(WordPresenter::toString).toList();
+        var emphasizedPresent = this.trilateralUnaugmentedBridge.retrieveActiveEmphasizedPresent(root, kov, active).stream().map(WordPresenter::toString).toList();
         var imperative = Arrays.asList("");
         var emphasizedImperative = Arrays.asList("");
         if(active) {
@@ -264,17 +293,29 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
     }
 
     @Override
-    public VerbConjugations getPassiveVerbConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
-        return augmented ? getPassiveVerbConjugationsForAugmented(rootLetters, formula)
-                : getPassiveVerbConjugationsForUnaugmented(rootLetters, cclass);
+    public List<VerbConjugations> getPassiveVerbConjugationsTri(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
+        if(augmented) {
+            var augmentedRoot = getAugmentedTrilateralRoot(rootLetters);
+            var verbConjugations = new ArrayList<VerbConjugations>();
+            if(vocalizationApplicabilityChecker.check(augmentedRoot, formula) == IFormulaApplyingChecker.TWO_STATE) {
+                var verbConjugation = getPassiveVerbConjugationsForAugmented(rootLetters, formula, true);
+                verbConjugation.setKey(إعلال);
+                verbConjugations.add(verbConjugation);
+            }
+            var verbConjugation = getPassiveVerbConjugationsForAugmented(rootLetters, formula, false);
+            verbConjugation.setKey(تصحيح);
+            verbConjugations.add(verbConjugation);
+            return verbConjugations;
+        }
+        return List.of(getPassiveVerbConjugationsForUnaugmented(rootLetters, cclass));
     }
 
     private VerbConjugations getPassiveVerbConjugationsForUnaugmented(String rootLetters, int cclass) throws Exception {
         return getVerbConjugationsForUnaugmented(rootLetters, cclass, false);
     }
 
-    private VerbConjugations getPassiveVerbConjugationsForAugmented(String rootLetters, int formula) throws Exception{
-        return getVerbConjugationsForAugmented(rootLetters, formula, false);
+    private VerbConjugations getPassiveVerbConjugationsForAugmented(String rootLetters, int formula, boolean applyVocalization) throws Exception{
+        return getVerbConjugationsForAugmented(rootLetters, formula, false, applyVocalization);
     }
 
 

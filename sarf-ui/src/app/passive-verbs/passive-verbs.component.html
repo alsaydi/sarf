@@ -1,17 +1,127 @@
+<!--
+/*
+ *
+ * MIT License
+ *
+ * Copyright (c) 2021 Abdalaziz Alsaydi
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+-->
+
 <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
     <mat-tab label="الماضي المجهول">
-        <app-sarf-verb-pronouns [verbs]="past"></app-sarf-verb-pronouns>
+        <ng-template matTabContent>
+            <div *ngIf="showSubTabs(); then withSubTabs else simpleBlock"></div>
+            <ng-template #withSubTabs>
+                <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+                    <div *ngFor="let pastGroup of pastGroups">
+                        <mat-tab label="{{pastGroup.key}}">
+                            <app-sarf-verb-pronouns [verbs]="pastGroup.verbs"></app-sarf-verb-pronouns>
+                        </mat-tab>
+                    </div>
+                </mat-tab-group>
+            </ng-template>
+
+            <ng-template #simpleBlock>
+                <div *ngFor="let pastGroup of pastGroups">
+                    <app-sarf-verb-pronouns [verbs]="pastGroup.verbs"></app-sarf-verb-pronouns>
+                </div>
+            </ng-template>
+
+        </ng-template>
     </mat-tab>
+
     <mat-tab label="المضارع المرفوع المجهول">
-        <app-sarf-verb-pronouns [verbs]="nominativePresent"></app-sarf-verb-pronouns>
+        <ng-template matTabContent>
+            <div *ngIf="showSubTabs(); then withSubTabs else simpleBlock"></div>
+            <ng-template #withSubTabs>
+                <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+                    <div *ngFor="let nominativePresent of nominativePresentGroups">
+                        <mat-tab label="{{nominativePresent.key}}">
+                            <app-sarf-verb-pronouns [verbs]="nominativePresent.verbs"></app-sarf-verb-pronouns>
+                        </mat-tab>
+                    </div>
+                </mat-tab-group>
+            </ng-template>
+
+            <ng-template #simpleBlock>
+                <app-sarf-verb-pronouns [verbs]="nominativePresentGroups[0].verbs"></app-sarf-verb-pronouns>
+            </ng-template>
+
+        </ng-template>
     </mat-tab>
     <mat-tab label="المضارع المنصوب المجهول">
-        <app-sarf-verb-pronouns [verbs]="accusativePresent"></app-sarf-verb-pronouns>
+        <ng-template matTabContent>
+            <div *ngIf="showSubTabs(); then withSubTabs else simpleBlock"></div>
+            <ng-template #withSubTabs>
+                <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+                    <div *ngFor="let accusativePresent of accusativePresentGroups">
+                        <mat-tab label="{{accusativePresent.key}}">
+                            <app-sarf-verb-pronouns [verbs]="accusativePresent.verbs"></app-sarf-verb-pronouns>
+                        </mat-tab>
+                    </div>
+                </mat-tab-group>
+            </ng-template>
+
+            <ng-template #simpleBlock>
+                <app-sarf-verb-pronouns [verbs]="accusativePresentGroups[0].verbs"></app-sarf-verb-pronouns>
+            </ng-template>
+
+        </ng-template>
     </mat-tab>
-    <mat-tab label="المضارع المجزوم المجهول ">
-        <app-sarf-verb-pronouns [verbs]="jussivePresent"></app-sarf-verb-pronouns>
+    <mat-tab label="المضارع المجزوم المجهول">
+        <ng-template matTabContent>
+            <div *ngIf="showSubTabs(); then withSubTabs else simpleBlock"></div>
+            <ng-template #withSubTabs>
+                <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+                    <div *ngFor="let jussivePresent of jussivePresentGroups">
+                        <mat-tab label="{{jussivePresent.key}}">
+                            <app-sarf-verb-pronouns [verbs]="jussivePresent.verbs"></app-sarf-verb-pronouns>
+                        </mat-tab>
+                    </div>
+                </mat-tab-group>
+            </ng-template>
+
+            <ng-template #simpleBlock>
+                <app-sarf-verb-pronouns [verbs]="jussivePresentGroups[0].verbs"></app-sarf-verb-pronouns>
+            </ng-template>
+
+        </ng-template>
     </mat-tab>
     <mat-tab label="المضارع المؤكد المجهول">
-        <app-sarf-verb-pronouns [verbs]="emphasizedPresent"></app-sarf-verb-pronouns>
+        <ng-template matTabContent>
+            <div *ngIf="showSubTabs(); then withSubTabs else simpleBlock"></div>
+            <ng-template #withSubTabs>
+                <mat-tab-group animationDuration="0ms" color="accent" backgroundColor="primary" class="tab-group">
+                    <div *ngFor="let emphasizedPresent of emphasizedPresentGroups">
+                        <mat-tab label="{{emphasizedPresent.key}}">
+                            <app-sarf-verb-pronouns [verbs]="emphasizedPresent.verbs"></app-sarf-verb-pronouns>
+                        </mat-tab>
+                    </div>
+                </mat-tab-group>
+            </ng-template>
+
+            <ng-template #simpleBlock>
+                <app-sarf-verb-pronouns [verbs]="emphasizedPresentGroups[0].verbs"></app-sarf-verb-pronouns>
+            </ng-template>
+
+        </ng-template>
     </mat-tab>
 </mat-tab-group>

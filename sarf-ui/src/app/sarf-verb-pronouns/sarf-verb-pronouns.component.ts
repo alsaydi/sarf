@@ -8,14 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SarfVerbPronounsComponent implements OnInit {
 
   @Input() verbs: string[];
-  constructor() { 
-  }
-
-  ngOnInit(): void {
+  constructor() {
     this.verbs = Array<string>(13);
     for(var i = 0; i < 13; i++) {
       this.verbs[i] = "-";
     }
+  }
+
+  ngOnInit(): void {    
   }
 
 }

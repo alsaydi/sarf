@@ -1,5 +1,6 @@
 package sarf.verb.trilateral.augmented.modifier.vocalizer;
 
+import com.google.inject.Singleton;
 import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 
 /**
@@ -14,6 +15,8 @@ import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
  * @author Haytham Mohtasseb Billah
  * @version 1.0
  */
+
+@Singleton
 public class FormulaApplyingChecker {
     private final Formula1ApplyingChecker formula1ApplyingChecker = new Formula1ApplyingChecker();
     private final Formula5ApplyingChecker formula5ApplyingChecker = new Formula5ApplyingChecker();

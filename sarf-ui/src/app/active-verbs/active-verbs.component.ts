@@ -27,6 +27,7 @@ import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Utils } from '../models/Utils';
+import { VerbConjugation } from '../models/VerbConjugation';
 import { AppNotificationsService } from '../services/app-notifications.service';
 import { SarfService } from '../services/sarf-service';
 
@@ -36,32 +37,37 @@ import { SarfService } from '../services/sarf-service';
   styleUrls: ['./active-verbs.component.css'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class ActiveVerbsComponent implements OnInit, OnDestroy {
 
   private serviceSubscription: Subscription;
-  public past: Array<string>;
-  public nominativePresent: Array<string>;
-  public accusativePresent: Array<string>;
-  public jussivePresent: Array<string>;
-  public emphasizedPresent: Array<string>;
-  public imperative: Array<string>;
-  public emphasizedImperative: Array<string>;
+  public pastGroups: Array<VerbConjugation>;
+  public nominativePresentGroups: Array<VerbConjugation>;
+  public accusativePresentGroups: Array<VerbConjugation>;
+  public jussivePresentGroups: Array<VerbConjugation>;
+  public emphasizedPresentGroups: Array<VerbConjugation>;
+  public imperativeGroups: Array<VerbConjugation>;
+  public emphasizedImperativeGroups: Array<VerbConjugation>;
 
-  constructor(private sarfService: SarfService, private route: ActivatedRoute, private appNotificationsService: AppNotificationsService) { }  
+  constructor(private sarfService: SarfService, private route: ActivatedRoute, private appNotificationsService: AppNotificationsService) { }
 
   ngOnInit(): void {
     const verbSelectionDetail = this.getVerbSelectionDetail();
     this.serviceSubscription = this.sarfService.getActiveVerbConjugatons(verbSelectionDetail).subscribe(result => {
-      console.log(result);
-      this.past = result.past;
-      this.nominativePresent = result.nominativePresent;
-      this.accusativePresent = result.accusativePresent;
-      this.jussivePresent = result.jussivePresent;
-      this.emphasizedPresent = result.emphasizedPresent
-      this.imperative = result.imperative
-      this.emphasizedImperative = result.emphasizedImperative
+      console.log('active verbs' , result);
+      this.pastGroups = result.map(r => ({'key': r.key, 'verbs': r.past}));
+      this.nominativePresentGroups = result.map(r => ({'key': r.key, 'verbs': r.nominativePresent}));
+      this.accusativePresentGroups = result.map(r => ({'key': r.key, 'verbs': r.accusativePresent}));
+      this.jussivePresentGroups = result.map(r => ({'key': r.key, 'verbs': r.jussivePresent}));;
+      this.emphasizedPresentGroups = result.map(r => ({'key': r.key, 'verbs': r.emphasizedPresent}));
+      this.imperativeGroups = result.map(r => ({'key': r.key, 'verbs': r.imperative}));
+      this.emphasizedImperativeGroups = result.map(r => ({'key': r.key, 'verbs': r.emphasizedImperative}));
     });
     this.appNotificationsService.broadcastVerbSelected(verbSelectionDetail);
+  }
+
+  showSubTabs() : boolean {
+    return this.pastGroups.length > 1;
   }
 
   private getVerbSelectionDetail() {
