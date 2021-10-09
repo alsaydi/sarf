@@ -93,10 +93,10 @@ public class TrilateralUnaugmentedBridgeImpl implements TrilateralUnaugmentedBri
     }
 
     @Override
-    public List<WordPresenter> retrieveJussivePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active) {
+    public List<WordPresenter> retrieveJussivePresent(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean active, boolean applyGemination) {
         var result = active ? triUnaugmentedActivePresentConjugator.createJussiveVerbList(root) :
                 passivePresentConjugator.createJussiveVerbList(root);
-        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, active);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.PRESENT_TENSE, active, applyGemination);
         return conjResult.getFinalResult();
     }
 
@@ -109,17 +109,17 @@ public class TrilateralUnaugmentedBridgeImpl implements TrilateralUnaugmentedBri
     }
 
     @Override
-    public List<WordPresenter> retrieveImperative(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+    public List<WordPresenter> retrieveImperative(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean applyGemination) {
         var result = unaugmentedImperativeConjugator.createVerbList(root);
-        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE, true, applyGemination);
         return conjResult.getFinalResult()
                 .stream().map(wp -> wp.isEmpty() ? WordPresenter.fromText("-") : wp).toList();
     }
 
     @Override
-    public List<WordPresenter> retrieveEmphasizedImperative(UnaugmentedTrilateralRoot root, KindOfVerb kov) {
+    public List<WordPresenter> retrieveEmphasizedImperative(UnaugmentedTrilateralRoot root, KindOfVerb kov, boolean applyGemination) {
         var result = unaugmentedImperativeConjugator.createEmphasizedVerbList(root);
-        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true);
+        ConjugationResult conjResult = unaugmentedTrilateralModifier.build(root, kov, result, SystemConstants.EMPHASIZED_IMPERATIVE_TENSE, true, applyGemination);
         return conjResult.getFinalResult()
                 .stream().map(wp -> wp.isEmpty() ? WordPresenter.fromText("-") : wp).toList();
     }
