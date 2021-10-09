@@ -32,6 +32,7 @@ import sarf.SarfDictionary;
 import sarf.SystemConstants;
 import sarf.WordPresenter;
 import sarf.kov.KovRulesManager;
+import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 import sarf.verb.trilateral.augmented.active.past.AugmentedActivePastConjugator;
 import sarf.verb.trilateral.augmented.active.present.AugmentedActivePresentConjugator;
 import sarf.verb.trilateral.augmented.active.present.AugmentedPresentConjugator;
@@ -74,12 +75,8 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
     }
 
     @Override
-    public List<WordPresenter> retrievePastConjugations(String rootLetters, int formulaNo, boolean active, boolean applyVocalization) throws Exception {
-        var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
-        if (augmentedRoot == null) {
-            throw new Exception(String.format("%s root was not found.", rootLetters));
-        }
-        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+    public List<WordPresenter> retrievePastConjugations(AugmentedTrilateralRoot augmentedRoot, int formulaNo, boolean active, boolean applyVocalization) throws Exception {
+        var kov = kovRulesManager.getTrilateralKov(augmentedRoot.getC1(), augmentedRoot.getC2(), augmentedRoot.getC3());
         var augmentationFormula = augmentedRoot.getAugmentationList().stream()
                 .filter(f -> f.getFormulaNo() == formulaNo)
                 .findFirst().orElseThrow();
@@ -91,48 +88,44 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
     }
 
     @Override
-    public List<WordPresenter> retrieveNominativePresent(String rootLetters, int formulaNo, boolean active, boolean applyVocalization) throws Exception {
+    public List<WordPresenter> retrieveNominativePresent(AugmentedTrilateralRoot augmentedRoot, int formulaNo, boolean active, boolean applyVocalization) throws Exception {
         return active ?
-                getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getNominativeConjugator(), applyVocalization):
-                getWordPresentersPassive(rootLetters, formulaNo, augmentedPassivePresentConjugator.getNominativeConjugator(), applyVocalization);
+                getWordPresenters(augmentedRoot, formulaNo, augmentedActivePresentConjugator.getNominativeConjugator(), applyVocalization):
+                getWordPresentersPassive(augmentedRoot, formulaNo, augmentedPassivePresentConjugator.getNominativeConjugator(), applyVocalization);
     }
 
     @Override
-    public List<WordPresenter> retrieveAccusativePresent(String rootLetters, int formulaNo, boolean active, boolean applyVocalization) throws Exception {
+    public List<WordPresenter> retrieveAccusativePresent(AugmentedTrilateralRoot augmentedRoot, int formulaNo, boolean active, boolean applyVocalization) throws Exception {
         return active ?
-                getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getAccusativeConjugator(), applyVocalization) :
-                getWordPresentersPassive(rootLetters, formulaNo, augmentedPassivePresentConjugator.getAccusativeConjugator(), applyVocalization);
+                getWordPresenters(augmentedRoot, formulaNo, augmentedActivePresentConjugator.getAccusativeConjugator(), applyVocalization) :
+                getWordPresentersPassive(augmentedRoot, formulaNo, augmentedPassivePresentConjugator.getAccusativeConjugator(), applyVocalization);
     }
 
     @Override
-    public List<WordPresenter> retrieveJussivePresent(String rootLetters, int formulaNo, boolean active, boolean applyVocalization) throws Exception {
-        return active ? getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getJussiveConjugator(), applyVocalization) :
-                getWordPresentersPassive(rootLetters, formulaNo, augmentedPassivePresentConjugator.getJussiveConjugator(), applyVocalization);
+    public List<WordPresenter> retrieveJussivePresent(AugmentedTrilateralRoot augmentedRoot, int formulaNo, boolean active, boolean applyVocalization) throws Exception {
+        return active ? getWordPresenters(augmentedRoot, formulaNo, augmentedActivePresentConjugator.getJussiveConjugator(), applyVocalization) :
+                getWordPresentersPassive(augmentedRoot, formulaNo, augmentedPassivePresentConjugator.getJussiveConjugator(), applyVocalization);
     }
 
     @Override
-    public List<WordPresenter> retrieveEmphasizedPresent(String rootLetters, int formulaNo, boolean active, boolean applyVocalization) throws Exception {
+    public List<WordPresenter> retrieveEmphasizedPresent(AugmentedTrilateralRoot augmentedRoot, int formulaNo, boolean active, boolean applyVocalization) throws Exception {
         return active ?
-                getWordPresenters(rootLetters, formulaNo, augmentedActivePresentConjugator.getEmphasizedConjugator(), applyVocalization) :
-                getWordPresentersPassive(rootLetters, formulaNo, augmentedPassivePresentConjugator.getEmphasizedConjugator(), applyVocalization);
+                getWordPresenters(augmentedRoot, formulaNo, augmentedActivePresentConjugator.getEmphasizedConjugator(), applyVocalization) :
+                getWordPresentersPassive(augmentedRoot, formulaNo, augmentedPassivePresentConjugator.getEmphasizedConjugator(), applyVocalization);
     }
 
     @Override
-    public List<WordPresenter> retrieveImperative(String rootLetters, int formulaNo, boolean applyVocalization) throws Exception {
-        return getImperativeWordPresenters(rootLetters, formulaNo, augmentedImperativeConjugatorFactory.getNotEmphasizedConjugator(), applyVocalization);
+    public List<WordPresenter> retrieveImperative(AugmentedTrilateralRoot augmentedRoot, int formulaNo, boolean applyVocalization) throws Exception {
+        return getImperativeWordPresenters(augmentedRoot, formulaNo, augmentedImperativeConjugatorFactory.getNotEmphasizedConjugator(), applyVocalization);
     }
 
     @Override
-    public List<WordPresenter> retrieveEmphasizedImperative(String rootLetters, int formulaNo, boolean applyVocalization) throws Exception {
-        return getImperativeWordPresenters(rootLetters, formulaNo, augmentedImperativeConjugatorFactory.getEmphasizedConjugator(), applyVocalization);
+    public List<WordPresenter> retrieveEmphasizedImperative(AugmentedTrilateralRoot augmentedRoot, int formulaNo, boolean applyVocalization) throws Exception {
+        return getImperativeWordPresenters(augmentedRoot, formulaNo, augmentedImperativeConjugatorFactory.getEmphasizedConjugator(), applyVocalization);
     }
 
-    private List<WordPresenter> getWordPresenters(String rootLetters, int formulaNo, AugmentedPresentConjugator augmentedPresentConjugator, boolean applyVocalization) throws Exception {
-        var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
-        if (augmentedRoot == null) {
-            throw new Exception(String.format("%s root was not found.", rootLetters));
-        }
-        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+    private List<WordPresenter> getWordPresenters(AugmentedTrilateralRoot augmentedRoot, int formulaNo, AugmentedPresentConjugator augmentedPresentConjugator, boolean applyVocalization) throws Exception {
+        var kov = kovRulesManager.getTrilateralKov(augmentedRoot.getC1(), augmentedRoot.getC2(), augmentedRoot.getC3());
         var augmentationFormula = augmentedRoot.getAugmentationList().stream()
                 .filter(f -> f.getFormulaNo() == formulaNo)
                 .findFirst().orElseThrow();
@@ -143,12 +136,8 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
         return conjugationResult.getFinalResult();
     }
 
-    private List<WordPresenter> getWordPresentersPassive(String rootLetters, int formulaNo, AbstractAugmentedPresentConjugator augmentedPresentConjugator, boolean applyVocalization) throws Exception {
-        var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
-        if (augmentedRoot == null) {
-            throw new Exception(String.format("%s root was not found.", rootLetters));
-        }
-        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+    private List<WordPresenter> getWordPresentersPassive(AugmentedTrilateralRoot augmentedRoot, int formulaNo, AbstractAugmentedPresentConjugator augmentedPresentConjugator, boolean applyVocalization) throws Exception {
+        var kov = kovRulesManager.getTrilateralKov(augmentedRoot.getC1(), augmentedRoot.getC2(), augmentedRoot.getC3());
         var augmentationFormula = augmentedRoot.getAugmentationList().stream()
                 .filter(f -> f.getFormulaNo() == formulaNo)
                 .findFirst().orElseThrow();
@@ -159,12 +148,8 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
         return conjugationResult.getFinalResult();
     }
 
-    private List<WordPresenter> getImperativeWordPresenters(String rootLetters, int formulaNo, AugmentedImperativeConjugator augmentedImperativeConjugator, boolean applyVocalization) throws Exception {
-        var augmentedRoot = sarfDictionary.getAugmentedTrilateralRoot(rootLetters);
-        if (augmentedRoot == null) {
-            throw new Exception(String.format("%s root was not found.", rootLetters));
-        }
-        var kov = kovRulesManager.getTrilateralKov(rootLetters.charAt(0), rootLetters.charAt(1), rootLetters.charAt(2));
+    private List<WordPresenter> getImperativeWordPresenters(AugmentedTrilateralRoot augmentedRoot, int formulaNo, AugmentedImperativeConjugator augmentedImperativeConjugator, boolean applyVocalization) throws Exception {
+        var kov = kovRulesManager.getTrilateralKov(augmentedRoot.getC1(), augmentedRoot.getC2(), augmentedRoot.getC3());
         var augmentationFormula = augmentedRoot.getAugmentationList().stream()
                 .filter(f -> f.getFormulaNo() == formulaNo)
                 .findFirst().orElseThrow();

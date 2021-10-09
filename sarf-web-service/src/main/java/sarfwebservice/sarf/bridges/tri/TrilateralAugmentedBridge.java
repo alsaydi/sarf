@@ -24,15 +24,16 @@ package sarfwebservice.sarf.bridges.tri;
  * SOFTWARE.
  */
 import sarf.WordPresenter;
+import sarf.verb.trilateral.augmented.AugmentedTrilateralRoot;
 
 import java.util.List;
 
 public interface TrilateralAugmentedBridge {
-    List<WordPresenter> retrievePastConjugations(String rootLetters, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
-    List<WordPresenter> retrieveNominativePresent(String rootLetters, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
-    List<WordPresenter> retrieveAccusativePresent(String rootLetters, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
-    List<WordPresenter> retrieveJussivePresent(String rootLetters, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
-    List<WordPresenter> retrieveEmphasizedPresent(String rootLetters, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
-    List<WordPresenter> retrieveImperative(String rootLetters, int formulaNo, boolean applyVocalization) throws Exception;
-    List<WordPresenter> retrieveEmphasizedImperative(String rootLetters, int formulaNo, boolean applyVocalization) throws Exception;
+    List<WordPresenter> retrievePastConjugations(AugmentedTrilateralRoot root, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
+    List<WordPresenter> retrieveNominativePresent(AugmentedTrilateralRoot root, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
+    List<WordPresenter> retrieveAccusativePresent(AugmentedTrilateralRoot root, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
+    List<WordPresenter> retrieveJussivePresent(AugmentedTrilateralRoot root, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
+    List<WordPresenter> retrieveEmphasizedPresent(AugmentedTrilateralRoot root, int formulaNo, boolean active, boolean applyVocalization) throws Exception;
+    List<WordPresenter> retrieveImperative(AugmentedTrilateralRoot root, int formulaNo, boolean applyVocalization) throws Exception;
+    List<WordPresenter> retrieveEmphasizedImperative(AugmentedTrilateralRoot root, int formulaNo, boolean applyVocalization) throws Exception;
 }
