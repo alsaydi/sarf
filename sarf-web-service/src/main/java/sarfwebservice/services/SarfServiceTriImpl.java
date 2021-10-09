@@ -173,11 +173,11 @@ public class SarfServiceTriImpl extends SarfServiceImpl implements SarfServiceTr
             throw new Exception(String.format("Could not find a root with letters %s and class of %d.", rootLetters, cclass));
         }
 
-        var past = this.trilateralUnaugmentedBridge.retrieveActivePastConjugations(root, kov, active).stream().map(WordPresenter::toString).toList();
-        var nominativePresent = this.trilateralUnaugmentedBridge.retrieveActiveNominativePresent(root, kov, active).stream().map(WordPresenter::toString).toList();
-        var accusativePresent = this.trilateralUnaugmentedBridge.retrieveActiveAccusativePresent(root, kov, active).stream().map(WordPresenter::toString).toList();
-        var jussivePresent = this.trilateralUnaugmentedBridge.retrieveActiveJussivePresent(root, kov, active).stream().map(WordPresenter::toString).toList();
-        var emphasizedPresent = this.trilateralUnaugmentedBridge.retrieveActiveEmphasizedPresent(root, kov, active).stream().map(WordPresenter::toString).toList();
+        var past = this.trilateralUnaugmentedBridge.retrievePastConjugations(root, kov, active).stream().map(WordPresenter::toString).toList();
+        var nominativePresent = this.trilateralUnaugmentedBridge.retrieveNominativePresent(root, kov, active).stream().map(WordPresenter::toString).toList();
+        var accusativePresent = this.trilateralUnaugmentedBridge.retrieveAccusativePresent(root, kov, active).stream().map(WordPresenter::toString).toList();
+        var jussivePresent = this.trilateralUnaugmentedBridge.retrieveJussivePresent(root, kov, active).stream().map(WordPresenter::toString).toList();
+        var emphasizedPresent = this.trilateralUnaugmentedBridge.retrieveEmphasizedPresent(root, kov, active).stream().map(WordPresenter::toString).toList();
         var imperative = Arrays.asList("");
         var emphasizedImperative = Arrays.asList("");
         if(active) {
