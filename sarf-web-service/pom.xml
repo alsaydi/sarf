@@ -8,9 +8,12 @@
 		<artifactId>sarf-parent</artifactId>
 	</parent>
 	<artifactId>sarf-web-service</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>sarf-web-service</name>
 	<description>Sarf Web Service</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -65,42 +68,26 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>2.5.4</version>
+				<version>2.5.5</version>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.2.0</version>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.2.4</version>
+				<executions>
+				<execution>
+				<phase>package</phase>
 				<goals>
-					<goal>jar</goal>
+					<goal>shade</goal>
 				</goals>
 				<configuration>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
+					<transformers>
+						<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 							<mainClass>sarfwebservice.SarfWebServiceApplication</mainClass>
-							<classpathPrefix>dependency-jars/</classpathPrefix>
-						</manifest>
-					</archive>
+						</transformer>
+					</transformers>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.2.0</version>
-				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>
-								${project.build.directory}/dependency-jars/
-							</outputDirectory>
-						</configuration>
-					</execution>
+				</execution>
 				</executions>
 			</plugin>
 		</plugins>
