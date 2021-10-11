@@ -1,0 +1,11 @@
+mvn clean compile package spring-boot:repackage
+cd target
+cp -R ../../sarf-library/src/main/resources/db ./db
+zip -ur sarf-web-service-1.0.jar db
+java -jar sarf-web-service-1.0.jar
+curl http://localhost:8080 /* how can we pass unicode in url path */
+test
+cd ..
+docker build -t sarf:||| .
+docker tag sarf:1.||| GCP-TAG /* look it up */
+
