@@ -38,7 +38,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/sarf")
-@CrossOrigin(origins = {"sarf.one", "www.sarf.one"})
+@CrossOrigin(origins = {"https://sarf.one", "https://www.sarf.one"})
 public class SarfController {
 
     private final SarfServiceTri sarfServiceTri;
