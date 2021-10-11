@@ -24,10 +24,7 @@ package sarfwebservice.controllers;
  * SOFTWARE.
  */
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import sarfwebservice.exceptions.InvalidRootException;
 import sarfwebservice.exceptions.RootNotFoundException;
 import sarfwebservice.models.GerundConjugations;
@@ -41,6 +38,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/sarf")
+@CrossOrigin(origins = {"sarf.one", "www.sarf.one"})
 public class SarfController {
 
     private final SarfServiceTri sarfServiceTri;
