@@ -1,7 +1,6 @@
 {
     "/sarf": {
-        "target": "https://sarf-itu5vm4h5q-uc.a.run.app",
-        "secure": false,
-        "changeOrigin": true
+        "target": "http://localhost:8080",
+        "secure": false
     }
 }
