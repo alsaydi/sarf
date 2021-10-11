@@ -29,14 +29,7 @@ import org.springframework.stereotype.Service;
 import sarf.SarfDictionary;
 import sarf.SystemConstants;
 import sarf.WordPresenter;
-import sarf.gerund.modifier.quadrilateral.QuadrilateralStandardModifier;
-import sarf.gerund.quadrilateral.augmented.QuadrilateralAugmentedGerundConjugator;
-import sarf.gerund.quadrilateral.augmented.nomen.QuadrilateralAugmentedNomenGerundConjugator;
 import sarf.kov.KovRulesManager;
-import sarf.noun.quadriliteral.augmented.AugmentedQuadrilateralActiveParticipleConjugator;
-import sarf.noun.quadriliteral.augmented.AugmentedQuadrilateralPassiveParticipleConjugator;
-import sarf.noun.quadriliteral.modifier.activeparticiple.ActiveParticipleModifier;
-import sarf.noun.quadriliteral.modifier.passiveparticiple.PassiveParticipleModifier;
 import sarf.verb.quadriliteral.augmented.active.past.QuadrilateralAugmentedActivePastConjugator;
 import sarf.verb.quadriliteral.augmented.active.present.AugmentedQuadActivePresentConjugator;
 import sarf.verb.quadriliteral.augmented.active.present.QuadriAugmentedPresentConjugator;
@@ -55,13 +48,6 @@ public class QuadAugmentedBridgeImpl implements QuadAugmentedBridge {
     private final KovRulesManager kovRulesManager;
     private final QuadrilateralAugmentedActivePastConjugator quadriActivePastConjugator;
     private final QuadriAugmentedPassivePastConjugator passivePastConjugator;
-    private final AugmentedQuadrilateralActiveParticipleConjugator activeParticipleConjugator;
-    private final ActiveParticipleModifier activeParticipleModifier;
-    private final AugmentedQuadrilateralPassiveParticipleConjugator passiveParticipleConjugator;
-    private final PassiveParticipleModifier passiveParticipleModifier;
-    private final QuadrilateralAugmentedGerundConjugator gerundConjugator;
-    private final QuadrilateralStandardModifier standardModifier;
-    private final QuadrilateralAugmentedNomenGerundConjugator nomenGerundConjugator;
     private final QuadrilateralModifier quadrilateralModifier;
     private final AugmentedQuadImperativeConjugator augmentedQuadImperativeConjugator;
     private final AugmentedQuadActivePresentConjugator augmentedQuadActivePresentConjugator;
@@ -72,13 +58,6 @@ public class QuadAugmentedBridgeImpl implements QuadAugmentedBridge {
     public QuadAugmentedBridgeImpl(SarfDictionary sarfDictionary, KovRulesManager kovRulesManager
             , QuadrilateralAugmentedActivePastConjugator quadriActivePastConjugator
             , QuadriAugmentedPassivePastConjugator passivePastConjugator
-            , AugmentedQuadrilateralActiveParticipleConjugator activeParticipleConjugator
-            , ActiveParticipleModifier activeParticipleModifier
-            , AugmentedQuadrilateralPassiveParticipleConjugator passiveParticipleConjugator
-            , PassiveParticipleModifier passiveParticipleModifier
-            , QuadrilateralAugmentedGerundConjugator gerundConjugator
-            , QuadrilateralStandardModifier standardModifier
-            , QuadrilateralAugmentedNomenGerundConjugator nomenGerundConjugator
             , QuadrilateralModifier quadrilateralModifier
             , AugmentedQuadImperativeConjugator augmentedQuadImperativeConjugator
             , AugmentedQuadActivePresentConjugator augmentedQuadActivePresentConjugator
@@ -87,13 +66,6 @@ public class QuadAugmentedBridgeImpl implements QuadAugmentedBridge {
         this.kovRulesManager = kovRulesManager;
         this.quadriActivePastConjugator = quadriActivePastConjugator;
         this.passivePastConjugator = passivePastConjugator;
-        this.activeParticipleConjugator = activeParticipleConjugator;
-        this.activeParticipleModifier = activeParticipleModifier;
-        this.passiveParticipleConjugator = passiveParticipleConjugator;
-        this.passiveParticipleModifier = passiveParticipleModifier;
-        this.gerundConjugator = gerundConjugator;
-        this.standardModifier = standardModifier;
-        this.nomenGerundConjugator = nomenGerundConjugator;
         this.quadrilateralModifier = quadrilateralModifier;
         this.augmentedQuadImperativeConjugator = augmentedQuadImperativeConjugator;
         this.augmentedQuadActivePresentConjugator = augmentedQuadActivePresentConjugator;
@@ -147,12 +119,14 @@ public class QuadAugmentedBridgeImpl implements QuadAugmentedBridge {
 
     @Override
     public List<WordPresenter> retrieveImperative(String rootLetters, int formulaNo) throws Exception {
-        return getImperativeWordPresenters(rootLetters, formulaNo, augmentedQuadImperativeConjugator.getNotEmphasizedConjugator());
+        return getImperativeWordPresenters(rootLetters, formulaNo, augmentedQuadImperativeConjugator.getNotEmphasizedConjugator()
+        , SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE);
     }
 
     @Override
     public List<WordPresenter> retrieveEmphasizedImperative(String rootLetters, int formulaNo) throws Exception {
-        return getImperativeWordPresenters(rootLetters, formulaNo, augmentedQuadImperativeConjugator.getEmphasizedConjugator());
+        return getImperativeWordPresenters(rootLetters, formulaNo, augmentedQuadImperativeConjugator.getEmphasizedConjugator()
+        , SystemConstants.EMPHASIZED_IMPERATIVE_TENSE);
     }
 
     private List<WordPresenter> getWordPresenters(String rootLetters, int formulaNo, QuadriAugmentedPresentConjugator quadriAugmentedPresentConjugator) throws Exception {
@@ -187,7 +161,8 @@ public class QuadAugmentedBridgeImpl implements QuadAugmentedBridge {
         return conjugationResult.getFinalResult();
     }
 
-    private List<WordPresenter> getImperativeWordPresenters(String rootLetters, int formulaNo, AbstractAugmentedImperativeConjugator augmentedImperativeConjugator) throws Exception {
+    private List<WordPresenter> getImperativeWordPresenters(String rootLetters, int formulaNo, AbstractAugmentedImperativeConjugator augmentedImperativeConjugator
+            , String tense) throws Exception {
         var augmentedRoot = sarfDictionary.getAugmentedQuadrilateralRoot(rootLetters);
         if (augmentedRoot == null) {
             throw new Exception(String.format("%s root was not found.", rootLetters));
@@ -198,8 +173,8 @@ public class QuadAugmentedBridgeImpl implements QuadAugmentedBridge {
                 .findFirst().orElseThrow();
 
         var verbs = augmentedImperativeConjugator.createVerbList(augmentedRoot, augmentationFormula.getFormulaNo());
-        var conjugationResult = quadrilateralModifier.build(augmentedRoot, augmentationFormula.getFormulaNo(), kovRule.getKov(), verbs, SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE
-                , true, true);
+        var conjugationResult = quadrilateralModifier.build(augmentedRoot, augmentationFormula.getFormulaNo(), kovRule.getKov(), verbs
+                , tense, true, true);
         return conjugationResult.getFinalResult().stream().map(wp -> wp.isEmpty() ? WordPresenter.fromText("-") : wp).toList();
     }
 }
