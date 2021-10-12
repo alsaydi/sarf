@@ -1,12 +1,17 @@
 <div *ngIf="conjugationGroup">
-    <mat-card>
-        <mat-card-title>{{conjugationGroup.label}}</mat-card-title>
-        <mat-card-content>
-            <mat-grid-list cols={{conjugationGroup.conjugationClasses.length}} rowHeight="fit">
-                <mat-grid-tile *ngFor="let conjugationClass of conjugationGroup.conjugationClasses">
-                    <app-conjugation-label [conjugationClass]="conjugationClass"></app-conjugation-label>
-                </mat-grid-tile>
-            </mat-grid-list>
-        </mat-card-content>
-    </mat-card>
-</div>
+    <div class="conjugation-group">
+        <label class="group-label">{{conjugationGroup.label}}</label>
+        <div class="classes">
+            <div *ngFor="let conjugationClass of conjugationGroup.conjugationClasses" class="conjugation">
+                <label class="conjugation-label">{{conjugationClass.label}}</label>
+                    <a class="conjugation-text" routerLink="{{conjugationClass.reference}}"
+                        *ngIf="conjugationClass.content">
+                        {{conjugationClass.content}}
+                    </a>
+                    <label class="conjugation-text" *ngIf="!conjugationClass.content">
+                        <div style="visibility: visible;">ـ</div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>

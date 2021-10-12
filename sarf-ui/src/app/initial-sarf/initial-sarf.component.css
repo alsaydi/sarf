@@ -1,7 +1,22 @@
-.containerX {
-    margin:-5px 100px;
+.container
+{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 3px;
+    font-family: 'Kitab', 'System-ui';
 }
-
 button {
     font-size: 1.0em;
+}
+
+.sarf-row
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.sarf-row-info
+{
+    font-size: 0.7em;
 }
