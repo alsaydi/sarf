@@ -117,13 +117,14 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
 
     @Override
     public List<WordPresenter> retrieveImperative(AugmentedTrilateralRoot augmentedRoot, int formulaNo, boolean applyVocalization, boolean applyGemination) throws Exception {
-        return getImperativeWordPresenters(augmentedRoot, formulaNo, augmentedImperativeConjugatorFactory.getNotEmphasizedConjugator(), applyVocalization, applyGemination);
+        return getImperativeWordPresenters(augmentedRoot, formulaNo, augmentedImperativeConjugatorFactory.getNotEmphasizedConjugator()
+                , applyVocalization, applyGemination, SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE);
     }
 
     @Override
     public List<WordPresenter> retrieveEmphasizedImperative(AugmentedTrilateralRoot augmentedRoot, int formulaNo, boolean applyVocalization, boolean applyGemination) throws Exception {
         return getImperativeWordPresenters(augmentedRoot, formulaNo, augmentedImperativeConjugatorFactory.getEmphasizedConjugator()
-                , applyVocalization, applyGemination);
+                , applyVocalization, applyGemination, SystemConstants.EMPHASIZED_IMPERATIVE_TENSE);
     }
 
     private List<WordPresenter> getWordPresenters(AugmentedTrilateralRoot augmentedRoot, int formulaNo, AugmentedPresentConjugator augmentedPresentConjugator, boolean applyVocalization
@@ -152,15 +153,16 @@ public class TrilateralAugmentedBridgeImpl implements TrilateralAugmentedBridge 
         return conjugationResult.getFinalResult();
     }
 
-    private List<WordPresenter> getImperativeWordPresenters(AugmentedTrilateralRoot augmentedRoot, int formulaNo, AugmentedImperativeConjugator augmentedImperativeConjugator, boolean applyVocalization, boolean applyGemination) {
+    private List<WordPresenter> getImperativeWordPresenters(AugmentedTrilateralRoot augmentedRoot, int formulaNo, AugmentedImperativeConjugator augmentedImperativeConjugator
+            , boolean applyVocalization, boolean applyGemination, String tense) {
         var kov = kovRulesManager.getTrilateralKov(augmentedRoot.getC1(), augmentedRoot.getC2(), augmentedRoot.getC3());
         var augmentationFormula = augmentedRoot.getAugmentationList().stream()
                 .filter(f -> f.getFormulaNo() == formulaNo)
                 .findFirst().orElseThrow();
 
         var verbs = augmentedImperativeConjugator.createVerbList(augmentedRoot, augmentationFormula.getFormulaNo());
-        var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, augmentationFormula.getFormulaNo(), verbs, SystemConstants.NOT_EMPHASIZED_IMPERATIVE_TENSE
-                , true, applyGemination, () -> applyVocalization);
+        var conjugationResult = augmentedTrilateralModifier.build(augmentedRoot, kov, augmentationFormula.getFormulaNo(), verbs
+                , tense, true, applyGemination, () -> applyVocalization);
         return conjugationResult.getFinalResult().stream().map(wp -> wp.isEmpty() ? WordPresenter.fromText("-") : wp).toList();
     }
 }

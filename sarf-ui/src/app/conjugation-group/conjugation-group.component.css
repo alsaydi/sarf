@@ -1,10 +1,61 @@
-mat-grid-tile {
-    background: lightblue;    
-  }
-  mat-card-title {
-      font-size: large;
-  }
+.conjugation-group
+{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+    border: 1px solid #c0c0c0;
+    border-radius: 10px;
+    font-family: 'Kitab', 'System-ui';
 
-  mat-grid-list {
-      height: 100px;
-  }
+}
+
+.group-label
+{
+    background-color: #e9e9ee;
+    font-size: 1.3em;
+    border-bottom: 1px solid #c0c0ff;
+    margin-bottom: 3px;
+    border-radius: 3px;
+    padding: 3px;
+    font-weight: bold;
+}
+
+.classes
+{
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.conjugation
+{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    flex-grow: 1;
+    background-color:blanchedalmond;
+
+}
+
+.conjugation-label
+{
+  padding: 5px;
+  background-color:wheat;
+  border-bottom: 1px solid #c0c0fc;
+  letter-spacing: 1px;
+  font-size: 1.2em;
+}
+
+.conjugation-text {
+  padding: 5px;
+  background-color:blanchedalmond;
+  text-align: center;
+  font-size: x-large;
+}
+
+.label-container
+{
+    display: flex;
+}

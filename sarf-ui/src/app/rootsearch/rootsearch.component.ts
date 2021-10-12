@@ -28,9 +28,9 @@ export class RootsearchComponent implements OnInit, OnDestroy {
   private rootResultSubscription: Subscription;
   private sarfServiceSubscription: Subscription;
   matcher = new MyErrorStateMatcher();
-  verbDisplay: string;
-  kindOfVerb: string;
-  transitivity: string;
+  verbDisplay: string = "-";
+  kindOfVerb: string = "-";
+  transitivity: string = "-";
   private hamzaString = "أؤئإ";
   private currentlySelectedRoot: any;
 
@@ -133,9 +133,9 @@ export class RootsearchComponent implements OnInit, OnDestroy {
 
   private reset() {
     this.currentlySelectedRoot = null;
-    this.kindOfVerb = "";
-    this.transitivity = "";
-    this.verbDisplay = "";
+    this.kindOfVerb = "-";
+    this.transitivity = "-";
+    this.verbDisplay = "-";
   }
 
   public isTri(): boolean {
