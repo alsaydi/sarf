@@ -1,8 +1,38 @@
-<div class="containerX">
-    <div class="container" fxLayout="row" fxLayoutGap="3px" fxLayoutAlign="center center">
-        <button mat-raised-button color="primary" fxFlex routerLink="{{getActiveLink()}}" >الأفعال المبنية للمعلوم</button>
-        <button mat-raised-button color="primary" fxFlex routerLink="{{getPassiveLink()}}">الأفعال المبنية للمجهول</button>
-        <button mat-raised-button color="primary" fxFlex routerLink="{{getNounsLink()}}">الأسماء المشتقة</button>
-        <button mat-raised-button color="primary" fxFlex routerLink="{{getGerundsLink()}}">المصادر</button>
+<div class="container">
+    <div class="sarf-row">
+        <button class="sarf-row-button" mat-raised-button color="primary" routerLink="{{getActiveLink()}}">الأفعال
+            المبنية للمعلوم</button>
+        <div class="sarf-row-info">
+            <p>
+                إضغط هنا لترى تصريفات الأفعال المبنية للمعلوم من الفعل, مثل الماضي و المضارع إلخ.
+            </p>
+        </div>
+    </div>
+    <div class="sarf-row">
+        <button class="sarf-row-button" mat-raised-button color="primary" routerLink="{{getPassiveLink()}}">الأفعال
+            المبنية للمجهول</button>
+        <div class="sarf-row-info">
+            <p>
+                في هذا القسم سترى تصريفات الفعل حين يبنى للمجهول.
+            </p>
+        </div>
+    </div>
+    <div class="sarf-row">
+        <button class="sarf-row-button" mat-raised-button color="primary" routerLink="{{getNounsLink()}}">الأسماء
+            المشتقة</button>
+        <div class="sarf-row-info">
+            <p>
+                أما هنا فسترى كيف يشتق إسم الفاعل و إسم المفعول و الصفة المشبهة إن وجدت و غير ذلك. يمكن أيضا أن ترى هذه
+                التصريفات في حالاتها الثلاث - نكرة، مضافة إلى معرفة أو معرفة بألـ.
+            </p>
+        </div>
+    </div>
+    <div class="sarf-row">
+        <button class="sarf-row-button" mat-raised-button color="primary" routerLink="{{getGerundsLink()}}">المصادر</button>
+        <div class="sarf-row-info">
+            <p>
+                هذا القسم يسرد المصادر كالمصدر الأصلي، ومصدر المرة والمصدر الميمي و مصدر الهيئة إن وجد.
+            </p>
+        </div>
     </div>
 </div>
