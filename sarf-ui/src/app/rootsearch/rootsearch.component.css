@@ -25,6 +25,7 @@
     display: flex;
     column-gap: 5px;
     font-family: 'Kitab', 'System-ui';
+    margin-bottom: 10px;
   }
   .verb-info-item {
     font-size: small;
