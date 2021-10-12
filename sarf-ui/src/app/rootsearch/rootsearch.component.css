@@ -19,3 +19,28 @@
     vertical-align: middle;
     float:left;
   }
+
+  .verb-info 
+  {
+    display: flex;
+    column-gap: 5px;
+    font-family: 'Kitab', 'System-ui';
+  }
+  .verb-info-item {
+    font-size: small;
+    display: flex; 
+    flex-direction: column;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+  }
+  .verb-info-label
+  {
+    border-bottom: 1px solid #cfcfcf;
+    background-color: wheat;
+    padding: 3px;
+  }
+
+  .verb-info-text {
+    background-color: blanchedalmond;
+    padding: 3px;
+  }

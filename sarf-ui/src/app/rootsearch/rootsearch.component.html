@@ -2,8 +2,9 @@
     <div class="form-fields-container containerX">
         <div fxLayout="row" fxLayoutAlign="left center">
             <mat-form-field appearance="fill" fxFlex>
-                <input matInput placeholder="أدخل جذراً ثلاثياً أو رباعياً (بدء، مثلاً)" [formControl]="rootFormControl" [errorStateMatcher]="matcher" maxlength="4" lang="ar" minlength="3" dir="rtl" style="font-size: x-large;" />
-
+                <input matInput placeholder="أدخل جذراً ثلاثياً أو رباعياً (بدء، مثلاً)" [formControl]="rootFormControl"
+                    [errorStateMatcher]="matcher" maxlength="4" lang="ar" minlength="3" dir="rtl"
+                    style="font-size: x-large;" />
                 <mat-error *ngIf="!rootFormControl.hasError('required')">
                     <em>أدخل جذر كلمة عربية ثلاثي أو رباعي</em>
                 </mat-error>
@@ -14,18 +15,20 @@
                     <mat-icon title="إبحث">search</mat-icon>
                 </button>
             </mat-form-field>
-            <mat-form-field appearance="fill" fxFlex>
-                <input matInput placeholder="" lang="ar" dir="rtl" disabled="disabled" style="color: blue;" value="{{verbDisplay}}" />
-                <button mat-button style="font-size: 1.5em;" disabled="disabled">{{verbDisplay}}</button>
-            </mat-form-field>
-            <mat-form-field appearance="fill" fxFlex>
-                <input matInput placeholder="" lang="ar" dir="rtl" disabled="disabled" style="color: blue;" value="{{kindOfVerb}}" />
-                <button mat-button style="font-size: large;" disabled="disabled">نوع الفعل المجرد</button>
-            </mat-form-field>
-            <mat-form-field appearance="fill" fxFlex>
-                <input matInput placeholder="" lang="ar" dir="rtl" disabled="disabled" style="color: blue;" value="{{transitivity}}" />
-                <button mat-button style="font-size: large;" disabled="disabled">التعدي و اللزوم</button>
-            </mat-form-field>
         </div>
     </div>
 </form>
+<div class="verb-info">
+    <div class="verb-info-item">
+        <label class="verb-info-label">تصريف</label>
+        <label class="verb-info-text">{{verbDisplay}}</label>
+    </div>
+    <div class="verb-info-item">
+        <label class="verb-info-label" >نوع الفعل المجرد</label>
+        <label class="verb-info-text">{{kindOfVerb}}</label>
+    </div>
+    <div class="verb-info-item">
+        <label class="verb-info-label">التعدي و اللزوم</label>
+        <label class="verb-info-text">{{transitivity}}</label>
+    </div>
+</div>
