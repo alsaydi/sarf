@@ -76,3 +76,8 @@ Feel free to reach out or open an issue if you'd like help.
 * أصل البرنامَج كم ذكر أعلاه
 --
 * ![alt credits](https://user-images.githubusercontent.com/916695/134840142-13da7bff-f47f-49c6-bfc0-94e5d5ddaa62.png)
+
+#Demo of the new Web UI
+
+![sarf](https://user-images.githubusercontent.com/916695/136993479-24f7801a-94fe-4fb9-920f-b7614f10d6f9.gif)
+
