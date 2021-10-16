@@ -1,17 +1,13 @@
-.mainContainer{
+.mainContainer {
     margin-top: 10px;
     display: flex;
     flex-direction: row;
-    align-items: stretch;
-
 }
 
 .column {
     display: flex;
     flex-direction: row;
     flex: 1 10%;
-    align-items: stretch;
-
 }
 
 .pcolumn {
@@ -21,13 +17,10 @@
     flex-direction: column;
     background-color: wheat;
     flex: 1 10%;
-    text-align: center;
-    align-content: center;
-    vertical-align: middle;
     align-items: flex-end;
     border-style: solid;
-    border-radius: 2px;
-    border-width: 1px 0px 1px 1px;
+    border-radius: 10px;
+    border-width: 1px 1px 1px 1px;
     border-color: slategray;
 }
 
@@ -38,25 +31,21 @@
     flex-direction: column;
     background-color: blanchedalmond;
     flex: 1 90%;
-    fill-rule: evenodd;
-    text-align: center;
-    align-content: center;
-    vertical-align: middle;
-    align-items: flex-start;
     border-style: solid;
-    border-radius: 2px;
-    border-width: 1px 0px 1px 1px;
+    border-radius: 10px;
+    border-width: 1px 1px 1px 1px;
     border-color: slategray;
 }
 
 .pronoun {
     display: flex;
-    font-size: xx-large;    
+    font-size: xx-large;
     border-style: solid;
     border-radius: 2px;
     border-width: 0px 0px 1px 0px;
     border-color: slategray;
 }
+
 .verb {
     display: flex;
     font-size: xx-large;
@@ -66,6 +55,7 @@
     border-color: slategray;
 }
 
-sub {
-    font-size: 0.5em;
+em {
+    vertical-align: sub;
+    font-size: small;
 }

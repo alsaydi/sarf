@@ -22,6 +22,7 @@ import { PassiveVerbsComponent } from './passive-verbs/passive-verbs.component';
 import { DerivedNounsComponent } from './derived-nouns/derived-nouns.component';
 import { NounsListingComponent } from './nouns-listing/nouns-listing.component';
 import { GerundsComponent } from './gerunds/gerunds.component';
+import { AboutComponent } from './about/about.component';
 
 const appRoutes: Routes = [
   {path: '', component: StartComponent},
@@ -64,7 +65,8 @@ const appRoutes: Routes = [
     PassiveVerbsComponent,
     DerivedNounsComponent,
     NounsListingComponent,
-    GerundsComponent
+    GerundsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

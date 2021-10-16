@@ -3,7 +3,6 @@
     width: 100%;
     grid-template-columns: 1fr 1fr 5fr 5fr;
     grid-template-rows: 1fr repeat(9, 2fr) 3fr;
-    background-color: blanchedalmond;
 }
 
 .gender {
@@ -12,6 +11,8 @@
     justify-content: center;
     align-items: center;
     border: 1px solid gray;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
 
 .text {
@@ -32,7 +33,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid gray;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
 
 .nominative {
@@ -52,6 +54,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
 
 .nominativeCount1 {
@@ -124,7 +128,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid gray;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: blanchedalmond;
 }
 
 .nounText {

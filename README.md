@@ -14,17 +14,20 @@ I wanted to keep the Sarf program available for others who may find it useful fo
 
 My goal in here is:
 * Keep the core library [sarf-library](sarf-library) as up-to-date as possible
-* Allow it to be usable as a framework for others to build on if someone finds useful
+* Allow it to be usable as a stand-alone library for others to build on if they wish
 * Add tests - see the [sarf-library-tests](sarf-library-tests) 
+  * These tests are BDD tests; the coverage isn't 100% but it's a decent coverage
+  * They can take up to 15 minutes to run
+  * They run as part of each check-in
 * Build an interface around the core library
   * I added a web service using Spring Boot [sarf-web-service](sarf-web-service)
-  * A web interface is also available [sarf-ui](sarf-ui) ; uses Angular
+  * A web interface is also available [sarf-ui](sarf-ui). It uses Angular. You can try it here, [https://sarf.one](https://sarf.one)
 
-If you want to use the API, you can either build and run the code. You can also pull docker image, for example: 
+If you want to use the API, you can either build and run the code locally or a server. You can also pull a docker image if you wish, for example: 
 ```
-docker run --rm alsaydi/sarf
+docker run --rm alsaydi/sarf:1.3
 ```
-If you prefer to run the desktop client, assuming you the required build tools, (maven and JDK)
+If you prefer to run the desktop client, assuming you have the required build tools, (maven and JDK)
 
 ```bash
 mvn clean compile -Dmaven.test.skip
@@ -64,15 +67,33 @@ Feel free to reach out or open an issue if you'd like help.
 * استغراقه جميع قواعد رسم الهمزة، سواء أكانت في الأفعال أم في الأسماء.
 * ضبطه التام للكلمات بالشكل (بالحركات).
 
-### أهم المزايا الفنية لنظام الاشتقاق والتصريف
-* مفتوح المصدر Open Source Program
-* إمكان عمله في بيئة: Windows و MacOS و Linux و Solaris.
-* إمكان استعماله ضمن نظم معالجة أخرى.
-* استقلال قواعد معطياته عن برامجه.
-* إمكان تحديث قواعد معطياته (إضافة وحذفاً وتعديلاً).
-* سهولة العمل به بفضل اللوحات وقوائم الخيارات.
-
 # Credit
-* أصل البرنامَج كم ذكر أعلاه
+* الفريق الذي قام بتطوير البرنامج الأصل كماأشير إلى ذلك أعلاه -
 --
-* ![alt credits](https://user-images.githubusercontent.com/916695/134840142-13da7bff-f47f-49c6-bfc0-94e5d5ddaa62.png)
+###        منسق المشروع لدى المنظمة العربية للتربية والثقافة والعلوم
+د. أمين القلق
+
+###   فريق العمل:
+
+أ. مروان البواب
+
+م. هيثم محتسب بالله
+
+د. محمد مراياتي
+
+د. محمد حسان الطيان
+
+د. يحيى مير علم
+
+د. محمد مكي الحسني
+
+أ. صفاء العطار
+
+م.م. اسامة رجب
+
+### مستشار برمجي:
+د. حسن السيد
+
+# Demo of the new Sarf Web UI
+
+![sarf](https://user-images.githubusercontent.com/916695/136993479-24f7801a-94fe-4fb9-920f-b7614f10d6f9.gif)
