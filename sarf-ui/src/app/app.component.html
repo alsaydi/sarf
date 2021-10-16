@@ -14,16 +14,20 @@
                 <div class="app-sub-title" fxFlex>
                     <h2>
                         <button mat-button style="font-size: x-large;" (click)="showAbout()">  نظام الإشتقاق و التصريف في اللغة العربية</button>
-                        <button mat-button style="font-size: small;" (click)="showAbout()">ما صرف؟</button>
                     </h2>
                 </div>
+            </mat-toolbar-row>
+            <mat-toolbar-row>
+                <h3 class="app-sub-title" fxFlex>
+                    <button mat-button style="font-size: small;" (click)="showAbout()">ما صرف؟</button>
+                </h3>
             </mat-toolbar-row>
         </mat-toolbar>
         <main>
             <app-rootsearch></app-rootsearch>
             <router-outlet></router-outlet>
         </main>
-        <footer style="text-align: left;">
+        <footer style="text-align: left; font-size: smaller;">
             Copyright &copy; 2021
         </footer>
     </div>
