@@ -21,7 +21,7 @@ My goal in here is:
   * They run as part of each check-in
 * Build an interface around the core library
   * I added a web service using Spring Boot [sarf-web-service](sarf-web-service)
-  * A web interface is also available [sarf-ui](sarf-ui) ; uses Angular
+  * A web interface is also available [sarf-ui](sarf-ui). It uses Angular. You can try it here, [https://sarf.one](https://sarf.one)
 
 If you want to use the API, you can either build and run the code locally or a server. You can also pull a docker image if you wish, for example: 
 ```
