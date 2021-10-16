@@ -2,9 +2,7 @@
     <div class="form-fields-container containerX">
         <div fxLayout="row" fxLayoutAlign="left center">
             <mat-form-field appearance="fill" fxFlex>
-                <input matInput placeholder="أدخل جذراً ثلاثياً أو رباعياً (بدء، مثلاً)" [formControl]="rootFormControl"
-                    [errorStateMatcher]="matcher" maxlength="4" lang="ar" minlength="3" dir="rtl"
-                    style="font-size: x-large;" />
+                <input matInput placeholder="أدخل جذراً ثلاثياً أو رباعياً (بدء، مثلاً)" [formControl]="rootFormControl" [errorStateMatcher]="matcher" maxlength="4" lang="ar" minlength="3" dir="rtl" style="font-size: x-large;" />
                 <mat-error *ngIf="!rootFormControl.hasError('required')">
                     <em>أدخل جذر كلمة عربية ثلاثي أو رباعي</em>
                 </mat-error>
@@ -24,7 +22,7 @@
         <label class="verb-info-text">{{verbDisplay}}</label>
     </div>
     <div class="verb-info-item">
-        <label class="verb-info-label" >نوع الفعل المجرد</label>
+        <label class="verb-info-label">نوع الفعل المجرد</label>
         <label class="verb-info-text">{{kindOfVerb}}</label>
     </div>
     <div class="verb-info-item">

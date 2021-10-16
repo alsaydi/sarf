@@ -1,17 +1,19 @@
 <div class="main-grid">
-    <div class="right-grid"></div>
+    <div class="right-grid">
+    </div>
     <div class="middle-grid">
-
         <mat-toolbar color="primary">
             <mat-toolbar-row fxLayout="column">
                 <div class="app-name" fxFlex>
                     <h1>
+                        <a href="/" class="home-link">
                         صــــــــــرف
+                    </a>
                     </h1>
                 </div>
                 <div class="app-sub-title" fxFlex>
                     <h2>
-                        نظام الإشتقاق و التصريف في اللغة العربية
+                        <button mat-button style="font-size: x-large;" (click)="showAbout()">  نظام الإشتقاق و التصريف في اللغة العربية</button>
                     </h2>
                 </div>
             </mat-toolbar-row>
@@ -21,6 +23,9 @@
             <app-rootsearch></app-rootsearch>
             <router-outlet></router-outlet>
         </main>
+        <footer style="text-align: left;">
+            Copyright &copy; 2021
+        </footer>
     </div>
     <div class="left-grid">
     </div>

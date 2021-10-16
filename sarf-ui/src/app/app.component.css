@@ -3,9 +3,23 @@
     grid-template-columns: 1fr 8fr 1fr;
 }
 
+@media only screen and (max-width: 600px) {
+    .main-grid {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .app-name,
 .app-sub-title {
     text-align: center;
     font-size: 1.5em;
     font-family: Kitab, system-ui;
+}
+
+.home-link {
+    text-decoration: none;
+    font-size: x-large;
+    font-weight: bolder;
+    color: whitesmoke;
 }
