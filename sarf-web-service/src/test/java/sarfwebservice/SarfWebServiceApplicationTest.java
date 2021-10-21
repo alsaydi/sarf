@@ -13,6 +13,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringRunner;
 import sarfwebservice.controllers.SarfController;
+import sarfwebservice.models.NounConjugations;
 import sarfwebservice.models.RootResult;
 import sarfwebservice.models.VerbConjugations;
 
@@ -90,10 +91,56 @@ public class SarfWebServiceApplicationTest {
 		assertThat(verbConjugations).isNotNull();
 	}
 
-	public static Stream<Arguments> getRootsForActiveTest() {
+	@ParameterizedTest()
+	@MethodSource("getRootsForNounTests")
+	public void getNouns(String type, String root, boolean augmented, int cclass, int formula) {
+		var responseEntity = this.testRestTemplate.getForEntity(
+				String.format("/sarf/%s/%s?augmented=%s&cclass=%d&formula=%d",type,root, augmented,cclass,formula) ,
+				NounConjugations.class);
+		assertThat(responseEntity).isNotNull();
+		assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+		var result = responseEntity.getBody();
+		assertThat(result).isNotNull();
+		var objectMapper = new ObjectMapper();
+		var nounConjugations = objectMapper.convertValue(result, NounConjugations.class);
+		assertThat(nounConjugations).isNotNull();
+	}
+
+	private static Stream<Arguments> getRootsForActiveTest() {
 			return Stream.of(
 					Arguments.of("active", "قرء", false, 3, 0),
-					Arguments.of("passive", "قرء", false, 3, 0)
+					Arguments.of("passive", "قرء", false, 3, 0),
+					Arguments.of("active", "طمءن", false, 1, 0),
+					Arguments.of("passive", "طمءن", false, 1, 0),
+
+					Arguments.of("active", "قرء", true, 0, 1),
+					Arguments.of("passive", "قرء", true, 0, 1),
+					Arguments.of("active", "طمءن", true, 0, 3),
+					Arguments.of("passive", "طمءن", true, 0, 3)
 			);
+	}
+
+	private static Stream<Arguments> getRootsForNounTests() {
+		return Stream.of(
+				Arguments.of("nouns", "قرء", false, 3, 0),
+				Arguments.of("nouns", "قرء", false, 3, 0),
+				Arguments.of("nouns", "طمءن", false, 1, 0),
+				Arguments.of("nouns", "طمءن", false, 1, 0),
+
+				Arguments.of("nouns", "قرء", true, 0, 1),
+				Arguments.of("nouns", "قرء", true, 0, 1),
+				Arguments.of("nouns", "طمءن", true, 0, 3),
+				Arguments.of("nouns", "طمءن", true, 0, 3),
+
+				Arguments.of("gerunds", "قرء", false, 3, 0),
+				Arguments.of("gerunds", "قرء", false, 3, 0),
+				Arguments.of("gerunds", "طمءن", false, 1, 0),
+				Arguments.of("gerunds", "طمءن", false, 1, 0),
+
+				Arguments.of("gerunds", "قرء", true, 0, 1),
+				Arguments.of("gerunds", "قرء", true, 0, 1),
+				Arguments.of("gerunds", "طمءن", true, 0, 3),
+				Arguments.of("gerunds", "طمءن", true, 0, 3)
+		);
 	}
 }
