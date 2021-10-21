@@ -2,7 +2,6 @@ package sarfwebservice;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -25,7 +24,6 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SarfWebServiceApplicationTest {
@@ -51,7 +49,7 @@ public class SarfWebServiceApplicationTest {
 		assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
 	}
 
-	private List<String> getRoots() {
+	private static List<String> getRoots() {
 		return List.of("قرء", "زلزل", "سلم", "ءمر", "روض");
 	}
 
@@ -92,7 +90,7 @@ public class SarfWebServiceApplicationTest {
 		assertThat(verbConjugations).isNotNull();
 	}
 
-	public Stream<Arguments> getRootsForActiveTest() {
+	public static Stream<Arguments> getRootsForActiveTest() {
 			return Stream.of(
 					Arguments.of("active", "قرء", false, 3, 0),
 					Arguments.of("passive", "قرء", false, 3, 0)
