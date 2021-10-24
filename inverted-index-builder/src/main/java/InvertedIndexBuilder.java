@@ -24,14 +24,13 @@
  */
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
+import models.AugmentedRoot;
+import models.RootDisplay;
 import models.RootResult;
+import models.VerbResult;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
@@ -40,13 +39,14 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 
 public class InvertedIndexBuilder {
     private final ProgramOptions programOptions;
     private final HttpClient httpClient;
+    private int count = 0;
 
     public InvertedIndexBuilder(ProgramOptions programOptions) {
         this.programOptions = programOptions;
@@ -63,6 +63,7 @@ public class InvertedIndexBuilder {
             }
         });
 
+        System.out.printf("Number of roots, %d, found %d\n", roots.size(), count);
     }
 
     private void processRoot(String root) throws URISyntaxException, IOException, InterruptedException {
@@ -73,13 +74,74 @@ public class InvertedIndexBuilder {
 
         var objectMapper = new ObjectMapper();
         var node = objectMapper.readTree(response);
-        var result = objectMapper.convertValue(node, new TypeReference<Collection<RootResult>>() {
-        });
-        System.out.println(result);
+        var result = objectMapper.convertValue(node, new TypeReference<Collection<RootResult>>() {});
+        processVerbs(root, result);
+        //getNouns
+        //getGerunds
+        count++;
     }
 
-    private <U, T> RootResult toRootResult(InputStream inputStream, Class<T> targetType) {
-        return null;
+    private void processVerbs(String root, Collection<RootResult> rootResults) throws URISyntaxException, IOException, InterruptedException {
+        for (var rootResult: rootResults) {
+          processVerbsFromUnaugmented(root, "active", rootResult.getUnaugmentedRoots());
+          processVerbsFromAugmented(root, "active", rootResult.getAugmentedRoots());
+
+            processVerbsFromUnaugmented(root, "passive", rootResult.getUnaugmentedRoots());
+            processVerbsFromAugmented(root, "passive", rootResult.getAugmentedRoots());
+        }
+    }
+
+    private void processVerbsFromUnaugmented(String root, String type, List<RootDisplay> unaugmentedRoots) throws URISyntaxException, IOException, InterruptedException {
+        for (var unaugmentedRoot : unaugmentedRoots) {
+            if(unaugmentedRoot == null || unaugmentedRoot.getRoot() == null) {
+                continue;
+            }
+            getVerbs(root, type, unaugmentedRoot.getRoot().getConjugation(), false, 0);
+        }
+    }
+
+    private void processVerbsFromAugmented(String root, String type, List<AugmentedRoot> augmentedRoots) throws URISyntaxException, IOException, InterruptedException {
+        for (var augmentedRoot : augmentedRoots) {
+            getVerbs(root, type, "", true, augmentedRoot.getConjugationResult().getFormulaNo());
+        }
+    }
+
+    private void getVerbs(String root, String type, String conjugation, boolean augmented, int formula) throws URISyntaxException, IOException, InterruptedException {
+        var cclass = augmented || root.length() > 3 ? 0 : convertConjugationToClass(conjugation);
+        var httpRequest = HttpRequest.newBuilder()
+                .uri(new URI( programOptions.getSarfUri() + "/sarf" + String.format("/%s/%s?augmented=%s&cclass=%d&formula=%d", type, root, augmented, cclass, formula)))
+                .build();
+        var response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
+        if(response.statusCode() != 200) {
+            throw new IOException(String.format("Request for root %s, cclass %d, augmented %s, formula %d failed with status code %d."
+                    , root, cclass, augmented, formula, response.statusCode()));
+        }
+        System.out.println(response.body());
+        var objectMapper = new ObjectMapper();
+        var node = objectMapper.readTree(response.body());
+        var verbResults = objectMapper.convertValue(node, new TypeReference<List<VerbResult>>() {});
+        System.out.println(verbResults.size());
+    }
+
+    private int convertConjugationToClass(String conjugation) {
+        conjugation = conjugation.toLowerCase(Locale.ROOT);
+        switch (conjugation){
+            case "first":
+                return 1;
+            case "second":
+                return 2;
+            case "third":
+                return 3;
+            case "forth":
+                return 4;
+            case "fifth":
+                return 5;
+            case "sixth":
+                return 6;
+            default:
+                break;
+        }
+        throw new IllegalStateException(String.format("Invalid conjugation class: %s", conjugation));
     }
 
     private List<String> readRoots(String rootsFilename) throws IOException {

@@ -26,23 +26,14 @@ package models;/*
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AugmentedRoot {
-    private String display;
-    private ConjugationResult conjugationResult;
+public class ConjugationResult {
+    private int formulaNo;
 
-    public String getDisplay() {
-        return display;
+    public int getFormulaNo() {
+        return formulaNo;
     }
 
-    public void setDisplay(String display) {
-        this.display = display;
-    }
-
-    public ConjugationResult getConjugationResult() {
-        return conjugationResult;
-    }
-
-    public void setConjugationResult(ConjugationResult conjugationResult) {
-        this.conjugationResult = conjugationResult;
+    public void setFormulaNo(int formulaNo) {
+        this.formulaNo = formulaNo;
     }
 }
