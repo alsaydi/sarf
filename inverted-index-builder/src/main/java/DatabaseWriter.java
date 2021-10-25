@@ -23,6 +23,20 @@
  * SOFTWARE.
  */
 
+import java.util.HashMap;
+
 public class DatabaseWriter {
 
+
+    public DatabaseWriter() {
+
+    }
+    public void write(HashMap<String, WordData> wordDataHashMap) {
+        var keys = wordDataHashMap.keySet();
+        for (var key: keys) {
+            var roots = String.join(",", wordDataHashMap.get(key).getRoots());
+            var voweledWords = String.join(",", wordDataHashMap.get(key).getVoweledForms());
+            System.out.printf("%s,%s,%s%n", key, roots, voweledWords);
+        }
+    }
 }

@@ -37,7 +37,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -47,12 +46,14 @@ public class InvertedIndexBuilder {
     private int count = 0;
     private final VerbIndexBuilder verbIndexBuilder;
     private final NounIndexBuilder nounIndexBuilder;
+    private final DatabaseWriter databaseWriter;
 
     public InvertedIndexBuilder(ProgramOptions programOptions) {
         this.programOptions = programOptions;
         httpClient = HttpClient.newHttpClient();
         verbIndexBuilder = new VerbIndexBuilder();
         nounIndexBuilder = new NounIndexBuilder();
+        databaseWriter = new DatabaseWriter();
     }
 
     public void run() throws IOException {
@@ -82,6 +83,8 @@ public class InvertedIndexBuilder {
         processVerbs(root, result);
         processNouns(root, result);
         count++;
+        databaseWriter.write(verbIndexBuilder.getVerbRootHashMap());
+        databaseWriter.write(nounIndexBuilder.getNounRootHashMap());
     }
 
     private void processVerbs(String root, Collection<RootResult> rootResults) throws URISyntaxException, IOException, InterruptedException {

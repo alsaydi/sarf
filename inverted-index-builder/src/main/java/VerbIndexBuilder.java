@@ -60,6 +60,10 @@ public class VerbIndexBuilder {
         }
     }
 
+    public HashMap<String, WordData> getVerbRootHashMap() {
+        return verbRootHashMap;
+    }
+
     private String removeTashkeel(String verb) {
         return ArabicUtils.removeTashkeel(verb);
     }

@@ -34,7 +34,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class NounIndexBuilder {
-
     private final HashMap<String, WordData> nounRootHashMap;
 
     public NounIndexBuilder() {
@@ -89,6 +88,10 @@ public class NounIndexBuilder {
             wordData.getVoweledForms().add(verb);
             nounRootHashMap.put(unvoweledVerb, wordData);
         }
+    }
+
+    public HashMap<String, WordData> getNounRootHashMap() {
+        return nounRootHashMap;
     }
 
     private String removeTashkeel(String verb) {
