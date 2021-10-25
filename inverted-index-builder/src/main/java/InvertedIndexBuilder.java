@@ -25,10 +25,7 @@
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import models.AugmentedRoot;
-import models.RootDisplay;
-import models.RootResult;
-import models.VerbResult;
+import models.*;
 
 import java.io.IOException;
 import java.net.URI;
@@ -74,17 +71,17 @@ public class InvertedIndexBuilder {
 
         var objectMapper = new ObjectMapper();
         var node = objectMapper.readTree(response);
-        var result = objectMapper.convertValue(node, new TypeReference<Collection<RootResult>>() {});
+        var result = objectMapper.convertValue(node, new TypeReference<Collection<RootResult>>() {
+        });
         processVerbs(root, result);
-        //getNouns
-        //getGerunds
+        processNouns(root, result);
         count++;
     }
 
     private void processVerbs(String root, Collection<RootResult> rootResults) throws URISyntaxException, IOException, InterruptedException {
-        for (var rootResult: rootResults) {
-          processVerbsFromUnaugmented(root, "active", rootResult.getUnaugmentedRoots());
-          processVerbsFromAugmented(root, "active", rootResult.getAugmentedRoots());
+        for (var rootResult : rootResults) {
+            processVerbsFromUnaugmented(root, "active", rootResult.getUnaugmentedRoots());
+            processVerbsFromAugmented(root, "active", rootResult.getAugmentedRoots());
 
             processVerbsFromUnaugmented(root, "passive", rootResult.getUnaugmentedRoots());
             processVerbsFromAugmented(root, "passive", rootResult.getAugmentedRoots());
@@ -93,7 +90,7 @@ public class InvertedIndexBuilder {
 
     private void processVerbsFromUnaugmented(String root, String type, List<RootDisplay> unaugmentedRoots) throws URISyntaxException, IOException, InterruptedException {
         for (var unaugmentedRoot : unaugmentedRoots) {
-            if(unaugmentedRoot == null || unaugmentedRoot.getRoot() == null) {
+            if (unaugmentedRoot == null || unaugmentedRoot.getRoot() == null) {
                 continue;
             }
             getVerbs(root, type, unaugmentedRoot.getRoot().getConjugation(), false, 0);
@@ -109,23 +106,73 @@ public class InvertedIndexBuilder {
     private void getVerbs(String root, String type, String conjugation, boolean augmented, int formula) throws URISyntaxException, IOException, InterruptedException {
         var cclass = augmented || root.length() > 3 ? 0 : convertConjugationToClass(conjugation);
         var httpRequest = HttpRequest.newBuilder()
-                .uri(new URI( programOptions.getSarfUri() + "/sarf" + String.format("/%s/%s?augmented=%s&cclass=%d&formula=%d", type, root, augmented, cclass, formula)))
+                .uri(new URI(programOptions.getSarfUri() + "/sarf" + String.format("/%s/%s?augmented=%s&cclass=%d&formula=%d", type, root, augmented, cclass, formula)))
                 .build();
         var response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        if(response.statusCode() != 200) {
-            throw new IOException(String.format("Request for root %s, cclass %d, augmented %s, formula %d failed with status code %d."
+        if (response.statusCode() != 200) {
+            throw new IOException(String.format("Verbs request for root %s, cclass %d, augmented %s, formula %d failed with status code %d."
                     , root, cclass, augmented, formula, response.statusCode()));
         }
         System.out.println(response.body());
         var objectMapper = new ObjectMapper();
         var node = objectMapper.readTree(response.body());
-        var verbResults = objectMapper.convertValue(node, new TypeReference<List<VerbResult>>() {});
+        var verbResults = objectMapper.convertValue(node, new TypeReference<List<VerbResult>>() {
+        });
         System.out.println(verbResults.size());
+    }
+
+    private void processNouns(String root, Collection<RootResult> rootResults) throws URISyntaxException, IOException, InterruptedException {
+        for (var rootResult : rootResults) {
+            processNounsFromUnaugmented(root, "nouns", rootResult.getUnaugmentedRoots());
+            processNounsFromAugmented(root, "nouns", rootResult.getAugmentedRoots());
+
+            processNounsFromUnaugmented(root, "gerunds", rootResult.getUnaugmentedRoots());
+            processNounsFromAugmented(root, "gerunds", rootResult.getAugmentedRoots());
+        }
+    }
+
+    private void processNounsFromUnaugmented(String root, String type, List<RootDisplay> unaugmentedRoots) throws URISyntaxException, IOException, InterruptedException {
+        for (var unaugmentedRoot : unaugmentedRoots) {
+            if (unaugmentedRoot == null || unaugmentedRoot.getRoot() == null) {
+                continue;
+            }
+            getNouns(root, type, unaugmentedRoot.getRoot().getConjugation(), false, 0);
+        }
+    }
+
+    private void processNounsFromAugmented(String root, String type, List<AugmentedRoot> augmentedRoots) throws URISyntaxException, IOException, InterruptedException {
+        for (var augmentedRoot : augmentedRoots) {
+            getNouns(root, type, "", true, augmentedRoot.getConjugationResult().getFormulaNo());
+        }
+    }
+
+    private void getNouns(String root, String type, String conjugation, boolean augmented, int formula) throws URISyntaxException, IOException, InterruptedException {
+        var cclass = augmented || root.length() > 3 ? 0 : convertConjugationToClass(conjugation);
+        var httpRequest = HttpRequest.newBuilder()
+                .uri(new URI(programOptions.getSarfUri() + "/sarf" + String.format("/%s/%s?augmented=%s&cclass=%d&formula=%d", type, root, augmented, cclass, formula)))
+                .build();
+        var response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
+        if (response.statusCode() != 200) {
+            throw new IOException(String.format("Nouns request for root %s, cclass %d, augmented %s, formula %d failed with status code %d."
+                    , root, cclass, augmented, formula, response.statusCode()));
+        }
+        System.out.println(response.body());
+        var objectMapper = new ObjectMapper();
+        var node = objectMapper.readTree(response.body());
+        if (type.equals("nouns")) {
+            var nounResults = objectMapper.convertValue(node, new TypeReference<DerivedNounResult>() {
+            });
+            System.out.println(nounResults.getActiveParticiples().size());
+        } else {
+            var gerundResults = objectMapper.convertValue(node, new TypeReference<GerundResult>() {
+            });
+            System.out.println(gerundResults.getStandards().size());
+        }
     }
 
     private int convertConjugationToClass(String conjugation) {
         conjugation = conjugation.toLowerCase(Locale.ROOT);
-        switch (conjugation){
+        switch (conjugation) {
             case "first":
                 return 1;
             case "second":
