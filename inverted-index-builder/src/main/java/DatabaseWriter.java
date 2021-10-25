@@ -23,20 +23,34 @@
  * SOFTWARE.
  */
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
 public class DatabaseWriter {
 
-
-    public DatabaseWriter() {
-
+    private final FileWriter fileWriter;
+    private final PrintWriter printWriter;
+    public DatabaseWriter() throws IOException {
+        OutputStream tempOutputStream;
+        fileWriter = new FileWriter("/home/int1024/dev/sarf/inverted-index-builder/db.txt", StandardCharsets.UTF_8);
+        printWriter = new PrintWriter(fileWriter);
     }
     public void write(HashMap<String, WordData> wordDataHashMap) {
         var keys = wordDataHashMap.keySet();
         for (var key: keys) {
             var roots = String.join(",", wordDataHashMap.get(key).getRoots());
             var voweledWords = String.join(",", wordDataHashMap.get(key).getVoweledForms());
-            System.out.printf("%s,%s,%s%n", key, roots, voweledWords);
+            printWriter.printf ("%s,%s,%s%n", key, roots, voweledWords);
         }
+    }
+
+    public void close() throws IOException {
+        printWriter.flush();
+        printWriter.close();
+        fileWriter.close();
     }
 }

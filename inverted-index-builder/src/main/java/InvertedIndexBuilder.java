@@ -48,7 +48,7 @@ public class InvertedIndexBuilder {
     private final NounIndexBuilder nounIndexBuilder;
     private final DatabaseWriter databaseWriter;
 
-    public InvertedIndexBuilder(ProgramOptions programOptions) {
+    public InvertedIndexBuilder(ProgramOptions programOptions) throws IOException {
         this.programOptions = programOptions;
         httpClient = HttpClient.newHttpClient();
         verbIndexBuilder = new VerbIndexBuilder();
@@ -71,7 +71,7 @@ public class InvertedIndexBuilder {
     }
 
     private void processRoot(String root) throws URISyntaxException, IOException, InterruptedException {
-        System.out.println(String.format("Processing %s ...", root));
+        System.out.printf("Processing %s ...%n", root);
         var httpRequest = HttpRequest.newBuilder()
                 .uri(new URI(programOptions.getSarfUri() + "/sarf/" + root)).build();
         var response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8)).body();
@@ -85,6 +85,7 @@ public class InvertedIndexBuilder {
         count++;
         databaseWriter.write(verbIndexBuilder.getVerbRootHashMap());
         databaseWriter.write(nounIndexBuilder.getNounRootHashMap());
+        databaseWriter.close();
     }
 
     private void processVerbs(String root, Collection<RootResult> rootResults) throws URISyntaxException, IOException, InterruptedException {
