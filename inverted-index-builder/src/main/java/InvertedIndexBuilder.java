@@ -54,7 +54,7 @@ public class InvertedIndexBuilder {
         httpClient = HttpClient.newHttpClient();
         verbIndexBuilder = new VerbIndexBuilder();
         nounIndexBuilder = new NounIndexBuilder();
-        databaseWriter = new DatabaseWriter();
+        databaseWriter = new FileDatabaseWriter();
     }
 
     public void run() throws IOException, SQLException, URISyntaxException, InterruptedException {
@@ -64,6 +64,8 @@ public class InvertedIndexBuilder {
             processRoot(root);
         }
         System.out.printf("Number of roots, %d, found %d\n", roots.size(), count);
+        databaseWriter.write(verbIndexBuilder.getVerbRootHashMap());
+        databaseWriter.write(nounIndexBuilder.getNounRootHashMap());
         databaseWriter.close();
     }
 
@@ -80,8 +82,6 @@ public class InvertedIndexBuilder {
         processVerbs(root, result);
         processNouns(root, result);
         count++;
-        databaseWriter.write(verbIndexBuilder.getVerbRootHashMap());
-        databaseWriter.write(nounIndexBuilder.getNounRootHashMap());
     }
 
     private void processVerbs(String root, Collection<RootResult> rootResults) throws URISyntaxException, IOException, InterruptedException {
