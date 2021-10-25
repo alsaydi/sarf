@@ -56,6 +56,7 @@ public class InvertedIndexBuilder {
             try {
                 processRoot(root);
             } catch (URISyntaxException | IOException | InterruptedException e) {
+                System.err.println("Error processing "+ root + ".");
                 e.printStackTrace();
             }
         });
@@ -64,10 +65,10 @@ public class InvertedIndexBuilder {
     }
 
     private void processRoot(String root) throws URISyntaxException, IOException, InterruptedException {
+        System.out.println(String.format("Processing %s ...", root));
         var httpRequest = HttpRequest.newBuilder()
                 .uri(new URI(programOptions.getSarfUri() + "/sarf/" + root)).build();
         var response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8)).body();
-        System.out.println(response);
 
         var objectMapper = new ObjectMapper();
         var node = objectMapper.readTree(response);
@@ -113,12 +114,10 @@ public class InvertedIndexBuilder {
             throw new IOException(String.format("Verbs request for root %s, cclass %d, augmented %s, formula %d failed with status code %d."
                     , root, cclass, augmented, formula, response.statusCode()));
         }
-        System.out.println(response.body());
         var objectMapper = new ObjectMapper();
         var node = objectMapper.readTree(response.body());
         var verbResults = objectMapper.convertValue(node, new TypeReference<List<VerbResult>>() {
         });
-        System.out.println(verbResults.size());
     }
 
     private void processNouns(String root, Collection<RootResult> rootResults) throws URISyntaxException, IOException, InterruptedException {
@@ -156,17 +155,14 @@ public class InvertedIndexBuilder {
             throw new IOException(String.format("Nouns request for root %s, cclass %d, augmented %s, formula %d failed with status code %d."
                     , root, cclass, augmented, formula, response.statusCode()));
         }
-        System.out.println(response.body());
         var objectMapper = new ObjectMapper();
         var node = objectMapper.readTree(response.body());
         if (type.equals("nouns")) {
             var nounResults = objectMapper.convertValue(node, new TypeReference<DerivedNounResult>() {
             });
-            System.out.println(nounResults.getActiveParticiples().size());
         } else {
             var gerundResults = objectMapper.convertValue(node, new TypeReference<GerundResult>() {
             });
-            System.out.println(gerundResults.getStandards().size());
         }
     }
 
