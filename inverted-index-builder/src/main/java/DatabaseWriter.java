@@ -23,69 +23,78 @@
  * SOFTWARE.
  */
 
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 
 public class DatabaseWriter {
 
-    private final FileWriter fileWriter;
-    private final PrintWriter printWriter;
+    private static final int SQL_QUERY_TIMEOUT_SECONDS = 2;
+    private Connection sarfDbConnection;
+    private String dbFilename;
+    private final String insertSql = "INSERT INTO words(?, ? ?);";
 
-    public DatabaseWriter() throws IOException {
-        fileWriter = new FileWriter("~/dev/sarf/inverted-index-builder/db.txt", StandardCharsets.UTF_8);
-        printWriter = new PrintWriter(fileWriter);
+    public void init(String dbFilename) throws SQLException, FileAlreadyExistsException {
+        this.dbFilename = dbFilename;
+        if (Files.exists(Path.of(dbFilename))) {
+            System.out.println("Database already exists");
+            throw new FileAlreadyExistsException(dbFilename);
+        }
+        initialize();
     }
 
-    public void write(HashMap<String, WordData> wordDataHashMap) {
+    public void write(HashMap<String, WordData> wordDataHashMap) throws SQLException {
         var keys = wordDataHashMap.keySet();
         for (var key : keys) {
             var roots = String.join(",", wordDataHashMap.get(key).getRoots());
             var voweledWords = String.join(",", wordDataHashMap.get(key).getVoweledForms());
-            printWriter.printf("%s,%s,%s%n", key, roots, voweledWords);
+            insert(key, roots, voweledWords);
+        }
+    }
+
+    private void insert(String word, String roots, String voweledWords) throws SQLException {
+        try {
+            var statement = sarfDbConnection.prepareStatement(insertSql);
+            statement.setQueryTimeout(SQL_QUERY_TIMEOUT_SECONDS);
+            statement.setString(1, word);
+            statement.setString(2, roots);
+            statement.setString(2, voweledWords);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            throw e;
         }
     }
 
     public void close() throws IOException {
-        printWriter.flush();
-        printWriter.close();
-        fileWriter.close();
+        if (sarfDbConnection == null) {
+            return;
+        }
+        try {
+            sarfDbConnection.commit();
+            sarfDbConnection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void testSqlite() throws SQLException {
-        Connection connection = null;
+    private void initialize() throws SQLException {
         try {
-            // create a database connection
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30); // set timeout to 30 sec.
-
-            statement.executeUpdate("drop table if exists person");
-            statement.executeUpdate("create table person (id integer, name string)");
-            statement.executeUpdate("insert into person values(1, 'leo')");
-            statement.executeUpdate("insert into person values(2, 'yui')");
-            ResultSet rs = statement.executeQuery("select * from person");
-            while (rs.next()) {
-                // read the result set
-                System.out.println("name = " + rs.getString("name"));
-                System.out.println("id = " + rs.getInt("id"));
-            }
+            sarfDbConnection = DriverManager.getConnection(String.format("jdbc:sqlite:%s", dbFilename));
+            Statement statement = sarfDbConnection.createStatement();
+            statement.setQueryTimeout(SQL_QUERY_TIMEOUT_SECONDS);
+            statement.executeUpdate("create table words (id integer, word string, roots string, voweledWords string)");
         } catch (SQLException e) {
+            if (sarfDbConnection != null && !sarfDbConnection.isClosed()) {
+                sarfDbConnection.close();
+            }
             throw e;
-        } finally {
-            if (connection != null)
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
         }
     }
 }

@@ -36,6 +36,7 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.SQLException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
@@ -56,21 +57,17 @@ public class InvertedIndexBuilder {
         databaseWriter = new DatabaseWriter();
     }
 
-    public void run() throws IOException {
+    public void run() throws IOException, SQLException, URISyntaxException, InterruptedException {
+        databaseWriter.init(programOptions.getDbFilename());
         var roots = readRoots(programOptions.getRootsFilename());
-        roots.forEach(root -> {
-            try {
-                processRoot(root);
-            } catch (URISyntaxException | IOException | InterruptedException e) {
-                System.err.println("Error processing "+ root + ".");
-                e.printStackTrace();
-            }
-        });
-
+        for (var root : roots) {
+            processRoot(root);
+        }
         System.out.printf("Number of roots, %d, found %d\n", roots.size(), count);
+        databaseWriter.close();
     }
 
-    private void processRoot(String root) throws URISyntaxException, IOException, InterruptedException {
+    private void processRoot(String root) throws URISyntaxException, IOException, InterruptedException, SQLException {
         System.out.printf("Processing %s ...%n", root);
         var httpRequest = HttpRequest.newBuilder()
                 .uri(new URI(programOptions.getSarfUri() + "/sarf/" + root)).build();
@@ -85,7 +82,6 @@ public class InvertedIndexBuilder {
         count++;
         databaseWriter.write(verbIndexBuilder.getVerbRootHashMap());
         databaseWriter.write(nounIndexBuilder.getNounRootHashMap());
-        databaseWriter.close();
     }
 
     private void processVerbs(String root, Collection<RootResult> rootResults) throws URISyntaxException, IOException, InterruptedException {

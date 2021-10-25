@@ -26,6 +26,7 @@
 public class ProgramOptions {
     private String sarfUri;
     private String rootsFilename;
+    private String dbFilename;
 
     public String getSarfUri() {
         return sarfUri;
@@ -41,5 +42,13 @@ public class ProgramOptions {
 
     public void setRootsFilename(String rootsFilename) {
         this.rootsFilename = rootsFilename;
+    }
+
+    public String getDbFilename() {
+        return dbFilename;
+    }
+
+    public void setDbFilename(String dbFilename) {
+        this.dbFilename = dbFilename;
     }
 }
