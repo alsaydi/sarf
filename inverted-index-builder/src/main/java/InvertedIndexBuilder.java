@@ -37,6 +37,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -44,10 +45,14 @@ public class InvertedIndexBuilder {
     private final ProgramOptions programOptions;
     private final HttpClient httpClient;
     private int count = 0;
+    private final VerbIndexBuilder verbIndexBuilder;
+    private final NounIndexBuilder nounIndexBuilder;
 
     public InvertedIndexBuilder(ProgramOptions programOptions) {
         this.programOptions = programOptions;
         httpClient = HttpClient.newHttpClient();
+        verbIndexBuilder = new VerbIndexBuilder();
+        nounIndexBuilder = new NounIndexBuilder();
     }
 
     public void run() throws IOException {
@@ -118,6 +123,10 @@ public class InvertedIndexBuilder {
         var node = objectMapper.readTree(response.body());
         var verbResults = objectMapper.convertValue(node, new TypeReference<List<VerbResult>>() {
         });
+
+        for(var verbResult : verbResults) {
+            verbIndexBuilder.add(root, verbResult);
+        }
     }
 
     private void processNouns(String root, Collection<RootResult> rootResults) throws URISyntaxException, IOException, InterruptedException {
@@ -160,9 +169,11 @@ public class InvertedIndexBuilder {
         if (type.equals("nouns")) {
             var nounResults = objectMapper.convertValue(node, new TypeReference<DerivedNounResult>() {
             });
+            nounIndexBuilder.add(root, nounResults);
         } else {
             var gerundResults = objectMapper.convertValue(node, new TypeReference<GerundResult>() {
             });
+            nounIndexBuilder.add(root, gerundResults);
         }
     }
 
