@@ -38,7 +38,7 @@ public class DatabaseWriter {
     private static final int SQL_QUERY_TIMEOUT_SECONDS = 2;
     private Connection sarfDbConnection;
     private String dbFilename;
-    private final String insertSql = "INSERT INTO words(?, ? ?);";
+    private final String insertSql = "INSERT INTO words(word, roots, voweledWords) VALUES(?, ?, ?);";
 
     public void init(String dbFilename) throws SQLException, FileAlreadyExistsException {
         this.dbFilename = dbFilename;
