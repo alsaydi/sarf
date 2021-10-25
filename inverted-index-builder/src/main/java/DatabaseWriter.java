@@ -35,8 +35,7 @@ public class DatabaseWriter {
     private final FileWriter fileWriter;
     private final PrintWriter printWriter;
     public DatabaseWriter() throws IOException {
-        OutputStream tempOutputStream;
-        fileWriter = new FileWriter("/home/int1024/dev/sarf/inverted-index-builder/db.txt", StandardCharsets.UTF_8);
+        fileWriter = new FileWriter("~/dev/sarf/inverted-index-builder/db.txt", StandardCharsets.UTF_8);
         printWriter = new PrintWriter(fileWriter);
     }
     public void write(HashMap<String, WordData> wordDataHashMap) {
