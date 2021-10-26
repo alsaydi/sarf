@@ -23,13 +23,40 @@
  * SOFTWARE.
  */
 
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.FileAlreadyExistsException;
-import java.sql.SQLException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.HashMap;
 
-public interface DatabaseWriter {
-    void init(String dbFilename) throws SQLException, FileAlreadyExistsException, IOException;
-    void write(HashMap<String, WordData> wordDataHashMap) throws SQLException;
-    void close() throws IOException;
+public class FileDatabaseWriter implements DatabaseWriter {
+    private FileWriter fileWriter;
+    private PrintWriter printWriter;
+
+    public void init(String dbFilename) throws IOException {
+        if (Files.exists(Path.of(dbFilename))) {
+            System.out.println("Database already exists");
+            throw new FileAlreadyExistsException(dbFilename);
+        }
+        fileWriter = new FileWriter(dbFilename, StandardCharsets.UTF_8);
+        printWriter = new PrintWriter(fileWriter);
+    }
+
+    public void write(HashMap<String, WordData> wordDataHashMap) {
+        var keys = wordDataHashMap.keySet();
+        for (var key : keys) {
+            var roots = String.join(",", wordDataHashMap.get(key).getRoots());
+            var voweledWords = String.join(",", wordDataHashMap.get(key).getVoweledForms());
+            printWriter.printf("%s#%s#%s\n", key, roots, voweledWords);
+        }
+    }
+
+    public void close() throws IOException {
+        printWriter.flush();
+        printWriter.close();
+        fileWriter.close();
+    }
 }
