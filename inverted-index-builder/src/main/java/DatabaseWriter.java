@@ -27,6 +27,6 @@ import java.util.HashMap;
 
 public interface DatabaseWriter {
     void init(String dbFilename) throws DatabaseWriterException;
-    void write(HashMap<String, WordData> wordDataHashMap) throws DatabaseWriterException;
+    void write(HashMap<String, WordData> verbSet, HashMap<String, WordData> nounSet) throws DatabaseWriterException;
     void close() throws DatabaseWriterException;
 }

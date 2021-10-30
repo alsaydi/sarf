@@ -64,8 +64,7 @@ public class InvertedIndexBuilder {
             processRoot(root);
         }
         System.out.printf("Number of roots, %d, found %d\n", roots.size(), count);
-        databaseWriter.write(verbIndexBuilder.getVerbRootHashMap());
-        databaseWriter.write(nounIndexBuilder.getNounRootHashMap());
+        databaseWriter.write(verbIndexBuilder.getVerbRootHashMap(), nounIndexBuilder.getNounRootHashMap());
         databaseWriter.close();
     }
 

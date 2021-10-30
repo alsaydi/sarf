@@ -3,8 +3,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.HashSet;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -68,54 +68,98 @@ public class CouchDbWriter implements DatabaseWriter {
     }
 
     private String getAuthHeaderValue() {
-        var DEFAULT_USER = "admin";
-        var DEFAULT_PASSWORD = "123";
-        var encodedAuthHeader = "Basic "
-                + java.util.Base64.getEncoder().encodeToString((DEFAULT_USER + ":" + DEFAULT_PASSWORD).getBytes());
+        final String DEFAULT_USER = "admin";
+        final String DEFAULT_PASSWORD = "123";
+        final String encodedAuthHeader = "Basic " + java.util.Base64.getEncoder()
+                .encodeToString((DEFAULT_USER + ":" + DEFAULT_PASSWORD)
+                .getBytes());
         var authHeader = new String(encodedAuthHeader);
         return authHeader;
     }
 
     @Override
-    public void write(HashMap<String, WordData> wordDataHashMap) throws DatabaseWriterException {
+    public void write(HashMap<String, WordData> verbSet, HashMap<String, WordData> nounSet) throws DatabaseWriterException {
+        writeVerbs(verbSet, nounSet);
+        writeNouns(verbSet, nounSet);
+    }
+
+    private void writeVerbs(HashMap<String, WordData> verbSet, HashMap<String, WordData> nounSet) throws DatabaseWriterException {
         var authHeader = getAuthHeaderValue();
-        for (var entry : wordDataHashMap.entrySet()) {
+        for (var entry : verbSet.entrySet()) {
             var word = entry.getKey();
+            var nounRoots = new HashSet<String>();
+            if(nounSet.containsKey(word)){
+                nounRoots = nounSet.get(word).getRoots();
+            }
             var wordData = entry.getValue();
             var jsonMap = new HashMap<String, Object>();
             jsonMap.put("word", word);
-            jsonMap.put("roots", wordData.getRoots());
-            jsonMap.put("voweledWords", wordData.getVoweledForms());
-            var putUri = couchDbURI.resolve("/sarf");
+            var allRoots = wordData.getRoots();
+            allRoots.addAll(nounRoots);
+            jsonMap.put("roots", allRoots);
+            var putUri = couchDbURI.resolve("/sarf/"+ normalizeKey(word));
+            System.out.println(putUri);
             var objectMapper = new ObjectMapper();
             var jsonString = "";
             try {
                 jsonString = objectMapper.writeValueAsString(jsonMap);
-            } catch (JsonProcessingException e1) {
-                throw new DatabaseWriterException("failed to convert to JSON.");
+            } catch (JsonProcessingException e) {
+                throw new DatabaseWriterException("failed to convert to JSON for word: " + word);
             }
             var putRequest = HttpRequest.newBuilder().uri(putUri).header("Content-Type", "application/json")
-                    .header("Authorization", authHeader).POST(HttpRequest.BodyPublishers.ofString(jsonString)).build();
+                    .header("Authorization", authHeader).PUT(HttpRequest.BodyPublishers.ofString(jsonString)).build();
             try {
                 var response = client.send(putRequest, HttpResponse.BodyHandlers.ofString());
                 if (response.statusCode() != 201) {
-                    System.err.println(response.body());
-                    throw new DatabaseWriterException("Failed to write to database");
+                    throw new DatabaseWriterException("Failed to write to database: " + response.body() + " for word: " + word);
                 }
             } catch (IOException | InterruptedException e) {
-                System.err.println(e.getMessage());
-                throw new DatabaseWriterException("Failed to write to database");
+                throw new DatabaseWriterException(e);
             }
         }
     }
 
-    private String normalizeKey(String word) {
-        word = word.replaceAll(" ", "");
-        word = word.replaceAll("/", "-");
-        return word.trim();
+    private void writeNouns(HashMap<String, WordData> verbSet, HashMap<String, WordData> nounSet)
+            throws DatabaseWriterException {
+        var authHeader = getAuthHeaderValue();
+        for (var entry : nounSet.entrySet()) {
+            var word = entry.getKey();
+            if(verbSet.containsKey(word)){
+                continue;
+            }
+            var wordData = entry.getValue();
+            var jsonMap = new HashMap<String, Object>();
+            jsonMap.put("word", word);
+            jsonMap.put("roots", wordData.getRoots());
+            var putUri = couchDbURI.resolve("/sarf/"+ normalizeKey(word));
+            System.out.println(putUri);
+            var objectMapper = new ObjectMapper();
+            var jsonString = "";
+            try {
+                jsonString = objectMapper.writeValueAsString(jsonMap);
+            } catch (JsonProcessingException e) {
+                throw new DatabaseWriterException("failed to convert to JSON for word: " + word);
+            }
+            var putRequest = HttpRequest.newBuilder().uri(putUri).header("Content-Type", "application/json")
+                    .header("Authorization", authHeader).PUT(HttpRequest.BodyPublishers.ofString(jsonString)).build();
+            try {
+                var response = client.send(putRequest, HttpResponse.BodyHandlers.ofString());
+                if (response.statusCode() != 201) {
+                    throw new DatabaseWriterException("Failed to write to database: " + response.body() + " for word: " + word);
+                }
+            } catch (IOException | InterruptedException e) {
+                throw new DatabaseWriterException(e);
+            }
+        }
     }
 
     @Override
     public void close() throws DatabaseWriterException {
+    }
+
+    private static String normalizeKey(String word) {
+        word = word.replaceAll(" ", "");
+        word = word.replaceAll("/", "-");
+        return word.trim();
     }
 }

@@ -30,6 +30,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class FileDatabaseWriter implements DatabaseWriter {
     private FileWriter fileWriter;
@@ -48,12 +49,26 @@ public class FileDatabaseWriter implements DatabaseWriter {
         }
     }
 
-    public void write(HashMap<String, WordData> wordDataHashMap) {
-        var keys = wordDataHashMap.keySet();
+    public void write(HashMap<String, WordData> verbSet, HashMap<String, WordData> nounSet) {
+        var keys = verbSet.keySet();
         for (var key : keys) {
-            var roots = String.join(",", wordDataHashMap.get(key).getRoots());
-            var voweledWords = String.join(",", wordDataHashMap.get(key).getVoweledForms());
-            printWriter.printf("%s#%s#%s\n", key, roots, voweledWords);
+            var nounRoots = new HashSet<String>();
+            if (nounSet.containsKey(key)) {
+                nounRoots = nounSet.get(key).getRoots();
+            }
+            var allRoots = verbSet.get(key).getRoots();
+            allRoots.addAll(nounRoots);
+            var roots = String.join(",", allRoots);
+            printWriter.printf("%s#%s\n", key, roots);
+        }
+
+        for (var key : nounSet.keySet()) {
+            if (verbSet.containsKey(key)) {
+                continue;
+            }
+            var allRoots = nounSet.get(key).getRoots();
+            var roots = String.join(",", allRoots);
+            printWriter.printf("%s#%s\n", key, roots);
         }
     }
 
