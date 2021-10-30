@@ -46,7 +46,7 @@ public class Main {
     private static final String HELP_OPTION_SHORT = "h";
     private static final String HELP_OPTION_LONG = "help";
 
-    public static void main(String[] args) throws ParseException, URISyntaxException, IOException, InterruptedException, SQLException {
+    public static void main(String[] args) throws ParseException, URISyntaxException, IOException, InterruptedException, SQLException, DatabaseWriterException {
         var helpOption = new Option(HELP_OPTION_SHORT, HELP_OPTION_LONG, false, "help");
         var sarfApiOption = new Option(SARF_API_URL_OPTION_SHORT, SARF_API_URL_OPTION_LONG, true, "The Sarf API url" );
         var rootsOption = new Option(ROOTS_FILENAME_OPTION_SHORT, ROOTS_FILENAME_OPTION_LONG, true, "The roots file path" );

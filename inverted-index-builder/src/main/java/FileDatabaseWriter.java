@@ -27,7 +27,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
@@ -36,13 +35,17 @@ public class FileDatabaseWriter implements DatabaseWriter {
     private FileWriter fileWriter;
     private PrintWriter printWriter;
 
-    public void init(String dbFilename) throws IOException {
+    public void init(String dbFilename) throws DatabaseWriterException {
         if (Files.exists(Path.of(dbFilename))) {
-            System.out.println("Database already exists");
-            throw new FileAlreadyExistsException(dbFilename);
+            System.out.println();
+            throw new DatabaseWriterException(String.format("Database already exists, %s.", dbFilename));
         }
-        fileWriter = new FileWriter(dbFilename, StandardCharsets.UTF_8);
-        printWriter = new PrintWriter(fileWriter);
+        try {
+            fileWriter = new FileWriter(dbFilename, StandardCharsets.UTF_8);
+            printWriter = new PrintWriter(fileWriter);
+        } catch (IOException e) {
+            throw new DatabaseWriterException(e);
+        }
     }
 
     public void write(HashMap<String, WordData> wordDataHashMap) {
@@ -54,9 +57,13 @@ public class FileDatabaseWriter implements DatabaseWriter {
         }
     }
 
-    public void close() throws IOException {
+    public void close() throws DatabaseWriterException {
         printWriter.flush();
         printWriter.close();
-        fileWriter.close();
+        try {
+            fileWriter.close();
+        } catch (IOException e) {
+            throw new DatabaseWriterException(e);
+        }
     }
 }

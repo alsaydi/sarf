@@ -44,38 +44,40 @@ public class CouchDbWriter implements DatabaseWriter {
     }
 
     @Override
-    public void init(String couchDBUrl) throws IOException, SQLException {
+    public void init(String couchDBUrl) throws DatabaseWriterException {
         this.couchDbURI = URI.create(couchDBUrl);
-        try {
-            createDatabase(couchDBUrl);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            throw new IOException(e);
-        }
+        createDatabase(couchDBUrl);
     }
 
-    private void createDatabase(String couchDBUrl) throws IOException, InterruptedException {
+    private void createDatabase(String couchDBUrl) throws DatabaseWriterException {
         var authHeader = getAuthHeaderValue();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(couchDBUrl))
                 .header("Content-Type", "application/json").PUT(HttpRequest.BodyPublishers.ofString(""))
                 .header("Authorization", authHeader).build();
-        var response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        if (response.statusCode() != 201) {
-            System.err.println(response.body());
-            throw new IOException("Failed to create database");
+
+        try {
+            var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            if (response.statusCode() != 201) {
+                throw new DatabaseWriterException("Failed to create database: " + response.body());
+            }
+        } catch (IOException e) {
+            throw new DatabaseWriterException(e);
+        } catch (InterruptedException e) {
+            throw new DatabaseWriterException(e);
         }
     }
 
     private String getAuthHeaderValue() {
         var DEFAULT_USER = "admin";
         var DEFAULT_PASSWORD = "123";
-        var encodedAuthHeader = "Basic " + java.util.Base64.getEncoder().encodeToString((DEFAULT_USER + ":" + DEFAULT_PASSWORD).getBytes());
+        var encodedAuthHeader = "Basic "
+                + java.util.Base64.getEncoder().encodeToString((DEFAULT_USER + ":" + DEFAULT_PASSWORD).getBytes());
         var authHeader = new String(encodedAuthHeader);
         return authHeader;
     }
 
     @Override
-    public void write(HashMap<String, WordData> wordDataHashMap) throws SQLException {
+    public void write(HashMap<String, WordData> wordDataHashMap) throws DatabaseWriterException {
         var authHeader = getAuthHeaderValue();
         for (var entry : wordDataHashMap.entrySet()) {
             var word = entry.getKey();
@@ -84,31 +86,25 @@ public class CouchDbWriter implements DatabaseWriter {
             jsonMap.put("word", word);
             jsonMap.put("roots", wordData.getRoots());
             jsonMap.put("voweledWords", wordData.getVoweledForms());
-            var putUri = couchDbURI.resolve("/sarf/"+ normalizeKey(word));
-            System.out.println(putUri);
+            var putUri = couchDbURI.resolve("/sarf");
             var objectMapper = new ObjectMapper();
             var jsonString = "";
             try {
                 jsonString = objectMapper.writeValueAsString(jsonMap);
             } catch (JsonProcessingException e1) {
-                throw new SQLException("failed to convert to JSON.");
+                throw new DatabaseWriterException("failed to convert to JSON.");
             }
-            var putRequest = HttpRequest.newBuilder()
-                            .uri(putUri)
-                            .header("Content-Type", "application/json")
-                            .header("Authorization", authHeader)
-                            .PUT(HttpRequest.BodyPublishers.ofString(jsonString))
-                            .build();
+            var putRequest = HttpRequest.newBuilder().uri(putUri).header("Content-Type", "application/json")
+                    .header("Authorization", authHeader).POST(HttpRequest.BodyPublishers.ofString(jsonString)).build();
             try {
                 var response = client.send(putRequest, HttpResponse.BodyHandlers.ofString());
                 if (response.statusCode() != 201) {
                     System.err.println(response.body());
-                    throw new SQLException("Failed to write to database");
+                    throw new DatabaseWriterException("Failed to write to database");
                 }
             } catch (IOException | InterruptedException e) {
                 System.err.println(e.getMessage());
-                throw new SQLException("Failed to write to database");
-
+                throw new DatabaseWriterException("Failed to write to database");
             }
         }
     }
@@ -120,6 +116,6 @@ public class CouchDbWriter implements DatabaseWriter {
     }
 
     @Override
-    public void close() throws IOException {
+    public void close() throws DatabaseWriterException {
     }
 }

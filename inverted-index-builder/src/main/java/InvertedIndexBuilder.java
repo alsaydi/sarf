@@ -57,7 +57,7 @@ public class InvertedIndexBuilder {
         databaseWriter = new CouchDbWriter(); // new FileDatabaseWriter();
     }
 
-    public void run() throws IOException, SQLException, URISyntaxException, InterruptedException {
+    public void run() throws IOException, SQLException, URISyntaxException, InterruptedException, DatabaseWriterException {
         databaseWriter.init(programOptions.getDbFilename());
         var roots = readRoots(programOptions.getRootsFilename());
         for (var root : roots) {

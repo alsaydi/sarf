@@ -23,10 +23,13 @@
  * SOFTWARE.
  */
 
-import java.util.HashMap;
+public class DatabaseWriterException extends Exception {
+    public DatabaseWriterException(String message) {
+        super(message);
+    }
 
-public interface DatabaseWriter {
-    void init(String dbFilename) throws DatabaseWriterException;
-    void write(HashMap<String, WordData> wordDataHashMap) throws DatabaseWriterException;
-    void close() throws DatabaseWriterException;
+    public DatabaseWriterException(Exception e) {
+        super(e);
+    }
 }
+

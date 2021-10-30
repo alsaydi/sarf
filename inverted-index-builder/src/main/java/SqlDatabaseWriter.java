@@ -23,7 +23,6 @@
  * SOFTWARE.
  */
 
-import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.sql.Connection;
@@ -39,16 +38,16 @@ public class SqlDatabaseWriter implements DatabaseWriter {
     private String dbFilename;
     private final String insertSql = "INSERT INTO words(word, roots, voweledWords) VALUES(?, ?, ?);";
 
-    public void init(String dbFilename) throws SQLException, FileAlreadyExistsException {
+    public void init(String dbFilename) throws DatabaseWriterException {
         this.dbFilename = dbFilename;
         if (Files.exists(Path.of(dbFilename))) {
-            System.out.println("Database already exists");
-            throw new FileAlreadyExistsException(dbFilename);
+            System.out.println();
+            throw new DatabaseWriterException(String.format("Database already exists, %s.", dbFilename));
         }
         initialize();
     }
 
-    public void write(HashMap<String, WordData> wordDataHashMap) throws SQLException {
+    public void write(HashMap<String, WordData> wordDataHashMap) throws DatabaseWriterException {
         var keys = wordDataHashMap.keySet();
         for (var key : keys) {
             var roots = String.join(",", wordDataHashMap.get(key).getRoots());
@@ -57,7 +56,7 @@ public class SqlDatabaseWriter implements DatabaseWriter {
         }
     }
 
-    private void insert(String word, String roots, String voweledWords) throws SQLException {
+    private void insert(String word, String roots, String voweledWords) throws DatabaseWriterException {
         try {
             var statement = sarfDbConnection.prepareStatement(insertSql);
             statement.setQueryTimeout(SQL_QUERY_TIMEOUT_SECONDS);
@@ -66,8 +65,7 @@ public class SqlDatabaseWriter implements DatabaseWriter {
             statement.setString(2, voweledWords);
             statement.executeUpdate();
         } catch (SQLException e) {
-            System.err.println(e.getMessage());
-            throw e;
+            throw new DatabaseWriterException(e);
         }
     }
 
@@ -83,7 +81,7 @@ public class SqlDatabaseWriter implements DatabaseWriter {
         }
     }
 
-    private void initialize() throws SQLException {
+    private void initialize() throws DatabaseWriterException {
         try {
             sarfDbConnection = DriverManager.getConnection(String.format("jdbc:sqlite:%s", dbFilename));
             sarfDbConnection.setAutoCommit(false);
@@ -91,10 +89,14 @@ public class SqlDatabaseWriter implements DatabaseWriter {
             statement.setQueryTimeout(SQL_QUERY_TIMEOUT_SECONDS);
             statement.executeUpdate("create table words (id integer, word string, roots string, voweledWords string)");
         } catch (SQLException e) {
-            if (sarfDbConnection != null && !sarfDbConnection.isClosed()) {
-                sarfDbConnection.close();
+            try {
+                if (sarfDbConnection != null && !sarfDbConnection.isClosed()) {
+                    sarfDbConnection.close();
+                }
+            } catch (SQLException e1) {
+                System.err.println("Error closing database connection: " + e1.getMessage());
             }
-            throw e;
+            throw new DatabaseWriterException(e);
         }
     }
 }
