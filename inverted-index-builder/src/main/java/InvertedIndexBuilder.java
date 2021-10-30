@@ -54,7 +54,7 @@ public class InvertedIndexBuilder {
         httpClient = HttpClient.newHttpClient();
         verbIndexBuilder = new VerbIndexBuilder();
         nounIndexBuilder = new NounIndexBuilder();
-        databaseWriter = new FileDatabaseWriter();
+        databaseWriter = new CouchDbWriter(); // new FileDatabaseWriter();
     }
 
     public void run() throws IOException, SQLException, URISyntaxException, InterruptedException {
