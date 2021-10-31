@@ -64,15 +64,15 @@ public class NounIndexBuilder {
 
         for(var noun : nouns) {
             var indefiniteNouns = noun.getIndefiniteNouns().stream().filter(NounIndexBuilder::isNoneEmptyNoun);
-            var annexedNouns = noun.getAnnexedNouns() != null ?  noun.getAnnexedNouns().stream().filter(NounIndexBuilder::isNoneEmptyNoun) : Stream.of("");
+            /*var annexedNouns = noun.getAnnexedNouns() != null ?  noun.getAnnexedNouns().stream().filter(NounIndexBuilder::isNoneEmptyNoun) : Stream.of("");
             var definiteNouns = noun.getDefiniteNouns().stream().filter(NounIndexBuilder::isNoneEmptyNoun);
             var annexToIndefinite =  noun.getAnnexedToIndefinite() != null ?  noun.getAnnexedToIndefinite().stream().filter(NounIndexBuilder::isNoneEmptyNoun) : Stream.of("");
             var annexedToDefinite = noun.getAnnexedToDefinite() != null ? noun.getAnnexedToDefinite().stream().filter(NounIndexBuilder::isNoneEmptyNoun) : Stream.of("");;
 
             var allNouns = Stream.of(indefiniteNouns, annexedNouns, definiteNouns, annexToIndefinite, annexedToDefinite)
-                    .flatMap(n -> n).collect(Collectors.toUnmodifiableSet());
+                    .flatMap(n -> n).collect(Collectors.toUnmodifiableSet()); */
 
-            add(root, allNouns);
+            add(root, indefiniteNouns.toList());
         }
     }
 
