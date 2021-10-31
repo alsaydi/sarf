@@ -3,6 +3,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -38,6 +39,10 @@ public class CouchDbWriter implements DatabaseWriter {
 
     private final HttpClient client;
     private URI couchDbURI;
+    private static final int BATCH_SIZE = 10000;
+    private String username = "admin";
+    private String password = "123";
+    private String databaseName;
 
     public CouchDbWriter() {
         client = HttpClient.newHttpClient();
@@ -46,6 +51,13 @@ public class CouchDbWriter implements DatabaseWriter {
     @Override
     public void init(String couchDBUrl) throws DatabaseWriterException {
         this.couchDbURI = URI.create(couchDBUrl);
+        var userInfo = this.couchDbURI.getUserInfo();
+        if(userInfo != null) {
+            var userInfoParts = userInfo.split(":");
+            this.username = userInfoParts[0];
+            this.password = userInfoParts[1];
+        }
+        databaseName = this.couchDbURI.getPath().substring(1);
         createDatabase(couchDBUrl);
     }
 
@@ -68,27 +80,27 @@ public class CouchDbWriter implements DatabaseWriter {
     }
 
     private String getAuthHeaderValue() {
-        final String DEFAULT_USER = "admin";
-        final String DEFAULT_PASSWORD = "123";
-        final String encodedAuthHeader = "Basic " + java.util.Base64.getEncoder()
-                .encodeToString((DEFAULT_USER + ":" + DEFAULT_PASSWORD)
-                .getBytes());
+        final String encodedAuthHeader = "Basic "
+                + java.util.Base64.getEncoder().encodeToString((username + ":" + password).getBytes());
         var authHeader = new String(encodedAuthHeader);
         return authHeader;
     }
 
     @Override
-    public void write(HashMap<String, WordData> verbSet, HashMap<String, WordData> nounSet) throws DatabaseWriterException {
+    public void write(HashMap<String, WordData> verbSet, HashMap<String, WordData> nounSet)
+            throws DatabaseWriterException {
         writeVerbs(verbSet, nounSet);
         writeNouns(verbSet, nounSet);
     }
 
-    private void writeVerbs(HashMap<String, WordData> verbSet, HashMap<String, WordData> nounSet) throws DatabaseWriterException {
-        var authHeader = getAuthHeaderValue();
+    private void writeVerbs(HashMap<String, WordData> verbSet, HashMap<String, WordData> nounSet)
+            throws DatabaseWriterException {
+        var batch = new ArrayList<HashMap<String, Object>>();
+        var currentBatch = 0;
         for (var entry : verbSet.entrySet()) {
             var word = entry.getKey();
             var nounRoots = new HashSet<String>();
-            if(nounSet.containsKey(word)){
+            if (nounSet.containsKey(word)) {
                 nounRoots = nounSet.get(word).getRoots();
             }
             var wordData = entry.getValue();
@@ -97,59 +109,77 @@ public class CouchDbWriter implements DatabaseWriter {
             var allRoots = wordData.getRoots();
             allRoots.addAll(nounRoots);
             jsonMap.put("roots", allRoots);
-            var putUri = couchDbURI.resolve("/sarf/"+ normalizeKey(word));
-            System.out.println(putUri);
-            var objectMapper = new ObjectMapper();
-            var jsonString = "";
-            try {
-                jsonString = objectMapper.writeValueAsString(jsonMap);
-            } catch (JsonProcessingException e) {
-                throw new DatabaseWriterException("failed to convert to JSON for word: " + word);
+            jsonMap.put("_id", normalizeKey(word));
+            if (currentBatch < BATCH_SIZE) {
+                batch.add(jsonMap);
+                currentBatch++;
+                continue;
             }
-            var putRequest = HttpRequest.newBuilder().uri(putUri).header("Content-Type", "application/json")
-                    .header("Authorization", authHeader).PUT(HttpRequest.BodyPublishers.ofString(jsonString)).build();
-            try {
-                var response = client.send(putRequest, HttpResponse.BodyHandlers.ofString());
-                if (response.statusCode() != 201) {
-                    throw new DatabaseWriterException("Failed to write to database: " + response.body() + " for word: " + word);
-                }
-            } catch (IOException | InterruptedException e) {
-                throw new DatabaseWriterException(e);
+            currentBatch = 0;
+            writeBatch(batch);
+            batch.clear();
+        }
+        if(batch.size() > 0) {
+            currentBatch = 0;
+            writeBatch(batch);
+            batch.clear();
+        }
+    }
+
+    private void writeBatch(ArrayList<HashMap<String, Object>> batch)
+            throws DatabaseWriterException {
+        var authHeader = getAuthHeaderValue();
+        var postURI = couchDbURI.resolve("/" + databaseName + "/_bulk_docs");
+        System.out.println(postURI);
+        var objectMapper = new ObjectMapper();
+        var jsonString = "";
+        try {
+            var map = new HashMap<String, Object>();
+            map.put("docs", batch);
+            jsonString = objectMapper.writeValueAsString(map);
+            System.out.println(jsonString);
+        } catch (JsonProcessingException e) {
+            throw new DatabaseWriterException(e);
+        }
+        var putRequest = HttpRequest.newBuilder().uri(postURI).header("Content-Type", "application/json")
+                .header("Authorization", authHeader).POST(HttpRequest.BodyPublishers.ofString(jsonString)).build();
+        try {
+            var response = client.send(putRequest, HttpResponse.BodyHandlers.ofString());
+            if (response.statusCode() != 201) {
+                throw new DatabaseWriterException("Failed to write to database: " + response.body());
             }
+        } catch (IOException | InterruptedException e) {
+            throw new DatabaseWriterException(e);
         }
     }
 
     private void writeNouns(HashMap<String, WordData> verbSet, HashMap<String, WordData> nounSet)
             throws DatabaseWriterException {
-        var authHeader = getAuthHeaderValue();
+        var batch = new ArrayList<HashMap<String, Object>>();
+        var currentBatch = 0;
         for (var entry : nounSet.entrySet()) {
             var word = entry.getKey();
-            if(verbSet.containsKey(word)){
+            if (verbSet.containsKey(word)) {
                 continue;
             }
             var wordData = entry.getValue();
             var jsonMap = new HashMap<String, Object>();
             jsonMap.put("word", word);
             jsonMap.put("roots", wordData.getRoots());
-            var putUri = couchDbURI.resolve("/sarf/"+ normalizeKey(word));
-            System.out.println(putUri);
-            var objectMapper = new ObjectMapper();
-            var jsonString = "";
-            try {
-                jsonString = objectMapper.writeValueAsString(jsonMap);
-            } catch (JsonProcessingException e) {
-                throw new DatabaseWriterException("failed to convert to JSON for word: " + word);
+            jsonMap.put("_id", normalizeKey(word));
+            if(currentBatch < BATCH_SIZE) {
+                batch.add(jsonMap);
+                currentBatch++;
+                continue;
             }
-            var putRequest = HttpRequest.newBuilder().uri(putUri).header("Content-Type", "application/json")
-                    .header("Authorization", authHeader).PUT(HttpRequest.BodyPublishers.ofString(jsonString)).build();
-            try {
-                var response = client.send(putRequest, HttpResponse.BodyHandlers.ofString());
-                if (response.statusCode() != 201) {
-                    throw new DatabaseWriterException("Failed to write to database: " + response.body() + " for word: " + word);
-                }
-            } catch (IOException | InterruptedException e) {
-                throw new DatabaseWriterException(e);
-            }
+            currentBatch = 0;
+            writeBatch(batch);
+            batch.clear();
+        }
+        if(batch.size() > 0) {
+            currentBatch = 0;
+            writeBatch(batch);
+            batch.clear();
         }
     }
 
