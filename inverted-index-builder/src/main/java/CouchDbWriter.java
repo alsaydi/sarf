@@ -1,3 +1,6 @@
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -6,9 +9,6 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 /*
  *
@@ -37,9 +37,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CouchDbWriter implements DatabaseWriter {
 
+    private static final int BATCH_SIZE = 10000;
     private final HttpClient client;
     private URI couchDbURI;
-    private static final int BATCH_SIZE = 10000;
     private String username = "admin";
     private String password = "123";
     private String databaseName;
@@ -48,11 +48,15 @@ public class CouchDbWriter implements DatabaseWriter {
         client = HttpClient.newHttpClient();
     }
 
+    private static String normalizeKey(String word) {
+        return word.trim();
+    }
+
     @Override
     public void init(String couchDBUrl) throws DatabaseWriterException {
         this.couchDbURI = URI.create(couchDBUrl);
         var userInfo = this.couchDbURI.getUserInfo();
-        if(userInfo != null) {
+        if (userInfo != null) {
             var userInfoParts = userInfo.split(":");
             this.username = userInfoParts[0];
             this.password = userInfoParts[1];
@@ -72,18 +76,14 @@ public class CouchDbWriter implements DatabaseWriter {
             if (response.statusCode() != 201) {
                 throw new DatabaseWriterException("Failed to create database: " + response.body());
             }
-        } catch (IOException e) {
-            throw new DatabaseWriterException(e);
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             throw new DatabaseWriterException(e);
         }
     }
 
     private String getAuthHeaderValue() {
-        final String encodedAuthHeader = "Basic "
+        return "Basic "
                 + java.util.Base64.getEncoder().encodeToString((username + ":" + password).getBytes());
-        var authHeader = new String(encodedAuthHeader);
-        return authHeader;
     }
 
     @Override
@@ -99,14 +99,14 @@ public class CouchDbWriter implements DatabaseWriter {
         var currentBatch = 0;
         for (var entry : verbSet.entrySet()) {
             var word = entry.getKey();
+            var wordData = entry.getValue();
             var nounRoots = new HashSet<String>();
             if (nounSet.containsKey(word)) {
                 nounRoots = nounSet.get(word).getRoots();
             }
-            var wordData = entry.getValue();
             var jsonMap = new HashMap<String, Object>();
             jsonMap.put("word", word);
-            var allRoots = wordData.getRoots();
+            var allRoots = new HashSet<>(wordData.getRoots());
             allRoots.addAll(nounRoots);
             jsonMap.put("roots", allRoots);
             jsonMap.put("_id", normalizeKey(word));
@@ -119,15 +119,13 @@ public class CouchDbWriter implements DatabaseWriter {
             writeBatch(batch);
             batch.clear();
         }
-        if(batch.size() > 0) {
-            currentBatch = 0;
+        if (batch.size() > 0) {
             writeBatch(batch);
             batch.clear();
         }
     }
 
-    private void writeBatch(ArrayList<HashMap<String, Object>> batch)
-            throws DatabaseWriterException {
+    private void writeBatch(ArrayList<HashMap<String, Object>> batch) throws DatabaseWriterException {
         var authHeader = getAuthHeaderValue();
         var postURI = couchDbURI.resolve("/" + databaseName + "/_bulk_docs");
         System.out.println(postURI);
@@ -137,7 +135,6 @@ public class CouchDbWriter implements DatabaseWriter {
             var map = new HashMap<String, Object>();
             map.put("docs", batch);
             jsonString = objectMapper.writeValueAsString(map);
-            System.out.println(jsonString);
         } catch (JsonProcessingException e) {
             throw new DatabaseWriterException(e);
         }
@@ -167,7 +164,7 @@ public class CouchDbWriter implements DatabaseWriter {
             jsonMap.put("word", word);
             jsonMap.put("roots", wordData.getRoots());
             jsonMap.put("_id", normalizeKey(word));
-            if(currentBatch < BATCH_SIZE) {
+            if (currentBatch < BATCH_SIZE) {
                 batch.add(jsonMap);
                 currentBatch++;
                 continue;
@@ -176,8 +173,7 @@ public class CouchDbWriter implements DatabaseWriter {
             writeBatch(batch);
             batch.clear();
         }
-        if(batch.size() > 0) {
-            currentBatch = 0;
+        if (batch.size() > 0) {
             writeBatch(batch);
             batch.clear();
         }
@@ -185,11 +181,5 @@ public class CouchDbWriter implements DatabaseWriter {
 
     @Override
     public void close() throws DatabaseWriterException {
-    }
-
-    private static String normalizeKey(String word) {
-        word = word.replaceAll(" ", "");
-        word = word.replaceAll("/", "-");
-        return word.trim();
     }
 }

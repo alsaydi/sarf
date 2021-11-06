@@ -47,16 +47,19 @@ public class VerbIndexBuilder {
     }
 
     private void add(String root, List<String> verbs) {
-        for (var verb : verbs) {
-            if (verb == null || verb.length() == 0 || verb.trim().equals("-")) {
+        for (var combinedVerb : verbs) {
+            if (combinedVerb == null || combinedVerb.length() == 0 || combinedVerb.trim().equals("-")) {
                 continue;
             }
 
-            var unvoweledVerb = removeTashkeel(verb);
-            var wordData = verbRootHashMap.getOrDefault(unvoweledVerb, new WordData());
-            wordData.getRoots().add(root);
-            wordData.getVoweledForms().add(verb);
-            verbRootHashMap.put(unvoweledVerb, wordData);
+            var splitVerbs = combinedVerb.split("/");
+            for(var splitVerb: splitVerbs) {
+                var unvoweledVerb = removeTashkeel(splitVerb);
+                var wordData = verbRootHashMap.getOrDefault(unvoweledVerb, new WordData());
+                wordData.getRoots().add(root);
+                wordData.getVoweledForms().add(splitVerb);
+                verbRootHashMap.put(unvoweledVerb, wordData);
+            }
         }
     }
 
