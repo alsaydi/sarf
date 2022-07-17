@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { UntypedFormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -10,7 +10,7 @@ import { SarfService } from '../services/sarf-service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -23,7 +23,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 
 export class RootsearchComponent implements OnInit, OnDestroy {
-  rootFormControl = new FormControl('', [Validators.required]);
+  rootFormControl = new UntypedFormControl('', [Validators.required]);
   private verbSelectedSubscription: Subscription;
   private rootResultSubscription: Subscription;
   private sarfServiceSubscription: Subscription;
