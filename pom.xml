@@ -10,6 +10,7 @@
         <module>sarf-library</module>
 		<module>sarf-library-tests</module>
         <module>sarf-web-service</module>
+        <module>inverted-index-builder</module>
     </modules>
     <dependencyManagement>
         <dependencies>

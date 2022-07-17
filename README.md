@@ -25,7 +25,7 @@ My goal in here is:
 
 If you want to use the API, you can either build and run the code locally or a server. You can also pull a docker image if you wish, for example: 
 ```
-docker run --rm alsaydi/sarf:1.3
+docker run --rm  -p 8080:8080 alsaydi/sarf:1.4
 ```
 If you prefer to run the desktop client, assuming you have the required build tools, (maven and JDK)
 
