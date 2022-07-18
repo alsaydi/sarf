@@ -55,18 +55,18 @@ export class ActiveVerbsComponent implements OnInit, OnDestroy {
     const verbSelectionDetail = this.getVerbSelectionDetail();
     this.serviceSubscription = this.sarfService.getActiveVerbConjugatons(verbSelectionDetail).subscribe(result => {
       console.log('active verbs' , result);
-      this.pastGroups = result.map(r => ({'key': r.key, 'verbs': r.past}));
-      this.nominativePresentGroups = result.map(r => ({'key': r.key, 'verbs': r.nominativePresent}));
-      this.accusativePresentGroups = result.map(r => ({'key': r.key, 'verbs': r.accusativePresent}));
-      this.jussivePresentGroups = result.map(r => ({'key': r.key, 'verbs': r.jussivePresent}));;
-      this.emphasizedPresentGroups = result.map(r => ({'key': r.key, 'verbs': r.emphasizedPresent}));
-      this.imperativeGroups = result.map(r => ({'key': r.key, 'verbs': r.imperative}));
-      this.emphasizedImperativeGroups = result.map(r => ({'key': r.key, 'verbs': r.emphasizedImperative}));
+      this.pastGroups = result.map(r => ({key: r.key, verbs: r.past}));
+      this.nominativePresentGroups = result.map(r => ({key: r.key, verbs: r.nominativePresent}));
+      this.accusativePresentGroups = result.map(r => ({key: r.key, verbs: r.accusativePresent}));
+      this.jussivePresentGroups = result.map(r => ({key: r.key, verbs: r.jussivePresent}));;
+      this.emphasizedPresentGroups = result.map(r => ({key: r.key, verbs: r.emphasizedPresent}));
+      this.imperativeGroups = result.map(r => ({key: r.key, verbs: r.imperative}));
+      this.emphasizedImperativeGroups = result.map(r => ({key: r.key, verbs: r.emphasizedImperative}));
     });
     this.appNotificationsService.broadcastVerbSelected(verbSelectionDetail);
   }
 
-  showSubTabs() : boolean {
+  showSubTabs(): boolean {
     return this.pastGroups.length > 1;
   }
 

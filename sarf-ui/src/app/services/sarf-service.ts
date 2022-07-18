@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SarfService {
-  
+
   private readonly apiUrl: string;
   constructor(private httpClient: HttpClient) {
     this.apiUrl = environment.apiUrl;

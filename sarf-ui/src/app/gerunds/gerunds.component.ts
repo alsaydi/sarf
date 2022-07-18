@@ -41,7 +41,8 @@ export class GerundsComponent implements OnInit, OnDestroy {
 
   showSubTabs(): boolean {
     return this.isUnaugmentedTri
-    || [this.standards?.length, this.meems?.length, this.nomens?.length].reduce((a,b) => a+b) > 3; /* one of these nouns has two or more variations */
+    || [this.standards?.length, this.meems?.length, this.nomens?.length].reduce((a, b) => a + b) > 3;
+     /* one of these nouns has two or more variations */
   }
 
   ngOnDestroy(): void {

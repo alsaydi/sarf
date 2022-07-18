@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { VerbSelectionDetail } from '../models/VerbSelectionDetail';
 import { RootType } from '../root-type.enum';
 import { AppNotificationsService } from '../services/app-notifications.service';
+import { RootExtractionService } from '../services/root-extraction.service';
 import { SarfService } from '../services/sarf-service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -27,15 +28,20 @@ export class RootsearchComponent implements OnInit, OnDestroy {
   private verbSelectedSubscription: Subscription;
   private rootResultSubscription: Subscription;
   private sarfServiceSubscription: Subscription;
+  private rootExtServiceSubscription: Subscription;
   matcher = new MyErrorStateMatcher();
-  verbDisplay: string = "-";
-  kindOfVerb: string = "-";
-  transitivity: string = "-";
-  private hamzaString = "أؤئإ";
+  verbDisplay = '-';
+  kindOfVerb = '-';
+  transitivity = '-';
+  extractedRoots: Array<string>;
+  searchWord: string;
+  private hamzaString = 'أؤئإ';
   private currentlySelectedRoot: any;
 
-  constructor(private appNotificationsService: AppNotificationsService, private sarfService: SarfService
-    , private router: Router) {
+  constructor(private appNotificationsService: AppNotificationsService,
+              private sarfService: SarfService,
+              private rootExtService: RootExtractionService,
+              private router: Router) {
     this.appNotificationsService.rootResultRetrieved$.subscribe(
       rootResult => this.processRootResult(rootResult)
       , err => {
@@ -55,7 +61,7 @@ export class RootsearchComponent implements OnInit, OnDestroy {
 
   private retrieveBasicRootInfo(verbSelectionDetail: VerbSelectionDetail) {
     this.sarfServiceSubscription = this.sarfService.findSarf(verbSelectionDetail.verb).subscribe(result => {
-      if (!result || result.length == 0) {
+      if (!result || result.length === 0) {
         return;
       }
       this.currentlySelectedRoot = result[0];
@@ -68,7 +74,7 @@ export class RootsearchComponent implements OnInit, OnDestroy {
       return;
     }
 
-    if(!this.rootFormControl.value) {
+    if (!this.rootFormControl.value) {
       /* this happens when we navigate directly to a page, instead of going through search. */
       this.rootFormControl.setValue(this.currentlySelectedRoot.root);
       this.kindOfVerb = this.currentlySelectedRoot.kindOfVerb;
@@ -76,15 +82,17 @@ export class RootsearchComponent implements OnInit, OnDestroy {
 
     let transitiveState = '';
     if (verbSelectionDetail.isAugmented) {
-      const selection = this.currentlySelectedRoot.conjugationResults.filter(cr => cr.conjugationResult.formulaNo === verbSelectionDetail.formula);
+      const selection = this.currentlySelectedRoot.conjugationResults
+      .filter(cr => cr.conjugationResult.formulaNo === verbSelectionDetail.formula);
       if (selection && selection.length === 1) {
         transitiveState = selection[0].transitivity;
-        this.verbDisplay = selection[0].display;        
+        this.verbDisplay = selection[0].display;
       }
     } else {
       if (verbSelectionDetail.isTri) {
-        const selection = this.currentlySelectedRoot.unaugmentedRoots.filter(r => this.conjugationClassToNumber(r.root.conjugation) === verbSelectionDetail.conjugationClass)
-          .map(r => r.root.transitive);
+        const selection = this.currentlySelectedRoot.unaugmentedRoots
+        .filter(r => this.conjugationClassToNumber(r.root.conjugation) === verbSelectionDetail.conjugationClass)
+        .map(r => r.root.transitive);
         if (selection && selection.length === 1) {
           transitiveState = selection[0];
           this.verbDisplay = this.currentlySelectedRoot.unaugmentedRoots[0].display;
@@ -106,15 +114,15 @@ export class RootsearchComponent implements OnInit, OnDestroy {
   private getTransitivityDescription(t: string) {
     switch (t) {
       case 'ك':
-        return "متعد وﻻزم"
+        return 'متعد وﻻزم';
       case 'ل':
-        return "ﻻزم";
+        return 'ﻻزم';
       case 'م':
-        return "متعد";
+        return 'متعد';
       default:
         break;
     }
-    return "--";
+    return '--';
   }
 
   private processRootResult(rootResult: any): void {
@@ -133,25 +141,30 @@ export class RootsearchComponent implements OnInit, OnDestroy {
 
   private reset() {
     this.currentlySelectedRoot = null;
-    this.kindOfVerb = "-";
-    this.transitivity = "-";
-    this.verbDisplay = "-";
+    this.kindOfVerb = '-';
+    this.transitivity = '-';
+    this.verbDisplay = '-';
+    this.extractedRoots = [];
   }
 
   public isTri(): boolean {
     return this.getRootType() === RootType.Tri;
   }
 
-  public search(event: any): void {
+  public search(__: any): void {
     this.reset();
     const currentRoot = this.correctHamza(this.rootFormControl.value);
     if (currentRoot !== this.rootFormControl.value) {
       this.rootFormControl.setValue(currentRoot);
     }
 
-    // tslint:disable-next-line:no-console
-    console.debug(event);
+    this.sarfServiceSubscription = this.sarfService.findSarf(currentRoot)
+    .subscribe(_ => this.redirectToAppropriatePanel(currentRoot)
+      , err => this.extractRoot(currentRoot)
+    );
+  }
 
+  redirectToAppropriatePanel(currentRoot: string) {
     if (this.isTri()) {
       /* this is needed because we want to navigate sometimes from an existing search result (same route)*/
       this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -162,6 +175,23 @@ export class RootsearchComponent implements OnInit, OnDestroy {
         this.router.navigate([`/quad/${currentRoot}`]);
       });
     }
+  }
+
+  private extractRoot(word: string) {
+    this.searchWord = word;
+    this.rootExtServiceSubscription = this.rootExtService.findRoot(word).subscribe(suggestedRoots => {
+      if (suggestedRoots != null && suggestedRoots[word] != null) {
+            const roots = suggestedRoots[word];
+            if (roots) {
+              this.extractedRoots = roots;
+            }
+      }
+      console.log(this.extractedRoots);
+      if (this.extractedRoots !== null && this.extractedRoots.length === 1) {
+        this.rootFormControl.setValue(this.extractedRoots[0]);
+        this.redirectToAppropriatePanel(this.extractedRoots[0]);
+      }
+    }, err => console.error(err));
   }
 
   private getRootType(): RootType {
@@ -180,14 +210,14 @@ export class RootsearchComponent implements OnInit, OnDestroy {
   }
 
   private correctHamza(root: string): string {
-    if (root == null)
+    if (root == null) {
       return null;
+    }
 
-
-    let newRoot = "";
+    let newRoot = '';
 
     for (let i = 0; i < root.length; i++) {
-      if (this.hamzaString.indexOf(root[i]) != -1) {
+      if (this.hamzaString.indexOf(root[i]) !== -1) {
         newRoot += 'ء';
         continue;
       }
@@ -196,20 +226,20 @@ export class RootsearchComponent implements OnInit, OnDestroy {
     return newRoot;
   }
 
-  private conjugationClassToNumber(cclass: string): Number {
+  private conjugationClassToNumber(cclass: string) {
     cclass = cclass.toLocaleLowerCase();
     switch (cclass) {
-      case "first":
+      case 'first':
         return 1;
-      case "second":
+      case 'second':
         return 2;
-      case "third":
+      case 'third':
         return 3;
-      case "forth":
+      case 'forth':
         return 4;
-      case "fifth":
+      case 'fifth':
         return 5;
-      case "sixth":
+      case 'sixth':
         return 6;
     }
     return 0;
@@ -219,5 +249,6 @@ export class RootsearchComponent implements OnInit, OnDestroy {
     this.verbSelectedSubscription?.unsubscribe();
     this.rootResultSubscription?.unsubscribe();
     this.sarfServiceSubscription?.unsubscribe();
+    this.rootExtServiceSubscription?.unsubscribe();
   }
 }
