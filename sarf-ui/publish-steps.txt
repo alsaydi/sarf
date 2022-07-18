@@ -1,7 +1,0 @@
-cd sarf-ui
-ng build --configuration production --output-path ../docs --base-href /
-cd ../docs
-git restore CNAME
-mv index.html 404.html
-XXrm -fRr /usr/share/nginx/html/
-cp -vR . /usr/share/nginx/html
