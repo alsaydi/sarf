@@ -5,7 +5,8 @@ To publish this angular app to github pages:
 * Build in prod mode: ng build --configuration production --output-path ../docs --base-href /
 * cd ../docs
 * git restore CNAME (in my case I have a DNS entry pointing to this github pages app)
-* mv index.html 404.html (yes, we don't need index.html)
+* cp index.html 404.html (we need both, without index.html Google Bot won't find us and without 404 direct URLs won't work.)
+    test with https://sarf.one/verb/tri/u/%D8%BA%D9%84%D9%84/1/gerunds for example
 
 These steps are needed if you want to test locally
 * XXrm -fRr /usr/share/nginx/html/
