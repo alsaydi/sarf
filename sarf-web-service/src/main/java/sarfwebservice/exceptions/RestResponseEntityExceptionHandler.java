@@ -23,7 +23,6 @@ package sarfwebservice.exceptions;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -36,15 +35,14 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(InvalidRootException.class)
     public final ResponseEntity<ExceptionResponse> invalidRoot(InvalidRootException ex){
-        var exceptionResponse = new ExceptionResponse(  ex.getMessage(), "");
+        var exceptionResponse = new ExceptionResponse(  ex.getMessage(), "bad request");
 
-        return new ResponseEntity<>(exceptionResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(RootNotFoundException.class)
     public final ResponseEntity<ExceptionResponse> rootNotFound(RootNotFoundException ex){
-        var exceptionResponse = new ExceptionResponse(  ex.getMessage(), "");
-
-        return new ResponseEntity<>(exceptionResponse, new HttpHeaders(), HttpStatus.NOT_FOUND);
+        var exceptionResponse = new ExceptionResponse(  ex.getMessage(), "not found");
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
     }
 }
