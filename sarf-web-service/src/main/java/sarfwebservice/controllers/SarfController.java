@@ -125,7 +125,7 @@ public class SarfController {
 
     private VerbConjugations getActiveVerbConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
         var result = this.sarfServiceQuad.getActiveVerbConjugations(rootLetters, augmented, cclass, formula);
-        if(result == null && result.getPast() == null || result.getPast().isEmpty()) {
+        if(result == null || result.getPast() == null || result.getPast().isEmpty()) {
             throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
         }
         return  result;
@@ -133,7 +133,7 @@ public class SarfController {
 
     private VerbConjugations gePassiveVerbConjugationsQuad(String rootLetters, boolean augmented, int cclass, int formula) throws Exception {
         var result = this.sarfServiceQuad.getPassiveVerbConjugations(rootLetters, augmented, cclass, formula);
-        if(result == null && result.getPast() == null || result.getPast().isEmpty()) {
+        if(result == null || result.getPast() == null || result.getPast().isEmpty()) {
             throw new RootNotFoundException(String.format("لا يوجد جذر لـ: %s", rootLetters));
         }
         return  result;

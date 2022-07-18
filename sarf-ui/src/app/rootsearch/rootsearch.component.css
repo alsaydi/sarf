@@ -45,3 +45,30 @@
     background-color: blanchedalmond;
     padding: 3px;
   }
+
+.extracted-roots-header
+{
+    background-color: #e9e9ee;
+    font-size: 1.3em;
+    border-bottom: 1px solid #c0c0ff;
+    margin-bottom: 3px;
+    border-radius: 3px;
+    padding: 3px;
+    font-weight: bold;
+}
+.extracted-roots-box {
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3em;
+  margin-bottom: 3px;
+}
+
+.search-word {
+  color: red;
+}
+
+.extracted-root-button {
+  font-size: 1.3em;
+  text-align: right;
+}

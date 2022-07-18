@@ -18,9 +18,10 @@ export class TrilateralConjugationPanelComponent implements OnInit, OnDestroy {
   public conjugationGroup: TrilateralConjugationGroup;
   public alternatives: Array<any>;
 
-  constructor(private sarfService: SarfService, private appNotificationsService: AppNotificationsService,
-    private route: ActivatedRoute,
-    private router: Router) {}
+  constructor(private sarfService: SarfService,
+              private appNotificationsService: AppNotificationsService,
+              private route: ActivatedRoute,
+              private router: Router) {}
 
   ngOnInit(): void {
     const currentRoot = this.resetSearch();
@@ -28,7 +29,7 @@ export class TrilateralConjugationPanelComponent implements OnInit, OnDestroy {
     this.serviceSubscription = this.sarfService.findSarf(currentRoot).subscribe(rootResult => {
       console.log(rootResult);
       this.processTriResult(rootResult);
-    }, n => console.log(n));
+    },  err => console.error(err));
   }
 
   private resetSearch() {
@@ -52,15 +53,14 @@ export class TrilateralConjugationPanelComponent implements OnInit, OnDestroy {
   }
 
   private processTriResult(rootResult: any) {
-
-    if (rootResult == null || rootResult.length == 0) {
+    if (rootResult == null || rootResult.length === 0) {
       return;
     }
 
     if (rootResult.length > 1) {
       this.alternatives = rootResult.map(root => ({
-        "path": `/tri/${root.root}`,
-        "display": root.root
+        path: `/tri/${root.root}`,
+        display: root.root
       }));
       return;
     }
@@ -106,9 +106,9 @@ export class TrilateralConjugationPanelComponent implements OnInit, OnDestroy {
   }
 
   private buildAugmentedByOneConjugationClasses(conjugationResults: Array<any>, root: string): ConjugationGroup {
-    var formula1 = this.getTriAugmentedRootText(conjugationResults, 1);
-    var formula2 = this.getTriAugmentedRootText(conjugationResults, 2);
-    var formula3 = this.getTriAugmentedRootText(conjugationResults, 3);
+    const formula1 = this.getTriAugmentedRootText(conjugationResults, 1);
+    const formula2 = this.getTriAugmentedRootText(conjugationResults, 2);
+    const formula3 = this.getTriAugmentedRootText(conjugationResults, 3);
     const conjugationClasses: IConjugationClass[] = [
       new AugmentedTriConjugationClass(1, ConjugationClassStatic.TriAugmentedByOneFirstConjugationClass, formula1, root),
       new AugmentedTriConjugationClass(2, ConjugationClassStatic.TriAugmentedByOneSecondConjugationClass, formula2, root),
@@ -118,11 +118,11 @@ export class TrilateralConjugationPanelComponent implements OnInit, OnDestroy {
   }
 
   private buildAugmentedByTwoConjugationClasses(conjugationResults: Array<any>, root: string): ConjugationGroup {
-    var formula4 = this.getTriAugmentedRootText(conjugationResults, 4);
-    var formula5 = this.getTriAugmentedRootText(conjugationResults, 5);
-    var formula6 = this.getTriAugmentedRootText(conjugationResults, 6);
-    var formula7 = this.getTriAugmentedRootText(conjugationResults, 7);
-    var formula8 = this.getTriAugmentedRootText(conjugationResults, 8);
+    const formula4 = this.getTriAugmentedRootText(conjugationResults, 4);
+    const formula5 = this.getTriAugmentedRootText(conjugationResults, 5);
+    const formula6 = this.getTriAugmentedRootText(conjugationResults, 6);
+    const formula7 = this.getTriAugmentedRootText(conjugationResults, 7);
+    const formula8 = this.getTriAugmentedRootText(conjugationResults, 8);
 
     const conjugationClasses: IConjugationClass[] = [
       new AugmentedTriConjugationClass(4, ConjugationClassStatic.TriAugmentedByTwoFirstConjugationClass, formula4, root),
@@ -134,10 +134,10 @@ export class TrilateralConjugationPanelComponent implements OnInit, OnDestroy {
   }
 
   private buildAugmentedByThreeConjugationClasses(conjugationResults: Array<any>, root: string): ConjugationGroup {
-    var formula9 = this.getTriAugmentedRootText(conjugationResults, 9);
-    var formula10 = this.getTriAugmentedRootText(conjugationResults, 10);
-    var formula11 = this.getTriAugmentedRootText(conjugationResults, 11);
-    var formula12 = this.getTriAugmentedRootText(conjugationResults, 12);
+    const formula9 = this.getTriAugmentedRootText(conjugationResults, 9);
+    const formula10 = this.getTriAugmentedRootText(conjugationResults, 10);
+    const formula11 = this.getTriAugmentedRootText(conjugationResults, 11);
+    const formula12 = this.getTriAugmentedRootText(conjugationResults, 12);
 
     const conjugationClasses: IConjugationClass[] = [
       new AugmentedTriConjugationClass(9, ConjugationClassStatic.TriAugmentedByThreeFirstConjugationClass, formula9, root),
