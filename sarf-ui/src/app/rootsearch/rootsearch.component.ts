@@ -165,6 +165,7 @@ export class RootsearchComponent implements OnInit, OnDestroy {
   }
 
   redirectToAppropriatePanel(currentRoot: string) {
+    this.rootFormControl.setValue(currentRoot);
     if (this.isTri()) {
       /* this is needed because we want to navigate sometimes from an existing search result (same route)*/
       this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
