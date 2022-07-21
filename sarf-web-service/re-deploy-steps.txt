@@ -7,5 +7,6 @@ curl http://localhost:8080 /* how can we pass unicode in url path */
 test
 cd ..
 docker build -t sarf:||| .
-docker tag sarf:1.||| GCP-TAG /* look it up */
+docker tag sarf:LATEST us-central1-docker.pkg.dev/[project-id]/webservice/sarf
 
+gcloud run deploy sarf --image us-central1-docker.pkg.dev/[project-id]/webservice/sarf --allow-unauthenticated

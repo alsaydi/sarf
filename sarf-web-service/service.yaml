@@ -1,0 +1,9 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: sarf
+spec:
+  template:
+    spec:
+      containers:
+      - image: sarf:latest
