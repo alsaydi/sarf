@@ -31,6 +31,9 @@
     </div>
 </div>
 
+<div *ngIf="searching">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
 <div *ngIf="extractedRoots && extractedRoots.length > 0">
     <div class="extracted-roots-header">
         جذور محتملة لكلمة <span class="search-word"> {{searchWord}} </span>

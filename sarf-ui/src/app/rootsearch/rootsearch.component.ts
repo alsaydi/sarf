@@ -35,7 +35,7 @@ export class RootsearchComponent implements OnInit, OnDestroy {
   transitivity = '-';
   extractedRoots: Array<string>;
   searchWord: string;
-  private hamzaString = 'أؤئإ';
+  searching: boolean;
   private currentlySelectedRoot: any;
 
   constructor(private appNotificationsService: AppNotificationsService,
@@ -145,6 +145,7 @@ export class RootsearchComponent implements OnInit, OnDestroy {
     this.transitivity = '-';
     this.verbDisplay = '-';
     this.extractedRoots = [];
+    this.searching = false;
   }
 
   public isTri(): boolean {
@@ -153,15 +154,20 @@ export class RootsearchComponent implements OnInit, OnDestroy {
 
   public search(__: any): void {
     this.reset();
-    const currentRoot = this.correctHamza(this.rootFormControl.value);
+    this.searching = true;
+    const currentRoot = this.rootFormControl.value;
     if (currentRoot !== this.rootFormControl.value) {
       this.rootFormControl.setValue(currentRoot);
     }
 
     this.sarfServiceSubscription = this.sarfService.findSarf(currentRoot)
     .subscribe(_ => this.redirectToAppropriatePanel(currentRoot)
-      , err => this.extractRoot(currentRoot)
-    );
+      , err => {
+        if (err && (err.status === 400 || err.status === 404)){
+          this.extractRoot(currentRoot);
+        }
+      }
+    , () => this.searching = false);
   }
 
   redirectToAppropriatePanel(currentRoot: string) {
@@ -187,12 +193,14 @@ export class RootsearchComponent implements OnInit, OnDestroy {
               this.extractedRoots = roots;
             }
       }
-      console.log(this.extractedRoots);
       if (this.extractedRoots !== null && this.extractedRoots.length === 1) {
         this.rootFormControl.setValue(this.extractedRoots[0]);
         this.redirectToAppropriatePanel(this.extractedRoots[0]);
       }
-    }, err => console.error(err));
+    }, err => {
+      console.error(err);
+      this.searching = false;
+     }, () => this.searching = false);
   }
 
   private getRootType(): RootType {
@@ -208,23 +216,6 @@ export class RootsearchComponent implements OnInit, OnDestroy {
       return RootType.Quad;
     }
     return RootType.None;
-  }
-
-  private correctHamza(root: string): string {
-    if (root == null) {
-      return null;
-    }
-
-    let newRoot = '';
-
-    for (let i = 0; i < root.length; i++) {
-      if (this.hamzaString.indexOf(root[i]) !== -1) {
-        newRoot += 'ء';
-        continue;
-      }
-      newRoot += root[i];
-    }
-    return newRoot;
   }
 
   private conjugationClassToNumber(cclass: string) {
