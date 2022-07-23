@@ -2,7 +2,7 @@
     <div class="form-fields-container containerX">
         <div fxLayout="row" fxLayoutAlign="left center">
             <mat-form-field appearance="fill" fxFlex>
-                <input matInput placeholder="أدخل جذراً ثلاثياً أو رباعياً (بدء، مثلاً)" [formControl]="rootFormControl" [errorStateMatcher]="matcher" maxlength="50" lang="ar" minlength="2" dir="rtl" style="font-size: x-large;" />
+                <input matInput placeholder="أدخل كلمة ..." [formControl]="rootFormControl" [errorStateMatcher]="matcher" maxlength="50" lang="ar" minlength="2" dir="rtl" style="font-size: x-large;" />
                 <mat-error *ngIf="!rootFormControl.hasError('required')">
                     <em>أدخل جذر كلمة عربية ثلاثي أو رباعي</em>
                 </mat-error>
@@ -31,6 +31,9 @@
     </div>
 </div>
 
+<div *ngIf="searching">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
 <div *ngIf="extractedRoots && extractedRoots.length > 0">
     <div class="extracted-roots-header">
         جذور محتملة لكلمة <span class="search-word"> {{searchWord}} </span>

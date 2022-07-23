@@ -9,6 +9,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
     exports: [
@@ -21,7 +22,8 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatListModule,
         MatIconModule,
         MatTabsModule,
-        MatDialogModule
+        MatDialogModule,
+        MatProgressBarModule
     ]
 })
 export class AppMaterialModule { }
