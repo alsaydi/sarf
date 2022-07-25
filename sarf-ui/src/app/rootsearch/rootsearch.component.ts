@@ -218,6 +218,14 @@ export class RootsearchComponent implements OnInit, OnDestroy {
     return RootType.None;
   }
 
+  isSelected(root: string): boolean {
+    if (!root) {
+      return false;
+    }
+
+    return this.rootFormControl.value === root;
+  }
+
   private conjugationClassToNumber(cclass: string) {
     cclass = cclass.toLocaleLowerCase();
     switch (cclass) {

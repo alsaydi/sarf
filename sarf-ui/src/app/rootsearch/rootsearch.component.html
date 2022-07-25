@@ -2,7 +2,9 @@
     <div class="form-fields-container containerX">
         <div fxLayout="row" fxLayoutAlign="left center">
             <mat-form-field appearance="fill" fxFlex>
-                <input matInput placeholder="أدخل كلمة ..." [formControl]="rootFormControl" [errorStateMatcher]="matcher" maxlength="50" lang="ar" minlength="2" dir="rtl" style="font-size: x-large;" />
+                <input matInput placeholder="أدخل كلمة ..." [formControl]="rootFormControl"
+                    [errorStateMatcher]="matcher" maxlength="50" lang="ar" minlength="2" dir="rtl"
+                    style="font-size: x-large;" />
                 <mat-error *ngIf="!rootFormControl.hasError('required')">
                     <em>أدخل جذر كلمة عربية ثلاثي أو رباعي</em>
                 </mat-error>
@@ -34,11 +36,21 @@
 <div *ngIf="searching">
     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
-<div *ngIf="extractedRoots && extractedRoots.length > 0">
+<div *ngIf="extractedRoots && extractedRoots.length > 0" class="extracted-roots-container">
     <div class="extracted-roots-header">
         جذور محتملة لكلمة <span class="search-word"> {{searchWord}} </span>
     </div>
-    <div *ngFor="let root of extractedRoots" class="extracted-roots-box">
-       <button mat-stroked-button color="primary" (click)="redirectToAppropriatePanel(root)" class="extracted-root-button">{{root}}</button>
+    <div class="extracted-roots-box">
+        <div *ngFor="let root of extractedRoots" class="extracted-root">
+            <div *ngIf="isSelected(root); then selectedRoot else unSelectedRoot"></div>
+            <ng-template #selectedRoot>
+                <button mat-raised-button color="primary" (click)="redirectToAppropriatePanel(root)"
+                    class="extracted-root-button">{{root}}</button>
+            </ng-template>
+            <ng-template #unSelectedRoot>
+                <button mat-button color="primary" (click)="redirectToAppropriatePanel(root)"
+                    class="extracted-root-button">{{root}}</button>
+            </ng-template>
+        </div>
     </div>
 </div>

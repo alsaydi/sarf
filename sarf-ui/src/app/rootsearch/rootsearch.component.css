@@ -1,74 +1,78 @@
-
 .root-search-form {
-    margin-bottom: -1px;
-    font-family: Kitab, system-ui;
-  }
-
-  .mat-form-field {
-    font-family: Kitab, system-ui;
-    width: 100%;
-  }
-
-  button
-  {
-    font-family: Kitab, system-ui; 
-  }
-
-  .search-button
-  {
-    vertical-align: middle;
-    float:left;
-  }
-
-  .verb-info 
-  {
-    display: flex;
-    column-gap: 5px;
-    font-family: 'Kitab', 'System-ui';
-    margin-bottom: 10px;
-  }
-  .verb-info-item {
-    font-size: small;
-    display: flex; 
-    flex-direction: column;
-    border: 1px solid #c0c0c0;
-    border-radius: 5px;
-  }
-  .verb-info-label
-  {
-    border-bottom: 1px solid #cfcfcf;
-    background-color: wheat;
-    padding: 3px;
-  }
-
-  .verb-info-text {
-    background-color: blanchedalmond;
-    padding: 3px;
-  }
-
-.extracted-roots-header
-{
-    background-color: #e9e9ee;
-    font-size: 1.3em;
-    border-bottom: 1px solid #c0c0ff;
-    margin-bottom: 3px;
-    border-radius: 3px;
-    padding: 3px;
-    font-weight: bold;
+  margin-bottom: -1px;
+  font-family: Kitab, system-ui;
 }
+
+.mat-form-field {
+  font-family: Kitab, system-ui;
+  width: 100%;
+}
+
+button {
+  font-family: Kitab, system-ui;
+}
+
+.search-button {
+  vertical-align: middle;
+  float: left;
+}
+
+.verb-info {
+  display: flex;
+  column-gap: 5px;
+  font-family: 'Kitab', 'System-ui';
+  margin-bottom: 10px;
+}
+
+.verb-info-item {
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #c0c0c0;
+  border-radius: 5px;
+}
+
+.verb-info-label {
+  border-bottom: 1px solid #cfcfcf;
+  background-color: wheat;
+  padding: 3px;
+}
+
+.verb-info-text {
+  background-color: blanchedalmond;
+  padding: 3px;
+}
+
+.extracted-roots-container{
+  font-family: Kitab, system-ui;
+}
+
+.extracted-roots-header {
+  background-color: #e9e9ee;
+  font-size: 1.3em;
+  border-bottom: 0px solid #c0c0ff;
+  margin-bottom: 3px;
+  border-radius: 3px;
+  padding: 3px;
+  font-weight: bold;
+}
+
 .extracted-roots-box {
   font-size: large;
   display: flex;
-  flex-direction: column;
-  font-size: 1.3em;
+  flex-direction: row;
   margin-bottom: 3px;
 }
 
-.search-word {
-  color: red;
+.extracted-root {
+  flex: 1 1 auto;
+  border-bottom: 1px sold #c0c0ff;
 }
 
 .extracted-root-button {
   font-size: 1.3em;
-  text-align: right;
+}
+
+.search-word {
+  color: red;
 }
