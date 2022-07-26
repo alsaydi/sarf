@@ -200,7 +200,12 @@ export class RootsearchComponent implements OnInit, OnDestroy {
     }, err => {
       console.error(err);
       this.searching = false;
+      this.showNotFound();
      }, () => this.searching = false);
+  }
+
+  private showNotFound() {
+    this.router.navigate(['/not-found']);
   }
 
   private getRootType(): RootType {
