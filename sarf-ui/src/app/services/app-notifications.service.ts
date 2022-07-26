@@ -15,7 +15,6 @@ export class AppNotificationsService {
 
   rootResultRetrieved$ = this.rootResultSource.asObservable();
   verbSelected$ = this.verbSelectedSource.asObservable();
-  
 
   broadcastRootResult(rootResult) {
     this.rootResultSource.next(rootResult);

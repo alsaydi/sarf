@@ -58,7 +58,7 @@ export class ActiveVerbsComponent implements OnInit, OnDestroy {
       this.pastGroups = result.map(r => ({key: r.key, verbs: r.past}));
       this.nominativePresentGroups = result.map(r => ({key: r.key, verbs: r.nominativePresent}));
       this.accusativePresentGroups = result.map(r => ({key: r.key, verbs: r.accusativePresent}));
-      this.jussivePresentGroups = result.map(r => ({key: r.key, verbs: r.jussivePresent}));;
+      this.jussivePresentGroups = result.map(r => ({key: r.key, verbs: r.jussivePresent}));
       this.emphasizedPresentGroups = result.map(r => ({key: r.key, verbs: r.emphasizedPresent}));
       this.imperativeGroups = result.map(r => ({key: r.key, verbs: r.imperative}));
       this.emphasizedImperativeGroups = result.map(r => ({key: r.key, verbs: r.emphasizedImperative}));
@@ -67,7 +67,7 @@ export class ActiveVerbsComponent implements OnInit, OnDestroy {
   }
 
   showSubTabs(): boolean {
-    return this.pastGroups.length > 1;
+    return this.pastGroups && this.pastGroups.length > 1;
   }
 
   private getVerbSelectionDetail() {

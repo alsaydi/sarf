@@ -48,7 +48,8 @@ const appRoutes: Routes = [
   {path: 'verb/quad/a/:verb/:formula/passive', component: PassiveVerbsComponent},
   {path: 'verb/quad/a/:verb/:formula/nouns', component: DerivedNounsComponent},
   {path: 'verb/quad/a/:verb/:formula/gerunds', component: GerundsComponent},
-]
+  {path: 'not-found', component: NotFoundComponent}
+];
 
 @NgModule({
   declarations: [

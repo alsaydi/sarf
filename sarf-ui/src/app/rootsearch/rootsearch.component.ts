@@ -145,7 +145,7 @@ export class RootsearchComponent implements OnInit, OnDestroy {
     this.transitivity = '-';
     this.verbDisplay = '-';
     this.extractedRoots = [];
-    this.searching = false;
+    this.toggleSearch(false);
   }
 
   public isTri(): boolean {
@@ -154,7 +154,7 @@ export class RootsearchComponent implements OnInit, OnDestroy {
 
   public search(__: any): void {
     this.reset();
-    this.searching = true;
+    this.toggleSearch(true);
     const currentRoot = this.rootFormControl.value;
     if (currentRoot !== this.rootFormControl.value) {
       this.rootFormControl.setValue(currentRoot);
@@ -167,7 +167,12 @@ export class RootsearchComponent implements OnInit, OnDestroy {
           this.extractRoot(currentRoot);
         }
       }
-    , () => this.searching = false);
+    , () => this.toggleSearch(false));
+  }
+
+  private toggleSearch(showSearchProgresssbar: boolean): void {
+    this.searching = showSearchProgresssbar;
+    this.router.navigateByUrl('/', { skipLocationChange: false });
   }
 
   redirectToAppropriatePanel(currentRoot: string) {
@@ -200,7 +205,12 @@ export class RootsearchComponent implements OnInit, OnDestroy {
     }, err => {
       console.error(err);
       this.searching = false;
-     }, () => this.searching = false);
+      this.showNotFound();
+     }, () => this.toggleSearch(false));
+  }
+
+  private showNotFound() {
+    this.router.navigate(['/not-found']);
   }
 
   private getRootType(): RootType {
@@ -216,6 +226,14 @@ export class RootsearchComponent implements OnInit, OnDestroy {
       return RootType.Quad;
     }
     return RootType.None;
+  }
+
+  isSelected(root: string): boolean {
+    if (!root) {
+      return false;
+    }
+
+    return this.rootFormControl.value === root;
   }
 
   private conjugationClassToNumber(cclass: string) {

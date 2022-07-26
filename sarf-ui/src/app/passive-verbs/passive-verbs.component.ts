@@ -19,24 +19,26 @@ export class PassiveVerbsComponent implements OnInit, OnDestroy {
   public accusativePresentGroups: Array<VerbConjugation>;
   public jussivePresentGroups: Array<VerbConjugation>;
   public emphasizedPresentGroups: Array<VerbConjugation>;
-  
-  constructor(private sarfService: SarfService, private route: ActivatedRoute, private appNotificationsService: AppNotificationsService) { }  
+
+  constructor(private sarfService: SarfService,
+              private route: ActivatedRoute,
+              private appNotificationsService: AppNotificationsService) { }
 
   ngOnInit(): void {
     const verbSelectionDetail = Utils.getVerbSelectionDetail(this.route);
     this.serviceSubscription = this.sarfService.getPassiveVerbConjugatons(verbSelectionDetail).subscribe(result => {
       console.log('active verbs' , result);
-      this.pastGroups = result.map(r => ({'key': r.key, 'verbs': r.past}));
-      this.nominativePresentGroups = result.map(r => ({'key': r.key, 'verbs': r.nominativePresent}));
-      this.accusativePresentGroups = result.map(r => ({'key': r.key, 'verbs': r.accusativePresent}));
-      this.jussivePresentGroups = result.map(r => ({'key': r.key, 'verbs': r.jussivePresent}));;
-      this.emphasizedPresentGroups = result.map(r => ({'key': r.key, 'verbs': r.emphasizedPresent}));      
+      this.pastGroups = result.map(r => ({key: r.key, verbs: r.past}));
+      this.nominativePresentGroups = result.map(r => ({key: r.key, verbs: r.nominativePresent}));
+      this.accusativePresentGroups = result.map(r => ({key: r.key, verbs: r.accusativePresent}));
+      this.jussivePresentGroups = result.map(r => ({key: r.key, verbs: r.jussivePresent}));
+      this.emphasizedPresentGroups = result.map(r => ({key: r.key, verbs: r.emphasizedPresent}));
     });
     this.appNotificationsService.broadcastVerbSelected(verbSelectionDetail);
   }
 
-  showSubTabs() : boolean {
-    return this.pastGroups.length > 1;
+  showSubTabs(): boolean {
+    return this.pastGroups && this.pastGroups.length > 1;
   }
 
   ngOnDestroy(): void {
