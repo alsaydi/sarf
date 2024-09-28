@@ -10,6 +10,14 @@
     }
 }
 
+.title-tool-bar{
+    display: flex;
+    flex-direction: column;
+}
+
+.app-name {
+    flex-direction: column;
+}
 .app-name,
 .app-sub-title {
     text-align: center;

@@ -3,23 +3,23 @@
     </div>
     <div class="middle-grid">
         <mat-toolbar color="primary">
-            <mat-toolbar-row fxLayout="column">
-                <div class="app-name" fxFlex>
+            <mat-toolbar-row style="display: flex; flex-direction: column;">
+                <div class="app-name">
                     <h1>
                         <a href="/" class="home-link">
                         صــــــــــرف
                     </a>
                     </h1>
                 </div>
-                <div class="app-sub-title" fxFlex>
+                <div class="app-sub-title">
                     <h2>
                         <button mat-button style="font-size: x-large;" (click)="showAbout()">  نظام الإشتقاق و التصريف في اللغة العربية</button>
                     </h2>
                 </div>
             </mat-toolbar-row>
-            <mat-toolbar-row>
-                <h3 class="app-sub-title" fxFlex>
-                    <button mat-button style="font-size: small;" (click)="showAbout()">ما صرف؟</button>
+            <mat-toolbar-row style="display: flex; flex-direction: column;">
+                <h3 class="app-sub-title">
+                    <button mat-button style="font-size: small;" (click)="showAbout()">عن هذا البرنامج؟</button>
                 </h3>
             </mat-toolbar-row>
         </mat-toolbar>
