@@ -21,4 +21,5 @@ export class AppComponent {
       width: '600px',
     });
   }
+  currentYear: number = new Date().getFullYear();
 }
