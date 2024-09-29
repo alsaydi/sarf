@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Routes, RouterModule} from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -50,35 +50,28 @@ const appRoutes: Routes = [
   {path: 'not-found', component: NotFoundComponent}
 ];
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    RootsearchComponent,
-    ConjugationGroupComponent,
-    TrilateralConjugationPanelComponent,
-    QuadilateralConjugationPanelComponent,
-    StartComponent,
-    NotFoundComponent,
-    InitialSarfComponent,
-    ActiveVerbsComponent,
-    SarfVerbPronounsComponent,
-    PassiveVerbsComponent,
-    DerivedNounsComponent,
-    NounsListingComponent,
-    GerundsComponent,
-    AboutComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    AppMaterialModule,
-    HttpClientModule,
-    RouterModule.forRoot(appRoutes, {onSameUrlNavigation: 'reload'})
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        RootsearchComponent,
+        ConjugationGroupComponent,
+        TrilateralConjugationPanelComponent,
+        QuadilateralConjugationPanelComponent,
+        StartComponent,
+        NotFoundComponent,
+        InitialSarfComponent,
+        ActiveVerbsComponent,
+        SarfVerbPronounsComponent,
+        PassiveVerbsComponent,
+        DerivedNounsComponent,
+        NounsListingComponent,
+        GerundsComponent,
+        AboutComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        AppMaterialModule,
+        RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' })], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
