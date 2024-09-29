@@ -3,7 +3,7 @@
    font-family: 'Kitab';
    src: url('./assets/kitab-base.woff2-v3');
  }
-$custom-typography: mat.define-legacy-typography-config(
+$custom-typography: mat.m2-define-legacy-typography-config(
   $font-family: 'Kitab'
 );
 // TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
@@ -30,5 +30,5 @@ $custom-typography: mat.define-legacy-typography-config(
 //
 // TODO(v17): Please move these @include statements to the preferred place in your Sass, and pass
 // your theme to them. This will ensure the correct values for your app are included.
-// @include mat.all-component-bases(/* TODO(v17): pass $your-theme here */);
+// @include mat.all-component-bases(__<<ngM2ThemingMigrationEscapedComment0>>__);
 
